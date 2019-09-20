@@ -6883,22 +6883,45 @@ namespace RefrigtzDLL
                     return false;
                 //Scope of index out of range.
                 if (i < 0)
+                {
+                    AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
                 if (j < 0)
+                {
+                    AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
                 if (ii < 0)
+                {
+                    AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
                 if (jj < 0)
+                {
+                    AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
                 if (i > 7)
+                {
+                    AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
                 if (j > 7)
+                {
+                    AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
                 if (ii > 7)
+                {
+                    AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
                 if (jj > 7)
+                {
+                    AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
-
+                }
                 bool Validity = false;
                 //Scope on estimation on rule movment.
                 if (Kind == 1)//Sodier
@@ -6908,12 +6931,18 @@ namespace RefrigtzDLL
                         if (Order == 1)
                         {
                             if (j <= jj)
+                            {
+                                AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return false;
+                            }
                         }
                         else
                         {
                             if (j >= jj)
+                            {
+                                AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return false;
+                            }
                         }
                     }
                     else if (!ArrangmentsChanged)
@@ -6921,12 +6950,18 @@ namespace RefrigtzDLL
                         if (Order == -1)
                         {
                             if (j <= jj)
+                            {
+                                AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return false;
+                            }
                         }
                         else
                         {
                             if (j >= jj)
+                            {
+                                AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return false;
+                            }
                         }
                     }
 
@@ -6969,6 +7004,8 @@ namespace RefrigtzDLL
                     if (System.Math.Abs(i - ii) <= 1 && System.Math.Abs(j - jj) <= 1)
                         Validity = true;
                 }
+
+                AllDraw.OutPut.Append("\r\nScop:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Validity;
             }
         }
@@ -6989,6 +7026,7 @@ namespace RefrigtzDLL
                         Value = i;
                     }
                 }
+                AllDraw.OutPut.Append("\r\nMaxOfSixHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Value;
             }
         }
@@ -7009,6 +7047,7 @@ namespace RefrigtzDLL
                         Value = i;
                     }
                 }
+                AllDraw.OutPut.Append("\r\nMinOfSixHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Value;
             }
         }
@@ -7269,6 +7308,9 @@ namespace RefrigtzDLL
                 }
             }
             ThinkingAtRun = false;
+
+            AllDraw.OutPut.Append("\r\nKingThinkingChess:" + (TimeElapced.TimeNow() - Time).ToString());
+
         }
         String CheM(int A)
         {
@@ -7291,6 +7333,7 @@ namespace RefrigtzDLL
 
             if (A >= 3 && A > 0)
                 AA = "++EnemeyFinsished ";
+            AllDraw.OutPut.Append("\r\nCheM:" + (TimeElapced.TimeNow() - Time).ToString());
             return AA;
         }
 
@@ -7547,6 +7590,7 @@ namespace RefrigtzDLL
                 }
             }
             ThinkingAtRun = false;
+            AllDraw.OutPut.Append("\r\nMinisterThinkingChess:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         bool IsPrviousMovemntIsDangrousForCurrent(int[,] TableS, int Order)
         {
@@ -7630,6 +7674,7 @@ namespace RefrigtzDLL
                     if (BREAK == 1)
                         Dang = true;
                 }
+                AllDraw.OutPut.Append("\r\nIsPrviousMovemntIsDangrousForCurrent:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Dang;
             }
         }
@@ -7657,6 +7702,7 @@ namespace RefrigtzDLL
                     if (Is == false)
                         break;
                 }
+                AllDraw.OutPut.Append("\r\nIsObjectValaubleObjectSelf:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
@@ -7674,6 +7720,7 @@ namespace RefrigtzDLL
                         Is = false;
                         break;
                     }
+                AllDraw.OutPut.Append("\r\nIsObjectValaubleObjectEnemy:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
@@ -7753,6 +7800,7 @@ namespace RefrigtzDLL
                         }//);
                     }//);
                 }
+                AllDraw.OutPut.Append("\r\nSomeLearningVarsCalculator:" + (TimeElapced.TimeNow() - Time).ToString());
                 return LearningV;
             }
         }
@@ -7909,6 +7957,7 @@ namespace RefrigtzDLL
                         RDo = R && (!P);
                     }
                 }
+                AllDraw.OutPut.Append("\r\nCalculateLearningVars:" + (TimeElapced.TimeNow() - Time).ToString());
                 return LearningV;
             }
         }
@@ -8168,7 +8217,8 @@ namespace RefrigtzDLL
             }
         }
         ThinkingAtRun = false;
-    }
+            AllDraw.OutPut.Append("\r\nCastlesThinkingChess:" + (TimeElapced.TimeNow() - Time).ToString());
+        }
     void HourseThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
     {
             long Time = TimeElapced.TimeNow();
@@ -8425,6 +8475,7 @@ namespace RefrigtzDLL
                 }
             }
             ThinkingAtRun = false;
+            AllDraw.OutPut.Append("\r\nHourseThinkingChess:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         void ElephantThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
@@ -8681,6 +8732,7 @@ namespace RefrigtzDLL
                 }                    
             }
             ThinkingAtRun = false;
+            AllDraw.OutPut.Append("\r\nElephantThinkingChess:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         bool EqualitTow(bool PenRegStrore, int kind)
         {
@@ -8706,6 +8758,7 @@ namespace RefrigtzDLL
                 else
                                     if (kind == 6 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListKing.Count == TableListKing.Count)
                     Equality = true;
+                AllDraw.OutPut.Append("\r\nEqualitTow:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Equality;
             }
         }
@@ -8735,6 +8788,7 @@ namespace RefrigtzDLL
                 else
                                     if (kind == 6 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
                     Equality = true;
+                AllDraw.OutPut.Append("\r\nEqualitOne:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Equality;
             }
         }
@@ -8770,6 +8824,8 @@ namespace RefrigtzDLL
                     //King.
                     PenaltyRegardListKing.Add(Current);
             }
+            AllDraw.OutPut.Append("\r\nAddAtList:" + (TimeElapced.TimeNow() - Time).ToString());
+
         }
         void RemoveAtList(int kind)
         {
@@ -8803,6 +8859,7 @@ namespace RefrigtzDLL
                     //King.
                     PenaltyRegardListKing.RemoveAt(PenaltyRegardListKing.Count - 1);
             }
+            AllDraw.OutPut.Append("\r\nRemoveAtList:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         bool PenaltyMechanisam(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
@@ -8838,6 +8895,7 @@ namespace RefrigtzDLL
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return true;
                             }
 
@@ -8857,6 +8915,7 @@ namespace RefrigtzDLL
                                 Current.LearningAlgorithmRegard();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return true;
                             }
                         }
@@ -8874,6 +8933,7 @@ namespace RefrigtzDLL
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return true;
                             }
 
@@ -8893,6 +8953,7 @@ namespace RefrigtzDLL
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
+                                AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return true;
                             }
                         }
@@ -8917,6 +8978,7 @@ namespace RefrigtzDLL
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString= true;
                             CheckedM = -2;
+                            AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
                         }
                         if (Order == -1 && AA.CheckMateGray)
@@ -8924,6 +8986,7 @@ namespace RefrigtzDLL
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString= true;
                             CheckedM = -2;
+                            AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
                         }
                         if (Order == 1 && AA.CheckMateGray)
@@ -8931,6 +8994,7 @@ namespace RefrigtzDLL
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
+                            AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
@@ -8938,6 +9002,7 @@ namespace RefrigtzDLL
 
                             EnemyCheckMateActionsString= false;
                             CheckedM = -2;
+                            AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
                         }
 
@@ -8950,6 +9015,7 @@ namespace RefrigtzDLL
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
+                            AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
                         }
                         else
@@ -8962,6 +9028,7 @@ namespace RefrigtzDLL
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
+                            AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                             return true;
                         }
                     }
@@ -9362,6 +9429,7 @@ namespace RefrigtzDLL
                         }
                     }
                 }
+                AllDraw.OutPut.Append("\r\nPenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());
                 return false;
             }
         }
@@ -9397,6 +9465,7 @@ namespace RefrigtzDLL
                     }
                 }*/
             }
+            AllDraw.OutPut.Append("\r\nSoldierConversion:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         void SolderThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
@@ -9658,6 +9727,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 }
             }
             ThinkingAtRun = false;
+            AllDraw.OutPut.Append("\r\nSolderThinkingChess:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         void CastleThinkingBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
@@ -9791,6 +9861,8 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
 
             }
             ThinkingAtRun = false;
+            AllDraw.OutPut.Append("\r\nCastleThinkingBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+
         }
 
 
@@ -10015,7 +10087,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     }
                 }
             }
-    
+            AllDraw.OutPut.Append("\r\nCalculateHuristics:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         void CastleThinkingGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
@@ -10152,6 +10224,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 }
             }
             ThinkingAtRun = false;
+            AllDraw.OutPut.Append("\r\nCastleThinkingGray:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, ref int HuristicAttackValue, bool AllDrawClass = false)
         {
@@ -10222,6 +10295,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     }
                 }
             }
+            AllDraw.OutPut.Append("\r\nHuristicPenaltyValuePerform:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingSoldierBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10246,6 +10320,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     SolderThinkingChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingSoldierBase:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingSoldier(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10274,6 +10349,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     }//);
                 }//);
             }
+            AllDraw.OutPut.Append("\r\nThinkingSoldier:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingElephantBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10303,6 +10379,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     }
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingElephantBase:" + (TimeElapced.TimeNow() - Time).ToString());
         }
 
         public void ThinkingElephant(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
@@ -10352,6 +10429,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     }//);
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingElephant:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingHourseOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10375,6 +10453,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         HourseThinkingChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle);
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourseOne:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingHourseTwo(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10401,6 +10480,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         );
 
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourseTwo:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingHourseThree(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10428,6 +10508,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         HourseThinkingChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle);
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourseThree:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingHourseFour(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10452,6 +10533,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     HourseThinkingChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle
         );
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourseFour:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingHourseFive(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10481,6 +10563,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         );
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourseFive:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingHourseSix(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10509,6 +10592,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         HourseThinkingChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle);
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourseSix:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingHourseSeven(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10538,6 +10622,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         HourseThinkingChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle);
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourseSeven:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingHourseEight(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10565,6 +10650,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         HourseThinkingChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle);
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourseEight:" + (TimeElapced.TimeNow() - Time).ToString());
         }
 
 
@@ -10627,6 +10713,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 ThinkingHourseEight(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                 while (ThinkingAtRun) { }
             }
+            AllDraw.OutPut.Append("\r\nThinkingHourse:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingCastleOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10663,6 +10750,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     }
                 }//);
             }
+            AllDraw.OutPut.Append("\r\nThinkingCastleOne:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingCastleTow(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10702,6 +10790,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
 
                 }//);
             }
+            AllDraw.OutPut.Append("\r\nThinkingCastleTow:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingCastle(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10714,6 +10803,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 ThinkingCastleTow(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
             }
 
+            AllDraw.OutPut.Append("\r\nThinkingCastle:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingMinisterBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10747,6 +10837,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
 
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingMinisterBase:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingMinister(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10771,6 +10862,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     }//);
                 }//);
             }
+            AllDraw.OutPut.Append("\r\nThinkingMinister:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingCastleGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10802,6 +10894,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 }
             }
 
+            AllDraw.OutPut.Append("\r\nThinkingCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingCastleBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10831,6 +10924,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 }
 
             }
+            AllDraw.OutPut.Append("\r\nThinkingCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public void ThinkingKing(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10871,6 +10965,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     }//);
                 }
             }
+            AllDraw.OutPut.Append("\r\nThinkingKing:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         ///Kernel of Thinking
         public void Thinking(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
@@ -10884,6 +10979,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 if (CurrentAStarGredyMax > AllDraw.MaxAStarGreedy)
                 {
                     ThinkingFinished = true;
+                    AllDraw.OutPut.Append("\r\nThinking:" + (TimeElapced.TimeNow() - Time).ToString());
                     return;
                 }
                 while (!ThinkingBegin)
@@ -10917,6 +11013,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                             ThinkingFinished = true;
                             EndThread++;
                         }
+                        AllDraw.OutPut.Append("\r\nThinking:" + (TimeElapced.TimeNow() - Time).ToString());
                         return;
                     }
                     if (//CheckMateOcuured || 
@@ -10931,6 +11028,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                             ThinkingFinished = true;
                             EndThread++;
                         }
+                        AllDraw.OutPut.Append("\r\nThinking:" + (TimeElapced.TimeNow() - Time).ToString());
                         return;
                     }
 
@@ -10970,6 +11068,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         ThinkingBegin = false;
                         EndThread++;
                     }
+                    AllDraw.OutPut.Append("\r\nThinking:" + (TimeElapced.TimeNow() - Time).ToString());
                     return;
                 }
                 if (CheckMateOcuured
@@ -10985,6 +11084,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         ThinkingBegin = false;
                         EndThread++;
                     }
+                    AllDraw.OutPut.Append("\r\nThinking:" + (TimeElapced.TimeNow() - Time).ToString());
                     return;
                 }
                 IgnoreObjectDangour = -1;
@@ -11112,6 +11212,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 //
                 ///Return at End.
             }
+            AllDraw.OutPut.Append("\r\nThinking:" + (TimeElapced.TimeNow() - Time).ToString());
             return;
         }
         int RetrunValValue(int RowS, int ColS, int RowO, int ColO, int[,] Tab, int Sign)
@@ -11123,6 +11224,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
             else
                 O = System.Math.Abs(Tab[RowS, ColS]) + System.Math.Abs(Tab[RowO, ColO]);
             O *= Sign;
+            AllDraw.OutPut.Append("\r\nRetrunValValue:" + (TimeElapced.TimeNow() - Time).ToString());
             return O;
         }
 
@@ -11293,6 +11395,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
             //}
             //       if (Val < 0)
             //         Val = 0;
+            AllDraw.OutPut.Append("\r\nObjectValueCalculator:" + (TimeElapced.TimeNow() - Time).ToString());
             return Val;
 
 
@@ -11327,6 +11430,8 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 Val = 10;
             }
             return Val;*/
+            
+
         }
         int ObjectValueCalculator(int[,] Table//, int Order
             , int RowS, int ColS)
@@ -11365,6 +11470,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
             {
                 Val = 10;
             }
+            AllDraw.OutPut.Append("\r\nObjectValueCalculator:" + (TimeElapced.TimeNow() - Time).ToString());
             return Val;
         }
         bool SignSelfEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
@@ -11393,7 +11499,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         Ord = -1;
                     }
                 }
-
+                AllDraw.OutPut.Append("\r\nSignSelfEmpty:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
@@ -11423,7 +11529,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         Ord = 1;
                     }
                 }
-
+                AllDraw.OutPut.Append("\r\nSignEnemyEmpty:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
@@ -11454,7 +11560,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         Ord = 1;
                     }
                 }
-
+                AllDraw.OutPut.Append("\r\nSignNotEqualEnemy:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
@@ -11485,7 +11591,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         Ord = -1;
                     }
                 }
-
+                AllDraw.OutPut.Append("\r\nSignEqualSelf:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
@@ -11514,6 +11620,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         Ord = -1;
                     }
                 }
+                AllDraw.OutPut.Append("\r\nSignNotEqualSelf:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Is;
             }
         }
