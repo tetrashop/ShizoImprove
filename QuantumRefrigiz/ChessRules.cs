@@ -21,8 +21,8 @@
  * The Mechanism of Check Declared and Act 'Not' Logically************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * The Mechanism of Table Assignments and the Virtualization Misleading**********RS*****0.12**4**Managements and Cuation Programing**(+)
  * The Movements of horse Brown 'Alice' Left Side Cause to Mislead***************RS*****0.12**4**Managements and Cuation Programing**(+)
- * ExistInDestinationEnemy ThinkingQuantum Misleading Operations************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Null ThinkingQuantum Exception Handling Should be Configured*************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * ExistInDestinationEnemy Thinking Misleading Operations************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Null Thinking Exception Handling Should be Configured*************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Malfunction of Mouse 'Bob' Event Handling For Movements***********************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Non 'Check' Second Rules 'Alice' Move to 'Check' State**************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 'CheckMate' Not Recognized By 'Alice'.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
@@ -143,28 +143,28 @@ namespace QuantumRefrigiz
         public static int CheckBrownRemovableValueColumnj = 0;
         public static int CheckBrownRemovableValueRowii = 0;
         public static int CheckBrownRemovableValueColumnjj = 0;
-        public int Kind;
-        public int KindNA;
-        public int Row, Column;
-        public int[,] Table = new int[8, 8];
-        public int Order = 0;
+        int Kind;
+        int KindNA;
+        int Row, Column;
+        int[,] Table = new int[8, 8];
+        int Order = 0;
         //public bool ExistInDestinationEnemy = false;
-        public bool ArrangmentsBoard = false;
-        public int CurrentAStarGredyMax = -1;
+        bool ArrangmentsBoard = false;
+        int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
-           
+
+            Object a = new Object();
+            lock (a)
+            {
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+            }
+
         }
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
-            
         {
+            long Time = TimeElapced.TimeNow();
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -175,10 +175,11 @@ namespace QuantumRefrigiz
             AStarGreedyHuristicT = AStarGreedyHuris;
             Order = oRDER;
             ArrangmentsBoard = ArrangmentsChanged;
+            AllDraw.OutPut.Append("\r\nChessRules:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
-            
         {
+            long Time = TimeElapced.TimeNow();
             CurrentAStarGredyMax = CurrentAStarGredy;
             Order = oRDER;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -189,11 +190,12 @@ namespace QuantumRefrigiz
             OnlySelfT = OnlySel;
             AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsBoard = ArrangmentsChanged;
+            AllDraw.OutPut.Append("\r\nChessRules:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Constructor 
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
-            
         {
+            long Time = TimeElapced.TimeNow();
 
             CurrentAStarGredyMax = CurrentAStarGredy;
             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -215,6 +217,7 @@ namespace QuantumRefrigiz
                 for (var jk = 0; jk < 8; jk++)
                     Table[ik, jk] = A[ik, jk];
             Order = Ord;
+            AllDraw.OutPut.Append("\r\nChessRules:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Initiate of Rules of Chess Refregitz.
         public bool Rules(int RowFirst, //The First Click Row
@@ -226,9 +229,11 @@ namespace QuantumRefrigiz
             , bool SelfHomeStatCP = true
             )
         {
+            long Time = TimeElapced.TimeNow();
             Object O = new Object();
             lock (O)
             {
+
                 if (Table[RowFirst, ColumnFirst] > 0 && Table[RowSecond, ColumnSecond] > 0)
                 {
                     if (!SelfHomeStatCP)
@@ -271,23 +276,34 @@ namespace QuantumRefrigiz
                 if (Table[RowFirst, ColumnFirst] == 6)
                 {
                     if (System.Math.Abs(RowB - RowSecond) <= 1 && System.Math.Abs(ColumnB - ColumnSecond) <= 1)
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
+                    }
                 }
                 //Illegal King Foundation.
                 if (System.Math.Abs(RowB - RowG) <= 1 && System.Math.Abs(ColumnB - ColumnG) <= 1)
+                {
+                    AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
             }//Brown Order.
             else
             {
                 if (Table[RowFirst, ColumnFirst] == -6)
                 {
                     if (System.Math.Abs(RowG - RowSecond) <= 1 && System.Math.Abs(ColumnG - ColumnSecond) <= 1)
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                         return false;
+                    }
                 }
                 //Ilegal Kings Foundation.
                 if (System.Math.Abs(RowB - RowG) <= 1 && System.Math.Abs(ColumnB - ColumnG) <= 1)
+                {
+                    AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
-
+                }
             }
             //Determination of Enemy in the Destionation Home.
             bool ExistInDestinationEnemy = new bool();
@@ -297,9 +313,9 @@ namespace QuantumRefrigiz
             }
             else
                 if (((Table[RowFirst, ColumnFirst] < 0) && (Table[RowSecond, ColumnSecond] > 0) && (Order == -1)))
-                {
-                    ExistInDestinationEnemy = true;
-                }
+            {
+                ExistInDestinationEnemy = true;
+            }
 
             //If There is A Source of Soldier.
             if (System.Math.Abs(Kind) == 1)
@@ -308,33 +324,54 @@ namespace QuantumRefrigiz
                 {
                     //Solders of Gray at Begining.
                     if (ColumnFirst == 1 && (Order == 1))
+                    {
+
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                         return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
                     else//Solder of Brown At Begining.
                         if (ColumnFirst == 6 && (Order == -1))
-                            return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
-                        else//Another Solder Movments.
-                            return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
+                    else//Another Solder Movments.
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
                 }
                 else
                 {
                     //Solders of Gray at Begining.
                     if (ColumnFirst == 6 && (Order == 1))
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                         return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
                     else//Solder of Brown At Begining.
                         if (ColumnFirst == 1 && (Order == -1))
-                            return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
-                        else//Another Solder Movments.
-                            return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
-
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
+                    else//Another Solder Movments.
+                    {
+                        AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                    }
                 }
             }
             else//For another Kind of Objects.
+            {
+                AllDraw.OutPut.Append("\r\nRules:" + (TimeElapced.TimeNow() - Time).ToString());
                 return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
-
+            }
         }
         //Castle King Movment Consideration.
         public bool CastleKing(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             if (!(ArrangmentsBoard))
             {             //Gray Order.
                 if (Order == 1)
@@ -349,39 +386,40 @@ namespace QuantumRefrigiz
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) >= 0))
                             {
                                 //Consideration of Castles King of Gray King.
-                                
-                                    if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
+
+                                if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
+                                {
+                                    Object O = new Object();
+                                    lock (O)
                                     {
-                                        Object O = new Object();
-                                        lock (O)
-                                        {
-                                            CastleActGray = true;
-                                            SmallKingCastleGray = true;
-                                        }
-                                        
-                                        return true;
+                                        CastleActGray = true;
+                                        SmallKingCastleGray = true;
                                     }
-                               
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    return true;
+                                }
+
                             }
 
                             else//For Greates Castles King Movments.
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
-                                {
-                                    //Consideration of Castles King M<ovments.
-                                    
-                                        if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
-                                        {
-                                        Object O = new Object();
-                                        lock (O)
-                                        {
-                                            CastleActGray = true;
-                                            BigKingCastleGray = true;
-                                        }
-                                            return true;
-                                        }
-                                   
+                            {
+                                //Consideration of Castles King M<ovments.
 
+                                if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
+                                {
+                                    Object O = new Object();
+                                    lock (O)
+                                    {
+                                        CastleActGray = true;
+                                        BigKingCastleGray = true;
+                                    }
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    return true;
                                 }
+
+
+                            }
                         }
                     }
                 }
@@ -396,38 +434,40 @@ namespace QuantumRefrigiz
                             //Small Brown King Castles Consideration.
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) < 8))
                             {
-                                
 
-                                    if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
+
+                                if (((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
+                                {
+                                    //CastleActBrown = true;
+                                    Object O1 = new Object();
+                                    lock (O1)
                                     {
-                                        //CastleActBrown = true;
-                                        Object O1 = new Object();
-                                        lock (O1)
-                                        {
-                                            SmallKingCastleBrown = true;
-                                        }
-                                        return true;
+                                        SmallKingCastleBrown = true;
                                     }
-                               
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    return true;
+                                }
+
 
                             }
                             else
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
-                                //Brown Kings.Big King Castles Consideration.
+                            //Brown Kings.Big King Castles Consideration.
+                            {
+
+                                if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                 {
-                                    
-                                        if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
-                                        {
-                                        //CastleActBrown = true;
-                                        Object O = new Object();
-                                        lock (O)
-                                        {
-                                            BigKingCastleBrown = true;
-                                        }
-                                            return true;
-                                        }
-                                   
+                                    //CastleActBrown = true;
+                                    Object O = new Object();
+                                    lock (O)
+                                    {
+                                        BigKingCastleBrown = true;
+                                    }
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    return true;
                                 }
+
+                            }
                         }
                     }
                 }
@@ -447,31 +487,33 @@ namespace QuantumRefrigiz
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) >= 0))
                             {
                                 //Consideration of Castles King of Gray King.
-                                
 
-                                    if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
-                                    {
-                                        //CastleActGray = true;
-                                        //SmallKingCastleGray = true;
-                                        return true;
-                                    }
-                               
+
+                                if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == 6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == 4)
+                                {
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    //CastleActGray = true;
+                                    //SmallKingCastleGray = true;
+                                    return true;
+                                }
+
                             }
 
                             else//For Greates Castles King Movments.
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
-                                {
-                                    //Consideration of Castles King M<ovments.
-                                    
-                                        if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
-                                        {
-                                            //CastleActGray = true;
-                                            //BigKingCastleGray = true;
-                                            return true;
-                                        }
-                                   
+                            {
+                                //Consideration of Castles King M<ovments.
 
+                                if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == 6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == 4)
+                                {
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    //CastleActGray = true;
+                                    //BigKingCastleGray = true;
+                                    return true;
                                 }
+
+
+                            }
                         }
                     }
                 }
@@ -486,39 +528,43 @@ namespace QuantumRefrigiz
                             //Small Brown King Castles Consideration.
                             if (RowFirst == RowSecond - 2 && ((RowSecond - 2) > 0))
                             {
-                                
 
-                                    if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
-                                    {
-                                        //CastleActBrown = true;
-                                        //SmallKingCastleBrown = true;
-                                        return true;
-                                    }
-                               
+
+                                if (((RowSecond - 2) >= 0) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && Table[RowSecond - 2, ColumnSecond] == -6 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond + 1, ColumnSecond] == -4)
+                                {
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    //CastleActBrown = true;
+                                    //SmallKingCastleBrown = true;
+                                    return true;
+                                }
+
 
                             }
                             else
                                 if (RowFirst == RowSecond + 2 && ((RowSecond + 2) < 8))
-                                //Brown Kings.Big King Castles Consideration.
+                            //Brown Kings.Big King Castles Consideration.
+                            {
+
+                                if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
                                 {
-                                    
-                                        if (((RowSecond + 2) < 8) && ((RowSecond - 1) >= 0) && ((RowSecond + 1) < 8) && ((RowSecond - 2) >= 0) && Table[RowSecond + 2, ColumnSecond] == -6 && Table[RowSecond + 1, ColumnSecond] == 0 && Table[RowSecond, ColumnSecond] == 0 && Table[RowSecond - 1, ColumnSecond] == 0 && Table[RowSecond - 2, ColumnSecond] == -4)
-                                        {
-                                            //  CastleActBrown = true;
-                                            //BigKingCastleBrown = true;
-                                            return true;
-                                        }
-                                   
+                                    AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    //  CastleActBrown = true;
+                                    //BigKingCastleBrown = true;
+                                    return true;
                                 }
+
+                            }
                         }
                     }
                 }
             }
+            AllDraw.OutPut.Append("\r\nCastleKing:" + (TimeElapced.TimeNow() - Time).ToString());
             return false;
         }
         //Simulation and Consdtruction of Check.
         public bool CheckConstructor(Color color, int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, int Ki, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate a Local Variable.
             int[,] tab = new int[8, 8];
             //Clone A Copy of Table.
@@ -537,18 +583,26 @@ namespace QuantumRefrigiz
                 //When int of Order is Gray Check return Check State.
                 if (Order == 1)
                     if (CheckGray)
+                    {
+                        AllDraw.OutPut.Append("\r\nCheckConstructor:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
+                    }
                 //When int is Brown State  there is Check State return Check State.
                 if (Order == -1)
                     if (CheckBrown)
+                    {
+                        AllDraw.OutPut.Append("\r\nCheckConstructor:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
+                    }
             }
+            AllDraw.OutPut.Append("\r\nCheckConstructor:" + (TimeElapced.TimeNow() - Time).ToString());
             //Return Non Check State.
             return false;
         }
         //Method of Self Home int Objects Consideration.
         private bool ExistSelfHome(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate of Local Variable.
             bool NotExistInDestinationSelfHome = false;
             //When There is Not Source and Destination is the Same Home Location. 
@@ -559,216 +613,16 @@ namespace QuantumRefrigiz
                     NotExistInDestinationSelfHome = true;
                 else//If The Same int Brown Return Self Home.
                     if (Table[RowSecond, ColumnSecond] < 0 && Table[RowFirst, ColumnFirst] < 0)
-                        NotExistInDestinationSelfHome = true;
+                    NotExistInDestinationSelfHome = true;
             }
+            AllDraw.OutPut.Append("\r\nExistSelfHome:" + (TimeElapced.TimeNow() - Time).ToString());
             return NotExistInDestinationSelfHome;
         }
 
         //Object Danger Consideration
         public bool ObjectDangourKingMove(int Order, int[,] Table, bool DoIgnore)
         {
-            int[,] Tab = new int[8, 8];
-            //Clone a Copy
-            for (var i = 0; i < 8; i++)
-                for (var j = 0; j < 8; j++)
-                    Tab[i, j] = Table[i, j];
-            //Initiate Variables.
-            CheckGray = false;
-            CheckBrown = false;
-            CheckGrayObjectDangour = false;
-            CheckBrownObjectDangour = false;
-            int RowG = 0, ColumnG = 0;
-            int RowB = 0, ColumnB = 0;
-            //Object O = new Object();
-            ////lock (O)
-            ///{
-               /// if (DoIgnore)
-///QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
-           // }
-            //Check identification.
-            //Check(Tab, Order);
-            bool CheckGrayDummy = CheckGray;
-            bool CheckBrownDummy = CheckBrown;
-            //If There is Check on Tow Side.
-            /*if (CheckBrown || CheckGray)
-            {
-                //Check meand achmaz.
-                if (CheckBrown)
-                    CheckBrownObjectDangour = true;
-                if (CheckGray)
-                    CheckGrayObjectDangour = true;
-                return true;
-
-            }*/
-            int CDummy = QuantumRefrigiz.ChessRules.CurrentOrder;
-            int COrder = Order;
-            if (Order == 1)
-            {
-                //Location of King Gary
-                if (FindGrayKing(Tab, ref RowG, ref ColumnG))
-                {
-                    //For Enemy Brown.
-                    for (var ii = 0; ii < 8; ii++)
-                    {
-                        for (var jj = 0; jj < 8; jj++)
-                        {
-                            for (var i = 0; i < 8; i++)
-                                for (var j = 0; j < 8; j++)
-                                    //Tab[i, j] = Table[i, j];
-                            //Ignore Gray.
-                            if (Tab[ii, jj] >= 0)
-                                continue;
-                            //For Current Gray and Empty.
-                            for (var iii = 0; iii < 8; iii++)
-                            {
-                                for (var jjj = 0; jjj < 8; jjj++)
-                                {
-                                    for (var i = 0; i < 8; i++)
-                                        for (var j = 0; j < 8; j++)
-                                            Tab[i, j] = Table[i, j];
-                                    //Ignore Brown.
-                                    if (Tab[iii, jjj] < 0)
-                                        continue;
-                                    QuantumRefrigiz.ThinkingQuantumChess AA = new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
-                                    //When There is Attacked to Gray from Brown.
-                                    if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
-                                    {
-
-                                        //Move.
-                                        int a = Tab[iii, jjj];
-                                        Tab[iii, jjj] = Tab[ii, jj];
-                                        Tab[ii, jj] = 0;
-                                        int[,] Tabl = new int[8, 8];
-                                        for (int h = 0; h < 8; h++)
-                                            for (int g = 0; g < 8; g++)
-                                                Tabl[h, g] = Tab[h, g];
-                                        QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
-                                        //When there is checked or checkmate.
-                                        if (AAA.CheckMate(Tabl, Order))
-                                        {
-                                            if (AAA.CheckMateGray)
-                                            {
-                                                CheckGrayObjectDangour = true;
-                                                break;
-                                            }
-                                        }
-
-                                        //CheckGrayObjectDangour = true;
-                                    }
-                                    if (CheckGrayObjectDangour)
-                                        break;
-
-                                }
-                                if (CheckGrayObjectDangour)
-                                    break;
-                            }
-                            if (CheckGrayObjectDangour)
-                                break;
-
-                        }
-                        if (CheckGrayObjectDangour)
-                            break;
-
-                    }
-                }
-            }
-            else
-            {
-                //Location of King Brown
-                if (FindBrownKing(Tab, ref RowB, ref ColumnB))
-                {
-
-                    //For Gray Enemy.
-                    for (var ii = 0; ii < 8; ii++)
-                    {
-                        for (var jj = 0; jj < 8; jj++)
-                        {
-                            //Ignore Brown
-                            if (Tab[ii, jj] <= 0)
-                                continue;
-                            //For Current BNrown.
-                            for (var iii = 0; iii < 8; iii++)
-                            {
-                                for (var jjj = 0; jjj < 8; jjj++)
-                                {
-                                    for (var i = 0; i < 8; i++)
-                                        for (var j = 0; j < 8; j++)
-                                            Tab[i, j] = Table[i, j];
-                                    //Ignore Gray.
-                                    if (Tab[iii, jjj] > 0)
-                                        continue;
-
-                                    QuantumRefrigiz.ThinkingQuantumChess AA = new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
-                                    //Wehn There is Attack to Brwon.
-                                    if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
-                                    {
-                                        //Move
-                                        int a = Tab[iii, jjj];
-                                        Tab[iii, jjj] = Tab[ii, jj];
-                                        Tab[ii, jj] = 0;
-                                        int[,] Tabl = new int[8, 8];
-                                        for (int h = 0; h < 8; h++)
-                                            for (int g = 0; g < 8; g++)
-                                                Tabl[h, g] = Tab[h, g];
-                                        QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
-                                        //When There is Check or Checkedmate
-                                        if (AAA.CheckMate(Tab, Order))
-                                        {
-                                            if (AAA.CheckMateBrown)
-                                            {
-                                                CheckBrownObjectDangour = true;
-                                                break;
-                                            }
-
-                                        }
-
-                                        //CheckBrownObjectDangour = true;
-
-                                    }
-                                    if (CheckBrownObjectDangour)
-                                        break;
-                                }
-                                if (CheckBrownObjectDangour)
-                                    break;
-                            }
-                            if (CheckBrownObjectDangour)
-                                break;
-
-                        }
-                        if (CheckBrownObjectDangour)
-                            break;
-
-                    }
-                }
-            }
-            //Iniaiate Global Variables.
-            //Object O1 = new Object();
-            //lock (O1)
-            //{
-                //QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
-            //}
-            //If There is Brown ObjectDanger Or Gray ObjectDanger.
-            if (CheckBrownObjectDangour || CheckGrayObjectDangour)
-            {
-                //Iniaate Global Check Variable By Local Variables.
-                QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
-                Order = COrder;
-                CheckGray = CheckGrayDummy;
-                CheckBrown = CheckBrownDummy;
-                //Achamz is Validity.
-                return true;
-            }
-            QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
-            Order = COrder;
-
-            //Iniatiate Of Global Varibales By Local Variables.
-            CheckGray = CheckGrayDummy;
-            CheckBrown = CheckBrownDummy;
-            //Return Not Validiy.
-            return false;
-        }
-        public bool ObjectDangourKingMove(int Order, int[,] Table)
-        {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             //Clone a Copy
             for (var i = 0; i < 8; i++)
@@ -814,12 +668,10 @@ namespace QuantumRefrigiz
                     {
                         for (var jj = 0; jj < 8; jj++)
                         {
-                            for (var i = 0; i < 8; i++)
-                                for (var j = 0; j < 8; j++)
-                                    //Tab[i, j] = Table[i, j];
-                                    //Ignore Gray.
-                                    if (Tab[ii, jj] >= 0)
-                                        continue;
+
+                            //Ignore Gray.
+                            if (Tab[ii, jj] >= 0)
+                                continue;
                             //For Current Gray and Empty.
                             for (var iii = 0; iii < 8; iii++)
                             {
@@ -835,7 +687,6 @@ namespace QuantumRefrigiz
                                     //When There is Attacked to Gray from Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
                                     {
-
                                         //Move.
                                         int a = Tab[iii, jjj];
                                         Tab[iii, jjj] = Tab[ii, jj];
@@ -846,15 +697,15 @@ namespace QuantumRefrigiz
                                                 Tabl[h, g] = Tab[h, g];
                                         QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
                                         //When there is checked or checkmate.
-                                        if (AAA.Check(Tabl, Order))
+                                        if (AAA.CheckMate(Tabl, Order))
                                         {
-                                            if (AAA.CheckGray)
+                                            //if (AAA.CheckMateGray)
+                                            if (AAA.CheckMateGray)
                                             {
                                                 CheckGrayObjectDangour = true;
                                                 break;
                                             }
                                         }
-
                                         //CheckGrayObjectDangour = true;
                                     }
                                     if (CheckGrayObjectDangour)
@@ -888,7 +739,7 @@ namespace QuantumRefrigiz
                             //Ignore Brown
                             if (Tab[ii, jj] <= 0)
                                 continue;
-                            //For Current BNrown.
+                            //For Current Brown.
                             for (var iii = 0; iii < 8; iii++)
                             {
                                 for (var jjj = 0; jjj < 8; jjj++)
@@ -901,7 +752,7 @@ namespace QuantumRefrigiz
                                         continue;
 
                                     QuantumRefrigiz.ThinkingQuantumChess AA = new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
-                                    //Wehn There is Attack to Brwon.
+                                    //When There is Attack to Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
                                     {
                                         //Move
@@ -914,8 +765,212 @@ namespace QuantumRefrigiz
                                                 Tabl[h, g] = Tab[h, g];
                                         QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
                                         //When There is Check or Checkedmate
-                                        if (AAA.Check(Tab, Order))
+                                        if (AAA.CheckMate(Tabl, Order))
                                         {
+                                            //if (AAA.CheckMateBrown)
+                                            if (AAA.CheckMateBrown)
+                                            {
+                                                CheckBrownObjectDangour = true;
+                                                break;
+                                            }
+
+                                        }
+
+                                        //CheckBrownObjectDangour = true;
+
+                                    }
+                                    if (CheckBrownObjectDangour)
+                                        break;
+                                }
+                                if (CheckBrownObjectDangour)
+                                    break;
+                            }
+                            if (CheckBrownObjectDangour)
+                                break;
+
+                        }
+                        if (CheckBrownObjectDangour)
+                            break;
+
+                    }
+                }
+            }
+            //Iniaiate Global Variables.
+            //Object O1 = new Object();
+            //lock (O1)
+            //{
+            //QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+            //}
+            //If There is Brown ObjectDanger Or Gray ObjectDanger.
+            if (CheckBrownObjectDangour || CheckGrayObjectDangour)
+            {
+                //Iniaate Global Check Variable By Local Variables.
+                QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
+                Order = COrder;
+                CheckGray = CheckGrayDummy;
+                CheckBrown = CheckBrownDummy;
+                //Achamz is Validity.
+                AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
+                return true;
+            }
+            QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
+            Order = COrder;
+
+            //Iniatiate Of Global Varibales By Local Variables.
+            CheckGray = CheckGrayDummy;
+            CheckBrown = CheckBrownDummy;
+            //Return Not Validiy.
+            AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
+            return false;
+        }
+        public bool ObjectDangourKingMove(int Order, int[,] Table)
+        {
+            long Time = TimeElapced.TimeNow();
+            int[,] Tab = new int[8, 8];
+            //Clone a Copy
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
+                    Tab[i, j] = Table[i, j];
+            //Initiate Variables.
+            CheckGray = false;
+            CheckBrown = false;
+            CheckGrayObjectDangour = false;
+            CheckBrownObjectDangour = false;
+            int RowG = 0, ColumnG = 0;
+            int RowB = 0, ColumnB = 0;
+            //Object O = new Object();
+            ////lock (O)
+            ///{
+            /// if (DoIgnore)
+            ///QuantumRefrigiz.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+            // }
+            //Check identification.
+            //Check(Tab, Order);
+            bool CheckGrayDummy = CheckGray;
+            bool CheckBrownDummy = CheckBrown;
+            //If There is Check on Tow Side.
+            /*if (CheckBrown || CheckGray)
+            {
+                //Check meand achmaz.
+                if (CheckBrown)
+                    CheckBrownObjectDangour = true;
+                if (CheckGray)
+                    CheckGrayObjectDangour = true;
+                return true;
+
+            }*/
+            int CDummy = QuantumRefrigiz.ChessRules.CurrentOrder;
+            int COrder = Order;
+            if (Order == 1)
+            {
+                //Location of King Gary
+                if (FindGrayKing(Tab, ref RowG, ref ColumnG))
+                {
+                    //For Enemy Brown.
+                    for (var ii = 0; ii < 8; ii++)
+                    {
+                        for (var jj = 0; jj < 8; jj++)
+                        {
+
+                            //Ignore Gray.
+                            if (Tab[ii, jj] >= 0)
+                                continue;
+                            //For Current Gray and Empty.
+                            for (var iii = 0; iii < 8; iii++)
+                            {
+                                for (var jjj = 0; jjj < 8; jjj++)
+                                {
+                                    for (var i = 0; i < 8; i++)
+                                        for (var j = 0; j < 8; j++)
+                                            Tab[i, j] = Table[i, j];
+                                    //Ignore Brown.
+                                    if (Tab[iii, jjj] < 0)
+                                        continue;
+                                    QuantumRefrigiz.ThinkingQuantumChess AA = new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    //When There is Attacked to Gray from Brown.
+                                    if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
+                                    {
+                                        //Move.
+                                        int a = Tab[iii, jjj];
+                                        Tab[iii, jjj] = Tab[ii, jj];
+                                        Tab[ii, jj] = 0;
+                                        int[,] Tabl = new int[8, 8];
+                                        for (int h = 0; h < 8; h++)
+                                            for (int g = 0; g < 8; g++)
+                                                Tabl[h, g] = Tab[h, g];
+                                        QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        //When there is checked or checkmate.
+                                        if (AAA.Check(Tabl, Order))
+                                        {
+                                            //if (AAA.CheckMateGray)
+                                            if (AAA.CheckGray)
+                                            {
+                                                CheckGrayObjectDangour = true;
+                                                break;
+                                            }
+                                        }
+                                        //CheckGrayObjectDangour = true;
+                                    }
+                                    if (CheckGrayObjectDangour)
+                                        break;
+
+                                }
+                                if (CheckGrayObjectDangour)
+                                    break;
+                            }
+                            if (CheckGrayObjectDangour)
+                                break;
+
+                        }
+                        if (CheckGrayObjectDangour)
+                            break;
+
+                    }
+                }
+            }
+            else
+            {
+                //Location of King Brown
+                if (FindBrownKing(Tab, ref RowB, ref ColumnB))
+                {
+
+                    //For Gray Enemy.
+                    for (var ii = 0; ii < 8; ii++)
+                    {
+                        for (var jj = 0; jj < 8; jj++)
+                        {
+                            //Ignore Brown
+                            if (Tab[ii, jj] <= 0)
+                                continue;
+                            //For Current Brown.
+                            for (var iii = 0; iii < 8; iii++)
+                            {
+                                for (var jjj = 0; jjj < 8; jjj++)
+                                {
+                                    for (var i = 0; i < 8; i++)
+                                        for (var j = 0; j < 8; j++)
+                                            Tab[i, j] = Table[i, j];
+                                    //Ignore Gray.
+                                    if (Tab[iii, jjj] > 0)
+                                        continue;
+
+                                    QuantumRefrigiz.ThinkingQuantumChess AA = new QuantumRefrigiz.ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    //When There is Attack to Brown.
+                                    if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
+                                    {
+                                        //Move
+                                        int a = Tab[iii, jjj];
+                                        Tab[iii, jjj] = Tab[ii, jj];
+                                        Tab[ii, jj] = 0;
+                                        int[,] Tabl = new int[8, 8];
+                                        for (int h = 0; h < 8; h++)
+                                            for (int g = 0; g < 8; g++)
+                                                Tabl[h, g] = Tab[h, g];
+                                        QuantumRefrigiz.ChessRules AAA = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        //When There is Check or Checkedmate
+                                        if (AAA.Check(Tabl, Order))
+                                        {
+                                            //if (AAA.CheckMateBrown)
                                             if (AAA.CheckBrown)
                                             {
                                                 CheckBrownObjectDangour = true;
@@ -958,6 +1013,7 @@ namespace QuantumRefrigiz
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
                 //Achamz is Validity.
+                AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
                 return true;
             }
             QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
@@ -971,6 +1027,7 @@ namespace QuantumRefrigiz
         }
         bool AchmazCheckByMoveByRule(int[,] Tabl, int RowF, int ColumnF, int RowS, int ColumnS, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             bool Achmaz = false;
             int[,] Table = new int[8, 8];
             for (var i = 0; i < 8; i++)
@@ -986,10 +1043,12 @@ namespace QuantumRefrigiz
                     Achmaz = true;
 
             }
+            AllDraw.OutPut.Append("\r\nAchmazCheckByMoveByRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Achmaz;
         }
         public bool ObjectDangourKingMove(int Order, int[,] Table, bool DoIgnore, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             //Clone a Copy
             for (var i = 0; i < 8; i++)
@@ -1019,6 +1078,7 @@ namespace QuantumRefrigiz
                     CheckBrownObjectDangour = true;
                 if (CheckGray)
                     CheckGrayObjectDangour = true;
+                AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
                 return true;
 
             }
@@ -1111,6 +1171,7 @@ namespace QuantumRefrigiz
                                                                     CheckBrownObjectDangour = A.CheckBrownObjectDangour;
                                                                     QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
                                                                     Order = COrder;
+                                                                    AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
                                                                     return true;
                                                                 }
                                                             }
@@ -1122,57 +1183,58 @@ namespace QuantumRefrigiz
                                         }
                                         else
                                             if (Order == -1 && A.CheckMateBrown)
+                                        {
+
+                                            //For Current.
+                                            for (var iiii = 0; iiii < 8; iiii++)
                                             {
-
-                                                //For Current.
-                                                for (var iiii = 0; iiii < 8; iiii++)
+                                                for (var jjjj = 0; jjjj < 8; jjjj++)
                                                 {
-                                                    for (var jjjj = 0; jjjj < 8; jjjj++)
+                                                    //Ignore of enemies.
+                                                    if (Order == 1 && Tab[iiii, jjjj] <= 0)
+                                                        continue;
+                                                    if (Order == -1 && Tab[iiii, jjjj] >= 0)
+                                                        continue;
+                                                    //For Enemies and Emety.
+                                                    for (int iiiii = 0; iiiii < 8; iiiii++)
                                                     {
-                                                        //Ignore of enemies.
-                                                        if (Order == 1 && Tab[iiii, jjjj] <= 0)
-                                                            continue;
-                                                        if (Order == -1 && Tab[iiii, jjjj] >= 0)
-                                                            continue;
-                                                        //For Enemies and Emety.
-                                                        for (int iiiii = 0; iiiii < 8; iiiii++)
+                                                        for (int jjjjj = 0; jjjjj < 8; jjjjj++)
                                                         {
-                                                            for (int jjjjj = 0; jjjjj < 8; jjjjj++)
-                                                            {
-                                                                //Ignore of Current.
-                                                                if (Order == 1 && Tab[iiiii, jjjjj] > 0)
-                                                                    continue;
-                                                                if (Order == -1 && Tab[iiiii, jjjjj] < 0)
-                                                                    continue;
-                                                                for (var ik = 0; ik < 8; ik++)
-                                                                    for (var jk = 0; jk < 8; jk++)
-                                                                        Tab[ik, jk] = Table[ik, jk];
-                                                                Tab[iii, jjj] = Tab[i, j];
-                                                                Tab[i, j] = 0;
+                                                            //Ignore of Current.
+                                                            if (Order == 1 && Tab[iiiii, jjjjj] > 0)
+                                                                continue;
+                                                            if (Order == -1 && Tab[iiiii, jjjjj] < 0)
+                                                                continue;
+                                                            for (var ik = 0; ik < 8; ik++)
+                                                                for (var jk = 0; jk < 8; jk++)
+                                                                    Tab[ik, jk] = Table[ik, jk];
+                                                            Tab[iii, jjj] = Tab[i, j];
+                                                            Tab[i, j] = 0;
 
-                                                                A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
-                                                                if (A.Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i, j]))
+                                                            A = new QuantumRefrigiz.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
+                                                            if (A.Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i, j]))
+                                                            {
+                                                                Tab[iiiii, jjjjj] = Tab[iiii, jjjj];
+                                                                Tab[iiii, jjjj] = 0;
+                                                                if (A.CheckMate(Tab, Order))
                                                                 {
-                                                                    Tab[iiiii, jjjjj] = Tab[iiii, jjjj];
-                                                                    Tab[iiii, jjjj] = 0;
-                                                                    if (A.CheckMate(Tab, Order))
-                                                                    {
-                                                                        CheckBrown = A.CheckBrown;
-                                                                        CheckGray = A.CheckGray;
-                                                                        CheckMateGray = A.CheckMateGray;
-                                                                        CheckMateBrown = A.CheckMateBrown;
-                                                                        CheckGrayObjectDangour = A.CheckGrayObjectDangour;
-                                                                        CheckBrownObjectDangour = A.CheckBrownObjectDangour;
-                                                                        QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
-                                                                        Order = COrder;
-                                                                        return true;
-                                                                    }
+                                                                    CheckBrown = A.CheckBrown;
+                                                                    CheckGray = A.CheckGray;
+                                                                    CheckMateGray = A.CheckMateGray;
+                                                                    CheckMateBrown = A.CheckMateBrown;
+                                                                    CheckGrayObjectDangour = A.CheckGrayObjectDangour;
+                                                                    CheckBrownObjectDangour = A.CheckBrownObjectDangour;
+                                                                    QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
+                                                                    Order = COrder;
+                                                                    AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
+                                                                    return true;
                                                                 }
                                                             }
                                                         }
                                                     }
                                                 }
                                             }
+                                        }
 
 
                                     }
@@ -1188,7 +1250,7 @@ namespace QuantumRefrigiz
 
             QuantumRefrigiz.ChessRules.CurrentOrder = CDummy;
             Order = COrder;
-
+            AllDraw.OutPut.Append("\r\nObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());
             //Iniatiate Of Global Varibales By Local Variables.
             //Return Not Validiy.
             return false;
@@ -1196,6 +1258,7 @@ namespace QuantumRefrigiz
         //Gray King Founder.
         public bool FindGrayKing(int[,] Table, ref int Row, ref int Column)
         {
+            long Time = TimeElapced.TimeNow();
             //For All Home Table.
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -1206,15 +1269,18 @@ namespace QuantumRefrigiz
                         //Initiate Refreable Parameters.
                         Row = i;
                         Column = j;
+                        AllDraw.OutPut.Append("\r\nFindGrayKing:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
                     }
                 }
+            AllDraw.OutPut.Append("\r\nFindGrayKing:" + (TimeElapced.TimeNow() - Time).ToString());
             //Not Found.
             return false;
         }
         //Alpahber Object Consideration.
         static String ThingsAlphabet(int i)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate a Local Varibale. 
             String A = "";
             //Determinbe Gray Or Brown Movment.
@@ -1236,12 +1302,14 @@ namespace QuantumRefrigiz
             if (System.Math.Abs(i) == 6)
                 A += "(K)";
             //Retrun Alphabet.
+            AllDraw.OutPut.Append("\r\nThingsAlphabet:" + (TimeElapced.TimeNow() - Time).ToString());
             return A;
 
         }
         //Row Alphabet Consideration.
         static String RowAlphabet(int i)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate Local Variable.
             String A = "";
             //Row Alphabet Consideration.
@@ -1262,6 +1330,7 @@ namespace QuantumRefrigiz
             if (i == 7)
                 A = "h";
             //Return Row Alphabet.
+            AllDraw.OutPut.Append("\r\nRowAlphabet:" + (TimeElapced.TimeNow() - Time).ToString());
             return A;
 
         }
@@ -1270,6 +1339,7 @@ namespace QuantumRefrigiz
 
             )
         {
+            long Time = TimeElapced.TimeNow();
             Object OOO = new Object();
             lock (OOO)
             {
@@ -1285,7 +1355,6 @@ namespace QuantumRefrigiz
                 String S = "";
                 if (ms)
                     SN = bn.ToString() + ".";
-
 
 
                 //Consider CheckMate Condition of Table.
@@ -1580,9 +1649,10 @@ namespace QuantumRefrigiz
                 }
                 //Separate.
                 if (AllDraw.Less != int.MinValue)
-                    S += " With Huristic (" + AllDraw.Less.ToString() + ")--";
+                    S += " With Huristic (" + QuantumRefrigiz.AllDraw.Less.ToString() + ")--";
                 else
                     S += " --";
+                AllDraw.OutPut.Append("\r\nCreateStatistic:" + (TimeElapced.TimeNow() - Time).ToString());
                 //Return String Sysntax.
                 return SN + S;
             }
@@ -1590,6 +1660,7 @@ namespace QuantumRefrigiz
         //Consideration of Existing Table in List.
         bool ArrayInList(List<int[]> List, int[] A)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate Local Variables.
             bool Is = false;
             //For each Items of a Tow Part List.
@@ -1599,12 +1670,14 @@ namespace QuantumRefrigiz
                 if (A[0] == List[i][0] && A[1] == List[i][1])
                     Is = true;
             }
+            AllDraw.OutPut.Append("\r\nArrayInList:" + (TimeElapced.TimeNow() - Time).ToString());
             //Retrun Condition.
             return Is;
         }
         //Find a Specific Objects.
         public bool FindAThing(int[,] Table, ref int Row, ref int Column, int Thing, bool BeMovable, List<int[]> List)
         {
+            long Time = TimeElapced.TimeNow();
             //For All Items In Table Home.
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -1625,6 +1698,7 @@ namespace QuantumRefrigiz
                             //Iniatiate Local Varibales.
                             Row = i;
                             Column = j;
+                            AllDraw.OutPut.Append("\r\nFindAThing:" + (TimeElapced.TimeNow() - Time).ToString());
                             //Found State.
                             return true;
                         }
@@ -1647,6 +1721,7 @@ namespace QuantumRefrigiz
                                         //Initaite Local Variables.
                                         Row = i;
                                         Column = j;
+                                        AllDraw.OutPut.Append("\r\nFindAThing:" + (TimeElapced.TimeNow() - Time).ToString());
                                         //Found of State
                                         return true;
                                     }
@@ -1656,12 +1731,14 @@ namespace QuantumRefrigiz
 
                     }
                 }
+            AllDraw.OutPut.Append("\r\nFindAThing:" + (TimeElapced.TimeNow() - Time).ToString());
             //Not Found State.
             return false;
         }
         //Brown King Found  Consideration.
         public bool FindBrownKing(int[,] Table, ref int Row, ref int Column)
         {
+            long Time = TimeElapced.TimeNow();
             //For All Home Table.
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -1672,16 +1749,19 @@ namespace QuantumRefrigiz
                         //Initiate Refrencable Parameter.
                         Row = i;
                         Column = j;
+                        AllDraw.OutPut.Append("\r\nFindBrownKing:" + (TimeElapced.TimeNow() - Time).ToString());
                         //Found of Brown King.
                         return true;
                     }
                 }
+            AllDraw.OutPut.Append("\r\nFindBrownKing:" + (TimeElapced.TimeNow() - Time).ToString());
             //Not Found.
             return false;
         }
         //A Constraint Check Removed Unused Method.
         public bool CheckRemovableByAttack(int[,] Table, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             //Initiate Local Variables.
             int[,] Tabl = new int[8, 8];
             //Clone a Copy.
@@ -1839,6 +1919,7 @@ namespace QuantumRefrigiz
                                 }
                             }
             }
+            AllDraw.OutPut.Append("\r\nCheckRemovableByAttack:" + (TimeElapced.TimeNow() - Time).ToString());
             //If Check Remoavbe Brown Or Gray Return Removable.
             if (CheckBrownRemovable || CheckGrayRemovable)
                 return true;
@@ -1847,6 +1928,7 @@ namespace QuantumRefrigiz
         }
         bool[,] VeryFye(int[,] Table, int Order, Color a, int ii, int jj)
         {
+            long Time = TimeElapced.TimeNow();
             int Cdummy = QuantumRefrigiz.ChessRules.CurrentOrder;
             if (Order == 1)
                 QuantumRefrigiz.ChessRules.CurrentOrder = 1;
@@ -1870,10 +1952,12 @@ namespace QuantumRefrigiz
                     }
                 }
             QuantumRefrigiz.ChessRules.CurrentOrder = Cdummy;
+            AllDraw.OutPut.Append("\r\nVeryFye:" + (TimeElapced.TimeNow() - Time).ToString());
             return Tab;
         }
         public bool OnlyKingMovable(int[,] Tab, bool[,] TabB, int Order)
         {
+            long Time = TimeElapced.TimeNow();
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                 {
@@ -1882,19 +1966,27 @@ namespace QuantumRefrigiz
                         if (Order == 1)
                         {
                             if (Tab[i, j] != 6)
+                            {
+                                AllDraw.OutPut.Append("\r\nOnlyKingMovable:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return false;
+                            }
                         }
                         else
                             if (Tab[i, j] != -6)
-                                return false;
+                        {
+                            AllDraw.OutPut.Append("\r\nOnlyKingMovable:" + (TimeElapced.TimeNow() - Time).ToString());
+                            return false;
+                        }
                     }
 
                 }
+            AllDraw.OutPut.Append("\r\nOnlyKingMovable:" + (TimeElapced.TimeNow() - Time).ToString());
             return true;
 
         }
         public bool Pat(int[,] Tab, int Order, Color a)
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Table = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -1988,7 +2080,7 @@ namespace QuantumRefrigiz
                     NumbersofKingMovesToPatGray = 0;
                 else
                     if (CheckBrown)
-                        NumbersofKingMovesToPatBrown = 0;
+                    NumbersofKingMovesToPatBrown = 0;
 
             }
             Object O1 = new Object();
@@ -1996,10 +2088,12 @@ namespace QuantumRefrigiz
             {
                 PatCheckedInKingRule = false;
             }
+            AllDraw.OutPut.Append("\r\nPat:" + (TimeElapced.TimeNow() - Time).ToString());
             return Pat;
         }
         void CheckKing(int[,] Table, int Order, int RowK, int ColumnK)
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             //Clone a Copy.
             for (var ii = 0; ii < 8; ii++)
@@ -2063,12 +2157,12 @@ namespace QuantumRefrigiz
                 if (BREAK)
                     break;
             }
-
+            AllDraw.OutPut.Append("\r\nCheckKing:" + (TimeElapced.TimeNow() - Time).ToString());
         }
-
         //Check Consideration Method.
         public bool Check(int[,] Table, int Ord)
         {
+            long Time = TimeElapced.TimeNow();
             //A player is not required to move their king out of check and the game concludes when there is a 100 % probability that one of the kings has been taken. As a result there is no checkmate.
             if (DrawKingQ.KingGrayNotCheckedByQuantumMove && Ord == 1)
                 return false;
@@ -2099,6 +2193,7 @@ namespace QuantumRefrigiz
                 CheckKing(Table, 1, RowB, ColumnB);
 
             Ord = DummyOrder;
+            AllDraw.OutPut.Append("\r\nCheck:" + (TimeElapced.TimeNow() - Time).ToString());
             //If Gray Check Or brwon Check return Check..
             if (CheckBrown || CheckGray)
                 return true;
@@ -2107,6 +2202,7 @@ namespace QuantumRefrigiz
         }
         void CheckMateKing(int[,] Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, int RowK, int ColumnK, ref bool ActMove, bool Checked)
         {
+            long Time = TimeElapced.TimeNow();
             int DummyOrder = Order;
             //For All Home Table.
             for (var i = 0; i < 8; i++)
@@ -2199,9 +2295,11 @@ namespace QuantumRefrigiz
                     break;
             }
             Order = DummyOrder;
+            AllDraw.OutPut.Append("\r\nCheckMateKing:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         void CheckMateNotKing(int[,] Tab, int Ord, bool CheckGrayDummy, bool CheckBrownDummy, ref bool ActMove)
         {
+            long Time = TimeElapced.TimeNow();
             int DummyOrder = Ord;
             //For All Home Table.
             for (var i = 0; i < 8; i++)
@@ -2323,18 +2421,20 @@ namespace QuantumRefrigiz
                     break;
             }
             Order = DummyOrder;
+            AllDraw.OutPut.Append("\r\nCheckMateNotKing:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //CheckMate Consideration.QC-OK
         public bool CheckMate(int[,] Tab, int Ord)
         {
+            long Time = TimeElapced.TimeNow();
 
             //Initiate Local and Global  Varibales.
             int[,] Table = new int[8, 8];
-            
-                for (var i = 0; i < 8; i++)
-                    for (var j = 0; j < 8; j++)
-                        Table[i, j] = Tab[i, j];
-           
+
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
+                    Table[i, j] = Tab[i, j];
+
             CheckGray = false;
             CheckBrown = false;
             CheckMateBrown = false;
@@ -2417,24 +2517,30 @@ namespace QuantumRefrigiz
                 lock (On)
                 {
                     AllDraw.EndOfGame = true;
+                    AllDraw.OutPut.Append("\r\nCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());
                     return true;
                 }
             }
             //Initiate Global Variables.
             CheckGray = CheckGrayDummy;
             CheckBrown = CheckBrownDummy;
+            AllDraw.OutPut.Append("\r\nCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());
             //Return Not CheckMate.
             return false;
         }
         //Internal Rule of Chess Method.
-        public  bool Rule(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki, bool SelfHomeStatCP)
+        private bool Rule(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki, bool SelfHomeStatCP)
         {
+            long Time = TimeElapced.TimeNow();
             //When is Not Castles King State.
             if (Kind != 7)
             {
                 //Determination of Enemy Existing.
                 if (ExistSelfHome(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki) && SelfHomeStatCP)
+                {
+                    AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
                     return false;
+                }
             }
             //Determination of King Enemy at Destination Home.
             /*if (!KingAttacker)
@@ -2447,7 +2553,10 @@ namespace QuantumRefrigiz
             }*/
             //If Source and The Destination are The Same.
             if (RowFirst == RowSecond && ColumnFirst == ColumnSecond)
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
                 return false;
+            }
             //Initiate Global Variable.
             Object O = new Object();
             lock (O)
@@ -2456,36 +2565,57 @@ namespace QuantumRefrigiz
             }
             //Rule of Soldeir.
             if (Kind == 1)
-
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
                 return SoldierRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
+            }
 
             else//Rule of Castles.
                 if (Kind == 4)
-                    return CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            }
 
-                else//Rule of Hourses.
+            else//Rule of Hourses.
                     if (Kind == 3)
-                        return HourseRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
-                    else//Rule of Elephant.
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return HourseRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
+            }
+            else//Rule of Elephant.
                         if (Kind == 2)
-                            return ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
-                        else
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            }
+            else
                             if (Kind == 5)//Rule of Ministers.
-                                return MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
-                            else
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            }
+            else
                                 if (Kind == 6)//Rule of Kings.
-                                    return KingRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
-                                else
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return KingRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+            }
+            else
                                     if (Kind == 7)//Rule of Castles King.
-                                        return CastleKing(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki);
+            {
+                AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
+                return CastleKing(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki);
+            }
 
-
+            AllDraw.OutPut.Append("\r\nRule:" + (TimeElapced.TimeNow() - Time).ToString());
             //Non Rulements.
             return false;
         }
         //King Rule Method.
         public bool KingRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When Miniaster Rule is Valid.
             if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki) && (System.Math.Abs(RowFirst - RowSecond) <= 1) && (System.Math.Abs(ColumnFirst - ColumnSecond) <= 1))
@@ -2649,11 +2779,13 @@ namespace QuantumRefrigiz
                  */
                 Move = true;
             }
+            AllDraw.OutPut.Append("\r\nKingRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
         }
         //Rules of Minister Method.
         public bool MinisterRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When is Castles Rule.
             if (CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki))
@@ -2662,14 +2794,16 @@ namespace QuantumRefrigiz
             else
                 //When is Elephant Rule.
                 if (ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki))
-                    //Return Validity.,
-                    Move = true;
+                //Return Validity.,
+                Move = true;
             //Return Not Valididty.
+            AllDraw.OutPut.Append("\r\nMinisterRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
         }
         //Castles Rule Method.
         public bool CastleRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             bool Act = false;
             //If Variation is Only in Row.
@@ -2851,7 +2985,7 @@ namespace QuantumRefrigiz
                     Move = false;
             }
              */
-
+            AllDraw.OutPut.Append("\r\nCastleRule:" + (TimeElapced.TimeNow() - Time).ToString());
             //Return not Vailidity.
             return Move;
 
@@ -2859,6 +2993,7 @@ namespace QuantumRefrigiz
         //Elephant Rule Method.
         public bool ElefantRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             bool Act = false;
             //Orthogonal Movments of One Abs Derivation.
@@ -2957,13 +3092,14 @@ namespace QuantumRefrigiz
                     Move = false;
             }
              */
-
+            AllDraw.OutPut.Append("\r\nElephantRule:" + (TimeElapced.TimeNow() - Time).ToString());
             //Return Not Validity.
             return Move;
         }
         //Hource Rule Method.
         public bool HourseRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When L Movament is Occured. 
             if (System.Math.Abs(ColumnFirst - ColumnSecond) == 2 && System.Math.Abs(RowFirst - RowSecond) == 1)
@@ -2984,11 +3120,12 @@ namespace QuantumRefrigiz
                      Move = false;
              }
              */
-
+            AllDraw.OutPut.Append("\r\nHourseRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
         }
         public bool SoldierRulesaArrangmentsBoardOne(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When int is Gray.
             if (Order == 1)
@@ -2999,95 +3136,95 @@ namespace QuantumRefrigiz
             }
             else//int of Brown.
                 if (Order == -1)
-                {
-                    //If Not Back Wrad Return Not Vlaidity.
-                    if (ColumnFirst > ColumnSecond)
-                        Move = false;
-                }
+            {
+                //If Not Back Wrad Return Not Vlaidity.
+                if (ColumnFirst > ColumnSecond)
+                    Move = false;
+            }
             //When Soldier Not Moved in Original Location do
             if (NotMoved)
             {
                 if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                 {
                     //Depend on First Move do For Land Of Islam
-                    
 
-                        if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) &&
-                            (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond, ColumnSecond - 1] == 0)
-                            )
-                        {
-                            //When Destination is The Empty Return Validity Else Return Not Validity.
-                            if (Table[RowSecond, ColumnSecond] == 0)
-                                Move = true;
-                            else
-                                Move = false;
-                        }
+
+                    if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) &&
+                        (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond, ColumnSecond - 1] == 0)
+                        )
+                    {
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
                         else
-                            if ((ColumnFirst + 1 < 8) &&
-                                (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
-                            {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
-                                if (Table[RowSecond, ColumnSecond] == 0)
-                                    Move = true;
-                                else
-                                    Move = false;
-                            }
-                            else//Hit Brown Soldier Rulments.
-                                if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
-                                {
-                                    if ((RowSecond - 1 < 8) &&
-                                        (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                    {
-                                        Move = true;
-                                    }
-                                    if ((RowSecond + 1 < 8) &&
-                                        (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                    {
-                                        Move = true;
-                                    }
+                            Move = false;
+                    }
+                    else
+                        if ((ColumnFirst + 1 < 8) &&
+                            (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
+                    {
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
+                    }
+                    else//Hit Brown Soldier Rulments.
+                            if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
+                    {
+                        if ((RowSecond - 1 < 8) &&
+                            (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                        {
+                            Move = true;
+                        }
+                        if ((RowSecond + 1 < 8) &&
+                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                        {
+                            Move = true;
+                        }
 
-                                }
-                   
+                    }
+
                 }
                 else//Gray int.
                     if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
+                {
+                    //Depend Of First Move do For Positivism
+
+                    if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) &&
+                        (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond, ColumnSecond + 1] == 0)
+                        )
                     {
-                        //Depend Of First Move do For Positivism
-                        
-                            if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) &&
-                                (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond, ColumnSecond + 1] == 0)
-                                )
-                            {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
-                                if (Table[RowSecond, ColumnSecond] == 0)
-                                    Move = true;
-                                else
-                                    Move = false;
-                            }
-                            else
-                                if ((ColumnSecond + 1 < 8) &&
-                                    (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
-                                {
-                                    //When Destination is The Empty Return Validity Else Return Not Validity.
-                                    if (Table[RowSecond, ColumnSecond] == 0)
-                                        Move = true;
-                                    else
-                                        Move = false;
-                                }
-                                else//Hit Condition Enemy Movments.
-                                    if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
-                                    {
-                                        if ((RowSecond + 1 < 8) &&
-                                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                            //Return Validity.
-                                            Move = true;
-                                        if ((RowSecond - 1 >= 0) &&
-                                                (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                            //Return Validity.
-                                            Move = true;
-                                    }
-                       
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
                     }
+                    else
+                        if ((ColumnSecond + 1 < 8) &&
+                            (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
+                    {
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
+                    }
+                    else//Hit Condition Enemy Movments.
+                            if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
+                    {
+                        if ((RowSecond + 1 < 8) &&
+                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                            //Return Validity.
+                            Move = true;
+                        if ((RowSecond - 1 >= 0) &&
+                                (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                            //Return Validity.
+                            Move = true;
+                    }
+
+                }
             }
             else//If Soldeior Moved Previously.
             {
@@ -3095,67 +3232,69 @@ namespace QuantumRefrigiz
                 if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                 {
                     //Depend on Second Move do For Land Of Islam
-                    
-                        if ((ColumnFirst + 1 < 8) &&
-                                (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
-                        {
-                            //When Destination is The Empty Return Validity Else Return Not Validity.
-                            if (Table[RowSecond, ColumnSecond] == 0)
-                                Move = true;
-                            else
-                                Move = false;
-                        }
-                        else//Hit Brown Soldier Rulments.                            
-                            if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
-                            {
-                                if ((RowSecond - 1 < 8) &&
-                                    (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                {
-                                    Move = true;
-                                }
-                                if ((RowSecond + 1 < 8) &&
-                                    (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                {
-                                    Move = true;
-                                }
 
-                            }
-                   
+                    if ((ColumnFirst + 1 < 8) &&
+                            (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
+                    {
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
+                    }
+                    else//Hit Brown Soldier Rulments.                            
+                        if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
+                    {
+                        if ((RowSecond - 1 < 8) &&
+                            (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                        {
+                            Move = true;
+                        }
+                        if ((RowSecond + 1 < 8) &&
+                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                        {
+                            Move = true;
+                        }
+
+                    }
+
                 }
                 else//Gray int.
                     if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
+                {
+                    //Depend Of Second Move do For Positivism Land
+
+                    if ((ColumnSecond + 1 < 8) &&
+                             (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
                     {
-                        //Depend Of Second Move do For Positivism Land
-                        
-                            if ((ColumnSecond + 1 < 8) &&
-                                     (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
-                            {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
-                                if (Table[RowSecond, ColumnSecond] == 0)
-                                    Move = true;
-                                else
-                                    Move = false;
-                            }
-                            else//Hit Condition Enemy Movments.
-                                if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
-                                {
-                                    if ((RowSecond + 1 < 8) &&
-                                        (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                        //Return Validity.
-                                        Move = true;
-                                    if ((RowSecond - 1 >= 0) &&
-                                            (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                        //Return Validity.
-                                        Move = true;
-                                }
-                       
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
                     }
+                    else//Hit Condition Enemy Movments.
+                        if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
+                    {
+                        if ((RowSecond + 1 < 8) &&
+                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                            //Return Validity.
+                            Move = true;
+                        if ((RowSecond - 1 >= 0) &&
+                                (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                            //Return Validity.
+                            Move = true;
+                    }
+
+                }
             }
+            AllDraw.OutPut.Append("\r\nSoldierRule:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
 
         }
         public bool SoldierRulesaArrangmentsBoardZero(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
+            long Time = TimeElapced.TimeNow();
             bool Move = false;
             //When int is Gray.
             if (Order == 1)
@@ -3166,95 +3305,95 @@ namespace QuantumRefrigiz
             }
             else//int of Brown.
                 if (Order == -1)
-                {
-                    //If Not Back Wrad Return Not Vlaidity.
-                    if (ColumnFirst < ColumnSecond)
-                        Move = false;
-                }
+            {
+                //If Not Back Wrad Return Not Vlaidity.
+                if (ColumnFirst < ColumnSecond)
+                    Move = false;
+            }
             //When Soldier Not Moved in Original Location do
             if (NotMoved)
             {
                 if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                 {
                     //Depend on First Move do For Land Of Islam
-                    
 
-                        if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) &&
-                            (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond, ColumnSecond - 1] == 0)
-                            )
-                        {
-                            //When Destination is The Empty Return Validity Else Return Not Validity.
-                            if (Table[RowSecond, ColumnSecond] == 0)
-                                Move = true;
-                            else
-                                Move = false;
-                        }
+
+                    if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) &&
+                        (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond, ColumnSecond - 1] == 0)
+                        )
+                    {
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
                         else
-                            if ((ColumnFirst + 1 < 8) &&
-                                (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
-                            {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
-                                if (Table[RowSecond, ColumnSecond] == 0)
-                                    Move = true;
-                                else
-                                    Move = false;
-                            }
-                            else//Hit Gray Soldier Rulments.
-                                if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
-                                {
-                                    if ((RowSecond - 1 < 8) &&
-                                        (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                    {
-                                        Move = true;
-                                    }
-                                    if ((RowSecond + 1 < 8) &&
-                                        (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                    {
-                                        Move = true;
-                                    }
+                            Move = false;
+                    }
+                    else
+                        if ((ColumnFirst + 1 < 8) &&
+                            (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
+                    {
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
+                    }
+                    else//Hit Gray Soldier Rulments.
+                            if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
+                    {
+                        if ((RowSecond - 1 < 8) &&
+                            (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                        {
+                            Move = true;
+                        }
+                        if ((RowSecond + 1 < 8) &&
+                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                        {
+                            Move = true;
+                        }
 
-                                }
-                   
+                    }
+
                 }
                 else//Brown int.
                     if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
+                {
+                    //Depend Of First Move do For Positivism
+
+                    if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) &&
+                        (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond, ColumnSecond + 1] == 0)
+                        )
                     {
-                        //Depend Of First Move do For Positivism
-                        
-                            if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) &&
-                                (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond, ColumnSecond + 1] == 0)
-                                )
-                            {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
-                                if (Table[RowSecond, ColumnSecond] == 0)
-                                    Move = true;
-                                else
-                                    Move = false;
-                            }
-                            else
-                                if ((ColumnSecond + 1 < 8) &&
-                                    (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
-                                {
-                                    //When Destination is The Empty Return Validity Else Return Not Validity.
-                                    if (Table[RowSecond, ColumnSecond] == 0)
-                                        Move = true;
-                                    else
-                                        Move = false;
-                                }
-                                else//Hit Condition Enemy Movments.
-                                    if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
-                                    {
-                                        if ((RowSecond + 1 < 8) &&
-                                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                            //Return Validity.
-                                            Move = true;
-                                        if ((RowSecond - 1 >= 0) &&
-                                                (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                            //Return Validity.
-                                            Move = true;
-                                    }
-                       
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
                     }
+                    else
+                        if ((ColumnSecond + 1 < 8) &&
+                            (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
+                    {
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
+                    }
+                    else//Hit Condition Enemy Movments.
+                            if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
+                    {
+                        if ((RowSecond + 1 < 8) &&
+                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                            //Return Validity.
+                            Move = true;
+                        if ((RowSecond - 1 >= 0) &&
+                                (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                            //Return Validity.
+                            Move = true;
+                    }
+
+                }
             }
             else//If Soldeior Moved Previously.
             {
@@ -3262,74 +3401,78 @@ namespace QuantumRefrigiz
                 if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                 {
                     //Depend on Second Move do For Land Of Islam
-                    
-                        if ((ColumnFirst + 1 < 8) &&
-                                (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
-                        {
-                            //When Destination is The Empty Return Validity Else Return Not Validity.
-                            if (Table[RowSecond, ColumnSecond] == 0)
-                                Move = true;
-                            else
-                                Move = false;
-                        }
-                        else//Hit Gray Soldier Rulments.                            
-                            if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
-                            {
-                                if ((RowSecond - 1 < 8) &&
-                                    (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                {
-                                    Move = true;
-                                }
-                                if ((RowSecond + 1 < 8) &&
-                                    (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                {
-                                    Move = true;
-                                }
 
-                            }
-                   
+                    if ((ColumnFirst + 1 < 8) &&
+                            (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
+                    {
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
+                    }
+                    else//Hit Gray Soldier Rulments.                            
+                        if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
+                    {
+                        if ((RowSecond - 1 < 8) &&
+                            (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                        {
+                            Move = true;
+                        }
+                        if ((RowSecond + 1 < 8) &&
+                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                        {
+                            Move = true;
+                        }
+
+                    }
+
                 }
                 else//Brown int.
                     if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
+                {
+                    //Depend Of Second Move do For Positivism Land
+
+                    if ((ColumnSecond + 1 < 8) &&
+                             (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
                     {
-                        //Depend Of Second Move do For Positivism Land
-                        
-                            if ((ColumnSecond + 1 < 8) &&
-                                     (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
-                            {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
-                                if (Table[RowSecond, ColumnSecond] == 0)
-                                    Move = true;
-                                else
-                                    Move = false;
-                            }
-                            else//Hit Condition Enemy Movments.
-                                if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
-                                {
-                                    if ((RowSecond + 1 < 8) &&
-                                        (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                        //Return Validity.
-                                        Move = true;
-                                    if ((RowSecond - 1 >= 0) &&
-                                            (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
-                                        //Return Validity.
-                                        Move = true;
-                                }
-                       
+                        //When Destination is The Empty Return Validity Else Return Not Validity.
+                        if (Table[RowSecond, ColumnSecond] == 0)
+                            Move = true;
+                        else
+                            Move = false;
                     }
+                    else//Hit Condition Enemy Movments.
+                        if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
+                    {
+                        if ((RowSecond + 1 < 8) &&
+                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                            //Return Validity.
+                            Move = true;
+                        if ((RowSecond - 1 >= 0) &&
+                                (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                            //Return Validity.
+                            Move = true;
+                    }
+
+                }
             }
+            AllDraw.OutPut.Append("\r\nSoldierRulesaArrangmentsBoardZero:" + (TimeElapced.TimeNow() - Time).ToString());
             return Move;
         }
         //Solder Rule Method.
         public bool SoldierRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
         {
+            long Time = TimeElapced.TimeNow();
 
             if (!(ArrangmentsBoard))
             {
+                AllDraw.OutPut.Append("\r\nSoldierRules:" + (TimeElapced.TimeNow() - Time).ToString());
                 return SoldierRulesaArrangmentsBoardZero(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
             }
             else
             {
+                AllDraw.OutPut.Append("\r\nSoldierRules:" + (TimeElapced.TimeNow() - Time).ToString());
                 return SoldierRulesaArrangmentsBoardOne(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
             }
             /*if (Move)

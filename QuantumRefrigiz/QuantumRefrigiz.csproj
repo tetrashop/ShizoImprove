@@ -106,6 +106,7 @@
     <Compile Include="TakeRoot.cs" />
     <Compile Include="ThingsConverter.cs" />
     <Compile Include="ThinkingQuantumChess.cs" />
+    <Compile Include="TimeElapced.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Refrigtz\bin\Debug\All\All\chtc.csproj">

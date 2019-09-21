@@ -54,24 +54,28 @@ namespace QuantumRefrigiz
         }
         public void Dispose()
         {
+            long Time = TimeElapced.TimeNow();
             ValuableSelfSupported = null;
             K = null;
+            AllDraw.OutPut.Append("\r\nDispose:" + (TimeElapced.TimeNow() - Time).ToString());
         }
 
         public int ReturnHuristic()
         {
+            long Time = TimeElapced.TimeNow();
             int a = 0;
             for (var ii = 0; ii < AllDraw.KingMovments; ii++)
                 
                     a += KingThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
-               
+            AllDraw.OutPut.Append("\r\nReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
 
             return a;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            
-                int a = ReturnHuristic();
+            long Time = TimeElapced.TimeNow();
+
+            int a = ReturnHuristic();
                 if (MaxHuristicxK < a)
                 {
                     Object O2 = new Object();
@@ -82,10 +86,12 @@ namespace QuantumRefrigiz
                             ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxK = a;
                     }
-                    return true;
+                AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
+                return true;
                 }
            
             MaxNotFound = true;
+            AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
             return false;
         }
         //Constructor 1.
@@ -106,6 +112,7 @@ namespace QuantumRefrigiz
         public DrawKingQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
+            long Time = TimeElapced.TimeNow();
             object balancelock = new object();
 
             lock (balancelock)
@@ -135,11 +142,13 @@ namespace QuantumRefrigiz
                 Order = Ord;
                 Current = Cur;
             }
+            AllDraw.OutPut.Append("\r\nDrawKing:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Clone a Copy.
         public void Clone(ref DrawKingQ AA//, ref AllDraw. THIS
             )
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -163,11 +172,12 @@ namespace QuantumRefrigiz
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-
+            AllDraw.OutPut.Append("\r\nClone:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Draw an Instatnt King on the Table Method.
         public void DrawKingOnTable(ref Graphics g, int CellW, int CellH)
         {
+            long Time = TimeElapced.TimeNow();
             object balancelockS = new object();
 
             int LastRow = -1, LastColumn = -1;
@@ -312,8 +322,8 @@ namespace QuantumRefrigiz
                         
                     }
                 }
-           
 
+            AllDraw.OutPut.Append("\r\nDrawKingOnTable:" + (TimeElapced.TimeNow() - Time).ToString());
         }
     }
 }

@@ -10,6 +10,24 @@ namespace QuantumRefrigiz
     [Serializable]
     public class DrawSoldierQ : ThingsConverter
     {
+        public static int[,,] QuntumTable = {
+            {{-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 },
+             {-1, -1, - 1, -1, -1, -1, -1, -1 }},
+             {{-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 },
+              {-1, -1, - 1, -1, -1, -1, -1, -1 }}};
+
         //Pawns cannot make quantum moves.
         //A quantum move cannot be used to take a piece.
         public bool IsQuntumMove = false;
@@ -56,13 +74,16 @@ namespace QuantumRefrigiz
         }
         public void Dispose()
         {
+            long Time = TimeElapced.TimeNow();
             ValuableSelfSupported = null;
             S = null;
+            AllDraw.OutPut.Append("\r\nDispose:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            
-                int a = ReturnHuristic();
+            long Time = TimeElapced.TimeNow();
+
+            int a = ReturnHuristic();
                 if (MaxHuristicxS < a)
                 {
                     Object O2 = new Object();
@@ -73,19 +94,22 @@ namespace QuantumRefrigiz
                             ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxS = a;
                     }
-                    return true;
+                AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
+                return true;
                 }
            
             MaxNotFound = true;
+            AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
             return false;
         }
         public int ReturnHuristic()
         {
+            long Time = TimeElapced.TimeNow();
             int a = 0;
             for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
                 
                     a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
-               
+            AllDraw.OutPut.Append("\r\nReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
             return a;
         }
         //Constructor 1.
@@ -107,6 +131,7 @@ namespace QuantumRefrigiz
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
+            long Time = TimeElapced.TimeNow();
             object balancelock = new object();
             lock (balancelock)
             {
@@ -138,11 +163,13 @@ namespace QuantumRefrigiz
                 Order = Ord;
                 Current = Cur;
             }
+            AllDraw.OutPut.Append("\r\nDrawSoldierQ:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Clone a Copy Method.
         public void Clone(ref DrawSoldierQ AA//, ref AllDraw. THIS
             )
         {
+            long Time = TimeElapced.TimeNow();
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -168,10 +195,11 @@ namespace QuantumRefrigiz
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-
+            AllDraw.OutPut.Append("\r\nClone:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         bool Quantum(int[,] Tab, int Order, int Row, int Column, int LastRow, int LastColumn)
         {
+            long Time = TimeElapced.TimeNow();
             if (ArrangmentsChanged)
             {
                 if (LastRow == 6)
@@ -179,30 +207,46 @@ namespace QuantumRefrigiz
                     if (Column == LastColumn + 2)
                         if (Table[Row, LastColumn + 1] < 0)
                             if (Table[Row, Column] == 1)
+                            {
+                                AllDraw.OutPut.Append("\r\nQuantum:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return true;
+                            }
                 }
                 if (System.Math.Abs(Column - LastColumn) == 1 && System.Math.Abs(Row - LastRow) == 1)
                     if (Table[Row, Column] == 1 || Table[LastRow, LastColumn] == 1)
+                    {
+                        AllDraw.OutPut.Append("\r\nQuantum:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
+                    }
             }
-            else {
+            else
+            {
                 if (LastRow == 1)
                 {
                     if (Column == LastColumn - 2)
                         if (Table[Row, LastColumn - 1] > 0)
                             if (Table[Row, Column] == -1)
+                            {
+                                AllDraw.OutPut.Append("\r\nQuantum:" + (TimeElapced.TimeNow() - Time).ToString());
                                 return true;
+                            }
                 }
                 if (System.Math.Abs(Column - LastColumn) == 1 && System.Math.Abs(Row - LastRow) == 1)
                     if (Table[Row, Column] == -1 || Table[LastRow, LastColumn] == -1)
+                    {
+                        AllDraw.OutPut.Append("\r\nQuantum:" + (TimeElapced.TimeNow() - Time).ToString());
                         return true;
-
+                    }
             }
+
+            AllDraw.OutPut.Append("\r\nQuantum:" + (TimeElapced.TimeNow() - Time).ToString());
+
             return false;
         }
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
+            long Time = TimeElapced.TimeNow();
             object balancelockS = new object();
 
             int LastRow = 0, LastColumn = 0;
@@ -690,6 +734,7 @@ namespace QuantumRefrigiz
                     }
                 }
             }
+            AllDraw.OutPut.Append("\r\nDrawSoldierOnTable:" + (TimeElapced.TimeNow() - Time).ToString());
         }
     }
 }
