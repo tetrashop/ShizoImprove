@@ -11,6 +11,8 @@ namespace RefrigtzDLL
     {
 
 
+        StringBuilder Space = new StringBuilder("&nbsp;");
+        int Spaces = 0;
 
 
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
@@ -50,14 +52,14 @@ namespace RefrigtzDLL
         }
         public void Dispose()
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             H = null;
-            AllDraw.OutPut.Append("\r\nDispose:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int a = ReturnHuristic();
             if (MaxHuristicxH < a)
             {
@@ -69,22 +71,22 @@ namespace RefrigtzDLL
                         ThinkingChess.MaxHuristicx = a;
                     MaxHuristicxH = a;
                 }
-                AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
             }
 
             MaxNotFound = true;
-            AllDraw.OutPut.Append("\r\nMaxFound:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
         public int ReturnHuristic()
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.HourseMovments; ii++)
 
                 a += HourseThinking[ii].ReturnHuristic(-1, -1, Order, false);
-            AllDraw.OutPut.Append("\r\nReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         //Constructor 1.
@@ -105,7 +107,7 @@ namespace RefrigtzDLL
         public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             {
 
@@ -132,13 +134,13 @@ namespace RefrigtzDLL
                 Order = Ord;
                 Current = Cur;
             }
-            AllDraw.OutPut.Append("\r\nDrawHourse:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Cloen a Copy.
         public void Clone(ref DrawHourse AA//, ref AllDraw. THIS
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -162,12 +164,12 @@ namespace RefrigtzDLL
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-            AllDraw.OutPut.Append("\r\nClone:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Draw a Instatnt Hourse on the Table Method.
         public void DrawHourseOnTable(ref Graphics g, int CellW, int CellH)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             try
             {
                 object balancelockS = new object();
@@ -207,7 +209,7 @@ namespace RefrigtzDLL
             {
                 Log(t);
             }
-            AllDraw.OutPut.Append("\r\nDrawHourseOnTable:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourseOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

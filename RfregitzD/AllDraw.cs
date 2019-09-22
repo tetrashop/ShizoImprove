@@ -159,6 +159,8 @@ namespace RefrigtzDLL
 
     public class AllDraw
     {
+        StringBuilder Space = new StringBuilder("&nbsp;");
+        int Spaces = 0;
         bool SetDeptIgnore = false;
         long Now = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
         long Later = DateTime.Now.Hour * (36000000 * 24) + DateTime.Now.Minute * 36000000 + DateTime.Now.Second * 600000 + DateTime.Now.Millisecond;
@@ -345,7 +347,7 @@ namespace RefrigtzDLL
                     string stackTrace = ex.ToString();
                     File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
-            AllDraw.OutPut.Append("\r\nALLDrawLog:" + (TimeElapced.TimeNow() - Time).ToString());
+           AllDraw.OutPut.Append("\r\nALLDrawLog:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Determine when a QuantumMoveOccured.
         //Note for before move.At most one quantum moves.
@@ -363,7 +365,7 @@ namespace RefrigtzDLL
         }
         void TimeEnd()
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             Now = DateTime.Now.Hour * (60000 * 24) + DateTime.Now.Minute * 60000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
             long Later = Now;
@@ -373,12 +375,12 @@ namespace RefrigtzDLL
 
             } while (Later - Now < 3 * 60000);
 
-            AllDraw.OutPut.Append("\r\nTimeEnd:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("TimeEnd:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
         }
         public void SetObjectNumbers(int[,] TabS)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -456,12 +458,12 @@ namespace RefrigtzDLL
                         }
                     }
             }
-            AllDraw.OutPut.Append("\r\nSetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
         }
         float[] FoundLocationOfObject(ref int[,] Tabl, int Kind, bool IsGray)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -491,7 +493,7 @@ namespace RefrigtzDLL
                         }
 
                     }
-                AllDraw.OutPut.Append("\r\nFoundLocationOfObject:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundLocationOfObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Location;
 
             }
@@ -499,7 +501,7 @@ namespace RefrigtzDLL
         //Constructor
         public AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -609,14 +611,14 @@ namespace RefrigtzDLL
                 //APredict = new ChessPerdict(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged//, ref th
                 //    );
                 OrderP = Order;
-                AllDraw.OutPut.Append("\r\nAllDraw_1:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllDraw_1:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             }
         }
         //Clone Copy Method
         public void Clone(AllDraw AA)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -736,12 +738,12 @@ namespace RefrigtzDLL
                     AA.SetObjectNumbers(AA.TableList[0]);
                 AA.AStarGreedy = AStarGreedy;
             }
-            AllDraw.OutPut.Append("\r\nClone:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //aBlanck Constructor
         public AllDraw(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -858,12 +860,12 @@ namespace RefrigtzDLL
                     MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                 }
             }
-            AllDraw.OutPut.Append("\r\nAllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Check For Thinking Of Current Item Movments Finished.
         public bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -908,11 +910,11 @@ namespace RefrigtzDLL
                             return true;
                     }
                 }
-                AllDraw.OutPut.Append("\r\nAllCurrentAStarGreedyThinkingFinished:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllCurrentAStarGreedyThinkingFinished:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Finished;
 
             }
-            AllDraw.OutPut.Append("\r\nAllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         /*void SetQuantumRowColumn(int Kind, int Section)
         {
@@ -976,7 +978,7 @@ if (Kind == 2)
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -1352,11 +1354,11 @@ if (Kind == 2)
                 }
                 SetRowColumnFinished = true;
             }
-            AllDraw.OutPut.Append("\r\nSetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void SetRowColumnFinishedWait()
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -1366,12 +1368,12 @@ if (Kind == 2)
                     Thread.Sleep(2);
                 } while (!SetRowColumnFinished);
             }
-            AllDraw.OutPut.Append("\r\nSetRowColumnFinishedWait:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SetRowColumnFinishedWait:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Max Index List Of Huristic AStarGreedy First Method.
         public void BeginIndexFoundingMaxLessofMaxList(int ListIndex, List<int> Founded, ref int LessB)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -1440,12 +1442,12 @@ if (Kind == 2)
                     }
                 }
             }
-            AllDraw.OutPut.Append("\r\nBeginIndexFoundingMaxLessofMaxList:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BeginIndexFoundingMaxLessofMaxList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Method for Check of Existence of Checkmate less than for checked mate.
         bool IsToCheckMateHasLessDeeperThanForCheckMate(AllDraw A, int Order, ref int ToCheckMate, ref int ForCheckMate, int AStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -1832,7 +1834,7 @@ if (Kind == 2)
                         }
 
                 }
-                AllDraw.OutPut.Append("\r\nIsToCheckMateHasLessDeeperThanForCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsToCheckMateHasLessDeeperThanForCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 ChessRules.CurrentOrder = CDummy;
                 return AA;
             }
@@ -1840,7 +1842,7 @@ if (Kind == 2)
         //When Penalty Regard Branches expanded to sub branches.
         void IsPenaltyRegardCheckMateAtBranch(int Order, ref int Do, AllDraw Base)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -2471,11 +2473,11 @@ if (Kind == 2)
                 }
                 ChessRules.CurrentOrder = CDummy;
             }
-            AllDraw.OutPut.Append("\r\nIsPenaltyRegardCheckMateAtBranch:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsPenaltyRegardCheckMateAtBranch:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public void MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -2656,11 +2658,11 @@ if (Kind == 2)
                         }
                 }
             }
-            AllDraw.OutPut.Append("\r\nMakePenaltyAllCheckMateBranches:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MakePenaltyAllCheckMateBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public AllDraw RemovePenalltyFromFirstBranches(int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -2814,14 +2816,14 @@ if (Kind == 2)
                            
                         }
                 }
-                AllDraw.OutPut.Append("\r\nRemovePenalltyFromFirstBranches:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("RemovePenalltyFromFirstBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return this;
             }
             
         }
         public AllDraw FoundOfCurrentTableNode(int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -2832,7 +2834,7 @@ if (Kind == 2)
                 {
                     THIS = this;
                     Found = true;
-                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return THIS;
                 }
                 else
@@ -2850,7 +2852,7 @@ if (Kind == 2)
                                     {
                                         THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -2871,7 +2873,7 @@ if (Kind == 2)
                                     {
                                         THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -2892,7 +2894,7 @@ if (Kind == 2)
                                     {
                                         THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -2914,7 +2916,7 @@ if (Kind == 2)
                                     {
                                         THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -2934,7 +2936,7 @@ if (Kind == 2)
                                     {
                                         THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -2955,7 +2957,7 @@ if (Kind == 2)
                                     {
                                         THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -2980,7 +2982,7 @@ if (Kind == 2)
                                     {
                                         THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -3001,7 +3003,7 @@ if (Kind == 2)
                                     {
                                         THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -3022,7 +3024,7 @@ if (Kind == 2)
                                     {
                                         THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -3044,7 +3046,7 @@ if (Kind == 2)
                                     {
                                         THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -3064,7 +3066,7 @@ if (Kind == 2)
                                     {
                                         THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -3084,7 +3086,7 @@ if (Kind == 2)
                                     {
                                         THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                                         Found = true;
-                                    AllDraw.OutPut.Append("\r\nFoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                                    { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                     return THIS;
                                     }
                                 }
@@ -3100,7 +3102,7 @@ if (Kind == 2)
         }
         public AllDraw FoundOfLeafDepenOfKind(int Kind, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -3121,7 +3123,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
 
                                 }
@@ -3139,7 +3141,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3157,7 +3159,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3176,7 +3178,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3193,7 +3195,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3211,7 +3213,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3233,7 +3235,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3250,7 +3252,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3267,7 +3269,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3284,7 +3286,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3301,7 +3303,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
                                 }
                                 else
@@ -3318,7 +3320,7 @@ if (Kind == 2)
                                 {
                                     Found = true;
                                     Leaf = this;
-                                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return Leaf;
 
                                 }
@@ -3330,13 +3332,13 @@ if (Kind == 2)
                            
                         }
                 }
-                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Leaf;
             }
         }
         public bool IsFoundOfLeafDepenOfKindhaveVictory(int Kind, ref bool Found, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -3357,7 +3359,7 @@ if (Kind == 2)
                                     && Kind == 1)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3374,7 +3376,7 @@ if (Kind == 2)
                             && Kind == 2)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3392,7 +3394,7 @@ if (Kind == 2)
     && Kind == 3)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3411,7 +3413,7 @@ if (Kind == 2)
                                     && Kind == 4)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3428,7 +3430,7 @@ if (Kind == 2)
                                     && Kind == 5)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3446,7 +3448,7 @@ if (Kind == 2)
                                     && Kind == 6)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3468,7 +3470,7 @@ if (Kind == 2)
                                     && Kind == 1)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3485,7 +3487,7 @@ if (Kind == 2)
                                     && Kind == 2)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3502,7 +3504,7 @@ if (Kind == 2)
                                     && Kind == 3)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3519,7 +3521,7 @@ if (Kind == 2)
                                     && Kind == 4)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3536,7 +3538,7 @@ if (Kind == 2)
                                     && Kind == 5)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                                 }
                                 else
@@ -3553,7 +3555,7 @@ if (Kind == 2)
                                     && Kind == 6)
                                 {
                                     Found = true;
-                                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
 
                                 }
@@ -3565,13 +3567,13 @@ if (Kind == 2)
                            
                         }
                 }
-                AllDraw.OutPut.Append("\r\nIsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Found;
             }
         }
         public void FoundOfLeafDepenOfKindFullGame(int[,] table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -3832,13 +3834,13 @@ if (Kind == 2)
                         //Initiate(ii, jj, a, table, Order, false, false,LeafAStarGreedy);
                     }
                 }
-                AllDraw.OutPut.Append("\r\nFoundOfLeafDepenOfKindFullGame:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKindFullGame:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return;
             }
         }
         public void MakeRegardAllCheckMateBranches(AllDraw A, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
@@ -4018,11 +4020,11 @@ if (Kind == 2)
                         }
                 }
             }
-            AllDraw.OutPut.Append("\r\nMakeRegardAllCheckMateBranches:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MakeRegardAllCheckMateBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         int[,] HuristicAStarGreadySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -5513,13 +5515,13 @@ if (Kind == 2)
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchPenalties:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchPenalties:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         void StringHuristics(int Obj, int Sec, bool AA, int Do, int WinOcuuredatChiled, int LoseOcuuredatChiled)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             String SOut = "";
             if (Obj == 1)
             {
@@ -5572,11 +5574,11 @@ if (Kind == 2)
                 OutPut.Append("\r\n" + SOut);
             }
             Thread.Sleep(10);
-            AllDraw.OutPut.Append("\r\nStringHuristics:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("StringHuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void SaveLess(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (Kind == 1)
             {
                 Less = SolderesOnTable[i].SoldierThinking[k].ReturnHuristic(i, j, Order, AA);
@@ -5606,14 +5608,14 @@ if (Kind == 2)
             {
                 Less = KingOnTable[i].KingThinking[k].ReturnHuristic(i, j, Order, AA);
             }
-            AllDraw.OutPut.Append("\r\nSaveLess:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SaveLess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
 
 
         void SaveTableHuristic(int i, int j, int k, int Kind, ref int[,] TableHuristic)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             if (Kind == 1)
             {
@@ -5644,11 +5646,11 @@ if (Kind == 2)
             {
                 TableHuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
             }
-            AllDraw.OutPut.Append("\r\nSaveTableHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SaveTableHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void SaveBeginEndLocation(int i, int j, int k, int Kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (Kind == 1)
             {
                 AllDraw.LastRow = SolderesOnTable[i].SoldierThinking[k].Row;
@@ -5696,12 +5698,12 @@ if (Kind == 2)
                 AllDraw.NextRow = KingOnTable[i].KingThinking[k].RowColumnKing[j][0];
                 AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
             }
-            AllDraw.OutPut.Append("\r\nSaveBeginEndLocation:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SaveBeginEndLocation:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         bool HuristicRegardSection(int i, int j, int k, ref bool Act, ref int[,] TableHuristic, ref bool AA, Color a, int Kind, ref int Do, int AStarGreedyi, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool continued = false;
             if (Kind == 1)
             {
@@ -5882,12 +5884,12 @@ if (Kind == 2)
                     continued = true;
                 }
             }
-            AllDraw.OutPut.Append("\r\nHuristicRegardSection:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicRegardSection:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return continued;
         }
         void InitiateVars(int i, int j, int k, int Kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             RW1 = -1;
             CL1 = -1;
             Ki1 = -1;
@@ -5948,11 +5950,11 @@ if (Kind == 2)
                 CL6 = k;
                 Ki6 = j;
             }
-            AllDraw.OutPut.Append("\r\nInitiateVars:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateVars:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         bool CheckeHuristci(int[,] TableS, int Order, int i, int j, int k)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool continued = false;
             ChessRules AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, TableS, Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
             //If there is kish or kshachamaz Order.
@@ -5972,12 +5974,12 @@ if (Kind == 2)
                         continued = true;
                 }
             }
-            AllDraw.OutPut.Append("\r\nCheckeHuristci:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckeHuristci:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return continued;
         }
         void OutputHuristic(int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O1 = new Object();
             lock (O1)
             {
@@ -5992,11 +5994,11 @@ if (Kind == 2)
                     //THIS.RefreshBoxText();
                 }
             }
-            AllDraw.OutPut.Append("\r\nOutputHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("OutputHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         bool HuristicMainBody(int i, int j, int k, ref bool Act, ref int[,] TableHuristic, ref bool CurrentTableHuristic, ref bool AA, Color a, int Kind, ref int Do, int AStarGreedyi, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool continued = false;
 
             if (Kind == 1)
@@ -6015,10 +6017,10 @@ if (Kind == 2)
                             
                                 if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                 {
-                                    if (Order == 1)
-                                        AllDraw.OutPut.Append("\r\nHuristic Soldier By Bob was not Valid Movment!");
-                                    else
-                                        AllDraw.OutPut.Append("\r\nHuristic Soldier By Alice was not Valid Movment!");
+                                if (Order == 1)
+                                AllDraw.OutPut.Append("\r\nHuristic Soldier By Bob was not Valid Movment!");
+                                else
+                                AllDraw.OutPut.Append("\r\nHuristic Soldier By Alice was not Valid Movment!");
 
                                     return true;
                                 }
@@ -6112,10 +6114,10 @@ if (Kind == 2)
                         
                             if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
-                                if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nHuristic Elephant By Bob was not Valid Movment!");
-                                else
-                                    AllDraw.OutPut.Append("\r\nHuristic Elephant By Alice was not Valid Movment!");
+                            if (Order == 1)
+                            AllDraw.OutPut.Append("\r\nHuristic Elephant By Bob was not Valid Movment!");
+                            else
+                            AllDraw.OutPut.Append("\r\nHuristic Elephant By Alice was not Valid Movment!");
 
                                 return true;
                             }
@@ -6181,17 +6183,20 @@ if (Kind == 2)
                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                     if (DynamicAStarGreedytPrograming && !CurrentTableHuristic && AStarGreedyi == 1)
                     {
-                        
-                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+
+                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        {
+                            if (Order == 1)
                             {
-                                if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nHuristic Hourse By Bob was not Valid Movment!");
-                                else
-                                    AllDraw.OutPut.Append("\r\nHuristic Hourse By Alice was not Valid Movment!");
+                                AllDraw.OutPut.Append("\r\nHuristic Hourse By Bob was not Valid Movment!");
+                            }
+                            else
+                            {
+                                AllDraw.OutPut.Append("\r\nHuristic Hourse By Alice was not Valid Movment!");
 
                                 return true;
                             }
-                       
+                        }
 
                     }
                     //When there is not Penalty regard mechanism.
@@ -6329,10 +6334,10 @@ if (Kind == 2)
                         
                             if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
-                                if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nHuristic Minister By Bob was not Valid Movment!");
-                                else
-                                    AllDraw.OutPut.Append("\r\nHuristic Minister By Alice was not Valid Movment!");
+                            if (Order == 1)
+                            AllDraw.OutPut.Append("\r\nHuristic Minister By Bob was not Valid Movment!");
+                            else { }
+                                AllDraw.OutPut.Append("\r\nHuristic Minister By Alice was not Valid Movment!");
 
                                 return true;
                             }
@@ -6461,12 +6466,12 @@ if (Kind == 2)
                 {
                 }
             }
-            AllDraw.OutPut.Append("\r\nHuristicMainBody:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicMainBody:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return continued;
         }
         int[,] HuristicAStarGreadySearchSoldier(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
 
             Object a1 = new Object();
@@ -6545,14 +6550,14 @@ if (Kind == 2)
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchSoldier:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
 
         int[,] HuristicAStarGreadySearchSoldierGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             Object a1 = new Object();
             lock (a1)
@@ -6565,13 +6570,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchSoldierGray:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchSoldierGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchSoldierBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -6583,14 +6588,14 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
 
         int[,] HuristicAStarGreadySearchElephantGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             Object a1 = new Object();
             lock (a1)
@@ -6603,13 +6608,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchElephantBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -6622,13 +6627,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchElephant(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -6705,7 +6710,7 @@ if (Kind == 2)
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchElephant:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
 
@@ -6713,7 +6718,7 @@ if (Kind == 2)
         }
         int[,] HuristicAStarGreadySearchHourseGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             Object a1 = new Object();
             lock (a1)
@@ -6726,13 +6731,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchHourseBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -6745,13 +6750,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchHourse(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -6823,13 +6828,13 @@ if (Kind == 2)
 
 
                         }
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchHourse:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchCastleGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -6841,13 +6846,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchCastleBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -6861,13 +6866,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchCastle(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O1 = new Object();
             lock (O1)
             {
@@ -6939,13 +6944,13 @@ if (Kind == 2)
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchCastle:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchMinsisterGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -6957,14 +6962,14 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchMinsisterGray:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchMinsisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
 
         }
         int[,] HuristicAStarGreadySearchMinsisterBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -6976,13 +6981,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchMinsisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchMinsisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchMinsister(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O3 = new Object();
             lock (O3)
             {
@@ -7049,13 +7054,13 @@ if (Kind == 2)
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchMinsister:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchMinsister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchKingGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -7066,13 +7071,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchKingGray:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchKingBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -7084,13 +7089,13 @@ if (Kind == 2)
                 }
                 else
                     CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchKing(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -7165,13 +7170,13 @@ if (Kind == 2)
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchKing:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchGray(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -7191,13 +7196,13 @@ if (Kind == 2)
                 TableHuristic = HuristicAStarGreadySearchMinsisterGray(ref TableHuristic, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
 
                 TableHuristic = HuristicAStarGreadySearchKingGray(ref TableHuristic, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchGray:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] HuristicAStarGreadySearchBrown(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -7216,13 +7221,13 @@ if (Kind == 2)
                 TableHuristic = HuristicAStarGreadySearchMinsisterBrown(ref TableHuristic, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
 
                 TableHuristic = HuristicAStarGreadySearchKingBrown(ref TableHuristic, AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreadySearchBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreadySearchBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         int[,] BrownHuristicAStarGreaedySearchPenalites(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -8701,14 +8706,14 @@ if (Kind == 2)
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
-                AllDraw.OutPut.Append("\r\nBrownHuristicAStarGreaedySearchPenalites:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BrownHuristicAStarGreaedySearchPenalites:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         //AStarGreedy First Huristic Method.
         public int[,] HuristicAStarGreedySearch(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -8811,13 +8816,13 @@ if (Kind == 2)
                 if (Act)
                     return TableHuristic;
                 //Return what found table.
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreedySearch:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreedySearch:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHuristic;
             }
         }
         public int[,] HuristicAStarGreedySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -8914,7 +8919,7 @@ if (Kind == 2)
                 MaxHuristicAStarGreedytBackWardTable.Add(TableHuristic);
 
                 Founded.Clear();
-                AllDraw.OutPut.Append("\r\nHuristicAStarGreedySearchPenalties:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicAStarGreedySearchPenalties:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //If Found retrun table.
                 if (Act)
                     return TableHuristic;
@@ -8925,7 +8930,7 @@ if (Kind == 2)
         //Genethic Algorithm Game Method.
         public void InitiateGenetic(int ii, int jj, Color a, int[,] Table, int Order, bool TB)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -9051,14 +9056,14 @@ if (Kind == 2)
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = Current;
 
-                AllDraw.OutPut.Append("\r\nInitiateGenetic:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateGenetic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
         }
         //AStarGreedy First Initiat Thinking Main Method.
         public AllDraw InitiateAStarGreedytOneNode(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, int iIndex, int KindIndex, int LeafAStarGreedy
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             {
                 SetObjectNumbers(Tab);
                 //List<Task> tHA = new List<Task>();
@@ -9596,7 +9601,7 @@ if (Kind == 2)
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
-                AllDraw.OutPut.Append("\r\nInitiateAStarGreedytOneNode:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytOneNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -9607,7 +9612,7 @@ if (Kind == 2)
         }
         int MaxGrayMidle()
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -9624,13 +9629,13 @@ if (Kind == 2)
                     if (Tab[i] > Max)
                         Max = Tab[i];
                 }
-                AllDraw.OutPut.Append("\r\nMaxGrayMidle:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxGrayMidle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Max;
             }
         }
         int MaxBrownHigh()
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             Object O = new Object();
             lock (O)
@@ -9648,13 +9653,13 @@ if (Kind == 2)
                     if (Tab[i] > Max)
                         Max = Tab[i];
                 }
-                AllDraw.OutPut.Append("\r\nMaxBrownHigh:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxBrownHigh:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Max;
             }
         }
         int MinBrownMidle()
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -9672,14 +9677,14 @@ if (Kind == 2)
                     if (Tab[i] < Min)
                         Min = Tab[i];
                 }
-                AllDraw.OutPut.Append("\r\nMinBrownMidle:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MinBrownMidle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Min;
             }
         }
         AllDraw InitiateAStarGreedytObjectGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy //, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -9988,13 +9993,13 @@ if (Kind == 2)
                     }//);
                 }//);
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedytObjectGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytObjectGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         AllDraw InitiateAStarGreedytObjectBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -10292,24 +10297,24 @@ if (Kind == 2)
 
                 }//);
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedytObjectBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytObjectBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         int FoundTableIndex(List<int[,]> T, int[,] TAab)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int C = -1;
             for (var i = 0; i < T.Count; i++)
             {
                 if (TableEqual(T[i], TAab))
                     C = i;
             }
-            AllDraw.OutPut.Append("\r\nFoundTableIndex:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundTableIndex:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return C;
         }
         bool TableEqual(int[,] t1, int[,] t2)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Is = true;
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -10317,12 +10322,12 @@ if (Kind == 2)
                     if (t1[i, j] != t2[i, j])
                         Is = false;
                 }
-            AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("TableEqual:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Is;
         }
         void Serve(int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (Order == 1)
             {
                 for (var i = 0; i < SodierMidle; i++)
@@ -10354,14 +10359,14 @@ if (Kind == 2)
                 for (var i = KingMidle; i < KingHigh; i++)
                     ServeISSup(Order, 6, i);
             }
-            AllDraw.OutPut.Append("\r\nServe:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Serve:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Parallel.ForEach(tH, items => Task.WaitAny(items));
         void ServeISSup(int Order, int Kind,
                 int ii
                )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (Kind == 1)
             {
                 if (Order == 1)
@@ -10895,13 +10900,13 @@ if (Kind == 2)
                     }
                 }
             }
-            AllDraw.OutPut.Append("\r\nServeISSup:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ServeISSup:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         AllDraw InitiateAStarGreedytSodlerGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //List<Task> tH = new List<Task>();
             Object oo = new Object();
             lock (oo)
@@ -10951,13 +10956,13 @@ if (Kind == 2)
                 });
             }
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedytSodlerGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytSodlerGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         AllDraw InitiateAStarGreedytElephantGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11003,14 +11008,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedytElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythHourseGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11059,14 +11064,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythCastleGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11114,14 +11119,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythMinisterGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11169,14 +11174,14 @@ if (Kind == 2)
                    
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythKingGray(int iii, int jjjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11222,14 +11227,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythKingGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythSoldierBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11279,14 +11284,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythElephantBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11333,14 +11338,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythHourseBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11389,14 +11394,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythCastleBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11445,14 +11450,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythMinisterBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11497,14 +11502,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
         AllDraw InitiateAStarGreedythKingBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
             lock (oo)
             {
@@ -11550,14 +11555,14 @@ if (Kind == 2)
                     }
                 });
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedythKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tH, items => Task.WaitAny(items));
             return this;
         }
 
         bool FullBoundryConditions(int Current, int Order, int iAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //if (TimerEnded)
             //return true;
 
@@ -11712,12 +11717,12 @@ if (Kind == 2)
                     OutPut.Append("\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                 }*/
             }
-            AllDraw.OutPut.Append("\r\nFullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return IS;
         } //AStarGreedy First Initiat Thinking Main Method.
         void AstarGreedyThinking(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int[,] Table, Color a, bool TB, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object o = new Object();
             lock (o)
             {
@@ -11858,12 +11863,12 @@ if (Kind == 2)
                     output.Wait();
                 }
             }
-            AllDraw.OutPut.Append("\r\nAstarGreedyThinking:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AstarGreedyThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool InitiateAStarGreedytCreationThinking(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
 )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object o = new Object();
             lock (o)
             {
@@ -12019,14 +12024,14 @@ if (Kind == 2)
 
                 }
             }
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedytCreationThinking:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytCreationThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return true;
         }
 
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             OrderP = Order;
                 SetObjectNumbers(Tab);
 
@@ -12294,7 +12299,7 @@ if (Kind == 2)
 
                     }
 
-            AllDraw.OutPut.Append("\r\nInitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(T, items => Task.WaitAny(items));
             return this;
            
@@ -12302,7 +12307,7 @@ if (Kind == 2)
         public AllDraw InitiateAStarGreedytObject(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             {
 
@@ -12412,13 +12417,13 @@ if (Kind == 2)
                         if (iAStarGreedy < MinThinkingTreeDepth)
                             MinThinkingTreeDepth = iAStarGreedy;
                 }
-                AllDraw.OutPut.Append("\r\nInitiateAStarGreedytObject:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return this;
             }
         }
         bool KingDan(int[,] Tab, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool IsDang = false;
             RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Order);
             IsDang = A.ObjectDangourKingMove(Order, Tab);
@@ -12432,13 +12437,13 @@ if (Kind == 2)
                 if (A.CheckGrayObjectDangour && ((!A.CheckBrownObjectDangour)))
                     IsDang = false;
             }
-            AllDraw.OutPut.Append("\r\nKingDan:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("KingDan:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return IsDang;
 
         }
         void BlitzGameThinkingTreeSolderGray(ref int PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Soldeir
             for (ik = 0; ik < SodierMidle; ik++)
             {
@@ -12491,11 +12496,11 @@ if (Kind == 2)
 
                 //Elephant
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeSolderGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeSolderGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeElephantGray(ref int PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Elephant
             for (ik = 0; ik < ElefantMidle; ik++)
             {
@@ -12550,11 +12555,11 @@ if (Kind == 2)
                     }
                 }
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeHourseGray(ref int PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Hourse.
             for (ik = 0; ik < HourseMidle; ik++)
             {
@@ -12608,11 +12613,11 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeCastleGray(ref int PreviousLessB, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Castle.
             for (ik = 0; ik < CastleMidle; ik++)
             {
@@ -12668,11 +12673,11 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeMinisterGray(ref int PreviousLessM, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Minister.
             for (ik = 0; ik < MinisterMidle; ik++)
             {
@@ -12730,11 +12735,11 @@ if (Kind == 2)
                     }
                 }
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeKingGray(ref int PreviousLessK, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //King.
             for (ik = 0; ik < KingMidle; ik++)
             {
@@ -12790,11 +12795,11 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeKingGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameTreeCreationThinkingTreeSolder(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             List<Task> tHA = new List<Task>();
             Object O1 = new Object();
             lock (O1)
@@ -12819,11 +12824,11 @@ if (Kind == 2)
             }
             //Parallel.ForEach(tHA, items => Task.WaitAny(items));
 
-            AllDraw.OutPut.Append("\r\nBlitzGameTreeCreationThinkingTreeSolder:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeSolder:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameTreeCreationThinkingTreeElephant(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             List<Task> tHA = new List<Task>();
             Object O1 = new Object();
             lock (O1)
@@ -12845,12 +12850,12 @@ if (Kind == 2)
 
                 }
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameTreeCreationThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tHA, items => Task.WaitAny(items));
         }
         void BlitzGameTreeCreationThinkingTreeHourse(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             List<Task> tHA = new List<Task>();
             Object O1 = new Object();
             lock (O1)
@@ -12871,12 +12876,12 @@ if (Kind == 2)
 
                 }
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameTreeCreationThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(tHA, items => Task.WaitAny(items));
         }
         void BlitzGameTreeCreationThinkingTreeCastle(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             List<Task> tHA = new List<Task>();
             Object O1 = new Object();
             lock (O1)
@@ -12899,11 +12904,11 @@ if (Kind == 2)
                 }
                 //Parallel.ForEach(tHA, items => Task.WaitAny(items));
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameTreeCreationThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameTreeCreationThinkingTreeMinister(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             List<Task> tHA = new List<Task>();
             Object O1 = new Object();
             lock (O1)
@@ -12926,11 +12931,11 @@ if (Kind == 2)
                 }
                 //Parallel.ForEach(tHA, items => Task.WaitAny(items));
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameTreeCreationThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameTreeCreationThinkingTreeKing(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //List<Task> tHA = new List<Task>();
             Object O1 = new Object();
             lock (O1)
@@ -12953,11 +12958,11 @@ if (Kind == 2)
                 }
                 //Parallel.ForEach(tHA, items => Task.WaitAny(items));
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameTreeCreationThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeSolderBrown(ref int PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             for (ik = SodierMidle; ik < SodierHigh; ik++)
             {
                 if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null
@@ -13009,11 +13014,11 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeSolderBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeSolderBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeElephantBrown(ref int PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Elephant
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
             {
@@ -13067,11 +13072,11 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeHourseBrown(ref int PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Hourse.
             for (ik = HourseMidle; ik < HourseHight; ik++)
             {
@@ -13124,11 +13129,11 @@ if (Kind == 2)
 
                 }
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         int FullGameMakimgBlitz(ref int[] Index, ref int[] jIndex, int Order, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int Kind = -1;
             int PS = Int32.MinValue, PE = Int32.MinValue, PH = Int32.MinValue, PB = Int32.MinValue, PM = Int32.MinValue, PK = Int32.MinValue;
             if (Order != AllDraw.OrderPlate)
@@ -13195,12 +13200,12 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nFullGameMakimgBlitz:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameMakimgBlitz:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return System.Math.Abs(Kind);
         }
         void BlitzGameThinkingTreeCastleBrown(ref int PreviousLessB, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Castles.
             for (ik = CastleMidle; ik < CastleHigh; ik++)
             {
@@ -13258,11 +13263,11 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeMinisterBrown(ref int PreviousLessM, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Minister.
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
             {
@@ -13314,11 +13319,11 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzGameThinkingTreeKingBrown(ref int PreviousLessK, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //King.
             for (ik = KingMidle; ik < KingHigh; ik++)
             {
@@ -13370,12 +13375,12 @@ if (Kind == 2)
 
                 }
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         void BlitzGameThinkingTree(int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Initiatye Variables.
             int DummyOrder = Order;
             int DummyCurrentOrder = ChessRules.CurrentOrder;
@@ -13619,11 +13624,11 @@ if (Kind == 2)
                     }
                 }
             }
-            AllDraw.OutPut.Append("\r\nBlitzGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         String Alphabet(int RowRealesed)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             String A = "";
             if (RowRealesed == 0)
                 A = "a";
@@ -13648,7 +13653,7 @@ if (Kind == 2)
             else
                                         if (RowRealesed == 7)
                 A = "h";
-            AllDraw.OutPut.Append("\r\nAlphabet:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Alphabet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return A;
 
 
@@ -13657,7 +13662,7 @@ if (Kind == 2)
         }
         String Number(int ColumnRealeased)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             String A = "";
             if (ColumnRealeased == 7)
                 A = "0";
@@ -13682,7 +13687,7 @@ if (Kind == 2)
             else
                                         if (ColumnRealeased == 0)
                 A = "7";
-            AllDraw.OutPut.Append("\r\nNumber:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Number:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return A;
 
 
@@ -13691,7 +13696,7 @@ if (Kind == 2)
         }
         int SumOfObjects(AllDraw A, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int Sum = 0;
             if (A == null)
                 return Sum;
@@ -13738,12 +13743,12 @@ if (Kind == 2)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
             }
-            AllDraw.OutPut.Append("\r\nSumOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SumOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Sum;
         }
         int SumMinusOfObjects(AllDraw A, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int Sum = 0;
             if (A == null)
                 return Sum;
@@ -13790,12 +13795,12 @@ if (Kind == 2)
                     if (A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].LoseOcuuredatChiled;
             }
-            AllDraw.OutPut.Append("\r\nSumMinusOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SumMinusOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Sum;
         }
         bool ReturnFullGameThinkingTreeSemaphore(int ik, int kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (kind == 1)
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].ThinkingBegin && (!SolderesOnTable[ik].SoldierThinking[0].ThinkingFinished))
@@ -13828,13 +13833,13 @@ if (Kind == 2)
                 if (KingOnTable[ik].KingThinking[0].ThinkingBegin && (!KingOnTable[ik].KingThinking[0].ThinkingFinished))
                     return true;
             }
-            AllDraw.OutPut.Append("\r\nReturnFullGameThinkingTreeSemaphore:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnFullGameThinkingTreeSemaphore:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
 
         bool ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(int ik, int kind, bool Penalty, int j)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (Penalty)
             {
                 if (kind == 1)
@@ -13905,12 +13910,12 @@ if (Kind == 2)
                         return true;
                 }
             }
-            AllDraw.OutPut.Append("\r\nReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
         void BlitzNotValidFullGameThinkingTreePartOne(int ik, int Order, int kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (kind == 1)
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
@@ -13953,11 +13958,11 @@ if (Kind == 2)
                 KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
-            AllDraw.OutPut.Append("\r\nBlitzNotValidFullGameThinkingTreePartOne:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzNotValidFullGameThinkingTreePartTow(int ik, int Order, int kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (kind == 1)
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
@@ -14000,11 +14005,11 @@ if (Kind == 2)
                 KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
-            AllDraw.OutPut.Append("\r\nBlitzNotValidFullGameThinkingTreePartTow:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartTow:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void BlitzNotValidFullGameThinkingTreePartThree(int ik, int Order, int kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (kind == 1)
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
@@ -14048,11 +14053,11 @@ if (Kind == 2)
                 KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
-            AllDraw.OutPut.Append("\r\nBlitzNotValidFullGameThinkingTreePartThree:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartThree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void FullGameThinkingTreeInitialization(int ik, int j, int Order, int kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (kind == 1)
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
@@ -14113,11 +14118,11 @@ if (Kind == 2)
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void OpOfFullGameThinkingTree(int ik, int j, int Order, int iAStarGreedy, int ii, int jj, Color a, int kind,bool FOUND,int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (kind == 1)
             {
                 OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
@@ -14301,11 +14306,11 @@ if (Kind == 2)
                 }*/
                 //array.Name = "K" + i.ToString();
             }
-            AllDraw.OutPut.Append("\r\nOpOfFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("OpOfFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
             bool FullGameThinkingTreeSoldier(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -14460,13 +14465,13 @@ if (Kind == 2)
                 SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
             for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
                 SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeSoldier:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
             //Elephant
         }
         bool FullGameThinkingTreeSoldierGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -14487,12 +14492,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeSoldierGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeSoldierGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeElephant(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -14649,12 +14654,12 @@ if (Kind == 2)
                 ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
             for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
                 ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeElephantGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -14677,12 +14682,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeHourse(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             bool Do = false;
             Object O1 = new Object();
@@ -14843,12 +14848,12 @@ if (Kind == 2)
                 HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
             for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
                 HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeHourseGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -14871,12 +14876,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeCastle(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             bool Do = false;
             Object O1 = new Object();
@@ -15029,12 +15034,12 @@ if (Kind == 2)
                 CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
             for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
                 CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeCastleGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15057,12 +15062,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeMinister(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15224,12 +15229,12 @@ if (Kind == 2)
                 MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
             for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
                 MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeMinisterGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15252,12 +15257,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeKing(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15414,12 +15419,12 @@ if (Kind == 2)
                 KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
             for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
                 KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeKingGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15442,12 +15447,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeKingGray:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeSoldierBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15470,12 +15475,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeElephantBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15498,12 +15503,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeHourseBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15525,12 +15530,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeCastleBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15552,12 +15557,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeMinisterBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15580,12 +15585,12 @@ if (Kind == 2)
                     }//);
                
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeKingBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
@@ -15617,12 +15622,12 @@ if (Kind == 2)
                     //if (JI == 5)
                 }
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //List<Task> tH = new List<Task>();
             bool Do = false;
             //Initiatye Variables.
@@ -16175,12 +16180,12 @@ if (Kind == 2)
                 );
                 output.Wait();
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeObject(int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //List<Task> tH = new List<Task>();
             bool Do = false;
             //Initiatye Variables.
@@ -16544,22 +16549,22 @@ if (Kind == 2)
                 );
                 output.Wait();
             }
-            AllDraw.OutPut.Append("\r\nFullGameThinkingTreeObject:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         int[,] CloneATable(int[,] Tab)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Table = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];
-            AllDraw.OutPut.Append("\r\nCloneATable:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Table;
         }
         int MaxOfSixHuristic(int _1, int _2, int _3, int _4, int _5, int _6)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int[] LessB = new int[6];
             LessB[0] = _1;
             LessB[1] = _2;
@@ -16578,12 +16583,12 @@ if (Kind == 2)
                     Value = i;
                 }
             }
-            AllDraw.OutPut.Append("\r\nMaxOfSixHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxOfSixHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Value;
         }
         int MinOfSixHuristic(int _1, int _2, int _3, int _4, int _5, int _6)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             int[] LessB = new int[6];
             LessB[0] = _1;
             LessB[1] = _2;
@@ -16602,13 +16607,13 @@ if (Kind == 2)
                     Value = i;
                 }
             }
-            AllDraw.OutPut.Append("\r\nMinOfSixHuristic:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MinOfSixHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Value;
         }
         //best movement indexes founder method.
         List<List<int>> FoundOfBestMovments(int AStarGreedy, ref List<int> i, ref List<int> j, ref List<int> k, AllDraw Dummy, Color a, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //initiate local variables.
             List<List<int>> p = new List<List<int>>();
 
@@ -16667,7 +16672,7 @@ if (Kind == 2)
                 k.Add(MaxHuristicAStarGreedytBackWard[0][24]);
                 p[5].Add(MaxHuristicAStarGreedytBackWard[0][22]);
             }
-            AllDraw.OutPut.Append("\r\nFoundOfBestMovments:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfBestMovments:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             //not found
             return p;
@@ -16676,7 +16681,7 @@ if (Kind == 2)
         //Copying of Items of Enemy Non Move and Current Moved.
         public AllDraw CopyRemeiningItems(AllDraw ADummy, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Initiate Local Variables.
             AllDraw Dummy = new AllDraw(OrderPlate, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
             Dummy.TableList.Add(TableList[0]);
@@ -16841,7 +16846,7 @@ if (Kind == 2)
                 }
 
             }
-            AllDraw.OutPut.Append("\r\nCopyRemeiningItems:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CopyRemeiningItems:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Return Constructed Tables.
             return Dummy;
 
@@ -16850,18 +16855,18 @@ if (Kind == 2)
 
         public bool TableZero(int[,] Ta)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             bool Zerro = true;
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     if (Ta[i, j] != 0)
                         Zerro = false;
-            AllDraw.OutPut.Append("\r\nTableZero:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("TableZero:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Zerro;
         }
         void CheckedMateConfiguratiionSoldier(int Order, int i, bool Regrad)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             for (var j = 0; j < SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Count; j++)
             {
                 
@@ -16878,11 +16883,11 @@ if (Kind == 2)
                         }
                
             }
-            AllDraw.OutPut.Append("\r\nCheckedMateConfiguratiionSoldier:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void CheckedMateConfiguratiionElephant(int Order, int i, bool Regrad)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             for (var j = 0; j < ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Count; j++)
             {
                 
@@ -16899,11 +16904,11 @@ if (Kind == 2)
                         }
                
             }
-            AllDraw.OutPut.Append("\r\nCheckedMateConfiguratiionElephant:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void CheckedMateConfiguratiionHourse(int Order, int i, bool Regrad)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             for (var j = 0; j < HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Count; j++)
             {
                 
@@ -16920,12 +16925,12 @@ if (Kind == 2)
                         }
                
             }
-            AllDraw.OutPut.Append("\r\nCheckedMateConfiguratiionHourse:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         void CheckedMateConfiguratiionCastle(int Order, int i, bool Regrad)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             for (var j = 0; j < CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Count; j++)
             {
                 
@@ -16942,11 +16947,11 @@ if (Kind == 2)
                         }
                
             }
-            AllDraw.OutPut.Append("\r\nCheckedMateConfiguratiionCastle:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void CheckedMateConfiguratiionMinister(int Order, int i, bool Regrad)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             for (var j = 0; j < MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Count; j++)
             {
                 
@@ -16963,11 +16968,11 @@ if (Kind == 2)
                         }
                
             }
-            AllDraw.OutPut.Append("\r\nCheckedMateConfiguratiionMinister:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void CheckedMateConfiguratiionking(int Order, int i, bool Regrad)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             for (var j = 0; j < KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Count; j++)
             {
                 
@@ -16984,12 +16989,12 @@ if (Kind == 2)
                         }
                
             }
-            AllDraw.OutPut.Append("\r\nCheckedMateConfiguratiionking:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         void CheckedMateConfiguratiion(int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -17136,11 +17141,11 @@ if (Kind == 2)
 
                 }
             }
-            AllDraw.OutPut.Append("\r\nCheckedMateConfiguratiion:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiion:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void SemaphoreExxedTime(int time, int Kind)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             if (time > 10000)
             {
@@ -17162,12 +17167,12 @@ if (Kind == 5)
                     OutPut.Append("\r\nKing Semaphre Full Game Exeede time");
 
             }
-            AllDraw.OutPut.Append("\r\nSemaphoreExxedTime:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SemaphoreExxedTime:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Main Initiate Thinking Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             var parallelOptions = new ParallelOptions();
             parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
             SetDeptIgnore = SetDept;
@@ -17375,13 +17380,13 @@ if (Kind == 5)
                     FoundATable = true;
                 }
             }
-            AllDraw.OutPut.Append("\r\nInitiate:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Initiate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return TableHuristic;
         }
         //Identification of Illegal AStarGreedy First and Common Hurist Movments.
         public bool IsEnemyThingsinStable(int[,] TableHuristic, int[,] TableAction, int Order)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Iniatiet Local Variables.
             int[,] Cromosom1 = TableHuristic;
             int[,] Cromosom2 = TableAction;
@@ -17705,7 +17710,7 @@ if (Kind == 5)
                     }
                 }
             }
-            AllDraw.OutPut.Append("\r\nIsEnemyThingsinStable:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsEnemyThingsinStable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //If Gen Foundation is Valid. 
             if (((FindNumber == 1 || FindNumber == 2) && Find) || CastlesKing || AllDraw.SodierConversionOcuured)
                 return Find;
@@ -17714,7 +17719,7 @@ if (Kind == 5)
         }
         List<int[]> WhereNumbers(String Tag)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object OOOO = new Object();
             lock (OOOO)
             {
@@ -17742,14 +17747,14 @@ if (Kind == 5)
                         }
                     }
                 }
-                AllDraw.OutPut.Append("\r\nWhereNumbers:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("WhereNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 
                 return TagList;
             }
         }
         String CreateHtmlTag(String Tag)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
@@ -17789,7 +17794,7 @@ if (Kind == 5)
                                   Tag = Tag.Replace("King", "<font Color=\"Silver\">" + "King" + "</font>");
               */
                 String R = "<font Color=\"Red\">" + Tag + "</font>";
-                AllDraw.OutPut.Append("\r\nCreateHtmlTag:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CreateHtmlTag:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return R;
             }
         }

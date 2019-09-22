@@ -73,6 +73,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using RefrigtzW;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 namespace RefrigtzW
@@ -80,6 +81,9 @@ namespace RefrigtzW
     [Serializable]
     public class ThinkingChess
     {
+        StringBuilder Space = new StringBuilder("&nbsp;");
+        int Spaces = 0;
+
         public double HuristicAttackValueSup = new double();
         public double HuristicMovementValueSup = new double();
         public double HuristicSelfSupportedValueSup = new double();
@@ -347,14 +351,14 @@ namespace RefrigtzW
             }
         }
         //Constructor
-        public ThinkingChess(int KindO,int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
+        public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
         {
             //Kind = Kin;
             Object O = new Object();
             lock (O)
             {
                 //Initiate Variables.
-                Kind = KindO;
+
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -367,58 +371,6 @@ namespace RefrigtzW
                 //SetObjectNumbers(TableConst);
                 Row = i;
                 Column = j;
-                if (KindO == 1)
-                {
-                    TableListSolder = new List<int[,]>();
-                    RowColumnSoldier = new List<int[]>();
-                    HitNumberSoldier = new List<int>();
-                    HuristicListSolder = new List<double[]>();
-                    PenaltyRegardListSolder = new List<QuantumAtamata>();
-                }
-                else
-                   if (KindO == 2)
-                {
-                    TableListElefant = new List<int[,]>();
-                    RowColumnElefant = new List<int[]>();
-                    HitNumberElefant = new List<int>();
-                    HuristicListElefant = new List<double[]>();
-                    PenaltyRegardListElefant = new List<QuantumAtamata>();
-                }
-                else
-                   if (KindO == 3)
-                {
-                    TableListHourse = new List<int[,]>();
-                    RowColumnHourse = new List<int[]>();
-                    HitNumberHourse = new List<int>();
-                    HuristicListHourse = new List<double[]>();
-                    PenaltyRegardListHourse = new List<QuantumAtamata>();
-                }
-                else
-                   if (KindO == 4)
-                {
-                    TableListCastle = new List<int[,]>();
-                    RowColumnCastle = new List<int[]>();
-                    HitNumberCastle = new List<int>();
-                    HuristicListCastle = new List<double[]>();
-                    PenaltyRegardListCastle = new List<QuantumAtamata>();
-                }
-                else
-                   if (KindO == 5)
-                {
-                    TableListMinister = new List<int[,]>();
-                    RowColumnMinister = new List<int[]>();
-                    HitNumberMinister = new List<int>();
-                    HuristicListMinister = new List<double[]>();
-                    PenaltyRegardListMinister = new List<QuantumAtamata>();
-                }
-                else if (KindO == 6)
-                {
-                    TableListKing = new List<int[,]>();
-                    RowColumnKing = new List<int[]>();
-                    HitNumberKing = new List<int>();
-                    HuristicListKing = new List<double[]>();
-                    PenaltyRegardListKing = new List<QuantumAtamata>();
-                }
                 //Clear Dearty Part.
                 /*TableListSolder.Clear();
                 TableListElefant.Clear();
@@ -539,7 +491,7 @@ namespace RefrigtzW
             }
         }
         //Constructor
-        public ThinkingChess(int KindO,int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, Color a, int[,] Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin)
+        public ThinkingChess(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, Color a, int[,] Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin)
         {
             Object O = new Object();
             lock (O)
@@ -560,60 +512,6 @@ namespace RefrigtzW
                 AStarGreedy = new List<AllDraw>();
                 ThingsNumber = ThingN;
                 CurrentArray = CurA;
-                Kind = KindO;
-                if (KindO == 1)
-                {
-                    TableListSolder = new List<int[,]>();
-                    RowColumnSoldier = new List<int[]>();
-                    HitNumberSoldier = new List<int>();
-                    HuristicListSolder = new List<double[]>();
-                    PenaltyRegardListSolder = new List<QuantumAtamata>();
-                }
-                else
-                  if (KindO == 2)
-                {
-                    TableListElefant = new List<int[,]>();
-                    RowColumnElefant = new List<int[]>();
-                    HitNumberElefant = new List<int>();
-                    HuristicListElefant = new List<double[]>();
-                    PenaltyRegardListElefant = new List<QuantumAtamata>();
-                }
-                else
-                  if (KindO == 3)
-                {
-                    TableListHourse = new List<int[,]>();
-                    RowColumnHourse = new List<int[]>();
-                    HitNumberHourse = new List<int>();
-                    HuristicListHourse = new List<double[]>();
-                    PenaltyRegardListHourse = new List<QuantumAtamata>();
-                }
-                else
-                  if (KindO == 4)
-                {
-                    TableListCastle = new List<int[,]>();
-                    RowColumnCastle = new List<int[]>();
-                    HitNumberCastle = new List<int>();
-                    HuristicListCastle = new List<double[]>();
-                    PenaltyRegardListCastle = new List<QuantumAtamata>();
-                }
-                else
-                  if (KindO == 5)
-                {
-                    TableListMinister = new List<int[,]>();
-                    RowColumnMinister = new List<int[]>();
-                    HitNumberMinister = new List<int>();
-                    HuristicListMinister = new List<double[]>();
-                    PenaltyRegardListMinister = new List<QuantumAtamata>();
-                }
-                else if (KindO == 6)
-                {
-                    TableListKing = new List<int[,]>();
-                    RowColumnKing = new List<int[]>();
-                    HitNumberKing = new List<int>();
-                    HuristicListKing = new List<double[]>();
-                    PenaltyRegardListKing = new List<QuantumAtamata>();
-                }
-
                 /*TableListSolder.Clear();
                 TableListElefant.Clear();
                 TableListHourse.Clear();
@@ -747,7 +645,7 @@ namespace RefrigtzW
                 //Assignment Content to New Content Object.
                 //Initaite New Object.
                 if (AA == null)
-                    AA = new ThinkingChess(Kind,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column//, Kind
+                    AA = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column//, Kind
                         );
                 AA.ArrangmentsChanged = ArrangmentsChanged;
                 //When Depth Object is not NULL.
@@ -1605,7 +1503,7 @@ namespace RefrigtzW
                         Tab[ik, jk] = Tabl[ik, jk];
                 double HuristicKillerValue = 0;
                 //Defualt is Gray Order.
-                double HA = 0;
+                double HA = 0.0;
                 double Sign = AllDraw.SignKiller;
                 int DummyOrder = Ord;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
@@ -3167,14 +3065,14 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                double Sign = 1;
+                double Sign = 1.0;
                 //When Current Order Sign Positive.
                 if (Order == AllDraw.OrderPlate)
-                    Sign = 1;
+                    Sign = 1.0;
                 else
                     //When Order is Opposite Sign Negative.
                     if (Order != AllDraw.OrderPlate)
-                    Sign = -1;
+                    Sign = -1.0;
 
                 return Sign;
             }
@@ -4498,7 +4396,7 @@ namespace RefrigtzW
                     else
                         //When King.
                         Dis = AllDraw.SignDistance * System.Math.Sqrt(System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2));
-                    //Dis = -1000;
+                    //Dis = -1000.0;
 
                 }
                 return Dis;

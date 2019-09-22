@@ -8,6 +8,9 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ThingsConverter
     {
+        StringBuilder Space = new StringBuilder("&nbsp;");
+        int Spaces = 0;
+
         //Initiate Global Variables.
         public static bool LoadConvertTable = false;
         public static int[,] TableConverted = null;
@@ -38,7 +41,7 @@ namespace QuantumRefrigiz
         public ThingsConverter(bool Arrangments, int i, int j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THI
             )
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             //Initite Global Variables with Local Parameter.
             //THIS = THI;
             ArrangmentsChanged = Arrangments;
@@ -48,12 +51,12 @@ namespace QuantumRefrigiz
             Order = Ord;
             Current = Cur;
 
-            AllDraw.OutPut.Append("\r\nThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         public ThingsConverter(bool arrangmentsChanged, int rowSource, int columnSource, Color color, int[,] tableS, int order, int v)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             ArrangmentsChanged = arrangmentsChanged;
             this.rowSource = rowSource;
             this.columnSource = columnSource;
@@ -61,13 +64,13 @@ namespace QuantumRefrigiz
             this.tableS = tableS;
             Order = order;
             this.v = v;
-            AllDraw.OutPut.Append("\r\nThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         //Convert Operation of Randomly All State Method.
         public bool ConvertOperation(int i, int j, Color a, int[,] Tab, int Ord, bool TB, int Cur)
         {
-            long Time = TimeElapced.TimeNow();
+            long Time = TimeElapced.TimeNow();Spaces++;
             Object OOO = new Object();
             lock (OOO)
             {
@@ -469,7 +472,7 @@ namespace QuantumRefrigiz
 
                 }
                 System.Threading.Thread.Sleep(100);
-                AllDraw.OutPut.Append("\r\nConvertOperation:" + (TimeElapced.TimeNow() - Time).ToString());
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ConvertOperation:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //return Convert State.
                 return Convert;
             }

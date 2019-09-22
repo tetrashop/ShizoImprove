@@ -12727,8 +12727,8 @@ namespace Refrigtz
                 if (Tag.Contains("King"))
                     Tag = Tag.Replace("King", "<font Color=\"Silver\">" + "King" + "</font>");
                     */
-                Tag = Tag.Replace("\r\n", "<br/>");
-                String R = "<font Color=\"Red\">" + Tag + "</font>";
+                Tag = Tag.Replace("\r\n", "</br>");
+                String R = "<p><font Color=\"Red\">" + Tag + "</font></p>";
 
                 return R;
             }
@@ -13111,12 +13111,12 @@ namespace Refrigtz
 
                 if (OrderPlate == 1)
                 {
-                    SetBoxText("\r\n Movments Number " + MovmentsNumber.ToString() + " is Gray OrderPlate!");
+                    SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Gray OrderPlate!");
                     RefreshBoxText();
                 }
                 else
                 {
-                    SetBoxText("\r\n Movments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
+                    SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
                     RefreshBoxText();
                 }
 
@@ -13422,9 +13422,9 @@ namespace Refrigtz
 
             if (OrderPlate == 1)
 
-                SetBoxText("\r\n Movments Number " + MovmentsNumber.ToString() + " is Gray OrderPlate!");
+                SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Gray OrderPlate!");
             else
-                SetBoxText("\r\n Movments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
+                SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
             RefreshBoxText();
             Begin4:
             if (OrderPlate == 1)

@@ -79,9 +79,9 @@ namespace RefrigtzW
                     for (int i = 0; i < k; i++)
                         fi[i] = 1.0 / (double)k;
 
-                    //Reward[i] = (double)(new Random()).Next(0, 100000) / 100000;
+                    //Reward[i] = (double)(new Random()).Next(0, 100000) / 100000.0;
                     Reward = 1.0 / (double)r;
-                    //Penalty[i] = (double)(new Random()).Next(0, 100000) / 100000;
+                    //Penalty[i] = (double)(new Random()).Next(0, 100000) / 100000.0;
                     Penalty = 1.0 / (double)r;
                 }
             }

@@ -1460,7 +1460,7 @@ namespace RefrigtzW
 
                 MovmentsNumber++;
 
-                ////SetBoxText("\r\n Movments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
+                ////SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
                 ////RefreshBoxText();();
 
                 ////SetBoxText("\r\nThinking Begin!");
