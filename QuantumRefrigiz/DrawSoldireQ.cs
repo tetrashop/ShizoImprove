@@ -155,7 +155,7 @@ namespace QuantumRefrigiz
                     i = 7;
                 for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
                 {
-                    SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);                    
+                    SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);                    
                 }
                 RowS = i;
                 ColumnS = j;
@@ -182,7 +182,7 @@ namespace QuantumRefrigiz
             for (var i = 0; i < AllDraw.SodierMovments; i++)
             {
                 
-                    AA.SoldierThinkingQuantum[i] = new ThinkingQuantumChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    AA.SoldierThinkingQuantum[i] = new ThinkingQuantumChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.SoldierThinkingQuantum[i].Clone(ref AA.SoldierThinkingQuantum[i]);
                
             }

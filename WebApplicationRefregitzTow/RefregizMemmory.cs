@@ -112,7 +112,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 2)
+                                 else if (Kind == 2)
                                  {
                                      for (int i = 0; i < Current.ElefantMidle; i++)
                                      {
@@ -133,7 +133,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 3)
+                                 else if (Kind == 3)
                                  {
                                      for (int i = 0; i < Current.HourseMidle; i++)
                                      {
@@ -155,7 +155,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 4)
+                                 else if (Kind == 4)
                                  {
                                      for (int i = 0; i < Current.CastleMidle; i++)
                                      {
@@ -200,7 +200,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 6)
+                                 else if (Kind == 6)
                                  {
                                      for (int i = 0; i < Current.KingMidle; i++)
                                      {
@@ -246,7 +246,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 2)
+                                 else if (Kind == 2)
                                  {
 
                                      for (int i = Current.ElefantMidle; i < Current.ElefantHigh; i++)
@@ -268,7 +268,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 3)
+                                 else if (Kind == 3)
                                  {
 
                                      for (int i = Current.HourseMidle; i < Current.HourseHight; i++)
@@ -291,7 +291,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 4)
+                                 else if (Kind == 4)
                                  {
 
                                      for (int i = Current.CastleMidle; i < Current.CastleHigh; i++)
@@ -314,7 +314,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 5)
+                                 else if (Kind == 5)
                                  {
                                      for (int i = Current.MinisterMidle; i < Current.MinisterHigh; i++)
                                      {
@@ -405,7 +405,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 2)
+                                 else if (Kind == 2)
                                  {
                                      for (int i = 0; i < Current.ElefantMidle; i++)
                                      {
@@ -426,7 +426,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 3)
+                                 else if (Kind == 3)
                                  {
                                      for (int i = 0; i < Current.HourseMidle; i++)
                                      {
@@ -448,7 +448,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 4)
+                                 else if (Kind == 4)
                                  {
                                      for (int i = 0; i < Current.CastleMidle; i++)
                                      {
@@ -493,7 +493,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 6)
+                                 else if (Kind == 6)
                                  {
                                      for (int i = 0; i < Current.KingMidle; i++)
                                      {
@@ -539,7 +539,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 2)
+                                 else if (Kind == 2)
                                  {
 
                                      for (int i = Current.ElefantMidle; i < Current.ElefantHigh; i++)
@@ -561,7 +561,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 3)
+                                 else if (Kind == 3)
                                  {
 
                                      for (int i = Current.HourseMidle; i < Current.HourseHight; i++)
@@ -584,7 +584,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 4)
+                                 else if (Kind == 4)
                                  {
 
                                      for (int i = Current.CastleMidle; i < Current.CastleHigh; i++)
@@ -607,7 +607,7 @@ namespace RefrigtzW
                                         
                                      }
                                  }
-                                 //else if (Kind == 5)
+                                 else if (Kind == 5)
                                  {
                                      for (int i = Current.MinisterMidle; i < Current.MinisterHigh; i++)
                                      {

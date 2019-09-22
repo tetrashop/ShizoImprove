@@ -7247,9 +7247,9 @@ if (Kind == 2)
                             Log(t);
                             if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
-                                if (Order == 1)
+                               if (Order == 1)
                                     AllDraw.OutPut.Append("\r\nHuristic Minister By Bob was not Valid Movment!");
-                                else
+                               else
                                     AllDraw.OutPut.Append("\r\nHuristic Minister By Alice was not Valid Movment!");
 
                                 return true;

@@ -16935,7 +16935,7 @@ if (Kind == 2)
                             CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].Initiate();
                             //if(Regrad)
                             //CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard();
-                            //else
+                           //else
                             if (!Regrad)
                                 CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
                             CastlesOnTable[i].CastleThinking[0].HuristicPenaltyValuePerform(CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j], Order, ref CastlesOnTable[i].CastleThinking[0].HuristicListCastle[j][0], true);

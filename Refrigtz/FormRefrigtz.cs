@@ -6183,15 +6183,15 @@ namespace Refrigtz
             System.Threading.Thread.Sleep(5);
         }
 
-        int CalculateMoveMentHueuristicUser(int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
+        int CalculateMoveMentHueuristicUser(int Kind,int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
         {
 
             RefrigtzDLL.ThinkingChess th = null;
             QuantumRefrigiz.ThinkingQuantumChess th1 = null;
             if (!Quantum)
-                th = new RefrigtzDLL.ThinkingChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
+                th = new RefrigtzDLL.ThinkingChess(Kind,0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
             else
-                th1 = new QuantumRefrigiz.ThinkingQuantumChess(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
+                th1 = new QuantumRefrigiz.ThinkingQuantumChess(Kind,0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
             int HuristicAttackValue = new int();
             int HuristicMovementValue = new int();
             int HuristicSelfSupportedValue = new int();
@@ -6457,7 +6457,7 @@ namespace Refrigtz
             {
                 if (Kind == 7)
                 {
-                    RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                    RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind,Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                     LastRow = (int)RowRealesed;
                     LastColumn = (int)ColumnRealeased;
                     CurrentKind = 7;
@@ -6470,7 +6470,7 @@ namespace Refrigtz
                 }
                 else if (Kind == -7)
                 {
-                    RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                    RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind,Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                     LastRow = (int)RowRealesed;
                     LastColumn = (int)ColumnRealeased;
                     CurrentKind = -7;
@@ -6484,7 +6484,7 @@ namespace Refrigtz
             {
                 if (Kind == 7)
                 {
-                    QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                    QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind,Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                     LastRow = (int)RowRealesed;
                     LastColumn = (int)ColumnRealeased;
                     CurrentKind = 7;
@@ -6497,7 +6497,7 @@ namespace Refrigtz
                 }
                 else if (Kind == -7)
                 {
-                    QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                    QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind,Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                     LastRow = (int)RowRealesed;
                     LastColumn = (int)ColumnRealeased;
                     CurrentKind = -7;
@@ -6789,7 +6789,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
 
                                                 SetSyntax();
@@ -6859,7 +6859,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 RefrigtzDLL.ThingsConverter.ActOfClickEqualTow = true;
                                                 LastRow = (int)RowRealesed;
                                                 LastColumn = (int)ColumnRealeased;
@@ -6954,7 +6954,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -6998,7 +6998,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -7044,7 +7044,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -7088,7 +7088,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -7134,7 +7134,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -7181,7 +7181,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -7227,7 +7227,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -7274,7 +7274,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -7321,7 +7321,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -7367,7 +7367,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, 1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -7413,7 +7413,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -7602,7 +7602,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -7669,7 +7669,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 RefrigtzDLL.ThingsConverter.ActOfClickEqualTow = true;
                                                 LastRow = (int)RowRealesed;
                                                 LastColumn = (int)ColumnClickP;
@@ -7761,7 +7761,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -7804,7 +7804,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -7850,7 +7850,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -7895,7 +7895,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -7941,7 +7941,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -7986,7 +7986,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -8032,7 +8032,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -8077,7 +8077,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -8123,7 +8123,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
                                                 //TakeRoot.CalculateRootGray(Draw);
 
                                                 SetSyntax();
@@ -8173,7 +8173,7 @@ namespace Refrigtz
                                             {
                                                 if (CheckMovment(Table, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, -1))
                                                     continue;
-                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -8220,7 +8220,7 @@ namespace Refrigtz
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -8473,7 +8473,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
 
                                                 SetSyntax();
@@ -8546,7 +8546,7 @@ namespace Refrigtz
 
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 QuantumRefrigiz.ThingsConverter.ActOfClickEqualTow = true;
                                                 LastRow = (int)RowRealesed;
                                                 LastColumn = (int)ColumnRealeased;
@@ -8641,7 +8641,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -8688,7 +8688,7 @@ namespace Refrigtz
 
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -8735,7 +8735,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -8781,7 +8781,7 @@ namespace Refrigtz
                                                     continue;
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -8828,7 +8828,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -8878,7 +8878,7 @@ namespace Refrigtz
 
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -8926,7 +8926,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -8975,7 +8975,7 @@ namespace Refrigtz
                                                     continue;
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -9023,7 +9023,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -9071,7 +9071,7 @@ namespace Refrigtz
                                                     continue;
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -9118,7 +9118,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
 
                                                 SetSyntax();
 
@@ -9312,7 +9312,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -9381,7 +9381,7 @@ namespace Refrigtz
                                                     continue;
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 QuantumRefrigiz.ThingsConverter.ActOfClickEqualTow = true;
                                                 LastRow = (int)RowRealesed;
                                                 LastColumn = (int)ColumnClickP;
@@ -9473,7 +9473,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -9518,7 +9518,7 @@ namespace Refrigtz
                                                     continue;
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -9565,7 +9565,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -9613,7 +9613,7 @@ namespace Refrigtz
 
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -9660,7 +9660,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -9707,7 +9707,7 @@ namespace Refrigtz
                                                     continue;
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -9754,7 +9754,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -9801,7 +9801,7 @@ namespace Refrigtz
                                                     continue;
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -9848,7 +9848,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
                                                 //TakeRoot.CalculateRootGray(DrawQ);
 
                                                 SetSyntax();
@@ -9900,7 +9900,7 @@ namespace Refrigtz
                                                     continue;
 
 
-                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
                                                 bool HitVal = false;
                                                 if (Hit != 0)
@@ -9948,7 +9948,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                                                 }
-                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                                                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
                                                 SetSyntax();
 
@@ -11531,7 +11531,7 @@ namespace Refrigtz
                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                 }
-                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(0,Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
               // OrderPlate = DrawQ.OrderP;
                 /*QuantumRefrigiz.AllDraw.TableListAction.Add(Tab);
                 Person = false;
@@ -11627,7 +11627,7 @@ namespace Refrigtz
                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                 }
-                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(0,Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
                 // OrderPlate = Draw.OrderP;
                 /*RefrigtzDLL.AllDraw.TableListAction.Add(Tab);
                 Person = false;
