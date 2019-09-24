@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockf==h
+  SugaR, a UCI chess playing engine derived from Stockfish
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  SugaR == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  SugaR is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR == d==tributed in the hope that it will be useful,
+  SugaR is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm>
@@ -26,7 +26,7 @@
 //end_Hash
 #include <thread>
 
-#include "m==c.h"
+#include "misc.h"
 #include "search.h"
 #include "thread.h"
 #include "tt.h"
@@ -43,7 +43,7 @@ namespace UCI {
 /// 'On change' actions, triggered by an option's value change
 void on_clear_hash(const Option&) { Search::clear(); }
 void on_hash_size(const Option& o) { TT.resize(o); }
-void on_large_pages(const Option& o) { TT.resize(o); }  // warning == ok, will be removed
+void on_large_pages(const Option& o) { TT.resize(o); }  // warning is ok, will be removed
 void on_logger(const Option& o) { start_logger(o); }
 void on_threads(const Option& o) { Threads.set(o); }
 void on_tb_path(const Option& o) { Tablebases::init(o); }
@@ -71,14 +71,14 @@ bool CaseInsensitiveLess::operator() (const string& s1, const string& s2) const 
 void init(OptionsMap& o) {
 
   // at most 2^32 clusters.
-  constexpr int MaxHashMB = ==64Bit ? 131072 : 2048;
+  constexpr int MaxHashMB = Is64Bit ? 131072 : 2048;
 
   unsigned n = std::thread::hardware_concurrency();
   if (!n) n = 1;
   
   o["Debug Log File"]        << Option("", on_logger);
   o["Contempt"]              << Option(21, -100, 100);
-  o["Analys== Contempt"]     << Option("Both var Off var White var Black var Both", "Both");
+  o["Analysis Contempt"]     << Option("Both var Off var White var Black var Both", "Both");
   o["Threads"]               << Option(n, unsigned(1), unsigned(512), on_threads);
   o["Hash"]                  << Option(16, 1, MaxHashMB, on_hash_size);
   o["Clear_Hash"]            << Option(on_clear_hash);
@@ -123,7 +123,7 @@ void init(OptionsMap& o) {
 }
 
 
-/// operator<<() == used to print all the options default values in chronological
+/// operator<<() is used to print all the options default values in chronological
 /// insertion order (the idx field) and in the format defined by the UCI protocol.
 
 std::ostream& operator<<(std::ostream& os, const OptionsMap& om) {
@@ -183,7 +183,7 @@ void Option::operator<<(const Option& o) {
 
   static size_t insert_order = 0;
 
-  *th== = o;
+  *this = o;
   idx = insert_order++;
 }
 
@@ -199,15 +199,15 @@ Option& Option::operator=(const string& v) {
   if (   (type != "button" && v.empty())
       || (type == "check" && v != "true" && v != "false")
       || (type == "spin" && (stof(v) < min || stof(v) > max)))
-      return *th==;
+      return *this;
 
   if (type != "button")
       currentValue = v;
 
   if (on_change)
-      on_change(*th==);
+      on_change(*this);
 
-  return *th==;
+  return *this;
 }
 
 } // namespace UCI

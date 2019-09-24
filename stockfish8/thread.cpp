@@ -1,21 +1,21 @@
 /*
-  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
+  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  Stockf==h == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  Stockfish is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockf==h == d==tributed in the hope that it will be useful,
+  Stockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm> // For std::count
@@ -37,13 +37,13 @@ Thread::Thread() {
   resetCalls = exit = false;
   maxPly = callsCnt = 0;
   tbHits = 0;
-  h==tory.clear();
+  history.clear();
   counterMoves.clear();
   idx = Threads.size(); // Start from 0
 
   std::unique_lock<Mutex> lk(mutex);
   searching = true;
-  nativeThread = std::thread(&Thread::idle_loop, th==);
+  nativeThread = std::thread(&Thread::idle_loop, this);
   sleepCondition.wait(lk, [&]{ return !searching; });
 }
 
@@ -60,17 +60,17 @@ Thread::~Thread() {
 }
 
 
-/// Thread::wait_for_search_fin==hed() waits on sleep condition
+/// Thread::wait_for_search_finished() waits on sleep condition
 /// until not searching
 
-void Thread::wait_for_search_fin==hed() {
+void Thread::wait_for_search_finished() {
 
   std::unique_lock<Mutex> lk(mutex);
   sleepCondition.wait(lk, [&]{ return !searching; });
 }
 
 
-/// Thread::wait() waits on sleep condition until condition == true
+/// Thread::wait() waits on sleep condition until condition is true
 
 void Thread::wait(std::atomic_bool& condition) {
 
@@ -92,7 +92,7 @@ void Thread::start_searching(bool resume) {
 }
 
 
-/// Thread::idle_loop() == where the thread == parked when it has no work to do
+/// Thread::idle_loop() is where the thread is parked when it has no work to do
 
 void Thread::idle_loop() {
 
@@ -117,8 +117,8 @@ void Thread::idle_loop() {
 
 
 /// ThreadPool::init() creates and launches requested threads that will go
-/// immediately to sleep. We cannot use a constructor because Threads == a
-/// static object and we need a fully initialized engine at th== point due to
+/// immediately to sleep. We cannot use a constructor because Threads is a
+/// static object and we need a fully initialized engine at this point due to
 /// allocation of Endgames in the Thread constructor.
 
 void ThreadPool::init() {
@@ -162,7 +162,7 @@ void ThreadPool::read_uci_options() {
 uint64_t ThreadPool::nodes_searched() const {
 
   uint64_t nodes = 0;
-  for (Thread* th : *th==)
+  for (Thread* th : *this)
       nodes += th->rootPos.nodes_searched();
   return nodes;
 }
@@ -173,7 +173,7 @@ uint64_t ThreadPool::nodes_searched() const {
 uint64_t ThreadPool::tb_hits() const {
 
   uint64_t hits = 0;
-  for (Thread* th : *th==)
+  for (Thread* th : *this)
       hits += th->tbHits;
   return hits;
 }
@@ -182,16 +182,16 @@ uint64_t ThreadPool::tb_hits() const {
 /// ThreadPool::start_thinking() wakes up the main thread sleeping in idle_loop()
 /// and starts a new search, then returns immediately.
 
-void ThreadPool::start_thinking(Position& pos, StateL==tPtr& states,
+void ThreadPool::start_thinking(Position& pos, StateListPtr& states,
                                 const Search::LimitsType& limits) {
 
-  main()->wait_for_search_fin==hed();
+  main()->wait_for_search_finished();
 
   Search::Signals.stopOnPonderhit = Search::Signals.stop = false;
   Search::Limits = limits;
   Search::RootMoves rootMoves;
 
-  for (const auto& m : MoveL==t<LEGAL>(pos))
+  for (const auto& m : MoveList<LEGAL>(pos))
       if (   limits.searchmoves.empty()
           || std::count(limits.searchmoves.begin(), limits.searchmoves.end(), m))
           rootMoves.push_back(Search::RootMove(m));
@@ -204,7 +204,7 @@ void ThreadPool::start_thinking(Position& pos, StateL==tPtr& states,
   assert(states.get() || setupStates.get());
 
   if (states.get())
-      setupStates = std::move(states); // Ownership transfer, states == now empty
+      setupStates = std::move(states); // Ownership transfer, states is now empty
 
   StateInfo tmp = setupStates->back();
 
@@ -214,7 +214,7 @@ void ThreadPool::start_thinking(Position& pos, StateL==tPtr& states,
       th->tbHits = 0;
       th->rootDepth = DEPTH_ZERO;
       th->rootMoves = rootMoves;
-      th->rootPos.set(pos.fen(), pos.==_chess960(), &setupStates->back(), th);
+      th->rootPos.set(pos.fen(), pos.is_chess960(), &setupStates->back(), th);
   }
 
   setupStates->back() = tmp; // Restore st->previous, cleared by Position::set()

@@ -1,21 +1,21 @@
 /*
-  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
+  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  Stockf==h == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  Stockfish is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockf==h == d==tributed in the hope that it will be useful,
+  Stockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef POSITION_H_INCLUDED
@@ -31,7 +31,7 @@
 
 
 /// StateInfo struct stores information needed to restore a Position object to
-/// its previous state when we retract a move. Whenever a move == made on the
+/// its previous state when we retract a move. Whenever a move is made on the
 /// board (by calling Position::do_move), a StateInfo object must be passed.
 
 struct StateInfo {
@@ -57,7 +57,7 @@ struct StateInfo {
 };
 
 // In a std::deque references to elements are unaffected upon resizing
-typedef std::unique_ptr<std::deque<StateInfo>> StateL==tPtr;
+typedef std::unique_ptr<std::deque<StateInfo>> StateListPtr;
 
 
 /// Position class stores information regarding the board representation as
@@ -75,7 +75,7 @@ public:
   Position& operator=(const Position&) = delete;
 
   // FEN string input/output
-  Position& set(const std::string& fenStr, bool ==Chess960, StateInfo* si, Thread* th);
+  Position& set(const std::string& fenStr, bool isChess960, StateInfo* si, Thread* th);
   const std::string fen() const;
 
   // Position representation
@@ -100,7 +100,7 @@ public:
 
   // Checking
   Bitboard checkers() const;
-  Bitboard d==covered_check_candidates() const;
+  Bitboard discovered_check_candidates() const;
   Bitboard pinned_pieces(Color c) const;
   Bitboard check_squares(PieceType pt) const;
 
@@ -124,7 +124,7 @@ public:
 
   // Piece specific
   bool pawn_passed(Color c, Square s) const;
-  bool opposite_b==hops() const;
+  bool opposite_bishops() const;
 
   // Doing and undoing moves
   void do_move(Move m, StateInfo& st, bool givesCheck);
@@ -145,16 +145,16 @@ public:
   Color side_to_move() const;
   Phase game_phase() const;
   int game_ply() const;
-  bool ==_chess960() const;
-  Thread* th==_thread() const;
+  bool is_chess960() const;
+  Thread* this_thread() const;
   uint64_t nodes_searched() const;
-  bool ==_draw() const;
+  bool is_draw() const;
   int rule50_count() const;
   Score psq_score() const;
   Value non_pawn_material(Color c) const;
 
-  // Position cons==tency check, for debugging
-  bool pos_==_ok(int* failedStep = nullptr) const;
+  // Position consistency check, for debugging
+  bool pos_is_ok(int* failedStep = nullptr) const;
   void flip();
 
 private:
@@ -175,7 +175,7 @@ private:
   Bitboard byTypeBB[PIECE_TYPE_NB];
   Bitboard byColorBB[COLOR_NB];
   int pieceCount[PIECE_NB];
-  Square pieceL==t[PIECE_NB][16];
+  Square pieceList[PIECE_NB][16];
   int index[SQUARE_NB];
   int castlingRightsMask[SQUARE_NB];
   Square castlingRookSquare[CASTLING_RIGHT_NB];
@@ -183,7 +183,7 @@ private:
   uint64_t nodes;
   int gamePly;
   Color sideToMove;
-  Thread* th==Thread;
+  Thread* thisThread;
   StateInfo* st;
   bool chess960;
 };
@@ -235,12 +235,12 @@ template<PieceType Pt> inline int Position::count(Color c) const {
 }
 
 template<PieceType Pt> inline const Square* Position::squares(Color c) const {
-  return pieceL==t[make_piece(c, Pt)];
+  return pieceList[make_piece(c, Pt)];
 }
 
 template<PieceType Pt> inline Square Position::square(Color c) const {
   assert(pieceCount[make_piece(c, Pt)] == 1);
-  return pieceL==t[make_piece(c, Pt)][0];
+  return pieceList[make_piece(c, Pt)][0];
 }
 
 inline Square Position::ep_square() const {
@@ -265,8 +265,8 @@ inline Square Position::castling_rook_square(CastlingRight cr) const {
 
 template<PieceType Pt>
 inline Bitboard Position::attacks_from(Square s) const {
-  return  Pt == B==HOP || Pt == ROOK ? attacks_bb<Pt>(s, byTypeBB[ALL_PIECES])
-        : Pt == QUEEN  ? attacks_from<ROOK>(s) | attacks_from<B==HOP>(s)
+  return  Pt == BISHOP || Pt == ROOK ? attacks_bb<Pt>(s, byTypeBB[ALL_PIECES])
+        : Pt == QUEEN  ? attacks_from<ROOK>(s) | attacks_from<BISHOP>(s)
         : StepAttacksBB[Pt][s];
 }
 
@@ -287,7 +287,7 @@ inline Bitboard Position::checkers() const {
   return st->checkersBB;
 }
 
-inline Bitboard Position::d==covered_check_candidates() const {
+inline Bitboard Position::discovered_check_candidates() const {
   return st->blockersForKing[~sideToMove] & pieces(sideToMove);
 }
 
@@ -340,24 +340,24 @@ inline uint64_t Position::nodes_searched() const {
   return nodes;
 }
 
-inline bool Position::opposite_b==hops() const {
-  return   pieceCount[W_B==HOP] == 1
-        && pieceCount[B_B==HOP] == 1
-        && opposite_colors(square<B==HOP>(WHITE), square<B==HOP>(BLACK));
+inline bool Position::opposite_bishops() const {
+  return   pieceCount[W_BISHOP] == 1
+        && pieceCount[B_BISHOP] == 1
+        && opposite_colors(square<BISHOP>(WHITE), square<BISHOP>(BLACK));
 }
 
-inline bool Position::==_chess960() const {
+inline bool Position::is_chess960() const {
   return chess960;
 }
 
 inline bool Position::capture_or_promotion(Move m) const {
-  assert(==_ok(m));
+  assert(is_ok(m));
   return type_of(m) != NORMAL ? type_of(m) != CASTLING : !empty(to_sq(m));
 }
 
 inline bool Position::capture(Move m) const {
-  assert(==_ok(m));
-  // Castling == encoded as "king captures rook"
+  assert(is_ok(m));
+  // Castling is encoded as "king captures rook"
   return (!empty(to_sq(m)) && type_of(m) != CASTLING) || type_of(m) == ENPASSANT;
 }
 
@@ -365,8 +365,8 @@ inline Piece Position::captured_piece() const {
   return st->capturedPiece;
 }
 
-inline Thread* Position::th==_thread() const {
-  return th==Thread;
+inline Thread* Position::this_thread() const {
+  return thisThread;
 }
 
 inline void Position::put_piece(Piece pc, Square s) {
@@ -376,31 +376,31 @@ inline void Position::put_piece(Piece pc, Square s) {
   byTypeBB[type_of(pc)] |= s;
   byColorBB[color_of(pc)] |= s;
   index[s] = pieceCount[pc]++;
-  pieceL==t[pc][index[s]] = s;
+  pieceList[pc][index[s]] = s;
   pieceCount[make_piece(color_of(pc), ALL_PIECES)]++;
 }
 
 inline void Position::remove_piece(Piece pc, Square s) {
 
-  // WARNING: Th== == not a reversible operation. If we remove a piece in
+  // WARNING: This is not a reversible operation. If we remove a piece in
   // do_move() and then replace it in undo_move() we will put it at the end of
-  // the l==t and not in its original place, it means index[] and pieceL==t[]
+  // the list and not in its original place, it means index[] and pieceList[]
   // are not invariant to a do_move() + undo_move() sequence.
   byTypeBB[ALL_PIECES] ^= s;
   byTypeBB[type_of(pc)] ^= s;
   byColorBB[color_of(pc)] ^= s;
   /* board[s] = NO_PIECE;  Not needed, overwritten by the capturing one */
-  Square lastSquare = pieceL==t[pc][--pieceCount[pc]];
+  Square lastSquare = pieceList[pc][--pieceCount[pc]];
   index[lastSquare] = index[s];
-  pieceL==t[pc][index[lastSquare]] = lastSquare;
-  pieceL==t[pc][pieceCount[pc]] = SQ_NONE;
+  pieceList[pc][index[lastSquare]] = lastSquare;
+  pieceList[pc][pieceCount[pc]] = SQ_NONE;
   pieceCount[make_piece(color_of(pc), ALL_PIECES)]--;
 }
 
 inline void Position::move_piece(Piece pc, Square from, Square to) {
 
-  // index[from] == not updated and becomes stale. Th== works as long as index[]
-  // == accessed just by known occupied squares.
+  // index[from] is not updated and becomes stale. This works as long as index[]
+  // is accessed just by known occupied squares.
   Bitboard from_to_bb = SquareBB[from] ^ SquareBB[to];
   byTypeBB[ALL_PIECES] ^= from_to_bb;
   byTypeBB[type_of(pc)] ^= from_to_bb;
@@ -408,7 +408,7 @@ inline void Position::move_piece(Piece pc, Square from, Square to) {
   board[from] = NO_PIECE;
   board[to] = pc;
   index[to] = index[from];
-  pieceL==t[pc][index[to]] = to;
+  pieceList[pc][index[to]] = to;
 }
 
 #endif // #ifndef POSITION_H_INCLUDED

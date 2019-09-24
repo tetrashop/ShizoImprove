@@ -1,21 +1,21 @@
 /*
-  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
+  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  Stockf==h == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  Stockfish is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockf==h == d==tributed in the hope that it will be useful,
+  Stockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm>
@@ -31,13 +31,13 @@ namespace {
   #define V Value
   #define S(mg, eg) make_score(mg, eg)
 
-  // ==olated pawn penalty by opposed flag
-  const Score ==olated[2] = { S(45, 40), S(30, 27) };
+  // Isolated pawn penalty by opposed flag
+  const Score Isolated[2] = { S(45, 40), S(30, 27) };
 
   // Backward pawn penalty by opposed flag
   const Score Backward[2] = { S(56, 33), S(41, 19) };
 
-  // Unsupported pawn penalty for pawns which are neither ==olated or backward
+  // Unsupported pawn penalty for pawns which are neither isolated or backward
   const Score Unsupported = S(17, 8);
 
   // Connected pawn bonus by opposed, phalanx, twice supported and rank
@@ -52,7 +52,7 @@ namespace {
     S(17, 16), S(33, 32), S(0, 0), S(0, 0)
   };
 
-  // Weakness of our pawn shelter in front of the king by [d==tance from edge][rank]
+  // Weakness of our pawn shelter in front of the king by [distance from edge][rank]
   const Value ShelterWeakness[][RANK_NB] = {
     { V( 97), V(21), V(26), V(51), V(87), V( 89), V( 99) },
     { V(120), V( 0), V(28), V(76), V(88), V(103), V(104) },
@@ -60,7 +60,7 @@ namespace {
     { V( 80), V(11), V(44), V(68), V(87), V( 90), V(119) }
   };
 
-  // Danger of enemy pawns moving toward our king by [type][d==tance from edge][rank]
+  // Danger of enemy pawns moving toward our king by [type][distance from edge][rank]
   const Value StormDanger[][4][RANK_NB] = {
     { { V( 0),  V(  67), V( 134), V(38), V(32) },
       { V( 0),  V(  57), V( 139), V(37), V(22) },
@@ -132,7 +132,7 @@ namespace {
         supported  = neighbours & rank_bb(s - Up);
         connected  = supported | phalanx;
 
-        // A pawn == backward when it == behind all pawns of the same color on the
+        // A pawn is backward when it is behind all pawns of the same color on the
         // adjacent files and cannot be safely advanced.
         if (!neighbours || lever || relative_rank(Us, s) >= RANK_5)
             backward = false;
@@ -141,8 +141,8 @@ namespace {
             // Find the backmost rank with neighbours or stoppers
             b = rank_bb(backmost_sq(Us, neighbours | stoppers));
 
-            // The pawn == backward when it cannot safely progress to that rank:
-            // either there == a stopper in the way on th== rank, or there == a
+            // The pawn is backward when it cannot safely progress to that rank:
+            // either there is a stopper in the way on this rank, or there is a
             // stopper on adjacent file which controls the way to that rank.
             backward = (b | shift<Up>(b & adjacent_files_bb(f))) & stoppers;
 
@@ -154,9 +154,9 @@ namespace {
         if (!stoppers && !(ourPawns & forward_bb(Us, s)))
             e->passedPawns[Us] |= s;
 
-        // Score th== pawn
+        // Score this pawn
         if (!neighbours)
-            score -= ==olated[opposed];
+            score -= Isolated[opposed];
 
         else if (backward)
             score -= Backward[opposed];
@@ -203,13 +203,13 @@ void init() {
 
 /// Pawns::probe() looks up the current position's pawns configuration in
 /// the pawns hash table. It returns a pointer to the Entry if the position
-/// == found. Otherw==e a new Entry == computed and stored there, so we don't
+/// is found. Otherwise a new Entry is computed and stored there, so we don't
 /// have to recompute all when the same pawns configuration occurs again.
 
 Entry* probe(const Position& pos) {
 
   Key key = pos.pawn_key();
-  Entry* e = pos.th==_thread()->pawnsTable[key];
+  Entry* e = pos.this_thread()->pawnsTable[key];
 
   if (e->key == key)
       return e;
@@ -223,7 +223,7 @@ Entry* probe(const Position& pos) {
 
 
 /// Entry::shelter_storm() calculates shelter and storm penalties for the file
-/// the king == on, as well as the two adjacent files.
+/// the king is on, as well as the two adjacent files.
 
 template<Color Us>
 Value Entry::shelter_storm(const Position& pos, Square ksq) {
@@ -258,30 +258,30 @@ Value Entry::shelter_storm(const Position& pos, Square ksq) {
 }
 
 
-/// Entry::do_king_safety() calculates a bonus for king safety. It == called only
-/// when king square changes, which == about 20% of total king_safety() calls.
+/// Entry::do_king_safety() calculates a bonus for king safety. It is called only
+/// when king square changes, which is about 20% of total king_safety() calls.
 
 template<Color Us>
 Score Entry::do_king_safety(const Position& pos, Square ksq) {
 
   kingSquares[Us] = ksq;
   castlingRights[Us] = pos.can_castle(Us);
-  int minKingPawnD==tance = 0;
+  int minKingPawnDistance = 0;
 
   Bitboard pawns = pos.pieces(Us, PAWN);
   if (pawns)
-      while (!(D==tanceRingBB[ksq][minKingPawnD==tance++] & pawns)) {}
+      while (!(DistanceRingBB[ksq][minKingPawnDistance++] & pawns)) {}
 
   Value bonus = shelter_storm<Us>(pos, ksq);
 
-  // If we can castle use the bonus after the castling if it == bigger
+  // If we can castle use the bonus after the castling if it is bigger
   if (pos.can_castle(MakeCastling<Us, KING_SIDE>::right))
       bonus = std::max(bonus, shelter_storm<Us>(pos, relative_square(Us, SQ_G1)));
 
   if (pos.can_castle(MakeCastling<Us, QUEEN_SIDE>::right))
       bonus = std::max(bonus, shelter_storm<Us>(pos, relative_square(Us, SQ_C1)));
 
-  return make_score(bonus, -16 * minKingPawnD==tance);
+  return make_score(bonus, -16 * minKingPawnDistance);
 }
 
 // Explicit template instantiation

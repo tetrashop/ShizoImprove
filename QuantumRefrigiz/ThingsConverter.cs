@@ -18,7 +18,7 @@ namespace QuantumRefrigiz
         public static bool ClickOcurred = false;
         public static bool ActOfClickEqualTow = false;
         public bool Convert = false;
-        public bool ConvertedToMin==ter = false;
+        public bool ConvertedToMinister = false;
         public bool ConvertedToCastle = false;
         public bool ConvertedToElefant = false;
         public bool ConvertedToHourse = false;
@@ -32,7 +32,7 @@ namespace QuantumRefrigiz
         private int[,] tableS;
         private int v;
 
-        //AllDraw. TH==;
+        //AllDraw. THIS;
         public ThingsConverter()
         {
             //long Time = TimeElapced.TimeNow();
@@ -43,7 +43,7 @@ namespace QuantumRefrigiz
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             //Initite Global Variables with Local Parameter.
-            //TH== = THI;
+            //THIS = THI;
             ArrangmentsChanged = Arrangments;
             Row = i;
             Column = j;
@@ -58,12 +58,12 @@ namespace QuantumRefrigiz
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ArrangmentsChanged = arrangmentsChanged;
-            th==.rowSource = rowSource;
-            th==.columnSource = columnSource;
-            th==.color = color;
-            th==.tableS = tableS;
+            this.rowSource = rowSource;
+            this.columnSource = columnSource;
+            this.color = color;
+            this.tableS = tableS;
             Order = order;
-            th==.v = v;
+            this.v = v;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
@@ -80,7 +80,7 @@ namespace QuantumRefrigiz
                 color = a;
                 Order = Ord;
                 Current = Cur;
-                //If Convert == Act and click tow time occured
+                //If Convert is Act and click tow time occured
                 if (!Convert && (ActOfClickEqualTow || AllDraw.StateCC || (!AllDraw.Person)))
 
                 {
@@ -117,7 +117,7 @@ namespace QuantumRefrigiz
                         if (Order == -1 && Column == 7)
                             Convert = true;
                     }
-                    //If Converted == Occured the Operation od Set and table reference content occured.
+                    //If Converted is Occured the Operation od Set and table reference content occured.
                     if (Convert)
                     {
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }
@@ -128,7 +128,7 @@ namespace QuantumRefrigiz
                             //Randomly Number of 4 kind Object.
                             int Rand = -1;
                             if (//AllDraw.Person && 
-                                AllDraw.StateCP && AllDraw.TH==SecradioButtonGrayOrderChecked)
+                                AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                             {
                                 if (AllDraw.OrderPlate == 1)
                                 {
@@ -140,13 +140,13 @@ namespace QuantumRefrigiz
                                      AllDraw.ConvertedKind = -2;
  */
                                     Rand = 0;
-                                    ConvertedToMin==ter = true;
+                                    ConvertedToMinister = true;
                                     AllDraw.ConvertedKind = -2;
                                 }
                             }
                             else
                                 if (//AllDraw.Person &&
-                                AllDraw.StateCP && AllDraw.TH==SecradioButtonBrownOrderChecked)
+                                AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                             {
                                 if (AllDraw.OrderPlate == -1)
                                 {
@@ -159,27 +159,27 @@ namespace QuantumRefrigiz
                                       AllDraw.ConvertedKind = -2;
                                  */
                                     Rand = 0;
-                                    ConvertedToMin==ter = true;
+                                    ConvertedToMinister = true;
                                     AllDraw.ConvertedKind = -2;
                                 }
                             }
                             else
                                 Rand = (new Random()).Next(0, 4);
-                            //If Rand == Equaled the Operation will cuased automaticcally Base on Color..
+                            //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
                             if (Rand == 0)
                             {
                                 if (Order == 1)
                                 {
-                                    // Min==terMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
-                                    //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    // MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = 5;
                                 }
                                 else if (Order == -1)
                                 {
-                                    //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = -5;
                                 }
-                                ConvertedToMin==ter = true;
+                                ConvertedToMinister = true;
                             }
                             else if (Rand == 1)
                             {
@@ -237,7 +237,7 @@ namespace QuantumRefrigiz
                                 //Randomly Number of 4 kind Object.
                                 int Rand = -1;
                                 if (//AllDraw.Person &&
-                                    AllDraw.StateCP && AllDraw.TH==SecradioButtonGrayOrderChecked)
+                                    AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
@@ -249,13 +249,13 @@ namespace QuantumRefrigiz
                                          AllDraw.ConvertedKind = -2;
                                     */
                                         Rand = 0;
-                                        ConvertedToMin==ter = true;
+                                        ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
                                     if (//AllDraw.Person && 
-                                    AllDraw.StateCP && AllDraw.TH==SecradioButtonBrownOrderChecked)
+                                    AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
@@ -267,27 +267,27 @@ namespace QuantumRefrigiz
                                           AllDraw.ConvertedKind = -2;
                                       */
                                         Rand = 0;
-                                        ConvertedToMin==ter = true;
+                                        ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
                                     Rand = (new Random()).Next(0, 4);
-                                //If Rand == Equaled the Operation will cuased automaticcally Base on Color..
+                                //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
                                 if (Rand == 0)
                                 {
                                     if (Order == 1)
                                     {
-                                        //  Min==terMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
-                                        //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //  MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 5;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -5;
                                     }
-                                    ConvertedToMin==ter = true;
+                                    ConvertedToMinister = true;
                                 }
                                 else if (Rand == 1)
                                 {
@@ -348,7 +348,7 @@ namespace QuantumRefrigiz
                                 //Randomly Number of 4 kind Object.
                                 int Rand = -1;
                                 if (//AllDraw.Person && 
-                                    AllDraw.StateCP && AllDraw.TH==SecradioButtonGrayOrderChecked)
+                                    AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
@@ -360,13 +360,13 @@ namespace QuantumRefrigiz
                                           AllDraw.ConvertedKind = -2;
                                     */
                                         Rand = 0;
-                                        ConvertedToMin==ter = true;
+                                        ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
                                     if (//AllDraw.Person && 
-                                    AllDraw.StateCP && AllDraw.TH==SecradioButtonBrownOrderChecked)
+                                    AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
@@ -378,27 +378,27 @@ namespace QuantumRefrigiz
                                            AllDraw.ConvertedKind = -2;
                                       */
                                         Rand = 0;
-                                        ConvertedToMin==ter = true;
+                                        ConvertedToMinister = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
                                     Rand = (new Random()).Next(0, 4);
-                                //If Rand == Equaled the Operation will cuased automaticcally Base on Color..
+                                //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
                                 if (Rand == 0)
                                 {
                                     if (Order == 1)
                                     {
-                                        //Min==terMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
-                                        //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 5;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -5;
                                     }
-                                    ConvertedToMin==ter = true;
+                                    ConvertedToMinister = true;
                                 }
                                 else if (Rand == 1)
                                 {

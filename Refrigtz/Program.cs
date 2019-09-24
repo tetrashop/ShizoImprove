@@ -38,7 +38,7 @@ namespace Refrigtz
             Process.GetCurrentProcess().PriorityBoostEnabled = true;
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
 
-            // Of course th== only affects the main thread rather than child threads.
+            // Of course this only affects the main thread rather than child threads.
             Thread.CurrentThread.Priority = ThreadPriority.Highest;
 
             Int64 seed = SomeExtremelyLargeNumber; // Millions of digits.
@@ -80,11 +80,11 @@ namespace Refrigtz
         {
             // IncreasingThreadPerformance();
             //Intiate  Program Load and Calling.
-            Application.EnableV==ualStyles();
+            Application.EnableVisualStyles();
             Load t = null;
             try
             {
-                //https://blogs.msdn.microsoft.com/pfxteam/2011/09/17/whats-new-for-parallel==m-in-net-4-5/
+                //https://blogs.msdn.microsoft.com/pfxteam/2011/09/17/whats-new-for-parallelism-in-net-4-5/
                 //Task tt = new Task(new Action(TaskParallelLibrary));
                 //tt.Start();
                 //Task ttt = new Task(new Action(CoordinationDataStructures));
@@ -92,11 +92,11 @@ namespace Refrigtz
                 //Application.SetCompatibleTextRenderingDefault(false);
                  t = new Load();
                 Application.Run(t);
-                (new TakeRoot()).Save(t.ttt.Quantum, t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHur==ticFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechn==am, t.ttt.BestMovments, t.ttt.PredictHur==tic, t.ttt.OnlySelf, t.ttt.AStarGreedyHur==tic, t.ttt.ArrangmentsChanged);
+                (new TakeRoot()).Save(t.ttt.Quantum, t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHuristicFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechnisam, t.ttt.BestMovments, t.ttt.PredictHuristic, t.ttt.OnlySelf, t.ttt.AStarGreedyHuristic, t.ttt.ArrangmentsChanged);
             }
             catch (Exception tt)
             {
-                (new TakeRoot()).Save(t.ttt.Quantum, t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHur==ticFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechn==am, t.ttt.BestMovments, t.ttt.PredictHur==tic, t.ttt.OnlySelf, t.ttt.AStarGreedyHur==tic, t.ttt.ArrangmentsChanged);
+                (new TakeRoot()).Save(t.ttt.Quantum, t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHuristicFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechnisam, t.ttt.BestMovments, t.ttt.PredictHuristic, t.ttt.OnlySelf, t.ttt.AStarGreedyHuristic, t.ttt.ArrangmentsChanged);
 
 
                 Log(tt);
@@ -111,14 +111,14 @@ namespace Refrigtz
         static void CoordinationDataStructures()
         {
             /*Not to be outshined, our concurrent collections and synchronization
-             primitives have also been improved.Th== again follows the principle
+             primitives have also been improved.This again follows the principle
              that you don’t need to make any code changes: you just upgrade and
-             your code becomes more efficient.A good example of th== == with updating
+             your code becomes more efficient.A good example of this is with updating
              the contents of a ConcurrentDictionary<TKey, TValue>.We’ve optimized some 
              common cases to involve less allocation and synchronization.Consider 
              the following code, which continually updates the same entry in the 
              dictionary to have a new value:
-             After upgrading my machine to .NET 4.5, th== runs 15% faster than it did with .NET 4.*/
+             After upgrading my machine to .NET 4.5, this runs 15% faster than it did with .NET 4.*/
             while (true)
 
             {
@@ -146,10 +146,10 @@ namespace Refrigtz
 
         {
             /*Just by upgrading from .NET 4 to.NET 4.5, on the machine on which I’m 
-             writing th== blog post, th== code runs 400 % faster!Th== == of course 
+             writing this blog post, this code runs 400 % faster!This is of course 
              a microbenchmark that’s purely measuring a particular kind of overhead, 
              but nevertheless it should give you a glimpse into the kind of improvements
-             that ex==t in the runtime.*/
+             that exist in the runtime.*/
             var sw = new Stopwatch();
 
             while (true)

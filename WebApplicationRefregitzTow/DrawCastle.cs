@@ -18,17 +18,17 @@ namespace RefrigtzW
         //private readonly object balancelockS = new object();
         public static Image[] C = new Image[2];
         //Iniatite Global Variable.
-        L==t<int[]> ValuableSelfSupported = new L==t<int[]>();
+        List<int[]> ValuableSelfSupported = new List<int[]>();
 
-        public bool MovementsAStarGreedyHur==ticFoundT = false;
+        public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechn==amT = true;
+        public bool UsePenaltyRegardMechnisamT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHur==ticT = true;
+        public bool PredictHuristicT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHur==ticT = false;
+        public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static double MaxHur==ticxB = -20000000000000000;
+        public static double MaxHuristicxB = -20000000000000000;
         public float Row, Column;
         public Color color;
         public ThinkingChess[] CastleThinking = new ThinkingChess[AllDraw.CastleMovments];
@@ -48,7 +48,7 @@ namespace RefrigtzW
             }
 
         }
-        public void D==pose()
+        public void Dispose()
         {
             ValuableSelfSupported = null;
             C = null;
@@ -56,16 +56,16 @@ namespace RefrigtzW
         public bool MaxFound(ref bool MaxNotFound)
         {
 
-            double a = ReturnHur==tic();
-            if (MaxHur==ticxB < a)
+            double a = ReturnHuristic();
+            if (MaxHuristicxB < a)
             {
                 MaxNotFound = false;
                 Object O = new Object();
                 lock (O)
                 {
-                    if (ThinkingChess.MaxHur==ticx < MaxHur==ticxB)
-                        ThinkingChess.MaxHur==ticx = a;
-                    MaxHur==ticxB = a;
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxB = a;
                 }
                 return true;
             }
@@ -73,12 +73,12 @@ namespace RefrigtzW
             MaxNotFound = true;
             return false;
         }
-        public double ReturnHur==tic()
+        public double ReturnHuristic()
         {
             double a = 0;
             for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
 
-                a += CastleThinking[ii].ReturnHur==tic(-1, -1, Order, false);
+                a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false);
 
 
             return a;
@@ -86,20 +86,20 @@ namespace RefrigtzW
 
 
         //Constructor 1.
-        /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments)
+        /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
           {
               CurrentAStarGredyMax = CurrentAStarGredy;
-              MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
+              MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
               IgnoreSelfObjectsT = IgnoreSelfObject;
-              UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
+              UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
               BestMovmentsT = BestMovment;
-              PredictHur==ticT = PredictHur==t;
+              PredictHuristicT = PredictHurist;
               OnlySelfT = OnlySel;
-              AStarGreedyHur==ticT = AStarGreedyHur==;
+              AStarGreedyHuristicT = AStarGreedyHuris;
               ArrangmentsChanged = Arrangments;
           }*/
         //constructor 2.
-        public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. TH==
+        public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
             object balancelock = new object();
@@ -107,13 +107,13 @@ namespace RefrigtzW
             {
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
+                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
+                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
                 BestMovmentsT = BestMovment;
-                PredictHur==ticT = PredictHur==t;
+                PredictHuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-                AStarGreedyHur==ticT = AStarGreedyHur==;
+                AStarGreedyHuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variable By Local Parmenter.
                 Table = new int[8, 8];
@@ -121,7 +121,7 @@ namespace RefrigtzW
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
-                    CastleThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
+                    CastleThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
 
                 Row = i;
                 Column = j;
@@ -132,21 +132,21 @@ namespace RefrigtzW
 
         }
         //Clone a Copy.
-        public void Clone(ref DrawCastle AA//, ref AllDraw. TH==
+        public void Clone(ref DrawCastle AA//, ref AllDraw. THIS
             )
         {
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
-                    Tab[i, j] = th==.Table[i, j];
+                    Tab[i, j] = this.Table[i, j];
             //Initiate a Constructed Brideges an Clone a Copy.
-            AA = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, th==.Row, th==.Column, th==.color, th==.Table, th==.Order, false, th==.Current);
+            AA = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.CastleMovments; i++)
             {
 
-                AA.CastleThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)th==.Row, (int)th==.Column);
-                th==.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
+                AA.CastleThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
 
             }
             AA.Table = new int[8, 8];

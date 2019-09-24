@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockf==h
+  SugaR, a UCI chess playing engine derived from Stockfish
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  SugaR == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  SugaR is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR == d==tributed in the hope that it will be useful,
+  SugaR is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef UCI_H_INCLUDED
@@ -37,7 +37,7 @@ struct CaseInsensitiveLess {
   bool operator() (const std::string&, const std::string&) const;
 };
 
-/// Our options container == actually a std::map
+/// Our options container is actually a std::map
 typedef std::map<std::string, Option, CaseInsensitiveLess> OptionsMap;
 
 /// Option class implements an option as defined by UCI protocol

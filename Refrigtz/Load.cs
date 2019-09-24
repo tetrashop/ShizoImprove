@@ -3,9 +3,9 @@
  * Orderic Linear Model*************************************************************************************************************
  * (+) :Problem Solved.*************************************************************************************************************
  * (-) :No Need to Solved.**********************************************************************************************************
- * (*) :Problem Ex==t.**************************************************************************************************************
+ * (*) :Problem Exist.**************************************************************************************************************
  * (_) :Undetermined.***************************************************************************************************************
- * (QC-OK) :No R==k Control Need.***************************************************************************************************
+ * (QC-OK) :No Risk Control Need.***************************************************************************************************
  * *********************************************************************************************************************************
  *{RefrigtzDLL.RefrigtzDLL.RefrigtzDLL.AllDraw:[ (+:Sum(63))************************************************************************************************************
  *(*:Sum(4))************************************************************************************************************************
@@ -34,11 +34,11 @@
  * *********************************************************************************************************************************
  * {All:[(+:Sum(155)) (_ :Sum(2)) **************************************************************************************************
  * (-:Sum(7)) (*:Sum(7))]} (E:Sum(163))*********************************************************************************************
- * Fin==hed :1395/1/16**************************************************************************************************************
+ * Finished :1395/1/16**************************************************************************************************************
  * {All:(+:Sum(4)) (_:Sum(0)) (-:Sum(1)) (*:Sum(2)) (E:Sum(6))**********************************************************************
- * Fin==hed: 1395/1/20**************************************************************************************************************
+ * Finished: 1395/1/20**************************************************************************************************************
  * {All: (+:Sum(11))}***************************************************************************************************************
- * Fin==hed :1395/1/22**************************************************************************************************************
+ * Finished :1395/1/22**************************************************************************************************************
  * {All: (+:Sum(5)) (-:Sum(1))******************************************************************************************************
  * {All: (+:Sum(6)) (*:Sum(2))}*****************************************************************************************************
  * {All:(+:Sum(2)) (*:Sum(1))}******************************************************************************************************
@@ -68,7 +68,7 @@
  * Count Total=(1)+(2)+(3)+(4)+(5)+(6)=470.762[471.13[117632.13]]*******************************************************************
  * FP=Count Total +[0.65+0.01*sig(fi)]**********************************************************************************************
  * Fp=470.762[471.13[470.9905[117632.13]]]+4.8412[5.3[5.35[1176.9713]]]=475.6032=[476.49[476.34[118809.1013]]]**********************
- * R==k Analys==********************************************************************************************************************
+ * Risk Analysis********************************************************************************************************************
  * P=155/7396=0.21******************************************************************************************************************
  * C=475.6[476.34[118809.1013]]*****************************************************************************************************
  * RE=P*C=100[100.03[24949.911273]]((Fault per Lines)at Count)**********************************************************************
@@ -81,16 +81,16 @@
  *  BAC=(1)+(2)+(3)=1257600T-(4)=1144416T*******************************************************************************************
  * Count(RS)=162********************************************************************************************************************
  * Count(PB)=22*********************************************************************************************************************
- * P(RS)=0.88**1**R==k Control***********************************************************************************************************************
+ * P(RS)=0.88**1**Risk Control***********************************************************************************************************************
  * P(PB)=0.12**4**Managements and Cuation Programing***********************************************************************************************************************
  * *********************************************************************************************************************************/
-/*1.1Result of Analys==:The AStarGreedyGreedy thinking with illustrative tree determination 
+/*1.1Result of Analysis:The AStarGreedyGreedy thinking with illustrative tree determination 
  1.2The needs of Simplyfing Code means performance increamentals.
  1.3The Ilegal non performable for leak resources
  1.4.Very simplifing usable informative structure
  2.1.suggestions:Simplyfing the code without leak of resourceses
  2.2increamental error correction performance
- 2.3.increamental sync d==covery.
+ 2.3.increamental sync discovery.
  */
 using System;
 using System.Collections.Generic;
@@ -115,7 +115,7 @@ namespace Refrigtz
         //Intiate  Global Variables.
         Thread tt = null;
         Thread t = null;
-        public static Load TH== = null;
+        public static Load THIS = null;
         static void Log(Exception ex)
         {
             try
@@ -147,30 +147,30 @@ namespace Refrigtz
             if (!exit)
             {
                 exit = true;
-                TH== = th==;
-                th==.Location = th==.PointToScreen(th==.Location);
+                THIS = this;
+                this.Location = this.PointToScreen(this.Location);
             }
             else
             {
-                (new TakeRoot()).Save(ttt.Quantum, ttt, ref ttt.LoadTree, ttt.MovementsAStarGreedyHur==ticFound, ttt.IInoreSelfObjects, ttt.UsePenaltyRegardMechn==am, ttt.BestMovments, ttt.PredictHur==tic, ttt.OnlySelf, ttt.AStarGreedyHur==tic, ttt.ArrangmentsChanged);
+                (new TakeRoot()).Save(ttt.Quantum, ttt, ref ttt.LoadTree, ttt.MovementsAStarGreedyHuristicFound, ttt.IInoreSelfObjects, ttt.UsePenaltyRegardMechnisam, ttt.BestMovments, ttt.PredictHuristic, ttt.OnlySelf, ttt.AStarGreedyHuristic, ttt.ArrangmentsChanged);
                 Application.Exit();
             }
         }
-        //Delegate Of Form Close V==ibility.
-        delegate void SetLoadV==ibleCallback();
+        //Delegate Of Form Close Visibility.
+        delegate void SetLoadVisibleCallback();
 
-        public void SetLoadV==ible()
+        public void SetLoadVisible()
         {
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.
             // If these threads are different, it continue;s true.
-            if (th==.InvokeRequired)
+            if (this.InvokeRequired)
             {
                 try
                 {
 
-                    SetLoadV==ibleCallback d = new SetLoadV==ibleCallback(SetLoadV==ible);
-                    th==.Invoke(new Action(() => th==.Hide()));
+                    SetLoadVisibleCallback d = new SetLoadVisibleCallback(SetLoadVisible);
+                    this.Invoke(new Action(() => this.Hide()));
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -178,27 +178,27 @@ namespace Refrigtz
             {
                 try
                 {
-                    th==.Hide();
+                    this.Hide();
                 }
                 catch (Exception t) { Log(t); }
             }
 
         }
-        //Delegate Of Form Close V==ibility.
-        delegate void SetCloseV==ibleCallback();
+        //Delegate Of Form Close Visibility.
+        delegate void SetCloseVisibleCallback();
 
-        public void SetCloseV==ible()
+        public void SetCloseVisible()
         {
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.
             // If these threads are different, it continue;s true.
-            if (th==.InvokeRequired)
+            if (this.InvokeRequired)
             {
                 try
                 {
 
-                    SetCloseV==ibleCallback d = new SetCloseV==ibleCallback(SetCloseV==ible);
-                    th==.Invoke(new Action(() => th==.Close()));
+                    SetCloseVisibleCallback d = new SetCloseVisibleCallback(SetCloseVisible);
+                    this.Invoke(new Action(() => this.Close()));
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -206,7 +206,7 @@ namespace Refrigtz
             {
                 try
                 {
-                    th==.Close();
+                    this.Close();
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -223,7 +223,7 @@ namespace Refrigtz
                     System.Threading.Thread.Sleep(2);
                 } while (!FormRefrigtz.LoadedTable);
 
-                SetLoadV==ible();
+                SetLoadVisible();
             }
         }
         //Base Task Load.

@@ -41,21 +41,21 @@ namespace Refrigtz
                 AllDrawKindString = "AllDrawFTSF.asd";//First true second false
             else
                 if (AllDrawKind == 1)
-                AllDrawKindString = "AllDrawFFSF.asd";//F==t false second false
+                AllDrawKindString = "AllDrawFFSF.asd";//Fist false second false
 
 
         }
 
-        public bool Load(bool Quantum,FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHur==ticFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechn==am, bool BestMovments, bool PredictHur==tic, bool OnlySelf, bool AStarGreedyHur==tic, bool ArrangmentsChanged)
+        public bool Load(bool Quantum,FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
         {
-            if (UsePenaltyRegardMechn==am && AStarGreedyHur==tic)
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                 AllDrawKind = 4;
             else
-                                                 if ((!UsePenaltyRegardMechn==am) && AStarGreedyHur==tic)
+                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
                 AllDrawKind = 3;
-            if (UsePenaltyRegardMechn==am && (!AStarGreedyHur==tic))
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
                 AllDrawKind = 2;
-            if ((!UsePenaltyRegardMechn==am) && (!AStarGreedyHur==tic))
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
                 AllDrawKind = 1;
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
@@ -65,13 +65,13 @@ namespace Refrigtz
             //Load Middle Targets.
             try
             {
-                if (File.Ex==ts(FormRefrigtz.AllDrawKindString))
+                if (File.Exists(FormRefrigtz.AllDrawKindString))
                 {
                     if (FormRefrigtz.MovmentsNumber >= 0)
                     {
                         if (!Quantum)
                         {
-                            GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHur==ticFound, IInoreSelfObjects, UsePenaltyRegardMechn==am, BestMovments, PredictHur==tic, OnlySelf, AStarGreedyHur==tic, ArrangmentsChanged);
+                            GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             t = tr.Load(Quantum, FormRefrigtz.OrderPlate);
                             if (t != null)
                             {
@@ -82,9 +82,9 @@ namespace Refrigtz
 
                                 Curent.Draw = Curent.RootFound();
 
-                                RefrigtzDLL.AllDraw TH== = null;
+                                RefrigtzDLL.AllDraw THIS = null;
 
-                                //Curent.SetDrawFounding(ref FOUND, ref TH==, false);
+                                //Curent.SetDrawFounding(ref FOUND, ref THIS, false);
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
@@ -92,7 +92,7 @@ namespace Refrigtz
                         }
                         else
                         {
-                            GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHur==ticFound, IInoreSelfObjects, UsePenaltyRegardMechn==am, BestMovments, PredictHur==tic, OnlySelf, AStarGreedyHur==tic, ArrangmentsChanged);
+                            GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                            tt = tr.LoadQ(Quantum, FormRefrigtz.OrderPlate);
                             if (t != null)
                             {
@@ -104,8 +104,8 @@ namespace Refrigtz
 
                                 Curent.DrawQ = Curent.RootFoundQ();
 
-                                QuantumRefrigiz.AllDraw TH==Q = null;
-                                //Curent.SetDrawFounding(ref FOUND, ref TH==Q, false);
+                                QuantumRefrigiz.AllDraw THISQ = null;
+                                //Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
@@ -118,16 +118,16 @@ namespace Refrigtz
             catch (Exception t) { Log(t); }
             return DrawDrawen;
         }
-        public bool Save(bool Quantum, FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHur==ticFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechn==am, bool BestMovments, bool PredictHur==tic, bool OnlySelf, bool AStarGreedyHur==tic, bool ArrangmentsChanged)
+        public bool Save(bool Quantum, FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
         {
-            if (UsePenaltyRegardMechn==am && AStarGreedyHur==tic)
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                 AllDrawKind = 4;
             else
-                                                 if ((!UsePenaltyRegardMechn==am) && AStarGreedyHur==tic)
+                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
                 AllDrawKind = 3;
-            if (UsePenaltyRegardMechn==am && (!AStarGreedyHur==tic))
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
                 AllDrawKind = 2;
-            if ((!UsePenaltyRegardMechn==am) && (!AStarGreedyHur==tic))
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
                 AllDrawKind = 1;
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
@@ -135,9 +135,9 @@ namespace Refrigtz
 
             try
             {
-                if (!File.Ex==ts(AllDrawKindString))
+                if (!File.Exists(AllDrawKindString))
                 {
-                    GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHur==ticFound, IInoreSelfObjects, UsePenaltyRegardMechn==am, BestMovments, PredictHur==tic, OnlySelf, AStarGreedyHur==tic, ArrangmentsChanged
+                    GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                         );
                     if (!Quantum)
                     {
@@ -172,10 +172,10 @@ namespace Refrigtz
                     }
                 }
                 else
-                      if (File.Ex==ts(AllDrawKindString))
+                      if (File.Exists(AllDrawKindString))
                 {
                     File.Delete(FormRefrigtz.AllDrawKindString);
-                    GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHur==ticFound, IInoreSelfObjects, UsePenaltyRegardMechn==am, BestMovments, PredictHur==tic, OnlySelf, AStarGreedyHur==tic, ArrangmentsChanged
+                    GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                         );
                     //"Universal Root Founding";
                     if (Curent.Draw != null)

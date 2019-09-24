@@ -62,7 +62,7 @@ namespace RefrigtzW
                 Bits[1] = true;
             }
         }
-        public bool ==ZeroZero()
+        public bool IsZeroZero()
         {
             Object o = new Object();
             lock (o)
@@ -72,7 +72,7 @@ namespace RefrigtzW
                 return false;
             }
         }
-        public bool ==ZeroOne()
+        public bool IsZeroOne()
         {
             Object o = new Object();
             lock (o)
@@ -82,7 +82,7 @@ namespace RefrigtzW
                 return false;
             }
         }
-        public bool ==OneZero()
+        public bool IsOneZero()
         {
             Object o = new Object();
             lock (o)
@@ -92,7 +92,7 @@ namespace RefrigtzW
                 return false;
             }
         }
-        public bool ==OneOne()
+        public bool IsOneOne()
         {
             Object o = new Object();
             lock (o)
@@ -106,8 +106,8 @@ namespace RefrigtzW
     [Serializable]
     public class QuantumAtamata : LearningKrinskyAtamata
     {
-        L==t<String> States = new L==t<String>();
-        L==t<Byte> StateByte = new L==t<Byte>();
+        List<String> States = new List<String>();
+        List<Byte> StateByte = new List<Byte>();
         int r = 0, m = 0, k = 0;
         public Bit[] BitState = new Bit[3];
         double[] QuatumProbabilities = new double[3];
@@ -285,13 +285,13 @@ namespace RefrigtzW
             lock (o)
             {
 
-                if (BitState[0].==ZeroZero())
+                if (BitState[0].IsZeroZero())
                 {
                     //       BitState[0].SetZeroZero();
                     return 0;//0 State
                 }
                 else
-                if (BitState[0].==ZeroOne())
+                if (BitState[0].IsZeroOne())
                 {
                     //          BitState[0].SetZeroOne();
                     return 1;//1 State 
@@ -305,13 +305,13 @@ namespace RefrigtzW
             lock (o)
             {
 
-                if (BitState[1].==ZeroZero())
+                if (BitState[1].IsZeroZero())
                 {
                     //BitState[1].SetZeroZero();
                     return 0;//0 State
                 }
                 else
-                if (BitState[1].==ZeroOne())
+                if (BitState[1].IsZeroOne())
                 {
                     //      BitState[1].SetZeroOne();
                     return 1;//1 State 
@@ -326,13 +326,13 @@ namespace RefrigtzW
             lock (o)
             {
 
-                if (BitState[2].==ZeroZero())
+                if (BitState[2].IsZeroZero())
                 {
                     //     BitState[2].SetZeroZero();
                     return 0;//0 State
                 }
                 else
-                if (BitState[2].==ZeroOne())
+                if (BitState[2].IsZeroOne())
                 {
                     //        BitState[2].SetZeroOne();
                     return 1;//1 State 

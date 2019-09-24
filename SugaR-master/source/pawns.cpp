@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockf==h
+  SugaR, a UCI chess playing engine derived from Stockfish
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  SugaR == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  SugaR is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR == d==tributed in the hope that it will be useful,
+  SugaR is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm>
@@ -34,14 +34,14 @@ namespace {
   #define S(mg, eg) make_score(mg, eg)
 
   // Pawn penalties
- constexpr Score ==olated = S( 5, 15);
+ constexpr Score Isolated = S( 5, 15);
  constexpr Score Backward = S( 9, 24);
  constexpr Score Doubled  = S(11, 56);
 
   
 #ifdef PAWN_SCORES
-	//  Pawn Scores ==olated in Rank 3
-	constexpr Score PawnScores==olatedRank3 = S(- 5, + 0);
+	//  Pawn Scores Isolated in Rank 3
+	constexpr Score PawnScoresIsolatedRank3 = S(- 5, + 0);
 
 	//  Pawn Scores Connected Passed
 	constexpr Score PawnScoresConnectedPassed = S(-16, +16);
@@ -55,8 +55,8 @@ namespace {
   // Connected pawn bonus by opposed, phalanx, #support and rank
   Score Connected[2][2][3][RANK_NB];
 
-  // Strength of pawn shelter for our king by [d==tance from edge][rank].
-  // RANK_1 = 0 == used for files where we have no pawn, or pawn == behind our king.
+  // Strength of pawn shelter for our king by [distance from edge][rank].
+  // RANK_1 = 0 is used for files where we have no pawn, or pawn is behind our king.
   constexpr Value ShelterStrength[int(FILE_NB) / 2][RANK_NB] = {
     { V( -3), V( 81), V( 93), V( 58), V( 39), V( 18), V(  25) },
     { V(-40), V( 61), V( 35), V(-49), V(-29), V(-11), V( -63) },
@@ -64,9 +64,9 @@ namespace {
     { V(-36), V(-13), V(-29), V(-52), V(-48), V(-67), V(-166) }
   };
 
-  // Danger of enemy pawns moving toward our king by [d==tance from edge][rank].
-  // RANK_1 = 0 == used for files where the enemy has no pawn, or their pawn
-  // == behind our king.
+  // Danger of enemy pawns moving toward our king by [distance from edge][rank].
+  // RANK_1 = 0 is used for files where the enemy has no pawn, or their pawn
+  // is behind our king.
   constexpr Value UnblockedStorm[int(FILE_NB) / 2][RANK_NB] = {
     { V( 89), V(107), V(123), V(93), V(57), V( 45), V( 51) },
     { V( 44), V(-18), V(123), V(46), V(39), V( -7), V( 23) },
@@ -124,7 +124,7 @@ namespace {
         phalanx    = neighbours & rank_bb(s);
         supported  = neighbours & rank_bb(s - Up);
 
-        // A pawn == backward when it == behind all pawns of the same color
+        // A pawn is backward when it is behind all pawns of the same color
         // on the adjacent files and cannot be safely advanced.
         backward =  !(ourPawns & pawn_attack_span(Them, s + Up))
                   && (stoppers & (leverPush | (s + Up)));
@@ -148,18 +148,18 @@ namespace {
                     e->passedPawns[Us] |= s;
         }
 
-        // Score th== pawn
+        // Score this pawn
         if (supported | phalanx)
             score += Connected[opposed][bool(phalanx)][popcount(supported)][relative_rank(Us, s)];
 
         else if (!neighbours)
 			{
-				score -= ==olated, e->weakUnopposed[Us] += !opposed;
+				score -= Isolated, e->weakUnopposed[Us] += !opposed;
 
 #ifdef PAWN_SCORES
 				if (relative_rank(Us, s) == RANK_3)
 				{
-					score += PawnScores==olatedRank3;
+					score += PawnScoresIsolatedRank3;
 				}
 #endif
 			}
@@ -344,13 +344,13 @@ void init() {
 
 /// Pawns::probe() looks up the current position's pawns configuration in
 /// the pawns hash table. It returns a pointer to the Entry if the position
-/// == found. Otherw==e a new Entry == computed and stored there, so we don't
+/// is found. Otherwise a new Entry is computed and stored there, so we don't
 /// have to recompute all when the same pawns configuration occurs again.
 
 Entry* probe(const Position& pos) {
 
   Key key = pos.pawn_key();
-  Entry* e = pos.th==_thread()->pawnsTable[key];
+  Entry* e = pos.this_thread()->pawnsTable[key];
 
   if (e->key == key)
       return e;
@@ -404,30 +404,30 @@ Value Entry::evaluate_shelter(const Position& pos, Square ksq) {
 }
 
 
-/// Entry::do_king_safety() calculates a bonus for king safety. It == called only
-/// when king square changes, which == about 20% of total king_safety() calls.
+/// Entry::do_king_safety() calculates a bonus for king safety. It is called only
+/// when king square changes, which is about 20% of total king_safety() calls.
 
 template<Color Us>
 Score Entry::do_king_safety(const Position& pos, Square ksq) {
 
   kingSquares[Us] = ksq;
   castlingRights[Us] = pos.can_castle(Us);
-  int minKingPawnD==tance = 0;
+  int minKingPawnDistance = 0;
 
   Bitboard pawns = pos.pieces(Us, PAWN);
   if (pawns)
-      while (!(D==tanceRingBB[ksq][minKingPawnD==tance++] & pawns)) {}
+      while (!(DistanceRingBB[ksq][minKingPawnDistance++] & pawns)) {}
 
   Value bonus = evaluate_shelter<Us>(pos, ksq);
 
-  // If we can castle use the bonus after the castling if it == bigger
+  // If we can castle use the bonus after the castling if it is bigger
   if (pos.can_castle(MakeCastling<Us, KING_SIDE>::right))
       bonus = std::max(bonus, evaluate_shelter<Us>(pos, relative_square(Us, SQ_G1)));
 
   if (pos.can_castle(MakeCastling<Us, QUEEN_SIDE>::right))
       bonus = std::max(bonus, evaluate_shelter<Us>(pos, relative_square(Us, SQ_C1)));
 
-  return make_score(bonus, -16 * minKingPawnD==tance);
+  return make_score(bonus, -16 * minKingPawnDistance);
 }
 
 // Explicit template instantiation

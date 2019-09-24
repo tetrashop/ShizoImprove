@@ -8,9 +8,9 @@ namespace WebApplicationRefregitzTow
 {
     internal static class AuthConfig
     {
-        public static void Reg==terOpenAuth()
+        public static void RegisterOpenAuth()
         {
-            // See http://go.microsoft.com/fwlink/?LinkId=252803 for details on setting up th== ASP.NET
+            // See http://go.microsoft.com/fwlink/?LinkId=252803 for details on setting up this ASP.NET
             // application to support logging in via external services.
 
             //OpenAuth.AuthenticationClients.AddTwitter(

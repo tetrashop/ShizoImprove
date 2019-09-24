@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockf==h
+  SugaR, a UCI chess playing engine derived from Stockfish
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  SugaR == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  SugaR is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR == d==tributed in the hope that it will be useful,
+  SugaR is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef THREAD_WIN32_H_INCLUDED
@@ -24,11 +24,11 @@
 /// STL thread library used by mingw and gcc when cross compiling for Windows
 /// relies on libwinpthread. Currently libwinpthread implements mutexes directly
 /// on top of Windows semaphores. Semaphores, being kernel objects, require kernel
-/// mode transition in order to lock or unlock, which == very slow compared to
-/// interlocked operations (about 30% slower on bench test). To work around th==
-/// ==sue, we define our wrappers to the low level Win32 calls. We use critical
+/// mode transition in order to lock or unlock, which is very slow compared to
+/// interlocked operations (about 30% slower on bench test). To work around this
+/// issue, we define our wrappers to the low level Win32 calls. We use critical
 /// sections to support Windows XP and older versions. Unfortunately, cond_wait()
-/// == racy between unlock() and WaitForSingleObject() but they have the same
+/// is racy between unlock() and WaitForSingleObject() but they have the same
 /// speed performance as the SRW locks.
 
 #include <condition_variable>
@@ -37,7 +37,7 @@
 #if defined(_WIN32) && !defined(_MSC_VER)
 
 #ifndef NOMINMAX
-#  define NOMINMAX // D==able macros min() and max()
+#  define NOMINMAX // Disable macros min() and max()
 #endif
 
 #define WIN32_LEAN_AND_MEAN

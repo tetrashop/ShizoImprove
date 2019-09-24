@@ -1,20 +1,20 @@
 ﻿/**************************************************************************
  * Ramin Edjlal.***********************************************************
- * Timer == Working Reversely***********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Timer is Working Reversely***********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Timer Order Decreasing Not Work!*****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Timer Not Worked.********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Timer Scheduling For Regard and Set Point Malfunctions.******************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Timer Set Point of Text Malfunctioned.***********************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Thinking Fin==hed Begin At New Time Text Box.****************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Thinking Finished Begin At New Time Text Box.****************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Timer Changing Start Stop Function Failed.*******************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Timer MalFunction.*******************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * V==ual Studio Timer and V==ualization du to Internet Access Malfunction**RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Visual Studio Timer and Visualization du to Internet Access Malfunction**RS*****0.12**4**Managements and Cuation Programing**(+)
  * Dynamic Timer AStarGreedyt. First Increment or Decrement Malfunction.************RS*****0.12**4**Managements and Cuation Programing**(+)
  * No Logically Idea For Managements of Dynamic AStarGreedyt. First Max AStarGreedyt.*******RS*****0.12**4**Managements and Cuation Programing**(+)
  * Timer Malfunction When Leave Foreground The Program.*********************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Div==on By Zero No Reasonly.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Divison By Zero No Reasonly.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 1395/1/16***************************************************************
- * Timer Not Worked.********************************************************RS*****0.12**4**Managements and Cuation Programing**(+):(Not Set in th== instatnt of analys==:Similarity == act.)
+ * Timer Not Worked.********************************************************RS*****0.12**4**Managements and Cuation Programing**(+):(Not Set in this instatnt of analysis:Similarity is act.)
  * ************************************************************************/
 
 
@@ -106,7 +106,7 @@ namespace Refrigtz
                     };
                     //When timr begin store current time.
                     long t1 = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000
-                        + DateTime.Now.Second * 1000 + DateTime.Now.Mill==econd;
+                        + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
 
 
                     do
@@ -115,14 +115,14 @@ namespace Refrigtz
                     }
                     //Cal for every 1 second.
                     while (DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000
-                       + DateTime.Now.Second * 1000 + DateTime.Now.Mill==econd - t1 < 1000);
+                       + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond - t1 < 1000);
                     //Dec of inc one second.
                     Times = Times + 1000 * Sign;
 
                     //Local Variabe of Timer changed.
                     TextChanged = true;
 
-                    //While  Condition == true for operations. 
+                    //While  Condition is true for operations. 
                 } while (Times > 0 || Infinity);
             }
 
@@ -190,7 +190,7 @@ namespace Refrigtz
                 {
                     long Dummy = AStarGreedytLastTime;
                     AStarGreedytLastTime = Times - AStarGreedytLastTime;
-                    //Div==ion By Zero No Reasonaly.
+                    //Division By Zero No Reasonaly.
                     AStarGreedytMidleTimer = ((Dummy * (AStarGreedyti - StoreAllDrawCount)) + AStarGreedytLastTime) / ((AStarGreedyti - StoreAllDrawCount + 1));
                 }
                 catch (DivideByZeroException t)
@@ -209,10 +209,10 @@ namespace Refrigtz
                 {
                     //Resume Suspended MAin Thread.
                     TimerInitiate();
-                    //When Begin Timer Valuee == Zero cal.
+                    //When Begin Timer Valuee is Zero cal.
                     if (TimesBegin == 0)
                         TimesBegin = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000
-                                    + DateTime.Now.Second * 1000 + DateTime.Now.Mill==econd;
+                                    + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
                 }
                 //Set to Thread Paused.
                 Paused = false;
@@ -227,17 +227,17 @@ namespace Refrigtz
             {
                 if (Sign != 1)
                 {
-                    //When AStarGreedyt First == not act or Double time == not act.
+                    //When AStarGreedyt First is not act or Double time is not act.
                     if (!AStarGreadyFirstSearch || !UseDoubleTime)
                     {
                         //Cal Remaining timer value.
                         long Remaining = Times;
-                        //When Remaining timer == greter than zero.
+                        //When Remaining timer is greter than zero.
                         if (Remaining > 0)
                             Remaining = 0;
-                        //When Regrad timer == valuable.
+                        //When Regrad timer is valuable.
                         if ((DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000
-                                + DateTime.Now.Second * 1000 + DateTime.Now.Mill==econd - TimesBegin) < 5000)
+                                + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond - TimesBegin) < 5000)
                             Times = 5 * 60 * 1000 + 60000 + Remaining;
                         else
                             Times = 5 * 60 * 1000 + Remaining;
@@ -252,7 +252,7 @@ namespace Refrigtz
                             Remaining = 0;
 
                         if ((DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000
-                          + DateTime.Now.Second * 1000 + DateTime.Now.Mill==econd - TimesBegin) < 10000)
+                          + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond - TimesBegin) < 10000)
                             Times = 10 * 60 * 1000 + 60000 + Remaining;
                         else
                             Times = 10 * 60 * 1000 + Remaining;

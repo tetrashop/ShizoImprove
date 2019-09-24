@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /*****************************************************************************
- * "1" Boundry Hur==tic Founding.
- * "2" Search in Thinking Tree to found Max or Min Hur==tic.
+ * "1" Boundry Huristic Founding.
+ * "2" Search in Thinking Tree to found Max or Min Huristic.
  **/
 namespace RefrigtzDLL
 {
@@ -17,7 +17,7 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                if (!System.IO.File.Ex==ts("CodeLogEvent.log"))
+                if (!System.IO.File.Exists("CodeLogEvent.log"))
                     System.IO.File.CreateText("CodeLogEvent.log");
                 System.IO.File.AppendAllText("CodeLogEvent.log", "\r\nError by " + Code + "At " + LineCode + " LinCode of File " + File);
             }

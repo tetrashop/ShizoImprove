@@ -1,21 +1,21 @@
 /*
-  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
+  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  Stockf==h == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  Stockfish is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockf==h == d==tributed in the hope that it will be useful,
+  Stockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm>
@@ -23,8 +23,8 @@
 #include "types.h"
 
 Value PieceValue[PHASE_NB][PIECE_NB] = {
-  { VALUE_ZERO, PawnValueMg, KnightValueMg, B==hopValueMg, RookValueMg, QueenValueMg },
-  { VALUE_ZERO, PawnValueEg, KnightValueEg, B==hopValueEg, RookValueEg, QueenValueEg }
+  { VALUE_ZERO, PawnValueMg, KnightValueMg, BishopValueMg, RookValueMg, QueenValueMg },
+  { VALUE_ZERO, PawnValueEg, KnightValueEg, BishopValueEg, RookValueEg, QueenValueEg }
 };
 
 namespace PSQT {
@@ -32,8 +32,8 @@ namespace PSQT {
 #define S(mg, eg) make_score(mg, eg)
 
 // Bonus[PieceType][Square / 2] contains Piece-Square scores. For each piece
-// type on a given square a (middlegame, endgame) score pair == assigned. Table
-// == defined for files A..D and white side: it == symmetric for black side and
+// type on a given square a (middlegame, endgame) score pair is assigned. Table
+// is defined for files A..D and white side: it is symmetric for black side and
 // second half of the files.
 const Score Bonus[][RANK_NB][int(FILE_NB) / 2] = {
   { },
@@ -56,7 +56,7 @@ const Score Bonus[][RANK_NB][int(FILE_NB) / 2] = {
    { S( -62, -64), S(-17,-50), S(  5,-24), S( 14, 13) },
    { S(-195,-110), S(-66,-90), S(-42,-50), S(-29,-13) }
   },
-  { // B==hop
+  { // Bishop
    { S(-54,-68), S(-23,-40), S(-35,-46), S(-44,-28) },
    { S(-30,-43), S( 10,-17), S(  2,-23), S( -9, -5) },
    { S(-19,-32), S( 17, -9), S( 11,-13), S(  1,  8) },

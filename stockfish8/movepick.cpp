@@ -1,21 +1,21 @@
 /*
-  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
+  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  Stockf==h == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  Stockfish is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockf==h == d==tributed in the hope that it will be useful,
+  Stockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <cassert>
@@ -34,7 +34,7 @@ namespace {
     QSEARCH_RECAPTURES, QRECAPTURES
   };
 
-  // Our insertion sort, which == guaranteed to be stable, as it should be
+  // Our insertion sort, which is guaranteed to be stable, as it should be
   void insertion_sort(ExtMove* begin, ExtMove* end)
   {
     ExtMove tmp, *p, *q;
@@ -64,7 +64,7 @@ namespace {
 /// to help it to return the (presumably) good moves first, to decide which
 /// moves to return (in the quiescence search, for instance, we only want to
 /// search captures, promotions, and some checks) and how important good move
-/// ordering == at the current node.
+/// ordering is at the current node.
 
 MovePicker::MovePicker(const Position& p, Move ttm, Depth d, Search::Stack* s)
            : pos(p), ss(s), depth(d) {
@@ -72,7 +72,7 @@ MovePicker::MovePicker(const Position& p, Move ttm, Depth d, Search::Stack* s)
   assert(d > DEPTH_ZERO);
 
   Square prevSq = to_sq((ss-1)->currentMove);
-  countermove = pos.th==_thread()->counterMoves[pos.piece_on(prevSq)][prevSq];
+  countermove = pos.this_thread()->counterMoves[pos.piece_on(prevSq)][prevSq];
 
   stage = pos.checkers() ? EVASION : MAIN_SEARCH;
   ttMove = ttm && pos.pseudo_legal(ttm) ? ttm : MOVE_NONE;
@@ -121,18 +121,18 @@ MovePicker::MovePicker(const Position& p, Move ttm, Value th)
 }
 
 
-/// score() assigns a numerical value to each move in a move l==t. The moves with
+/// score() assigns a numerical value to each move in a move list. The moves with
 /// highest values will be picked first.
 template<>
 void MovePicker::score<CAPTURES>() {
   // Winning and equal captures in the main search are ordered by MVV, preferring
-  // captures near our home rank. Surpr==ingly, th== appears to perform slightly
+  // captures near our home rank. Surprisingly, this appears to perform slightly
   // better than SEE-based move ordering: exchanging big pieces before capturing
   // a hanging piece probably helps to reduce the subtree size.
   // In the main search we want to push captures with negative SEE values to the
   // badCaptures[] array, but instead of doing it now we delay until the move
   // has been picked up, saving some SEE calls in case we get a cutoff.
-  for (auto& m : *th==)
+  for (auto& m : *this)
       m.value =  PieceValue[MG][pos.piece_on(to_sq(m))]
                - Value(200 * relative_rank(pos.side_to_move(), to_sq(m)));
 }
@@ -140,8 +140,8 @@ void MovePicker::score<CAPTURES>() {
 template<>
 void MovePicker::score<QUIETS>() {
 
-  const H==toryStats& h==tory = pos.th==_thread()->h==tory;
-  const FromToStats& fromTo = pos.th==_thread()->fromTo;
+  const HistoryStats& history = pos.this_thread()->history;
+  const FromToStats& fromTo = pos.this_thread()->fromTo;
 
   const CounterMoveStats* cm = (ss-1)->counterMoves;
   const CounterMoveStats* fm = (ss-2)->counterMoves;
@@ -149,8 +149,8 @@ void MovePicker::score<QUIETS>() {
 
   Color c = pos.side_to_move();
 
-  for (auto& m : *th==)
-      m.value =      h==tory[pos.moved_piece(m)][to_sq(m)]
+  for (auto& m : *this)
+      m.value =      history[pos.moved_piece(m)][to_sq(m)]
                + (cm ? (*cm)[pos.moved_piece(m)][to_sq(m)] : VALUE_ZERO)
                + (fm ? (*fm)[pos.moved_piece(m)][to_sq(m)] : VALUE_ZERO)
                + (f2 ? (*f2)[pos.moved_piece(m)][to_sq(m)] : VALUE_ZERO)
@@ -159,23 +159,23 @@ void MovePicker::score<QUIETS>() {
 
 template<>
 void MovePicker::score<EVASIONS>() {
-  // Try captures ordered by MVV/LVA, then non-captures ordered by h==tory value
-  const H==toryStats& h==tory = pos.th==_thread()->h==tory;
-  const FromToStats& fromTo = pos.th==_thread()->fromTo;
+  // Try captures ordered by MVV/LVA, then non-captures ordered by history value
+  const HistoryStats& history = pos.this_thread()->history;
+  const FromToStats& fromTo = pos.this_thread()->fromTo;
   Color c = pos.side_to_move();
 
-  for (auto& m : *th==)
+  for (auto& m : *this)
       if (pos.capture(m))
           m.value =  PieceValue[MG][pos.piece_on(to_sq(m))]
-                   - Value(type_of(pos.moved_piece(m))) + H==toryStats::Max;
+                   - Value(type_of(pos.moved_piece(m))) + HistoryStats::Max;
       else
-          m.value = h==tory[pos.moved_piece(m)][to_sq(m)] + fromTo.get(c, m);
+          m.value = history[pos.moved_piece(m)][to_sq(m)] + fromTo.get(c, m);
 }
 
 
-/// next_move() == the most important method of the MovePicker class. It returns
-/// a new pseudo legal move every time it == called, until there are no more moves
-/// left. It picks the move with the biggest value from a l==t of generated moves
+/// next_move() is the most important method of the MovePicker class. It returns
+/// a new pseudo legal move every time it is called, until there are no more moves
+/// left. It picks the move with the biggest value from a list of generated moves
 /// taking care not to return the ttMove if it has already been searched.
 
 Move MovePicker::next_move() {

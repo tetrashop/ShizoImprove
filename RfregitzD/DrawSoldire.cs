@@ -19,18 +19,18 @@ namespace RefrigtzDLL
         //Iniatate Global Variables.
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        L==t<int[]> ValuableSelfSupported = new L==t<int[]>();
+        List<int[]> ValuableSelfSupported = new List<int[]>();
 
         public static Image[] S = new Image[2];
-        public bool MovementsAStarGreedyHur==ticFoundT = false;
+        public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechn==amT = true;
+        public bool UsePenaltyRegardMechnisamT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHur==ticT = true;
+        public bool PredictHuristicT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHur==ticT = false;
+        public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static int MaxHur==ticxS = int.MinValue;
+        public static int MaxHuristicxS = int.MinValue;
         public float RowS, ColumnS;
         public Color color;
         public ThinkingChess[] SoldierThinking = new ThinkingChess[AllDraw.SodierMovments];
@@ -50,26 +50,26 @@ namespace RefrigtzDLL
 
         }
 
-        public void D==pose()
+        public void Dispose()
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             S = null;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("D==pose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            int a = ReturnHur==tic();
-            if (MaxHur==ticxS < a)
+            int a = ReturnHuristic();
+            if (MaxHuristicxS < a)
             {
                 Object O2 = new Object();
                 lock (O2)
                 {
                     MaxNotFound = false;
-                    if (ThinkingChess.MaxHur==ticx < MaxHur==ticxS)
-                        ThinkingChess.MaxHur==ticx = a;
-                    MaxHur==ticxS = a;
+                    if (ThinkingChess.MaxHuristicx < MaxHuristicxS)
+                        ThinkingChess.MaxHuristicx = a;
+                    MaxHuristicxS = a;
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
@@ -79,33 +79,33 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
-        public int ReturnHur==tic()
+        public int ReturnHuristic()
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                a += SoldierThinking[ii].ReturnHur==tic(-1, -1, Order, false);
+                a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order, false);
 
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHur==tic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         //Constructor 1.
-        /* public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments)
+        /* public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
          {
              CurrentAStarGredyMax = CurrentAStarGredy;
-             MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
+             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
              IgnoreSelfObjectsT = IgnoreSelfObject;
-             UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
+             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
              BestMovmentsT = BestMovment;
-             PredictHur==ticT = PredictHur==t;
+             PredictHuristicT = PredictHurist;
              OnlySelfT = OnlySel;
-             AStarGreedyHur==ticT = AStarGreedyHur==;
+             AStarGreedyHuristicT = AStarGreedyHuris;
              ArrangmentsChanged = Arrangments;
          }
          */
         //Constructor 2.
-        public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. TH==
+        public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
@@ -116,13 +116,13 @@ namespace RefrigtzDLL
 
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
+                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
+                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
                 BestMovmentsT = BestMovment;
-                PredictHur==ticT = PredictHur==t;
+                PredictHuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-                AStarGreedyHur==ticT = AStarGreedyHur==;
+                AStarGreedyHuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables.  
                 Table = new int[8, 8];
@@ -131,7 +131,7 @@ namespace RefrigtzDLL
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                    SoldierThinking[ii] = new ThinkingChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
+                    SoldierThinking[ii] = new ThinkingChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
                 RowS = i;
                 ColumnS = j;
                 color = a;
@@ -141,24 +141,24 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Clone a Copy Method.
-        public void Clone(ref DrawSoldier AA//, ref AllDraw. TH==
+        public void Clone(ref DrawSoldier AA//, ref AllDraw. THIS
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
-                    Tab[i, j] = th==.Table[i, j];
+                    Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, th==.Row, th==.Column, th==.color, Tab, th==.Order, false, th==.Current
+            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
                 );
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.SodierMovments; i++)
             {
 
-                AA.SoldierThinking[i] = new ThinkingChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)th==.Row, (int)th==.Column);
-                th==.SoldierThinking[i].Clone(ref AA.SoldierThinking[i]);
+                AA.SoldierThinking[i] = new ThinkingChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.SoldierThinking[i].Clone(ref AA.SoldierThinking[i]);
 
             }
             AA.Table = new int[8, 8];
@@ -196,7 +196,7 @@ namespace RefrigtzDLL
                         {
 
 
-                            //If Order == Gray.
+                            //If Order is Gray.
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
@@ -218,8 +218,8 @@ namespace RefrigtzDLL
 
 
                         }
-                        else//If Mins==ter Conversion Occured.
-                            if (ConvertedToMin==ter)
+                        else//If Minsister Conversion Occured.
+                            if (ConvertedToMinister)
                         {
 
                             //Color of Gray.
@@ -228,8 +228,8 @@ namespace RefrigtzDLL
                                 Object O1 = new Object();
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
-                                     //Draw of Gray Mins==ter Image File By an Instant.
-                                    g.DrawImage(DrawMin==ter.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                     //Draw of Gray Minsister Image File By an Instant.
+                                    g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
                             else
@@ -238,7 +238,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw a Image File on the Table Form n Instatnt One.
-                                    g.DrawImage(DrawMin==ter.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
 
