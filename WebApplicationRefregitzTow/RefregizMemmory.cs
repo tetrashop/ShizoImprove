@@ -1168,8 +1168,8 @@ namespace RefrigtzW
                         for (int i = 0; i < t.NextK.Count; i++)
                         {
 
-                            t.NextK[i].Current.Clone(Last.KingOnTable[t.iii].KingThinking[0].AStarGreedy[t.jjj]);
-                            t.NextK[i].CreateAllDrawFromMemmory(t.NextK[i], Last.KingOnTable[t.iii].KingThinking[0].AStarGreedy[t.jjj], Order * -1);
+                            t.NextK[i].Current.Clone(Last.if (KingOnTable==null||KingOnTable[i] == null)[t.iii].KingThinking[0].AStarGreedy[t.jjj]);
+                            t.NextK[i].CreateAllDrawFromMemmory(t.NextK[i], Last.if (KingOnTable==null||KingOnTable[i] == null)[t.iii].KingThinking[0].AStarGreedy[t.jjj], Order * -1);
                         }
                     }                 
 

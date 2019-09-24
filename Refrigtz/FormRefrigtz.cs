@@ -5860,7 +5860,8 @@ namespace Refrigtz
                             ChessTable = (Image)new Bitmap(pictureBoxRefrigtz.Image.Width, pictureBoxRefrigtz.Image.Height);
                             g = Graphics.FromImage(ChessTable);
                             g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, pictureBoxRefrigtz.Width, pictureBoxRefrigtz.Height));
-                            Draw.SetObjectNumbers(Draw.TableList[0]);
+                            if (Draw.TableList != null && Draw.TableList.Count > 0)
+                                Draw.SetObjectNumbers(Draw.TableList[0]);
 
                             for (int i = 0; i < pictureBoxRefrigtz.Image.Width; i += pictureBoxRefrigtz.Image.Width / 8)
                                 for (int j = 0; j < pictureBoxRefrigtz.Image.Height; j += pictureBoxRefrigtz.Image.Height / 8)
@@ -5984,7 +5985,8 @@ namespace Refrigtz
                                 ChessTable = (Image)new Bitmap(pictureBoxRefrigtz.Image.Width, pictureBoxRefrigtz.Image.Height);
                                 g = Graphics.FromImage(ChessTable);
                                 g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, pictureBoxRefrigtz.Width, pictureBoxRefrigtz.Height));
-                                Draw.SetObjectNumbers(Draw.TableList[0]);
+                                if (Draw.TableList != null && Draw.TableList.Count > 0)
+                                    Draw.SetObjectNumbers(Draw.TableList[0]);
 
                                 for (int i = 0; i < pictureBoxRefrigtz.Image.Width; i += pictureBoxRefrigtz.Image.Width / 8)
                                     for (int j = 0; j < pictureBoxRefrigtz.Image.Height; j += pictureBoxRefrigtz.Image.Height / 8)
@@ -6100,7 +6102,8 @@ namespace Refrigtz
                                 ChessTable = (Image)new Bitmap(pictureBoxRefrigtz.Image.Width, pictureBoxRefrigtz.Image.Height);
                                 g = Graphics.FromImage(ChessTable);
                                 g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, pictureBoxRefrigtz.Width, pictureBoxRefrigtz.Height));
-                                DrawQ.SetObjectNumbers(DrawQ.TableList[0]);
+                                if (DrawQ.TableList != null && DrawQ.TableList.Count > 0)
+                                    DrawQ.SetObjectNumbers(DrawQ.TableList[0]);
 
                                 for (int i = 0; i < pictureBoxRefrigtz.Image.Width; i += pictureBoxRefrigtz.Image.Width / 8)
                                     for (int j = 0; j < pictureBoxRefrigtz.Image.Height; j += pictureBoxRefrigtz.Image.Height / 8)
@@ -12232,12 +12235,12 @@ namespace Refrigtz
                 {
                     THISB = THIS.AStarGreedyString;
                     Draw = THIS;
-                    Draw.TableList.Clear();
-                    Draw.TableList.Add(Table);
-                    Draw.SetRowColumn(0);
-                    Draw.AStarGreedyString = THISB;
-                    // 
-                    //
+                    /* Draw.TableList.Clear();
+                     Draw.TableList.Add(Table);
+                     Draw.SetRowColumn(0);
+                     Draw.AStarGreedyString = THISB;
+                    */ // 
+                       //
                     SetBoxText("\r\nDraw Found");
                     RefreshBoxText();
                 }
@@ -12267,10 +12270,10 @@ namespace Refrigtz
                     {
                         //THISB = THIS.AStarGreedyString;
                         Draw = THIS;
-                        Draw.TableList.Clear();
+                      /*  Draw.TableList.Clear();
                         Draw.TableList.Add(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]);
                         Draw.SetRowColumn(0);
-                       //Draw.AStarGreedyString = THISB;
+                       *///Draw.AStarGreedyString = THISB;
                         // 
                         //
                         SetBoxText("\r\nDraw Found By Recurve");
@@ -12285,10 +12288,10 @@ namespace Refrigtz
                             {
                                 //THISB = THIS.AStarGreedyString;
                                 Draw = THIS;
-                                Draw.TableList.Clear();
+                               /* Draw.TableList.Clear();
                                 Draw.TableList.Add(Table);
                                 Draw.SetRowColumn(0);
-                                //Draw.AStarGreedyString = THISB;
+                               */ //Draw.AStarGreedyString = THISB;
                                 // 
                                 //
                                 SetBoxText("\r\nDraw Found Target Of Tree Expansion!");
@@ -12411,11 +12414,11 @@ namespace Refrigtz
                 {
                     THISB = THIS.AStarGreedyString;
                     DrawQ = THIS;
-                    DrawQ.TableList.Clear();
+                    /*DrawQ.TableList.Clear();
                     DrawQ.TableList.Add(Table);
                     DrawQ.SetRowColumn(0);
                     DrawQ.AStarGreedyString = THISB;
-                    // 
+                    */// 
                     //
                     SetBoxText("\r\nDraw Found");
                     RefreshBoxText();
@@ -12446,15 +12449,15 @@ namespace Refrigtz
                     {
                         //THISB = THIS.AStarGreedyString;
                         DrawQ = THIS;
-                        DrawQ.TableList.Clear();
+                        /*DrawQ.TableList.Clear();
                         DrawQ.TableList.Add(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]);
-                        DrawQ.SetRowColumn(0);
+                        DrawQ.SetRowColumn(0);*/
                         //DrawQ.AStarGreedyString = THISB;
                         // 
                         //
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
-                        FOUND = Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                        FOUND = DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
                         if (FOUND)
                         {
                             Ord = OrderPlate * -1;
@@ -12464,10 +12467,10 @@ namespace Refrigtz
                             {
                                 //THISB = THIS.AStarGreedyString;
                                 DrawQ = THIS;
-                                DrawQ.TableList.Clear();
+                              /*  DrawQ.TableList.Clear();
                                 DrawQ.TableList.Add(Table);
                                 DrawQ.SetRowColumn(0);
-                                //DrawQ.AStarGreedyString = THISB;
+                             */   //DrawQ.AStarGreedyString = THISB;
                                 // 
                                 //
                                 SetBoxText("\r\nDraw Found Target Of Tree Expansion!");
