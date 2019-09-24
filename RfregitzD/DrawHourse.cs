@@ -20,17 +20,17 @@ namespace RefrigtzDLL
         //private readonly object balancelockS = new object();
         public static Image[] H = new Image[2];
         //Iniatite Global Variables.
-        List<int[]> ValuableSelfSupported = new List<int[]>();
+        L==t<int[]> ValuableSelfSupported = new L==t<int[]>();
 
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHur==ticFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechnisamT = true;
+        public bool UsePenaltyRegardMechn==amT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHur==ticT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHur==ticT = false;
         public bool ArrangmentsChanged = false;
-        public static long MaxHuristicxH = -20000000000000000;
+        public static long MaxHur==ticxH = -20000000000000000;
         public float Row, Column;
         public Color color;
         public int[,] Table = null;
@@ -50,26 +50,26 @@ namespace RefrigtzDLL
             }
 
         }
-        public void Dispose()
+        public void D==pose()
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             H = null;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("D==pose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            int a = ReturnHuristic();
-            if (MaxHuristicxH < a)
+            int a = ReturnHur==tic();
+            if (MaxHur==ticxH < a)
             {
                 Object O2 = new Object();
                 lock (O2)
                 {
                     MaxNotFound = false;
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxH)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxH = a;
+                    if (ThinkingChess.MaxHur==ticx < MaxHur==ticxH)
+                        ThinkingChess.MaxHur==ticx = a;
+                    MaxHur==ticxH = a;
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
@@ -79,32 +79,32 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
-        public int ReturnHuristic()
+        public int ReturnHur==tic()
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.HourseMovments; ii++)
 
-                a += HourseThinking[ii].ReturnHuristic(-1, -1, Order, false);
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                a += HourseThinking[ii].ReturnHur==tic(-1, -1, Order, false);
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHur==tic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         //Constructor 1.
-        /* public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /* public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments)
          {
              CurrentAStarGredyMax = CurrentAStarGredy;
-             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+             MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
              IgnoreSelfObjectsT = IgnoreSelfObject;
-             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+             UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
              BestMovmentsT = BestMovment;
-             PredictHuristicT = PredictHurist;
+             PredictHur==ticT = PredictHur==t;
              OnlySelfT = OnlySel;
-             AStarGreedyHuristicT = AStarGreedyHuris;
+             AStarGreedyHur==ticT = AStarGreedyHur==;
              ArrangmentsChanged = Arrangments;
          }
          */
         //Constructpor 2.
-        public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
+        public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. TH==
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -112,13 +112,13 @@ namespace RefrigtzDLL
             {
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHur==ticT = PredictHur==t;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHur==ticT = AStarGreedyHur==;
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variable By Local Paramenters.
                 Table = new int[8, 8];
@@ -126,7 +126,7 @@ namespace RefrigtzDLL
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.HourseMovments; ii++)
-                    HourseThinking[ii] = new ThinkingChess(3,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
+                    HourseThinking[ii] = new ThinkingChess(3,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
 
                 Row = i;
                 Column = j;
@@ -137,22 +137,22 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Cloen a Copy.
-        public void Clone(ref DrawHourse AA//, ref AllDraw. THIS
+        public void Clone(ref DrawHourse AA//, ref AllDraw. TH==
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
-                    Tab[i, j] = this.Table[i, j];
+                    Tab[i, j] = th==.Table[i, j];
             //Create a Construction Ojects and Initiate a Clone Copy.
-            AA = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, th==.Row, th==.Column, th==.color, th==.Table, th==.Order, false, th==.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.HourseMovments; i++)
             {
 
-                AA.HourseThinking[i] = new ThinkingChess(3,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                this.HourseThinking[i].Clone(ref AA.HourseThinking[i]);
+                AA.HourseThinking[i] = new ThinkingChess(3,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)th==.Row, (int)th==.Column);
+                th==.HourseThinking[i].Clone(ref AA.HourseThinking[i]);
 
             }
             AA.Table = new int[8, 8];

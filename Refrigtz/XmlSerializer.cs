@@ -6,7 +6,7 @@ using System.Reflection;
 
 
 
-[assembly: InternalsVisibleTo("Program.XmlSerializers")]
+[assembly: InternalsV==ibleTo("Program.XmlSerializers")]
 
 namespace InternalTypesInXmlSerializer
 

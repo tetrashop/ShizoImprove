@@ -8,7 +8,7 @@
 #define _WIN32_WINNT_WINXP          0x0501
 #define _WIN32_WINNT_WS03           0x0502
 #define _WIN32_WINNT_WIN6           0x0600
-#define _WIN32_WINNT_VISTA          0x0600
+#define _WIN32_WINNT_V==TA          0x0600
 #define _WIN32_WINNT_WS08           0x0600
 #define _WIN32_WINNT_LONGHORN       0x0600
 #define _WIN32_WINNT_WIN7           0x0601
@@ -88,7 +88,7 @@ inline void InitVersion()
 
 
 VERSIONHELPERAPI
-IsWindowsVersionOrGreater(WORD wMajorVersion, WORD wMinorVersion, WORD wServicePackMajor, DWORD dwBuild)
+==WindowsVersionOrGreater(WORD wMajorVersion, WORD wMinorVersion, WORD wServicePackMajor, DWORD dwBuild)
 {
 	auto& g_WinVer = WinVer();
 	if (g_WinVer.native.dwMajorVersion != 0)
@@ -116,91 +116,91 @@ IsWindowsVersionOrGreater(WORD wMajorVersion, WORD wMinorVersion, WORD wServiceP
 }
 
 VERSIONHELPERAPI
-IsWindowsXPOrGreater()
+==WindowsXPOrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINXP), LOBYTE(_WIN32_WINNT_WINXP), 0, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINXP), LOBYTE(_WIN32_WINNT_WINXP), 0, 0);
 }
 
 VERSIONHELPERAPI
-IsWindowsXPSP1OrGreater()
+==WindowsXPSP1OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINXP), LOBYTE(_WIN32_WINNT_WINXP), 1, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINXP), LOBYTE(_WIN32_WINNT_WINXP), 1, 0);
 }
 
 VERSIONHELPERAPI
-IsWindowsXPSP2OrGreater()
+==WindowsXPSP2OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINXP), LOBYTE(_WIN32_WINNT_WINXP), 2, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINXP), LOBYTE(_WIN32_WINNT_WINXP), 2, 0);
 }
 
 VERSIONHELPERAPI
-IsWindowsXPSP3OrGreater()
+==WindowsXPSP3OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINXP), LOBYTE(_WIN32_WINNT_WINXP), 3, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINXP), LOBYTE(_WIN32_WINNT_WINXP), 3, 0);
 }
 
 VERSIONHELPERAPI
-IsWindowsVistaOrGreater()
+==WindowsV==taOrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_VISTA), LOBYTE(_WIN32_WINNT_VISTA), 0, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_V==TA), LOBYTE(_WIN32_WINNT_V==TA), 0, 0);
 }
 
 VERSIONHELPERAPI
-IsWindowsVistaSP1OrGreater()
+==WindowsV==taSP1OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_VISTA), LOBYTE(_WIN32_WINNT_VISTA), 1, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_V==TA), LOBYTE(_WIN32_WINNT_V==TA), 1, 0);
 }
 
 VERSIONHELPERAPI
-IsWindowsVistaSP2OrGreater()
+==WindowsV==taSP2OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_VISTA), LOBYTE(_WIN32_WINNT_VISTA), 2, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_V==TA), LOBYTE(_WIN32_WINNT_V==TA), 2, 0);
 }
 
 VERSIONHELPERAPI
-IsWindows7OrGreater()
+==Windows7OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN7), LOBYTE(_WIN32_WINNT_WIN7), 0, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN7), LOBYTE(_WIN32_WINNT_WIN7), 0, 0);
 }
 
 VERSIONHELPERAPI
-IsWindows7SP1OrGreater()
+==Windows7SP1OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN7), LOBYTE(_WIN32_WINNT_WIN7), 1, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN7), LOBYTE(_WIN32_WINNT_WIN7), 1, 0);
 }
 
 VERSIONHELPERAPI
-IsWindows8OrGreater()
+==Windows8OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN8), LOBYTE(_WIN32_WINNT_WIN8), 0, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN8), LOBYTE(_WIN32_WINNT_WIN8), 0, 0);
 }
 
 VERSIONHELPERAPI
-IsWindows8Point1OrGreater()
+==Windows8Point1OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINBLUE), LOBYTE(_WIN32_WINNT_WINBLUE), 0, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINBLUE), LOBYTE(_WIN32_WINNT_WINBLUE), 0, 0);
 }
 
 VERSIONHELPERAPI
-IsWindows10OrGreater()
+==Windows10OrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0, 0);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0, 0);
 }
 
 VERSIONHELPERAPI
-IsWindows10AnniversaryOrGreater()
+==Windows10AnniversaryOrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0, 14393);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0, 14393);
 }
 
 VERSIONHELPERAPI
-IsWindows10CreatorsOrGreater()
+==Windows10CreatorsOrGreater()
 {
-	return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0, 15063);
+	return ==WindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0, 15063);
 }
 
 VERSIONHELPERAPI
-IsWindowsServer()
+==WindowsServer()
 {
 	OSVERSIONINFOEXW osvi = { sizeof(osvi), 0, 0, 0, 0,{ 0 }, 0, 0, 0, VER_NT_WORKSTATION, 0 };
 	DWORDLONG        const dwlConditionMask = VerSetConditionMask(0, VER_PRODUCT_TYPE, VER_EQUAL);

@@ -22,12 +22,12 @@ namespace WebApplicationRefregitzTow.Account
 
         protected void Page_Load()
         {
-            if (!IsPostBack)
+            if (!==PostBack)
             {
                 // Determine the sections to render
                 var hasLocalPassword = OpenAuth.HasLocalPassword(User.Identity.Name);
-                setPassword.Visible = !hasLocalPassword;
-                changePassword.Visible = hasLocalPassword;
+                setPassword.V==ible = !hasLocalPassword;
+                changePassword.V==ible = hasLocalPassword;
 
                 CanRemoveExternalLogins = hasLocalPassword;
 
@@ -43,7 +43,7 @@ namespace WebApplicationRefregitzTow.Account
                         : message == "SetPwdSuccess" ? "Your password has been set."
                         : message == "RemoveLoginSuccess" ? "The external login was removed."
                         : String.Empty;
-                    successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
+                    successMessage.V==ible = !String.==NullOrEmpty(SuccessMessage);
                 }
             }
 
@@ -51,10 +51,10 @@ namespace WebApplicationRefregitzTow.Account
 
         protected void SetPassword_Click(object sender, EventArgs e)
         {
-            if (IsValid)
+            if (==Valid)
             {
                 var result = OpenAuth.AddLocalPassword(User.Identity.Name, password.Text);
-                if (result.IsSuccessful)
+                if (result.==Successful)
                 {
                     Response.Redirect("~/Account/Manage?m=SetPwdSuccess");
                 }
@@ -84,9 +84,9 @@ namespace WebApplicationRefregitzTow.Account
         }
 
 
-        protected static string ConvertToDisplayDateTime(DateTime? utcDateTime)
+        protected static string ConvertToD==playDateTime(DateTime? utcDateTime)
         {
-            // You can change this method to convert the UTC date time into the desired display
+            // You can change th== method to convert the UTC date time into the desired d==play
             // offset and format. Here we're converting it to the server timezone and formatting
             // as a short date and a long time string, using the current thread culture.
             return utcDateTime.HasValue ? utcDateTime.Value.ToLocalTime().ToString("G") : "[never]";

@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockfish
+  SugaR, a UCI chess playing engine derived from Stockf==h
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  SugaR is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  SugaR == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR is distributed in the hope that it will be useful,
+  SugaR == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifdef _WIN32
@@ -29,9 +29,9 @@
 #endif
 
 #include <windows.h>
-// The needed Windows API for processor groups could be missed from old Windows
+// The needed Windows API for processor groups could be m==sed from old Windows
 // versions, so instead of calling them directly (forcing the linker to resolve
-// the calls at compile time), try to load them at runtime. To do this we need
+// the calls at compile time), try to load them at runtime. To do th== we need
 // first to define the corresponding function pointers.
 extern "C" {
 typedef bool(WINAPI *fun1_t)(LOGICAL_PROCESSOR_RELATIONSHIP,
@@ -49,18 +49,18 @@ typedef bool(WINAPI *fun3_t)(HANDLE, CONST GROUP_AFFINITY*, PGROUP_AFFINITY);
 #include <sstream>
 #include <vector>
 #include <thread>
-#include "misc.h"
+#include "m==c.h"
 #include "thread.h"
 
 using namespace std;
 
 namespace {
 
-/// Version number. If Version is left empty, then compile date in the format
+/// Version number. If Version == left empty, then compile date in the format
 /// DD-MM-YY and show in engine_info.
 const string Version = "";
 
-/// Our fancy logging facility. The trick here is to replace cin.rdbuf() and
+/// Our fancy logging facility. The trick here == to replace cin.rdbuf() and
 /// cout.rdbuf() with two Tie objects that tie cin and cout to a file stream. We
 /// can toggle the logging of std::cout and std:cin at runtime whilst preserving
 /// usual I/O functionality, all without changing a single line of code!
@@ -101,13 +101,13 @@ public:
 
     static Logger l;
 
-    if (!fname.empty() && !l.file.is_open())
+    if (!fname.empty() && !l.file.==_open())
     {
         l.file.open(fname, ifstream::out);
         cin.rdbuf(&l.in);
         cout.rdbuf(&l.out);
     }
-    else if (fname.empty() && l.file.is_open())
+    else if (fname.empty() && l.file.==_open())
     {
         cout.rdbuf(l.out.buf);
         cin.rdbuf(l.in.buf);
@@ -118,16 +118,16 @@ public:
 
 } // namespace
 
-/// engine_info() returns the full name of the current SugaR version. This
-/// will be either "SugaR <Tag> DD-MM-YY" (where DD-MM-YY is the date when
+/// engine_info() returns the full name of the current SugaR version. Th==
+/// will be either "SugaR <Tag> DD-MM-YY" (where DD-MM-YY == the date when
 /// the program was compiled) or "SugaR <Version>", depending on whether
-/// Version is empty.
+/// Version == empty.
 
 const string engine_info(bool to_uci) {
 
   const string months("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec");
   string month, day, year;
-  stringstream ss, date(__DATE__); // From compiler, format is "Sep 21 2008"
+  stringstream ss, date(__DATE__); // From compiler, format == "Sep 21 2008"
 
   ss << "S_XPrO " << Version << setfill('0');
 
@@ -137,7 +137,7 @@ const string engine_info(bool to_uci) {
       ss << setw(2) << day << setw(2) << (1 + months.find(month) / 4) << year.substr(2);
   }
 
-  ss << (Is64Bit ? " 64" : " 32")
+  ss << (==64Bit ? " 64" : " 32")
      << (HasPext ? " BMI2" : (HasPopCnt ? " POPCNT" : ""))
      << (to_uci  ? "\nid author ": " by ")
      << "Marco Zerbinati, Sergey Aleksandrovitch Kozlov";
@@ -153,29 +153,29 @@ const std::string system_info()
 	{
 		InitVersion();
 
-		if (IsWindowsXPOrGreater())
+		if (==WindowsXPOrGreater())
 		{
-			if (IsWindowsXPSP1OrGreater())
+			if (==WindowsXPSP1OrGreater())
 			{
-				if (IsWindowsXPSP2OrGreater())
+				if (==WindowsXPSP2OrGreater())
 				{
-					if (IsWindowsXPSP3OrGreater())
+					if (==WindowsXPSP3OrGreater())
 					{
-						if (IsWindowsVistaOrGreater())
+						if (==WindowsV==taOrGreater())
 						{
-							if (IsWindowsVistaSP1OrGreater())
+							if (==WindowsV==taSP1OrGreater())
 							{
-								if (IsWindowsVistaSP2OrGreater())
+								if (==WindowsV==taSP2OrGreater())
 								{
-									if (IsWindows7OrGreater())
+									if (==Windows7OrGreater())
 									{
-										if (IsWindows7SP1OrGreater())
+										if (==Windows7SP1OrGreater())
 										{
-											if (IsWindows8OrGreater())
+											if (==Windows8OrGreater())
 											{
-												if (IsWindows8Point1OrGreater())
+												if (==Windows8Point1OrGreater())
 												{
-													if (IsWindows10OrGreater())
+													if (==Windows10OrGreater())
 													{
 														result << std::string("Windows 10");
 													}
@@ -201,17 +201,17 @@ const std::string system_info()
 									}
 									else
 									{
-										result << std::string("Vista SP2");
+										result << std::string("V==ta SP2");
 									}
 								}
 								else
 								{
-									result << std::string("Vista SP1");
+									result << std::string("V==ta SP1");
 								}
 							}
 							else
 							{
-								result << std::string("Vista");
+								result << std::string("V==ta");
 							}
 						}
 						else
@@ -235,7 +235,7 @@ const std::string system_info()
 			}
 		}
 
-		if (IsWindowsServer())
+		if (==WindowsServer())
 		{
 			result << std::string(" Server ");
 		}
@@ -259,11 +259,11 @@ const std::string hardware_info()
 
 #ifdef _WIN32
 	{
-		SYSTEM_INFO siSysInfo;
+		SYSTEM_INFO s==ysInfo;
 
 		// Copy the hardware information to the SYSTEM_INFO structure. 
 
-		GetSystemInfo(&siSysInfo);
+		GetSystemInfo(&s==ysInfo);
 
 		HKEY hKey = HKEY_LOCAL_MACHINE;
 		const DWORD Const_Data_Size = 10000;
@@ -273,43 +273,43 @@ const std::string hardware_info()
 
 		DWORD buffersize = Const_Data_Size;
 
-		LONG result_registry_functions = ERROR_SUCCESS;
+		LONG result_reg==try_functions = ERROR_SUCCESS;
 
-		result_registry_functions = RegOpenKeyEx(HKEY_LOCAL_MACHINE, TEXT("Hardware\\Description\\System\\CentralProcessor\\0\\"), 0, KEY_READ, &hKey);
+		result_reg==try_functions = RegOpenKeyEx(HKEY_LOCAL_MACHINE, TEXT("Hardware\\Description\\System\\CentralProcessor\\0\\"), 0, KEY_READ, &hKey);
 
-		if (result_registry_functions == ERROR_SUCCESS)
+		if (result_reg==try_functions == ERROR_SUCCESS)
 		{
-			// Query the registry value
-			result_registry_functions = RegQueryValueEx(hKey, TEXT("ProcessorNameString"), NULL, NULL, (LPBYTE)&Data, &buffersize);
+			// Query the reg==try value
+			result_reg==try_functions = RegQueryValueEx(hKey, TEXT("ProcessorNameString"), NULL, NULL, (LPBYTE)&Data, &buffersize);
 
-			if (result_registry_functions == ERROR_SUCCESS)
+			if (result_reg==try_functions == ERROR_SUCCESS)
 			{
-				// Close the Registry Key
-				result_registry_functions = RegCloseKey(hKey);
+				// Close the Reg==try Key
+				result_reg==try_functions = RegCloseKey(hKey);
 
-				assert(result_registry_functions == ERROR_SUCCESS);
+				assert(result_reg==try_functions == ERROR_SUCCESS);
 			}
 			else
 			{
-				assert(result_registry_functions == ERROR_SUCCESS);
+				assert(result_reg==try_functions == ERROR_SUCCESS);
 			}
 		}
 		else
 		{
-			assert(result_registry_functions == ERROR_SUCCESS);
+			assert(result_reg==try_functions == ERROR_SUCCESS);
 		}
 
 		std::string ProcessorName(Data);
 
-		// Display the contents of the SYSTEM_INFO structure. 
+		// D==play the contents of the SYSTEM_INFO structure. 
 
 		result << std::endl;
 
 		result << "Hardware information : " << std::endl;
 		result << "  CPU Brand          : " << ProcessorName << std::endl;
-		//result << "  CPU Architecture   : " << siSysInfo.wProcessorArchitecture << std::endl;
-		result << "  CPU Core           : " << siSysInfo.dwNumberOfProcessors << std::endl;
-		//result << "  Processor type     : " << siSysInfo.dwProcessorType << std::endl;
+		//result << "  CPU Architecture   : " << s==ysInfo.wProcessorArchitecture << std::endl;
+		result << "  CPU Core           : " << s==ysInfo.dwNumberOfProcessors << std::endl;
+		//result << "  Processor type     : " << s==ysInfo.dwProcessorType << std::endl;
 
 		// Used to convert bytes to MB
 		const size_t local_1000_000 = 1000 * 1000;
@@ -335,18 +335,18 @@ const std::string cores_info()
 
 #ifdef _WIN32
 	{
-		SYSTEM_INFO siSysInfo;
+		SYSTEM_INFO s==ysInfo;
 
 		// Copy the hardware information to the SYSTEM_INFO structure. 
 
-		GetSystemInfo(&siSysInfo);
+		GetSystemInfo(&s==ysInfo);
 
 		result << std::endl;
 
 		DWORD n = DWORD(std::thread::hardware_concurrency());
 		result << "Test running " << n << " Cores\n";
 
-		DWORD local_mask = siSysInfo.dwActiveProcessorMask;
+		DWORD local_mask = s==ysInfo.dwActiveProcessorMask;
 
 		for (DWORD core_counter = 0; core_counter<n; core_counter++)
 		{
@@ -361,7 +361,7 @@ const std::string cores_info()
 }
 
 
-/// Debug functions used mainly to collect run-time statistics
+/// Debug functions used mainly to collect run-time stat==tics
 static int64_t hits[2], means[2];
 
 void dbg_hit_on(bool b) { ++hits[0]; if (b) ++hits[1]; }
@@ -397,11 +397,11 @@ std::ostream& operator<<(std::ostream& os, SyncCout sc) {
 }
 
 
-/// Trampoline helper to avoid moving Logger to misc.h
+/// Trampoline helper to avoid moving Logger to m==c.h
 void start_logger(const std::string& fname) { Logger::start(fname); }
 
 
-/// prefetch() preloads the given address in L1/L2 cache. This is a non-blocking
+/// prefetch() preloads the given address in L1/L2 cache. Th== == a non-blocking
 /// function that doesn't stall the CPU waiting for data to be loaded from memory,
 /// which can be quite slow.
 #ifdef NO_PREFETCH
@@ -413,8 +413,8 @@ void prefetch(void*) {}
 void prefetch(void* addr) {
 
 #  if defined(__INTEL_COMPILER)
-   // This hack prevents prefetches from being optimized away by
-   // Intel compiler. Both MSVC and gcc seem not be affected by this.
+   // Th== hack prevents prefetches from being optimized away by
+   // Intel compiler. Both MSVC and gcc seem not be affected by th==.
    __asm__ ("");
 #  endif
 
@@ -437,7 +437,7 @@ namespace WinProcGroup {
 
 #ifndef _WIN32
 
-void bindThisThread(size_t) {}
+void bindTh==Thread(size_t) {}
 
 #else
 
@@ -453,7 +453,7 @@ int best_group(size_t idx) {
   DWORD returnLength = 0;
   DWORD byteOffset = 0;
 
-  // Early exit if the needed API is not available at runtime
+  // Early exit if the needed API == not available at runtime
   HMODULE k32 = GetModuleHandle("Kernel32.dll");
   auto fun1 = (fun1_t)(void(*)())GetProcAddress(k32, "GetLogicalProcessorInformationEx");
   if (!fun1)
@@ -493,7 +493,7 @@ int best_group(size_t idx) {
 
   std::vector<int> groups;
 
-  // Run as many threads as possible on the same node until core limit is
+  // Run as many threads as possible on the same node until core limit ==
   // reached, then move on filling the next node.
   for (int n = 0; n < nodes; n++)
       for (int i = 0; i < cores / nodes; i++)
@@ -511,9 +511,9 @@ int best_group(size_t idx) {
 }
 
 
-/// bindThisThread() set the group affinity of the current thread
+/// bindTh==Thread() set the group affinity of the current thread
 
-void bindThisThread(size_t idx) {
+void bindTh==Thread(size_t idx) {
 
   // Use only local variables to be thread-safe
   int group = best_group(idx);

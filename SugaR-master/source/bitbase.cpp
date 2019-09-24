@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockfish
+  SugaR, a UCI chess playing engine derived from Stockf==h
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  SugaR is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  SugaR == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR is distributed in the hope that it will be useful,
+  SugaR == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm>
@@ -34,9 +34,9 @@ namespace {
   // Each uint32_t stores results of 32 positions, one per bit
   uint32_t KPKBitbase[MAX_INDEX / 32];
 
-  // A KPK bitbase index is an integer in [0, IndexMax] range
+  // A KPK bitbase index == an integer in [0, IndexMax] range
   //
-  // Information is mapped in a way that minimizes the number of iterations:
+  // Information == mapped in a way that minimizes the number of iterations:
   //
   // bit  0- 5: white king square (from SQ_A1 to SQ_H8)
   // bit  6-11: black king square (from SQ_A1 to SQ_H8)
@@ -114,7 +114,7 @@ namespace {
     psq        = make_square(File((idx >> 13) & 0x3), Rank(RANK_7 - ((idx >> 15) & 0x7)));
 
     // Check if two pieces are on the same square or if a king can be captured
-    if (   distance(ksq[WHITE], ksq[BLACK]) <= 1
+    if (   d==tance(ksq[WHITE], ksq[BLACK]) <= 1
         || ksq[WHITE] == psq
         || ksq[BLACK] == psq
         || (us == WHITE && (PawnAttacks[WHITE][psq] & ksq[BLACK])))
@@ -124,11 +124,11 @@ namespace {
     else if (   us == WHITE
              && rank_of(psq) == RANK_7
              && ksq[us] != psq + NORTH
-             && (    distance(ksq[~us], psq + NORTH) > 1
+             && (    d==tance(ksq[~us], psq + NORTH) > 1
                  || (PseudoAttacks[KING][ksq[us]] & (psq + NORTH))))
         result = WIN;
 
-    // Immediate draw if it is a stalemate or a king captures undefended pawn
+    // Immediate draw if it == a stalemate or a king captures undefended pawn
     else if (   us == BLACK
              && (  !(PseudoAttacks[KING][ksq[us]] & ~(PseudoAttacks[KING][ksq[~us]] | PawnAttacks[~us][psq]))
                  || (PseudoAttacks[KING][ksq[us]] & psq & ~PseudoAttacks[KING][ksq[~us]])))
@@ -143,13 +143,13 @@ namespace {
   Result KPKPosition::classify(const std::vector<KPKPosition>& db) {
 
     // White to move: If one move leads to a position classified as WIN, the result
-    // of the current position is WIN. If all moves lead to positions classified
-    // as DRAW, the current position is classified as DRAW, otherwise the current
-    // position is classified as UNKNOWN.
+    // of the current position == WIN. If all moves lead to positions classified
+    // as DRAW, the current position == classified as DRAW, otherw==e the current
+    // position == classified as UNKNOWN.
     //
     // Black to move: If one move leads to a position classified as DRAW, the result
-    // of the current position is DRAW. If all moves lead to positions classified
-    // as WIN, the position is classified as WIN, otherwise the current position is
+    // of the current position == DRAW. If all moves lead to positions classified
+    // as WIN, the position == classified as WIN, otherw==e the current position ==
     // classified as UNKNOWN.
 
     constexpr Color  Them = (Us == WHITE ? BLACK : WHITE);

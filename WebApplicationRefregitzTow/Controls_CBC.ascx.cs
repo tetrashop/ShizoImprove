@@ -1,6 +1,6 @@
 ﻿//
 //   Class writen by GIDEON LOUW   (MCSD)
-//   You can reuse the code as you wish
+//   You can reuse the code as you w==h
 //   If you want to keep the above you are welcome
 //   If you modify it and add additional code - please send me copy too - gideonlouw@hotmail.com
 //   Thank you..
@@ -90,14 +90,14 @@ namespace WebApplicationRefregitzTow
         public static bool Found = false;
         public static Control _1 = null;
         public static Control _2 = null;
-        public double MaxHuristicxT = Double.MinValue;
-        public bool MovementsAStarGreedyHuristicFound = false;
+        public double MaxHur==ticxT = Double.MinValue;
+        public bool MovementsAStarGreedyHur==ticFound = false;
         public bool IIgnoreSelfObjects = false;
-        public bool UsePenaltyRegardMechnisam = true;
+        public bool UsePenaltyRegardMechn==am = true;
         public bool BestMovments = false;
-        public bool PredictHuristic = true;
+        public bool PredictHur==tic = true;
         public bool OnlySelf = false;
-        public bool AStarGreedyHuristic = false;
+        public bool AStarGreedyHur==tic = false;
 
         bool ArrangmentsChanged = true;
         System.Threading.Thread t;
@@ -109,16 +109,16 @@ namespace WebApplicationRefregitzTow
         /// <returns></returns>
         public Control FindControlRecursive(string id)
         {
-            if (this == null) return null;
+            if (th== == null) return null;
             //try to find the control at the current level
-            Control ctrl = this.FindControl(id);
+            Control ctrl = th==.FindControl(id);
 
             if (ctrl == null)
             {
                 //search the children
-                foreach (Control child in this.Controls)
+                foreach (Control child in th==.Controls)
                 {
-                    ctrl = this.FindControlRecursive(id);
+                    ctrl = th==.FindControlRecursive(id);
 
                     if (ctrl != null) break;
                 }
@@ -185,7 +185,7 @@ namespace WebApplicationRefregitzTow
 
 
 
-                            if ((new ChessRules(0,MovementsAStarGreedyHuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,7, FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, 7))
+                            if ((new ChessRules(0,MovementsAStarGreedyHur==ticFound,IIgnoreSelfObjects,UsePenaltyRegardMechn==am,BestMovments,PredictHur==tic,OnlySelf,AStarGreedyHur==tic,ArrangmentsChanged,7, FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, 7))
                             {
 
                                 FormRefrigtz.Table[Row1 - 2, Column1] = FormRefrigtz.Table[Row1, Column1];
@@ -201,7 +201,7 @@ namespace WebApplicationRefregitzTow
 
                         else if ((Column1 == Column2) && (Row1 == Row2 + 2))
                         {
-                            if ((new ChessRules(0,MovementsAStarGreedyHuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,-7, FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, -7))
+                            if ((new ChessRules(0,MovementsAStarGreedyHur==ticFound,IIgnoreSelfObjects,UsePenaltyRegardMechn==am,BestMovments,PredictHur==tic,OnlySelf,AStarGreedyHur==tic,ArrangmentsChanged,-7, FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, -7))
                             {
                                 FormRefrigtz.Table[Row1 + 2, Column1] = FormRefrigtz.Table[Row1, Column1];
                                 FormRefrigtz.Table[Row1 + 3, Column1] = FormRefrigtz.Table[Row1, 0];
@@ -212,7 +212,7 @@ namespace WebApplicationRefregitzTow
                         }
                         else
                         {
-                            if ((new ChessRules(0,MovementsAStarGreedyHuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,FormRefrigtz.Table[Row1, Column1], FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, FormRefrigtz.Table[Row1, Column1]))
+                            if ((new ChessRules(0,MovementsAStarGreedyHur==ticFound,IIgnoreSelfObjects,UsePenaltyRegardMechn==am,BestMovments,PredictHur==tic,OnlySelf,AStarGreedyHur==tic,ArrangmentsChanged,FormRefrigtz.Table[Row1, Column1], FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, FormRefrigtz.Table[Row1, Column1]))
                             {
                                 ThingsConverter t = new ThingsConverter();
                                 t.ConvertOperation(Row2, Column2, A, FormRefrigtz.Table, FormRefrigtz.OrderPlate, false, 0);
@@ -220,7 +220,7 @@ namespace WebApplicationRefregitzTow
                                 {
                             
                                     FormRefrigtz.Table[Row1, Column1] = 0;
-                                    if (t.ConvertedToMinister)
+                                    if (t.ConvertedToMin==ter)
                                         FormRefrigtz.Table[Row2, Column2] = 5;
                                     else if (t.ConvertedToCastle)
                                         FormRefrigtz.Table[Row2, Column2] = 4;
@@ -257,392 +257,392 @@ namespace WebApplicationRefregitzTow
                     case 1:
 
                         ChessImage = System.Convert.ToString(Image1.ImageUrl);
-                        Panel1.Visible = false;
+                        Panel1.V==ible = false;
                         break;
 
                     case 2:
 
                         ChessImage = System.Convert.ToString(Image2.ImageUrl);
-                        Panel2.Visible = false;
+                        Panel2.V==ible = false;
                         break;
 
                     case 3:
 
                         ChessImage = System.Convert.ToString(Image3.ImageUrl);
-                        Panel3.Visible = false;
+                        Panel3.V==ible = false;
                         break;
 
                     case 4:
 
                         ChessImage = System.Convert.ToString(Image4.ImageUrl);
-                        Panel4.Visible = false;
+                        Panel4.V==ible = false;
                         break;
 
                     case 5:
 
                         ChessImage = System.Convert.ToString(Image5.ImageUrl);
-                        Panel5.Visible = false;
+                        Panel5.V==ible = false;
                         break;
 
                     case 6:
 
                         ChessImage = System.Convert.ToString(Image6.ImageUrl);
-                        Panel6.Visible = false;
+                        Panel6.V==ible = false;
                         break;
 
                     case 7:
 
                         ChessImage = System.Convert.ToString(Image7.ImageUrl);
-                        Panel7.Visible = false;
+                        Panel7.V==ible = false;
                         break;
 
                     case 8:
 
                         ChessImage = System.Convert.ToString(Image8.ImageUrl);
-                        Panel8.Visible = false;
+                        Panel8.V==ible = false;
                         break;
 
                     case 9:
 
                         ChessImage = System.Convert.ToString(Image9.ImageUrl);
-                        Panel9.Visible = false;
+                        Panel9.V==ible = false;
                         break;
 
                     case 10:
 
                         ChessImage = System.Convert.ToString(Image10.ImageUrl);
-                        Panel10.Visible = false;
+                        Panel10.V==ible = false;
                         break;
 
                     case 11:
 
                         ChessImage = System.Convert.ToString(Image11.ImageUrl);
-                        Panel11.Visible = false;
+                        Panel11.V==ible = false;
                         break;
 
                     case 12:
 
                         ChessImage = System.Convert.ToString(Image12.ImageUrl);
-                        Panel12.Visible = false;
+                        Panel12.V==ible = false;
                         break;
 
                     case 13:
 
                         ChessImage = System.Convert.ToString(Image13.ImageUrl);
-                        Panel13.Visible = false;
+                        Panel13.V==ible = false;
                         break;
 
                     case 14:
 
                         ChessImage = System.Convert.ToString(Image14.ImageUrl);
-                        Panel14.Visible = false;
+                        Panel14.V==ible = false;
                         break;
 
                     case 15:
 
                         ChessImage = System.Convert.ToString(Image15.ImageUrl);
-                        Panel15.Visible = false;
+                        Panel15.V==ible = false;
                         break;
 
                     case 16:
 
                         ChessImage = System.Convert.ToString(Image16.ImageUrl);
-                        Panel16.Visible = false;
+                        Panel16.V==ible = false;
                         break;
 
                     case 17:
 
                         ChessImage = System.Convert.ToString(Image17.ImageUrl);
-                        Panel17.Visible = false;
+                        Panel17.V==ible = false;
                         break;
 
                     case 18:
 
                         ChessImage = System.Convert.ToString(Image18.ImageUrl);
-                        Panel18.Visible = false;
+                        Panel18.V==ible = false;
                         break;
 
                     case 19:
 
                         ChessImage = System.Convert.ToString(Image19.ImageUrl);
-                        Panel19.Visible = false;
+                        Panel19.V==ible = false;
                         break;
 
                     case 20:
 
                         ChessImage = System.Convert.ToString(Image20.ImageUrl);
-                        Panel20.Visible = false;
+                        Panel20.V==ible = false;
                         break;
 
                     case 21:
 
                         ChessImage = System.Convert.ToString(Image21.ImageUrl);
-                        Panel21.Visible = false;
+                        Panel21.V==ible = false;
                         break;
 
                     case 22:
 
                         ChessImage = System.Convert.ToString(Image22.ImageUrl);
-                        Panel22.Visible = false;
+                        Panel22.V==ible = false;
                         break;
 
                     case 23:
 
                         ChessImage = System.Convert.ToString(Image23.ImageUrl);
-                        Panel23.Visible = false;
+                        Panel23.V==ible = false;
                         break;
 
                     case 24:
 
                         ChessImage = System.Convert.ToString(Image24.ImageUrl);
-                        Panel24.Visible = false;
+                        Panel24.V==ible = false;
                         break;
 
                     case 25:
 
                         ChessImage = System.Convert.ToString(Image25.ImageUrl);
-                        Panel25.Visible = false;
+                        Panel25.V==ible = false;
                         break;
 
                     case 26:
 
                         ChessImage = System.Convert.ToString(Image26.ImageUrl);
-                        Panel26.Visible = false;
+                        Panel26.V==ible = false;
                         break;
 
                     case 27:
 
                         ChessImage = System.Convert.ToString(Image27.ImageUrl);
-                        Panel27.Visible = false;
+                        Panel27.V==ible = false;
                         break;
 
                     case 28:
 
                         ChessImage = System.Convert.ToString(Image28.ImageUrl);
-                        Panel28.Visible = false;
+                        Panel28.V==ible = false;
                         break;
 
                     case 29:
 
                         ChessImage = System.Convert.ToString(Image29.ImageUrl);
-                        Panel29.Visible = false;
+                        Panel29.V==ible = false;
                         break;
 
                     case 30:
 
                         ChessImage = System.Convert.ToString(Image30.ImageUrl);
-                        Panel30.Visible = false;
+                        Panel30.V==ible = false;
                         break;
 
                     case 31:
 
                         ChessImage = System.Convert.ToString(Image31.ImageUrl);
-                        Panel31.Visible = false;
+                        Panel31.V==ible = false;
                         break;
 
                     case 32:
 
                         ChessImage = System.Convert.ToString(Image32.ImageUrl);
-                        Panel32.Visible = false;
+                        Panel32.V==ible = false;
                         break;
 
                     case 33:
 
                         ChessImage = System.Convert.ToString(Image33.ImageUrl);
-                        Panel33.Visible = false;
+                        Panel33.V==ible = false;
                         break;
 
                     case 34:
 
                         ChessImage = System.Convert.ToString(Image34.ImageUrl);
-                        Panel34.Visible = false;
+                        Panel34.V==ible = false;
                         break;
 
                     case 35:
 
                         ChessImage = System.Convert.ToString(Image35.ImageUrl);
-                        Panel35.Visible = false;
+                        Panel35.V==ible = false;
                         break;
 
                     case 36:
 
                         ChessImage = System.Convert.ToString(Image36.ImageUrl);
-                        Panel36.Visible = false;
+                        Panel36.V==ible = false;
                         break;
 
                     case 37:
 
                         ChessImage = System.Convert.ToString(Image37.ImageUrl);
-                        Panel37.Visible = false;
+                        Panel37.V==ible = false;
                         break;
 
                     case 38:
 
                         ChessImage = System.Convert.ToString(Image38.ImageUrl);
-                        Panel38.Visible = false;
+                        Panel38.V==ible = false;
                         break;
 
                     case 39:
 
                         ChessImage = System.Convert.ToString(Image39.ImageUrl);
-                        Panel39.Visible = false;
+                        Panel39.V==ible = false;
                         break;
 
                     case 40:
 
                         ChessImage = System.Convert.ToString(Image40.ImageUrl);
-                        Panel40.Visible = false;
+                        Panel40.V==ible = false;
                         break;
 
                     case 41:
 
                         ChessImage = System.Convert.ToString(Image41.ImageUrl);
-                        Panel41.Visible = false;
+                        Panel41.V==ible = false;
                         break;
 
                     case 42:
 
                         ChessImage = System.Convert.ToString(Image42.ImageUrl);
-                        Panel42.Visible = false;
+                        Panel42.V==ible = false;
                         break;
 
                     case 43:
 
                         ChessImage = System.Convert.ToString(Image43.ImageUrl);
-                        Panel43.Visible = false;
+                        Panel43.V==ible = false;
                         break;
 
                     case 44:
 
                         ChessImage = System.Convert.ToString(Image44.ImageUrl);
-                        Panel44.Visible = false;
+                        Panel44.V==ible = false;
                         break;
 
                     case 45:
 
                         ChessImage = System.Convert.ToString(Image45.ImageUrl);
-                        Panel45.Visible = false;
+                        Panel45.V==ible = false;
                         break;
 
                     case 46:
 
                         ChessImage = System.Convert.ToString(Image46.ImageUrl);
-                        Panel46.Visible = false;
+                        Panel46.V==ible = false;
                         break;
 
                     case 47:
 
                         ChessImage = System.Convert.ToString(Image47.ImageUrl);
-                        Panel47.Visible = false;
+                        Panel47.V==ible = false;
                         break;
 
                     case 48:
 
                         ChessImage = System.Convert.ToString(Image48.ImageUrl);
-                        Panel48.Visible = false;
+                        Panel48.V==ible = false;
                         break;
 
                     case 49:
 
                         ChessImage = System.Convert.ToString(Image49.ImageUrl);
-                        Panel49.Visible = false;
+                        Panel49.V==ible = false;
                         break;
 
                     case 50:
 
                         ChessImage = System.Convert.ToString(Image50.ImageUrl);
-                        Panel50.Visible = false;
+                        Panel50.V==ible = false;
                         break;
 
                     case 51:
 
                         ChessImage = System.Convert.ToString(Image51.ImageUrl);
-                        Panel51.Visible = false;
+                        Panel51.V==ible = false;
                         break;
 
                     case 52:
 
                         ChessImage = System.Convert.ToString(Image52.ImageUrl);
-                        Panel52.Visible = false;
+                        Panel52.V==ible = false;
                         break;
 
                     case 53:
 
                         ChessImage = System.Convert.ToString(Image53.ImageUrl);
-                        Panel53.Visible = false;
+                        Panel53.V==ible = false;
                         break;
 
                     case 54:
 
                         ChessImage = System.Convert.ToString(Image54.ImageUrl);
-                        Panel54.Visible = false;
+                        Panel54.V==ible = false;
                         break;
 
                     case 55:
 
                         ChessImage = System.Convert.ToString(Image55.ImageUrl);
-                        Panel55.Visible = false;
+                        Panel55.V==ible = false;
                         break;
 
                     case 56:
 
                         ChessImage = System.Convert.ToString(Image56.ImageUrl);
-                        Panel56.Visible = false;
+                        Panel56.V==ible = false;
                         break;
 
                     case 57:
 
                         ChessImage = System.Convert.ToString(Image57.ImageUrl);
-                        Panel57.Visible = false;
+                        Panel57.V==ible = false;
                         break;
 
                     case 58:
 
                         ChessImage = System.Convert.ToString(Image58.ImageUrl);
-                        Panel58.Visible = false;
+                        Panel58.V==ible = false;
                         break;
 
                     case 59:
 
                         ChessImage = System.Convert.ToString(Image59.ImageUrl);
-                        Panel59.Visible = false;
+                        Panel59.V==ible = false;
                         break;
 
                     case 60:
 
                         ChessImage = System.Convert.ToString(Image60.ImageUrl);
-                        Panel60.Visible = false;
+                        Panel60.V==ible = false;
                         break;
 
                     case 61:
 
                         ChessImage = System.Convert.ToString(Image61.ImageUrl);
-                        Panel61.Visible = false;
+                        Panel61.V==ible = false;
                         break;
 
                     case 62:
 
                         ChessImage = System.Convert.ToString(Image62.ImageUrl);
-                        Panel62.Visible = false;
+                        Panel62.V==ible = false;
                         break;
 
                     case 63:
 
                         ChessImage = System.Convert.ToString(Image63.ImageUrl);
-                        Panel63.Visible = false;
+                        Panel63.V==ible = false;
                         break;
 
                     case 64:
 
                         ChessImage = System.Convert.ToString(Image64.ImageUrl);
-                        Panel64.Visible = false;
+                        Panel64.V==ible = false;
                         break;
 
 
                 }
 
                 //Can not move a blank block
-                if (string.IsNullOrEmpty(ChessImage))
+                if (string.==NullOrEmpty(ChessImage))
                 {
                     goto EndSection;
                 }
@@ -654,329 +654,329 @@ namespace WebApplicationRefregitzTow
                 {
                     case 1:
 
-                        //Display Box
-                        Panel1.Visible = true;
+                        //D==play Box
+                        Panel1.V==ible = true;
                         Image1.ImageUrl = ChessImage;
                         break;
 
                     case 2:
-                        Panel2.Visible = true;
+                        Panel2.V==ible = true;
                         Image2.ImageUrl = ChessImage;
                         break;
                     case 3:
-                        Panel3.Visible = true;
+                        Panel3.V==ible = true;
                         Image3.ImageUrl = ChessImage;
                         break;
 
                     case 4:
-                        Panel4.Visible = true;
+                        Panel4.V==ible = true;
                         Image4.ImageUrl = ChessImage;
                         break;
 
                     case 5:
-                        Panel5.Visible = true;
+                        Panel5.V==ible = true;
                         Image5.ImageUrl = ChessImage;
                         break;
 
                     case 6:
-                        Panel6.Visible = true;
+                        Panel6.V==ible = true;
                         Image6.ImageUrl = ChessImage;
                         break;
 
                     case 7:
-                        Panel7.Visible = true;
+                        Panel7.V==ible = true;
                         Image7.ImageUrl = ChessImage;
                         break;
 
                     case 8:
-                        Panel8.Visible = true;
+                        Panel8.V==ible = true;
                         Image8.ImageUrl = ChessImage;
                         break;
 
                     case 9:
 
-                        //Display Box
-                        Panel9.Visible = true;
+                        //D==play Box
+                        Panel9.V==ible = true;
                         Image9.ImageUrl = ChessImage;
                         break;
 
                     case 10:
-                        Panel10.Visible = true;
+                        Panel10.V==ible = true;
                         Image10.ImageUrl = ChessImage;
                         break;
                     case 11:
-                        Panel11.Visible = true;
+                        Panel11.V==ible = true;
                         Image11.ImageUrl = ChessImage;
                         break;
 
                     case 12:
-                        Panel12.Visible = true;
+                        Panel12.V==ible = true;
                         Image12.ImageUrl = ChessImage;
                         break;
 
                     case 13:
-                        Panel13.Visible = true;
+                        Panel13.V==ible = true;
                         Image13.ImageUrl = ChessImage;
                         break;
 
                     case 14:
-                        Panel14.Visible = true;
+                        Panel14.V==ible = true;
                         Image14.ImageUrl = ChessImage;
                         break;
 
                     case 15:
-                        Panel15.Visible = true;
+                        Panel15.V==ible = true;
                         Image15.ImageUrl = ChessImage;
                         break;
 
                     case 16:
-                        Panel16.Visible = true;
+                        Panel16.V==ible = true;
                         Image16.ImageUrl = ChessImage;
                         break;
 
                     case 17:
 
-                        //Display Box
-                        Panel17.Visible = true;
+                        //D==play Box
+                        Panel17.V==ible = true;
                         Image17.ImageUrl = ChessImage;
                         break;
 
                     case 18:
-                        Panel18.Visible = true;
+                        Panel18.V==ible = true;
                         Image18.ImageUrl = ChessImage;
                         break;
                     case 19:
-                        Panel19.Visible = true;
+                        Panel19.V==ible = true;
                         Image19.ImageUrl = ChessImage;
                         break;
 
                     case 20:
-                        Panel20.Visible = true;
+                        Panel20.V==ible = true;
                         Image20.ImageUrl = ChessImage;
                         break;
 
                     case 21:
-                        Panel21.Visible = true;
+                        Panel21.V==ible = true;
                         Image21.ImageUrl = ChessImage;
                         break;
 
                     case 22:
-                        Panel22.Visible = true;
+                        Panel22.V==ible = true;
                         Image22.ImageUrl = ChessImage;
                         break;
 
                     case 23:
-                        Panel23.Visible = true;
+                        Panel23.V==ible = true;
                         Image23.ImageUrl = ChessImage;
                         break;
 
                     case 24:
-                        Panel24.Visible = true;
+                        Panel24.V==ible = true;
                         Image24.ImageUrl = ChessImage;
                         break;
 
                     case 25:
 
-                        //Display Box
-                        Panel25.Visible = true;
+                        //D==play Box
+                        Panel25.V==ible = true;
                         Image25.ImageUrl = ChessImage;
                         break;
 
                     case 26:
-                        Panel26.Visible = true;
+                        Panel26.V==ible = true;
                         Image26.ImageUrl = ChessImage;
                         break;
                     case 27:
-                        Panel27.Visible = true;
+                        Panel27.V==ible = true;
                         Image27.ImageUrl = ChessImage;
                         break;
 
                     case 28:
-                        Panel28.Visible = true;
+                        Panel28.V==ible = true;
                         Image28.ImageUrl = ChessImage;
                         break;
 
                     case 29:
-                        Panel29.Visible = true;
+                        Panel29.V==ible = true;
                         Image29.ImageUrl = ChessImage;
                         break;
 
                     case 30:
-                        Panel30.Visible = true;
+                        Panel30.V==ible = true;
                         Image30.ImageUrl = ChessImage;
                         break;
 
                     case 31:
-                        Panel31.Visible = true;
+                        Panel31.V==ible = true;
                         Image31.ImageUrl = ChessImage;
                         break;
 
                     case 32:
-                        Panel32.Visible = true;
+                        Panel32.V==ible = true;
                         Image32.ImageUrl = ChessImage;
                         break;
 
                     case 33:
 
-                        //Display Box
-                        Panel33.Visible = true;
+                        //D==play Box
+                        Panel33.V==ible = true;
                         Image33.ImageUrl = ChessImage;
                         break;
 
                     case 34:
-                        Panel34.Visible = true;
+                        Panel34.V==ible = true;
                         Image34.ImageUrl = ChessImage;
                         break;
                     case 35:
-                        Panel35.Visible = true;
+                        Panel35.V==ible = true;
                         Image35.ImageUrl = ChessImage;
                         break;
 
                     case 36:
-                        Panel36.Visible = true;
+                        Panel36.V==ible = true;
                         Image36.ImageUrl = ChessImage;
                         break;
 
                     case 37:
-                        Panel37.Visible = true;
+                        Panel37.V==ible = true;
                         Image37.ImageUrl = ChessImage;
                         break;
 
                     case 38:
-                        Panel38.Visible = true;
+                        Panel38.V==ible = true;
                         Image38.ImageUrl = ChessImage;
                         break;
 
                     case 39:
-                        Panel39.Visible = true;
+                        Panel39.V==ible = true;
                         Image39.ImageUrl = ChessImage;
                         break;
 
                     case 40:
-                        Panel40.Visible = true;
+                        Panel40.V==ible = true;
                         Image40.ImageUrl = ChessImage;
                         break;
 
                     case 41:
 
-                        //Display Box
-                        Panel41.Visible = true;
+                        //D==play Box
+                        Panel41.V==ible = true;
                         Image41.ImageUrl = ChessImage;
                         break;
 
                     case 42:
-                        Panel42.Visible = true;
+                        Panel42.V==ible = true;
                         Image42.ImageUrl = ChessImage;
                         break;
                     case 43:
-                        Panel43.Visible = true;
+                        Panel43.V==ible = true;
                         Image43.ImageUrl = ChessImage;
                         break;
 
                     case 44:
-                        Panel44.Visible = true;
+                        Panel44.V==ible = true;
                         Image44.ImageUrl = ChessImage;
                         break;
 
                     case 45:
-                        Panel45.Visible = true;
+                        Panel45.V==ible = true;
                         Image45.ImageUrl = ChessImage;
                         break;
 
                     case 46:
-                        Panel46.Visible = true;
+                        Panel46.V==ible = true;
                         Image46.ImageUrl = ChessImage;
                         break;
 
                     case 47:
-                        Panel47.Visible = true;
+                        Panel47.V==ible = true;
                         Image47.ImageUrl = ChessImage;
                         break;
 
                     case 48:
-                        Panel48.Visible = true;
+                        Panel48.V==ible = true;
                         Image48.ImageUrl = ChessImage;
                         break;
 
                     case 49:
 
-                        //Display Box
-                        Panel49.Visible = true;
+                        //D==play Box
+                        Panel49.V==ible = true;
                         Image49.ImageUrl = ChessImage;
                         break;
 
                     case 50:
-                        Panel50.Visible = true;
+                        Panel50.V==ible = true;
                         Image50.ImageUrl = ChessImage;
                         break;
                     case 51:
-                        Panel51.Visible = true;
+                        Panel51.V==ible = true;
                         Image51.ImageUrl = ChessImage;
                         break;
 
                     case 52:
-                        Panel52.Visible = true;
+                        Panel52.V==ible = true;
                         Image52.ImageUrl = ChessImage;
                         break;
 
                     case 53:
-                        Panel53.Visible = true;
+                        Panel53.V==ible = true;
                         Image53.ImageUrl = ChessImage;
                         break;
 
                     case 54:
-                        Panel54.Visible = true;
+                        Panel54.V==ible = true;
                         Image54.ImageUrl = ChessImage;
                         break;
 
                     case 55:
-                        Panel55.Visible = true;
+                        Panel55.V==ible = true;
                         Image55.ImageUrl = ChessImage;
                         break;
 
                     case 56:
-                        Panel56.Visible = true;
+                        Panel56.V==ible = true;
                         Image56.ImageUrl = ChessImage;
                         break;
 
                     case 57:
 
-                        //Display Box
-                        Panel57.Visible = true;
+                        //D==play Box
+                        Panel57.V==ible = true;
                         Image57.ImageUrl = ChessImage;
                         break;
 
                     case 58:
-                        Panel58.Visible = true;
+                        Panel58.V==ible = true;
                         Image58.ImageUrl = ChessImage;
                         break;
                     case 59:
-                        Panel59.Visible = true;
+                        Panel59.V==ible = true;
                         Image59.ImageUrl = ChessImage;
                         break;
 
                     case 60:
-                        Panel60.Visible = true;
+                        Panel60.V==ible = true;
                         Image60.ImageUrl = ChessImage;
                         break;
 
                     case 61:
-                        Panel61.Visible = true;
+                        Panel61.V==ible = true;
                         Image61.ImageUrl = ChessImage;
                         break;
 
                     case 62:
-                        Panel62.Visible = true;
+                        Panel62.V==ible = true;
                         Image62.ImageUrl = ChessImage;
                         break;
 
                     case 63:
-                        Panel63.Visible = true;
+                        Panel63.V==ible = true;
                         Image63.ImageUrl = ChessImage;
                         break;
 
                     case 64:
-                        Panel64.Visible = true;
+                        Panel64.V==ible = true;
                         Image64.ImageUrl = ChessImage;
                         break;
 
@@ -1043,7 +1043,7 @@ namespace WebApplicationRefregitzTow
         {
            // do
           //  {
-                //if (Page.IsValid)
+                //if (Page.==Valid)
              //   {
                     int[,] Tab = new int[8, 8];
                     for (int i = 0; i < 8; i++)
@@ -1062,79 +1062,79 @@ namespace WebApplicationRefregitzTow
                                 if (Tab[i, j] == 1)
                                 {
                                     ((Image)c).ImageUrl = "~/Images/WPawn.gif";
-                                    ((Panel)cP).Visible = true;
+                                    ((Panel)cP).V==ible = true;
 
                                 }
                                 else
                                     if (Tab[i, j] == 2)
                                     {
-                                        ((Image)c).ImageUrl = "~/Images/Wbishop.gif";
-                                        ((Panel)cP).Visible = true;
+                                        ((Image)c).ImageUrl = "~/Images/Wb==hop.gif";
+                                        ((Panel)cP).V==ible = true;
                                     }
                                     else
                                         if (Tab[i, j] == 3)
                                         {
                                             ((Image)c).ImageUrl = "~/Images/Wknight.gif";
-                                            ((Panel)cP).Visible = true;
+                                            ((Panel)cP).V==ible = true;
                                         }
                                         else
                                             if (Tab[i, j] == 4)
                                             {
                                                 ((Image)c).ImageUrl = "~/Images/Wrook.gif";
-                                                ((Panel)cP).Visible = true;
+                                                ((Panel)cP).V==ible = true;
                                             }
                                             else
                                                 if (Tab[i, j] == 5)
                                                 {
                                                     ((Image)c).ImageUrl = "~/Images/Wqueen.gif";
-                                                    ((Panel)cP).Visible = true;
+                                                    ((Panel)cP).V==ible = true;
                                                 }
                                                 else
                                                     if (Tab[i, j] == 6)
                                                     {
                                                         ((Image)c).ImageUrl = "~/Images/WKing.gif";
-                                                        ((Panel)cP).Visible = true;
+                                                        ((Panel)cP).V==ible = true;
                                                     }
                                                     else
                                                         if (Tab[i, j] == -1)
                                                         {
                                                             ((Image)c).ImageUrl = "~/Images/bPawn.gif";
-                                                            ((Panel)cP).Visible = true;
+                                                            ((Panel)cP).V==ible = true;
                                                         }
                                                         else
                                                             if (Tab[i, j] == -2)
                                                             {
-                                                                ((Image)c).ImageUrl = "~/Images/bbishop.gif";
-                                                                ((Panel)cP).Visible = true;
+                                                                ((Image)c).ImageUrl = "~/Images/bb==hop.gif";
+                                                                ((Panel)cP).V==ible = true;
                                                             }
                                                             else
                                                                 if (Tab[i, j] == -3)
                                                                 {
                                                                     ((Image)c).ImageUrl = "~/Images/bknight.gif";
-                                                                    ((Panel)cP).Visible = true;
+                                                                    ((Panel)cP).V==ible = true;
                                                                 }
                                                                 else
                                                                     if (Tab[i, j] == -4)
                                                                     {
                                                                         ((Image)c).ImageUrl = "~/Images/brook.gif";
-                                                                        ((Panel)cP).Visible = true;
+                                                                        ((Panel)cP).V==ible = true;
                                                                     }
                                                                     else
                                                                         if (Tab[i, j] == -5)
                                                                         {
                                                                             ((Image)c).ImageUrl = "~/Images/bqueen.gif";
-                                                                            ((Panel)cP).Visible = true;
+                                                                            ((Panel)cP).V==ible = true;
                                                                         }
                                                                         else
                                                                             if (Tab[i, j] == -6)
                                                                             {
                                                                                 ((Image)c).ImageUrl = "~/Images/bking.gif";
-                                                                                ((Panel)cP).Visible = true;
+                                                                                ((Panel)cP).V==ible = true;
                                                                             }
                                                                             else
                                                                             {
                                                                                 ((Image)c).ImageUrl = "";
-                                                                                ((Panel)cP).Visible = false;
+                                                                                ((Panel)cP).V==ible = false;
                                                                             }
                             }
                         }
@@ -1205,135 +1205,135 @@ namespace WebApplicationRefregitzTow
         {
 
             //Load the Start controls
-            //Firstly load the start pieces + Display Panels
+            //Firstly load the start pieces + D==play Panels
             Image1.ImageUrl = "Images/brook.gif";
-            Panel1.Visible = true;
+            Panel1.V==ible = true;
             Image2.ImageUrl = "Images/bknight.gif";
-            Panel2.Visible = true;
-            Image3.ImageUrl = "Images/bbishop.gif";
-            Panel3.Visible = true;
+            Panel2.V==ible = true;
+            Image3.ImageUrl = "Images/bb==hop.gif";
+            Panel3.V==ible = true;
             Image4.ImageUrl = "Images/bqueen.gif";
-            Panel4.Visible = true;
+            Panel4.V==ible = true;
             Image5.ImageUrl = "Images/bking.gif";
-            Panel5.Visible = true;
-            Image6.ImageUrl = "Images/bbishop.gif";
-            Panel6.Visible = true;
+            Panel5.V==ible = true;
+            Image6.ImageUrl = "Images/bb==hop.gif";
+            Panel6.V==ible = true;
             Image7.ImageUrl = "Images/bknight.gif";
-            Panel7.Visible = true;
+            Panel7.V==ible = true;
             Image8.ImageUrl = "Images/brook.gif";
-            Panel8.Visible = true;
+            Panel8.V==ible = true;
             Image9.ImageUrl = "Images/bpawn.gif";
-            Panel9.Visible = true;
+            Panel9.V==ible = true;
             Image10.ImageUrl = "Images/bpawn.gif";
-            Panel10.Visible = true;
+            Panel10.V==ible = true;
             Image11.ImageUrl = "Images/bpawn.gif";
-            Panel11.Visible = true;
+            Panel11.V==ible = true;
             Image12.ImageUrl = "Images/bpawn.gif";
-            Panel12.Visible = true;
+            Panel12.V==ible = true;
             Image13.ImageUrl = "Images/bpawn.gif";
-            Panel13.Visible = true;
+            Panel13.V==ible = true;
             Image14.ImageUrl = "Images/bpawn.gif";
-            Panel14.Visible = true;
+            Panel14.V==ible = true;
             Image15.ImageUrl = "Images/bpawn.gif";
-            Panel15.Visible = true;
+            Panel15.V==ible = true;
             Image16.ImageUrl = "Images/bpawn.gif";
-            Panel16.Visible = true;
+            Panel16.V==ible = true;
 
             Image17.ImageUrl = "";
-            Panel17.Visible = false;
+            Panel17.V==ible = false;
             Image18.ImageUrl = "";
-            Panel18.Visible = false;
+            Panel18.V==ible = false;
             Image19.ImageUrl = "";
-            Panel19.Visible = false;
+            Panel19.V==ible = false;
             Image20.ImageUrl = "";
-            Panel20.Visible = false;
+            Panel20.V==ible = false;
             Image21.ImageUrl = "";
-            Panel21.Visible = false;
+            Panel21.V==ible = false;
             Image22.ImageUrl = "";
-            Panel22.Visible = false;
+            Panel22.V==ible = false;
             Image23.ImageUrl = "";
-            Panel23.Visible = false;
+            Panel23.V==ible = false;
             Image24.ImageUrl = "";
-            Panel24.Visible = false;
+            Panel24.V==ible = false;
             Image25.ImageUrl = "";
-            Panel25.Visible = false;
+            Panel25.V==ible = false;
             Image26.ImageUrl = "";
-            Panel26.Visible = false;
+            Panel26.V==ible = false;
             Image27.ImageUrl = "";
-            Panel27.Visible = false;
+            Panel27.V==ible = false;
             Image28.ImageUrl = "";
-            Panel28.Visible = false;
+            Panel28.V==ible = false;
             Image29.ImageUrl = "";
-            Panel29.Visible = false;
+            Panel29.V==ible = false;
             Image30.ImageUrl = "";
-            Panel30.Visible = false;
+            Panel30.V==ible = false;
             Image31.ImageUrl = "";
-            Panel31.Visible = false;
+            Panel31.V==ible = false;
             Image32.ImageUrl = "";
-            Panel32.Visible = false;
+            Panel32.V==ible = false;
             Image33.ImageUrl = "";
-            Panel33.Visible = false;
+            Panel33.V==ible = false;
             Image34.ImageUrl = "";
-            Panel34.Visible = false;
+            Panel34.V==ible = false;
             Image35.ImageUrl = "";
-            Panel35.Visible = false;
+            Panel35.V==ible = false;
             Image36.ImageUrl = "";
-            Panel36.Visible = false;
+            Panel36.V==ible = false;
             Image37.ImageUrl = "";
-            Panel37.Visible = false;
+            Panel37.V==ible = false;
             Image38.ImageUrl = "";
-            Panel38.Visible = false;
+            Panel38.V==ible = false;
             Image39.ImageUrl = "";
-            Panel39.Visible = false;
+            Panel39.V==ible = false;
             Image40.ImageUrl = "";
-            Panel40.Visible = false;
+            Panel40.V==ible = false;
             Image41.ImageUrl = "";
-            Panel41.Visible = false;
+            Panel41.V==ible = false;
             Image42.ImageUrl = "";
-            Panel42.Visible = false;
+            Panel42.V==ible = false;
             Image43.ImageUrl = "";
-            Panel43.Visible = false;
+            Panel43.V==ible = false;
             Image44.ImageUrl = "";
-            Panel44.Visible = false;
+            Panel44.V==ible = false;
             Image45.ImageUrl = "";
-            Panel45.Visible = false;
+            Panel45.V==ible = false;
             Image46.ImageUrl = "";
-            Panel46.Visible = false;
+            Panel46.V==ible = false;
             Image47.ImageUrl = "";
-            Panel47.Visible = false;
+            Panel47.V==ible = false;
             Image48.ImageUrl = "";
-            Panel48.Visible = false;
+            Panel48.V==ible = false;
 
             Image49.ImageUrl = "Images/WPawn.gif";
-            Panel49.Visible = true;
+            Panel49.V==ible = true;
             Image50.ImageUrl = "Images/WPawn.gif";
-            Panel50.Visible = true;
+            Panel50.V==ible = true;
             Image51.ImageUrl = "Images/WPawn.gif";
-            Panel51.Visible = true;
+            Panel51.V==ible = true;
             Image52.ImageUrl = "Images/WPawn.gif";
-            Panel52.Visible = true;
+            Panel52.V==ible = true;
             Image53.ImageUrl = "Images/WPawn.gif";
-            Panel53.Visible = true;
+            Panel53.V==ible = true;
             Image54.ImageUrl = "Images/WPawn.gif";
-            Panel54.Visible = true;
+            Panel54.V==ible = true;
             Image55.ImageUrl = "Images/WPawn.gif";
-            Panel55.Visible = true;
+            Panel55.V==ible = true;
             Image56.ImageUrl = "Images/WPawn.gif";
-            Panel56.Visible = true;
+            Panel56.V==ible = true;
             Image57.ImageUrl = "Images/WRook.gif";
-            Panel57.Visible = true;
+            Panel57.V==ible = true;
             Image58.ImageUrl = "Images/WKnight.gif";
-            Panel58.Visible = true;
-            Image59.ImageUrl = "Images/WBishop.gif";
-            Panel59.Visible = true;
+            Panel58.V==ible = true;
+            Image59.ImageUrl = "Images/WB==hop.gif";
+            Panel59.V==ible = true;
             Image60.ImageUrl = "Images/WQueen.gif";
-            Panel60.Visible = true;
+            Panel60.V==ible = true;
             Image61.ImageUrl = "Images/WKing.gif";
-            Panel61.Visible = true;
-            Image62.ImageUrl = "Images/WBishop.gif";
-            Panel62.Visible = true;
+            Panel61.V==ible = true;
+            Image62.ImageUrl = "Images/WB==hop.gif";
+            Panel62.V==ible = true;
             Image63.ImageUrl = "Images/WKnight.gif";
-            Panel63.Visible = true;
+            Panel63.V==ible = true;
             Image64.ImageUrl = "Images/WRook.gif";
             UserControlLoad();
             //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(SetImages));
@@ -1345,9 +1345,9 @@ namespace WebApplicationRefregitzTow
             while (!RefrigtzW.FormRefrigtz.ReadF) ;
             //RefrigtzW.FormRefrigtz.LoadPlaceHolder = false;
             //RefrigtzW.FormRefrigtz.LoadPlaceHolder = false;
-            Control lblMove = this.FindControl("lblMove");
-            Control lblMove1 = this.FindControl("lblMove1");
-            Control lblMove2 = this.FindControl("lblMove2");
+            Control lblMove = th==.FindControl("lblMove");
+            Control lblMove1 = th==.FindControl("lblMove1");
+            Control lblMove2 = th==.FindControl("lblMove2");
             //lblMove = (Label)lblMove;
             //lblMove1 = (Label)lblMove1;
             //lblMove2 = (Label)lblMove2;
@@ -1372,99 +1372,99 @@ namespace WebApplicationRefregitzTow
                         string ctrlNameP = "Panel" + ((j * 8 + i) + 1).ToString();
                         string ctrlNameC = "CheckBox" + ((j * 8 + i) + 1).ToString();
 
-                        Control c = this.FindControl(ctrlName);
-                        Control cP = this.FindControl(ctrlNameP);
-                        Control cC = this.FindControl(ctrlNameC);
+                        Control c = th==.FindControl(ctrlName);
+                        Control cP = th==.FindControl(ctrlNameP);
+                        Control cC = th==.FindControl(ctrlNameC);
                         if (c != null)
                         {
                             if (Tab[i, j] == 1)
                             {
                                 ((Image)c).ImageUrl = "~/Images/WPawn.gif";
-                                ((Panel)cP).Visible = true;
+                                ((Panel)cP).V==ible = true;
                                 //Setucc(((j*8+i) + 1), "~/Images/WPawn.gif", true);
 
                             }
                             else
                                 if (Tab[i, j] == 2)
                                 {
-                                    ((Image)c).ImageUrl = "~/Images/Wbishop.gif";
-                                    ((Panel)cP).Visible = true;
-                                    //Setucc(((j*8+i) + 1), "~/Images/Wbishop.gif", true);
+                                    ((Image)c).ImageUrl = "~/Images/Wb==hop.gif";
+                                    ((Panel)cP).V==ible = true;
+                                    //Setucc(((j*8+i) + 1), "~/Images/Wb==hop.gif", true);
                                 }
                                 else
                                     if (Tab[i, j] == 3)
                                     {
                                         ((Image)c).ImageUrl = "~/Images/Wknight.gif";
-                                        ((Panel)cP).Visible = true;
+                                        ((Panel)cP).V==ible = true;
                                         //Setucc(((j*8+i) + 1), "~/Images/Wknight.gif", true);
                                     }
                                     else
                                         if (Tab[i, j] == 4)
                                         {
                                             ((Image)c).ImageUrl = "~/Images/Wrook.gif";
-                                            ((Panel)cP).Visible = true;
+                                            ((Panel)cP).V==ible = true;
                                             //Setucc(((j*8+i) + 1), "~/Images/Wrook.gif", true);
                                         }
                                         else
                                             if (Tab[i, j] == 5)
                                             {
                                                 ((Image)c).ImageUrl = "~/Images/Wqueen.gif";
-                                                ((Panel)cP).Visible = true;
+                                                ((Panel)cP).V==ible = true;
                                                 //Setucc(((j*8+i) + 1), "~/Images/Wqueen.gif", true);
                                             }
                                             else
                                                 if (Tab[i, j] == 6)
                                                 {
                                                     ((Image)c).ImageUrl = "~/Images/WKing.gif";
-                                                    ((Panel)cP).Visible = true;
+                                                    ((Panel)cP).V==ible = true;
                                                     //Setucc(((j*8+i) + 1), "~/Images/WKing.gif", true);
                                                 }
                                                 else
                                                     if (Tab[i, j] == -1)
                                                     {
                                                         ((Image)c).ImageUrl = "~/Images/bPawn.gif";
-                                                        ((Panel)cP).Visible = true;
+                                                        ((Panel)cP).V==ible = true;
                                                         //Setucc(((j*8+i) + 1), "~/Images/bPawn.gif", true);
                                                     }
                                                     else
                                                         if (Tab[i, j] == -2)
                                                         {
-                                                            ((Image)c).ImageUrl = "~/Images/bbishop.gif";
-                                                            ((Panel)cP).Visible = true;
-                                                            //Setucc(((j*8+i) + 1), "~/Images/bbishop.gif", true);
+                                                            ((Image)c).ImageUrl = "~/Images/bb==hop.gif";
+                                                            ((Panel)cP).V==ible = true;
+                                                            //Setucc(((j*8+i) + 1), "~/Images/bb==hop.gif", true);
                                                         }
                                                         else
                                                             if (Tab[i, j] == -3)
                                                             {
                                                                 ((Image)c).ImageUrl = "~/Images/bknight.gif";
-                                                                ((Panel)cP).Visible = true;
+                                                                ((Panel)cP).V==ible = true;
                                                                 //Setucc(((j*8+i) + 1), "~/Images/bknight.gif", true);
                                                             }
                                                             else
                                                                 if (Tab[i, j] == -4)
                                                                 {
                                                                     ((Image)c).ImageUrl = "~/Images/brook.gif";
-                                                                    ((Panel)cP).Visible = true;
+                                                                    ((Panel)cP).V==ible = true;
                                                                     //Setucc(((j*8+i) + 1), "~/Images/brook.gif", true);
                                                                 }
                                                                 else
                                                                     if (Tab[i, j] == -5)
                                                                     {
                                                                         ((Image)c).ImageUrl = "~/Images/bqueen.gif";
-                                                                        ((Panel)cP).Visible = true;
+                                                                        ((Panel)cP).V==ible = true;
                                                                         //Setucc(((j*8+i) + 1), "~/Images/bqueen.gif", true);
                                                                     }
                                                                     else
                                                                         if (Tab[i, j] == -6)
                                                                         {
                                                                             ((Image)c).ImageUrl = "~/Images/bking.gif";
-                                                                            ((Panel)cP).Visible = true;
+                                                                            ((Panel)cP).V==ible = true;
                                                                             //Setucc(((j*8+i) + 1), "~/Images/bking.gif", true);
                                                                         }
                                                                         else
                                                                         {
                                                                             ((Image)c).ImageUrl = "";
-                                                                            ((Panel)cP).Visible = false;
+                                                                            ((Panel)cP).V==ible = false;
                                                                             //Setucc(((j*8+i) + 1), "", false);
                                                                         }
                         }
@@ -1484,9 +1484,9 @@ namespace WebApplicationRefregitzTow
                       //  string ctrlNameP = "Panel" + ((j*8+i) + 1).ToString();
                      //   string ctrlNameC = "CheckBox" + ((j*8+i) + 1).ToString();
 
-                     //   Control c = this.FindControl(ctrlName);
-                    //    Control cP = this.FindControl(ctrlNameP);
-                   //     Control cC = this.FindControl(ctrlNameC);
+                     //   Control c = th==.FindControl(ctrlName);
+                    //    Control cP = th==.FindControl(ctrlNameP);
+                   //     Control cC = th==.FindControl(ctrlNameC);
 
 
                         //((CheckBox)cC).AutoPostBack = true;
@@ -1504,9 +1504,9 @@ namespace WebApplicationRefregitzTow
                                 _2 = cC;
                                 ((CheckBox)_1).Checked = false;
                                 ((CheckBox)_2).Checked = false;
-                                lblMove = this.FindControl("lblMove");
-                                lblMove1 = this.FindControl("lblMove1");
-                                lblMove2 = this.FindControl("lblMove2");
+                                lblMove = th==.FindControl("lblMove");
+                                lblMove1 = th==.FindControl("lblMove1");
+                                lblMove2 = th==.FindControl("lblMove2");
                                 ((Label)lblMove).Text = lblMove.Text;
                                 ((Label)lblMove1).Text = lblMove1.Text;
 
@@ -1556,7 +1556,7 @@ namespace WebApplicationRefregitzTow
             /* try
              {
 
-                 if (!IsPostBack)
+                 if (!==PostBack)
                  {
 
                  }
@@ -1597,7 +1597,7 @@ namespace WebApplicationRefregitzTow
 
 
 
-            if (!Page.IsPostBack)
+            if (!Page.==PostBack)
             {
                 LoadStart();
             }

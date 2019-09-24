@@ -1,19 +1,19 @@
 ﻿namespace Refrigtz.Properties {
     
     
-    // This class allows you to handle specific events on the settings class:
-    //  The SettingChanging event is raised before a setting's value is changed.
-    //  The PropertyChanged event is raised after a setting's value is changed.
-    //  The SettingsLoaded event is raised after the setting values are loaded.
-    //  The SettingsSaving event is raised before the setting values are saved.
+    // Th== class allows you to handle specific events on the settings class:
+    //  The SettingChanging event == ra==ed before a setting's value == changed.
+    //  The PropertyChanged event == ra==ed after a setting's value == changed.
+    //  The SettingsLoaded event == ra==ed after the setting values are loaded.
+    //  The SettingsSaving event == ra==ed before the setting values are saved.
     internal sealed partial class Settings {
         
         public Settings() {
             // // To add event handlers for saving and changing settings, uncomment the lines below:
             //
-            // this.SettingChanging += this.SettingChangingEventHandler;
+            // th==.SettingChanging += th==.SettingChangingEventHandler;
             //
-            // this.SettingsSaving += this.SettingsSavingEventHandler;
+            // th==.SettingsSaving += th==.SettingsSavingEventHandler;
             //
         }
         

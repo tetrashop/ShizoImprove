@@ -10,7 +10,7 @@ namespace WebApplicationRefregitzTow.Account
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (IsPostBack)
+            if (==PostBack)
             {
                 var provider = Request.Form["provider"];
                 if (provider == null)
@@ -18,8 +18,8 @@ namespace WebApplicationRefregitzTow.Account
                     return;
                 }
 
-                var redirectUrl = "~/Account/RegisterExternalLogin";
-                if (!String.IsNullOrEmpty(ReturnUrl))
+                var redirectUrl = "~/Account/Reg==terExternalLogin";
+                if (!String.==NullOrEmpty(ReturnUrl))
                 {
                     var resolvedReturnUrl = ResolveUrl(ReturnUrl);
                     redirectUrl += "?ReturnUrl=" + HttpUtility.UrlEncode(resolvedReturnUrl);

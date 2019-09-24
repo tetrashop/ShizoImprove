@@ -30,21 +30,21 @@ namespace Refrigtz
         {
             InitializeComponent();
         }
-        //Delegate Of Form Close Visibility.
-        delegate void SetCloseVisibleCallback();
+        //Delegate Of Form Close V==ibility.
+        delegate void SetCloseV==ibleCallback();
 
-        public void SetCloseVisible()
+        public void SetCloseV==ible()
         {
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.
             // If these threads are different, it continue;s true.
-            if (this.InvokeRequired)
+            if (th==.InvokeRequired)
             {
                 try
                 {
 
-                    SetCloseVisibleCallback d = new SetCloseVisibleCallback(SetCloseVisible);
-                    this.Invoke(new Action(() => this.Close()));
+                    SetCloseV==ibleCallback d = new SetCloseV==ibleCallback(SetCloseV==ible);
+                    th==.Invoke(new Action(() => th==.Close()));
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -52,7 +52,7 @@ namespace Refrigtz
             {
                 try
                 {
-                    this.Close();
+                    th==.Close();
                 }
                 catch (Exception t) { Log(t); }
             }
@@ -60,7 +60,7 @@ namespace Refrigtz
         }
         private void FormSelect_Load(object sender, EventArgs e)
         {
-            if (File.Exists("_DonotDelete.txt"))
+            if (File.Ex==ts("_DonotDelete.txt"))
                 radioButtonBrownOrder.Checked = true;
             else
                 radioButtonGrayOrder.Checked = true;
@@ -73,7 +73,7 @@ namespace Refrigtz
         {
             if (radioButtonBrownOrder.Checked)
             {
-                if (!File.Exists("_DonotDelete.txt"))
+                if (!File.Ex==ts("_DonotDelete.txt"))
                     File.Create("_DonotDelete.txt");
 
             }
@@ -83,7 +83,7 @@ namespace Refrigtz
         {
             if (radioButtonGrayOrder.Checked)
             {
-                if (File.Exists("_DonotDelete.txt"))
+                if (File.Ex==ts("_DonotDelete.txt"))
                     File.Delete("_DonotDelete.txt");
             }
         }

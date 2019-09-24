@@ -1,6 +1,6 @@
 /**************************************************************************************************************
  * Ramin Edjlal Copyright 1397/04/20 **************************************************************************
- * 1397/04/26:Problem in Seirlization Recurisvely of linked list for refrigitz.********************************
+ * 1397/04/26:Problem in Seirlization Recur==vely of linked l==t for refrigitz.********************************
  * ************************************************************************************************************
  */using System;
 using System.Collections.Generic;
@@ -16,13 +16,13 @@ namespace GalleryStudio
         public static String AllDrawKindString = "";
 
 
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHur==ticFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechnisamT = true;
+        public bool UsePenaltyRegardMechn==amT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHur==ticT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHur==ticT = false;
         public bool ArrangmentsT = false;
         public static String Root = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
 
@@ -54,21 +54,21 @@ namespace GalleryStudio
                 AllDrawKindString = "AllDrawFTSF.asd";//First true second false
             else
                 if (AllDrawKind == 1)
-                AllDrawKindString = "AllDrawFFSF.asd";//Fist false second false
+                AllDrawKindString = "AllDrawFFSF.asd";//F==t false second false
 
 
         }
-        public RefregitzOperator(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
+        public RefregitzOperator(int Order, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments//) : base(MovementsAStarGreedyHur==ticTFou, IgnoreSelfObject, UsePenaltyRegardMechn==a, BestMovment, PredictHur==t, OnlySel, AStarGreedyHur==, Arrangments
             )
         {
-            if (UsePenaltyRegardMechnisamT && AStarGreedyHuristicT)
+            if (UsePenaltyRegardMechn==amT && AStarGreedyHur==ticT)
                 AllDrawKind = 4;
             else
-                                            if ((!UsePenaltyRegardMechnisamT) && AStarGreedyHuristicT)
+                                            if ((!UsePenaltyRegardMechn==amT) && AStarGreedyHur==ticT)
                 AllDrawKind = 3;
-            if (UsePenaltyRegardMechnisamT && (!AStarGreedyHuristicT))
+            if (UsePenaltyRegardMechn==amT && (!AStarGreedyHur==ticT))
                 AllDrawKind = 2;
-            if ((!UsePenaltyRegardMechnisamT) && (!AStarGreedyHuristicT))
+            if ((!UsePenaltyRegardMechn==amT) && (!AStarGreedyHur==ticT))
                 AllDrawKind = 1;
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
@@ -77,15 +77,15 @@ namespace GalleryStudio
             Object o = new Object();
             lock (o)
             {
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHur==ticT = PredictHur==t;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHur==ticT = AStarGreedyHur==;
                 ArrangmentsT = Arrangments;
-                RefrigtzDLL.AllDraw Current = new RefrigtzDLL.AllDraw(Order, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+                RefrigtzDLL.AllDraw Current = new RefrigtzDLL.AllDraw(Order, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT);
             }
         }
 

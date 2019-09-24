@@ -18,17 +18,17 @@ namespace RefrigtzW
         //private readonly object balancelockS = new object();
         public static Image[] H = new Image[2];
         //Iniatite Global Variables.
-        List<int[]> ValuableSelfSupported = new List<int[]>();
+        L==t<int[]> ValuableSelfSupported = new L==t<int[]>();
 
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHur==ticFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechnisamT = true;
+        public bool UsePenaltyRegardMechn==amT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHur==ticT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHur==ticT = false;
         public bool ArrangmentsChanged = false;
-        public static double MaxHuristicxH = -20000000000000000;
+        public static double MaxHur==ticxH = -20000000000000000;
         public float Row, Column;
         public Color color;
         public int[,] Table = null;
@@ -48,7 +48,7 @@ namespace RefrigtzW
             }
 
         }
-        public void Dispose()
+        public void D==pose()
         {
             ValuableSelfSupported = null;
             H = null;
@@ -56,16 +56,16 @@ namespace RefrigtzW
         public bool MaxFound(ref bool MaxNotFound)
         {
 
-            double a = ReturnHuristic();
-            if (MaxHuristicxH < a)
+            double a = ReturnHur==tic();
+            if (MaxHur==ticxH < a)
             {
                 Object O2 = new Object();
                 lock (O2)
                 {
                     MaxNotFound = false;
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxH)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxH = a;
+                    if (ThinkingChess.MaxHur==ticx < MaxHur==ticxH)
+                        ThinkingChess.MaxHur==ticx = a;
+                    MaxHur==ticxH = a;
                 }
                 return true;
             }
@@ -73,44 +73,44 @@ namespace RefrigtzW
             MaxNotFound = true;
             return false;
         }
-        public double ReturnHuristic()
+        public double ReturnHur==tic()
         {
             double a = 0;
             for (var ii = 0; ii < AllDraw.HourseMovments; ii++)
 
-                a += HourseThinking[ii].ReturnHuristic(-1, -1, Order, false);
+                a += HourseThinking[ii].ReturnHur==tic(-1, -1, Order, false);
 
             return a;
         }
         //Constructor 1.
-        /* public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /* public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments)
          {
              CurrentAStarGredyMax = CurrentAStarGredy;
-             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+             MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
              IgnoreSelfObjectsT = IgnoreSelfObject;
-             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+             UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
              BestMovmentsT = BestMovment;
-             PredictHuristicT = PredictHurist;
+             PredictHur==ticT = PredictHur==t;
              OnlySelfT = OnlySel;
-             AStarGreedyHuristicT = AStarGreedyHuris;
+             AStarGreedyHur==ticT = AStarGreedyHur==;
              ArrangmentsChanged = Arrangments;
          }
          */
         //Constructpor 2.
-        public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
+        public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. TH==
             )
         {
 
             {
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHur==ticT = PredictHur==t;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHur==ticT = AStarGreedyHur==;
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variable By Local Paramenters.
                 Table = new int[8, 8];
@@ -118,7 +118,7 @@ namespace RefrigtzW
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.HourseMovments; ii++)
-                    HourseThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
+                    HourseThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
 
                 Row = i;
                 Column = j;
@@ -128,21 +128,21 @@ namespace RefrigtzW
             }
         }
         //Cloen a Copy.
-        public void Clone(ref DrawHourse AA//, ref AllDraw. THIS
+        public void Clone(ref DrawHourse AA//, ref AllDraw. TH==
             )
         {
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
-                    Tab[i, j] = this.Table[i, j];
+                    Tab[i, j] = th==.Table[i, j];
             //Create a Construction Ojects and Initiate a Clone Copy.
-            AA = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
+            AA = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, th==.Row, th==.Column, th==.color, th==.Table, th==.Order, false, th==.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.HourseMovments; i++)
             {
 
-                AA.HourseThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                this.HourseThinking[i].Clone(ref AA.HourseThinking[i]);
+                AA.HourseThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)th==.Row, (int)th==.Column);
+                th==.HourseThinking[i].Clone(ref AA.HourseThinking[i]);
 
             }
             AA.Table = new int[8, 8];

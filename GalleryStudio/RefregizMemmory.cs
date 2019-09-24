@@ -1,6 +1,6 @@
 /**************************************************************************************************************
  * Ramin Edjlal Copyright 1397/04/20 **************************************************************************
- * 1397/04/26:Problem in Seirlization Recurisvely of linked list for refrigitz.********************************
+ * 1397/04/26:Problem in Seirlization Recur==vely of linked l==t for refrigitz.********************************
  * ************************************************************************************************************
  */
 using System;
@@ -21,26 +21,26 @@ namespace GalleryStudio
         public static String AllDrawKindString = "";
 
         public int iii = 0, jjj = 0;
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHur==ticFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechnisamT = true;
+        public bool UsePenaltyRegardMechn==amT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHur==ticT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHur==ticT = false;
         public bool ArrangmentsT = false;
         string SAllDraw = "";
         public int Kind = 0;
         static GalleryStudio.RefregizMemmory Node;
         RefrigtzDLL.AllDraw Current = null;
         QuantumRefrigiz.AllDraw CurrentQ = null;
-        public List<GalleryStudio.RefregizMemmory> NextS = null;
-        public List<GalleryStudio.RefregizMemmory> NextE = null;
-        public List<GalleryStudio.RefregizMemmory> NextH = null;
-        public List<GalleryStudio.RefregizMemmory> NextC = null;
-        public List<GalleryStudio.RefregizMemmory> NextM = null;
-        public List<GalleryStudio.RefregizMemmory> NextK = null;
-        bool NewListOfNextBegins = true;
+        public L==t<GalleryStudio.RefregizMemmory> NextS = null;
+        public L==t<GalleryStudio.RefregizMemmory> NextE = null;
+        public L==t<GalleryStudio.RefregizMemmory> NextH = null;
+        public L==t<GalleryStudio.RefregizMemmory> NextC = null;
+        public L==t<GalleryStudio.RefregizMemmory> NextM = null;
+        public L==t<GalleryStudio.RefregizMemmory> NextK = null;
+        bool NewL==tOfNextBegins = true;
 
 
         static void Log(Exception ex)
@@ -66,44 +66,44 @@ namespace GalleryStudio
                 AllDrawKindString = "AllDrawFTSF.asd";//First true second false
             else
                 if (AllDrawKind == 1)
-                AllDrawKindString = "AllDrawFFSF.asd";//Fist false second false
+                AllDrawKindString = "AllDrawFFSF.asd";//F==t false second false
 
 
         }
-        public RefregizMemmory(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
+        public RefregizMemmory(bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments//) : base(MovementsAStarGreedyHur==ticTFou, IgnoreSelfObject, UsePenaltyRegardMechn==a, BestMovment, PredictHur==t, OnlySel, AStarGreedyHur==, Arrangments
             )
         {
-            if (UsePenaltyRegardMechnisa && AStarGreedyHuris)
+            if (UsePenaltyRegardMechn==a && AStarGreedyHur==)
                 AllDrawKind = 4;
             else
-                                           if ((!UsePenaltyRegardMechnisa) && AStarGreedyHuris)
+                                           if ((!UsePenaltyRegardMechn==a) && AStarGreedyHur==)
                 AllDrawKind = 3;
-            if (UsePenaltyRegardMechnisa && (!AStarGreedyHuris))
+            if (UsePenaltyRegardMechn==a && (!AStarGreedyHur==))
                 AllDrawKind = 2;
-            if ((!UsePenaltyRegardMechnisa) && (!AStarGreedyHuris))
+            if ((!UsePenaltyRegardMechn==a) && (!AStarGreedyHur==))
                 AllDrawKind = 1;
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
             SetAllDrawKindString();
             SAllDraw = AllDrawKindString;
 
-            NextS = new List<RefregizMemmory>();
-            NextE = new List<RefregizMemmory>();
-            NextH = new List<RefregizMemmory>();
-            NextC = new List<RefregizMemmory>();
-            NextM = new List<RefregizMemmory>();
-            NextK = new List<RefregizMemmory>();
+            NextS = new L==t<RefregizMemmory>();
+            NextE = new L==t<RefregizMemmory>();
+            NextH = new L==t<RefregizMemmory>();
+            NextC = new L==t<RefregizMemmory>();
+            NextM = new L==t<RefregizMemmory>();
+            NextK = new L==t<RefregizMemmory>();
 
             Object o = new Object();
             lock (o)
             {
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechnisa = UsePenaltyRegardMechnisa;
+                UsePenaltyRegardMechn==a = UsePenaltyRegardMechn==a;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHur==ticT = PredictHur==t;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuris = AStarGreedyHuris;
+                AStarGreedyHur== = AStarGreedyHur==;
                 ArrangmentsT = Arrangments;
             }
 
@@ -120,7 +120,7 @@ namespace GalleryStudio
                     if (Current != null)
                     {
                         //Current.Clone(AllDrawCurrentAccess);
-                        Formatters.Serialize(DummyFileStream, this);
+                        Formatters.Serialize(DummyFileStream, th==);
                         //Kind = Kind;
                         /*     if (Order == 1)
                              {
@@ -137,8 +137,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -158,8 +158,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -180,8 +180,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -202,8 +202,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -212,21 +212,21 @@ namespace GalleryStudio
                                  }
                                  // else if (Kind == 5)
                                  {
-                                     for (int i = 0; i < Current.MinisterMidle; i++)
+                                     for (int i = 0; i < Current.Min==terMidle; i++)
                                      {
                                          //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
                                          
-                                             for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                                             for (int j = 0; j < Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
                                                  lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
-                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMin==ter(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
 
@@ -247,8 +247,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -271,8 +271,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -293,8 +293,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -316,8 +316,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -339,8 +339,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -349,21 +349,21 @@ namespace GalleryStudio
                                  }
                                  else if (Kind == 5)
                                  {
-                                     for (int i = Current.MinisterMidle; i < Current.MinisterHigh; i++)
+                                     for (int i = Current.Min==terMidle; i < Current.Min==terHigh; i++)
                                      {
                                          //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
                                          
-                                             for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                                             for (int j = 0; j < Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
                                                  lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
-                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMin==ter(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
 
@@ -372,7 +372,7 @@ namespace GalleryStudio
                                  }
                                  // else if (Kind == 6)
                                  {
-                                     for (int i = Current.KingMidle; i < Current.MinisterHigh; i++)
+                                     for (int i = Current.KingMidle; i < Current.Min==terHigh; i++)
                                      {
                                          //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
@@ -384,8 +384,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -413,7 +413,7 @@ namespace GalleryStudio
                     if (CurrentQ != null)
                     {
                         //Current.Clone(AllDrawCurrentAccess);
-                        Formatters.Serialize(DummyFileStream, this);
+                        Formatters.Serialize(DummyFileStream, th==);
                         //Kind = Kind;
                         /*     if (Order == 1)
                              {
@@ -430,8 +430,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -451,8 +451,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -473,8 +473,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -495,8 +495,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -505,21 +505,21 @@ namespace GalleryStudio
                                  }
                                  // else if (Kind == 5)
                                  {
-                                     for (int i = 0; i < Current.MinisterMidle; i++)
+                                     for (int i = 0; i < Current.Min==terMidle; i++)
                                      {
                                          //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
                                          
-                                             for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                                             for (int j = 0; j < Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
                                                  lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
-                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMin==ter(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
 
@@ -540,8 +540,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -564,8 +564,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedysolder(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -586,8 +586,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyelephant(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -609,8 +609,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyHours(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -632,8 +632,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyCastle(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -642,21 +642,21 @@ namespace GalleryStudio
                                  }
                                  else if (Kind == 5)
                                  {
-                                     for (int i = Current.MinisterMidle; i < Current.MinisterHigh; i++)
+                                     for (int i = Current.Min==terMidle; i < Current.Min==terHigh; i++)
                                      {
                                          //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
                                          
-                                             for (int j = 0; j < Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                                             for (int j = 0; j < Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy.Count; j++)
                                              {
                                                  Object O = new Object();
                                                  lock (O)
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMinister(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
-                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j], Order * -1);
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyMin==ter(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
+                                                     tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
 
@@ -665,7 +665,7 @@ namespace GalleryStudio
                                  }
                                  // else if (Kind == 6)
                                  {
-                                     for (int i = Current.KingMidle; i < Current.MinisterHigh; i++)
+                                     for (int i = Current.KingMidle; i < Current.Min==terHigh; i++)
                                      {
                                          //Formatters.Serialize(DummyFileStream, AllDrawCurrentAccess);
 
@@ -677,8 +677,8 @@ namespace GalleryStudio
                                                  {
                                                      iii = i;
                                                      jjj = j;
-                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, this);
-                                                     tCurrent.NewListOfNextBegins = false;
+                                                     RefregizMemmory tCurrent = ReterunAstrarGreedyKing(i, j, th==);
+                                                     tCurrent.NewL==tOfNextBegins = false;
                                                      tCurrent.RewriteAllDrawRec(Formatters, DummyFileStream,Current.KingOnTable[i].KingThinking[0].AStarGreedy[j], Order * -1);
                                                  }
                                              }
@@ -697,52 +697,52 @@ namespace GalleryStudio
         }
         public RefregizMemmory CloneSphycose(RefregizMemmory t)
         {
-            t = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+            t = new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT);
             t.iii = iii;
             t.jjj = jjj;
-            t.MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicFoundT;
+            t.MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticFoundT;
             t.IgnoreSelfObjectsT = IgnoreSelfObjectsT;
-        t.UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisamT;
+        t.UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==amT;
         t.BestMovmentsT = BestMovmentsT;
-        t.PredictHuristicT = PredictHuristicT;
+        t.PredictHur==ticT = PredictHur==ticT;
         t.OnlySelfT = OnlySelfT;
-        t.AStarGreedyHuristicT = AStarGreedyHuristicT;
+        t.AStarGreedyHur==ticT = AStarGreedyHur==ticT;
         t.ArrangmentsT = ArrangmentsT;
             t.Kind = Kind;
 
             Current.Clone(t.Current);
             for (int i = 0; i < NextS.Count; i++)
             {
-                t.NextS.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextS.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 NextS[i].CloneSphycose(t.NextS[i]);
             }
 
             for (int i = 0; i < NextE.Count; i++)
             {
-                t.NextE.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextE.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 NextE[i].CloneSphycose(t.NextE[i]);
             }
             for (int i = 0; i < NextH.Count; i++)
             {
-                t.NextH.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextH.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 NextH[i].CloneSphycose(t.NextH[i]);
             }
             for (int i = 0; i < NextC.Count; i++)
             {
-                t.NextC.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextC.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 NextC[i].CloneSphycose(t.NextC[i]);
             }
             for (int i = 0; i < NextM.Count; i++)
             {
-                t.NextM.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextM.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 NextM[i].CloneSphycose(t.NextM[i]);
             }
             for (int i = 0; i < NextK.Count; i++)
             {
-                t.NextK.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextK.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 NextK[i].CloneSphycose(t.NextK[i]);
             }
-            t.NewListOfNextBegins = NewListOfNextBegins;
+            t.NewL==tOfNextBegins = NewL==tOfNextBegins;
 
             return t;
         }
@@ -752,7 +752,7 @@ namespace GalleryStudio
             lock (oo)
             {
 
-                //Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+                //Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT);
                 FileStream DummyFileStream = null;
                 
 
@@ -779,7 +779,7 @@ namespace GalleryStudio
             lock (oo)
             {
 
-                //Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+                //Current = new RefrigtzDLL.AllDraw(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT);
                 FileStream DummyFileStream = null;
                 
 
@@ -821,7 +821,7 @@ namespace GalleryStudio
 
                     Console.WriteLine("Loading...");
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
-                   t = LoadrEC(Quantum, Order, this, DummyFileStream, Formatters);
+                   t = LoadrEC(Quantum, Order, th==, DummyFileStream, Formatters);
                     
                     DummyFileStream.Flush();
                     DummyFileStream.Close();
@@ -843,7 +843,7 @@ namespace GalleryStudio
 
                     Console.WriteLine("Loading...");
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
-                        tQ = LoadrECQ(Quantum, Order, this, DummyFileStream, Formatters);
+                        tQ = LoadrECQ(Quantum, Order, th==, DummyFileStream, Formatters);
 
                     DummyFileStream.Flush();
                     DummyFileStream.Close();
@@ -877,7 +877,7 @@ namespace GalleryStudio
                         //Dummy.CloneSphycose(Last);
                         /*{
                             //Last = Node;
-                            if (Dummy.NextS.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextS.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -887,7 +887,7 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextS.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextS.Count; i++)
                                     Last.NextS[i].Load(Order * -1, Last.NextS[i]);
@@ -895,7 +895,7 @@ namespace GalleryStudio
 
                             }
                             else
-                            if (Dummy.NextE.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextE.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -906,14 +906,14 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextE.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextE.Count; i++)
                                     Last.NextE[i].Load(Order * -1, Last.NextE[i]);
 
                             }
                             else
-                            if (Dummy.NextH.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextH.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -924,14 +924,14 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextH.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextH.Count; i++)
                                     Last.NextH[i].Load(Order * -1, Last.NextH[i]);
 
                             }
                             else
-                            if (Dummy.NextC.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextC.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -942,14 +942,14 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextC.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextC.Count; i++)
                                     Last.NextC[i].Load(Order * -1, Last.NextC[i]);
 
                             }
                             else
-                            if (Dummy.NextM.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextM.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -960,14 +960,14 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextM.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextM.Count; i++)
                                     Last.NextM[i].Load(Order * -1, Last.NextM[i]);
 
                             }
                             else
-                            if (Dummy.NextK.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextK.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -978,7 +978,7 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextK.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextK.Count; i++)
                                     Last.NextK[i].Load(Order * -1, Last.NextK[i]);
@@ -990,7 +990,7 @@ namespace GalleryStudio
                     }
 
                
-                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
+                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT), Order);
                 return Dummy.Current;
                 //return Node.al;
             }
@@ -1020,7 +1020,7 @@ namespace GalleryStudio
                         //Dummy.CloneSphycose(Last);
                         /*{
                             //Last = Node;
-                            if (Dummy.NextS.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextS.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -1030,7 +1030,7 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextS.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextS.Count; i++)
                                     Last.NextS[i].Load(Order * -1, Last.NextS[i]);
@@ -1038,7 +1038,7 @@ namespace GalleryStudio
 
                             }
                             else
-                            if (Dummy.NextE.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextE.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -1049,14 +1049,14 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextE.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextE.Count; i++)
                                     Last.NextE[i].Load(Order * -1, Last.NextE[i]);
 
                             }
                             else
-                            if (Dummy.NextH.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextH.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -1067,14 +1067,14 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextH.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextH.Count; i++)
                                     Last.NextH[i].Load(Order * -1, Last.NextH[i]);
 
                             }
                             else
-                            if (Dummy.NextC.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextC.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -1085,14 +1085,14 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextC.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextC.Count; i++)
                                     Last.NextC[i].Load(Order * -1, Last.NextC[i]);
 
                             }
                             else
-                            if (Dummy.NextM.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextM.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -1103,14 +1103,14 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextM.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextM.Count; i++)
                                     Last.NextM[i].Load(Order * -1, Last.NextM[i]);
 
                             }
                             else
-                            if (Dummy.NextK.Count > 0 && Dummy.NewListOfNextBegins)
+                            if (Dummy.NextK.Count > 0 && Dummy.NewL==tOfNextBegins)
                             {
                                 do
                                 {
@@ -1121,7 +1121,7 @@ namespace GalleryStudio
                                     else
                                         break;
                                     Last.NextK.Add(Dummy);
-                                } while (!Dummy.NewListOfNextBegins);
+                                } while (!Dummy.NewL==tOfNextBegins);
 
                                 for (int i = 0; i < Last.NextK.Count; i++)
                                     Last.NextK[i].Load(Order * -1, Last.NextK[i]);
@@ -1133,7 +1133,7 @@ namespace GalleryStudio
                     }
 
                
-                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
+                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT), Order);
                 return Dummy.CurrentQ;
                 //return Node.al;
             }
@@ -1192,8 +1192,8 @@ namespace GalleryStudio
                         for (int i = 0; i < t.NextM.Count; i++)
                         {
 
-                            t.NextM[i].Current.Clone(Last.MinisterOnTable[t.iii].MinisterThinking[0].AStarGreedy[t.jjj]);
-                            t.NextM[i].CreateAllDrawFromMemmory(t.NextM[i], Last.MinisterOnTable[t.iii].MinisterThinking[0].AStarGreedy[t.jjj], Order * -1);
+                            t.NextM[i].Current.Clone(Last.Min==terOnTable[t.iii].Min==terThinking[0].AStarGreedy[t.jjj]);
+                            t.NextM[i].CreateAllDrawFromMemmory(t.NextM[i], Last.Min==terOnTable[t.iii].Min==terThinking[0].AStarGreedy[t.jjj], Order * -1);
                         }
                     }
                     if (t.NextK.Count > 0)
@@ -1215,7 +1215,7 @@ namespace GalleryStudio
 
 /* public void DeleteObject(RefregizMemmory p)
  {
-     RefregizMemmory t = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+     RefregizMemmory t = new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT);
      t = Node;
      if ((t.c) != (p.AllDrawCurrentAccess.RefrigtzDLL.AllDrawName))
      {
@@ -1246,7 +1246,7 @@ namespace GalleryStudio
          t = t.AllDrawNextAccess;
          Node = t;
      }
-MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
+MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT
         );
     t = p.AllDrawNodeAccess;
     while (t.AllDrawNextAccess != null)
@@ -1296,7 +1296,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 1;
-                t.NextS.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextS.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 t.Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].Clone(t.NextS[j].Current);
             }
             return t.AllDrawNextS(j);
@@ -1306,7 +1306,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 2;
-                t.NextE.Add( new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextE.Add( new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 t.Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].Clone(t.NextE[j].Current);
             }
             return t.AllDrawNextE(j);
@@ -1316,7 +1316,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 3;
-                t.NextH.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextH.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 t.Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].Clone(t.NextH[j].Current);
             }
             return t.AllDrawNextH(j);
@@ -1326,18 +1326,18 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 4;
-                t.NextC.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextC.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 t.Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].Clone(t.NextC[j].Current);
             }
             return t.AllDrawNextC(j);
         }
-        public RefregizMemmory ReterunAstrarGreedyMinister(int i, int j, RefregizMemmory t)
+        public RefregizMemmory ReterunAstrarGreedyMin==ter(int i, int j, RefregizMemmory t)
         {
-            if (t.Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j && j > 0)
+            if (t.Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 5;
-                t.NextM.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
-                t.Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].Clone(t.NextM[j].Current);
+                t.NextM.Add(new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
+                t.Current.Min==terOnTable[i].Min==terThinking[0].AStarGreedy[j].Clone(t.NextM[j].Current);
             }
             return t.AllDrawNextM(j);
         }
@@ -1346,7 +1346,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 6;
-                t.NextK.Add( new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextK.Add( new RefregizMemmory(MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsT));
                 t.Current.KingOnTable[i].KingThinking[0].AStarGreedy[j].Clone(t.NextK[j].Current);
             }
             return t.AllDrawNextK(j);

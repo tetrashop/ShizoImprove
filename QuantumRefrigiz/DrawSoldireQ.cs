@@ -33,25 +33,25 @@ namespace QuantumRefrigiz
 
         //Pawns cannot make quantum moves.
         //A quantum move cannot be used to take a piece.
-        public bool IsQuntumMove = false;
-        //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
+        public bool ==QuntumMove = false;
+        //Pieces have rings around them, filled in with colour. These rings show the probability that the piece == in that square.
         bool RingHalf = false;
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         //Iniatate Global Variables.
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        List<int[]> ValuableSelfSupported = new List<int[]>();
+        L==t<int[]> ValuableSelfSupported = new L==t<int[]>();
 
         public static Image[] S = new Image[2];
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHur==ticFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechnisamT = true;
+        public bool UsePenaltyRegardMechn==amT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHur==ticT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHur==ticT = false;
         public bool ArrangmentsChanged = false;
-        public static int MaxHuristicxS = int.MinValue;
+        public static int MaxHur==ticxS = int.MinValue;
         public float RowS, ColumnS;
         public Color color;
         public ThinkingQuantumChess[] SoldierThinkingQuantum = new ThinkingQuantumChess[AllDraw.SodierMovments];
@@ -71,31 +71,31 @@ namespace QuantumRefrigiz
                 }
            
         }
-        public bool AccessIsQuntumMove
+        public bool Access==QuntumMove
         {
-            get { return IsQuntumMove; }
+            get { return ==QuntumMove; }
         }
-        public void Dispose()
+        public void D==pose()
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             S = null;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("D==pose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
-            int a = ReturnHuristic();
-                if (MaxHuristicxS < a)
+            int a = ReturnHur==tic();
+                if (MaxHur==ticxS < a)
                 {
                     Object O2 = new Object();
                     lock (O2)
                     {
                         MaxNotFound = false;
-                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxS)
-                            ThinkingQuantumChess.MaxHuristicx = a;
-                        MaxHuristicxS = a;
+                        if (ThinkingQuantumChess.MaxHur==ticx < MaxHur==ticxS)
+                            ThinkingQuantumChess.MaxHur==ticx = a;
+                        MaxHur==ticxS = a;
                     }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
@@ -105,32 +105,32 @@ namespace QuantumRefrigiz
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
-        public int ReturnHuristic()
+        public int ReturnHur==tic()
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
                 
-                    a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    a += SoldierThinkingQuantum[ii].ReturnHur==tic(-1, -1, Order,false);
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHur==tic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         //Constructor 1.
-        /* public DrawSoldierQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /* public DrawSoldierQ(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments)
          {
              CurrentAStarGredyMax = CurrentAStarGredy;
-             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+             MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
              IgnoreSelfObjectsT = IgnoreSelfObject;
-             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+             UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
              BestMovmentsT = BestMovment;
-             PredictHuristicT = PredictHurist;
+             PredictHur==ticT = PredictHur==t;
              OnlySelfT = OnlySel;
-             AStarGreedyHuristicT = AStarGreedyHuris;
+             AStarGreedyHur==ticT = AStarGreedyHur==;
              ArrangmentsChanged = Arrangments;
          }
          */
         //Constructor 2.
-        public DrawSoldierQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
+        public DrawSoldierQ(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. TH==
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
@@ -141,13 +141,13 @@ namespace QuantumRefrigiz
                 
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+                UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHur==ticT = PredictHur==t;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHur==ticT = AStarGreedyHur==;
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables.  
                 Table = new int[8, 8];
@@ -158,7 +158,7 @@ namespace QuantumRefrigiz
                     i = 7;
                 for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
                 {
-                    SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);                    
+                    SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);                    
                 }
                 RowS = i;
                 ColumnS = j;
@@ -169,24 +169,24 @@ namespace QuantumRefrigiz
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierQ:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Clone a Copy Method.
-        public void Clone(ref DrawSoldierQ AA//, ref AllDraw. THIS
+        public void Clone(ref DrawSoldierQ AA//, ref AllDraw. TH==
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
-                    Tab[i, j] = this.Table[i, j];
+                    Tab[i, j] = th==.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-            AA = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
+            AA = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, th==.Row, th==.Column, th==.color, Tab, th==.Order, false, th==.Current
                 );
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.SodierMovments; i++)
             {
                 
-                    AA.SoldierThinkingQuantum[i] = new ThinkingQuantumChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.SoldierThinkingQuantum[i].Clone(ref AA.SoldierThinkingQuantum[i]);
+                    AA.SoldierThinkingQuantum[i] = new ThinkingQuantumChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)th==.Row, (int)th==.Column);
+                    th==.SoldierThinkingQuantum[i].Clone(ref AA.SoldierThinkingQuantum[i]);
                
             }
             AA.Table = new int[8, 8];
@@ -263,7 +263,7 @@ namespace QuantumRefrigiz
                         {
                             LastRow = AllDraw.QuntumTable[0, (int)Row, (int)Column];
                         LastColumn = AllDraw.QuntumTable[1, (int)Row, (int)Column];
-                        IsQuntumMove = true;
+                        ==QuntumMove = true;
                     }
                         else
                         if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
@@ -272,7 +272,7 @@ namespace QuantumRefrigiz
                             LastColumn = AllDraw.LastColumnQ;
                             AllDraw.LastRowQ = -1;
                         AllDraw.LastColumnQ = -1;
-                        IsQuntumMove = true;
+                        ==QuntumMove = true;
                     }
                         AllDraw.LastRowQ = -1;
                         AllDraw.LastColumnQ = -1;
@@ -288,7 +288,7 @@ namespace QuantumRefrigiz
                     RingHalf = true;
                 }
                 else
-                    if (IsQuntumMove)
+                    if (==QuntumMove)
                 {
                     RingHalf = true;
                     if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
@@ -316,7 +316,7 @@ namespace QuantumRefrigiz
                     {
                         
 
-                            //If Order is Gray.
+                            //If Order == Gray.
                             if (Order == 1)
                             {
                                 Object O1 = new Object();
@@ -423,8 +423,8 @@ namespace QuantumRefrigiz
                        
 
                     }
-                    else//If Minsister Conversion Occured.
-                        if (ConvertedToMinister)
+                    else//If Mins==ter Conversion Occured.
+                        if (ConvertedToMin==ter)
                     {
                         
                             //Color of Gray.
@@ -433,8 +433,8 @@ namespace QuantumRefrigiz
                                 Object O1 = new Object();
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
-                                     //Draw of Gray Minsister Image File By an Instant.
-                                    g.DrawImage(DrawMinisterQ.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                     //Draw of Gray Mins==ter Image File By an Instant.
+                                    g.DrawImage(DrawMin==terQ.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
                                     {
                                         int Prob = 180;
@@ -443,7 +443,7 @@ namespace QuantumRefrigiz
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);
                                         if (LastRow != -1 && LastColumn != -1)
                                         {
-                                            g.DrawImage(DrawMinisterQ.M[0], new Rectangle(LastRow * CellW, LastColumn * CellH, CellW, CellH));
+                                            g.DrawImage(DrawMin==terQ.M[0], new Rectangle(LastRow * CellW, LastColumn * CellH, CellW, CellH));
                                             g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((LastRow * CellW)), (int)(LastColumn * (float)CellH), CellW, CellH), -45, (int)Prob);
                                             AllDraw.QuntumTable[0, (int)Row, (int)Column] = LastRow;
                                             AllDraw.QuntumTable[1, (int)Row, (int)Column] = LastColumn;
@@ -453,7 +453,7 @@ namespace QuantumRefrigiz
                                         else
                                         if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[1, (int)Row, (int)Column] != -1)
                                         {
-                                            g.DrawImage(DrawMinisterQ.M[0], new Rectangle(AllDraw.QuntumTable[0, (int)Row, (int)Column] * CellW, AllDraw.QuntumTable[1, (int)Row, (int)Column] * CellH, CellW, CellH));
+                                            g.DrawImage(DrawMin==terQ.M[0], new Rectangle(AllDraw.QuntumTable[0, (int)Row, (int)Column] * CellW, AllDraw.QuntumTable[1, (int)Row, (int)Column] * CellH, CellW, CellH));
                                             g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.QuntumTable[0, (int)Row, (int)Column] * CellW)), (int)(AllDraw.QuntumTable[1, (int)Row, (int)Column] * (float)CellH), CellW, CellH), -45, (int)Prob);
 
                                         }
@@ -468,7 +468,7 @@ namespace QuantumRefrigiz
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw a Image File on the Table Form n Instatnt One.
-                                    g.DrawImage(DrawMinisterQ.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(DrawMin==terQ.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                     if (RingHalf)
                                     {
                                         int Prob = 180;
@@ -477,7 +477,7 @@ namespace QuantumRefrigiz
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((Row * (float)CellW)), (int)(Column * (float)CellH), CellW, CellH), -45, (int)Prob);
                                         if (LastRow != -1 && LastColumn != -1)
                                         {
-                                            g.DrawImage(DrawMinisterQ.M[1], new Rectangle(LastRow * CellW, LastColumn * CellH, CellW, CellH));
+                                            g.DrawImage(DrawMin==terQ.M[1], new Rectangle(LastRow * CellW, LastColumn * CellH, CellW, CellH));
                                             g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((LastRow * CellW)), (int)(LastColumn * (float)CellH), CellW, CellH), -45, (int)Prob);
                                             AllDraw.QuntumTable[0, (int)Row, (int)Column] = LastRow;
                                             AllDraw.QuntumTable[1, (int)Row, (int)Column] = LastColumn;
@@ -487,7 +487,7 @@ namespace QuantumRefrigiz
                                         else
                                         if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[1, (int)Row, (int)Column] != -1)
                                         {
-                                            g.DrawImage(DrawMinisterQ.M[1], new Rectangle(AllDraw.QuntumTable[0, (int)Row, (int)Column] * CellW, AllDraw.QuntumTable[1, (int)Row, (int)Column] * CellH, CellW, CellH));
+                                            g.DrawImage(DrawMin==terQ.M[1], new Rectangle(AllDraw.QuntumTable[0, (int)Row, (int)Column] * CellW, AllDraw.QuntumTable[1, (int)Row, (int)Column] * CellH, CellW, CellH));
                                             g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((AllDraw.QuntumTable[0, (int)Row, (int)Column] * CellW)), (int)(AllDraw.QuntumTable[1, (int)Row, (int)Column] * (float)CellH), CellW, CellH), -45, (int)Prob);
 
                                         }

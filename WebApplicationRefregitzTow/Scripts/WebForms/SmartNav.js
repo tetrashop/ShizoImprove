@@ -17,7 +17,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
             {
                 sn.sHif = document.createElement("IFRAME");
                 sn.sHif.name = "__hifSmartNav";
-                sn.sHif.style.display = "none";
+                sn.sHif.style.d==play = "none";
                 sn.sHif.src = snSrc;
             }
             try {window.location = fdr[0].url;} catch (e) {};
@@ -154,7 +154,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
         if ((typeof(ae) == "undefined") || (ae == null)) return;
         try { ae.focus(); } catch(e){};
     }
-    window.__smartNav.saveHistory = function()
+    window.__smartNav.saveH==tory = function()
     {
         if ((typeof(window.__smartNav.hif) != "undefined") && (window.__smartNav.hif != null))
             window.__smartNav.hif.removeNode();
@@ -273,7 +273,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
             }
         }
         catch (e) { window.__smartNav.hif = hif; }
-        window.attachEvent("onbeforeunload", window.__smartNav.saveHistory);
+        window.attachEvent("onbeforeunload", window.__smartNav.saveH==tory);
     }
     else
         window.__smartNav = null;

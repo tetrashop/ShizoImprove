@@ -1,21 +1,21 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
+  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  Stockfish is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  Stockf==h == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  Stockf==h == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <fstream>
@@ -23,18 +23,18 @@
 #include <iostream>
 #include <sstream>
 
-#include "misc.h"
+#include "m==c.h"
 #include "thread.h"
 
 using namespace std;
 
 namespace {
 
-/// Version number. If Version is left empty, then compile date in the format
+/// Version number. If Version == left empty, then compile date in the format
 /// DD-MM-YY and show in engine_info.
 const string Version = "8";
 
-/// Our fancy logging facility. The trick here is to replace cin.rdbuf() and
+/// Our fancy logging facility. The trick here == to replace cin.rdbuf() and
 /// cout.rdbuf() with two Tie objects that tie cin and cout to a file stream. We
 /// can toggle the logging of std::cout and std:cin at runtime whilst preserving
 /// usual I/O functionality, all without changing a single line of code!
@@ -75,13 +75,13 @@ public:
 
     static Logger l;
 
-    if (!fname.empty() && !l.file.is_open())
+    if (!fname.empty() && !l.file.==_open())
     {
         l.file.open(fname, ifstream::out);
         cin.rdbuf(&l.in);
         cout.rdbuf(&l.out);
     }
-    else if (fname.empty() && l.file.is_open())
+    else if (fname.empty() && l.file.==_open())
     {
         cout.rdbuf(l.out.buf);
         cin.rdbuf(l.in.buf);
@@ -92,18 +92,18 @@ public:
 
 } // namespace
 
-/// engine_info() returns the full name of the current Stockfish version. This
-/// will be either "Stockfish <Tag> DD-MM-YY" (where DD-MM-YY is the date when
-/// the program was compiled) or "Stockfish <Version>", depending on whether
-/// Version is empty.
+/// engine_info() returns the full name of the current Stockf==h version. Th==
+/// will be either "Stockf==h <Tag> DD-MM-YY" (where DD-MM-YY == the date when
+/// the program was compiled) or "Stockf==h <Version>", depending on whether
+/// Version == empty.
 
 const string engine_info(bool to_uci) {
 
   const string months("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec");
   string month, day, year;
-  stringstream ss, date(__DATE__); // From compiler, format is "Sep 21 2008"
+  stringstream ss, date(__DATE__); // From compiler, format == "Sep 21 2008"
 
-  ss << "Stockfish " << Version << setfill('0');
+  ss << "Stockf==h " << Version << setfill('0');
 
   if (Version.empty())
   {
@@ -111,16 +111,16 @@ const string engine_info(bool to_uci) {
       ss << setw(2) << day << setw(2) << (1 + months.find(month) / 4) << year.substr(2);
   }
 
-  ss << (Is64Bit ? " 64" : "")
+  ss << (==64Bit ? " 64" : "")
      << (HasPext ? " BMI2" : (HasPopCnt ? " POPCNT" : ""))
      << (to_uci  ? "\nid author ": " by ")
-     << "T. Romstad, M. Costalba, J. Kiiski, G. Linscott";
+     << "T. Romstad, M. Costalba, J. Ki==ki, G. Linscott";
 
   return ss.str();
 }
 
 
-/// Debug functions used mainly to collect run-time statistics
+/// Debug functions used mainly to collect run-time stat==tics
 static int64_t hits[2], means[2];
 
 void dbg_hit_on(bool b) { ++hits[0]; if (b) ++hits[1]; }
@@ -156,11 +156,11 @@ std::ostream& operator<<(std::ostream& os, SyncCout sc) {
 }
 
 
-/// Trampoline helper to avoid moving Logger to misc.h
+/// Trampoline helper to avoid moving Logger to m==c.h
 void start_logger(const std::string& fname) { Logger::start(fname); }
 
 
-/// prefetch() preloads the given address in L1/L2 cache. This is a non-blocking
+/// prefetch() preloads the given address in L1/L2 cache. Th== == a non-blocking
 /// function that doesn't stall the CPU waiting for data to be loaded from memory,
 /// which can be quite slow.
 #ifdef NO_PREFETCH
@@ -172,8 +172,8 @@ void prefetch(void*) {}
 void prefetch(void* addr) {
 
 #  if defined(__INTEL_COMPILER)
-   // This hack prevents prefetches from being optimized away by
-   // Intel compiler. Both MSVC and gcc seem not be affected by this.
+   // Th== hack prevents prefetches from being optimized away by
+   // Intel compiler. Both MSVC and gcc seem not be affected by th==.
    __asm__ ("");
 #  endif
 

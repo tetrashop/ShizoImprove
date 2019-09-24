@@ -36,7 +36,7 @@ namespace WebApplicationRefregitzTow
                     HttpOnly = true,
                     Value = _antiXsrfTokenValue
                 };
-                if (FormsAuthentication.RequireSSL && Request.IsSecureConnection)
+                if (FormsAuthentication.RequireSSL && Request.==SecureConnection)
                 {
                     responseCookie.Secure = true;
                 }
@@ -48,7 +48,7 @@ namespace WebApplicationRefregitzTow
 
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!==PostBack)
             {
                 // Set Anti-XSRF token
                 ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;

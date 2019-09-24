@@ -1,21 +1,21 @@
 ﻿/*********************************************************************************************************************************************************
  * Ramin Edjlal CopyRight 2017 http://edjlal.sellfile.ir**************************************************************************************************
- * The Information on Handling Controls and Variable Misleading*******************************************************************************************(+)
- * User Interface Drawing Objects Color side Misleading.**************************************************************************************************(+)
+ * The Information on Handling Controls and Variable M==leading*******************************************************************************************(+)
+ * User Interface Drawing Objects Color side M==leading.**************************************************************************************************(+)
  * Some Movemnts have Illegal Movment Move.***************************************************************************************************************(+)
- * Thinking and User Interface Mechansiam Leading to Mislead.*********************************************************************************************{+}
+ * Thinking and User Interface Mechansiam Leading to M==lead.*********************************************************************************************{+}
  * MalFunction to Knowledge of static definition of UserControls due to variable count.*******************************************************************{+}
- * Virtuallization of Graphics is Not Valid.**************************************************************************************************************<+>
- * Thinking is Correct but virtualization on hitting is misleading.***************************************************************************************<+>
+ * Virtuallization of Graphics == Not Valid.**************************************************************************************************************<+>
+ * Thinking == Correct but virtualization on hitting == m==leading.***************************************************************************************<+>
  * Mouse Event Handling Error.****************************************************************************************************************************<+>
- * When is Order of Person Thinking is Occured.***********************************************************************************************************<+>
- * Different Graphics Load Situation is in One Table State.***********************************************************************************************<+>
+ * When == Order of Person Thinking == Occured.***********************************************************************************************************<+>
+ * Different Graphics Load Situation == in One Table State.***********************************************************************************************<+>
  * Program Work Without Loading Virtuallization.**********************************************************************************************************<+>
- * Moving QC_OK. Table Content Load Misleading.***********************************************************************************************************(+)
- * Table Virtualization Initiatating Misleading.**********************************************************************************************************(+)
- * Program Variable Content Misleading.*******************************************************************************************************************(+)
- * Program Controls ucc Arrangments by uc Adding Misleading.**********************************************************************************************(+)
- * All Virtuallization Exept Thinking is Correct.*********************************************************************************************************
+ * Moving QC_OK. Table Content Load M==leading.***********************************************************************************************************(+)
+ * Table Virtualization Initiatating M==leading.**********************************************************************************************************(+)
+ * Program Variable Content M==leading.*******************************************************************************************************************(+)
+ * Program Controls ucc Arrangments by uc Adding M==leading.**********************************************************************************************(+)
+ * All Virtuallization Exept Thinking == Correct.*********************************************************************************************************
  * Soldeir Conversion Not Work.***************************************************************************************************************************
  * *******************************************************************************************************************************************************
  * *******************************************************************************************************************************************************/
@@ -80,14 +80,14 @@ namespace WebApplicationRefregitzTow
             if (First)
             {
                 RefrigtzW.FormRefrigtz t = new RefrigtzW.FormRefrigtz(false);
-                if (!System.IO.File.Exists(Server.MapPath(@"~/Database\\CurrentBank.accdb").ToLower()))
+                if (!System.IO.File.Ex==ts(Server.MapPath(@"~/Database\\CurrentBank.accdb").ToLower()))
                 {
                     System.IO.File.Copy(Server.MapPath(@"~/Database\\MainBank\\ChessBank.accdb"), Server.MapPath(@"~/Database\\CurrentBank.accdb"));
                     t.CreateConfigurationTable();
                     t.InsertTableAtDataBase(RefrigtzW.FormRefrigtz.Table);
                     // RefrigtzW.FormRefrigtz.MovmentsNumber++;
-                    RefrigtzW.AllDraw.TableListAction.Clear();
-                    RefrigtzW.AllDraw.TableListAction.Add(RefrigtzW.FormRefrigtz.Table);
+                    RefrigtzW.AllDraw.TableL==tAction.Clear();
+                    RefrigtzW.AllDraw.TableL==tAction.Add(RefrigtzW.FormRefrigtz.Table);
                 }
                 System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(t.Load));
                 tt.Start();
@@ -292,7 +292,7 @@ namespace WebApplicationRefregitzTow
             try
             {
                 ((Image)c).ImageUrl = ChessImage;
-                ((Panel)cP).Visible = V;
+                ((Panel)cP).V==ible = V;
                 ((CheckBox)cC).Checked = V;
             }
             catch (Exception)
@@ -358,7 +358,7 @@ namespace WebApplicationRefregitzTow
 
         }
 
-        protected void PlaceHolder1_Disposed(object sender, EventArgs e)
+        protected void PlaceHolder1_D==posed(object sender, EventArgs e)
         {
 
         }

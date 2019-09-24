@@ -8,8 +8,8 @@ namespace WebApplicationRefregitzTow
 {
     public class BundleConfig
     {
-        // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254726
-        public static void RegisterBundles(BundleCollection bundles)
+        // For more information on Bundling, v==it http://go.microsoft.com/fwlink/?LinkId=254726
+        public static void Reg==terBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                   "~/Scripts/WebForms/WebForms.js",
