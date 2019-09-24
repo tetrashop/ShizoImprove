@@ -978,7 +978,7 @@ if (Kind == 2)
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index)
         {
-            long Time = TimeElapced.TimeNow();Spaces++;
+            long Time = TimeElapced.TimeNow(); Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -998,318 +998,333 @@ if (Kind == 2)
                 int Ki1 = 0;
                 int Ki2 = KingMidle;
 
-                
-                    SetRowColumnFinished = false;
 
-                    Move = 0;
-                    //Intiate Dummy Variables.
-                    //When Conversion Occured.
-                    SolderesOnTable = new DrawSoldier[SodierHigh];
-                    ElephantOnTable = new DrawElefant[ElefantHigh];
-                    HoursesOnTable = new DrawHourse[HourseHight];
-                    CastlesOnTable = new DrawCastle[CastleHigh];
-                    MinisterOnTable = new DrawMinister[MinisterHigh];
-                    KingOnTable = new DrawKing[KingHigh];
-                    AllDraw.SodierConversionOcuured = false;
+                SetRowColumnFinished = false;
 
-                    //When Table Exist.
-                    if (TableList.Count > 0)
-                    {
-                        //For Every Table Things.
-                        for (int Column = 0; Column < 8; Column++)
-                            for (int Row = 0; Row < 8; Row++)
+                Move = 0;
+                //Intiate Dummy Variables.
+                //When Conversion Occured.
+                SolderesOnTable = new DrawSoldier[SodierHigh];
+                ElephantOnTable = new DrawElefant[ElefantHigh];
+                HoursesOnTable = new DrawHourse[HourseHight];
+                CastlesOnTable = new DrawCastle[CastleHigh];
+                MinisterOnTable = new DrawMinister[MinisterHigh];
+                KingOnTable = new DrawKing[KingHigh];
+                AllDraw.SodierConversionOcuured = false;
+
+                //When Table Exist.
+                if (TableList.Count > 0)
+                {
+                    //For Every Table Things.
+                    for (int Column = 0; Column < 8; Column++)
+                        for (int Row = 0; Row < 8; Row++)
+                        {
+                            /* if (!TableZero(Tabl))
+                             {
+
+                                 if (TableEqual(TableList[index], Tabl))
+                                     return;
+                             }*/
+                            if (TableList[index][Row, Column] == 0)
+                                continue;
+                            //When Things are Soldiers.
+                            if (System.Math.Abs(TableList[index][Row, Column]) == 1)
                             {
-                               /* if (!TableZero(Tabl))
+                                //Determine int
+                                Color a;
+
+                                if (TableList[index][Row, Column] > 0)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //When int is Gray. 
+                                if (a == Color.Gray)
                                 {
 
-                                    if (TableEqual(TableList[index], Tabl))
-                                        return;
-                                }*/
-                                if (TableList[index][Row, Column] == 0)
-                                    continue;
-                                //When Things are Soldiers.
-                                if (System.Math.Abs(TableList[index][Row, Column]) == 1)
-                                {
-                                    //Determine int
-                                    Color a;
+                                    //if (SolderesOnTable[So1] != null)
+                                    //SolderesOnTable[So1].Dispose();
+                                    //Construct Soder Gray.
+                                    SolderesOnTable[So1] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, So1);
 
-                                    if (TableList[index][Row, Column] > 0)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //When int is Gray. 
-                                    if (a == Color.Gray)
+                                    BlitzNotValidFullGameThinkingTreePartThree(So1, OrderP, 1);
+
+                                    //Increase So1.
+                                    So1++;
+                                    if (So1 > SodierMidle)
                                     {
-                                        
-                                            //if (SolderesOnTable[So1] != null)
-                                            //SolderesOnTable[So1].Dispose();
-                                            //Construct Soder Gray.
-                                            SolderesOnTable[So1] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, So1);
-                                            //Increase So1.
-                                            So1++;
-                                            if (So1 > SodierMidle)
-                                            {
-                                                SodierMidle++;
-                                                SodierHigh++;
-                                            }
-
-
-                                       
+                                        SodierMidle++;
+                                        SodierHigh++;
                                     }
-                                    //When int is Brown
-                                    else
-                                    {
-                                        
-                                            //if (SolderesOnTable[So2] != null)
-                                            // SolderesOnTable[So2].Dispose();
-                                            //Construct Soldeir Brown.
-                                            SolderesOnTable[So2] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, So2);
-                                            //Increase So2.
-                                            So2++;
-                                            if (So2 > SodierHigh)
-                                                SodierHigh++;
 
-                                       
-                                    }
+
+
                                 }
-                                else //For Elephant Objects.
-                                    if (System.Math.Abs(TableList[index][Row, Column]) == 2)
+                                //When int is Brown
+                                else
                                 {
-                                    //Initiate Local Variables.
-                                    Color a;
-                                    if (TableList[index][Row, Column] > 0)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //If Gray Elepahnt
-                                    if (a == Color.Gray)
-                                    {
-                                        
-                                            //if (ElephantOnTable[El1] != null)
-                                            // ElephantOnTable[El1].Dispose();
 
-                                            //Construction of Draw Object.
-                                            ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
-                                            //Increament of Gray Index.
-                                            El1++;
-                                            //If New Object Increament Gray Objects.
-                                            if (El1 > ElefantMidle)
-                                            {
-                                                ElefantMidle++;
-                                                ElefantHigh++;
-                                            }
-                                       
-                                    }
-                                    else//For Brown Elephant .Objects
-                                    {
-                                        
-                                            //if (ElephantOnTable[El2] != null)
-                                            // ElephantOnTable[El2].Dispose();
+                                    //if (SolderesOnTable[So2] != null)
+                                    // SolderesOnTable[So2].Dispose();
+                                    //Construct Soldeir Brown.
+                                    SolderesOnTable[So2] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, So2);
 
-                                            //Construction of Draw Brown Elephant Object. 
-                                            ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
-                                            //Increament of Index.
-                                            El2++;
-                                            //When New Brown Elephant Object Increament of Index.
-                                            if (El2 > ElefantHigh)
-                                                ElefantHigh++;
-                                       
+                                    BlitzNotValidFullGameThinkingTreePartThree(So2, OrderP, 1);
+                                    //Increase So2.
+                                    So2++;
+                                    if (So2 > SodierHigh)
+                                        SodierHigh++;
 
-                                    }
-                                }
-                                else//For Hourse Objects.
-                                        if (System.Math.Abs(TableList[index][Row, Column]) == 3)
-                                {
-                                    //Initiate Local Varibale and int.
-                                    Color a;
-                                    if (TableList[index][Row, Column] > 0)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //If Gray Hourse.
-                                    if (a == Color.Gray)
-                                    {
-
-                                        
-                                            // if (HoursesOnTable[Ho1] != null)
-                                            // HoursesOnTable[Ho1].Dispose();
-
-                                            //Construction of Draw Brown Hourse.
-                                            HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
-                                            //Increament of Index.
-                                            Ho1++;
-                                            //when There is New Gray Hourse Increase.
-                                            if (Ho1 > HourseMidle)
-                                            {
-                                                HourseMidle++;
-                                                HourseHight++;
-                                            }
-                                       
-                                    }//For Brown Hourses.
-                                    else
-                                    {
-                                        
-                                            //if (HoursesOnTable[Ho2] != null)
-                                            //  HoursesOnTable[Ho2].Dispose();
-
-                                            //Construction of Draw Brown Hourse.
-                                            HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
-                                            //Increament of Index.
-                                            Ho2++;
-                                            //When New Brown Hourse Exist Exist Index.
-                                            if (Ho2 > HourseHight)
-                                                HourseHight++;
-                                       
-                                    }
-                                }
-                                else//For Castles Objects.
-                                            if (System.Math.Abs(TableList[index][Row, Column]) == 4)
-                                {
-                                    //Initiate of Local Variables.
-                                    Color a;
-                                    if (TableList[index][Row, Column] > 0)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //For Gray int.
-                                    if (a == Color.Gray)
-                                    {
-
-                                        
-                                            //if (CastlesOnTable[Br1] != null)
-                                            //CastlesOnTable[Br1].Dispose();
-
-                                            //Construction of New Draw Gray Castles.
-                                            CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
-                                            //Increamnt of Index.
-                                            Br1++;
-                                            //When New Gray Briges Increamnt Max Index.
-                                            if (Br1 > CastleMidle)
-                                            {
-                                                CastleMidle++;
-                                                CastleHigh++;
-                                            }
-                                       
-                                    }//For Brown Castles.
-                                    else
-                                    {
-                                        
-                                            //if (CastlesOnTable[Br2] != null)
-                                            //CastlesOnTable[Br2].Dispose();
-
-                                            //Construction Draw of New Brown Castles.
-                                            CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
-                                            //Increament of Index.
-                                            Br2++;
-                                            //wehn Brown New Castles Detected Increament Max Index.
-                                            if (Br2 > CastleHigh)
-                                                CastleHigh++;
-                                       
-                                    }
-                                }
-                                else//For Minister Objects.
-                                                if (System.Math.Abs(TableList[index][Row, Column]) == 5)
-                                {
-                                    //Initiate Local int Varibales.
-                                    Color a;
-                                    if (TableList[index][Row, Column] > 0)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //For Gray ints.
-                                    if (a == Color.Gray)
-                                    {
-
-
-                                        
-                                            //if (MinisterOnTable[Mi1] != null)
-                                            // MinisterOnTable[Mi1].Dispose();
-
-                                            //construction of new draw Gray Minster.
-                                            MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
-                                            //Increament of Index.
-                                            Mi1++;
-                                            //Wehn New Gray Minster Detected Increament Max Indexes.
-                                            if (Mi1 > MinisterMidle)
-                                            {
-                                                MinisterMidle++;
-                                                MinisterHigh++;
-                                            }
-                                       
-
-                                    }//For Brown  ints.
-                                    else
-                                    {
-                                        
-                                            //if (MinisterOnTable[Mi2] != null)
-                                            // MinisterOnTable[Mi2].Dispose();
-
-                                            //Construction of New Draw Brown Minster.
-                                            MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
-                                            //Increament Index.
-                                            Mi2++;
-                                            //When New Brown Minister Detected Increament Max Index.
-                                            if (Mi2 > MinisterHigh)
-                                                MinisterHigh++;
-                                       
-                                    }
-                                }
-                                else//for King Objects.        
-                                if (System.Math.Abs(TableList[index][Row, Column]) == 6)
-                                {
-                                    //Initiate Of int.
-                                    Color a;
-                                    if (TableList[index][Row, Column] > 0)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //int consideration.
-                                    if (a == Color.Gray)
-                                    {
-
-                                        
-                                            //if (KingOnTable[Ki1] != null)
-                                            //KingOnTable[Ki1].Dispose();
-
-                                            //Construction of New Draw Gray King.
-                                            KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
-                                            //Increament of Index.
-                                            Ki1++;
-                                            //when New Draw  Object Detected Increament Max Index.
-                                            if (Ki1 > KingMidle)
-                                            {
-                                                KingMidle++;
-                                                KingHigh++;
-
-                                            }
-                                       
-                                    }//For Brown King int
-                                    else
-                                    {
-                                        
-                                            //if (KingOnTable[Ki2] != null)
-                                            // KingOnTable[Ki2].Dispose();
-
-                                            //Construction of New Draw King Brown Object.
-                                            KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
-                                            //Increament of Index.
-                                            Ki2++;
-                                            //When New Object Detected Increament Of Brown King Max Index.
-                                            if (Ki2 > KingHigh)
-                                                KingHigh++;
-                                       
-                                    }
 
                                 }
                             }
+                            else //For Elephant Objects.
+                                if (System.Math.Abs(TableList[index][Row, Column]) == 2)
+                            {
+                                //Initiate Local Variables.
+                                Color a;
+                                if (TableList[index][Row, Column] > 0)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //If Gray Elepahnt
+                                if (a == Color.Gray)
+                                {
 
-                        //Make Empty Remaining.
+                                    //if (ElephantOnTable[El1] != null)
+                                    // ElephantOnTable[El1].Dispose();
+
+                                    //Construction of Draw Object.
+                                    ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
+                                    BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2);
+                                    //Increament of Gray Index.
+                                    El1++;
+                                    //If New Object Increament Gray Objects.
+                                    if (El1 > ElefantMidle)
+                                    {
+                                        ElefantMidle++;
+                                        ElefantHigh++;
+                                    }
+
+                                }
+                                else//For Brown Elephant .Objects
+                                {
+
+                                    //if (ElephantOnTable[El2] != null)
+                                    // ElephantOnTable[El2].Dispose();
+
+                                    //Construction of Draw Brown Elephant Object. 
+                                    ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
+                                    BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2);
+                                    //Increament of Index.
+                                    El2++;
+                                    //When New Brown Elephant Object Increament of Index.
+                                    if (El2 > ElefantHigh)
+                                        ElefantHigh++;
 
 
-                    }
+                                }
+                            }
+                            else//For Hourse Objects.
+                                    if (System.Math.Abs(TableList[index][Row, Column]) == 3)
+                            {
+                                //Initiate Local Varibale and int.
+                                Color a;
+                                if (TableList[index][Row, Column] > 0)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //If Gray Hourse.
+                                if (a == Color.Gray)
+                                {
 
 
-               
+                                    // if (HoursesOnTable[Ho1] != null)
+                                    // HoursesOnTable[Ho1].Dispose();
+
+                                    //Construction of Draw Brown Hourse.
+                                    HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
+                                    BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3);
+                                    //Increament of Index.
+                                    Ho1++;
+                                    //when There is New Gray Hourse Increase.
+                                    if (Ho1 > HourseMidle)
+                                    {
+                                        HourseMidle++;
+                                        HourseHight++;
+                                    }
+
+                                }//For Brown Hourses.
+                                else
+                                {
+
+                                    //if (HoursesOnTable[Ho2] != null)
+                                    //  HoursesOnTable[Ho2].Dispose();
+
+                                    //Construction of Draw Brown Hourse.
+                                    HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
+                                    BlitzNotValidFullGameThinkingTreePartThree(Ho2, OrderP, 3);
+                                    //Increament of Index.
+                                    Ho2++;
+                                    //When New Brown Hourse Exist Exist Index.
+                                    if (Ho2 > HourseHight)
+                                        HourseHight++;
+
+                                }
+                            }
+                            else//For Castles Objects.
+                                        if (System.Math.Abs(TableList[index][Row, Column]) == 4)
+                            {
+                                //Initiate of Local Variables.
+                                Color a;
+                                if (TableList[index][Row, Column] > 0)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //For Gray int.
+                                if (a == Color.Gray)
+                                {
+
+
+                                    //if (CastlesOnTable[Br1] != null)
+                                    //CastlesOnTable[Br1].Dispose();
+
+                                    //Construction of New Draw Gray Castles.
+                                    CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
+                                    BlitzNotValidFullGameThinkingTreePartThree(Br1, OrderP, 4);
+                                    //Increamnt of Index.
+                                    Br1++;
+                                    //When New Gray Briges Increamnt Max Index.
+                                    if (Br1 > CastleMidle)
+                                    {
+                                        CastleMidle++;
+                                        CastleHigh++;
+                                    }
+
+                                }//For Brown Castles.
+                                else
+                                {
+
+                                    //if (CastlesOnTable[Br2] != null)
+                                    //CastlesOnTable[Br2].Dispose();
+
+                                    //Construction Draw of New Brown Castles.
+                                    CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
+                                    BlitzNotValidFullGameThinkingTreePartThree(Br2,OrderP, 4);
+                                    //Increament of Index.
+                                    Br2++;
+                                    //wehn Brown New Castles Detected Increament Max Index.
+                                    if (Br2 > CastleHigh)
+                                        CastleHigh++;
+
+                                }
+                            }
+                            else//For Minister Objects.
+                                            if (System.Math.Abs(TableList[index][Row, Column]) == 5)
+                            {
+                                //Initiate Local int Varibales.
+                                Color a;
+                                if (TableList[index][Row, Column] > 0)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //For Gray ints.
+                                if (a == Color.Gray)
+                                {
+
+
+
+                                    //if (MinisterOnTable[Mi1] != null)
+                                    // MinisterOnTable[Mi1].Dispose();
+
+                                    //construction of new draw Gray Minster.
+                                    MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
+                                    BlitzNotValidFullGameThinkingTreePartThree(Mi1, OrderP, 5);
+                                    //Increament of Index.
+                                    Mi1++;
+                                    //Wehn New Gray Minster Detected Increament Max Indexes.
+                                    if (Mi1 > MinisterMidle)
+                                    {
+                                        MinisterMidle++;
+                                        MinisterHigh++;
+                                    }
+
+
+                                }//For Brown  ints.
+                                else
+                                {
+
+                                    //if (MinisterOnTable[Mi2] != null)
+                                    // MinisterOnTable[Mi2].Dispose();
+
+                                    //Construction of New Draw Brown Minster.
+                                    MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
+                                    BlitzNotValidFullGameThinkingTreePartThree(Mi2, OrderP, 5);
+                                    //Increament Index.
+                                    Mi2++;
+                                    //When New Brown Minister Detected Increament Max Index.
+                                    if (Mi2 > MinisterHigh)
+                                        MinisterHigh++;
+
+                                }
+                            }
+                            else//for King Objects.        
+                            if (System.Math.Abs(TableList[index][Row, Column]) == 6)
+                            {
+                                //Initiate Of int.
+                                Color a;
+                                if (TableList[index][Row, Column] > 0)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //int consideration.
+                                if (a == Color.Gray)
+                                {
+
+
+                                    //if (KingOnTable[Ki1] != null)
+                                    //KingOnTable[Ki1].Dispose();
+
+                                    //Construction of New Draw Gray King.
+                                    KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
+                                    BlitzNotValidFullGameThinkingTreePartThree(Ki1, OrderP, 6);
+                                    //Increament of Index.
+                                    Ki1++;
+                                    //when New Draw  Object Detected Increament Max Index.
+                                    if (Ki1 > KingMidle)
+                                    {
+                                        KingMidle++;
+                                        KingHigh++;
+
+                                    }
+
+                                }//For Brown King int
+                                else
+                                {
+
+                                    //if (KingOnTable[Ki2] != null)
+                                    // KingOnTable[Ki2].Dispose();
+
+                                    //Construction of New Draw King Brown Object.
+                                    KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
+                                    BlitzNotValidFullGameThinkingTreePartThree(Ki2, OrderP, 6);
+                                    //Increament of Index.
+                                    Ki2++;
+                                    //When New Object Detected Increament Of Brown King Max Index.
+                                    if (Ki2 > KingHigh)
+                                        KingHigh++;
+
+                                }
+
+                            }
+                        }
+
+                    //Make Empty Remaining.
+
+
+                }
+
+
+
                 SetObjectNumbers(TableList[0]);
                 for (var i = So1; i < SodierMidle; i++)
                     SolderesOnTable[i] = null;
@@ -1354,7 +1369,8 @@ if (Kind == 2)
                 }
                 SetRowColumnFinished = true;
             }
-            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            { AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space); AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
+            Spaces--;
         }
         void SetRowColumnFinishedWait()
         {
@@ -14067,7 +14083,8 @@ if (Kind == 2)
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-            }
+                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                     }
             else if (kind == 2)
             {
                 if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
@@ -14077,7 +14094,8 @@ if (Kind == 2)
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-            }
+                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    }
             else if (kind == 3)
             {
                 if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
@@ -14087,7 +14105,8 @@ if (Kind == 2)
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-            }
+                HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    }
             else if (kind == 4)
             {
                 if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
@@ -14097,7 +14116,8 @@ if (Kind == 2)
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-            }
+                CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    }
             else if (kind == 5)
             {
                 if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
@@ -14107,6 +14127,7 @@ if (Kind == 2)
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 6)
             {
@@ -14117,6 +14138,7 @@ if (Kind == 2)
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
+                KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
