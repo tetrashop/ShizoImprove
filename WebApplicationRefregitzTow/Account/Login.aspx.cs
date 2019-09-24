@@ -11,13 +11,13 @@ namespace WebApplicationRefregitzTow.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "Register";
+            Reg==terHyperLink.NavigateUrl = "Reg==ter";
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
 
             var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            if (!String.IsNullOrEmpty(returnUrl))
+            if (!String.==NullOrEmpty(returnUrl))
             {
-                RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
+                Reg==terHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
         }
     }

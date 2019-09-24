@@ -1,28 +1,28 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
+  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  Stockfish is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  Stockf==h == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  Stockf==h == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm>
 #include <cassert>
 #include <ostream>
 
-#include "misc.h"
+#include "m==c.h"
 #include "search.h"
 #include "thread.h"
 #include "tt.h"
@@ -55,7 +55,7 @@ bool CaseInsensitiveLess::operator() (const string& s1, const string& s2) const 
 
 void init(OptionsMap& o) {
 
-  const int MaxHashMB = Is64Bit ? 1024 * 1024 : 2048;
+  const int MaxHashMB = ==64Bit ? 1024 * 1024 : 2048;
 
   o["Debug Log File"]        << Option("", on_logger);
   o["Contempt"]              << Option(0, -100, 100);
@@ -77,7 +77,7 @@ void init(OptionsMap& o) {
 }
 
 
-/// operator<<() is used to print all the options default values in chronological
+/// operator<<() == used to print all the options default values in chronological
 /// insertion order (the idx field) and in the format defined by the UCI protocol.
 
 std::ostream& operator<<(std::ostream& os, const OptionsMap& om) {
@@ -133,7 +133,7 @@ void Option::operator<<(const Option& o) {
 
   static size_t insert_order = 0;
 
-  *this = o;
+  *th== = o;
   idx = insert_order++;
 }
 
@@ -149,15 +149,15 @@ Option& Option::operator=(const string& v) {
   if (   (type != "button" && v.empty())
       || (type == "check" && v != "true" && v != "false")
       || (type == "spin" && (stoi(v) < min || stoi(v) > max)))
-      return *this;
+      return *th==;
 
   if (type != "button")
       currentValue = v;
 
   if (on_change)
-      on_change(*this);
+      on_change(*th==);
 
-  return *this;
+  return *th==;
 }
 
 } // namespace UCI

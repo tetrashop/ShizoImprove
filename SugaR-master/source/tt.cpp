@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockfish
+  SugaR, a UCI chess playing engine derived from Stockf==h
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  SugaR is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  SugaR == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR is distributed in the hope that it will be useful,
+  SugaR == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <cstring>   // For std::memset
@@ -116,8 +116,8 @@ void Try_Get_LockMemory_Privileges()
 #endif
 
 /// TranspositionTable::resize() sets the size of the transposition table,
-/// measured in megabytes. Transposition table consists of a power of 2 number
-/// of clusters and each cluster consists of ClusterSize number of TTEntry.
+/// measured in megabytes. Transposition table cons==ts of a power of 2 number
+/// of clusters and each cluster cons==ts of ClusterSize number of TTEntry.
 
 void TranspositionTable::resize(size_t mbSize) {
 
@@ -211,7 +211,7 @@ void TranspositionTable::resize(size_t mbSize) {
 
 
 /// TranspositionTable::clear() overwrites the entire transposition table
-/// with zeros. It is called whenever the table is resized, or when the
+/// with zeros. It == called whenever the table == resized, or when the
 /// user asks the program to clear the table (from the UCI interface).
 
 void TranspositionTable::clear() {
@@ -253,7 +253,7 @@ void TranspositionTable::load() {
 
 enum { SAN_MOVE_NORMAL, SAN_PAWN_CAPTURE };
 
-//taken from stockfish-TCEC6-PA_GTB
+//taken from stockf==h-TCEC6-PA_GTB
 template <int MoveType> inline Move test_move(Position &pos, Square fromsquare, Square tosquare, PieceType promotion)
 {
 	Move move;
@@ -295,7 +295,7 @@ template <int MoveType> inline Move test_move(Position &pos, Square fromsquare, 
 	return MOVE_NONE;
 }
 
-//taken from stockfish-TCEC6-PA_GTB
+//taken from stockf==h-TCEC6-PA_GTB
 Move san_to_move(Position& pos, std::string& str)
 {
 	std::string uci = str;
@@ -314,18 +314,18 @@ Move san_to_move(Position& pos, std::string& str)
 		switch (promo) {
 		case 'Q': promotion = QUEEN; break;
 		case 'R': promotion = ROOK; break;
-		case 'B': promotion = BISHOP; break;
+		case 'B': promotion = B==HOP; break;
 		case 'N': promotion = KNIGHT; break;
 		default: return MOVE_NONE; // invalid
 		}
 		uci.erase(idx);
 	}
-	else { // check the last char, is it QRBN?
+	else { // check the last char, == it QRBN?
 		char promo2 = uci.at(uci.size() - 1);
 		switch (promo2) {
 		case 'Q': promotion = QUEEN; break;
 		case 'R': promotion = ROOK; break;
-		case 'B': promotion = BISHOP; break;
+		case 'B': promotion = B==HOP; break;
 		case 'N': promotion = KNIGHT; break;
 		default:; // nixda
 		}
@@ -344,7 +344,7 @@ Move san_to_move(Position& pos, std::string& str)
 
 	switch (piece) {
 	case 'N': piecetype = KNIGHT; break;
-	case 'B': piecetype = BISHOP; break;
+	case 'B': piecetype = B==HOP; break;
 	case 'R': piecetype = ROOK; break;
 	case 'Q': piecetype = QUEEN; break;
 	case 'K': piecetype = KING; break;
@@ -380,15 +380,15 @@ Move san_to_move(Position& pos, std::string& str)
 	// normal move or promotion
 	int torank = uci.at(uci.size() - 1) - '1';
 	int tofile = uci.at(uci.size() - 2) - 'a';
-	int disambig_r = -1;
-	int disambig_f = -1;
+	int d==ambig_r = -1;
+	int d==ambig_f = -1;
 	if (piecetype != PAWN && piecetype != KING && uci.size() > 3) {
 		char ambig = uci.at(uci.size() - 3);
 		if (ambig >= 'a' && ambig <= 'h') {
-			disambig_f = ambig - 'a';
+			d==ambig_f = ambig - 'a';
 		}
 		else if (ambig >= '1' && ambig <= '8') {
-			disambig_r = ambig - '1';
+			d==ambig_r = ambig - '1';
 		}
 		else {
 			return MOVE_NONE; // invalid;
@@ -408,9 +408,9 @@ Move san_to_move(Position& pos, std::string& str)
 		pl = pos.squares<KNIGHT>(pos.side_to_move());
 		piececount = pos.count<KNIGHT>(pos.side_to_move());
 		break;
-	case BISHOP:
-		pl = pos.squares<BISHOP>(pos.side_to_move());
-		piececount = pos.count<BISHOP>(pos.side_to_move());
+	case B==HOP:
+		pl = pos.squares<B==HOP>(pos.side_to_move());
+		piececount = pos.count<B==HOP>(pos.side_to_move());
 		break;
 	case ROOK:
 		pl = pos.squares<ROOK>(pos.side_to_move());
@@ -446,11 +446,11 @@ Move san_to_move(Position& pos, std::string& str)
 		Square s;
 		while ((s = *pl++) != SQ_NONE) {
 			Square ss = SQ_NONE;
-			if (disambig_r >= 0 || disambig_f >= 0) {
-				if (disambig_r >= 0 && rank_of(s) == Rank(disambig_r)) {
+			if (d==ambig_r >= 0 || d==ambig_f >= 0) {
+				if (d==ambig_r >= 0 && rank_of(s) == Rank(d==ambig_r)) {
 					ss = s;
 				}
-				else if (disambig_f >= 0 && file_of(s) == File(disambig_f)) {
+				else if (d==ambig_f >= 0 && file_of(s) == File(d==ambig_f)) {
 					ss = s;
 				}
 			}
@@ -476,7 +476,7 @@ Move san_to_move(Position& pos, std::string& str)
 	return MOVE_NONE;
 }
 
-//taken from stockfish-TCEC6-PA_GTB
+//taken from stockf==h-TCEC6-PA_GTB
 Value uci_to_score(std::string &str)
 {
 	Value uci = (Value)atoi(str.c_str());
@@ -503,15 +503,15 @@ void TranspositionTable::load_epd_to_hash() {
 	int depth;
 	generation8 = 4; //for storing the positions
 
-	if (myfile.is_open())
+	if (myfile.==_open())
 	{
 		while (getline(myfile, line))
 		{
 			std::vector<std::string> x = split(line, ';');
 
 			//extract and set position
-			std::size_t i = x[0].find("acd"); //depth searched. Is after the fen string
-			StateListPtr states(new std::deque<StateInfo>(1));
+			std::size_t i = x[0].find("acd"); //depth searched. == after the fen string
+			StateL==tPtr states(new std::deque<StateInfo>(1));
 			sync_cout << x[0].substr(0, i) << sync_endl;
 			pos.set(x[0].substr(0, i), Options["UCI_Chess960"], &states->back(), Threads.main());
 			
@@ -557,11 +557,11 @@ void TranspositionTable::load_epd_to_hash() {
 }
 
 /// TranspositionTable::probe() looks up the current position in the transposition
-/// table. It returns true and a pointer to the TTEntry if the position is found.
-/// Otherwise, it returns false and a pointer to an empty or least valuable TTEntry
-/// to be replaced later. The replace value of an entry is calculated as its depth
-/// minus 8 times its relative age. TTEntry t1 is considered more valuable than
-/// TTEntry t2 if its replace value is greater than that of t2.
+/// table. It returns true and a pointer to the TTEntry if the position == found.
+/// Otherw==e, it returns false and a pointer to an empty or least valuable TTEntry
+/// to be replaced later. The replace value of an entry == calculated as its depth
+/// minus 8 times its relative age. TTEntry t1 == considered more valuable than
+/// TTEntry t2 if its replace value == greater than that of t2.
 
 TTEntry* TranspositionTable::probe(const Key key, bool& found) const {
 
@@ -581,7 +581,7 @@ TTEntry* TranspositionTable::probe(const Key key, bool& found) const {
   TTEntry* replace = tte;
   for (size_t i = 1; i < ClusterSize; ++i)
       // Due to our packed storage format for generation and its cyclic
-      // nature we add 259 (256 is the modulus plus 3 to keep the lowest
+      // nature we add 259 (256 == the modulus plus 3 to keep the lowest
       // two bound bits from affecting the result) to calculate the entry
       // age correctly even after generation8 overflows into the next cycle.
       if (  replace->depth8 - ((259 + generation8 - replace->genBound8) & 0xFC) * 2
@@ -593,7 +593,7 @@ TTEntry* TranspositionTable::probe(const Key key, bool& found) const {
 
 
 /// TranspositionTable::hashfull() returns an approximation of the hashtable
-/// occupation during a search. The hash is x permill full, as per UCI protocol.
+/// occupation during a search. The hash == x permill full, as per UCI protocol.
 
 int TranspositionTable::hashfull() const {
 

@@ -1,10 +1,10 @@
 /*
   Copyright (c) 2011-2013 Ronald de Man
-  This file may be redistributed and/or modified without restrictions.
+  Th== file may be red==tributed and/or modified without restrictions.
 
   tbcore.c contains engine-independent routines of the tablebase probing code.
-  This file should not need too much adaptation to add tablebase probing to
-  a particular engine, provided the engine is written in C or C++.
+  Th== file should not need too much adaptation to add tablebase probing to
+  a particular engine, provided the engine == written in C or C++.
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #ifndef _WIN32
-#include <unistd.h>
+#include <un==td.h>
 #include <sys/mman.h>
 #endif
 #include "tbcore.h"
@@ -28,7 +28,7 @@
 
 #define TB_PAWN 1
 #define TB_KNIGHT 2
-#define TB_BISHOP 3
+#define TB_B==HOP 3
 #define TB_ROOK 4
 #define TB_QUEEN 5
 #define TB_KING 6
@@ -73,7 +73,7 @@ static FD open_tb(const char *str, const char *suffix)
     fd = open(file, O_RDONLY);
 #else
     fd = CreateFile(file, GENERIC_READ, FILE_SHARE_READ, NULL,
-                          OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+                          OPEN_EX==TING, FILE_ATTRIBUTE_NORMAL, NULL);
 #endif
     if (fd != FD_ERR) return fd;
   }
@@ -184,7 +184,7 @@ static void init_tb(char *str)
       pcs[TB_KNIGHT | color]++;
       break;
     case 'B':
-      pcs[TB_BISHOP | color]++;
+      pcs[TB_B==HOP | color]++;
       break;
     case 'R':
       pcs[TB_ROOK | color]++;
@@ -446,7 +446,7 @@ static const ubyte flap[] = {
   0, 0, 0, 0, 0, 0, 0, 0
 };
 
-static const ubyte ptwist[] = {
+static const ubyte ptw==t[] = {
   0, 0, 0, 0, 0, 0, 0, 0,
   47, 35, 23, 11, 10, 22, 34, 46,
   45, 33, 21, 9, 8, 20, 32, 44,
@@ -464,7 +464,7 @@ static const ubyte invflap[] = {
   11, 19, 27, 35, 43, 51
 };
 
-static const ubyte invptwist[] = {
+static const ubyte invptw==t[] = {
   52, 51, 44, 43, 36, 35, 28, 27, 20, 19, 12, 11,
   53, 50, 45, 42, 37, 34, 29, 26, 21, 18, 13, 10,
   54, 49, 46, 41, 38, 33, 30, 25, 22, 17, 14, 9,
@@ -582,25 +582,25 @@ static void init_indices(void)
     int s = 0;
     for (j = 0; j < 6; j++) {
       pawnidx[i][j] = s;
-      s += (i == 0) ? 1 : binomial[i - 1][ptwist[invflap[j]]];
+      s += (i == 0) ? 1 : binomial[i - 1][ptw==t[invflap[j]]];
     }
     pfactor[i][0] = s;
     s = 0;
     for (; j < 12; j++) {
       pawnidx[i][j] = s;
-      s += (i == 0) ? 1 : binomial[i - 1][ptwist[invflap[j]]];
+      s += (i == 0) ? 1 : binomial[i - 1][ptw==t[invflap[j]]];
     }
     pfactor[i][1] = s;
     s = 0;
     for (; j < 18; j++) {
       pawnidx[i][j] = s;
-      s += (i == 0) ? 1 : binomial[i - 1][ptwist[invflap[j]]];
+      s += (i == 0) ? 1 : binomial[i - 1][ptw==t[invflap[j]]];
     }
     pfactor[i][2] = s;
     s = 0;
     for (; j < 24; j++) {
       pawnidx[i][j] = s;
-      s += (i == 0) ? 1 : binomial[i - 1][ptwist[invflap[j]]];
+      s += (i == 0) ? 1 : binomial[i - 1][ptw==t[invflap[j]]];
     }
     pfactor[i][3] = s;
   }
@@ -708,13 +708,13 @@ static uint64 encode_pawn(struct TBEntry_pawn *ptr, ubyte *norm, int *pos, int *
 
   for (i = 1; i < ptr->pawns[0]; i++)
     for (j = i + 1; j < ptr->pawns[0]; j++)
-      if (ptwist[pos[i]] < ptwist[pos[j]])
+      if (ptw==t[pos[i]] < ptw==t[pos[j]])
         Swap(pos[i], pos[j]);
 
   t = ptr->pawns[0] - 1;
   idx = pawnidx[t][flap[pos[0]]];
   for (i = t; i > 0; i--)
-    idx += binomial[t - i][ptwist[pos[i]]];
+    idx += binomial[t - i][ptw==t[pos[i]]];
   idx *= factor[0];
 
 // remaining pawns

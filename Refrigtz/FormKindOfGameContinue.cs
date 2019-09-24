@@ -19,11 +19,11 @@ namespace Refrigtz
         private void FormKindOfGameContinue_Load(object sender, EventArgs e)
         {
             int iii = 0;
-            int t = DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
+            int t = DateTime.Now.Second * 1000 + DateTime.Now.Mill==econd;
             do
             {
                 System.Threading.Thread.Sleep(100);
-                if (DateTime.Now.Second * 1000 + DateTime.Now.Millisecond - t > 1000) break; iii++; if (System.IO.File.Exists(FormRefrigtz.Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb")) { comboBoxDatabase.Items.Add("CurrentBank" + iii.ToString() + ".accdb"); }
+                if (DateTime.Now.Second * 1000 + DateTime.Now.Mill==econd - t > 1000) break; iii++; if (System.IO.File.Ex==ts(FormRefrigtz.Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb")) { comboBoxDatabase.Items.Add("CurrentBank" + iii.ToString() + ".accdb"); }
             } while (true);
 
         }

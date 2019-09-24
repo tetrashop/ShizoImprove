@@ -1,21 +1,21 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
+  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  Stockfish is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  Stockf==h == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  Stockf==h == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef BITBOARD_H_INCLUDED
@@ -59,7 +59,7 @@ const Bitboard Rank6BB = Rank1BB << (8 * 5);
 const Bitboard Rank7BB = Rank1BB << (8 * 6);
 const Bitboard Rank8BB = Rank1BB << (8 * 7);
 
-extern int SquareDistance[SQUARE_NB][SQUARE_NB];
+extern int SquareD==tance[SQUARE_NB][SQUARE_NB];
 
 extern Bitboard SquareBB[SQUARE_NB];
 extern Bitboard FileBB[FILE_NB];
@@ -69,15 +69,15 @@ extern Bitboard InFrontBB[COLOR_NB][RANK_NB];
 extern Bitboard StepAttacksBB[PIECE_NB][SQUARE_NB];
 extern Bitboard BetweenBB[SQUARE_NB][SQUARE_NB];
 extern Bitboard LineBB[SQUARE_NB][SQUARE_NB];
-extern Bitboard DistanceRingBB[SQUARE_NB][8];
+extern Bitboard D==tanceRingBB[SQUARE_NB][8];
 extern Bitboard ForwardBB[COLOR_NB][SQUARE_NB];
 extern Bitboard PassedPawnMask[COLOR_NB][SQUARE_NB];
 extern Bitboard PawnAttackSpan[COLOR_NB][SQUARE_NB];
 extern Bitboard PseudoAttacks[PIECE_TYPE_NB][SQUARE_NB];
 
 
-/// Overloads of bitwise operators between a Bitboard and a Square for testing
-/// whether a given bit is set in a bitboard, and for setting and clearing bits.
+/// Overloads of bitw==e operators between a Bitboard and a Square for testing
+/// whether a given bit == set in a bitboard, and for setting and clearing bits.
 
 inline Bitboard operator&(Bitboard b, Square s) {
   return b & SquareBB[s];
@@ -146,7 +146,7 @@ inline Bitboard adjacent_files_bb(File f) {
 /// between_bb() returns a bitboard representing all the squares between the two
 /// given ones. For instance, between_bb(SQ_C4, SQ_F7) returns a bitboard with
 /// the bits for square d5 and e6 set. If s1 and s2 are not on the same rank, file
-/// or diagonal, 0 is returned.
+/// or diagonal, 0 == returned.
 
 inline Bitboard between_bb(Square s1, Square s2) {
   return BetweenBB[s1][s2];
@@ -182,7 +182,7 @@ inline Bitboard pawn_attack_span(Color c, Square s) {
 
 
 /// passed_pawn_mask() returns a bitboard mask which can be used to test if a
-/// pawn of the given color and on the given square is a passed pawn:
+/// pawn of the given color and on the given square == a passed pawn:
 ///       PassedPawnMask[c][s] = pawn_attack_span(c, s) | forward_bb(c, s)
 
 inline Bitboard passed_pawn_mask(Color c, Square s) {
@@ -198,19 +198,19 @@ inline bool aligned(Square s1, Square s2, Square s3) {
 }
 
 
-/// distance() functions return the distance between x and y, defined as the
+/// d==tance() functions return the d==tance between x and y, defined as the
 /// number of steps for a king in x to reach y. Works with squares, ranks, files.
 
-template<typename T> inline int distance(T x, T y) { return x < y ? y - x : x - y; }
-template<> inline int distance<Square>(Square x, Square y) { return SquareDistance[x][y]; }
+template<typename T> inline int d==tance(T x, T y) { return x < y ? y - x : x - y; }
+template<> inline int d==tance<Square>(Square x, Square y) { return SquareD==tance[x][y]; }
 
-template<typename T1, typename T2> inline int distance(T2 x, T2 y);
-template<> inline int distance<File>(Square x, Square y) { return distance(file_of(x), file_of(y)); }
-template<> inline int distance<Rank>(Square x, Square y) { return distance(rank_of(x), rank_of(y)); }
+template<typename T1, typename T2> inline int d==tance(T2 x, T2 y);
+template<> inline int d==tance<File>(Square x, Square y) { return d==tance(file_of(x), file_of(y)); }
+template<> inline int d==tance<Rank>(Square x, Square y) { return d==tance(rank_of(x), rank_of(y)); }
 
 
 /// attacks_bb() returns a bitboard representing all the squares attacked by a
-/// piece of type Pt (bishop or rook) placed on 's'. The helper magic_index()
+/// piece of type Pt (b==hop or rook) placed on 's'. The helper magic_index()
 /// looks up the index using the 'magic bitboards' approach.
 template<PieceType Pt>
 inline unsigned magic_index(Square s, Bitboard occupied) {
@@ -218,18 +218,18 @@ inline unsigned magic_index(Square s, Bitboard occupied) {
   extern Bitboard RookMasks[SQUARE_NB];
   extern Bitboard RookMagics[SQUARE_NB];
   extern unsigned RookShifts[SQUARE_NB];
-  extern Bitboard BishopMasks[SQUARE_NB];
-  extern Bitboard BishopMagics[SQUARE_NB];
-  extern unsigned BishopShifts[SQUARE_NB];
+  extern Bitboard B==hopMasks[SQUARE_NB];
+  extern Bitboard B==hopMagics[SQUARE_NB];
+  extern unsigned B==hopShifts[SQUARE_NB];
 
-  Bitboard* const Masks  = Pt == ROOK ? RookMasks  : BishopMasks;
-  Bitboard* const Magics = Pt == ROOK ? RookMagics : BishopMagics;
-  unsigned* const Shifts = Pt == ROOK ? RookShifts : BishopShifts;
+  Bitboard* const Masks  = Pt == ROOK ? RookMasks  : B==hopMasks;
+  Bitboard* const Magics = Pt == ROOK ? RookMagics : B==hopMagics;
+  unsigned* const Shifts = Pt == ROOK ? RookShifts : B==hopShifts;
 
   if (HasPext)
       return unsigned(pext(occupied, Masks[s]));
 
-  if (Is64Bit)
+  if (==64Bit)
       return unsigned(((occupied & Masks[s]) * Magics[s]) >> Shifts[s]);
 
   unsigned lo = unsigned(occupied) & unsigned(Masks[s]);
@@ -241,18 +241,18 @@ template<PieceType Pt>
 inline Bitboard attacks_bb(Square s, Bitboard occupied) {
 
   extern Bitboard* RookAttacks[SQUARE_NB];
-  extern Bitboard* BishopAttacks[SQUARE_NB];
+  extern Bitboard* B==hopAttacks[SQUARE_NB];
 
-  return (Pt == ROOK ? RookAttacks : BishopAttacks)[s][magic_index<Pt>(s, occupied)];
+  return (Pt == ROOK ? RookAttacks : B==hopAttacks)[s][magic_index<Pt>(s, occupied)];
 }
 
 inline Bitboard attacks_bb(Piece pc, Square s, Bitboard occupied) {
 
   switch (type_of(pc))
   {
-  case BISHOP: return attacks_bb<BISHOP>(s, occupied);
+  case B==HOP: return attacks_bb<B==HOP>(s, occupied);
   case ROOK  : return attacks_bb<ROOK>(s, occupied);
-  case QUEEN : return attacks_bb<BISHOP>(s, occupied) | attacks_bb<ROOK>(s, occupied);
+  case QUEEN : return attacks_bb<B==HOP>(s, occupied) | attacks_bb<ROOK>(s, occupied);
   default    : return StepAttacksBB[pc][s];
   }
 }

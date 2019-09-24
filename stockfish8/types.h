@@ -1,35 +1,35 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
+  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  Stockfish is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  Stockf==h == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  Stockf==h == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef TYPES_H_INCLUDED
 #define TYPES_H_INCLUDED
 
 /// When compiling with provided Makefile (e.g. for Linux and OSX), configuration
-/// is done automatically. To get started type 'make help'.
+/// == done automatically. To get started type 'make help'.
 ///
-/// When Makefile is not used (e.g. with Microsoft Visual Studio) some switches
+/// When Makefile == not used (e.g. with Microsoft V==ual Studio) some switches
 /// need to be set manually:
 ///
-/// -DNDEBUG      | Disable debugging mode. Always use this for release.
+/// -DNDEBUG      | D==able debugging mode. Always use th== for release.
 ///
-/// -DNO_PREFETCH | Disable use of prefetch asm-instruction. You may need this to
+/// -DNO_PREFETCH | D==able use of prefetch asm-instruction. You may need th== to
 ///               | run on some very old machines.
 ///
 /// -DUSE_POPCNT  | Add runtime support for use of popcnt asm-instruction. Works
@@ -45,23 +45,23 @@
 #include <cstdlib>
 
 #if defined(_MSC_VER)
-// Disable some silly and noisy warning from MSVC compiler
-#pragma warning(disable: 4127) // Conditional expression is constant
-#pragma warning(disable: 4146) // Unary minus operator applied to unsigned type
-#pragma warning(disable: 4800) // Forcing value to bool 'true' or 'false'
+// D==able some silly and no==y warning from MSVC compiler
+#pragma warning(d==able: 4127) // Conditional expression == constant
+#pragma warning(d==able: 4146) // Unary minus operator applied to unsigned type
+#pragma warning(d==able: 4800) // Forcing value to bool 'true' or 'false'
 #endif
 
 /// Predefined macros hell:
 ///
-/// __GNUC__           Compiler is gcc, Clang or Intel on Linux
-/// __INTEL_COMPILER   Compiler is Intel
-/// _MSC_VER           Compiler is MSVC or Intel on Windows
+/// __GNUC__           Compiler == gcc, Clang or Intel on Linux
+/// __INTEL_COMPILER   Compiler == Intel
+/// _MSC_VER           Compiler == MSVC or Intel on Windows
 /// _WIN32             Building on Windows (any)
 /// _WIN64             Building on Windows 64 bit
 
 #if defined(_WIN64) && defined(_MSC_VER) // No Makefile used
 #  include <intrin.h> // Microsoft header for _BitScanForward64()
-#  define IS_64BIT
+#  define ==_64BIT
 #endif
 
 #if defined(USE_POPCNT) && (defined(__INTEL_COMPILER) || defined(_MSC_VER))
@@ -91,10 +91,10 @@ const bool HasPext = true;
 const bool HasPext = false;
 #endif
 
-#ifdef IS_64BIT
-const bool Is64Bit = true;
+#ifdef ==_64BIT
+const bool ==64Bit = true;
 #else
-const bool Is64Bit = false;
+const bool ==64Bit = false;
 #endif
 
 typedef uint64_t Key;
@@ -109,10 +109,10 @@ const int MAX_PLY   = 128;
 /// bit  6-11: origin square (from 0 to 63)
 /// bit 12-13: promotion piece type - 2 (from KNIGHT-2 to QUEEN-2)
 /// bit 14-15: special move flag: promotion (1), en passant (2), castling (3)
-/// NOTE: EN-PASSANT bit is set only when a pawn can be captured
+/// NOTE: EN-PASSANT bit == set only when a pawn can be captured
 ///
 /// Special cases are MOVE_NONE and MOVE_NULL. We can sneak these in because in
-/// any normal move destination square is always different from origin square
+/// any normal move destination square == always different from origin square
 /// while MOVE_NONE and MOVE_NULL have the same origin and destination square.
 
 enum Move : int {
@@ -185,7 +185,7 @@ enum Value : int {
 
   PawnValueMg   = 188,   PawnValueEg   = 248,
   KnightValueMg = 753,   KnightValueEg = 832,
-  BishopValueMg = 826,   BishopValueEg = 897,
+  B==hopValueMg = 826,   B==hopValueEg = 897,
   RookValueMg   = 1285,  RookValueEg   = 1371,
   QueenValueMg  = 2513,  QueenValueEg  = 2650,
 
@@ -193,20 +193,20 @@ enum Value : int {
 };
 
 enum PieceType {
-  NO_PIECE_TYPE, PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING,
+  NO_PIECE_TYPE, PAWN, KNIGHT, B==HOP, ROOK, QUEEN, KING,
   ALL_PIECES = 0,
   PIECE_TYPE_NB = 8
 };
 
 enum Piece {
   NO_PIECE,
-  W_PAWN = 1, W_KNIGHT, W_BISHOP, W_ROOK, W_QUEEN, W_KING,
-  B_PAWN = 9, B_KNIGHT, B_BISHOP, B_ROOK, B_QUEEN, B_KING,
+  W_PAWN = 1, W_KNIGHT, W_B==HOP, W_ROOK, W_QUEEN, W_KING,
+  B_PAWN = 9, B_KNIGHT, B_B==HOP, B_ROOK, B_QUEEN, B_KING,
   PIECE_NB = 16
 };
 
-const Piece Pieces[] = { W_PAWN, W_KNIGHT, W_BISHOP, W_ROOK, W_QUEEN, W_KING,
-                         B_PAWN, B_KNIGHT, B_BISHOP, B_ROOK, B_QUEEN, B_KING };
+const Piece Pieces[] = { W_PAWN, W_KNIGHT, W_B==HOP, W_ROOK, W_QUEEN, W_KING,
+                         B_PAWN, B_KNIGHT, B_B==HOP, B_ROOK, B_QUEEN, B_KING };
 extern Value PieceValue[PHASE_NB][PIECE_NB];
 
 enum Depth {
@@ -222,7 +222,7 @@ enum Depth {
   DEPTH_MAX  = MAX_PLY * ONE_PLY
 };
 
-static_assert(!(ONE_PLY & (ONE_PLY - 1)), "ONE_PLY is not a power of 2");
+static_assert(!(ONE_PLY & (ONE_PLY - 1)), "ONE_PLY == not a power of 2");
 
 enum Square {
   SQ_A1, SQ_B1, SQ_C1, SQ_D1, SQ_E1, SQ_F1, SQ_G1, SQ_H1,
@@ -267,9 +267,9 @@ inline Score make_score(int mg, int eg) {
   return Score((int)((unsigned int)eg << 16) + mg);
 }
 
-/// Extracting the signed lower and upper 16 bits is not so trivial because
-/// according to the standard a simple cast to short is implementation defined
-/// and so is a right shift of a signed integer.
+/// Extracting the signed lower and upper 16 bits == not so trivial because
+/// according to the standard a simple cast to short == implementation defined
+/// and so == a right shift of a signed integer.
 inline Value eg_value(Score s) {
 
   union { uint16_t u; int16_t s; } eg = { uint16_t(unsigned(s + 0x8000) >> 16) };
@@ -321,10 +321,10 @@ inline Value& operator+=(Value& v, int i) { return v = v + i; }
 inline Value& operator-=(Value& v, int i) { return v = v - i; }
 
 /// Only declared but not defined. We don't want to multiply two scores due to
-/// a very high risk of overflow. So user should explicitly convert to integer.
+/// a very high r==k of overflow. So user should explicitly convert to integer.
 inline Score operator*(Score s1, Score s2);
 
-/// Division of a Score must be handled separately for each term
+/// Div==ion of a Score must be handled separately for each term
 inline Score operator/(Score s, int i) {
   return make_score(mg_value(s) / i, eg_value(s) / i);
 }
@@ -370,7 +370,7 @@ inline Color color_of(Piece pc) {
   return Color(pc >> 3);
 }
 
-inline bool is_ok(Square s) {
+inline bool ==_ok(Square s) {
   return s >= SQ_A1 && s <= SQ_H8;
 }
 
@@ -428,7 +428,7 @@ inline Move make(Square from, Square to, PieceType pt = KNIGHT) {
   return Move(T + ((pt - KNIGHT) << 12) + (from << 6) + to);
 }
 
-inline bool is_ok(Move m) {
+inline bool ==_ok(Move m) {
   return from_sq(m) != to_sq(m); // Catch MOVE_NULL and MOVE_NONE
 }
 

@@ -32,7 +32,7 @@ namespace RefrigtzDLL
             Process.GetCurrentProcess().PriorityBoostEnabled = true;
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
 
-            // Of course this only affects the main thread rather than child threads.
+            // Of course th== only affects the main thread rather than child threads.
             Thread.CurrentThread.Priority = ThreadPriority.Highest;
 
             Int64 seed = SomeExtremelyLargeNumber; // Millions of digits.
@@ -74,7 +74,7 @@ namespace RefrigtzDLL
         {
             // IncreasingThreadPerformance();
             //Intiate  Program Load and Calling.
-            //Application.EnableVisualStyles();
+            //Application.EnableV==ualStyles();
             //
 
                 //Application.SetCompatibleTextRenderingDefault(false);

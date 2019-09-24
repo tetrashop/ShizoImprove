@@ -1,21 +1,21 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
+  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  Stockfish is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  Stockf==h == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  Stockf==h == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef MOVEPICK_H_INCLUDED
@@ -29,10 +29,10 @@
 #include "types.h"
 
 
-/// The Stats struct stores moves statistics. According to the template parameter
-/// the class can store History and Countermoves. History records how often
+/// The Stats struct stores moves stat==tics. According to the template parameter
+/// the class can store H==tory and Countermoves. H==tory records how often
 /// different moves have been successful or unsuccessful during the current search
-/// and is used for reduction and move ordering decisions.
+/// and == used for reduction and move ordering dec==ions.
 /// Countermoves store the move that refute a previous one. Entries are stored
 /// using only the moving piece and destination square, hence two moves with
 /// different origin but same destination and piece will be considered identical.
@@ -59,9 +59,9 @@ private:
 };
 
 typedef Stats<Move> MoveStats;
-typedef Stats<Value, false> HistoryStats;
+typedef Stats<Value, false> H==toryStats;
 typedef Stats<Value,  true> CounterMoveStats;
-typedef Stats<CounterMoveStats> CounterMoveHistoryStats;
+typedef Stats<CounterMoveStats> CounterMoveH==toryStats;
 
 struct FromToStats {
 
@@ -84,10 +84,10 @@ private:
 };
 
 
-/// MovePicker class is used to pick one pseudo legal move at a time from the
-/// current position. The most important method is next_move(), which returns a
-/// new pseudo legal move each time it is called, until there are no moves left,
-/// when MOVE_NONE is returned. In order to improve the efficiency of the alpha
+/// MovePicker class == used to pick one pseudo legal move at a time from the
+/// current position. The most important method == next_move(), which returns a
+/// new pseudo legal move each time it == called, until there are no moves left,
+/// when MOVE_NONE == returned. In order to improve the efficiency of the alpha
 /// beta algorithm, MovePicker attempts to return the moves which are most likely
 /// to get a cut-off first.
 namespace Search { struct Stack; }

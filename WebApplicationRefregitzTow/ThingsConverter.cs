@@ -15,7 +15,7 @@ namespace RefrigtzW
         public static bool ClickOcurred = false;
         public static bool ActOfClickEqualTow = false;
         public bool Convert = false;
-        public bool ConvertedToMinister = false;
+        public bool ConvertedToMin==ter = false;
         public bool ConvertedToCastle = false;
         public bool ConvertedToElefant = false;
         public bool ConvertedToHourse = false;
@@ -29,7 +29,7 @@ namespace RefrigtzW
         private int[,] tableS;
         private int v;
 
-        //AllDraw. THIS;
+        //AllDraw. TH==;
         public ThingsConverter()
         { }
         //Constructor
@@ -37,7 +37,7 @@ namespace RefrigtzW
             )
         {
             //Initite Global Variables with Local Parameter.
-            //THIS = THI;
+            //TH== = THI;
             ArrangmentsChanged = Arrangments;
             Row = i;
             Column = j;
@@ -51,12 +51,12 @@ namespace RefrigtzW
         public ThingsConverter(bool arrangmentsChanged, int rowSource, int columnSource, Color color, int[,] tableS, int order, int v)
         {
             ArrangmentsChanged = arrangmentsChanged;
-            this.rowSource = rowSource;
-            this.columnSource = columnSource;
-            this.color = color;
-            this.tableS = tableS;
+            th==.rowSource = rowSource;
+            th==.columnSource = columnSource;
+            th==.color = color;
+            th==.tableS = tableS;
             Order = order;
-            this.v = v;
+            th==.v = v;
         }
 
         //Convert Operation of Randomly All State Method.
@@ -71,7 +71,7 @@ namespace RefrigtzW
                 color = a;
                 Order = Ord;
                 Current = Cur;
-                //If Convert is Act and click tow time occured
+                //If Convert == Act and click tow time occured
                 if (!Convert && (ActOfClickEqualTow || AllDraw.StateCC || (!AllDraw.Person)))
 
                 {
@@ -108,7 +108,7 @@ namespace RefrigtzW
                         if (Order == -1 && Column == 7)
                             Convert = true;
                     }
-                    //If Converted is Occured the Operation od Set and table reference content occured.
+                    //If Converted == Occured the Operation od Set and table reference content occured.
                     if (Convert)
                     {
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }
@@ -119,7 +119,7 @@ namespace RefrigtzW
                             //Randomly Number of 4 kind Object.
                             int Rand = -1;
                             if (//AllDraw.Person && 
-                                AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
+                                AllDraw.StateCP && AllDraw.TH==SecradioButtonGrayOrderChecked)
                             {
                                 if (AllDraw.OrderPlate == 1)
                                 {
@@ -131,13 +131,13 @@ namespace RefrigtzW
                                      AllDraw.ConvertedKind = -2;
  */
                                     Rand = 0;
-                                    ConvertedToMinister = true;
+                                    ConvertedToMin==ter = true;
                                     AllDraw.ConvertedKind = -2;
                                 }
                             }
                             else
                                 if (//AllDraw.Person &&
-                                AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
+                                AllDraw.StateCP && AllDraw.TH==SecradioButtonBrownOrderChecked)
                             {
                                 if (AllDraw.OrderPlate == -1)
                                 {
@@ -150,27 +150,27 @@ namespace RefrigtzW
                                       AllDraw.ConvertedKind = -2;
                                  */
                                     Rand = 0;
-                                    ConvertedToMinister = true;
+                                    ConvertedToMin==ter = true;
                                     AllDraw.ConvertedKind = -2;
                                 }
                             }
                             else
                                 Rand = (new Random()).Next(0, 4);
-                            //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                            //If Rand == Equaled the Operation will cuased automaticcally Base on Color..
                             if (Rand == 0)
                             {
                                 if (Order == 1)
                                 {
-                                    // MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
-                                    //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    // Min==terMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = 5;
                                 }
                                 else if (Order == -1)
                                 {
-                                    //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                    //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                     Tab[Row, Column] = -5;
                                 }
-                                ConvertedToMinister = true;
+                                ConvertedToMin==ter = true;
                             }
                             else if (Rand == 1)
                             {
@@ -228,7 +228,7 @@ namespace RefrigtzW
                                 //Randomly Number of 4 kind Object.
                                 int Rand = -1;
                                 if (//AllDraw.Person &&
-                                    AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
+                                    AllDraw.StateCP && AllDraw.TH==SecradioButtonGrayOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
@@ -240,13 +240,13 @@ namespace RefrigtzW
                                          AllDraw.ConvertedKind = -2;
                                     */
                                         Rand = 0;
-                                        ConvertedToMinister = true;
+                                        ConvertedToMin==ter = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
                                     if (//AllDraw.Person && 
-                                    AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
+                                    AllDraw.StateCP && AllDraw.TH==SecradioButtonBrownOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
@@ -258,27 +258,27 @@ namespace RefrigtzW
                                           AllDraw.ConvertedKind = -2;
                                       */
                                         Rand = 0;
-                                        ConvertedToMinister = true;
+                                        ConvertedToMin==ter = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
                                     Rand = (new Random()).Next(0, 4);
-                                //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                                //If Rand == Equaled the Operation will cuased automaticcally Base on Color..
                                 if (Rand == 0)
                                 {
                                     if (Order == 1)
                                     {
-                                        //  MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
-                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //  Min==terMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 5;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -5;
                                     }
-                                    ConvertedToMinister = true;
+                                    ConvertedToMin==ter = true;
                                 }
                                 else if (Rand == 1)
                                 {
@@ -339,7 +339,7 @@ namespace RefrigtzW
                                 //Randomly Number of 4 kind Object.
                                 int Rand = -1;
                                 if (//AllDraw.Person && 
-                                    AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
+                                    AllDraw.StateCP && AllDraw.TH==SecradioButtonGrayOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
@@ -351,13 +351,13 @@ namespace RefrigtzW
                                           AllDraw.ConvertedKind = -2;
                                     */
                                         Rand = 0;
-                                        ConvertedToMinister = true;
+                                        ConvertedToMin==ter = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
                                     if (//AllDraw.Person && 
-                                    AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
+                                    AllDraw.StateCP && AllDraw.TH==SecradioButtonBrownOrderChecked)
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
@@ -369,27 +369,27 @@ namespace RefrigtzW
                                            AllDraw.ConvertedKind = -2;
                                       */
                                         Rand = 0;
-                                        ConvertedToMinister = true;
+                                        ConvertedToMin==ter = true;
                                         AllDraw.ConvertedKind = -2;
                                     }
                                 }
                                 else
                                     Rand = (new Random()).Next(0, 4);
-                                //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                                //If Rand == Equaled the Operation will cuased automaticcally Base on Color..
                                 if (Rand == 0)
                                 {
                                     if (Order == 1)
                                     {
-                                        //MinisterMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
-                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //Min==terMidle+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = 5;
                                     }
                                     else if (Order == -1)
                                     {
-                                        //MinisterHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
+                                        //Min==terHigh+=0.00000000000000000000000000000000000000000000000000000000000000000000000001;
                                         Tab[Row, Column] = -5;
                                     }
-                                    ConvertedToMinister = true;
+                                    ConvertedToMin==ter = true;
                                 }
                                 else if (Rand == 1)
                                 {

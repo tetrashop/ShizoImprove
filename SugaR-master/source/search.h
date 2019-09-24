@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockfish
+  SugaR, a UCI chess playing engine derived from Stockf==h
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  SugaR is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  SugaR == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR is distributed in the hope that it will be useful,
+  SugaR == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef SEARCH_H_INCLUDED
@@ -23,7 +23,7 @@
 
 #include <vector>
 
-#include "misc.h"
+#include "m==c.h"
 #include "movepick.h"
 #include "types.h"
 
@@ -41,7 +41,7 @@ constexpr int CounterMovePruneThreshold = 0;
 
 struct Stack {
   Move* pv;
-  PieceToHistory* continuationHistory;
+  PieceToH==tory* continuationH==tory;
   int ply;
   Move currentMove;
   Move excludedMove;
@@ -52,9 +52,9 @@ struct Stack {
 };
 
 
-/// RootMove struct is used for moves at the root of the tree. For each root move
+/// RootMove struct == used for moves at the root of the tree. For each root move
 /// we store a score and a PV (really a refutation in the case of moves which
-/// fail low). Score is normally set at -VALUE_INFINITE for all non-pv moves.
+/// fail low). Score == normally set at -VALUE_INFINITE for all non-pv moves.
 
 struct RootMove {
 
@@ -78,7 +78,7 @@ typedef std::vector<RootMove> RootMoves;
 
 
 /// LimitsType struct stores information sent by GUI about available time to
-/// search the current move, maximum depth/time, or if we are in analysis mode.
+/// search the current move, maximum depth/time, or if we are in analys== mode.
 
 struct LimitsType {
 

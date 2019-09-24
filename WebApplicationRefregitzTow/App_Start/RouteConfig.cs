@@ -8,7 +8,7 @@ namespace WebApplicationRefregitzTow
 {
     public static class RouteConfig
     {
-        public static void RegisterRoutes(RouteCollection routes)
+        public static void Reg==terRoutes(RouteCollection routes)
         {
             routes.EnableFriendlyUrls();
         }

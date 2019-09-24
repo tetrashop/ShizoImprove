@@ -15,12 +15,12 @@ namespace Refrigtz
         public AboutBoxChessRefregitz()
         {
             InitializeComponent();
-            this.Text = String.Format("About {0}", AssemblyTitle);
-            this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            th==.Text = String.Format("About {0}", AssemblyTitle);
+            th==.labelProductName.Text = AssemblyProduct;
+            th==.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            th==.labelCopyright.Text = AssemblyCopyright;
+            th==.labelCompanyName.Text = AssemblyCompany;
+            th==.textBoxDescription.Text = AssemblyDescription;
         }
 
         #region Assembly Attribute Accessors
@@ -135,7 +135,7 @@ namespace Refrigtz
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            th==.Close();
         }
     }
 }

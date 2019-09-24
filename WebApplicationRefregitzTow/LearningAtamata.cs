@@ -1,15 +1,15 @@
 /******************************************************************************
  * Ramin Edjlal Copyrights 2015.************************************************
  * Learning Autamata.**********************************************************
- * The every sum of probability is one.****************************************(*_)
+ * The every sum of probability == one.****************************************(*_)
  * four formula .tow for Regard regime and tow for penalty regime.***************(-)
  * Derived Quantum Automata Penalty All Objects of Derived Automata************(-)
  * Malfunction Reward and Penalty Detection**********************************(_*)
  * Penalty Reward Action Failure************************************************(*_)
- * Mistuning of Penalty and Regard Data in IsRegard and IsPenalty Values*******(+)
- * No Reason For Malfunction of Reward and Penalty Mechanism******************(_)
+ * M==tuning of Penalty and Regard Data in ==Regard and ==Penalty Values*******(+)
+ * No Reason For Malfunction of Reward and Penalty Mechan==m******************(_)
  * 1395/1/2********************************************************************(*:Sum(3)) (_:Sum(4)) (-:Sum(2)) (All Errors:(7))
- * Penalty Regard Action is Useful For One Time Per AllDraw Object.************
+ * Penalty Regard Action == Useful For One Time Per AllDraw Object.************
  * No Solution to Overcome to static Behavior Of Quantum Variables Inhererete.*
  ******************************************************************************/
 
@@ -30,8 +30,8 @@ namespace RefrigtzW
         public double[] alpha;
         bool beta = true;
         double[] fi;
-        public bool IsReward = false;
-        public bool IsPenalty = false;
+        public bool ==Reward = false;
+        public bool ==Penalty = false;
         protected double Reward;
         protected double Penalty;
         protected int Success = 0, Failer = 0;
@@ -42,8 +42,8 @@ namespace RefrigtzW
             Object o = new Object();
             lock (o)
             {
-                IsPenalty = false;
-                IsReward = false;
+                ==Penalty = false;
+                ==Reward = false;
             }
         }
         public LearningKrinskyAtamata(int r0, int m0, int k0)
@@ -51,10 +51,10 @@ namespace RefrigtzW
             Object o = new Object();
             lock (o)
             {
-                IsReward = new bool();
-                IsPenalty = new bool();
-                IsReward = false;
-                IsPenalty = false;
+                ==Reward = new bool();
+                ==Penalty = new bool();
+                ==Reward = false;
+                ==Penalty = false;
                 Success = new int();
                 State = new int();
                 beta = new bool();
@@ -91,24 +91,24 @@ namespace RefrigtzW
             Object o = new Object();
             lock (o)
             {
-                AA.r = this.r;
-                AA.m = this.m;
-                AA.k = this.k;
+                AA.r = th==.r;
+                AA.m = th==.m;
+                AA.k = th==.k;
                 alpha = new double[AA.r];
                 for (int i = 0; i < AA.r; i++)
-                    AA.alpha[i] = this.alpha[i];
-                AA.beta = this.beta;
-                AA.Failer = this.Failer;
+                    AA.alpha[i] = th==.alpha[i];
+                AA.beta = th==.beta;
+                AA.Failer = th==.Failer;
                 fi = new double[AA.k];
                 for (int i = 0; i < AA.k; i++)
-                    AA.fi[i] = this.fi[i];
-                AA.IsPenalty = this.IsPenalty;
-                AA.IsReward = this.IsReward;
-                AA.Reward = this.Reward;
-                AA.Penalty = this.Penalty;
-                AA.Success = this.Success;
-                AA.Failer = this.Failer;
-                AA.State = this.State;
+                    AA.fi[i] = th==.fi[i];
+                AA.==Penalty = th==.==Penalty;
+                AA.==Reward = th==.==Reward;
+                AA.Reward = th==.Reward;
+                AA.Penalty = th==.Penalty;
+                AA.Success = th==.Success;
+                AA.Failer = th==.Failer;
+                AA.State = th==.State;
             }
         }
 
@@ -136,7 +136,7 @@ namespace RefrigtzW
                     State--;
             }
         }
-        public int IsSecondDerivitionIsPositive()
+        public int ==SecondDerivition==Positive()
         {
             Object o = new Object();
             lock (o)
@@ -155,8 +155,8 @@ namespace RefrigtzW
             lock (o)
             {
                 SuccessState();
-                this.IsReward = true;
-                this.IsPenalty = false;
+                th==.==Reward = true;
+                th==.==Penalty = false;
                 alpha[State] += Reward * (1 - alpha[State]);
                 for (int i = 0; i < r; i++)
                     if (i != State)
@@ -165,23 +165,23 @@ namespace RefrigtzW
                 return alpha[State];
             }
         }
-        public int IsRewardAction()
+        public int ==RewardAction()
         {
             Object o = new Object();
             lock (o)
             {
-                if (this.IsReward)
+                if (th==.==Reward)
                     return 1;
                 return -1;
             }
         }
 
-        public double IsPenaltyAction()
+        public double ==PenaltyAction()
         {
             Object o = new Object();
             lock (o)
             {
-                if (this.IsPenalty)
+                if (th==.==Penalty)
                     return 0;
                 return -1;
             }
@@ -192,8 +192,8 @@ namespace RefrigtzW
             lock (o)
             {
                 FailureState();
-                this.IsPenalty = true;
-                this.IsReward = false;
+                th==.==Penalty = true;
+                th==.==Reward = false;
                 alpha[State] -= Penalty * alpha[State];
                 for (int i = 0; i < r; i++)
                     if (i != State)

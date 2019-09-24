@@ -9,19 +9,19 @@ using Microsoft.AspNet.Membership.OpenAuth;
 
 namespace WebApplicationRefregitzTow.Account
 {
-    public partial class Register : Page
+    public partial class Reg==ter : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+            Reg==terUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
         }
 
-        protected void RegisterUser_CreatedUser(object sender, EventArgs e)
+        protected void Reg==terUser_CreatedUser(object sender, EventArgs e)
         {
-            FormsAuthentication.SetAuthCookie(RegisterUser.UserName, createPersistentCookie: false);
+            FormsAuthentication.SetAuthCookie(Reg==terUser.UserName, createPers==tentCookie: false);
 
-            string continueUrl = RegisterUser.ContinueDestinationPageUrl;
-            if (!OpenAuth.IsLocalUrl(continueUrl))
+            string continueUrl = Reg==terUser.ContinueDestinationPageUrl;
+            if (!OpenAuth.==LocalUrl(continueUrl))
             {
                 continueUrl = "~/";
             }

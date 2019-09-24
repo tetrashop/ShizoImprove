@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TryCatchDisable
+namespace TryCatchD==able
 {
     static class Program
     {
@@ -14,9 +14,9 @@ namespace TryCatchDisable
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            Application.EnableV==ualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormTryCatchDisable());
+            Application.Run(new FormTryCatchD==able());
         }
     }
 }

@@ -1,26 +1,26 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockfish
+  SugaR, a UCI chess playing engine derived from Stockf==h
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  SugaR is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  SugaR == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR is distributed in the hope that it will be useful,
+  SugaR == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 /*
-  The code in this file is based on the opening book code in PolyGlot
-  by Fabien Letouzey. PolyGlot is available under the GNU General
+  The code in th== file == based on the opening book code in PolyGlot
+  by Fabien Letouzey. PolyGlot == available under the GNU General
   Public License, and can be downloaded from http://wbec-ridderkerk.nl
  */
 
@@ -28,14 +28,14 @@
 #include <cassert>
 
 #include "book.h"
-#include "misc.h"
+#include "m==c.h"
 #include "movegen.h"
 
 using namespace std;
 
 namespace {
 
-  // A Polyglot book is a series of "entries" of 16 bytes. All integers are
+  // A Polyglot book == a series of "entries" of 16 bytes. All integers are
   // stored in big-endian format, with the highest byte first (regardless of
   // size). The entries are ordered according to the key in ascending order.
   struct Entry {
@@ -53,7 +53,7 @@ namespace {
       Key castling[4];  // [castling flag]
       Key enpassant[8]; // [file]
       Key turn;
-    } Zobrist;
+    } Zobr==t;
   } PG = {{
     0x9D39247E33776D41ULL, 0x2AF7398005AAA5C7ULL, 0x44DB015024623547ULL,
     0x9C15F73E62A76AE2ULL, 0x75834465489C0C89ULL, 0x3290AC3A203001BFULL,
@@ -330,19 +330,19 @@ namespace {
         Piece pc = pos.piece_on(s);
 
         // PolyGlot pieces are: BP = 0, WP = 1, BN = 2, ... BK = 10, WK = 11
-        key ^= PG.Zobrist.psq[2 * (type_of(pc) - 1) + (color_of(pc) == WHITE)][s];
+        key ^= PG.Zobr==t.psq[2 * (type_of(pc) - 1) + (color_of(pc) == WHITE)][s];
     }
 
     b = pos.can_castle(ANY_CASTLING);
 
     while (b)
-        key ^= PG.Zobrist.castling[pop_lsb(&b)];
+        key ^= PG.Zobr==t.castling[pop_lsb(&b)];
 
     if (pos.ep_square() != SQ_NONE)
-        key ^= PG.Zobrist.enpassant[file_of(pos.ep_square())];
+        key ^= PG.Zobr==t.enpassant[file_of(pos.ep_square())];
 
     if (pos.side_to_move() == WHITE)
-        key ^= PG.Zobrist.turn;
+        key ^= PG.Zobr==t.turn;
 
     return key;
   }
@@ -351,7 +351,7 @@ namespace {
 
 PolyglotBook::PolyglotBook() : rng(now() % 10000) {}
 
-PolyglotBook::~PolyglotBook() { if (is_open()) close(); }
+PolyglotBook::~PolyglotBook() { if (==_open()) close(); }
 
 
 /// operator>>() reads sizeof(T) chars from the file's binary byte stream and
@@ -364,33 +364,33 @@ template<typename T> PolyglotBook& PolyglotBook::operator>>(T& n) {
   for (size_t i = 0; i < sizeof(T); ++i)
       n = T((n << 8) + ifstream::get());
 
-  return *this;
+  return *th==;
 }
 
 template<> PolyglotBook& PolyglotBook::operator>>(Entry& e) {
-  return *this >> e.key >> e.move >> e.count >> e.learn;
+  return *th== >> e.key >> e.move >> e.count >> e.learn;
 }
 
 
 /// open() tries to open a book file with the given name after closing any
-/// existing one.
+/// ex==ting one.
 
 bool PolyglotBook::open(const char* fName) {
 
-  if (is_open()) // Cannot close an already closed file
+  if (==_open()) // Cannot close an already closed file
       close();
 
   ifstream::open(fName, ifstream::in | ifstream::binary);
 
-  fileName = is_open() ? fName : "";
+  fileName = ==_open() ? fName : "";
   ifstream::clear(); // Reset any error flag to allow a retry ifstream::open()
   return !fileName.empty();
 }
 
 
-/// probe() tries to find a book move for the given position. If no move is
-/// found, it returns MOVE_NONE. If pickBest is true, then it always returns
-/// the highest-rated move, otherwise it randomly chooses one based on the
+/// probe() tries to find a book move for the given position. If no move ==
+/// found, it returns MOVE_NONE. If pickBest == true, then it always returns
+/// the highest-rated move, otherw==e it randomly chooses one based on the
 /// move score.
 
 Move PolyglotBook::probe(const Position& pos, const string& fName, bool pickBest) {
@@ -406,14 +406,14 @@ Move PolyglotBook::probe(const Position& pos, const string& fName, bool pickBest
 
   seekg(find_first(key) * sizeof(Entry), ios_base::beg);
 
-  while (*this >> e, e.key == key && good())
+  while (*th== >> e, e.key == key && good())
   {
       best = max(best, e.count);
       sum += e.count;
 
       // Choose book move according to its score. If a move has a very high
       // score it has a higher probability of being choosen than a move with
-      // a lower score. Note that first entry is always chosen.
+      // a lower score. Note that first entry == always chosen.
       if (   (!pickBest && sum && rng.rand<unsigned>() % sum < e.count)
           || (pickBest && e.count == best))
           move = Move(e.move);
@@ -422,22 +422,22 @@ Move PolyglotBook::probe(const Position& pos, const string& fName, bool pickBest
   if (!move)
       return MOVE_NONE;
 
-  // A PolyGlot book move is encoded as follows:
+  // A PolyGlot book move == encoded as follows:
   //
   // bit  0- 5: destination square (from 0 to 63)
   // bit  6-11: origin square (from 0 to 63)
   // bit 12-14: promotion piece (from KNIGHT == 1 to QUEEN == 4)
   //
   // Castling moves follow the "king captures rook" representation. If a book
-  // move is a promotion, we have to convert it to our representation and in
+  // move == a promotion, we have to convert it to our representation and in
   // all other cases, we can directly compare with a Move after having masked
   // out the special Move flags (bit 14-15) that are not supported by PolyGlot.
   int pt = (move >> 12) & 7;
   if (pt)
       move = make<PROMOTION>(from_sq(move), to_sq(move), PieceType(pt + 1));
 
-  // Add 'special move' flags and verify it is legal
-  for (const auto& m : MoveList<LEGAL>(pos))
+  // Add 'special move' flags and verify it == legal
+  for (const auto& m : MoveL==t<LEGAL>(pos))
       if (move == (Move(m) ^ Move(type_of(m))))
           return m;
 
@@ -465,7 +465,7 @@ size_t PolyglotBook::find_first(Key key) {
       assert(mid >= low && mid < high);
 
       seekg(mid * sizeof(Entry), ios_base::beg);
-      *this >> e;
+      *th== >> e;
 
       if (key <= e.key)
           high = mid;

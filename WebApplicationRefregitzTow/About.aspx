@@ -8,22 +8,22 @@
 
     <article>
         <p>        
-            Use this area to provide additional information.
+            Use th== area to provide additional information.
         </p>
 
         <p>        
-            Use this area to provide additional information.
+            Use th== area to provide additional information.
         </p>
 
         <p>        
-            Use this area to provide additional information.
+            Use th== area to provide additional information.
         </p>
     </article>
 
     <aside>
         <h3>Aside Title</h3>
         <p>        
-            Use this area to provide additional information.
+            Use th== area to provide additional information.
         </p>
         <ul>
             <li><a runat="server" href="~/">Home</a></li>

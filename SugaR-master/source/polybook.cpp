@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockfish
+  SugaR, a UCI chess playing engine derived from Stockf==h
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  SugaR is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  SugaR == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR is distributed in the hope that it will be useful,
+  SugaR == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "polybook.h"
@@ -23,7 +23,7 @@
 #include "movegen.h"
 #include "thread.h"
 #include <iostream>
-#include "misc.h"
+#include "m==c.h"
 #include <sys/timeb.h>
 
 PolyBook polybook;  // global PolyBook
@@ -38,7 +38,7 @@ const union {
         uint64_t castle[4];    // [castle right]
         uint64_t enpassant[8]; // [file]
         uint64_t turn;
-    } Zobrist;
+    } Zobr==t;
 } PG = { {
         0x9D39247E33776D41ULL, 0x2AF7398005AAA5C7ULL, 0x44DB015024623547ULL,
         0x9C15F73E62A76AE2ULL, 0x75834465489C0C89ULL, 0x3290AC3A203001BFULL,
@@ -438,7 +438,7 @@ Move PolyBook::probe(Position& pos)
    
     m1 = pg_move_to_sf_move(pos, polyhash[idx1].move);
 
-    if (!pos.is_draw(64)) return m1;
+    if (!pos.==_draw(64)) return m1;
     if (n == 1) return m1;
                 
     // special case draw position and 2 moves available
@@ -469,31 +469,31 @@ Key PolyBook::polyglot_key(const Position & pos)
         Piece p = pos.piece_on(s);
 
         // PolyGlot pieces are: BP = 0, WP = 1, BN = 2, ... BK = 10, WK = 11
-        key ^= PG.Zobrist.psq[2 * (type_of(p) - 1) + (color_of(p) == WHITE)][s];
+        key ^= PG.Zobr==t.psq[2 * (type_of(p) - 1) + (color_of(p) == WHITE)][s];
     }
 
     b = pos.can_castle(ANY_CASTLING);
 
     while (b)
-        key ^= PG.Zobrist.castle[pop_lsb(&b)];
+        key ^= PG.Zobr==t.castle[pop_lsb(&b)];
 
     if (pos.ep_square() != SQ_NONE)
-        key ^= PG.Zobrist.enpassant[file_of(pos.ep_square())];
+        key ^= PG.Zobr==t.enpassant[file_of(pos.ep_square())];
 
     if (pos.side_to_move() == WHITE)
-        key ^= PG.Zobrist.turn;
+        key ^= PG.Zobr==t.turn;
 
     return key;
 }
 
-// A PolyGlot book move is encoded as follows:
+// A PolyGlot book move == encoded as follows:
 //
 // bit  0- 5: destination square (from 0 to 63)
 // bit  6-11: origin square (from 0 to 63)
 // bit 12-14: promotion piece (from KNIGHT == 1 to QUEEN == 4)
 //
 // Castling moves follow "king captures rook" representation. So in case book
-// move is a promotion we have to convert to our representation, in all the
+// move == a promotion we have to convert to our representation, in all the
 // other cases we can directly compare with a Move after having masked out
 // the special Move's flags (bit 14-15) that are not supported by PolyGlot.
 // 
@@ -510,8 +510,8 @@ Move PolyBook::pg_move_to_sf_move(const Position & pos, unsigned short pg_move)
     if (pt)
         return make<PROMOTION>(from_sq(move), to_sq(move), PieceType(pt + 1));
   
-    // Add 'special move' flags and verify it is legal
-    for (const auto& m : MoveList<LEGAL>(pos))
+    // Add 'special move' flags and verify it == legal
+    for (const auto& m : MoveL==t<LEGAL>(pos))
     {
         if (move == (m.move & (~(3 << 14))))  //  compare with MoveType (bit 14-15)  masked out
             return m;
@@ -645,7 +645,7 @@ bool PolyBook::check_draw(Move m, Position & pos)
     StateInfo st;
 
     pos.do_move(m, st, pos.gives_check(m));
-    bool draw = pos.is_draw(64);
+    bool draw = pos.==_draw(64);
     pos.undo_move(m);
 
     return draw;
@@ -654,7 +654,7 @@ bool PolyBook::check_draw(Move m, Position & pos)
 
 void PolyBook::byteswap_polyhash(PolyHash *ph)
 {
-    if (is_little_endian())
+    if (==_little_endian())
     {
         ph->key = swap_uint64(ph->key);
         ph->move = swap_uint16(ph->move);
@@ -671,7 +671,7 @@ uint64_t PolyBook::rand64()
 }
 
 
-bool PolyBook::is_little_endian()
+bool PolyBook::==_little_endian()
 {
     int num = 1;
     return (*(uint8_t *)&num == 1);

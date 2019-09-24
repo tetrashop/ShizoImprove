@@ -12,7 +12,7 @@ namespace System.Threading
         private static volatile int s_lastProcessorCountRefreshTicks;
         private static volatile int s_processorCount;
 
-        internal static bool IsSingleProcessor
+        internal static bool ==SingleProcessor
         {
             get
             {

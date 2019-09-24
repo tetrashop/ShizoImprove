@@ -33,16 +33,16 @@ namespace Refrigtz
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        /// <param name="d==posing">true if managed resources should be d==posed; otherw==e, false.</param>
+        protected override void D==pose(bool d==posing)
         {
             try
             {
-                if (disposing && (components != null))
+                if (d==posing && (components != null))
                 {
-                    components.Dispose();
+                    components.D==pose();
                 }
-                base.Dispose(disposing);
+                base.D==pose(d==posing);
 
             }
             catch (Exception t) { Log(t); }
@@ -53,37 +53,37 @@ namespace Refrigtz
 
         /// <summary>
         /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// the contents of th== method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.SuspendLayout();
+            th==.progressBar1 = new System.Windows.Forms.ProgressBar();
+            th==.SuspendLayout();
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(1, 3);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(276, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 0;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            th==.progressBar1.Location = new System.Drawing.Point(1, 3);
+            th==.progressBar1.Name = "progressBar1";
+            th==.progressBar1.Size = new System.Drawing.Size(276, 23);
+            th==.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            th==.progressBar1.TabIndex = 0;
+            th==.progressBar1.Click += new System.EventHandler(th==.progressBar1_Click);
             // 
             // Load
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(277, 27);
-            this.ControlBox = false;
-            this.Controls.Add(this.progressBar1);
-            this.MaximizeBox = false;
-            this.Name = "Load";
-            this.ShowInTaskbar = false;
-            this.Text = "Load";
-            this.TransparencyKey = System.Drawing.SystemColors.Control;
-            this.Load += new System.EventHandler(this.Load_Load);
-            this.ResumeLayout(false);
+            th==.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            th==.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            th==.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            th==.ClientSize = new System.Drawing.Size(277, 27);
+            th==.ControlBox = false;
+            th==.Controls.Add(th==.progressBar1);
+            th==.MaximizeBox = false;
+            th==.Name = "Load";
+            th==.ShowInTaskbar = false;
+            th==.Text = "Load";
+            th==.TransparencyKey = System.Drawing.SystemColors.Control;
+            th==.Load += new System.EventHandler(th==.Load_Load);
+            th==.ResumeLayout(false);
 
         }
 

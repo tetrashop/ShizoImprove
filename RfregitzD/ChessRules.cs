@@ -5,7 +5,7 @@
  * Current Rules Have Not 'Check' And 'CheckMate' *************************************RS*****0.12**4**Managements and Cuation Programing**(+*)QC-OK.
  * Elephant Rules Hardly*********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Horse Rules Hardly************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Minister Rules Hardly*********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Min==ter Rules Hardly*********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * King Rules Hardly*************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Castles Rules Hardly**********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Restricted has been solved****************************************************--**(-)
@@ -13,72 +13,72 @@
  * Abnormal Movements Correction*************************************************--**(-)
  * Clear Dirty Part**************************************************************--**(-)
  * Chess Rules Soldier Not Moved Jump From Enemy to 2****************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Chess Rules Abnormally Minister Gray Elephant to Right************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Chess Rules Abnormally Min==ter Gray Elephant to Right************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Chess Rules Elephant Normally*************************************************--**(-)
  * Abnormally Recursive Method***************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Chess Rule Check CheckMate Doesn’t Work*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Clicking 'Table' Content Has been Abnormally**********************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * The Mechanism of Check Declared and Act 'Not' Logically************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * The Mechanism of Table Assignments and the Virtualization Misleading**********RS*****0.12**4**Managements and Cuation Programing**(+)
- * The Movements of horse Brown 'Alice' Left Side Cause to Mislead***************RS*****0.12**4**Managements and Cuation Programing**(+)
- * ExistInDestinationEnemy Thinking Misleading Operations************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * The Mechan==m of Check Declared and Act 'Not' Logically************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * The Mechan==m of Table Assignments and the Virtualization M==leading**********RS*****0.12**4**Managements and Cuation Programing**(+)
+ * The Movements of horse Brown 'Alice' Left Side Cause to M==lead***************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Ex==tInDestinationEnemy Thinking M==leading Operations************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Null Thinking Exception Handling Should be Configured*************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Malfunction of Mouse 'Bob' Event Handling For Movements***********************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Non 'Check' Second Rules 'Alice' Move to 'Check' State**************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 'CheckMate' Not Recognized By 'Alice'.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 'Check' Recognized From 'Hard' Game. CheckMate Have Not Been Identified.************RSPB(+*)
  * Chess Rules MalFunctional*****************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Unsatisfied CheckMate By 'Bob' With 'Alice'****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Unsat==fied CheckMate By 'Bob' With 'Alice'****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Removable 'Check' by 'Bob' Was Not done by 'Alice' ****************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Unknown 'CheckRemovable' and Unknown 'Check' Mechanism**************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Unknown 'CheckRemovable' and Unknown 'Check' Mechan==m**************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Table Content at 'Bob' 'Check' of 'Alice', Malfunction with 'horse'************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Can Hit 'King'****************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Gone to 'Check' State Deterministic********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Gone to 'Check' State Determin==tic********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * King Killer. Gone to ObjectDanger State by 'Alice' and 'Bob'***********************RSRS(++)
  * King Killer By 'Alice' and Gone to ObjectDanger Remaining**************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Killer Check Solved by Changing Strategy. Check by 'Alice' Cannot Been Removed.RS*****0.12**4**Managements and Cuation Programing**(-+)
- * Castle King Mechanism Failed**************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Arguments IgonoreTowEnemy Between King and Attaker in Check ObjectDanger Misleading**RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Castle King Mechan==m Failed**************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Arguments IgonoreTowEnemy Between King and Attaker in Check ObjectDanger M==leading**RS*****0.12**4**Managements and Cuation Programing**(+)
  * 'Check' Ignore. Un Rulement 'Bob Movements*************************************RSRS(++)
- * Unidentified 'Bob' Minister Movements in Check and Unrulements Movements*******RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Unidentified 'Bob' Min==ter Movements in Check and Unrulements Movements*******RS*****0.12**4**Managements and Cuation Programing**(+)
  * Tow King Beside Them**********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * King of 'Bob' Gone to ObjectDanger.*************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Gone to Check by 'Bob'*********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Chess Order and Chess Check by Bob Malfunctioned*******************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 'CheckMate' of 'Alice' Ended by Moving of 'Bob' King Unrulments********************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Movements of 'Alice' Soldier to Backward.*************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * BrigdeKing Movements in Large Castle King Misleading**************************RS*****0.12**4**Managements and Cuation Programing**(_)
+ * BrigdeKing Movements in Large Castle King M==leading**************************RS*****0.12**4**Managements and Cuation Programing**(_)
  * Syntax Statements Failed By Halting.******************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Check Of Bob Misleading no reason.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Check Of Bob M==leading no reason.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Syntax Error At Genetic Algorithm By Bob.*************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 1394/12/20********************************************************************RS*****0.12**4**Managements and Cuation Programing**(+:Sum(48)) (_ :Sum(1)) (-:Sum(5)) (*:Sum(2))
  * Chess Syntax MalFunction.*****************************************************RS*****0.12**4**Managements and Cuation Programing**[+]
- * Chess Rules Non Soldier Colud Not been Detected. For AStarGreedy Fist Algorithm.*****RS*****0.12**4**Managements and Cuation Programing**{+}
- * 'Check' Released isolatly.'Check' of Brown (Alice) No Matched Realesed.*********RS*****0.12**4**Managements and Cuation Programing**<+>
+ * Chess Rules Non Soldier Colud Not been Detected. For AStarGreedy F==t Algorithm.*****RS*****0.12**4**Managements and Cuation Programing**{+}
+ * 'Check' Released ==olatly.'Check' of Brown (Alice) No Matched Realesed.*********RS*****0.12**4**Managements and Cuation Programing**<+>
  * 'Check' Not Detected By Bob.***************************************************RS*****0.12**4**Managements and Cuation Programing**<+>
  * Bob Cloud not Remove 'Check'.**************************************************RS*****0.12**4**Managements and Cuation Programing**<+>
  * Bob Colud not Move.No Check asnd CheckMate.*****************************************RS*****0.12**4**Managements and Cuation Programing**<+>
  * Kings Have been Realeased Attacked.By Alice and Bob.**************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * ObjectDanger kings Not work!********************************************************CU*****0.88**1**Risk Control************************<*>QC-OK.
- * Chess Rules of Movments AStarGreedy First caused to Databse MalFunction.*************CU*****0.88**1**Risk Control************************(*)QC-OK.
+ * ObjectDanger kings Not work!********************************************************CU*****0.88**1**R==k Control************************<*>QC-OK.
+ * Chess Rules of Movments AStarGreedy First caused to Databse MalFunction.*************CU*****0.88**1**R==k Control************************(*)QC-OK.
  * Mal Function of Table.Table zero.!********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Timer of Bob and Alice do not works!******************************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * Not Right of Penalty Regard Mechansim.Misleading of Operations.***************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Timer of Bob and Alice do not works!******************************************CU*****0.88**1**R==k Control************************(*)QC-OK.
+ * Not Right of Penalty Regard Mechansim.M==leading of Operations.***************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Reveal From CheckMate By Alice MalFunction.****************************************RS*****0.12**4**Managements and Cuation Programing**{+}
- * CheckMate Not Work On Statistic and More By Alice.*********************************RS*****0.12**4**Managements and Cuation Programing**{+}
- * CheckMate Operation By Alice is MalFunction.***************************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * 'Minister' Alice Have been Check unreasonably.*********************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * 'Alice' Supposed Wrongly CheckObjectDangour Means Check.*******************************CU*****0.88**1**Risk Control************************(*)QC-OK.
+ * CheckMate Not Work On Stat==tic and More By Alice.*********************************RS*****0.12**4**Managements and Cuation Programing**{+}
+ * CheckMate Operation By Alice == MalFunction.***************************************CU*****0.88**1**R==k Control************************(*)QC-OK.
+ * 'Min==ter' Alice Have been Check unreasonably.*********************************CU*****0.88**1**R==k Control************************(*)QC-OK.
+ * 'Alice' Supposed Wrongly CheckObjectDangour Means Check.*******************************CU*****0.88**1**R==k Control************************(*)QC-OK.
  * Illegal King Foundation in Rules Function No Reasonaly.***********************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Brown (Alice) King Dosn't exist.**********************************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Mal Function of Castles King User Determination.******************************CU*****0.88**1**Risk Control************************{*}QC-OK
- * Mal Function of Check int Detection at ObjectDangouring.****************************CU*****0.88**1**Risk Control************************<*>QC_OK
- * Assignment of Check State at ObjectDangourCheckRemove Method Not Occured.**************CU*****0.88**1**Risk Control************************<*>QC_OK.
- * Table Incredible Content Leads to Undisirable Result in Check and ....*********RS**0.12**4**Managements and Cuation Programing*****(+)
- * CheckedMate Complexity Over Numbers Of Cores Compexity.************************CU*****0.88**1**Risk Control************************{*}QC-OK.
- * Alice Castles King Statistic is misleading.************************************.CU*****0.88**1**Risk Control************************{*}Qc_OK
- * Sodiers of Alice get to go backward and non Existining Enemy of Killer sometimes.CU*****0.88**1**Risk Control************************{*}Qc_Bad.
- * Pat Mechanisam Dosn't act Misleading.*********************************************.CU*****0.88**1**Risk Control************************{*}QC_OK.
+ * Brown (Alice) King Dosn't ex==t.**********************************************RS*****0.12**4**Managements and Cuation Programing**<+>
+ * Mal Function of Castles King User Determination.******************************CU*****0.88**1**R==k Control************************{*}QC-OK
+ * Mal Function of Check int Detection at ObjectDangouring.****************************CU*****0.88**1**R==k Control************************<*>QC_OK
+ * Assignment of Check State at ObjectDangourCheckRemove Method Not Occured.**************CU*****0.88**1**R==k Control************************<*>QC_OK.
+ * Table Incredible Content Leads to Und==irable Result in Check and ....*********RS**0.12**4**Managements and Cuation Programing*****(+)
+ * CheckedMate Complexity Over Numbers Of Cores Compexity.************************CU*****0.88**1**R==k Control************************{*}QC-OK.
+ * Alice Castles King Stat==tic == m==leading.************************************.CU*****0.88**1**R==k Control************************{*}Qc_OK
+ * Sodiers of Alice get to go backward and non Ex==tining Enemy of Killer sometimes.CU*****0.88**1**R==k Control************************{*}Qc_Bad.
+ * Pat Mechan==am Dosn't act M==leading.*********************************************.CU*****0.88**1**R==k Control************************{*}QC_OK.
  * ************************************************************************************************************************************(+):Sum(1)) 4:(+:Sum(5)) 5.(*:Sum(1)) 6.(+:Sum(2)) (*:Sum(2)) 7.(+:Sum(2)) 8.(*:Sum(3)) 9.(QC-OK.:Sum(7))
  * ********************************************************************************
  */
@@ -101,13 +101,13 @@ namespace RefrigtzDLL
         public static bool SelfHomeStatCP = false;
         public static int ObjectHittedColumn = -1;
         //Inititae Global Variables.
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHur==ticFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechnisamT = true;
+        public bool UsePenaltyRegardMechn==amT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHur==ticT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHur==ticT = false;
         static int NumbersofKingMovesToPatGray = 0;
         static int NumbersofKingMovesToPatBrown = 0;
         public static bool PatCheckedInKingRule = false;
@@ -151,7 +151,7 @@ namespace RefrigtzDLL
         int Row, Column;
         int[,] Table = new int[8, 8];
         int Order = 0;
-        //public bool ExistInDestinationEnemy = false;
+        //public bool Ex==tInDestinationEnemy = false;
         bool ArrangmentsBoard = false;
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
@@ -165,49 +165,49 @@ namespace RefrigtzDLL
                 }
            
         }
-        public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
+        public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool ArrangmentsChanged, int oRDER)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+            MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+            UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
             BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
+            PredictHur==ticT = PredictHur==t;
             OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
+            AStarGreedyHur==ticT = AStarGreedyHur==;
             Order = oRDER;
             ArrangmentsBoard = ArrangmentsChanged;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ChessRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        public ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
+        public ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool ArrangmentsChanged)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             CurrentAStarGredyMax = CurrentAStarGredy;
             Order = oRDER;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+            MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+            UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
             BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
+            PredictHur==ticT = PredictHur==t;
             OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
+            AStarGreedyHur==ticT = AStarGreedyHur==;
             ArrangmentsBoard = ArrangmentsChanged;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ChessRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Constructor 
-        public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
+        public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
             CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+            MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+            UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
             BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
+            PredictHur==ticT = PredictHur==t;
             OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
+            AStarGreedyHur==ticT = AStarGreedyHur==;
             ArrangmentsBoard = ArrangmentsChanged;
             Row = i;
             Column = j;
@@ -264,7 +264,7 @@ namespace RefrigtzDLL
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporter = false;
                 CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKingHaveSupporterNumber = 0;
             }
-            //When Order is Non Detectable Continue Traversal Back.
+            //When Order == Non Detectable Continue Traversal Back.
             //if (Order != CurrentOrder)
             //  return false;
             //Found Location of Tow Gray and Brown Kings. 
@@ -309,18 +309,18 @@ namespace RefrigtzDLL
                 }
             }
             //Determination of Enemy in the Destionation Home.
-            bool ExistInDestinationEnemy = new bool();
+            bool Ex==tInDestinationEnemy = new bool();
             if (((Table[RowFirst, ColumnFirst] > 0) && (Table[RowSecond, ColumnSecond] < 0) && (Order == 1)))
             {
-                ExistInDestinationEnemy = true;
+                Ex==tInDestinationEnemy = true;
             }
             else
                 if (((Table[RowFirst, ColumnFirst] < 0) && (Table[RowSecond, ColumnSecond] > 0) && (Order == -1)))
                 {
-                    ExistInDestinationEnemy = true;
+                    Ex==tInDestinationEnemy = true;
                 }
 
-            //If There is A Source of Soldier.
+            //If There == A Source of Soldier.
             if (System.Math.Abs(Kind) == 1)
             {
                 if (!(ArrangmentsBoard))
@@ -330,18 +330,18 @@ namespace RefrigtzDLL
                     {
 
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, Ex==tInDestinationEnemy, Ki, SelfHomeStatCP);
                     }
                     else//Solder of Brown At Begining.
                         if (ColumnFirst == 6 && (Order == -1))
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, Ex==tInDestinationEnemy, Ki, SelfHomeStatCP);
                     }
                     else//Another Solder Movments.
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, Ex==tInDestinationEnemy, Ki, SelfHomeStatCP);
                     }
                 }
                 else
@@ -350,25 +350,25 @@ namespace RefrigtzDLL
                     if (ColumnFirst == 6 && (Order == 1))
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, Ex==tInDestinationEnemy, Ki, SelfHomeStatCP);
                     }
                     else//Solder of Brown At Begining.
                         if (ColumnFirst == 1 && (Order == -1))
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, true, color, Ex==tInDestinationEnemy, Ki, SelfHomeStatCP);
                     }
                     else//Another Solder Movments.
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                        return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, Ex==tInDestinationEnemy, Ki, SelfHomeStatCP);
                     }
                 }
             }
             else//For another Kind of Objects.
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, ExistInDestinationEnemy, Ki, SelfHomeStatCP);
+                return Rule(RowFirst, ColumnFirst, RowSecond, ColumnSecond, false, color, Ex==tInDestinationEnemy, Ki, SelfHomeStatCP);
             }
         }
         //Castle King Movment Consideration.
@@ -382,7 +382,7 @@ namespace RefrigtzDLL
                     //When Gray Castles Not Act.
                     if (RefrigtzDLL.ChessRules.CastleKingAllowedGray)
                     {
-                        //If Column is At First Location.
+                        //If Column == At First Location.
                         if (ColumnFirst == 0 && ColumnSecond == 0)
                         {
                             //When Kings Moves for Small Kings Castles Movments.
@@ -483,7 +483,7 @@ namespace RefrigtzDLL
                     //When Gray Castles Not Act.
                     if (RefrigtzDLL.ChessRules.CastleKingAllowedGray)
                     {
-                        //If Column is At First Location.
+                        //If Column == At First Location.
                         if (ColumnFirst == 7 && ColumnSecond == 7)
                         {
                             //When Kings Moves for Small Kings Castles Movments.
@@ -580,17 +580,17 @@ namespace RefrigtzDLL
             //Act a Move.
             tab[RowSecond, ColumnSecond] = tab[RowFirst, ColumnFirst];
             tab[RowFirst, ColumnFirst] = 0;
-            //If There is Check State.
+            //If There == Check State.
             if (Check(tab, Order))
             {
-                //When int of Order is Gray Check return Check State.
+                //When int of Order == Gray Check return Check State.
                 if (Order == 1)
                     if (CheckGray)
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckConstructor:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return true;
                     }
-                //When int is Brown State  there is Check State return Check State.
+                //When int == Brown State  there == Check State return Check State.
                 if (Order == -1)
                     if (CheckBrown)
                     {
@@ -603,23 +603,23 @@ namespace RefrigtzDLL
             return false;
         }
         //Method of Self Home int Objects Consideration.
-        private bool ExistSelfHome(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, int Ki)
+        private bool Ex==tSelfHome(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, int Ki)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             //Initiate of Local Variable.
-            bool NotExistInDestinationSelfHome = false;
-            //When There is Not Source and Destination is the Same Home Location. 
+            bool NotEx==tInDestinationSelfHome = false;
+            //When There == Not Source and Destination == the Same Home Location. 
             if (RowFirst != RowSecond || ColumnFirst != ColumnSecond)
             {
                 //If the Same Gray int Return Self Home. 
                 if (Table[RowSecond, ColumnSecond] > 0 && Table[RowFirst, ColumnFirst] > 0)
-                    NotExistInDestinationSelfHome = true;
+                    NotEx==tInDestinationSelfHome = true;
                 else//If The Same int Brown Return Self Home.
                     if (Table[RowSecond, ColumnSecond] < 0 && Table[RowFirst, ColumnFirst] < 0)
-                        NotExistInDestinationSelfHome = true;
+                        NotEx==tInDestinationSelfHome = true;
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ExistSelfHome:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            return NotExistInDestinationSelfHome;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Ex==tSelfHome:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return NotEx==tInDestinationSelfHome;
         }
 
         //Object Danger Consideration
@@ -648,7 +648,7 @@ namespace RefrigtzDLL
             //Check(Tab, Order);
             bool CheckGrayDummy = CheckGray;
             bool CheckBrownDummy = CheckBrown;
-            //If There is Check on Tow Side.
+            //If There == Check on Tow Side.
             /*if (CheckBrown || CheckGray)
             {
                 //Check meand achmaz.
@@ -686,8 +686,8 @@ namespace RefrigtzDLL
                                     //Ignore Brown.
                                     if (Tab[iii, jjj] < 0)
                                         continue;
-                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
-                                    //When There is Attacked to Gray from Brown.
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, ii, jj);
+                                    //When There == Attacked to Gray from Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
                                     {
                                         //Move.
@@ -698,8 +698,8 @@ namespace RefrigtzDLL
                                         for (int h = 0; h < 8; h++)
                                             for (int g = 0; g < 8; g++)
                                                 Tabl[h, g] = Tab[h, g];
-                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
-                                        //When there is checked or checkmate.
+                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        //When there == checked or checkmate.
                                         if (AAA.CheckMate(Tabl, Order))
                                         {
                                             //if (AAA.CheckMateGray)
@@ -754,8 +754,8 @@ namespace RefrigtzDLL
                                     if (Tab[iii, jjj] > 0)
                                         continue;
 
-                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
-                                    //When There is Attack to Brown.
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, ii, jj);
+                                    //When There == Attack to Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
                                     {
                                         //Move
@@ -766,8 +766,8 @@ namespace RefrigtzDLL
                                         for (int h = 0; h < 8; h++)
                                             for (int g = 0; g < 8; g++)
                                                 Tabl[h, g] = Tab[h, g];
-                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
-                                        //When There is Check or Checkedmate
+                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        //When There == Check or Checkedmate
                                         if (AAA.CheckMate(Tabl, Order))
                                         {
                                             //if (AAA.CheckMateBrown)
@@ -804,7 +804,7 @@ namespace RefrigtzDLL
             //{
             //RefrigtzDLL.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             //}
-            //If There is Brown ObjectDanger Or Gray ObjectDanger.
+            //If There == Brown ObjectDanger Or Gray ObjectDanger.
             if (CheckBrownObjectDangour || CheckGrayObjectDangour)
             {
                 //Iniaate Global Check Variable By Local Variables.
@@ -812,7 +812,7 @@ namespace RefrigtzDLL
                 Order = COrder;
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
-                //Achamz is Validity.
+                //Achamz == Validity.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
             }
@@ -851,7 +851,7 @@ namespace RefrigtzDLL
             //Check(Tab, Order);
             bool CheckGrayDummy = CheckGray;
             bool CheckBrownDummy = CheckBrown;
-            //If There is Check on Tow Side.
+            //If There == Check on Tow Side.
             /*if (CheckBrown || CheckGray)
             {
                 //Check meand achmaz.
@@ -889,8 +889,8 @@ namespace RefrigtzDLL
                                     //Ignore Brown.
                                     if (Tab[iii, jjj] < 0)
                                         continue;
-                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
-                                    //When There is Attacked to Gray from Brown.
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, ii, jj);
+                                    //When There == Attacked to Gray from Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
                                     {
                                         //Move.
@@ -901,8 +901,8 @@ namespace RefrigtzDLL
                                         for (int h = 0; h < 8; h++)
                                             for (int g = 0; g < 8; g++)
                                                 Tabl[h, g] = Tab[h, g];
-                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
-                                        //When there is checked or checkmate.
+                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        //When there == checked or checkmate.
                                         if (AAA.Check(Tabl, Order))
                                         {
                                             //if (AAA.CheckMateGray)
@@ -957,8 +957,8 @@ namespace RefrigtzDLL
                                     if (Tab[iii, jjj] > 0)
                                         continue;
 
-                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
-                                    //When There is Attack to Brown.
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, ii, jj);
+                                    //When There == Attack to Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
                                     {
                                         //Move
@@ -969,8 +969,8 @@ namespace RefrigtzDLL
                                         for (int h = 0; h < 8; h++)
                                             for (int g = 0; g < 8; g++)
                                                 Tabl[h, g] = Tab[h, g];
-                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
-                                        //When There is Check or Checkedmate
+                                        RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Tabl[iii, jjj], Tabl, Order, iii, jjj);
+                                        //When There == Check or Checkedmate
                                         if (AAA.Check(Tabl, Order))
                                         {
                                             //if (AAA.CheckMateBrown)
@@ -1007,7 +1007,7 @@ namespace RefrigtzDLL
             //{
             //RefrigtzDLL.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
             //}
-            //If There is Brown ObjectDanger Or Gray ObjectDanger.
+            //If There == Brown ObjectDanger Or Gray ObjectDanger.
             if (CheckBrownObjectDangour || CheckGrayObjectDangour)
             {
                 //Iniaate Global Check Variable By Local Variables.
@@ -1015,7 +1015,7 @@ namespace RefrigtzDLL
                 Order = COrder;
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
-                //Achamz is Validity.
+                //Achamz == Validity.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
             }
@@ -1073,7 +1073,7 @@ namespace RefrigtzDLL
             Check(Tab, Order);
             bool CheckGrayDummy = CheckGray;
             bool CheckBrownDummy = CheckBrown;
-            //If There is Check on Tow Side.
+            //If There == Check on Tow Side.
             if (CheckBrown || CheckGray)
             {
                 //Check meand achmaz.
@@ -1120,7 +1120,7 @@ namespace RefrigtzDLL
                                 for (var ik = 0; ik < 8; ik++)
                                     for (var jk = 0; jk < 8; jk++)
                                         Tab[ik, jk] = Table[ik, jk];
-                                RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[i, j], Tab, Order * -1, i, j);
+                                RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Tab[i, j], Tab, Order * -1, i, j);
                                 Color a = Color.Gray;
                                 if (Order * -1 == -1)
                                     a = Color.Brown;
@@ -1159,7 +1159,7 @@ namespace RefrigtzDLL
                                                             Tab[iii, jjj] = Tab[i, j];
                                                             Tab[i, j] = 0;
 
-                                                            A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
+                                                            A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
                                                             if (A.Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i, j]))
                                                             {
                                                                 Tab[iiiii, jjjjj] = Tab[iiii, jjjj];
@@ -1214,7 +1214,7 @@ namespace RefrigtzDLL
                                                                 Tab[iii, jjj] = Tab[i, j];
                                                                 Tab[i, j] = 0;
 
-                                                                A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
+                                                                A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Tab[iiii, jjjj], Tab, Order, iiii, jjjj);
                                                                 if (A.Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i, j]))
                                                                 {
                                                                     Tab[iiiii, jjjjj] = Tab[iiii, jjjj];
@@ -1266,7 +1266,7 @@ namespace RefrigtzDLL
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                 {
-                    //If Current is Gray Home 
+                    //If Current == Gray Home 
                     if (Table[i, j] == 6)
                     {
                         //Initiate Refreable Parameters.
@@ -1338,7 +1338,7 @@ namespace RefrigtzDLL
 
         }
         //Create Syntax of Movments.
-        public String CreateStatistic(bool Arrange, int[,] Tab, int Movments, int SourceThings, int Column, int Row, bool Hit, int HitThings, bool CastleKing, bool SodierConvert//, ref AllDraw. THIS
+        public String CreateStat==tic(bool Arrange, int[,] Tab, int Movments, int SourceThings, int Column, int Row, bool Hit, int HitThings, bool CastleKing, bool SodierConvert//, ref AllDraw. TH==
 
             )
         {
@@ -1361,9 +1361,9 @@ namespace RefrigtzDLL
 
 
                 //Consider CheckMate Condition of Table.
-                RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-                RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
-                RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, Arrange, 1, Tab, 1, Row, Column);
+                RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, Arrange, 1, Tab, 1, Row, Column);
+                RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, Arrange, 1, Tab, 1, Row, Column);
+                RefrigtzDLL.ChessRules AAA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, Arrange, 1, Tab, 1, Row, Column);
                 A.CheckMate(Tab, Order);
                 AA.ObjectDangourKingMove(Order, Tab, false);
                 Color a = Color.Gray;
@@ -1414,7 +1414,7 @@ namespace RefrigtzDLL
                                 Object O = new Object();
                                 lock (O)
                                 {
-                                    if (!AllDraw.Stockfish)
+                                    if (!AllDraw.Stockf==h)
                                     {
                                         RefrigtzDLL.ChessRules.SmallKingCastleGray = false;
                                         RefrigtzDLL.ChessRules.CastleKingAllowedGray = false;
@@ -1434,7 +1434,7 @@ namespace RefrigtzDLL
                                 Object O = new Object();
                                 lock (O)
                                 {
-                                    if (!AllDraw.Stockfish)
+                                    if (!AllDraw.Stockf==h)
                                     {
                                         RefrigtzDLL.ChessRules.BigKingCastleGray = false;
                                         RefrigtzDLL.ChessRules.CastleKingAllowedGray = false;
@@ -1454,7 +1454,7 @@ namespace RefrigtzDLL
                                 Object O = new Object();
                                 lock (O)
                                 {
-                                    if (!AllDraw.Stockfish)
+                                    if (!AllDraw.Stockf==h)
                                     {
                                         RefrigtzDLL.ChessRules.SmallKingCastleBrown = false;
                                         RefrigtzDLL.ChessRules.CastleKingAllowedBrown = false;
@@ -1475,7 +1475,7 @@ namespace RefrigtzDLL
                                 Object O = new Object();
                                 lock (O)
                                 {
-                                    if (!AllDraw.Stockfish)
+                                    if (!AllDraw.Stockf==h)
                                     {
                                         RefrigtzDLL.ChessRules.BigKingCastleBrown = false;
                                         RefrigtzDLL.ChessRules.CastleKingAllowedBrown = false;
@@ -1502,7 +1502,7 @@ namespace RefrigtzDLL
                                 ObjectHittedRow = Row;
                                 ObjectHittedColumn = Column;
                             }
-                            //THIS.SetObjectInPictureBox(Row, Column);
+                            //TH==.SetObjectInPictureBox(Row, Column);
 
                             S += "x";
                         }
@@ -1581,7 +1581,7 @@ namespace RefrigtzDLL
                             ObjectHittedRow = Row;
                             ObjectHittedColumn = Column;
                         }
-                        //THIS.SetObjectInPictureBox(Row, Column);
+                        //TH==.SetObjectInPictureBox(Row, Column);
                         S += "x";
                     }
                     //Row Column Consideration.
@@ -1652,33 +1652,33 @@ namespace RefrigtzDLL
                 }
                 //Separate.
                 if (AllDraw.Less != int.MinValue)
-                    S += " With Huristic (" +RefrigtzDLL.AllDraw.Less.ToString() + ")--";
+                    S += " With Hur==tic (" +RefrigtzDLL.AllDraw.Less.ToString() + ")--";
                 else
                     S += " --";
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CreateStatistic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CreateStat==tic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //Return String Sysntax.
                 return SN + S;
             }
         }
-        //Consideration of Existing Table in List.
-        bool ArrayInList(List<int[]> List, int[] A)
+        //Consideration of Ex==ting Table in L==t.
+        bool ArrayInL==t(L==t<int[]> L==t, int[] A)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             //Initiate Local Variables.
-            bool Is = false;
-            //For each Items of a Tow Part List.
-            for (var i = 0; i < List.Count; i++)
+            bool == = false;
+            //For each Items of a Tow Part L==t.
+            for (var i = 0; i < L==t.Count; i++)
             {
-                //If Listis Equal Setting of Local Variable Equality.
-                if (A[0] == List[i][0] && A[1] == List[i][1])
-                    Is = true;
+                //If L==t== Equal Setting of Local Variable Equality.
+                if (A[0] == L==t[i][0] && A[1] == L==t[i][1])
+                    == = true;
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ArrayInList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ArrayInL==t:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Retrun Condition.
-            return Is;
+            return ==;
         }
         //Find a Specific Objects.
-        public bool FindAThing(int[,] Table, ref int Row, ref int Column, int Thing, bool BeMovable, List<int[]> List)
+        public bool FindAThing(int[,] Table, ref int Row, ref int Column, int Thing, bool BeMovable, L==t<int[]> L==t)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             //For All Items In Table Home.
@@ -1689,14 +1689,14 @@ namespace RefrigtzDLL
                     int[] AA = new int[2];
                     AA[0] = i;
                     AA[1] = j;
-                    //If Table Home is Eqaul Tow Things Object.
+                    //If Table Home == Eqaul Tow Things Object.
                     if (Table[i, j] == Thing)
                     {
                         //If Set A Global Variable Low Logical.
                         if (!BeMovable)
                         {
-                            //If Array Exist In List Continue Traversal Back.
-                            if (ArrayInList(List, AA))
+                            //If Array Ex==t In L==t Continue Traversal Back.
+                            if (ArrayInL==t(L==t, AA))
                                 continue;
                             //Iniatiate Local Varibales.
                             Row = i;
@@ -1715,11 +1715,11 @@ namespace RefrigtzDLL
                             for (var ii = 0; ii < 8; ii++)
                                 for (var jj = 0; jj < 8; jj++)
                                 {
-                                    //If First Home is Movable to Second Home.
-                                    if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Table, i, j, ii, jj, A, Order))
+                                    //If First Home == Movable to Second Home.
+                                    if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, i, j)).Movable(Table, i, j, ii, jj, A, Order))
                                     {
-                                        //If Array Exist in Home.
-                                        if (ArrayInList(List, AA))
+                                        //If Array Ex==t in Home.
+                                        if (ArrayInL==t(L==t, AA))
                                             continue;
                                         //Initaite Local Variables.
                                         Row = i;
@@ -1746,7 +1746,7 @@ namespace RefrigtzDLL
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                 {
-                    //If Current Home is Brown King.
+                    //If Current Home == Brown King.
                     if (Table[i, j] == -6)
                     {
                         //Initiate Refrencable Parameter.
@@ -1789,13 +1789,13 @@ namespace RefrigtzDLL
                         for (var ii = 0; ii < 8; ii++)
                             for (var jj = 0; jj < 8; jj++)
                             {
-                                //If Tow How is the Same Continue Traversal Back.
+                                //If Tow How == the Same Continue Traversal Back.
                                 if (i == ii && j == jj)
                                     continue;
-                                //If is Brown Order.
+                                //If == Brown Order.
                                 if (Table[i, j] < 0)
                                 {
-                                    //If Is Gray Order.
+                                    //If == Gray Order.
                                     if (Table[ii, jj] > 0)
                                     {
                                         //Initiate Local Variables.
@@ -1806,8 +1806,8 @@ namespace RefrigtzDLL
                                             {
                                                 Tab[iii, jjj] = Table[iii, jjj];
                                             }
-                                        //If Is Movable.
-                                        if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Brown, -1))
+                                        //If == Movable.
+                                        if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Brown, -1))
                                         {
                                             //Clone a Copy.
                                             for (var iii = 0; iii < 8; iii++)
@@ -1821,10 +1821,10 @@ namespace RefrigtzDLL
                                                 //Initiate Local Variables.
                                                 Tab[ii, jj] = Tab[i, j];
                                                 Tab[i, j] = 0;
-                                                //If There is Not Check.
+                                                //If There == Not Check.
                                                 if (!Check(Tab, Order))
                                                 {
-                                                    //If Is Not Brown Check.
+                                                    //If == Not Brown Check.
                                                     if (!CheckBrown)
                                                     {
                                                         //Initiate and Move.
@@ -1877,7 +1877,7 @@ namespace RefrigtzDLL
                                                 Tab[iii, jjj] = Table[iii, jjj];
                                             }
                                         //Moveable Movemnts in the Tow Traversal Kind.
-                                        if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Gray, 1))
+                                        if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Gray, 1))
                                         {
                                             for (var iii = 0; iii < 8; iii++)
                                                 for (var jjj = 0; jjj < 8; jjj++)
@@ -1890,10 +1890,10 @@ namespace RefrigtzDLL
                                                 //Move 
                                                 Tab[ii, jj] = Tab[i, j];
                                                 Tab[i, j] = 0;
-                                                //If ther is Not Check.
+                                                //If ther == Not Check.
                                                 if (!Check(Tab, Order))
                                                 {
-                                                    //If there is Not Gray Check.
+                                                    //If there == Not Gray Check.
                                                     if (!CheckGray)
                                                     {
                                                         //Move and Initaite Local and Global Variables.
@@ -1945,11 +1945,11 @@ namespace RefrigtzDLL
                         continue;
 
 
-                    if ((new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
+                    if ((new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Table[ii, jj], Table, Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
                     {
                         Tab[i, j] = true;
                     }
-                    if ((new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
+                    if ((new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Table[ii, jj], Table, Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
                     {
                         Tab[i, j] = true;
                     }
@@ -2112,7 +2112,7 @@ namespace RefrigtzDLL
             {
                 for (var j = 0; j < 8; j++)
                 {
-                    //If The Current Home is the Gray King Continue Traversal Back.
+                    //If The Current Home == the Gray King Continue Traversal Back.
                     if (i == RowK && j == ColumnK)
                         continue;
                     if (Ord == 1 & Tab[i, j] <= 0)
@@ -2130,20 +2130,20 @@ namespace RefrigtzDLL
                     Color a = Color.Gray;
                     if (Ord == -1)
                         a = Color.Brown;
-                    RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
+                    RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
                     if (Ord == 1)
                     {
-                        //Menen Parameter is Moveble to Second Parameters Location returm Movable.
+                        //Menen Parameter == Moveble to Second Parameters Location returm Movable.
                         if (A.Rules(i, j, RowK, ColumnK, aa, Ord))
                         {
                             BREAK = true;
-                            //Initiate Local Is Check Variables.
+                            //Initiate Local == Check Variables.
                             CheckBrown = true;
                             break;
                         }
                     }
                     else
-                    {   //Menen Parameter is Moveble to Second Parameters Location returm Movable.
+                    {   //Menen Parameter == Moveble to Second Parameters Location returm Movable.
                         if (A.Rules(i, j, RowK, ColumnK, aa, Ord))
                         {
                             BREAK = true;
@@ -2166,7 +2166,7 @@ namespace RefrigtzDLL
         public bool Check(int[,] Table, int Ord)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            //A player is not required to move their king out of check and the game concludes when there is a 100 % probability that one of the kings has been taken. As a result there is no checkmate.
+            //A player == not required to move their king out of check and the game concludes when there == a 100 % probability that one of the kings has been taken. As a result there == no checkmate.
             if (DrawKing.KingGrayNotCheckedByQuantumMove && Ord == 1)
                 return false;
             else
@@ -2220,19 +2220,19 @@ namespace RefrigtzDLL
                     //Clone a Copy.
                     CheckGray = CheckGrayDummy;
                     CheckBrown = CheckBrownDummy;
-                    //If There is Gray Check.
+                    //If There == Gray Check.
                     if (Checked)
                     {
                         //Initiate Global Variables.
                         RefrigtzDLL.ChessRules.CurrentOrder = 1;
-                        //Ig Gray King is Movable to First Home Table.
+                        //Ig Gray King == Movable to First Home Table.
                         Color a = Color.Gray;
                         if (Ord == -1)
                             a = Color.Brown;
-                        RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowK, ColumnK], Table, Ord, RowK, ColumnK);
+                        RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Table[RowK, ColumnK], Table, Ord, RowK, ColumnK);
                         Order = DummyOrder;
                         ///Table[ii, jj] = 0;
-                        //Menen Parameter is Moveble to Second Parameters Location returm Movable.
+                        //Menen Parameter == Moveble to Second Parameters Location returm Movable.
                         for (int k = 0; k < 8; k++)
                             for (int p = 0; p < 8; p++)
                                 Table[k, p] = Tab[k, p];
@@ -2245,7 +2245,7 @@ namespace RefrigtzDLL
                             //For Another Methods
                             Table[i, j] = Table[RowK, ColumnK];
                             Table[RowK, ColumnK] = 0;
-                            //If Is Check.
+                            //If == Check.
                             if (A.Check(Table, Ord))
                             {
                                 //Move Back.
@@ -2258,7 +2258,7 @@ namespace RefrigtzDLL
                                         ActMove = true;
                                         continue;
                                     }
-                                    else//If There is Not Gray Check.
+                                    else//If There == Not Gray Check.
                                     {
                                         //Move Back.
                                         ActMove = false;
@@ -2273,7 +2273,7 @@ namespace RefrigtzDLL
                                         ActMove = true;
                                         continue;
                                     }
-                                    else//If There is Not Gray Check.
+                                    else//If There == Not Gray Check.
                                     {
                                         //Move Back.
                                         ActMove = false;
@@ -2319,7 +2319,7 @@ namespace RefrigtzDLL
                     //Clone a Copy.
                     CheckGray = CheckGrayDummy;
                     CheckBrown = CheckBrownDummy;
-                    //If There is Gray Check.
+                    //If There == Gray Check.
                     //Initiate Local Varibale.
                     ActMove = true;
                     //For All Second Home Table.
@@ -2339,9 +2339,9 @@ namespace RefrigtzDLL
                             Color a = Color.Gray;
                             if (Ord == -1)
                                 a = Color.Brown;
-                            RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
+                            RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Table[i, j], Table, Ord, i, j);
                             ///Table[ii, jj] = 0;
-                            //Menen Parameter is Moveble to Second Parameters Location returm Movable.
+                            //Menen Parameter == Moveble to Second Parameters Location returm Movable.
                             if (A.Rules(i, j, ii, jj, a, Ord))
                             {
                                 Order = DummyOrder;
@@ -2352,7 +2352,7 @@ namespace RefrigtzDLL
                                 Table[ii, jj] = Table[i, j];
                                 Table[i, j] = 0;
                                 //If Check.
-                                A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[ii, jj], Table, Ord, ii, jj);
+                                A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Table[ii, jj], Table, Ord, ii, jj);
                                 if (A.Check(Table, Ord))
                                 {
                                     Order = DummyOrder;
@@ -2370,7 +2370,7 @@ namespace RefrigtzDLL
                                             Table[ii, jj] = Store;
                                             continue;
                                         }
-                                        //If There is Not Gray Check.
+                                        //If There == Not Gray Check.
                                         else
                                         {
                                             //Initiate Varaible and Move Back.
@@ -2390,7 +2390,7 @@ namespace RefrigtzDLL
                                             Table[ii, jj] = Store;
                                             continue;
                                         }
-                                        //If There is Not Gray Check.
+                                        //If There == Not Gray Check.
                                         else
                                         {
                                             //Initiate Varaible and Move Back.
@@ -2461,7 +2461,7 @@ namespace RefrigtzDLL
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];
-            RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowG, ColumnG], Table, Ord, RowG, ColumnG);
+            RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Table[RowG, ColumnG], Table, Ord, RowG, ColumnG);
 
             //Found of Gray King.
             if (FindGrayKing(Table, ref RowG, ref ColumnG))
@@ -2486,7 +2486,7 @@ namespace RefrigtzDLL
             ActMoveB = true;
             ActMoveBF = true;
 
-            RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, Table[RowB, ColumnB], Table, Ord, RowB, ColumnB);
+            RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsBoard, Table[RowB, ColumnB], Table, Ord, RowB, ColumnB);
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     Table[i, j] = Tab[i, j];
@@ -2532,14 +2532,14 @@ namespace RefrigtzDLL
             return false;
         }
         //Internal Rule of Chess Method.
-        private bool Rule(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki, bool SelfHomeStatCP)
+        private bool Rule(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy, int Ki, bool SelfHomeStatCP)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            //When is Not Castles King State.
+            //When == Not Castles King State.
             if (Kind != 7)
             {
-                //Determination of Enemy Existing.
-                if (ExistSelfHome(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki) && SelfHomeStatCP)
+                //Determination of Enemy Ex==ting.
+                if (Ex==tSelfHome(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ki) && SelfHomeStatCP)
                 {
                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return false;
@@ -2570,39 +2570,39 @@ namespace RefrigtzDLL
             if (Kind == 1)
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return SoldierRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
+                return SoldierRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy);
             }
 
             else//Rule of Castles.
                 if (Kind == 4)
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+                return CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy, Ki);
             }
 
             else//Rule of Hourses.
                     if (Kind == 3)
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return HourseRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
+                return HourseRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy);
             }
             else//Rule of Elephant.
                         if (Kind == 2)
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+                return ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy, Ki);
             }
             else
-                            if (Kind == 5)//Rule of Ministers.
+                            if (Kind == 5)//Rule of Min==ters.
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+                return Min==terRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy, Ki);
             }
             else
                                 if (Kind == 6)//Rule of Kings.
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return KingRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
+                return KingRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy, Ki);
             }
             else
                                     if (Kind == 7)//Rule of Castles King.
@@ -2616,12 +2616,12 @@ namespace RefrigtzDLL
             return false;
         }
         //King Rule Method.
-        public bool KingRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
+        public bool KingRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy, int Ki)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool Move = false;
-            //When Miniaster Rule is Valid.
-            if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki) && (System.Math.Abs(RowFirst - RowSecond) <= 1) && (System.Math.Abs(ColumnFirst - ColumnSecond) <= 1))
+            //When Miniaster Rule == Valid.
+            if (Min==terRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy, Ki) && (System.Math.Abs(RowFirst - RowSecond) <= 1) && (System.Math.Abs(ColumnFirst - ColumnSecond) <= 1))
             {
                 //Initiate Local Variable.
                 /* int[,] Tab = new int[8, 8];
@@ -2635,7 +2635,7 @@ namespace RefrigtzDLL
                  int Store = Tab[RowSecond, ColumnSecond];
                  Tab[RowSecond, ColumnSecond] = Tab[RowFirst, ColumnFirst];
                  Tab[RowFirst, ColumnFirst] = 0;
-                 //When There is Check State.
+                 //When There == Check State.
                  if (Check(Tab, Order))
                  {
                      if (!PatCheckedInKingRule)
@@ -2658,7 +2658,7 @@ namespace RefrigtzDLL
                      }
                  }
 
-                 //Determination of Gray Enemy State Check at Enemy King at Around Existing Return Not Validity.
+                 //Determination of Gray Enemy State Check at Enemy King at Around Ex==ting Return Not Validity.
                  if (Order == 1 && Table[RowFirst, ColumnFirst] == 6)
                  {
                      
@@ -2718,7 +2718,7 @@ namespace RefrigtzDLL
                          }
                     
 
-                 }//Determination of Brown Enemy State Check at Enemy King at Around Existing Return Not Validity.         
+                 }//Determination of Brown Enemy State Check at Enemy King at Around Ex==ting Return Not Validity.         
                  else if (Order == -1 && Table[RowFirst, ColumnFirst] == -6)
                  {
                      
@@ -2785,31 +2785,31 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("KingRule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Move;
         }
-        //Rules of Minister Method.
-        public bool MinisterRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
+        //Rules of Min==ter Method.
+        public bool Min==terRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy, int Ki)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool Move = false;
-            //When is Castles Rule.
-            if (CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki))
+            //When == Castles Rule.
+            if (CastleRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy, Ki))
                 //Return Validity.,
                 Move = true;
             else
-                //When is Elephant Rule.
-                if (ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki))
+                //When == Elephant Rule.
+                if (ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy, Ki))
                     //Return Validity.,
                     Move = true;
             //Return Not Valididty.
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MinisterRule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Min==terRule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Move;
         }
         //Castles Rule Method.
-        public bool CastleRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
+        public bool CastleRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy, int Ki)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool Move = false;
             bool Act = false;
-            //If Variation is Only in Row.
+            //If Variation == Only in Row.
             if (System.Math.Abs(ColumnFirst - ColumnSecond) == 0 && System.Math.Abs(RowFirst - RowSecond) != 0)
             {
                 //Initiate Local Variables.
@@ -2855,32 +2855,32 @@ namespace RefrigtzDLL
                     {
                         if (IgnoreSelfObject && i == RowSecond)
                             continue;
-                        //When is Not Current Source Home.
+                        //When == Not Current Source Home.
                         if (i != RowFirst)
                         {
-                            //When There is Self Home at Home of Gray Return Not Validity.
+                            //When There == Self Home at Home of Gray Return Not Validity.
                             if (Table[i, ColumnFirst] > 0 && Table[RowFirst, ColumnFirst] > 0)
                             {
                                 Move = false;
                                 Act = true;
                             }
-                            //When There is Self Home of Brown Objects Return Not Validity.
+                            //When There == Self Home of Brown Objects Return Not Validity.
                             if (Table[i, ColumnFirst] < 0 && Table[RowFirst, ColumnFirst] < 0)
                             {
                                 Act = true;
                                 Move = false;
                             }
 
-                            //If Situation is Occured.
+                            //If Situation == Occured.
                             if (i != RowSecond)
                             {
-                                //When There is Slef Home at Root Return Not Valididty.
+                                //When There == Slef Home at Root Return Not Valididty.
                                 if ((Table[i, ColumnFirst] < 0 || Table[i, ColumnFirst] > 0) && Table[RowFirst, ColumnFirst] > 0)
                                 {
                                     Act = true;
                                     Move = false;
                                 }
-                                //When There is Slef Home at Root Return Not Valididty.
+                                //When There == Slef Home at Root Return Not Valididty.
                                 if ((Table[i, ColumnFirst] > 0 || Table[i, ColumnFirst] < 0) && Table[RowFirst, ColumnFirst] < 0)
                                 {
                                     Act = true;
@@ -2895,7 +2895,7 @@ namespace RefrigtzDLL
                     Move = true;
 
             }
-            //When There is Only Column Variation Home Changes.
+            //When There == Only Column Variation Home Changes.
             if (System.Math.Abs(ColumnFirst - ColumnSecond) != 0 && System.Math.Abs(RowFirst - RowSecond) == 0)
             {
                 //Initiate Local Variables.
@@ -2941,7 +2941,7 @@ namespace RefrigtzDLL
                 {
                     if (IgnoreSelfObject && j == ColumnSecond)
                         continue;
-                    //When The Source is Not The Current.
+                    //When The Source == Not The Current.
                     if (j != ColumnFirst)
                     {
                         //For All Self Home at Root Return Not Validity
@@ -2959,13 +2959,13 @@ namespace RefrigtzDLL
                         //Condition Determination.
                         if (j != ColumnSecond)
                         {
-                            //Existing of Self Home At Root Cuased to Not validity.
+                            //Ex==ting of Self Home At Root Cuased to Not validity.
                             if ((Table[RowFirst, j] < 0 || Table[RowFirst, j] > 0) && Table[RowFirst, ColumnFirst] > 0)
                             {
                                 Act = true;
                                 Move = false;
                             }
-                            //Existing of Self Home At Root Cuased to Not validity.
+                            //Ex==ting of Self Home At Root Cuased to Not validity.
                             if ((Table[RowFirst, j] > 0 || Table[RowFirst, j] < 0) && Table[RowFirst, ColumnFirst] < 0)
                             {
                                 Act = true;
@@ -2994,7 +2994,7 @@ namespace RefrigtzDLL
 
         }
         //Elephant Rule Method.
-        public bool ElefantRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy, int Ki)
+        public bool ElefantRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy, int Ki)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool Move = false;
@@ -3046,10 +3046,10 @@ namespace RefrigtzDLL
                         if (IgnoreSelfObject && i == RowSecond && j == ColumnSecond)
                             continue;
 
-                        //If Abs Derivation is Not One Continue. 
+                        //If Abs Derivation == Not One Continue. 
                         if (System.Math.Abs(i - RowFirst) != System.Math.Abs(j - ColumnFirst))
                             continue;
-                        //If the Current is Not Source Home.
+                        //If the Current == Not Source Home.
                         if (i != RowFirst && j != ColumnFirst)
                         {
                             {
@@ -3065,16 +3065,16 @@ namespace RefrigtzDLL
                                     Act = true;
                                     Move = false;
                                 }
-                                //When the Current is Not The Source Home.
+                                //When the Current == Not The Source Home.
                                 if (i != RowSecond && j != ColumnSecond)
                                 {
-                                    //When the Self ObjectExisting at the Root .
+                                    //When the Self ObjectEx==ting at the Root .
                                     if ((Table[i, j] > 0 || Table[i, j] < 0) && Table[RowFirst, ColumnFirst] > 0)
                                     {
                                         Act = true;
                                         Move = false;
                                     }
-                                    //When the Self ObjectExisting at the Root .
+                                    //When the Self ObjectEx==ting at the Root .
                                     if ((Table[i, j] < 0 || Table[i, j] > 0) && Table[RowFirst, ColumnFirst] < 0)
                                     {
                                         Act = true;
@@ -3100,11 +3100,11 @@ namespace RefrigtzDLL
             return Move;
         }
         //Hource Rule Method.
-        public bool HourseRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
+        public bool HourseRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool Move = false;
-            //When L Movament is Occured. 
+            //When L Movament == Occured. 
             if (System.Math.Abs(ColumnFirst - ColumnSecond) == 2 && System.Math.Abs(RowFirst - RowSecond) == 1)
             {
                 //Retrun Validity.
@@ -3126,11 +3126,11 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HourseRule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Move;
         }
-        public bool SoldierRulesaArrangmentsBoardOne(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
+        public bool SoldierRulesaArrangmentsBoardOne(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool Move = false;
-            //When int is Gray.
+            //When int == Gray.
             if (Order == 1)
             {
                 //If Not Forward Return Not Validity.
@@ -3149,14 +3149,14 @@ namespace RefrigtzDLL
             {
                 if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                 {
-                    //Depend on First Move do For Land Of Islam
+                    //Depend on First Move do For Land Of ==lam
                     
 
                         if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) &&
                             (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond, ColumnSecond - 1] == 0)
                             )
                         {
-                            //When Destination is The Empty Return Validity Else Return Not Validity.
+                            //When Destination == The Empty Return Validity Else Return Not Validity.
                             if (Table[RowSecond, ColumnSecond] == 0)
                                 Move = true;
                             else
@@ -3166,7 +3166,7 @@ namespace RefrigtzDLL
                             if ((ColumnFirst + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
                             {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
+                                //When Destination == The Empty Return Validity Else Return Not Validity.
                                 if (Table[RowSecond, ColumnSecond] == 0)
                                     Move = true;
                                 else
@@ -3176,12 +3176,12 @@ namespace RefrigtzDLL
                                 if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
                                 {
                                     if ((RowSecond - 1 < 8) &&
-                                        (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                        (RowFirst == RowSecond - 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                     {
                                         Move = true;
                                     }
                                     if ((RowSecond + 1 < 8) &&
-                                        (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                        (RowFirst == RowSecond + 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                     {
                                         Move = true;
                                     }
@@ -3192,13 +3192,13 @@ namespace RefrigtzDLL
                 else//Gray int.
                     if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                     {
-                        //Depend Of First Move do For Positivism
+                        //Depend Of First Move do For Positiv==m
                         
                             if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond, ColumnSecond + 1] == 0)
                                 )
                             {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
+                                //When Destination == The Empty Return Validity Else Return Not Validity.
                                 if (Table[RowSecond, ColumnSecond] == 0)
                                     Move = true;
                                 else
@@ -3208,7 +3208,7 @@ namespace RefrigtzDLL
                                 if ((ColumnSecond + 1 < 8) &&
                                     (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
                                 {
-                                    //When Destination is The Empty Return Validity Else Return Not Validity.
+                                    //When Destination == The Empty Return Validity Else Return Not Validity.
                                     if (Table[RowSecond, ColumnSecond] == 0)
                                         Move = true;
                                     else
@@ -3218,11 +3218,11 @@ namespace RefrigtzDLL
                                     if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
                                     {
                                         if ((RowSecond + 1 < 8) &&
-                                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                            (RowFirst == RowSecond + 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                             //Return Validity.
                                             Move = true;
                                         if ((RowSecond - 1 >= 0) &&
-                                                (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                                (RowFirst == RowSecond - 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                             //Return Validity.
                                             Move = true;
                                     }
@@ -3234,12 +3234,12 @@ namespace RefrigtzDLL
                 //For Brown int.
                 if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                 {
-                    //Depend on Second Move do For Land Of Islam
+                    //Depend on Second Move do For Land Of ==lam
                     
                         if ((ColumnFirst + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
                         {
-                            //When Destination is The Empty Return Validity Else Return Not Validity.
+                            //When Destination == The Empty Return Validity Else Return Not Validity.
                             if (Table[RowSecond, ColumnSecond] == 0)
                                 Move = true;
                             else
@@ -3249,12 +3249,12 @@ namespace RefrigtzDLL
                             if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
                             {
                                 if ((RowSecond - 1 < 8) &&
-                                    (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                    (RowFirst == RowSecond - 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                 {
                                     Move = true;
                                 }
                                 if ((RowSecond + 1 < 8) &&
-                                    (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                    (RowFirst == RowSecond + 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                 {
                                     Move = true;
                                 }
@@ -3265,12 +3265,12 @@ namespace RefrigtzDLL
                 else//Gray int.
                     if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                     {
-                        //Depend Of Second Move do For Positivism Land
+                        //Depend Of Second Move do For Positiv==m Land
                         
                             if ((ColumnSecond + 1 < 8) &&
                                      (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
                             {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
+                                //When Destination == The Empty Return Validity Else Return Not Validity.
                                 if (Table[RowSecond, ColumnSecond] == 0)
                                     Move = true;
                                 else
@@ -3280,11 +3280,11 @@ namespace RefrigtzDLL
                                 if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
                                 {
                                     if ((RowSecond + 1 < 8) &&
-                                        (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                        (RowFirst == RowSecond + 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                         //Return Validity.
                                         Move = true;
                                     if ((RowSecond - 1 >= 0) &&
-                                            (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                            (RowFirst == RowSecond - 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                         //Return Validity.
                                         Move = true;
                                 }
@@ -3295,11 +3295,11 @@ namespace RefrigtzDLL
             return Move;
 
         }
-        public bool SoldierRulesaArrangmentsBoardZero(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
+        public bool SoldierRulesaArrangmentsBoardZero(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool Move = false;
-            //When int is Gray.
+            //When int == Gray.
             if (Order == 1)
             {
                 //If Not Forward Return Not Validity.
@@ -3318,14 +3318,14 @@ namespace RefrigtzDLL
             {
                 if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                 {
-                    //Depend on First Move do For Land Of Islam
+                    //Depend on First Move do For Land Of ==lam
                     
 
                         if ((ColumnFirst + 2 < 8) && (ColumnFirst + 1 < 8) &&
                             (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 2) && (Table[RowSecond, ColumnSecond - 1] == 0)
                             )
                         {
-                            //When Destination is The Empty Return Validity Else Return Not Validity.
+                            //When Destination == The Empty Return Validity Else Return Not Validity.
                             if (Table[RowSecond, ColumnSecond] == 0)
                                 Move = true;
                             else
@@ -3335,7 +3335,7 @@ namespace RefrigtzDLL
                             if ((ColumnFirst + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
                             {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
+                                //When Destination == The Empty Return Validity Else Return Not Validity.
                                 if (Table[RowSecond, ColumnSecond] == 0)
                                     Move = true;
                                 else
@@ -3345,12 +3345,12 @@ namespace RefrigtzDLL
                                 if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
                                 {
                                     if ((RowSecond - 1 < 8) &&
-                                        (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                        (RowFirst == RowSecond - 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                     {
                                         Move = true;
                                     }
                                     if ((RowSecond + 1 < 8) &&
-                                        (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                        (RowFirst == RowSecond + 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                     {
                                         Move = true;
                                     }
@@ -3361,13 +3361,13 @@ namespace RefrigtzDLL
                 else//Brown int.
                     if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                     {
-                        //Depend Of First Move do For Positivism
+                        //Depend Of First Move do For Positiv==m
                         
                             if ((ColumnSecond + 2 < 8) && (ColumnSecond + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 2) && (Table[RowSecond, ColumnSecond + 1] == 0)
                                 )
                             {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
+                                //When Destination == The Empty Return Validity Else Return Not Validity.
                                 if (Table[RowSecond, ColumnSecond] == 0)
                                     Move = true;
                                 else
@@ -3377,7 +3377,7 @@ namespace RefrigtzDLL
                                 if ((ColumnSecond + 1 < 8) &&
                                     (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
                                 {
-                                    //When Destination is The Empty Return Validity Else Return Not Validity.
+                                    //When Destination == The Empty Return Validity Else Return Not Validity.
                                     if (Table[RowSecond, ColumnSecond] == 0)
                                         Move = true;
                                     else
@@ -3387,11 +3387,11 @@ namespace RefrigtzDLL
                                     if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
                                     {
                                         if ((RowSecond + 1 < 8) &&
-                                            (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                            (RowFirst == RowSecond + 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                             //Return Validity.
                                             Move = true;
                                         if ((RowSecond - 1 >= 0) &&
-                                                (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                                (RowFirst == RowSecond - 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                             //Return Validity.
                                             Move = true;
                                     }
@@ -3403,12 +3403,12 @@ namespace RefrigtzDLL
                 //For Gray int.
                 if (Order == 1 && Table[RowFirst, ColumnFirst] > 0)
                 {
-                    //Depend on Second Move do For Land Of Islam
+                    //Depend on Second Move do For Land Of ==lam
                     
                         if ((ColumnFirst + 1 < 8) &&
                                 (RowFirst == RowSecond) && (ColumnSecond == ColumnFirst + 1) && (Table[RowSecond, ColumnSecond] == 0))
                         {
-                            //When Destination is The Empty Return Validity Else Return Not Validity.
+                            //When Destination == The Empty Return Validity Else Return Not Validity.
                             if (Table[RowSecond, ColumnSecond] == 0)
                                 Move = true;
                             else
@@ -3418,12 +3418,12 @@ namespace RefrigtzDLL
                             if ((ColumnFirst + 1 < 8) && ColumnSecond == ColumnFirst + 1)
                             {
                                 if ((RowSecond - 1 < 8) &&
-                                    (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                    (RowFirst == RowSecond - 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                 {
                                     Move = true;
                                 }
                                 if ((RowSecond + 1 < 8) &&
-                                    (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                    (RowFirst == RowSecond + 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                 {
                                     Move = true;
                                 }
@@ -3434,12 +3434,12 @@ namespace RefrigtzDLL
                 else//Brown int.
                     if (Order == -1 && Table[RowFirst, ColumnFirst] < 0)
                     {
-                        //Depend Of Second Move do For Positivism Land
+                        //Depend Of Second Move do For Positiv==m Land
                         
                             if ((ColumnSecond + 1 < 8) &&
                                      (RowFirst == RowSecond) && (ColumnFirst == ColumnSecond + 1) && (Table[RowSecond, ColumnSecond] == 0))
                             {
-                                //When Destination is The Empty Return Validity Else Return Not Validity.
+                                //When Destination == The Empty Return Validity Else Return Not Validity.
                                 if (Table[RowSecond, ColumnSecond] == 0)
                                     Move = true;
                                 else
@@ -3449,11 +3449,11 @@ namespace RefrigtzDLL
                                 if ((ColumnSecond + 1 < 8) && ColumnFirst == ColumnSecond + 1)
                                 {
                                     if ((RowSecond + 1 < 8) &&
-                                        (RowFirst == RowSecond + 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                        (RowFirst == RowSecond + 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                         //Return Validity.
                                         Move = true;
                                     if ((RowSecond - 1 >= 0) &&
-                                            (RowFirst == RowSecond - 1) && (ExistInDestinationEnemy || IgnoreSelfObject))
+                                            (RowFirst == RowSecond - 1) && (Ex==tInDestinationEnemy || IgnoreSelfObject))
                                         //Return Validity.
                                         Move = true;
                                 }
@@ -3464,19 +3464,19 @@ namespace RefrigtzDLL
             return Move;
         }
         //Solder Rule Method.
-        public bool SoldierRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool ExistInDestinationEnemy)
+        public bool SoldierRules(int RowFirst, int ColumnFirst, int RowSecond, int ColumnSecond, bool NotMoved, Color color, bool Ex==tInDestinationEnemy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
             if (!(ArrangmentsBoard))
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SoldierRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return SoldierRulesaArrangmentsBoardZero(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
+                return SoldierRulesaArrangmentsBoardZero(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy);
             }
             else
             {
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SoldierRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return SoldierRulesaArrangmentsBoardOne(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
+                return SoldierRulesaArrangmentsBoardOne(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, Ex==tInDestinationEnemy);
             }
             /*if (Move)
             {

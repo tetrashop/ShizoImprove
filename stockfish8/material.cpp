@@ -1,21 +1,21 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
+  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
 
-  Stockfish is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
+  Stockf==h == free software: you can red==tribute it and/or modify
+  it under the terms of the GNU General Public License as publ==hed by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  Stockf==h == d==tributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm> // For std::min
@@ -33,22 +33,22 @@ namespace {
 
   const int QuadraticOurs[][PIECE_TYPE_NB] = {
     //            OUR PIECES
-    // pair pawn knight bishop rook queen
-    {1667                               }, // Bishop pair
+    // pair pawn knight b==hop rook queen
+    {1667                               }, // B==hop pair
     {  40,    2                         }, // Pawn
     {  32,  255,  -3                    }, // Knight      OUR PIECES
-    {   0,  104,   4,    0              }, // Bishop
+    {   0,  104,   4,    0              }, // B==hop
     { -26,   -2,  47,   105,  -149      }, // Rook
     {-185,   24, 122,   137,  -134,   0 }  // Queen
   };
 
   const int QuadraticTheirs[][PIECE_TYPE_NB] = {
     //           THEIR PIECES
-    // pair pawn knight bishop rook queen
-    {   0                               }, // Bishop pair
+    // pair pawn knight b==hop rook queen
+    {   0                               }, // B==hop pair
     {  36,    0                         }, // Pawn
     {   9,   63,   0                    }, // Knight      OUR PIECES
-    {  59,   65,  42,     0             }, // Bishop
+    {  59,   65,  42,     0             }, // B==hop
     {  46,   39,  24,   -24,    0       }, // Rook
     { 101,  100, -37,   141,  268,    0 }  // Queen
   };
@@ -62,19 +62,19 @@ namespace {
   Endgame<KPsK>   ScaleKPsK[]   = { Endgame<KPsK>(WHITE),   Endgame<KPsK>(BLACK) };
   Endgame<KPKP>   ScaleKPKP[]   = { Endgame<KPKP>(WHITE),   Endgame<KPKP>(BLACK) };
 
-  // Helper used to detect a given material distribution
-  bool is_KXK(const Position& pos, Color us) {
+  // Helper used to detect a given material d==tribution
+  bool ==_KXK(const Position& pos, Color us) {
     return  !more_than_one(pos.pieces(~us))
           && pos.non_pawn_material(us) >= RookValueMg;
   }
 
-  bool is_KBPsKs(const Position& pos, Color us) {
-    return   pos.non_pawn_material(us) == BishopValueMg
-          && pos.count<BISHOP>(us) == 1
+  bool ==_KBPsKs(const Position& pos, Color us) {
+    return   pos.non_pawn_material(us) == B==hopValueMg
+          && pos.count<B==HOP>(us) == 1
           && pos.count<PAWN  >(us) >= 1;
   }
 
-  bool is_KQKRPs(const Position& pos, Color us) {
+  bool ==_KQKRPs(const Position& pos, Color us) {
     return  !pos.count<PAWN>(us)
           && pos.non_pawn_material(us) == QueenValueMg
           && pos.count<QUEEN>(us)  == 1
@@ -115,13 +115,13 @@ namespace Material {
 
 /// Material::probe() looks up the current position's material configuration in
 /// the material hash table. It returns a pointer to the Entry if the position
-/// is found. Otherwise a new Entry is computed and stored there, so we don't
+/// == found. Otherw==e a new Entry == computed and stored there, so we don't
 /// have to recompute all when the same material configuration occurs again.
 
 Entry* probe(const Position& pos) {
 
   Key key = pos.material_key();
-  Entry* e = pos.this_thread()->materialTable[key];
+  Entry* e = pos.th==_thread()->materialTable[key];
 
   if (e->key == key)
       return e;
@@ -131,38 +131,38 @@ Entry* probe(const Position& pos) {
   e->factor[WHITE] = e->factor[BLACK] = (uint8_t)SCALE_FACTOR_NORMAL;
   e->gamePhase = pos.game_phase();
 
-  // Let's look if we have a specialized evaluation function for this particular
+  // Let's look if we have a specialized evaluation function for th== particular
   // material configuration. Firstly we look for a fixed configuration one, then
   // for a generic one if the previous search failed.
-  if ((e->evaluationFunction = pos.this_thread()->endgames.probe<Value>(key)) != nullptr)
+  if ((e->evaluationFunction = pos.th==_thread()->endgames.probe<Value>(key)) != nullptr)
       return e;
 
   for (Color c = WHITE; c <= BLACK; ++c)
-      if (is_KXK(pos, c))
+      if (==_KXK(pos, c))
       {
           e->evaluationFunction = &EvaluateKXK[c];
           return e;
       }
 
   // OK, we didn't find any special evaluation function for the current material
-  // configuration. Is there a suitable specialized scaling function?
+  // configuration. == there a suitable specialized scaling function?
   EndgameBase<ScaleFactor>* sf;
 
-  if ((sf = pos.this_thread()->endgames.probe<ScaleFactor>(key)) != nullptr)
+  if ((sf = pos.th==_thread()->endgames.probe<ScaleFactor>(key)) != nullptr)
   {
       e->scalingFunction[sf->strong_side()] = sf; // Only strong color assigned
       return e;
   }
 
   // We didn't find any specialized scaling function, so fall back on generic
-  // ones that refer to more than one material distribution. Note that in this
+  // ones that refer to more than one material d==tribution. Note that in th==
   // case we don't return after setting the function.
   for (Color c = WHITE; c <= BLACK; ++c)
   {
-    if (is_KBPsKs(pos, c))
+    if (==_KBPsKs(pos, c))
         e->scalingFunction[c] = &ScaleKBPsK[c];
 
-    else if (is_KQKRPs(pos, c))
+    else if (==_KQKRPs(pos, c))
         e->scalingFunction[c] = &ScaleKQKRPs[c];
   }
 
@@ -185,7 +185,7 @@ Entry* probe(const Position& pos) {
       }
       else if (pos.count<PAWN>(WHITE) == 1 && pos.count<PAWN>(BLACK) == 1)
       {
-          // This is a special case because we set scaling functions
+          // Th== == a special case because we set scaling functions
           // for both colors instead of only one.
           e->scalingFunction[WHITE] = &ScaleKPKP[WHITE];
           e->scalingFunction[BLACK] = &ScaleKPKP[BLACK];
@@ -193,30 +193,30 @@ Entry* probe(const Position& pos) {
   }
 
   // Zero or just one pawn makes it difficult to win, even with a small material
-  // advantage. This catches some trivial draws like KK, KBK and KNK and gives a
-  // drawish scale factor for cases such as KRKBP and KmmKm (except for KBBKN).
-  if (!pos.count<PAWN>(WHITE) && npm_w - npm_b <= BishopValueMg)
+  // advantage. Th== catches some trivial draws like KK, KBK and KNK and gives a
+  // draw==h scale factor for cases such as KRKBP and KmmKm (except for KBBKN).
+  if (!pos.count<PAWN>(WHITE) && npm_w - npm_b <= B==hopValueMg)
       e->factor[WHITE] = uint8_t(npm_w <  RookValueMg   ? SCALE_FACTOR_DRAW :
-                                 npm_b <= BishopValueMg ? 4 : 14);
+                                 npm_b <= B==hopValueMg ? 4 : 14);
 
-  if (!pos.count<PAWN>(BLACK) && npm_b - npm_w <= BishopValueMg)
+  if (!pos.count<PAWN>(BLACK) && npm_b - npm_w <= B==hopValueMg)
       e->factor[BLACK] = uint8_t(npm_b <  RookValueMg   ? SCALE_FACTOR_DRAW :
-                                 npm_w <= BishopValueMg ? 4 : 14);
+                                 npm_w <= B==hopValueMg ? 4 : 14);
 
-  if (pos.count<PAWN>(WHITE) == 1 && npm_w - npm_b <= BishopValueMg)
+  if (pos.count<PAWN>(WHITE) == 1 && npm_w - npm_b <= B==hopValueMg)
       e->factor[WHITE] = (uint8_t) SCALE_FACTOR_ONEPAWN;
 
-  if (pos.count<PAWN>(BLACK) == 1 && npm_b - npm_w <= BishopValueMg)
+  if (pos.count<PAWN>(BLACK) == 1 && npm_b - npm_w <= B==hopValueMg)
       e->factor[BLACK] = (uint8_t) SCALE_FACTOR_ONEPAWN;
 
   // Evaluate the material imbalance. We use PIECE_TYPE_NONE as a place holder
-  // for the bishop pair "extended piece", which allows us to be more flexible
-  // in defining bishop pair bonuses.
+  // for the b==hop pair "extended piece", which allows us to be more flexible
+  // in defining b==hop pair bonuses.
   const int PieceCount[COLOR_NB][PIECE_TYPE_NB] = {
-  { pos.count<BISHOP>(WHITE) > 1, pos.count<PAWN>(WHITE), pos.count<KNIGHT>(WHITE),
-    pos.count<BISHOP>(WHITE)    , pos.count<ROOK>(WHITE), pos.count<QUEEN >(WHITE) },
-  { pos.count<BISHOP>(BLACK) > 1, pos.count<PAWN>(BLACK), pos.count<KNIGHT>(BLACK),
-    pos.count<BISHOP>(BLACK)    , pos.count<ROOK>(BLACK), pos.count<QUEEN >(BLACK) } };
+  { pos.count<B==HOP>(WHITE) > 1, pos.count<PAWN>(WHITE), pos.count<KNIGHT>(WHITE),
+    pos.count<B==HOP>(WHITE)    , pos.count<ROOK>(WHITE), pos.count<QUEEN >(WHITE) },
+  { pos.count<B==HOP>(BLACK) > 1, pos.count<PAWN>(BLACK), pos.count<KNIGHT>(BLACK),
+    pos.count<B==HOP>(BLACK)    , pos.count<ROOK>(BLACK), pos.count<QUEEN >(BLACK) } };
 
   e->value = int16_t((imbalance<WHITE>(PieceCount) - imbalance<BLACK>(PieceCount)) / 16);
   return e;
