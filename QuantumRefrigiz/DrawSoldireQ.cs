@@ -77,14 +77,14 @@ namespace QuantumRefrigiz
         }
         public void Dispose()
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             S = null;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            long Time = TimeElapced.TimeNow();Spaces++;
 
             int a = ReturnHuristic();
                 if (MaxHuristicxS < a)
@@ -97,22 +97,22 @@ namespace QuantumRefrigiz
                             ThinkingQuantumChess.MaxHuristicx = a;
                         MaxHuristicxS = a;
                     }
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
                 }
            
             MaxNotFound = true;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
         public int ReturnHuristic()
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
                 
                     a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         //Constructor 1.
@@ -134,7 +134,7 @@ namespace QuantumRefrigiz
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            long Time = TimeElapced.TimeNow();Spaces++;
             object balancelock = new object();
             lock (balancelock)
             {
@@ -166,13 +166,13 @@ namespace QuantumRefrigiz
                 Order = Ord;
                 Current = Cur;
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierQ:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierQ:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Clone a Copy Method.
         public void Clone(ref DrawSoldierQ AA//, ref AllDraw. THIS
             )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -198,11 +198,11 @@ namespace QuantumRefrigiz
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         bool Quantum(int[,] Tab, int Order, int Row, int Column, int LastRow, int LastColumn)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            long Time = TimeElapced.TimeNow();Spaces++;
             if (ArrangmentsChanged)
             {
                 if (LastRow == 6)
@@ -211,14 +211,14 @@ namespace QuantumRefrigiz
                         if (Table[Row, LastColumn + 1] < 0)
                             if (Table[Row, Column] == 1)
                             {
-                                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                 }
                 if (System.Math.Abs(Column - LastColumn) == 1 && System.Math.Abs(Row - LastRow) == 1)
                     if (Table[Row, Column] == 1 || Table[LastRow, LastColumn] == 1)
                     {
-                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return true;
                     }
             }
@@ -230,26 +230,26 @@ namespace QuantumRefrigiz
                         if (Table[Row, LastColumn - 1] > 0)
                             if (Table[Row, Column] == -1)
                             {
-                                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                 }
                 if (System.Math.Abs(Column - LastColumn) == 1 && System.Math.Abs(Row - LastRow) == 1)
                     if (Table[Row, Column] == -1 || Table[LastRow, LastColumn] == -1)
                     {
-                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return true;
                     }
             }
 
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Quantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             return false;
         }
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            long Time = TimeElapced.TimeNow();Spaces++;
             object balancelockS = new object();
 
             int LastRow = 0, LastColumn = 0;
@@ -737,7 +737,7 @@ namespace QuantumRefrigiz
                     }
                 }
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            { AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

@@ -164,7 +164,7 @@ namespace RefrigtzW
 
         }
         //Draw an Instatnt King on the Table Method.
-        public void DrawKingOnTabe(ref Graphics g, int CellW, int CellH)
+        public void DrawKingOnTable(ref Graphics g, int CellW, int CellH)
         {
 
             try

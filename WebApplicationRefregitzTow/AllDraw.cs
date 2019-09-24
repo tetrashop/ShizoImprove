@@ -11593,88 +11593,37 @@ if (Kind == 2)
         }
         void Serve(int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
             if (Order == 1)
             {
                 for (var i = 0; i < SodierMidle; i++)
-                {
-                    if (SolderesOnTable == null || SolderesOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 1, i);
-                }
                 for (var i = 0; i < ElefantMidle; i++)
-                {
-                    if (ElephantOnTable == null || ElephantOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 2, i);
-                }
                 for (var i = 0; i < HourseMidle; i++)
-                {
-                    if (HoursesOnTable == null || HoursesOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 3, i);
-                }
                 for (var i = 0; i < CastleMidle; i++)
-                {
-                    if (CastlesOnTable == null || CastlesOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 4, i);
-                }
-
                 for (var i = 0; i < MinisterMidle; i++)
-                {
-                    if (MinisterOnTable == null || MinisterOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 5, i);
-                }
                 for (var i = 0; i < KingMidle; i++)
-                {
-                    if (KingOnTable == null || KingOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 6, i);
-                }
 
             }
             else
             {
                 for (var i = SodierMidle; i < SodierHigh; i++)
-                {
-                    if (SolderesOnTable == null || SolderesOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 1, i);
-                }
                 for (var i = ElefantMidle; i < ElefantHigh; i++)
-                {
-                    if (ElephantOnTable == null || ElephantOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 2, i);
-                }
                 for (var i = HourseMidle; i < HourseHight; i++)
-                {
-                    if (HoursesOnTable == null || HoursesOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 3, i);
-                }
                 for (var i = CastleMidle; i < CastleHigh; i++)
-                {
-                    if (CastlesOnTable == null || CastlesOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 4, i);
-                }
                 for (var i = MinisterMidle; i < MinisterHigh; i++)
-                {
-                    if (MinisterOnTable == null || MinisterOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 5, i);
-                }
                 for (var i = KingMidle; i < KingHigh; i++)
-                {
-                    if (KingOnTable == null || KingOnTable[i] == null)
-                        continue;
                     ServeISSup(Order, 6, i);
-                }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Serve:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Parallel.ForEach(tH, items => Task.WaitAny(items));
         void ServeISSup(int Order, int Kind,
@@ -11690,7 +11639,7 @@ if (Kind == 2)
 
                         for (var i = 0; i < SodierMidle; i++)
                         {
-                            if (SolderesOnTable==null||SolderesOnTable[i] == null)
+                            if (SolderesOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
                             for (var j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
@@ -11733,7 +11682,7 @@ if (Kind == 2)
 
                         for (var i = SodierMidle; i < SodierHigh; i++)
                         {
-                            if (SolderesOnTable==null||SolderesOnTable[i] == null)
+                            if (SolderesOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.SolderesOnTable[i].SoldierThinking[0].TableListSolder, SolderesOnTable[ii].SoldierThinking[0].TableConst);
                             for (var j = 0; j < SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
@@ -11778,7 +11727,7 @@ if (Kind == 2)
                     {
                         for (var i = 0; i < ElefantMidle; i++)
                         {
-                            if (ElephantOnTable==null||ElephantOnTable[i] == null)
+                            if (ElephantOnTable[i] == null)
                                 continue;
                             //if (this != null && this != null)
                             {
@@ -11823,7 +11772,7 @@ if (Kind == 2)
                     {
                         for (var i = ElefantMidle; i < ElefantHigh; i++)
                         {
-                            if (ElephantOnTable==null||ElephantOnTable[i] == null)
+                            if (ElephantOnTable[i] == null)
                                 continue;
                             //if (this != null && this != null)
                             {
@@ -11871,7 +11820,7 @@ if (Kind == 2)
                     {
                         for (var i = 0; i < HourseMidle; i++)
                         {
-                            if (HoursesOnTable==null||HoursesOnTable[i] == null)
+                            if (HoursesOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
                             for (var j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
@@ -11913,7 +11862,7 @@ if (Kind == 2)
                     {
                         for (var i = HourseMidle; i < HourseHight; i++)
                         {
-                            if (HoursesOnTable==null||HoursesOnTable[i] == null)
+                            if (HoursesOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.HoursesOnTable[i].HourseThinking[0].TableListHourse, HoursesOnTable[ii].HourseThinking[0].TableConst);
                             for (var j = 0; j < HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
@@ -11957,7 +11906,7 @@ if (Kind == 2)
                     {
                         for (var i = 0; i < CastleMidle; i++)
                         {
-                            if (CastlesOnTable==null||CastlesOnTable[i] == null)
+                            if (CastlesOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
                             for (var j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
@@ -11998,7 +11947,7 @@ if (Kind == 2)
                     {
                         for (var i = CastleMidle; i < CastleHigh; i++)
                         {
-                            if (CastlesOnTable==null||CastlesOnTable[i] == null)
+                            if (CastlesOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.CastlesOnTable[i].CastleThinking[0].TableListCastle, CastlesOnTable[ii].CastleThinking[0].TableConst);
                             for (var j = 0; j < CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
@@ -12044,7 +11993,7 @@ if (Kind == 2)
                     {
                         for (var i = 0; i < MinisterMidle; i++)
                         {
-                            if (MinisterOnTable==null||MinisterOnTable[i] == null)
+                            if (MinisterOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
                             for (var j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
@@ -12086,7 +12035,7 @@ if (Kind == 2)
                     {
                         for (var i = MinisterMidle; i < MinisterHigh; i++)
                         {
-                            if (MinisterOnTable==null||MinisterOnTable[i] == null)
+                            if (MinisterOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.MinisterOnTable[i].MinisterThinking[0].TableListMinister, MinisterOnTable[ii].MinisterThinking[0].TableConst);
                             for (var j = 0; j < MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
@@ -12132,7 +12081,7 @@ if (Kind == 2)
                     {
                         for (var i = 0; i < KingMidle; i++)
                         {
-                            if (KingOnTable==null||KingOnTable[i] == null)
+                            if (KingOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
                             for (var j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
@@ -12175,7 +12124,7 @@ if (Kind == 2)
                     {
                         for (var i = KingMidle; i < KingHigh; i++)
                         {
-                            if (KingOnTable==null||KingOnTable[i] == null)
+                            if (KingOnTable[i] == null)
                                 continue;
                             //var j = FoundTableIndex(this.KingOnTable[i].KingThinking[0].TableListKing, KingOnTable[ii].KingThinking[0].TableConst);
                             for (var j = 0; j < KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)

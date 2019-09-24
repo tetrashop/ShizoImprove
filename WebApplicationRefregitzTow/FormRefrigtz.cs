@@ -292,8 +292,8 @@ namespace RefrigtzW
             Draw.CastlesOnTable[2] = new DrawCastle(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,0, 7, Color.Brown, Table, -1, false, 2);
             Draw.CastlesOnTable[3] = new DrawCastle(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,7, 7, Color.Brown, Table, -1, false, 3);
 
-            Draw.if (KingOnTable==null||KingOnTable[i] == null)[0] = new DrawKing(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,3, 0, Color.Gray, Table, 1, false, 0);
-            Draw.if (KingOnTable==null||KingOnTable[i] == null)[1] = new DrawKing(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,3, 7, Color.Brown, Table, -1, false, 1);
+            Draw.KingOnTable[0] = new DrawKing(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,3, 0, Color.Gray, Table, 1, false, 0);
+            Draw.KingOnTable[1] = new DrawKing(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,3, 7, Color.Brown, Table, -1, false, 1);
 
             Draw.MinisterOnTable[0] = new DrawMinister(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,4, 0, Color.Gray, Table, 1, false, 0);
             Draw.MinisterOnTable[1] = new DrawMinister(0,MovementsAStarGreedyHuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,4, 7, Color.Brown, Table, -1, false, 1);
