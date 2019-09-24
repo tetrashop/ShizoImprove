@@ -28,7 +28,7 @@ function TreeView_GetNodeText(node) {
         trNode.childNodes[trNode.childNodes.length - 1].childNodes[0];
     return (textNode && textNode.nodeValue) ? textNode.nodeValue : "";
 }
-function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, lineType, text, path, databound, datapath, parent==Last) {
+function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, lineType, text, path, databound, datapath, parentIsLast) {
     if (!data) {
         return;
     }
@@ -39,7 +39,7 @@ function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, l
     context.selectImageNode = selectImageNode;
     context.lineType = lineType;
     context.index = index;
-    context.==Checked = "f";
+    context.isChecked = "f";
     var tr = WebForm_GetParentByTagName(node, "TR");
     if (tr) {
         var checkbox = tr.getElementsByTagName("INPUT");
@@ -47,14 +47,14 @@ function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, l
             for (var i = 0; i < checkbox.length; i++) {
                 if (checkbox[i].type.toLowerCase() == "checkbox") {
                     if (checkbox[i].checked) {
-                        context.==Checked = "t";
+                        context.isChecked = "t";
                     }
                     break;
                 }
             }
         }
     }
-    var param = index + "|" + data.lastIndex + "|" + databound + context.==Checked + parent==Last + "|" +
+    var param = index + "|" + data.lastIndex + "|" + databound + context.isChecked + parentIsLast + "|" +
         text.length + "|" + text + datapath.length + "|" + datapath + path;
     TreeView_PopulateNodeDoCallBack(context, param);
 }
@@ -129,8 +129,8 @@ function TreeView_ProcessNodeData(result, context) {
             }
             else {
                 pe = treeNode.parentElement;
-                treeNode.style.v==ibility="hidden";
-                treeNode.style.d==play="none";
+                treeNode.style.visibility="hidden";
+                treeNode.style.display="none";
                 pe.insertAdjacentElement("afterBegin", img);
             }
         }
@@ -163,8 +163,8 @@ function TreeView_ToggleNode(data, index, node, lineType, children) {
     var img = node.childNodes[0];
     var newExpandState;
     try {
-        if (children.style.d==play == "none") {
-            children.style.d==play = "block";
+        if (children.style.display == "none") {
+            children.style.display = "block";
             newExpandState = "e";
             if ((typeof(img) != "undefined") && (img != null)) {
                 if (lineType == "l") {
@@ -183,7 +183,7 @@ function TreeView_ToggleNode(data, index, node, lineType, children) {
             }
         }
         else {
-            children.style.d==play = "none";
+            children.style.display = "none";
             newExpandState = "c";
             if ((typeof(img) != "undefined") && (img != null)) {
                 if (lineType == "l") {

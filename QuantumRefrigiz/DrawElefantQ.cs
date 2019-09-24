@@ -14,25 +14,25 @@ namespace QuantumRefrigiz
         int Spaces = 0;
 
         //A quantum move cannot be used to take a piece.
-        public bool ==QuntumMove = false;
-        //Pieces have rings around them, filled in with colour. These rings show the probability that the piece == in that square.
+        public bool IsQuntumMove = false;
+        //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
         public bool RingHalf = false;
         public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
         public static Image[] E = new Image[2];
         //Initiate Global Variables.
-        L==t<int[]> ValuableSelfSupported = new L==t<int[]>();
+        List<int[]> ValuableSelfSupported = new List<int[]>();
       
-        public bool MovementsAStarGreedyHur==ticFoundT = false;
+        public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
-        public bool UsePenaltyRegardMechn==amT = true;
+        public bool UsePenaltyRegardMechnisamT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHur==ticT = true;
+        public bool PredictHuristicT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHur==ticT = false;
+        public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static long MaxHur==ticxE = -20000000000000000;
+        public static long MaxHuristicxE = -20000000000000000;
         public float Row, Column;
         public ThinkingQuantumChess[] ElefantThinkingQuantum = new ThinkingQuantumChess[AllDraw.ElefantMovments];
         public int[,] Table = null;
@@ -52,27 +52,27 @@ namespace QuantumRefrigiz
                 }
            
         }
-        public void D==pose()
+        public void Dispose()
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             E = null;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("D==pose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
-            int a = ReturnHur==tic();
-                if (MaxHur==ticxE < a)
+            int a = ReturnHuristic();
+                if (MaxHuristicxE < a)
                 {
                     Object O2 = new Object();
                     lock (O2)
                     {
                         MaxNotFound = false;
-                        if (ThinkingQuantumChess.MaxHur==ticx < MaxHur==ticxE)
-                            ThinkingQuantumChess.MaxHur==ticx = a;
-                        MaxHur==ticxE = a;
+                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxE)
+                            ThinkingQuantumChess.MaxHuristicx = a;
+                        MaxHuristicxE = a;
                     }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
@@ -82,33 +82,33 @@ namespace QuantumRefrigiz
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
-        public int ReturnHur==tic()
+        public int ReturnHuristic()
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
                 
-                    a += ElefantThinkingQuantum[ii].ReturnHur==tic(-1, -1, Order, false);
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHur==tic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    a += ElefantThinkingQuantum[ii].ReturnHuristic(-1, -1, Order, false);
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             return a;
         }
 
         //Constructor 1.
-        /*public DrawElefantQ(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments)
+        /*public DrawElefantQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
+            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
+            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
             BestMovmentsT = BestMovment;
-            PredictHur==ticT = PredictHur==t;
+            PredictHuristicT = PredictHurist;
             OnlySelfT = OnlySel;
-            AStarGreedyHur==ticT = AStarGreedyHur==;
+            AStarGreedyHuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
         }*/
         //Constructor 2.
-        public DrawElefantQ(int CurrentAStarGredy, bool MovementsAStarGreedyHur==ticTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechn==a, bool BestMovment, bool PredictHur==t, bool OnlySel, bool AStarGreedyHur==, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. TH==
+        public DrawElefantQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -120,13 +120,13 @@ namespace QuantumRefrigiz
 
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHur==ticFoundT = MovementsAStarGreedyHur==ticTFou;
+                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-                UsePenaltyRegardMechn==amT = UsePenaltyRegardMechn==a;
+                UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
                 BestMovmentsT = BestMovment;
-                PredictHur==ticT = PredictHur==t;
+                PredictHuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-                AStarGreedyHur==ticT = AStarGreedyHur==;
+                AStarGreedyHuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables By Local Parameters.
                 Table = new int[8, 8];
@@ -134,7 +134,7 @@ namespace QuantumRefrigiz
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
-                    ElefantThinkingQuantum[ii] = new ThinkingQuantumChess(2,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
+                    ElefantThinkingQuantum[ii] = new ThinkingQuantumChess(2,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
 
                 Row = i;
                 Column = j;
@@ -145,22 +145,22 @@ namespace QuantumRefrigiz
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawElefant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Clone a Copy.
-        public void Clone(ref DrawElefantQ AA//, ref AllDraw. TH==
+        public void Clone(ref DrawElefantQ AA//, ref AllDraw. THIS
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
-                    Tab[i, j] = th==.Table[i, j];
+                    Tab[i, j] = this.Table[i, j];
             //Initiate a Constructed Object an Clone a Copy.
-            AA = new DrawElefantQ( CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, th==.Row, th==.Column, th==.color, th==.Table, th==.Order, false, th==.Current);
+            AA = new DrawElefantQ( CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.Table, this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.ElefantMovments; i++)
             {
                 
-                    AA.ElefantThinkingQuantum[i] = new ThinkingQuantumChess(2,CurrentAStarGredyMax, MovementsAStarGreedyHur==ticFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechn==amT, BestMovmentsT, PredictHur==ticT, OnlySelfT, AStarGreedyHur==ticT, ArrangmentsChanged, (int)th==.Row, (int)th==.Column);
-                    th==.ElefantThinkingQuantum[i].Clone(ref AA.ElefantThinkingQuantum[i]);
+                    AA.ElefantThinkingQuantum[i] = new ThinkingQuantumChess(2,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    this.ElefantThinkingQuantum[i].Clone(ref AA.ElefantThinkingQuantum[i]);
                
             }
             AA.Table = new int[8, 8];
@@ -189,7 +189,7 @@ namespace QuantumRefrigiz
                         {
                             LastRow = AllDraw.QuntumTable[0, (int)Row, (int)Column];
                         LastColumn = AllDraw.QuntumTable[1, (int)Row, (int)Column];
-                        ==QuntumMove = true;
+                        IsQuntumMove = true;
                     }
                         else
                         if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
@@ -198,7 +198,7 @@ namespace QuantumRefrigiz
                             LastColumn = AllDraw.LastColumnQ;
                             AllDraw.LastRowQ = -1;
                         AllDraw.LastColumnQ = -1;
-                        ==QuntumMove = true;
+                        IsQuntumMove = true;
                     }
                         AllDraw.LastRowQ = -1;
                         AllDraw.LastColumnQ = -1;
@@ -214,7 +214,7 @@ namespace QuantumRefrigiz
                     RingHalf = true;
                 }
                 else
-                    if (==QuntumMove)
+                    if (IsQuntumMove)
                 {
                     RingHalf = true;
                     if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)

@@ -55,28 +55,28 @@ function WebForm_AutoFocus(focusId) {
 function WebForm_CanFocus(element) {
     if (!element || !(element.tagName)) return false;
     var tagName = element.tagName.toLowerCase();
-    return (!(element.d==abled) &&
+    return (!(element.disabled) &&
             (!(element.type) || element.type.toLowerCase() != "hidden") &&
-            WebForm_==FocusableTag(tagName) &&
-            WebForm_==InV==ibleContainer(element)
+            WebForm_IsFocusableTag(tagName) &&
+            WebForm_IsInVisibleContainer(element)
             );
 }
-function WebForm_==FocusableTag(tagName) {
+function WebForm_IsFocusableTag(tagName) {
     return (tagName == "input" ||
             tagName == "textarea" ||
             tagName == "select" ||
             tagName == "button" ||
             tagName == "a");
 }
-function WebForm_==InV==ibleContainer(ctrl) {
+function WebForm_IsInVisibleContainer(ctrl) {
     var current = ctrl;
     while((typeof(current) != "undefined") && (current != null)) {
-        if (current.d==abled ||
+        if (current.disabled ||
             ( typeof(current.style) != "undefined" &&
-            ( ( typeof(current.style.d==play) != "undefined" &&
-                current.style.d==play == "none") ||
-                ( typeof(current.style.v==ibility) != "undefined" &&
-                current.style.v==ibility == "hidden") ) ) ) {
+            ( ( typeof(current.style.display) != "undefined" &&
+                current.style.display == "none") ||
+                ( typeof(current.style.visibility) != "undefined" &&
+                current.style.visibility == "hidden") ) ) ) {
             return false;
         }
         if (typeof(current.parentNode) != "undefined" &&

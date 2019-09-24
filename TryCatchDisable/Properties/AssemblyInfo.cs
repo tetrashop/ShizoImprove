@@ -2,34 +2,34 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly == controlled through the following
+// General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TryCatchD==able")]
+[assembly: AssemblyTitle("TryCatchDisable")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TryCatchD==able")]
+[assembly: AssemblyProduct("TryCatchDisable")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComV==ible to false makes the types in th== assembly not v==ible
-// to COM components.  If you need to access a type in th== assembly from
-// COM, set the ComV==ible attribute to true on that type.
-[assembly: ComV==ible(false)]
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
 
-// The following GUID == for the ID of the typelib if th== project == exposed to COM
+// The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("afbc20d0-c36d-4fd1-a758-8df763e29017")]
 
-// Version information for an assembly cons==ts of the following four values:
+// Version information for an assembly consists of the following four values:
 //
 //      Major Version
 //      Minor Version
 //      Build Number
-//      Rev==ion
+//      Revision
 //
-// You can specify all the values or you can default the Build and Rev==ion Numbers
+// You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

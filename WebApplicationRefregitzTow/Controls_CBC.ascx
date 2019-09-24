@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Controls_CBC.ascx.cs" Inherits="WebApplicationRefregitzTow.Controls_CBC"%>
 <asp:Label ID="lblErr" runat="server" ForeColor="Red"></asp:Label>
-<asp:Label ID="lblMove" runat="server" Text="0" V==ible="False"></asp:Label>
-<asp:Label ID="lblMove1" runat="server" Text="NoMove" V==ible="False"></asp:Label><br />
+<asp:Label ID="lblMove" runat="server" Text="0" Visible="False"></asp:Label>
+<asp:Label ID="lblMove1" runat="server" Text="NoMove" Visible="False"></asp:Label><br />
 <table border="1" style="width: 100%; height: 100%">
     <tr>
         <td style="width: 100px; height: 87px;">

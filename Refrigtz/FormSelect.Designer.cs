@@ -33,94 +33,94 @@ namespace Refrigtz
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="d==posing">true if managed resources should be d==posed; otherw==e, false.</param>
-        protected override void D==pose(bool d==posing)
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            if (d==posing && (components != null))
+            if (disposing && (components != null))
             {
-                components.D==pose();
+                components.Dispose();
             }
-            base.D==pose(d==posing);
+            base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
-        /// the contents of th== method with the code editor.
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            th==.radioButtonGrayOrder = new System.Windows.Forms.RadioButton();
-            th==.radioButtonBrownOrder = new System.Windows.Forms.RadioButton();
-            th==.pictureBoxBrown = new System.Windows.Forms.PictureBox();
-            th==.pictureBoxGray = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.==upportInitialize)(th==.pictureBoxBrown)).BeginInit();
-            ((System.ComponentModel.==upportInitialize)(th==.pictureBoxGray)).BeginInit();
-            th==.SuspendLayout();
+            this.radioButtonGrayOrder = new System.Windows.Forms.RadioButton();
+            this.radioButtonBrownOrder = new System.Windows.Forms.RadioButton();
+            this.pictureBoxBrown = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGray = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGray)).BeginInit();
+            this.SuspendLayout();
             // 
             // radioButtonGrayOrder
             // 
-            th==.radioButtonGrayOrder.AutoSize = true;
-            th==.radioButtonGrayOrder.Checked = true;
-            th==.radioButtonGrayOrder.Location = new System.Drawing.Point(34, 36);
-            th==.radioButtonGrayOrder.Name = "radioButtonGrayOrder";
-            th==.radioButtonGrayOrder.Size = new System.Drawing.Size(14, 13);
-            th==.radioButtonGrayOrder.TabIndex = 0;
-            th==.radioButtonGrayOrder.TabStop = true;
-            th==.radioButtonGrayOrder.UseV==ualStyleBackColor = true;
-            th==.radioButtonGrayOrder.CheckedChanged += new System.EventHandler(th==.radioButtonGrayOrder_CheckedChanged);
+            this.radioButtonGrayOrder.AutoSize = true;
+            this.radioButtonGrayOrder.Checked = true;
+            this.radioButtonGrayOrder.Location = new System.Drawing.Point(34, 36);
+            this.radioButtonGrayOrder.Name = "radioButtonGrayOrder";
+            this.radioButtonGrayOrder.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonGrayOrder.TabIndex = 0;
+            this.radioButtonGrayOrder.TabStop = true;
+            this.radioButtonGrayOrder.UseVisualStyleBackColor = true;
+            this.radioButtonGrayOrder.CheckedChanged += new System.EventHandler(this.radioButtonGrayOrder_CheckedChanged);
             // 
             // radioButtonBrownOrder
             // 
-            th==.radioButtonBrownOrder.AutoSize = true;
-            th==.radioButtonBrownOrder.Location = new System.Drawing.Point(203, 36);
-            th==.radioButtonBrownOrder.Name = "radioButtonBrownOrder";
-            th==.radioButtonBrownOrder.Size = new System.Drawing.Size(14, 13);
-            th==.radioButtonBrownOrder.TabIndex = 2;
-            th==.radioButtonBrownOrder.UseV==ualStyleBackColor = true;
-            th==.radioButtonBrownOrder.CheckedChanged += new System.EventHandler(th==.radioButtonBrownOrder_CheckedChanged);
+            this.radioButtonBrownOrder.AutoSize = true;
+            this.radioButtonBrownOrder.Location = new System.Drawing.Point(203, 36);
+            this.radioButtonBrownOrder.Name = "radioButtonBrownOrder";
+            this.radioButtonBrownOrder.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonBrownOrder.TabIndex = 2;
+            this.radioButtonBrownOrder.UseVisualStyleBackColor = true;
+            this.radioButtonBrownOrder.CheckedChanged += new System.EventHandler(this.radioButtonBrownOrder_CheckedChanged);
             // 
             // pictureBoxBrown
             // 
-            th==.pictureBoxBrown.BackgroundImage = global::Refrigtz.Properties.Resources.KB;
-            th==.pictureBoxBrown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            th==.pictureBoxBrown.Location = new System.Drawing.Point(258, 12);
-            th==.pictureBoxBrown.Name = "pictureBoxBrown";
-            th==.pictureBoxBrown.Size = new System.Drawing.Size(78, 75);
-            th==.pictureBoxBrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            th==.pictureBoxBrown.TabIndex = 3;
-            th==.pictureBoxBrown.TabStop = false;
+            this.pictureBoxBrown.BackgroundImage = global::Refrigtz.Properties.Resources.KB;
+            this.pictureBoxBrown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxBrown.Location = new System.Drawing.Point(258, 12);
+            this.pictureBoxBrown.Name = "pictureBoxBrown";
+            this.pictureBoxBrown.Size = new System.Drawing.Size(78, 75);
+            this.pictureBoxBrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBrown.TabIndex = 3;
+            this.pictureBoxBrown.TabStop = false;
             // 
             // pictureBoxGray
             // 
-            th==.pictureBoxGray.BackgroundImage = global::Refrigtz.Properties.Resources.KG;
-            th==.pictureBoxGray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            th==.pictureBoxGray.Location = new System.Drawing.Point(76, 12);
-            th==.pictureBoxGray.Name = "pictureBoxGray";
-            th==.pictureBoxGray.Size = new System.Drawing.Size(77, 74);
-            th==.pictureBoxGray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            th==.pictureBoxGray.TabIndex = 1;
-            th==.pictureBoxGray.TabStop = false;
+            this.pictureBoxGray.BackgroundImage = global::Refrigtz.Properties.Resources.KG;
+            this.pictureBoxGray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxGray.Location = new System.Drawing.Point(76, 12);
+            this.pictureBoxGray.Name = "pictureBoxGray";
+            this.pictureBoxGray.Size = new System.Drawing.Size(77, 74);
+            this.pictureBoxGray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGray.TabIndex = 1;
+            this.pictureBoxGray.TabStop = false;
             // 
             // FormSelect
             // 
-            th==.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            th==.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            th==.ClientSize = new System.Drawing.Size(370, 99);
-            th==.Controls.Add(th==.pictureBoxBrown);
-            th==.Controls.Add(th==.radioButtonBrownOrder);
-            th==.Controls.Add(th==.pictureBoxGray);
-            th==.Controls.Add(th==.radioButtonGrayOrder);
-            th==.MaximizeBox = false;
-            th==.MinimizeBox = false;
-            th==.Name = "FormSelect";
-            th==.Text = "Select";
-            th==.Load += new System.EventHandler(th==.FormSelect_Load);
-            ((System.ComponentModel.==upportInitialize)(th==.pictureBoxBrown)).EndInit();
-            ((System.ComponentModel.==upportInitialize)(th==.pictureBoxGray)).EndInit();
-            th==.ResumeLayout(false);
-            th==.PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(370, 99);
+            this.Controls.Add(this.pictureBoxBrown);
+            this.Controls.Add(this.radioButtonBrownOrder);
+            this.Controls.Add(this.pictureBoxGray);
+            this.Controls.Add(this.radioButtonGrayOrder);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormSelect";
+            this.Text = "Select";
+            this.Load += new System.EventHandler(this.FormSelect_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGray)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

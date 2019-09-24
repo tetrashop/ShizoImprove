@@ -6,7 +6,7 @@ using Microsoft.AspNet.Membership.OpenAuth;
 
 namespace WebApplicationRefregitzTow.Account
 {
-    public partial class Reg==terExternalLogin : System.Web.UI.Page
+    public partial class RegisterExternalLogin : System.Web.UI.Page
     {
         protected string ProviderName
         {
@@ -14,10 +14,10 @@ namespace WebApplicationRefregitzTow.Account
             private set { ViewState["ProviderName"] = value; }
         }
 
-        protected string ProviderD==playName
+        protected string ProviderDisplayName
         {
-            get { return (string)ViewState["ProviderD==playName"] ?? String.Empty; }
-            private set { ViewState["ProviderD==playName"] = value; }
+            get { return (string)ViewState["ProviderDisplayName"] ?? String.Empty; }
+            private set { ViewState["ProviderDisplayName"] = value; }
         }
 
         protected string ProviderUserId
@@ -34,7 +34,7 @@ namespace WebApplicationRefregitzTow.Account
 
         protected void Page_Load()
         {
-            if (!==PostBack)
+            if (!IsPostBack)
             {
                 ProcessProviderResult();
             }
@@ -55,37 +55,37 @@ namespace WebApplicationRefregitzTow.Account
             // Process the result from an auth provider in the request
             ProviderName = OpenAuth.GetProviderNameFromCurrentRequest();
 
-            if (String.==NullOrEmpty(ProviderName))
+            if (String.IsNullOrEmpty(ProviderName))
             {
                 Response.Redirect(FormsAuthentication.LoginUrl);
             }
 
             // Build the redirect url for OpenAuth verification
-            var redirectUrl = "~/Account/Reg==terExternalLogin";
+            var redirectUrl = "~/Account/RegisterExternalLogin";
             var returnUrl = Request.QueryString["ReturnUrl"];
-            if (!String.==NullOrEmpty(returnUrl))
+            if (!String.IsNullOrEmpty(returnUrl))
             {
                 redirectUrl += "?ReturnUrl=" + HttpUtility.UrlEncode(returnUrl);
             }
 
             // Verify the OpenAuth payload
             var authResult = OpenAuth.VerifyAuthentication(redirectUrl);
-            ProviderD==playName = OpenAuth.GetProviderD==playName(ProviderName);
-            if (!authResult.==Successful)
+            ProviderDisplayName = OpenAuth.GetProviderDisplayName(ProviderName);
+            if (!authResult.IsSuccessful)
             {
                 Title = "External login failed";
-                userNameForm.V==ible = false;
+                userNameForm.Visible = false;
 
-                ModelState.AddModelError("Provider", String.Format("External login {0} failed.", ProviderD==playName));
+                ModelState.AddModelError("Provider", String.Format("External login {0} failed.", ProviderDisplayName));
 
-                // To view th== error, enable page tracing in web.config (<system.web><trace enabled="true"/></system.web>) and v==it ~/Trace.axd
-                Trace.Warn("OpenAuth", String.Format("There was an error verifying authentication with {0})", ProviderD==playName), authResult.Error);
+                // To view this error, enable page tracing in web.config (<system.web><trace enabled="true"/></system.web>) and visit ~/Trace.axd
+                Trace.Warn("OpenAuth", String.Format("There was an error verifying authentication with {0})", ProviderDisplayName), authResult.Error);
                 return;
             }
 
             // User has logged in with provider successfully
-            // Check if user == already reg==tered locally
-            if (OpenAuth.Login(authResult.Provider, authResult.ProviderUserId, createPers==tentCookie: false))
+            // Check if user is already registered locally
+            if (OpenAuth.Login(authResult.Provider, authResult.ProviderUserId, createPersistentCookie: false))
             {
                 RedirectToReturnUrl();
             }
@@ -98,28 +98,28 @@ namespace WebApplicationRefregitzTow.Account
             // Strip the query string from action
             Form.Action = ResolveUrl(redirectUrl);
 
-            if (User.Identity.==Authenticated)
+            if (User.Identity.IsAuthenticated)
             {
-                // User == already authenticated, add the external login and redirect to return url
-                OpenAuth.AddAccountToEx==tingUser(ProviderName, ProviderUserId, ProviderUserName, User.Identity.Name);
+                // User is already authenticated, add the external login and redirect to return url
+                OpenAuth.AddAccountToExistingUser(ProviderName, ProviderUserId, ProviderUserName, User.Identity.Name);
                 RedirectToReturnUrl();
             }
             else
             {
-                // User == new, ask for their desired membership name
+                // User is new, ask for their desired membership name
                 userName.Text = authResult.UserName;
             }
         }
 
         private void CreateAndLoginUser()
         {
-            if (!==Valid)
+            if (!IsValid)
             {
                 return;
             }
 
             var createResult = OpenAuth.CreateUser(ProviderName, ProviderUserId, ProviderUserName, userName.Text);
-            if (!createResult.==Successful)
+            if (!createResult.IsSuccessful)
             {
 
                 ModelState.AddModelError("UserName", createResult.ErrorMessage);
@@ -128,7 +128,7 @@ namespace WebApplicationRefregitzTow.Account
             else
             {
                 // User created & associated OK
-                if (OpenAuth.Login(ProviderName, ProviderUserId, createPers==tentCookie: false))
+                if (OpenAuth.Login(ProviderName, ProviderUserId, createPersistentCookie: false))
                 {
                     RedirectToReturnUrl();
                 }
@@ -138,7 +138,7 @@ namespace WebApplicationRefregitzTow.Account
         private void RedirectToReturnUrl()
         {
             var returnUrl = Request.QueryString["ReturnUrl"];
-            if (!String.==NullOrEmpty(returnUrl) && OpenAuth.==LocalUrl(returnUrl))
+            if (!String.IsNullOrEmpty(returnUrl) && OpenAuth.IsLocalUrl(returnUrl))
             {
                 Response.Redirect(returnUrl);
             }

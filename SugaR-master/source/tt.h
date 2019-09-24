@@ -1,30 +1,30 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockf==h
+  SugaR, a UCI chess playing engine derived from Stockfish
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  SugaR == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  SugaR is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR == d==tributed in the hope that it will be useful,
+  SugaR is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef TT_H_INCLUDED
 #define TT_H_INCLUDED
 
-#include "m==c.h"
+#include "misc.h"
 #include "types.h"
 
-/// TTEntry struct == the 10 bytes transposition table entry, defined as below:
+/// TTEntry struct is the 10 bytes transposition table entry, defined as below:
 ///
 /// key        16 bit
 /// move       16 bit
@@ -46,7 +46,7 @@ struct TTEntry {
 
     assert(d / ONE_PLY * ONE_PLY == d);
 
-    // Preserve any ex==ting move for the same position
+    // Preserve any existing move for the same position
     if (m || (k >> 48) != key16)
         move16 = (uint16_t)m;
 
@@ -76,11 +76,11 @@ private:
 };
 
 
-/// A TranspositionTable cons==ts of a power of 2 number of clusters and each
-/// cluster cons==ts of ClusterSize number of TTEntry. Each non-empty entry
+/// A TranspositionTable consists of a power of 2 number of clusters and each
+/// cluster consists of ClusterSize number of TTEntry. Each non-empty entry
 /// contains information of exactly one position. The size of a cluster should
 /// divide the size of a cache line size, to ensure that clusters never cross
-/// cache lines. Th== ensures best cache performance, as the cacheline ==
+/// cache lines. This ensures best cache performance, as the cacheline is
 /// prefetched, as soon as possible.
 
 class TranspositionTable {
@@ -90,7 +90,7 @@ class TranspositionTable {
 
   struct Cluster {
     TTEntry entry[ClusterSize];
-    char padding[2]; // Align to a div==or of the cache line size
+    char padding[2]; // Align to a divisor of the cache line size
   };
 
   static_assert(CacheLineSize % sizeof(Cluster) == 0, "Cluster size incorrect");

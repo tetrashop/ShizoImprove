@@ -45,10 +45,10 @@
             </div>
             <div class="float-right">
                 <section id="login">
-                    <asp:LoginView runat="server" ViewStateMode="D==abled">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul>
-                                <li><a id="reg==terLink" runat="server" href="~/Account/Reg==ter">Reg==ter</a></li>
+                                <li><a id="registerLink" runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a id="loginLink" runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>

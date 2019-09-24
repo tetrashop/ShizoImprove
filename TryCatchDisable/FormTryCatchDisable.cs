@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 
-namespace TryCatchD==able
+namespace TryCatchDisable
 {
-    public partial class FormTryCatchD==able : Form
+    public partial class FormTryCatchDisable : Form
     {
         static void Log(Exception ex)
         {
@@ -29,17 +29,17 @@ namespace TryCatchD==able
                 Log(t);
             }
         }
-        public FormTryCatchD==able()
+        public FormTryCatchDisable()
         {
             InitializeComponent();
         }
 
-        private void buttonTryCatchD==able_Click(object sender, EventArgs e)
+        private void buttonTryCatchDisable_Click(object sender, EventArgs e)
         {
             try
             {
-                openFileDialogTryCatchD==able.ShowDialog();
-                String A = openFileDialogTryCatchD==able.FileName;
+                openFileDialogTryCatchDisable.ShowDialog();
+                String A = openFileDialogTryCatchDisable.FileName;
                 String Contain = System.IO.File.ReadAllText(A);
                 int A1 = Contain.IndexOf("try");
                 int A2 = A1;
@@ -67,8 +67,8 @@ namespace TryCatchD==able
                     CatchReplace(ref Contain, A2, A2);
                 }
                 catch (Exception t) { Log(t); }
-                saveDialogFileTryCatchD==able.ShowDialog();
-                System.IO.File.WriteAllText(saveDialogFileTryCatchD==able.FileName, Contain);
+                saveDialogFileTryCatchDisable.ShowDialog();
+                System.IO.File.WriteAllText(saveDialogFileTryCatchDisable.FileName, Contain);
                 MessageBox.Show("Done!");
 
             }
@@ -114,21 +114,21 @@ namespace TryCatchD==able
         {
             try
             {
-                int ==MainClosedBraket = 0;
+                int IsMainClosedBraket = 0;
                 do
                 {
                     bool Ign = IgnoreofCommentsDoubleSlash(Contain, MainOpenBracketIndex);
 
                     if (Contain[MainOpenBracketIndex].Equals('{') && (!Ign))
-                        ==MainClosedBraket++;
+                        IsMainClosedBraket++;
 
-                    if (Contain[MainOpenBracketIndex].Equals('}') && ==MainClosedBraket == 1 && (!Ign))
+                    if (Contain[MainOpenBracketIndex].Equals('}') && IsMainClosedBraket == 1 && (!Ign))
                     {
                         return MainOpenBracketIndex;
                     }
                     else
-                    if (Contain[MainOpenBracketIndex].Equals('}') && ==MainClosedBraket >= 1 && (!Ign))
-                        ==MainClosedBraket--;
+                    if (Contain[MainOpenBracketIndex].Equals('}') && IsMainClosedBraket >= 1 && (!Ign))
+                        IsMainClosedBraket--;
                     MainOpenBracketIndex++;
                 } while (MainOpenBracketIndex < Contain.Length);
             }
@@ -144,7 +144,7 @@ namespace TryCatchD==able
             try
             {
 
-                bool ==New = false;
+                bool IsNew = false;
 
                 while (A2 < Contain.Length && A2 > 0)
                 {

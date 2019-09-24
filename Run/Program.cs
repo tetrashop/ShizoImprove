@@ -42,7 +42,7 @@ namespace Run
         {
             String Root = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
        
-            L==t<Process> a = new L==t<Process>();
+            List<Process> a = new List<Process>();
             a.AddRange(Process.GetProcessesByName("Refrigtz"));
             if (a.Count >= 1)
             {
@@ -68,7 +68,7 @@ namespace Run
 
             // Prepare the process to run
             ProcessStartInfo start = new ProcessStartInfo();
-            //TBeep.Start(); MessageBox.Show("running V==ualBasicPowerPacks.Control Of the Program While 15 Second id By User.ClickOk and Fin==hed While 20 Second");
+            //TBeep.Start(); MessageBox.Show("running VisualBasicPowerPacks.Control Of the Program While 15 Second id By User.ClickOk and Finished While 20 Second");
             // Prepare the process to run
             // Enter in the command line arguments, everything you would enter after the executable name itself
             start.Arguments = "";
@@ -79,7 +79,7 @@ namespace Run
             start.CreateNoWindow = true;
             start.UseShellExecute = true;
 
-            // Run the external process & wait for it to fin==h
+            // Run the external process & wait for it to finish
             using (Process proc = Process.Start(start))
             {
                 proc.WaitForExit();

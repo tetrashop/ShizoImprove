@@ -57,23 +57,23 @@ namespace RefrigtzW
                 return Hu;
             }
         }
-        public int ==RewardActionNet(int Row, int Column)
+        public int IsRewardActionNet(int Row, int Column)
         {
             Object o = new Object();
             lock (o)
             {
-                if (Netfi[Row, Column].==Reward)
+                if (Netfi[Row, Column].IsReward)
                     return 1;
                 return -1;
             }
         }
 
-        public double ==PenaltyActionNet(int Row, int Column)
+        public double IsPenaltyActionNet(int Row, int Column)
         {
             Object o = new Object();
             lock (o)
             {
-                if (Netfi[Row, Column].==Penalty)
+                if (Netfi[Row, Column].IsPenalty)
                     return 0;
                 return -1;
             }

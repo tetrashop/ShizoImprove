@@ -1,34 +1,34 @@
-# Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
+# Stockfish, a UCI chess playing engine derived from Glaurung 2.1
 # Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-# Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-# Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+# Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+# Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 #
-# Stockf==h == free software: you can red==tribute it and/or modify
-# it under the terms of the GNU General Public License as publ==hed by
+# Stockfish is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# Stockf==h == d==tributed in the hope that it will be useful,
+# Stockfish is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 ### ==========================================================================
 ### Section 1. General Configuration
 ### ==========================================================================
 
-### Establ==h the operating system name
+### Establish the operating system name
 KERNEL = $(shell uname -s)
 ifeq ($(KERNEL),Linux)
 	OS = $(shell uname -o)
 endif
 
 ### Executable name
-EXE = stockf==h
+EXE = stockfish
 
 ### Installation dir definitions
 PREFIX = /usr/local
@@ -39,7 +39,7 @@ PGOBENCH = ./$(EXE) bench
 
 ### Object files
 OBJS = benchmark.o bitbase.o bitboard.o endgame.o evaluate.o main.o \
-	material.o m==c.o movegen.o movepick.o pawns.o position.o psqt.o \
+	material.o misc.o movegen.o movepick.o pawns.o position.o psqt.o \
 	search.o thread.o timeman.o tt.o uci.o ucioption.o syzygy/tbprobe.o
 
 ### ==========================================================================
@@ -49,18 +49,18 @@ OBJS = benchmark.o bitbase.o bitboard.o endgame.o evaluate.o main.o \
 # flag                --- Comp switch --- Description
 # ----------------------------------------------------------------------------
 #
-# debug = yes/no      --- -DNDEBUG         --- Enable/D==able debug mode
+# debug = yes/no      --- -DNDEBUG         --- Enable/Disable debug mode
 # sanitize = yes/no   --- (-fsanitize )    --- enable undefined behavior checks
-# optimize = yes/no   --- (-O3/-fast etc.) --- Enable/D==able optimizations
+# optimize = yes/no   --- (-O3/-fast etc.) --- Enable/Disable optimizations
 # arch = (name)       --- (-arch)          --- Target architecture
-# bits = 64/32        --- -D==_64BIT       --- 64-/32-bit operating system
+# bits = 64/32        --- -DIS_64BIT       --- 64-/32-bit operating system
 # prefetch = yes/no   --- -DUSE_PREFETCH   --- Use prefetch asm-instruction
 # popcnt = yes/no     --- -DUSE_POPCNT     --- Use popcnt asm-instruction
 # sse = yes/no        --- -msse            --- Use Intel Streaming SIMD Extensions
 # pext = yes/no       --- -DUSE_PEXT       --- Use pext x86_64 asm-instruction
 #
-# Note that Makefile == space sensitive, so when adding new architectures
-# or modifying ex==ting flags, you have to make sure there are no extra spaces
+# Note that Makefile is space sensitive, so when adding new architectures
+# or modifying existing flags, you have to make sure there are no extra spaces
 # at the end of the line for flag values.
 
 ### 2.1. General and architecture defaults
@@ -193,7 +193,7 @@ endif
 ifeq ($(COMP),icc)
 	comp=icc
 	CXX=icpc
-	CXXFLAGS += -diag-d==able 1476,10120 -Wcheck -Wabi -Wdeprecated -strict-ansi
+	CXXFLAGS += -diag-disable 1476,10120 -Wcheck -Wabi -Wdeprecated -strict-ansi
 endif
 
 ifeq ($(COMP),clang)
@@ -234,7 +234,7 @@ ifeq ($(KERNEL),Darwin)
 	LDFLAGS += -arch $(arch) -mmacosx-version-min=10.9
 endif
 
-### Trav== CI script uses COMPILER to overwrite CXX
+### Travis CI script uses COMPILER to overwrite CXX
 ifdef COMPILER
 	COMPCXX=$(COMPILER)
 endif
@@ -244,7 +244,7 @@ ifdef COMPCXX
 	CXX=$(COMPCXX)
 endif
 
-### On mingw use Windows threads, otherw==e POSIX
+### On mingw use Windows threads, otherwise POSIX
 ifneq ($(comp),mingw)
 	# On Android Bionic's C library comes with its own pthread implementation bundled in
 	ifneq ($(OS),Android)
@@ -312,7 +312,7 @@ endif
 
 ### 3.4 Bits
 ifeq ($(bits),64)
-	CXXFLAGS += -D==_64BIT
+	CXXFLAGS += -DIS_64BIT
 endif
 
 ### 3.5 prefetch
@@ -343,7 +343,7 @@ ifeq ($(pext),yes)
 endif
 
 ### 3.8 Link Time Optimization, it works since gcc 4.5 but not on mingw under Windows.
-### Th== == a mix of compile and link time options because the lto link phase
+### This is a mix of compile and link time options because the lto link phase
 ### needs access to the optimization flags.
 ifeq ($(comp),gcc)
 	ifeq ($(optimize),yes)
@@ -365,7 +365,7 @@ ifeq ($(comp),mingw)
 	endif
 endif
 
-### 3.9 Android 5 can only run position independent executables. Note that th==
+### 3.9 Android 5 can only run position independent executables. Note that this
 ### breaks Android 4.0 and earlier.
 ifeq ($(OS), Android)
 	CXXFLAGS += -fPIE
@@ -379,7 +379,7 @@ endif
 
 help:
 	@echo ""
-	@echo "To compile stockf==h, type: "
+	@echo "To compile stockfish, type: "
 	@echo ""
 	@echo "make target ARCH=arch [COMP=compiler] [COMPCXX=cxx]"
 	@echo ""
@@ -413,8 +413,8 @@ help:
 	@echo ""
 	@echo "Simple examples. If you don't know what to do, you likely want to run: "
 	@echo ""
-	@echo "make build ARCH=x86-64    (Th== == for 64-bit systems)"
-	@echo "make build ARCH=x86-32    (Th== == for 32-bit systems)"
+	@echo "make build ARCH=x86-64    (This is for 64-bit systems)"
+	@echo "make build ARCH=x86-32    (This is for 32-bit systems)"
 	@echo ""
 	@echo "Advanced examples, for experienced users: "
 	@echo ""
@@ -487,7 +487,7 @@ config-sanity:
 	@echo "CXXFLAGS: $(CXXFLAGS)"
 	@echo "LDFLAGS: $(LDFLAGS)"
 	@echo ""
-	@echo "Testing config sanity. If th== fails, try 'make help' ..."
+	@echo "Testing config sanity. If this fails, try 'make help' ..."
 	@echo ""
 	@test "$(debug)" = "yes" || test "$(debug)" = "no"
 	@test "$(optimize)" = "yes" || test "$(optimize)" = "no"

@@ -14,9 +14,9 @@ namespace WebApplicationRefregitzTow
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
-            BundleConfig.Reg==terBundles(BundleTable.Bundles);
-            AuthConfig.Reg==terOpenAuth();
-            RouteConfig.Reg==terRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AuthConfig.RegisterOpenAuth();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
         void Application_End(object sender, EventArgs e)

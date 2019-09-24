@@ -1,29 +1,29 @@
 /*
-  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
+  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  Stockf==h == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  Stockfish is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockf==h == d==tributed in the hope that it will be useful,
+  Stockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <fstream>
 #include <iostream>
-#include <==tream>
+#include <istream>
 #include <vector>
 
-#include "m==c.h"
+#include "misc.h"
 #include "position.h"
 #include "search.h"
 #include "thread.h"
@@ -88,33 +88,33 @@ const vector<string> Defaults = {
 
 } // namespace
 
-/// benchmark() runs a simple benchmark by letting Stockf==h analyze a set
+/// benchmark() runs a simple benchmark by letting Stockfish analyze a set
 /// of positions for a given limit each. There are five parameters: the
 /// transposition table size, the number of search threads that should
-/// be used, the limit value spent for each position (optional, default ==
+/// be used, the limit value spent for each position (optional, default is
 /// depth 13), an optional file name where to look for positions in FEN
 /// format (defaults are the positions defined above) and the type of the
-/// limit value: depth (default), time in mill==ecs or number of nodes.
+/// limit value: depth (default), time in millisecs or number of nodes.
 
-void benchmark(const Position& current, ==tream& ==) {
+void benchmark(const Position& current, istream& is) {
 
   string token;
   vector<string> fens;
   Search::LimitsType limits;
 
-  // Assign default values to m==sing arguments
-  string ttSize    = (== >> token) ? token : "16";
-  string threads   = (== >> token) ? token : "1";
-  string limit     = (== >> token) ? token : "13";
-  string fenFile   = (== >> token) ? token : "default";
-  string limitType = (== >> token) ? token : "depth";
+  // Assign default values to missing arguments
+  string ttSize    = (is >> token) ? token : "16";
+  string threads   = (is >> token) ? token : "1";
+  string limit     = (is >> token) ? token : "13";
+  string fenFile   = (is >> token) ? token : "default";
+  string limitType = (is >> token) ? token : "depth";
 
   Options["Hash"]    = ttSize;
   Options["Threads"] = threads;
   Search::clear();
 
   if (limitType == "time")
-      limits.movetime = stoi(limit); // movetime == in mill==ecs
+      limits.movetime = stoi(limit); // movetime is in millisecs
 
   else if (limitType == "nodes")
       limits.nodes = stoi(limit);
@@ -136,7 +136,7 @@ void benchmark(const Position& current, ==tream& ==) {
       string fen;
       ifstream file(fenFile);
 
-      if (!file.==_open())
+      if (!file.is_open())
       {
           cerr << "Unable to open file " << fenFile << endl;
           return;
@@ -155,7 +155,7 @@ void benchmark(const Position& current, ==tream& ==) {
 
   for (size_t i = 0; i < fens.size(); ++i)
   {
-      StateL==tPtr states(new std::deque<StateInfo>(1));
+      StateListPtr states(new std::deque<StateInfo>(1));
       pos.set(fens[i], Options["UCI_Chess960"], &states->back(), Threads.main());
 
       cerr << "\nPosition: " << i + 1 << '/' << fens.size() << endl;
@@ -167,7 +167,7 @@ void benchmark(const Position& current, ==tream& ==) {
       {
           limits.startTime = now();
           Threads.start_thinking(pos, states, limits);
-          Threads.main()->wait_for_search_fin==hed();
+          Threads.main()->wait_for_search_finished();
           nodes += Threads.nodes_searched();
       }
   }

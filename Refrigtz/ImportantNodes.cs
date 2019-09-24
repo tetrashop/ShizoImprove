@@ -9,20 +9,20 @@ namespace Refrigtz
     class ImportantNodes
     {
 
-        L==t<Soldier> S;
-        L==t<Elephant> E;
-        L==t<Hourse> H;
-        L==t<Bridge> B;
-        L==t<Min==ter> M;
-        L==t<King> K;
+        List<Soldier> S;
+        List<Elephant> E;
+        List<Hourse> H;
+        List<Bridge> B;
+        List<Minister> M;
+        List<King> K;
         public ImportantNodes()
         {
-            S = new L==t<Soldier>(); 
-            E = new L==t<Elephant>(); 
-            H = new L==t<Hourse>(); 
-            B = new L==t<Bridge>(); 
-            M = new L==t<Min==ter>(); 
-            K = new L==t<King>();
+            S = new List<Soldier>(); 
+            E = new List<Elephant>(); 
+            H = new List<Hourse>(); 
+            B = new List<Bridge>(); 
+            M = new List<Minister>(); 
+            K = new List<King>();
         }
         /// <summary>
         /// Only Table needs to constructe location arranged in six separated class
@@ -34,7 +34,7 @@ namespace Refrigtz
             E.Add(new Elephant(Table));
             H.Add(new Hourse(Table));
             B.Add(new Bridge(Table));
-            M.Add(new Min==ter(Table));
+            M.Add(new Minister(Table));
             K.Add(new King(Table)); 
         }
     }
@@ -43,7 +43,7 @@ namespace Refrigtz
 
         public int GrayNumbers = 0;
         public int BrowNumbers = 0;
-        public L==t<int[]> Solders = new L==t<int[]>();
+        public List<int[]> Solders = new List<int[]>();
         public Soldier(int[,] Tabl)
         {
             SetSolders(Tabl);
@@ -97,7 +97,7 @@ namespace Refrigtz
 
         public int GrayNumbers = 0;
         public int BrowNumbers = 0;
-        public L==t<int[]> Elephants = new L==t<int[]>();
+        public List<int[]> Elephants = new List<int[]>();
         public Elephant(int[,] Tabl)
         {
             SetElephants(Tabl);
@@ -151,7 +151,7 @@ namespace Refrigtz
 
         public int GrayNumbers = 0;
         public int BrowNumbers = 0;
-        public L==t<int[]> Hourses = new L==t<int[]>();
+        public List<int[]> Hourses = new List<int[]>();
         public Hourse(int[,] Tabl)
         {
             SetHourses(Tabl);
@@ -205,7 +205,7 @@ namespace Refrigtz
 
         public int GrayNumbers = 0;
         public int BrowNumbers = 0;
-        public L==t<int[]> Bridges = new L==t<int[]>();
+        public List<int[]> Bridges = new List<int[]>();
         public Bridge(int[,] Tabl)
         {
             SetBridges(Tabl);
@@ -254,17 +254,17 @@ namespace Refrigtz
 
         }
     }
-    class Min==ter
+    class Minister
     {
 
         public int GrayNumbers = 0;
         public int BrowNumbers = 0;
-        public L==t<int[]> Min==ters = new L==t<int[]>();
-        public Min==ter(int[,] Tabl)
+        public List<int[]> Ministers = new List<int[]>();
+        public Minister(int[,] Tabl)
         {
-            SetMin==ters(Tabl);
+            SetMinisters(Tabl);
         }
-        public void SetMin==ters(int[,] Table)
+        public void SetMinisters(int[,] Table)
         {
 
             for (int i = 0; i < 8; i++)
@@ -275,17 +275,17 @@ namespace Refrigtz
                         int[] RowColumn = new int[2];
                         RowColumn[0] = i;
                         RowColumn[1] = j;
-                        Min==ters.Add(RowColumn);
+                        Ministers.Add(RowColumn);
                     }
                 }
-            for (int i = Min==ters.Count; i < 1; i++)
+            for (int i = Ministers.Count; i < 1; i++)
             {
                 int[] RowColumn = new int[2];
                 RowColumn[0] = -1;
                 RowColumn[1] = -1;
-                Min==ters.Add(RowColumn);
+                Ministers.Add(RowColumn);
             }
-            GrayNumbers = Min==ters.Count;
+            GrayNumbers = Ministers.Count;
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                 {
@@ -294,16 +294,16 @@ namespace Refrigtz
                         int[] RowColumn = new int[2];
                         RowColumn[0] = i;
                         RowColumn[1] = j;
-                        Min==ters.Add(RowColumn);
+                        Ministers.Add(RowColumn);
                     }
                 }
-            BrowNumbers = Min==ters.Count;
-            for (int i = Min==ters.Count; i < 2; i++)
+            BrowNumbers = Ministers.Count;
+            for (int i = Ministers.Count; i < 2; i++)
             {
                 int[] RowColumn = new int[2];
                 RowColumn[0] = -1;
                 RowColumn[1] = -1;
-                Min==ters.Add(RowColumn);
+                Ministers.Add(RowColumn);
             }
 
         }
@@ -313,7 +313,7 @@ namespace Refrigtz
 
         public int GrayNumbers = 0;
         public int BrowNumbers = 0;
-        public L==t<int[]> Kings = new L==t<int[]>();
+        public List<int[]> Kings = new List<int[]>();
         public King(int[,] Tabl)
         {
             SetKings(Tabl);

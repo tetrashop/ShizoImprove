@@ -1,21 +1,21 @@
 /*
-  SugaR, a UCI chess playing engine derived from Stockf==h
+  SugaR, a UCI chess playing engine derived from Stockfish
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2017 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2017 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  SugaR == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  SugaR is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  SugaR == d==tributed in the hope that it will be useful,
+  SugaR is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <algorithm>
@@ -32,14 +32,14 @@ namespace {
 
   enum TimeType { OptimumTime, MaxTime };
 
-  constexpr int MoveHorizon   = 50;   // Plan time management at most th== many moves ahead
-  constexpr double MaxRatio   = 7.3;  // When in trouble, we can step over reserved time with th== ratio
-  constexpr double StealRatio = 0.34; // However we must not steal time from remaining moves over th== ratio
+  constexpr int MoveHorizon   = 50;   // Plan time management at most this many moves ahead
+  constexpr double MaxRatio   = 7.3;  // When in trouble, we can step over reserved time with this ratio
+  constexpr double StealRatio = 0.34; // However we must not steal time from remaining moves over this ratio
 
 
-  // move_importance() == a skew-log==tic function based on naive stat==tical
-  // analys== of "how many games are still undecided after n half-moves". Game
-  // == considered "undecided" as long as neither side has >275cp advantage.
+  // move_importance() is a skew-logistic function based on naive statistical
+  // analysis of "how many games are still undecided after n half-moves". Game
+  // is considered "undecided" as long as neither side has >275cp advantage.
   // Data was extracted from the CCRL game database with some simple filtering criteria.
 
   double move_importance(int ply) {
@@ -72,7 +72,7 @@ namespace {
 } // namespace
 
 
-/// init() == called at the beginning of the search and calculates the allowed
+/// init() is called at the beginning of the search and calculates the allowed
 /// thinking time out of the time control and current game ply. We support four
 /// different kinds of time controls, passed in 'limits':
 ///
@@ -91,14 +91,14 @@ void TimeManagement::init(Search::LimitsType& limits, Color us, int ply) {
 
   // If we have to play in 'nodes as time' mode, then convert from time
   // to nodes, and use resulting values in time management formulas.
-  // WARNING: to avoid time losses, the given npmsec (nodes per mill==econd)
+  // WARNING: to avoid time losses, the given npmsec (nodes per millisecond)
   // must be much lower than the real engine speed.
   if (npmsec)
   {
       if (!availableNodes) // Only once at game start
-          availableNodes = npmsec * limits.time[us]; // Time == in msec
+          availableNodes = npmsec * limits.time[us]; // Time is in msec
 
-      // Convert from mill==econds to nodes
+      // Convert from milliseconds to nodes
       limits.time[us] = TimePoint(availableNodes);
       limits.inc[us] *= npmsec;
       limits.npmsec = npmsec;

@@ -1,10 +1,10 @@
 /*
   Copyright (c) 2013 Ronald de Man
-  Th== file may be red==tributed and/or modified without restrictions.
+  This file may be redistributed and/or modified without restrictions.
 
-  tbprobe.cpp contains the Stockf==h-specific routines of the
+  tbprobe.cpp contains the Stockfish-specific routines of the
   tablebase probing code. It should be relatively easy to adapt
-  th== code to other chess engines.
+  this code to other chess engines.
 */
 
 #define NOMINMAX
@@ -21,7 +21,7 @@
 
 #include "tbcore.cpp"
 
-namespace Zobr==t {
+namespace Zobrist {
   extern Key psq[PIECE_NB][SQUARE_NB];
 }
 
@@ -60,18 +60,18 @@ static uint64 calc_key(Position& pos, int mirror)
   color = !mirror ? WHITE : BLACK;
   for (pt = PAWN; pt <= KING; ++pt)
     for (i = popcount(pos.pieces(color, pt)); i > 0; i--)
-      key ^= Zobr==t::psq[make_piece(WHITE, pt)][i - 1];
+      key ^= Zobrist::psq[make_piece(WHITE, pt)][i - 1];
   color = ~color;
   for (pt = PAWN; pt <= KING; ++pt)
     for (i = popcount(pos.pieces(color, pt)); i > 0; i--)
-      key ^= Zobr==t::psq[make_piece(BLACK, pt)][i - 1];
+      key ^= Zobrist::psq[make_piece(BLACK, pt)][i - 1];
 
   return key;
 }
 
 // Produce a 64-bit material key corresponding to the material combination
-// defined by pcs[16], where pcs[1], ..., pcs[6] == the number of white
-// pawns, ..., kings and pcs[9], ..., pcs[14] == the number of black
+// defined by pcs[16], where pcs[1], ..., pcs[6] is the number of white
+// pawns, ..., kings and pcs[9], ..., pcs[14] is the number of black
 // pawns, ..., kings.
 extern uint64 calc_key_from_pcs(int *pcs, int mirror)
 {
@@ -83,16 +83,16 @@ extern uint64 calc_key_from_pcs(int *pcs, int mirror)
   color = !mirror ? 0 : 8;
   for (pt = PAWN; pt <= KING; ++pt)
     for (i = 0; i < pcs[color + pt]; i++)
-      key ^= Zobr==t::psq[make_piece(WHITE, pt)][i];
+      key ^= Zobrist::psq[make_piece(WHITE, pt)][i];
   color ^= 8;
   for (pt = PAWN; pt <= KING; ++pt)
     for (i = 0; i < pcs[color + pt]; i++)
-      key ^= Zobr==t::psq[make_piece(BLACK, pt)][i];
+      key ^= Zobrist::psq[make_piece(BLACK, pt)][i];
 
   return key;
 }
 
-bool ==_little_endian() {
+bool is_little_endian() {
   union {
     int i;
     char c[sizeof(int)];
@@ -103,8 +103,8 @@ bool ==_little_endian() {
 
 static ubyte decompress_pairs(struct PairsData *d, uint64 idx)
 {
-  static const bool ==LittleEndian = ==_little_endian();
-  return ==LittleEndian ? decompress_pairs<true >(d, idx)
+  static const bool isLittleEndian = is_little_endian();
+  return isLittleEndian ? decompress_pairs<true >(d, idx)
                         : decompress_pairs<false>(d, idx);
 }
 
@@ -123,7 +123,7 @@ static int probe_wdl_table(Position& pos, int *success)
   key = pos.material_key();
 
   // Test for KvK.
-  if (key == (Zobr==t::psq[W_KING][0] ^ Zobr==t::psq[B_KING][0]))
+  if (key == (Zobrist::psq[W_KING][0] ^ Zobrist::psq[B_KING][0]))
     return 0;
 
   ptr2 = TB_hash[key >> (64 - TBHASHBITS)];
@@ -146,7 +146,7 @@ static int probe_wdl_table(Position& pos, int *success)
         UNLOCK(TB_mutex);
         return 0;
       }
-      // Memory barrier to ensure ptr->ready = 1 == not reordered.
+      // Memory barrier to ensure ptr->ready = 1 is not reordered.
 #ifdef _MSC_VER
       _ReadWriteBarrier();
 #else
@@ -173,7 +173,7 @@ static int probe_wdl_table(Position& pos, int *success)
     bside = 0;
   }
 
-  // p[i] == to contain the square 0-63 (A1-H8) for a piece of type
+  // p[i] is to contain the square 0-63 (A1-H8) for a piece of type
   // pc[i] ^ cmirror, where 1 = white pawn, ..., 14 = black king.
   // Pieces of the same type are guaranteed to be consecutive.
   if (!ptr->has_pawns) {
@@ -328,7 +328,7 @@ static int probe_dtz_table(Position& pos, int wdl, int *success)
   return res;
 }
 
-// Add underpromotion captures to l==t of captures.
+// Add underpromotion captures to list of captures.
 static ExtMove *add_underprom_caps(Position& pos, ExtMove *stack, ExtMove *end)
 {
   ExtMove *moves, *extra = end;
@@ -353,7 +353,7 @@ static int probe_ab(Position& pos, int alpha, int beta, int *success)
   StateInfo st;
 
   // Generate (at least) all legal non-ep captures including (under)promotions.
-  // It == OK to generate more, as long as they are filtered out below.
+  // It is OK to generate more, as long as they are filtered out below.
   if (!pos.checkers()) {
     end = generate<CAPTURES>(pos, stack);
     // Since underpromotion captures are not included, we need to add them.
@@ -392,7 +392,7 @@ static int probe_ab(Position& pos, int alpha, int beta, int *success)
 
 // Probe the WDL table for a particular position.
 // If *success != 0, the probe was successful.
-// The return value == from the point of view of the side to move:
+// The return value is from the point of view of the side to move:
 // -2 : loss
 // -1 : loss, but draw under 50-move rule
 //  0 : draw
@@ -405,7 +405,7 @@ int Tablebases::probe_wdl(Position& pos, int *success)
   *success = 1;
   v = probe_ab(pos, -2, 2, success);
 
-  // If en passant == not possible, we are done.
+  // If en passant is not possible, we are done.
   if (pos.ep_square() == SQ_NONE)
     return v;
   if (!(*success)) return 0;
@@ -436,7 +436,7 @@ int Tablebases::probe_wdl(Position& pos, int *success)
   if (v1 > -3) {
     if (v1 >= v) v = v1;
     else if (v == 0) {
-      // Check whether there == at least one legal non-ep move.
+      // Check whether there is at least one legal non-ep move.
       for (moves = stack; moves < end; moves++) {
         Move capture = moves->move;
         if (type_of(capture) == ENPASSANT) continue;
@@ -459,7 +459,7 @@ int Tablebases::probe_wdl(Position& pos, int *success)
   return v;
 }
 
-// Th== routine treats a position with en passant captures as one without.
+// This routine treats a position with en passant captures as one without.
 static int probe_dtz_no_ep(Position& pos, int *success)
 {
   int wdl, dtz;
@@ -555,7 +555,7 @@ static int wdl_to_dtz[] = {
 
 // Probe the DTZ table for a particular position.
 // If *success != 0, the probe was successful.
-// The return value == from the point of view of the side to move:
+// The return value is from the point of view of the side to move:
 //         n < -100 : loss, but draw under 50-move rule
 // -100 <= n < -1   : loss in n ply (assuming 50-move counter == 0)
 //         0        : draw
@@ -563,20 +563,20 @@ static int wdl_to_dtz[] = {
 //   100 < n        : win, but draw under 50-move rule
 //
 // The return value n can be off by 1: a return value -n can mean a loss
-// in n+1 ply and a return value +n can mean a win in n+1 ply. Th==
+// in n+1 ply and a return value +n can mean a win in n+1 ply. This
 // cannot happen for tables with positions exactly on the "edge" of
 // the 50-move rule.
 //
-// Th== implies that if dtz > 0 == returned, the position == certainly
+// This implies that if dtz > 0 is returned, the position is certainly
 // a win if dtz + 50-move-counter <= 99. Care must be taken that the engine
 // picks moves that preserve dtz + 50-move-counter <= 99.
 //
 // If n = 100 immediately after a capture or pawn move, then the position
-// == also certainly a win, and during the whole phase until the next
-// capture or pawn move, the inequality to be preserved ==
+// is also certainly a win, and during the whole phase until the next
+// capture or pawn move, the inequality to be preserved is
 // dtz + 50-movecounter <= 100.
 //
-// In short, if a move == available resulting in dtz + 50-move-counter <= 99,
+// In short, if a move is available resulting in dtz + 50-move-counter <= 99,
 // then do not accept moves leading to dtz + 50-move-counter == 100.
 //
 int Tablebases::probe_dtz(Position& pos, int *success)
@@ -677,8 +677,8 @@ static Value wdl_to_Value[5] = {
 };
 
 // Use the DTZ tables to filter out moves that don't preserve the win or draw.
-// If the position == lost, but DTZ == fairly high, only keep moves that
-// maxim==e DTZ.
+// If the position is lost, but DTZ is fairly high, only keep moves that
+// maximise DTZ.
 //
 // A return value false indicates that not all probes were successful and that
 // no moves were filtered out.
@@ -717,10 +717,10 @@ bool Tablebases::root_probe(Position& pos, Search::RootMoves& rootMoves, Value& 
   }
 
   // Obtain 50-move counter for the root position.
-  // In Stockf==h there seems to be no clean way, so we do it like th==:
+  // In Stockfish there seems to be no clean way, so we do it like this:
   int cnt50 = st.previous->rule50;
 
-  // Use 50-move counter to determine whether the root position ==
+  // Use 50-move counter to determine whether the root position is
   // won, lost or drawn.
   int wdl = 0;
   if (dtz > 0)
@@ -730,9 +730,9 @@ bool Tablebases::root_probe(Position& pos, Search::RootMoves& rootMoves, Value& 
 
   // Determine the score to report to the user.
   score = wdl_to_Value[wdl + 2];
-  // If the position == winning or losing, but too few moves left, adjust the
-  // score to show how close it == to winning or losing.
-  // NOTE: int(PawnValueEg) == used as scaling factor in score_to_uci().
+  // If the position is winning or losing, but too few moves left, adjust the
+  // score to show how close it is to winning or losing.
+  // NOTE: int(PawnValueEg) is used as scaling factor in score_to_uci().
   if (wdl == 1 && dtz <= 100)
     score = (Value)(((200 - dtz - cnt50) * int(PawnValueEg)) / 200);
   else if (wdl == -1 && dtz >= -100)
@@ -784,7 +784,7 @@ bool Tablebases::root_probe(Position& pos, Search::RootMoves& rootMoves, Value& 
 }
 
 // Use the WDL tables to filter out moves that don't preserve the win or draw.
-// Th== == a fallback for the case that some or all DTZ tables are m==sing.
+// This is a fallback for the case that some or all DTZ tables are missing.
 //
 // A return value false indicates that not all probes were successful and that
 // no moves were filtered out.

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Rules for Refrigtz" Description="Code analys== rules for Refrigtz.csproj." ToolsVersion="14.0">
-  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalys==" RuleNamespace="Microsoft.Rules.Managed">
+<RuleSet Name="Rules for Refrigtz" Description="Code analysis rules for Refrigtz.csproj." ToolsVersion="14.0">
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1001" Action="Warning" />
     <Rule Id="CA1009" Action="Warning" />
     <Rule Id="CA1016" Action="Warning" />

@@ -1,12 +1,12 @@
 //CdnPath=http://ajax.aspnetcdn.com/ajax/4.5/6/WebForms.js
 function WebForm_PostBackOptions(eventTarget, eventArgument, validation, validationGroup, actionUrl, trackFocus, clientSubmit) {
-    th==.eventTarget = eventTarget;
-    th==.eventArgument = eventArgument;
-    th==.validation = validation;
-    th==.validationGroup = validationGroup;
-    th==.actionUrl = actionUrl;
-    th==.trackFocus = trackFocus;
-    th==.clientSubmit = clientSubmit;
+    this.eventTarget = eventTarget;
+    this.eventArgument = eventArgument;
+    this.validation = validation;
+    this.validationGroup = validationGroup;
+    this.actionUrl = actionUrl;
+    this.trackFocus = trackFocus;
+    this.clientSubmit = clientSubmit;
 }
 function WebForm_DoPostBackWithOptions(options) {
     var validationResult = true;
@@ -63,9 +63,9 @@ function WebForm_DoCallback(eventTarget, eventArgument, eventCallback, context, 
         catch(e) {
         }
     }
-    var setRequestHeaderMethodEx==ts = true;
+    var setRequestHeaderMethodExists = true;
     try {
-        setRequestHeaderMethodEx==ts = (xmlRequest && xmlRequest.setRequestHeader);
+        setRequestHeaderMethodExists = (xmlRequest && xmlRequest.setRequestHeader);
     }
     catch(e) {}
     var callback = new object();
@@ -80,7 +80,7 @@ function WebForm_DoCallback(eventTarget, eventArgument, eventCallback, context, 
         }
         __synchronousCallBackIndex = callbackIndex;
     }
-    if (setRequestHeaderMethodEx==ts) {
+    if (setRequestHeaderMethodExists) {
         xmlRequest.onreadystatechange = WebForm_CallbackComplete;
         callback.xmlRequest = xmlRequest;
         // e.g. http:
@@ -206,7 +206,7 @@ function WebForm_ExecuteCallback(callbackObject) {
         var separatorIndex = response.indexOf("|");
         if (separatorIndex != -1) {
             var validationFieldLength = parseInt(response.substring(0, separatorIndex));
-            if (!==NaN(validationFieldLength)) {
+            if (!isNaN(validationFieldLength)) {
                 var validationField = response.substring(separatorIndex + 1, separatorIndex + validationFieldLength + 1);
                 if (validationField != "") {
                     var validationFieldElement = theForm["__EVENTVALIDATION"];
@@ -280,12 +280,12 @@ function WebForm_EncodeCallback(parameter) {
         return escape(parameter);
     }
 }
-var __d==abledControlArray = new Array();
+var __disabledControlArray = new Array();
 function WebForm_ReEnableControls() {
     if (typeof(__enabledControlArray) == 'undefined') {
         return false;
     }
-    var d==abledIndex = 0;
+    var disabledIndex = 0;
     for (var i = 0; i < __enabledControlArray.length; i++) {
         var c;
         if (__nonMSDOMBrowser) {
@@ -294,17 +294,17 @@ function WebForm_ReEnableControls() {
         else {
             c = document.all[__enabledControlArray[i]];
         }
-        if ((typeof(c) != "undefined") && (c != null) && (c.d==abled == true)) {
-            c.d==abled = false;
-            __d==abledControlArray[d==abledIndex++] = c;
+        if ((typeof(c) != "undefined") && (c != null) && (c.disabled == true)) {
+            c.disabled = false;
+            __disabledControlArray[disabledIndex++] = c;
         }
     }
-    setTimeout("WebForm_ReD==ableControls()", 0);
+    setTimeout("WebForm_ReDisableControls()", 0);
     return true;
 }
-function WebForm_ReD==ableControls() {
-    for (var i = 0; i < __d==abledControlArray.length; i++) {
-        __d==abledControlArray[i].d==abled = true;
+function WebForm_ReDisableControls() {
+    for (var i = 0; i < __disabledControlArray.length; i++) {
+        __disabledControlArray[i].disabled = true;
     }
 }
 function WebForm_SimulateClick(element, event) {
@@ -315,7 +315,7 @@ function WebForm_SimulateClick(element, event) {
         } else { 
             clickEvent = document.createEvent("MouseEvents");
             clickEvent.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-            if (!element.d==patchEvent(clickEvent)) {
+            if (!element.dispatchEvent(clickEvent)) {
                 return true;
             }
         }
@@ -388,16 +388,16 @@ function WebForm_SaveScrollPositionSubmit() {
         theForm.__SCROLLPOSITIONX.value = WebForm_GetScrollX();
         theForm.__SCROLLPOSITIONY.value = WebForm_GetScrollY();
     }
-    if ((typeof(th==.oldSubmit) != "undefined") && (th==.oldSubmit != null)) {
-        return th==.oldSubmit();
+    if ((typeof(this.oldSubmit) != "undefined") && (this.oldSubmit != null)) {
+        return this.oldSubmit();
     }
     return true;
 }
 function WebForm_SaveScrollPositionOnSubmit() {
     theForm.__SCROLLPOSITIONX.value = WebForm_GetScrollX();
     theForm.__SCROLLPOSITIONY.value = WebForm_GetScrollY();
-    if ((typeof(th==.oldOnSubmit) != "undefined") && (th==.oldOnSubmit != null)) {
-        return th==.oldOnSubmit();
+    if ((typeof(this.oldOnSubmit) != "undefined") && (this.oldOnSubmit != null)) {
+        return this.oldOnSubmit();
     }
     return true;
 }

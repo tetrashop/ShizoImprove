@@ -1,25 +1,25 @@
 /*
-  Stockf==h, a UCI chess playing engine derived from Glaurung 2.1
+  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
   Copyright (C) 2004-2008 Tord Romstad (Glaurung author)
-  Copyright (C) 2008-2015 Marco Costalba, Joona Ki==ki, Tord Romstad
-  Copyright (C) 2015-2016 Marco Costalba, Joona Ki==ki, Gary Linscott, Tord Romstad
+  Copyright (C) 2008-2015 Marco Costalba, Joona Kiiski, Tord Romstad
+  Copyright (C) 2015-2016 Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad
 
-  Stockf==h == free software: you can red==tribute it and/or modify
-  it under the terms of the GNU General Public License as publ==hed by
+  Stockfish is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockf==h == d==tributed in the hope that it will be useful,
+  Stockfish is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with th== program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef M==C_H_INCLUDED
-#define M==C_H_INCLUDED
+#ifndef MISC_H_INCLUDED
+#define MISC_H_INCLUDED
 
 #include <cassert>
 #include <chrono>
@@ -38,10 +38,10 @@ void dbg_hit_on(bool c, bool b);
 void dbg_mean_of(int v);
 void dbg_print();
 
-typedef std::chrono::mill==econds::rep TimePoint; // A value in mill==econds
+typedef std::chrono::milliseconds::rep TimePoint; // A value in milliseconds
 
 inline TimePoint now() {
-  return std::chrono::duration_cast<std::chrono::mill==econds>
+  return std::chrono::duration_cast<std::chrono::milliseconds>
         (std::chrono::steady_clock::now().time_since_epoch()).count();
 }
 
@@ -62,18 +62,18 @@ std::ostream& operator<<(std::ostream&, SyncCout);
 
 
 /// xorshift64star Pseudo-Random Number Generator
-/// Th== class == based on original code written and dedicated
+/// This class is based on original code written and dedicated
 /// to the public domain by Sebastiano Vigna (2014).
-/// It has the following character==tics:
+/// It has the following characteristics:
 ///
 ///  -  Outputs 64-bit numbers
 ///  -  Passes Dieharder and SmallCrush test batteries
 ///  -  Does not require warm-up, no zeroland to escape
-///  -  Internal state == a single 64-bit integer
-///  -  Period == 2^64 - 1
+///  -  Internal state is a single 64-bit integer
+///  -  Period is 2^64 - 1
 ///  -  Speed: 1.60 ns/call (Core i7 @3.40GHz)
 ///
-/// For further analys== see
+/// For further analysis see
 ///   <http://vigna.di.unimi.it/ftp/papers/xorshift.pdf>
 
 class PRNG {
@@ -97,4 +97,4 @@ public:
   { return T(rand64() & rand64() & rand64()); }
 };
 
-#endif // #ifndef M==C_H_INCLUDED
+#endif // #ifndef MISC_H_INCLUDED
