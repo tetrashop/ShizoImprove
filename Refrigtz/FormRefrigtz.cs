@@ -236,11 +236,21 @@ namespace Refrigtz
         //private System.Timers.Timer queueManagementTimerSetTimer;
 
 
+#pragma warning disable CS0414 // The field 'FormRefrigtz.AllDo' is assigned but its value is never used
         bool AllDo = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.AllDo' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.AllMove' is assigned but its value is never used
         bool AllMove = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.AllMove' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.SetDLL' is assigned but its value is never used
         bool SetDLL = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.SetDLL' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.SetNode' is assigned but its value is never used
         bool SetNode = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.SetNode' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.SetTimer' is assigned but its value is never used
         bool SetTimer = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.SetTimer' is assigned but its value is never used
 
         /*private void worker_DoWork()
         {
@@ -675,8 +685,12 @@ namespace Refrigtz
                                         SetBoxText("\r\nYour Ready!");
                                         RefreshBoxText();
                                         Color a = Color.Brown;
+#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         bool FOUND = false;
+#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
 
                                         //SetDrawFounding(ref FOUND, ref THIS, true);
@@ -2128,8 +2142,12 @@ namespace Refrigtz
                                         SetBoxText("\r\nYour Ready!");
                                         RefreshBoxText();
                                         Color a = Color.Brown;
+#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         bool FOUND = false;
+#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                                         QuantumRefrigiz.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
 
                                         //SetDrawFounding(ref FOUND, ref THIS, true);
@@ -3860,7 +3878,9 @@ namespace Refrigtz
 
         void SetRefregitzDLL()
         {
+#pragma warning disable CS0219 // The variable 'Set' is assigned but its value is never used
             bool Set = false;
+#pragma warning restore CS0219 // The variable 'Set' is assigned but its value is never used
             SetDLL = true;
             //do
             {
@@ -4546,7 +4566,9 @@ namespace Refrigtz
             else
                 OrderPlate = -1;
             RefrigtzDLL.ChessRules.CastleActBrown = false;
+#pragma warning disable CS0219 // The variable 'OneIncreament' is assigned but its value is never used
             bool OneIncreament = false;
+#pragma warning restore CS0219 // The variable 'OneIncreament' is assigned but its value is never used
             int[,] Tab = Table;
             int Move = 0;
             if (!Quantum)
@@ -4992,7 +5014,9 @@ namespace Refrigtz
                             Log(tt);
                             return false;
                         }
+#pragma warning disable CS0162 // Unreachable code detected
                         System.Threading.Thread.Sleep(2);
+#pragma warning restore CS0162 // Unreachable code detected
                     } while (true);
                 }
                 if (!Quantum)
@@ -5185,7 +5209,9 @@ namespace Refrigtz
 
 
             }
+#pragma warning disable CS0162 // Unreachable code detected
             return TableName;
+#pragma warning restore CS0162 // Unreachable code detected
         }
         //Creatiopn of Configuration Table
         void CreateConfigurationTable()
@@ -5239,7 +5265,9 @@ namespace Refrigtz
                     }
                 }
             }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
             catch (Exception t)
+#pragma warning restore CS0168 // The variable 't' is declared but never used
             {
             }
         }
@@ -6909,7 +6937,9 @@ namespace Refrigtz
                                                 else
                                                 {
                                                     int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     if (Hit != 0)
                                                         HitVal = true;
 
@@ -7004,7 +7034,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7094,7 +7126,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7187,7 +7221,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7280,7 +7316,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7373,7 +7411,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7716,7 +7756,9 @@ namespace Refrigtz
                                                 else
                                                 {
                                                     int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     if (Hit != 0)
                                                         HitVal = true;
 
@@ -7810,7 +7852,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7901,7 +7945,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -7992,7 +8038,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8083,7 +8131,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8179,7 +8229,9 @@ namespace Refrigtz
                                                     continue;
                                                 RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8596,7 +8648,9 @@ namespace Refrigtz
                                                 else
                                                 {
                                                     int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     if (Hit != 0)
                                                         HitVal = true;
 
@@ -8694,7 +8748,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8787,7 +8843,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8884,7 +8942,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -8981,7 +9041,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9077,7 +9139,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9428,7 +9492,9 @@ namespace Refrigtz
                                                 else
                                                 {
                                                     int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                     if (Hit != 0)
                                                         HitVal = true;
 
@@ -9524,7 +9590,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9619,7 +9687,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9713,7 +9783,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9807,7 +9879,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -9906,7 +9980,9 @@ namespace Refrigtz
 
                                                 QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
+#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 bool HitVal = false;
+#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                                 if (Hit != 0)
                                                     HitVal = true;
                                                 LastRow = (int)RowRealesed;
@@ -17667,6 +17743,8 @@ namespace Refrigtz
             }
             AllDo = false;
         }
+        
+
     }
 }
 //End of Documentation.

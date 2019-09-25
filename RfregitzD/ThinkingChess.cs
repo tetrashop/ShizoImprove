@@ -81,8 +81,11 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess
     {
+        
         StringBuilder Space = new StringBuilder("&nbsp;");
+#pragma warning disable CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
         int Spaces = 0;
+#pragma warning restore CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
 
         public int HuristicAttackValueSup = new int();
         public int HuristicMovementValueSup = new int();

@@ -10,7 +10,9 @@ namespace QuantumRefrigiz
     public class DrawCastleQ
     {
         StringBuilder Space = new StringBuilder("&nbsp;");
+#pragma warning disable CS0414 // The field 'DrawCastleQ.Spaces' is assigned but its value is never used
         int Spaces = 0;
+#pragma warning restore CS0414 // The field 'DrawCastleQ.Spaces' is assigned but its value is never used
 
         //A quantum move cannot be used to take a piece.
         public bool IsQuntumMove = false;

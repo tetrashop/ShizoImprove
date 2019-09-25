@@ -83,7 +83,9 @@ namespace QuantumRefrigiz
     public class ThinkingQuantumChess
     {
         StringBuilder Space = new StringBuilder("&nbsp;");
+#pragma warning disable CS0414 // The field 'ThinkingQuantumChess.Spaces' is assigned but its value is never used
         int Spaces = 0;
+#pragma warning restore CS0414 // The field 'ThinkingQuantumChess.Spaces' is assigned but its value is never used
 
         public int HuristicAttackValueSup = new int();
         public int HuristicMovementValueSup = new int();

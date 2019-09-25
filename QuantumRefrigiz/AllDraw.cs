@@ -11957,7 +11957,9 @@ if (Kind == 2)
                 DummyOrder = Order;
                 int DummyCurrentOrder = new int();
                 DummyCurrentOrder = ChessRules.CurrentOrder;
+#pragma warning disable CS0219 // The variable 'ik' is assigned but its value is never used
                 int i = 0, ik = 0;
+#pragma warning restore CS0219 // The variable 'ik' is assigned but its value is never used
                 var j = 0;
 
                 int[,] Table = new int[8, 8];
@@ -12132,7 +12134,9 @@ if (Kind == 2)
             DummyOrder = Order;
             int DummyCurrentOrder = new int();
             DummyCurrentOrder = ChessRules.CurrentOrder;
+#pragma warning disable CS0219 // The variable 'i' is assigned but its value is never used
             int i = 0, ik = 0;
+#pragma warning restore CS0219 // The variable 'i' is assigned but its value is never used
             int[,] TablInit = new int[8, 8];
             if (Order == 1)
                 a = Color.Gray;

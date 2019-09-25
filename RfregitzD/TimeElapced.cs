@@ -8,6 +8,7 @@ namespace RefrigtzDLL
 {
     static class TimeElapced
     {
+
         public static long TimeNow()
         {
             DateTime Now = DateTime.Now;

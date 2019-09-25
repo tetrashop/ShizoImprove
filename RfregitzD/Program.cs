@@ -12,6 +12,7 @@ namespace RefrigtzDLL
     
     static class Program
     {
+
         public static long SomeExtremelyLargeNumber { get; private set; }
 
         /// <summary>
