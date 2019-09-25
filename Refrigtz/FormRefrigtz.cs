@@ -4400,11 +4400,14 @@ namespace Refrigtz
                     }
                     else
                     {
-                        Draw = y.t;
                         bool FOUND = false;
                         RefrigtzDLL.AllDraw THIS = null;
-                        SetDrawFounding(ref FOUND, ref THIS, false);
-
+                        Draw = y.t;
+                        SetDrawFounding(ref FOUND, ref THIS, true);
+                        /*   bool FOUND = false;
+                           RefrigtzDLL.AllDraw THIS = null;
+                           SetDrawFounding(ref FOUND, ref THIS, false);
+   */
                     }
                 }
                 else
@@ -4421,10 +4424,15 @@ namespace Refrigtz
                     }
                     else
                     {
-                        DrawQ = y.tt;
                         bool FOUND = false;
                         QuantumRefrigiz.AllDraw THIS = null;
-                        SetDrawFounding(ref FOUND, ref THIS, false);
+                        DrawQ = y.tt;
+                        SetDrawFounding(ref FOUND, ref THIS, true);
+
+                        /*DrawQ = y.tt;
+                        bool FOUND = false;
+                        QuantumRefrigiz.AllDraw THIS = null;
+                        SetDrawFounding(ref FOUND, ref THIS, false);*/
 
                     }
                 }
@@ -4616,6 +4624,16 @@ namespace Refrigtz
 
                     oleDbCmd.CommandText = String.Concat("Select * From " , TableName);
                     OleDbDataReader dr = null;
+                   /* oleDbCmd.Parameters.Add("@a", OleDbType.Numeric);
+                    oleDbCmd.Parameters.Add("@b", OleDbType.Numeric);
+                    oleDbCmd.Parameters.Add("@c", OleDbType.Numeric);
+                    oleDbCmd.Parameters.Add("@d", OleDbType.Numeric);
+                    oleDbCmd.Parameters.Add("@e", OleDbType.Numeric);
+                    oleDbCmd.Parameters.Add("@f", OleDbType.Numeric);
+                    oleDbCmd.Parameters.Add("@g", OleDbType.Numeric);
+                    oleDbCmd.Parameters.Add("@h", OleDbType.Numeric);
+
+*/
                     dr = oleDbCmd.ExecuteReader();
 
                     int ii = 0;
@@ -5364,6 +5382,45 @@ namespace Refrigtz
 
                     oleDbCmd.CommandText = @"Select * from Configuration";
                     OleDbDataReader dr = null;
+               /*     oleDbCmd.Parameters.Add("@CheckBoxAStarGreedyHuristic", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked);
+                    oleDbCmd.Parameters.Add("@CheckBoxPredictHuristci", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxPredictHuristci.Checked);
+                    oleDbCmd.Parameters.Add("@CheckBoxAStarGreadyFirstSearch", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked);
+                    oleDbCmd.Parameters.Add("@CheckBoxBestMovments", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxBestMovments.Checked);
+                    oleDbCmd.Parameters.Add("@CheckBoxOnlySelf", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxOnlySelf.Checked);
+                    oleDbCmd.Parameters.Add("@RadioButtonOriginalImages", OleDbType.Numeric);//.Value = System.Convert.ToInt32(RadioButtonOriginalImages.Checked);
+                    oleDbCmd.Parameters.Add("@RadioButtonBigFittingImages", OleDbType.Numeric);//.Value = System.Convert.ToInt32(RadioButtonBigFittingImages.Checked);
+                    oleDbCmd.Parameters.Add("@RadioButtonSmallFittingImages", OleDbType.Numeric);//.Value = System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked);
+                    oleDbCmd.Parameters.Add("@CheckBoxAStarGreedyMovement", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxAStarGreedyMovement.Checked);
+                    oleDbCmd.Parameters.Add("@CheckBoxUseDoubleTime", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked);
+                    oleDbCmd.Parameters.Add("@CheckBoxUsePenaltyRegradMechnisam", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked);
+                    oleDbCmd.Parameters.Add("@CheckBoxDynamicProgrammingAStarGreedyt", OleDbType.Numeric);//.Value = System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked);
+                    oleDbCmd.Parameters.Add("@ComboBoxMaxTree", OleDbType.Numeric);//.Value = System.Convert.ToInt32(ComboBoxMaxLevel.Text);
+                    oleDbCmd.Parameters.Add("@ComboBoxAttack", OleDbType.Numeric);//.Value = System.Convert.ToInt32(ComboBoxAttack.Text);
+                    oleDbCmd.Parameters.Add("@ComboBoxObjectDangour", OleDbType.Numeric);//.Value = System.Convert.ToInt32(ComboBoxObjectDangour.Text);
+                    oleDbCmd.Parameters.Add("@ComboBoxReducedAttacked", OleDbType.Numeric);//.Value = System.Convert.ToInt32(ComboBoxReducedAttacked.Text);
+                    oleDbCmd.Parameters.Add("@ComboBoxSupport", OleDbType.Numeric);//.Value = System.Convert.ToInt32(ComboBoxSupport.Text);
+                    oleDbCmd.Parameters.Add("@ComboBoxHitting", OleDbType.Numeric);//.Value = System.Convert.ToInt32(ComboBoxKiller.Text);
+                    oleDbCmd.Parameters.Add("@ComboBoxMovments", OleDbType.Numeric);//.Value = System.Convert.ToInt32(ComboBoxMovments.Text);
+                    oleDbCmd.Parameters.Add("@ArrangmentsChanged", OleDbType.Numeric);//.Value = System.Convert.ToInt32(ArrangmentsChanged);
+                    oleDbCmd.Parameters.Add("@GrayTimer", OleDbType.Numeric);//.Value = System.Convert.ToInt32(GrayTimer.Times);
+                    oleDbCmd.Parameters.Add("@BrownTimer", OleDbType.Numeric);//.Value = System.Convert.ToInt32(BrownTimer.Times);
+                    oleDbCmd.Parameters.Add("@BobSection", OleDbType.Numeric);//.Value = System.Convert.ToInt32(BobSection);
+                    oleDbCmd.Parameters.Add("@AliceSection", OleDbType.Numeric);//.Value = System.Convert.ToInt32(AliceSection);
+                    oleDbCmd.Parameters.Add("@StateCP", OleDbType.Numeric);//.Value = System.Convert.ToInt32(StateCP);
+                    oleDbCmd.Parameters.Add("@StateCC", OleDbType.Numeric);//.Value = System.Convert.ToInt32(StateCC);
+                    oleDbCmd.Parameters.Add("@StateGe", OleDbType.Numeric);//.Value = System.Convert.ToInt32(StateGe);
+                    oleDbCmd.Parameters.Add("@Blitz", OleDbType.Numeric);//.Value = System.Convert.ToInt32(Blitz);
+                    oleDbCmd.Parameters.Add("@Person", OleDbType.Numeric);//.Value = System.Convert.ToInt32(Person);
+                    oleDbCmd.Parameters.Add("@SettingPRFALSE", OleDbType.Numeric);//.Value = System.Convert.ToInt32(SettingPRFALSE);
+                    oleDbCmd.Parameters.Add("@FullGame", OleDbType.Numeric);//.Value = System.Convert.ToInt32(FullGame);
+                    oleDbCmd.Parameters.Add("@Stockfish", OleDbType.Numeric);//.Value = System.Convert.ToInt32(Stockfish);
+                    oleDbCmd.Parameters.Add("@lable1", OleDbType.VarChar);//.Value = label1.Text;
+                    oleDbCmd.Parameters.Add("@lable2", OleDbType.VarChar);//.Value = label2.Text;
+                    oleDbCmd.Parameters.Add("@MovmentsNumber", OleDbType.Numeric);//.Value = System.Convert.ToInt32(MovmentsNumber);
+                    oleDbCmd.Parameters.Add("@Quantum", OleDbType.Numeric);//.Value = System.Convert.ToInt32(Quantum);
+                    oleDbCmd.Parameters.Add("@Sugar", OleDbType.Numeric);//.Value = System.Convert.ToInt32(Sugar);
+                    oleDbCmd.Parameters.Add("@MenueSelecte", OleDbType.Numeric);//.Value = System.Convert.ToInt32(MenueSelecte);
+                    */
                     dr = oleDbCmd.ExecuteReader();
                     bool ARead = false;
 
