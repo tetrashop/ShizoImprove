@@ -1,26 +1,4 @@
-﻿
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+﻿using System;
 namespace Refrigtz
 {
     partial class FormSelect
@@ -51,84 +29,87 @@ namespace Refrigtz
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButtonGrayOrder = new System.Windows.Forms.RadioButton();
-            this.radioButtonBrownOrder = new System.Windows.Forms.RadioButton();
-            this.pictureBoxBrown = new System.Windows.Forms.PictureBox();
-            this.pictureBoxGray = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGray)).BeginInit();
+            this.RadioButtonGrayOrder = new System.Windows.Forms.RadioButton();
+            this.RadioButtonBrownOrder = new System.Windows.Forms.RadioButton();
+            this.PictureBoxBrown = new System.Windows.Forms.PictureBox();
+            this.PictureBoxGray = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBrown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxGray)).BeginInit();
             this.SuspendLayout();
             // 
-            // radioButtonGrayOrder
+            // RadioButtonGrayOrder
             // 
-            this.radioButtonGrayOrder.AutoSize = true;
-            this.radioButtonGrayOrder.Checked = true;
-            this.radioButtonGrayOrder.Location = new System.Drawing.Point(34, 36);
-            this.radioButtonGrayOrder.Name = "radioButtonGrayOrder";
-            this.radioButtonGrayOrder.Size = new System.Drawing.Size(14, 13);
-            this.radioButtonGrayOrder.TabIndex = 0;
-            this.radioButtonGrayOrder.TabStop = true;
-            this.radioButtonGrayOrder.UseVisualStyleBackColor = true;
-            this.radioButtonGrayOrder.CheckedChanged += new System.EventHandler(this.radioButtonGrayOrder_CheckedChanged);
+            this.RadioButtonGrayOrder.AutoSize = true;
+            this.RadioButtonGrayOrder.Checked = true;
+            this.RadioButtonGrayOrder.Location = new System.Drawing.Point(34, 36);
+            this.RadioButtonGrayOrder.Name = "RadioButtonGrayOrder";
+            this.RadioButtonGrayOrder.Size = new System.Drawing.Size(14, 13);
+            this.RadioButtonGrayOrder.TabIndex = 0;
+            this.RadioButtonGrayOrder.TabStop = true;
+            this.RadioButtonGrayOrder.UseVisualStyleBackColor = true;
+            this.RadioButtonGrayOrder.CheckedChanged += new System.EventHandler(this.RadioButtonGrayOrder_CheckedChanged);
             // 
-            // radioButtonBrownOrder
+            // RadioButtonBrownOrder
             // 
-            this.radioButtonBrownOrder.AutoSize = true;
-            this.radioButtonBrownOrder.Location = new System.Drawing.Point(203, 36);
-            this.radioButtonBrownOrder.Name = "radioButtonBrownOrder";
-            this.radioButtonBrownOrder.Size = new System.Drawing.Size(14, 13);
-            this.radioButtonBrownOrder.TabIndex = 2;
-            this.radioButtonBrownOrder.UseVisualStyleBackColor = true;
-            this.radioButtonBrownOrder.CheckedChanged += new System.EventHandler(this.radioButtonBrownOrder_CheckedChanged);
+            this.RadioButtonBrownOrder.AutoSize = true;
+            this.RadioButtonBrownOrder.Location = new System.Drawing.Point(203, 36);
+            this.RadioButtonBrownOrder.Name = "RadioButtonBrownOrder";
+            this.RadioButtonBrownOrder.Size = new System.Drawing.Size(14, 13);
+            this.RadioButtonBrownOrder.TabIndex = 2;
+            this.RadioButtonBrownOrder.UseVisualStyleBackColor = true;
+            this.RadioButtonBrownOrder.CheckedChanged += new System.EventHandler(this.RadioButtonBrownOrder_CheckedChanged);
             // 
-            // pictureBoxBrown
+            // PictureBoxBrown
             // 
-            this.pictureBoxBrown.BackgroundImage = global::Refrigtz.Properties.Resources.KB;
-            this.pictureBoxBrown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxBrown.Location = new System.Drawing.Point(258, 12);
-            this.pictureBoxBrown.Name = "pictureBoxBrown";
-            this.pictureBoxBrown.Size = new System.Drawing.Size(78, 75);
-            this.pictureBoxBrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBrown.TabIndex = 3;
-            this.pictureBoxBrown.TabStop = false;
+            this.PictureBoxBrown.BackgroundImage = global::Refrigtz.Properties.Resources.KB;
+            this.PictureBoxBrown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBoxBrown.Location = new System.Drawing.Point(258, 12);
+            this.PictureBoxBrown.Name = "PictureBoxBrown";
+            this.PictureBoxBrown.Size = new System.Drawing.Size(78, 75);
+            this.PictureBoxBrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxBrown.TabIndex = 3;
+            this.PictureBoxBrown.TabStop = false;
             // 
-            // pictureBoxGray
+            // PictureBoxGray
             // 
-            this.pictureBoxGray.BackgroundImage = global::Refrigtz.Properties.Resources.KG;
-            this.pictureBoxGray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxGray.Location = new System.Drawing.Point(76, 12);
-            this.pictureBoxGray.Name = "pictureBoxGray";
-            this.pictureBoxGray.Size = new System.Drawing.Size(77, 74);
-            this.pictureBoxGray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxGray.TabIndex = 1;
-            this.pictureBoxGray.TabStop = false;
+            this.PictureBoxGray.BackgroundImage = global::Refrigtz.Properties.Resources.KG;
+            this.PictureBoxGray.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBoxGray.Location = new System.Drawing.Point(76, 12);
+            this.PictureBoxGray.Name = "PictureBoxGray";
+            this.PictureBoxGray.Size = new System.Drawing.Size(77, 74);
+            this.PictureBoxGray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxGray.TabIndex = 1;
+            this.PictureBoxGray.TabStop = false;
             // 
             // FormSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 99);
-            this.Controls.Add(this.pictureBoxBrown);
-            this.Controls.Add(this.radioButtonBrownOrder);
-            this.Controls.Add(this.pictureBoxGray);
-            this.Controls.Add(this.radioButtonGrayOrder);
+            this.Controls.Add(this.PictureBoxBrown);
+            this.Controls.Add(this.RadioButtonBrownOrder);
+            this.Controls.Add(this.PictureBoxGray);
+            this.Controls.Add(this.RadioButtonGrayOrder);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormSelect";
             this.Text = "Select";
             this.Load += new System.EventHandler(this.FormSelect_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGray)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBrown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxGray)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBoxGray;
-        private System.Windows.Forms.PictureBox pictureBoxBrown;
-        public System.Windows.Forms.RadioButton radioButtonGrayOrder;
-        public System.Windows.Forms.RadioButton radioButtonBrownOrder;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBoxGray;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBoxBrown;
+        [field: NonSerialized]
+        public System.Windows.Forms.RadioButton RadioButtonGrayOrder;
+        [field: NonSerialized]
+        public System.Windows.Forms.RadioButton RadioButtonBrownOrder;
     }
 }

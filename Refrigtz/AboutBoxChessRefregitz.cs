@@ -20,7 +20,7 @@ namespace Refrigtz
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            this.TextBoxDescription.Text = AssemblyDescription;
         }
 
         #region Assembly Attribute Accessors
@@ -128,7 +128,7 @@ namespace Refrigtz
 
         }
 
-        private void textBoxDescription_TextChanged(object sender, EventArgs e)
+        private void TextBoxDescription_TextChanged(object sender, EventArgs e)
         {
 
         }

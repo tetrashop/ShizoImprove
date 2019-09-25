@@ -17,21 +17,21 @@ namespace Refrigtz
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void FormTXT_Load(object sender, EventArgs e)
         {
-            textBoxTXT.Text = "";
+            TextBoxTXT.Text = "";
             if (FormRefrigtz.ErrorTrueMonitorFalse)
             {
-                // textBoxTXT.Text = File.ReadAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt");
+                // TextBoxTXT.Text = File.ReadAllText(FormRefrigtz.Root + "\\ErrorProgramRun.txt");
             }
             else
             {
-                textBoxTXT.Text = File.ReadAllText(FormRefrigtz.Root + "\\Database\\Monitor.html");
+                TextBoxTXT.Text = File.ReadAllText(FormRefrigtz.Root + "\\Database\\Monitor.html");
             }
         }
     }

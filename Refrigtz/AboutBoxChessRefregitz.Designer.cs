@@ -1,4 +1,5 @@
-﻿namespace Refrigtz
+﻿using System;
+namespace Refrigtz
 {
     partial class AboutBoxChessRefregitz
     {
@@ -33,7 +34,7 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelCompanyName = new System.Windows.Forms.Label();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.TextBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -49,7 +50,7 @@
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 3);
-            this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
+            this.tableLayoutPanel.Controls.Add(this.TextBoxDescription, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(9, 9);
@@ -130,20 +131,20 @@
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelCompanyName.Click += new System.EventHandler(this.labelCompanyName_Click);
             // 
-            // textBoxDescription
+            // TextBoxDescription
             // 
-            this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription.Location = new System.Drawing.Point(143, 107);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.textBoxDescription.Multiline = true;
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.ReadOnly = true;
-            this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(271, 126);
-            this.textBoxDescription.TabIndex = 23;
-            this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "Description";
-            this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
+            this.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextBoxDescription.Location = new System.Drawing.Point(143, 107);
+            this.TextBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.TextBoxDescription.Multiline = true;
+            this.TextBoxDescription.Name = "TextBoxDescription";
+            this.TextBoxDescription.ReadOnly = true;
+            this.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TextBoxDescription.Size = new System.Drawing.Size(271, 126);
+            this.TextBoxDescription.TabIndex = 23;
+            this.TextBoxDescription.TabStop = false;
+            this.TextBoxDescription.Text = "Description";
+            this.TextBoxDescription.TextChanged += new System.EventHandler(this.TextBoxDescription_TextChanged);
             // 
             // okButton
             // 
@@ -180,14 +181,21 @@
         }
 
         #endregion
-
+        [field: NonSerialized]
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        [field: NonSerialized]
         private System.Windows.Forms.PictureBox logoPictureBox;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelProductName;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelVersion;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelCopyright;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelCompanyName;
-        private System.Windows.Forms.TextBox textBoxDescription;
+        [field: NonSerialized]
+        private System.Windows.Forms.TextBox TextBoxDescription;
+        [field: NonSerialized]
         private System.Windows.Forms.Button okButton;
     }
 }

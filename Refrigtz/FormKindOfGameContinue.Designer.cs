@@ -1,26 +1,4 @@
-﻿
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+﻿using System;
 namespace Refrigtz
 {
     partial class FormKindOfGameContinue
@@ -51,77 +29,77 @@ namespace Refrigtz
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButtonGeneticGame = new System.Windows.Forms.RadioButton();
-            this.radioButtonComputerByPerson = new System.Windows.Forms.RadioButton();
-            this.radioButtonComputerByComputer = new System.Windows.Forms.RadioButton();
-            this.comboBoxDatabase = new System.Windows.Forms.ComboBox();
-            this.radioButtonBlitz = new System.Windows.Forms.RadioButton();
+            this.RadioButtonGeneticGame = new System.Windows.Forms.RadioButton();
+            this.RadioButtonComputerByPerson = new System.Windows.Forms.RadioButton();
+            this.RadioButtonComputerByComputer = new System.Windows.Forms.RadioButton();
+            this.ComboBoxDatabase = new System.Windows.Forms.ComboBox();
+            this.RadioButtonBlitz = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
-            // radioButtonGeneticGame
+            // RadioButtonGeneticGame
             // 
-            this.radioButtonGeneticGame.AutoSize = true;
-            this.radioButtonGeneticGame.Location = new System.Drawing.Point(278, 38);
-            this.radioButtonGeneticGame.Name = "radioButtonGeneticGame";
-            this.radioButtonGeneticGame.Size = new System.Drawing.Size(93, 17);
-            this.radioButtonGeneticGame.TabIndex = 0;
-            this.radioButtonGeneticGame.TabStop = true;
-            this.radioButtonGeneticGame.Text = "Genetic Game";
-            this.radioButtonGeneticGame.UseVisualStyleBackColor = true;
+            this.RadioButtonGeneticGame.AutoSize = true;
+            this.RadioButtonGeneticGame.Location = new System.Drawing.Point(278, 38);
+            this.RadioButtonGeneticGame.Name = "RadioButtonGeneticGame";
+            this.RadioButtonGeneticGame.Size = new System.Drawing.Size(93, 17);
+            this.RadioButtonGeneticGame.TabIndex = 0;
+            this.RadioButtonGeneticGame.TabStop = true;
+            this.RadioButtonGeneticGame.Text = "Genetic Game";
+            this.RadioButtonGeneticGame.UseVisualStyleBackColor = true;
             // 
-            // radioButtonComputerByPerson
+            // RadioButtonComputerByPerson
             // 
-            this.radioButtonComputerByPerson.AutoSize = true;
-            this.radioButtonComputerByPerson.Location = new System.Drawing.Point(151, 38);
-            this.radioButtonComputerByPerson.Name = "radioButtonComputerByPerson";
-            this.radioButtonComputerByPerson.Size = new System.Drawing.Size(121, 17);
-            this.radioButtonComputerByPerson.TabIndex = 1;
-            this.radioButtonComputerByPerson.TabStop = true;
-            this.radioButtonComputerByPerson.Text = "Computer By Person";
-            this.radioButtonComputerByPerson.UseVisualStyleBackColor = true;
+            this.RadioButtonComputerByPerson.AutoSize = true;
+            this.RadioButtonComputerByPerson.Location = new System.Drawing.Point(151, 38);
+            this.RadioButtonComputerByPerson.Name = "RadioButtonComputerByPerson";
+            this.RadioButtonComputerByPerson.Size = new System.Drawing.Size(121, 17);
+            this.RadioButtonComputerByPerson.TabIndex = 1;
+            this.RadioButtonComputerByPerson.TabStop = true;
+            this.RadioButtonComputerByPerson.Text = "Computer By Person";
+            this.RadioButtonComputerByPerson.UseVisualStyleBackColor = true;
             // 
-            // radioButtonComputerByComputer
+            // RadioButtonComputerByComputer
             // 
-            this.radioButtonComputerByComputer.AutoSize = true;
-            this.radioButtonComputerByComputer.Location = new System.Drawing.Point(12, 38);
-            this.radioButtonComputerByComputer.Name = "radioButtonComputerByComputer";
-            this.radioButtonComputerByComputer.Size = new System.Drawing.Size(133, 17);
-            this.radioButtonComputerByComputer.TabIndex = 2;
-            this.radioButtonComputerByComputer.TabStop = true;
-            this.radioButtonComputerByComputer.Text = "Computer By Computer";
-            this.radioButtonComputerByComputer.UseVisualStyleBackColor = true;
-            this.radioButtonComputerByComputer.CheckedChanged += new System.EventHandler(this.radioButtonComputerByComputer_CheckedChanged);
+            this.RadioButtonComputerByComputer.AutoSize = true;
+            this.RadioButtonComputerByComputer.Location = new System.Drawing.Point(12, 38);
+            this.RadioButtonComputerByComputer.Name = "RadioButtonComputerByComputer";
+            this.RadioButtonComputerByComputer.Size = new System.Drawing.Size(133, 17);
+            this.RadioButtonComputerByComputer.TabIndex = 2;
+            this.RadioButtonComputerByComputer.TabStop = true;
+            this.RadioButtonComputerByComputer.Text = "Computer By Computer";
+            this.RadioButtonComputerByComputer.UseVisualStyleBackColor = true;
+            this.RadioButtonComputerByComputer.CheckedChanged += new System.EventHandler(this.RadioButtonComputerByComputer_CheckedChanged);
             // 
-            // comboBoxDatabase
+            // ComboBoxDatabase
             // 
-            this.comboBoxDatabase.FormattingEnabled = true;
-            this.comboBoxDatabase.Location = new System.Drawing.Point(161, 61);
-            this.comboBoxDatabase.Name = "comboBoxDatabase";
-            this.comboBoxDatabase.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxDatabase.TabIndex = 3;
-            this.comboBoxDatabase.SelectedIndexChanged += new System.EventHandler(this.comboBoxDataBase_SelectedIndexChanged);
+            this.ComboBoxDatabase.FormattingEnabled = true;
+            this.ComboBoxDatabase.Location = new System.Drawing.Point(161, 61);
+            this.ComboBoxDatabase.Name = "ComboBoxDatabase";
+            this.ComboBoxDatabase.Size = new System.Drawing.Size(121, 21);
+            this.ComboBoxDatabase.TabIndex = 3;
+            this.ComboBoxDatabase.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDataBase_SelectedIndexChanged);
             // 
-            // radioButtonBlitz
+            // RadioButtonBlitz
             // 
-            this.radioButtonBlitz.AutoSize = true;
-            this.radioButtonBlitz.Location = new System.Drawing.Point(378, 38);
-            this.radioButtonBlitz.Name = "radioButtonBlitz";
-            this.radioButtonBlitz.Size = new System.Drawing.Size(44, 17);
-            this.radioButtonBlitz.TabIndex = 4;
-            this.radioButtonBlitz.TabStop = true;
-            this.radioButtonBlitz.Text = "Blitz";
-            this.radioButtonBlitz.UseVisualStyleBackColor = true;
+            this.RadioButtonBlitz.AutoSize = true;
+            this.RadioButtonBlitz.Location = new System.Drawing.Point(378, 38);
+            this.RadioButtonBlitz.Name = "RadioButtonBlitz";
+            this.RadioButtonBlitz.Size = new System.Drawing.Size(44, 17);
+            this.RadioButtonBlitz.TabIndex = 4;
+            this.RadioButtonBlitz.TabStop = true;
+            this.RadioButtonBlitz.Text = "Blitz";
+            this.RadioButtonBlitz.UseVisualStyleBackColor = true;
             // 
             // FormKindOfGameContinue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 94);
-            this.Controls.Add(this.radioButtonBlitz);
-            this.Controls.Add(this.comboBoxDatabase);
-            this.Controls.Add(this.radioButtonComputerByComputer);
-            this.Controls.Add(this.radioButtonComputerByPerson);
-            this.Controls.Add(this.radioButtonGeneticGame);
+            this.Controls.Add(this.RadioButtonBlitz);
+            this.Controls.Add(this.ComboBoxDatabase);
+            this.Controls.Add(this.RadioButtonComputerByComputer);
+            this.Controls.Add(this.RadioButtonComputerByPerson);
+            this.Controls.Add(this.RadioButtonGeneticGame);
             this.Name = "FormKindOfGameContinue";
             this.Text = "FormKindOfGameContinue";
             this.Load += new System.EventHandler(this.FormKindOfGameContinue_Load);
@@ -131,11 +109,15 @@ namespace Refrigtz
         }
 
         #endregion
-
-        public System.Windows.Forms.RadioButton radioButtonGeneticGame;
-        public System.Windows.Forms.RadioButton radioButtonComputerByPerson;
-        public System.Windows.Forms.RadioButton radioButtonComputerByComputer;
-        public System.Windows.Forms.ComboBox comboBoxDatabase;
-        public System.Windows.Forms.RadioButton radioButtonBlitz;
+        [field: NonSerialized]
+        public System.Windows.Forms.RadioButton RadioButtonGeneticGame;
+        [field: NonSerialized]
+        public System.Windows.Forms.RadioButton RadioButtonComputerByPerson;
+        [field: NonSerialized]
+        public System.Windows.Forms.RadioButton RadioButtonComputerByComputer;
+        [field: NonSerialized]
+        public System.Windows.Forms.ComboBox ComboBoxDatabase;
+        [field: NonSerialized]
+        public System.Windows.Forms.RadioButton RadioButtonBlitz;
     }
 }

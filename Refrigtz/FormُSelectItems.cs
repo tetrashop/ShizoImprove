@@ -22,25 +22,25 @@ namespace Refrigtz
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
             Items = 0;
             Close();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void PictureBox2_Click(object sender, EventArgs e)
         {
             Items = 1;
             Close();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void PictureBox3_Click(object sender, EventArgs e)
         {
             Items = 2;
             Close();
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void PictureBox4_Click(object sender, EventArgs e)
         {
             Items = 3;
             Close();

@@ -23,17 +23,17 @@ namespace Refrigtz
             do
             {
                 System.Threading.Thread.Sleep(100);
-                if (DateTime.Now.Second * 1000 + DateTime.Now.Millisecond - t > 1000) break; iii++; if (System.IO.File.Exists(FormRefrigtz.Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb")) { comboBoxDatabase.Items.Add("CurrentBank" + iii.ToString() + ".accdb"); }
+                if (DateTime.Now.Second * 1000 + DateTime.Now.Millisecond - t > 1000) break; iii++; if (System.IO.File.Exists(FormRefrigtz.Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb")) { ComboBoxDatabase.Items.Add("CurrentBank" + iii.ToString() + ".accdb"); }
             } while (true);
 
         }
 
-        private void radioButtonComputerByComputer_CheckedChanged(object sender, EventArgs e)
+        private void RadioButtonComputerByComputer_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBoxDataBase_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxDataBase_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

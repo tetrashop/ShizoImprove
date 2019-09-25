@@ -57,17 +57,17 @@ namespace Refrigtz
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
-            // progressBar1
+            // ProgressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(1, 3);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(276, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 0;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            this.ProgressBar1.Location = new System.Drawing.Point(1, 3);
+            this.ProgressBar1.Name = "ProgressBar1";
+            this.ProgressBar1.Size = new System.Drawing.Size(276, 23);
+            this.ProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.ProgressBar1.TabIndex = 0;
+            this.ProgressBar1.Click += new System.EventHandler(this.ProgressBar1_Click);
             // 
             // Load
             // 
@@ -76,7 +76,7 @@ namespace Refrigtz
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(277, 27);
             this.ControlBox = false;
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.ProgressBar1);
             this.MaximizeBox = false;
             this.Name = "Load";
             this.ShowInTaskbar = false;
@@ -88,7 +88,7 @@ namespace Refrigtz
         }
 
         #endregion
-
-        private System.Windows.Forms.ProgressBar progressBar1;
+        [field: NonSerialized]
+        private System.Windows.Forms.ProgressBar ProgressBar1;
     }
 }

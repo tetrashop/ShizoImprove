@@ -313,7 +313,7 @@ namespace RefrigtzW
             //TakeRoot.CalculateRootGray(Draw);
         }
         //Acccess Point
-        public AllDraw accessDraw
+        public AllDraw AccessDraw
         {
             get { return Draw; }
             set { Draw = value; }

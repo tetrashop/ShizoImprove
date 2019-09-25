@@ -61,17 +61,17 @@ namespace Refrigtz
         private void FormSelect_Load(object sender, EventArgs e)
         {
             if (File.Exists("_DonotDelete.txt"))
-                radioButtonBrownOrder.Checked = true;
+                RadioButtonBrownOrder.Checked = true;
             else
-                radioButtonGrayOrder.Checked = true;
+                RadioButtonGrayOrder.Checked = true;
                 
                     
             
         }
 
-        private void radioButtonBrownOrder_CheckedChanged(object sender, EventArgs e)
+        private void RadioButtonBrownOrder_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonBrownOrder.Checked)
+            if (RadioButtonBrownOrder.Checked)
             {
                 if (!File.Exists("_DonotDelete.txt"))
                     File.Create("_DonotDelete.txt");
@@ -79,9 +79,9 @@ namespace Refrigtz
             }
         }
 
-        private void radioButtonGrayOrder_CheckedChanged(object sender, EventArgs e)
+        private void RadioButtonGrayOrder_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonGrayOrder.Checked)
+            if (RadioButtonGrayOrder.Checked)
             {
                 if (File.Exists("_DonotDelete.txt"))
                     File.Delete("_DonotDelete.txt");

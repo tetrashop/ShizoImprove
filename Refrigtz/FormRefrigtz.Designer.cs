@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 namespace Refrigtz
 {
     partial class FormRefrigtz
@@ -31,68 +31,68 @@ namespace Refrigtz
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menuStripChessRefrigitz = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemNewGame = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.computerWithComputerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.computerWithComputerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemRandomGeneticGames = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.verifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.repairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStripChessRefrigitz = new System.Windows.Forms.MenuStrip();
+            this.ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemNewGame = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ComputerWithComputerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ComputerWithComputerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemRandomGeneticGames = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.VerifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RepairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.errorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monitorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.continueAGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.hardestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.medumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.easestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonNext = new System.Windows.Forms.Button();
-            this.buttonPrevious = new System.Windows.Forms.Button();
-            this.textBoxStatistic = new System.Windows.Forms.TextBox();
-            this.checkBoxAStarGreedyHuristic = new System.Windows.Forms.CheckBox();
-            this.checkBoxOnlySelf = new System.Windows.Forms.CheckBox();
-            this.checkBoxPredictHuristci = new System.Windows.Forms.CheckBox();
-            this.checkBoxBestMovments = new System.Windows.Forms.CheckBox();
-            this.radioButtonOriginalImages = new System.Windows.Forms.RadioButton();
-            this.radioButtonBigFittingImages = new System.Windows.Forms.RadioButton();
-            this.radioButtonSmallFittingImages = new System.Windows.Forms.RadioButton();
-            this.buttonStop = new System.Windows.Forms.Button();
-            this.checkBoxAStarGreadyFirstSearch = new System.Windows.Forms.CheckBox();
-            this.buttonPauseStart = new System.Windows.Forms.Button();
-            this.checkBoxAStarGreedyMovement = new System.Windows.Forms.CheckBox();
-            this.checkBoxUseDoubleTime = new System.Windows.Forms.CheckBox();
-            this.checkBoxUsePenaltyRegradMechnisam = new System.Windows.Forms.CheckBox();
-            this.checkBoxDynamicProgrammingAStarGreedyt = new System.Windows.Forms.CheckBox();
+            this.ErrorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MonitorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContinueAGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.HardestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MedumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EasestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ButtonNext = new System.Windows.Forms.Button();
+            this.ButtonPrevious = new System.Windows.Forms.Button();
+            this.TextBoxStatistic = new System.Windows.Forms.TextBox();
+            this.CheckBoxAStarGreedyHuristic = new System.Windows.Forms.CheckBox();
+            this.CheckBoxOnlySelf = new System.Windows.Forms.CheckBox();
+            this.CheckBoxPredictHuristci = new System.Windows.Forms.CheckBox();
+            this.CheckBoxBestMovments = new System.Windows.Forms.CheckBox();
+            this.RadioButtonOriginalImages = new System.Windows.Forms.RadioButton();
+            this.RadioButtonBigFittingImages = new System.Windows.Forms.RadioButton();
+            this.RadioButtonSmallFittingImages = new System.Windows.Forms.RadioButton();
+            this.ButtonStop = new System.Windows.Forms.Button();
+            this.CheckBoxAStarGreadyFirstSearch = new System.Windows.Forms.CheckBox();
+            this.ButtonPauseStart = new System.Windows.Forms.Button();
+            this.CheckBoxAStarGreedyMovement = new System.Windows.Forms.CheckBox();
+            this.CheckBoxUseDoubleTime = new System.Windows.Forms.CheckBox();
+            this.CheckBoxUsePenaltyRegradMechnisam = new System.Windows.Forms.CheckBox();
+            this.CheckBoxDynamicProgrammingAStarGreedyt = new System.Windows.Forms.CheckBox();
             this.helpProviderChessRefregitz2016 = new System.Windows.Forms.HelpProvider();
-            this.progressBarVerify = new System.Windows.Forms.ProgressBar();
+            this.ProgressBarVerify = new System.Windows.Forms.ProgressBar();
             this.labelTimesRemaining = new System.Windows.Forms.Label();
-            this.buttonCalculateRootGray = new System.Windows.Forms.Button();
-            this.checkBoxIgnoreSelf = new System.Windows.Forms.CheckBox();
-            this.comboBoxMaxLevel = new System.Windows.Forms.ComboBox();
+            this.ButtonCalculateRootGray = new System.Windows.Forms.Button();
+            this.CheckBoxIgnoreSelf = new System.Windows.Forms.CheckBox();
+            this.ComboBoxMaxLevel = new System.Windows.Forms.ComboBox();
             this.labelMaxTree = new System.Windows.Forms.Label();
             this.groupBoxGroupOfPowerity = new System.Windows.Forms.GroupBox();
             this.labelMovments = new System.Windows.Forms.Label();
@@ -101,657 +101,646 @@ namespace Refrigtz
             this.labelReducedAttacked = new System.Windows.Forms.Label();
             this.labelObjectDangour = new System.Windows.Forms.Label();
             this.labelAttack = new System.Windows.Forms.Label();
-            this.comboBoxMovments = new System.Windows.Forms.ComboBox();
-            this.comboBoxKiller = new System.Windows.Forms.ComboBox();
-            this.comboBoxSupport = new System.Windows.Forms.ComboBox();
-            this.comboBoxReducedAttacked = new System.Windows.Forms.ComboBox();
-            this.comboBoxObjectDangour = new System.Windows.Forms.ComboBox();
-            this.comboBoxAttack = new System.Windows.Forms.ComboBox();
+            this.ComboBoxMovments = new System.Windows.Forms.ComboBox();
+            this.ComboBoxKiller = new System.Windows.Forms.ComboBox();
+            this.ComboBoxSupport = new System.Windows.Forms.ComboBox();
+            this.ComboBoxReducedAttacked = new System.Windows.Forms.ComboBox();
+            this.ComboBoxObjectDangour = new System.Windows.Forms.ComboBox();
+            this.ComboBoxAttack = new System.Windows.Forms.ComboBox();
             this.folderBrowserDialogBackup = new System.Windows.Forms.FolderBrowserDialog();
-            this.buttonChangeArrangment = new System.Windows.Forms.Button();
-            this.textBoxText = new System.Windows.Forms.TextBox();
+            this.ButtonChangeArrangment = new System.Windows.Forms.Button();
+            this.TextBoxText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelNodesCount = new System.Windows.Forms.Label();
             this.labelNodesCountText = new System.Windows.Forms.Label();
-            this.pictureBox32 = new System.Windows.Forms.PictureBox();
-            this.pictureBox31 = new System.Windows.Forms.PictureBox();
-            this.pictureBox30 = new System.Windows.Forms.PictureBox();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.pictureBox28 = new System.Windows.Forms.PictureBox();
-            this.pictureBox27 = new System.Windows.Forms.PictureBox();
-            this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.pictureBox25 = new System.Windows.Forms.PictureBox();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
-            this.pictureBox23 = new System.Windows.Forms.PictureBox();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxTimerBrown = new System.Windows.Forms.PictureBox();
-            this.pictureBoxTimerGray = new System.Windows.Forms.PictureBox();
-            this.pictureBoxRefrigtz = new System.Windows.Forms.PictureBox();
-            this.backgroundWorkerAllOp = new System.ComponentModel.BackgroundWorker();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.timerAllOperation = new System.Windows.Forms.Timer(this.components);
-            this.backgroundWorkerSetNode = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorkerSetRefD = new System.ComponentModel.BackgroundWorker();
-            this.toolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStripChessRefrigitz.SuspendLayout();
+            this.PictureBox32 = new System.Windows.Forms.PictureBox();
+            this.PictureBox31 = new System.Windows.Forms.PictureBox();
+            this.PictureBox30 = new System.Windows.Forms.PictureBox();
+            this.PictureBox29 = new System.Windows.Forms.PictureBox();
+            this.PictureBox28 = new System.Windows.Forms.PictureBox();
+            this.PictureBox27 = new System.Windows.Forms.PictureBox();
+            this.PictureBox26 = new System.Windows.Forms.PictureBox();
+            this.PictureBox25 = new System.Windows.Forms.PictureBox();
+            this.PictureBox24 = new System.Windows.Forms.PictureBox();
+            this.PictureBox23 = new System.Windows.Forms.PictureBox();
+            this.PictureBox22 = new System.Windows.Forms.PictureBox();
+            this.PictureBox21 = new System.Windows.Forms.PictureBox();
+            this.PictureBox20 = new System.Windows.Forms.PictureBox();
+            this.PictureBox19 = new System.Windows.Forms.PictureBox();
+            this.PictureBox18 = new System.Windows.Forms.PictureBox();
+            this.PictureBox17 = new System.Windows.Forms.PictureBox();
+            this.PictureBox16 = new System.Windows.Forms.PictureBox();
+            this.PictureBox15 = new System.Windows.Forms.PictureBox();
+            this.PictureBox14 = new System.Windows.Forms.PictureBox();
+            this.PictureBox13 = new System.Windows.Forms.PictureBox();
+            this.PictureBox12 = new System.Windows.Forms.PictureBox();
+            this.PictureBox11 = new System.Windows.Forms.PictureBox();
+            this.PictureBox10 = new System.Windows.Forms.PictureBox();
+            this.PictureBox9 = new System.Windows.Forms.PictureBox();
+            this.PictureBox8 = new System.Windows.Forms.PictureBox();
+            this.PictureBox7 = new System.Windows.Forms.PictureBox();
+            this.PictureBox6 = new System.Windows.Forms.PictureBox();
+            this.PictureBox5 = new System.Windows.Forms.PictureBox();
+            this.PictureBox4 = new System.Windows.Forms.PictureBox();
+            this.PictureBox3 = new System.Windows.Forms.PictureBox();
+            this.PictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PictureBoxTimerBrown = new System.Windows.Forms.PictureBox();
+            this.PictureBoxTimerGray = new System.Windows.Forms.PictureBox();
+            this.PictureBoxRefrigtz = new System.Windows.Forms.PictureBox();
+            this.BackgroundWorkerAllOp = new System.ComponentModel.BackgroundWorker();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.TimerAllOperation = new System.Windows.Forms.Timer(this.components);
+            this.BackgroundWorkerSetNode = new System.ComponentModel.BackgroundWorker();
+            this.BackgroundWorkerSetRefD = new System.ComponentModel.BackgroundWorker();
+            this.ToolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTimerBrown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTimerGray)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRefrigtz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTimerBrown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTimerGray)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxRefrigtz)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStripChessRefrigitz
+            // MenuStripChessRefrigitz
             // 
-            this.menuStripChessRefrigitz.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem2,
-            this.aboutToolStripMenuItem});
-            this.menuStripChessRefrigitz.Location = new System.Drawing.Point(0, 0);
-            this.menuStripChessRefrigitz.Name = "menuStripChessRefrigitz";
-            this.menuStripChessRefrigitz.Size = new System.Drawing.Size(1005, 24);
-            this.menuStripChessRefrigitz.TabIndex = 1;
-            this.menuStripChessRefrigitz.Text = "menuStrip1";
-            this.menuStripChessRefrigitz.Leave += new System.EventHandler(this.menuStripChessRefrigitz_Leave);
+            this.MenuStripChessRefrigitz.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem1,
+            this.ToolStripMenuItem4,
+            this.ToolStripMenuItem5,
+            this.ToolStripMenuItem2,
+            this.AboutToolStripMenuItem});
+            this.MenuStripChessRefrigitz.Location = new System.Drawing.Point(0, 0);
+            this.MenuStripChessRefrigitz.Name = "MenuStripChessRefrigitz";
+            this.MenuStripChessRefrigitz.Size = new System.Drawing.Size(1005, 24);
+            this.MenuStripChessRefrigitz.TabIndex = 1;
+            this.MenuStripChessRefrigitz.Text = "MenuStrip1";
+            this.MenuStripChessRefrigitz.Leave += new System.EventHandler(this.MenuStripChessRefrigitz_Leave);
             // 
-            // toolStripMenuItem1
+            // CheckBoxBestMovments
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemNewGame,
-            this.toolStripMenuItem11,
-            this.toolStripMenuItem14,
-            this.toolStripMenuItem13,
-            this.toolStripMenuItem12,
-            this.toolStripMenuItem15,
-            this.toolStripMenuItem21,
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem8,
-            this.computerWithComputerToolStripMenuItem,
-            this.toolStripMenuItem9,
-            this.computerWithComputerToolStripMenuItem1,
-            this.toolStripMenuItem16,
-            this.toolStripMenuItem22,
-            this.toolStripMenuItem19,
-            this.toolStripMenuItem20,
-            this.toolStripMenuItem23,
-            this.toolStripMenuItem10,
-            this.toolStripMenuItem18,
-            this.toolStripMenuItem17,
-            this.toolStripMenuItemRandomGeneticGames,
-            this.exitToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-            this.toolStripMenuItem1.Text = "File";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.CheckBoxBestMovments.AutoSize = true;
+            this.CheckBoxBestMovments.Location = new System.Drawing.Point(590, 192);
+            this.CheckBoxBestMovments.Name = "CheckBoxBestMovments";
+            this.CheckBoxBestMovments.Size = new System.Drawing.Size(99, 17);
+            this.CheckBoxBestMovments.TabIndex = 13;
+            this.CheckBoxBestMovments.Text = "Best Movments";
+            this.CheckBoxBestMovments.UseVisualStyleBackColor = true;
+            this.CheckBoxBestMovments.Visible = false;
             // 
-            // toolStripMenuItemNewGame
+            // CheckBoxOnlySelf
             // 
-            this.toolStripMenuItemNewGame.Name = "toolStripMenuItemNewGame";
-            this.toolStripMenuItemNewGame.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItemNewGame.Text = "New Game";
-            this.toolStripMenuItemNewGame.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.CheckBoxOnlySelf.AutoSize = true;
+            this.CheckBoxOnlySelf.Location = new System.Drawing.Point(794, 192);
+            this.CheckBoxOnlySelf.Name = "CheckBoxOnlySelf";
+            this.CheckBoxOnlySelf.Size = new System.Drawing.Size(71, 17);
+            this.CheckBoxOnlySelf.TabIndex = 11;
+            this.CheckBoxOnlySelf.Text = "Only Self ";
+            this.CheckBoxOnlySelf.UseVisualStyleBackColor = true;
+            this.CheckBoxOnlySelf.Visible = false;
             // 
-            // toolStripMenuItem11
+            // CheckBoxAStarGreedyMovement
             // 
-            this.toolStripMenuItem11.Enabled = false;
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem11.Text = "Blitz Witout PR";
-            this.toolStripMenuItem11.Visible = false;
-            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
+            this.CheckBoxAStarGreedyMovement.AutoSize = true;
+            this.CheckBoxAStarGreedyMovement.Location = new System.Drawing.Point(816, 350);
+            this.CheckBoxAStarGreedyMovement.Name = "CheckBoxAStarGreedyMovement";
+            this.CheckBoxAStarGreedyMovement.Size = new System.Drawing.Size(160, 17);
+            this.CheckBoxAStarGreedyMovement.TabIndex = 20;
+            this.CheckBoxAStarGreedyMovement.Text = "Use AStarGreedy Movments";
+            this.CheckBoxAStarGreedyMovement.UseVisualStyleBackColor = true;
+            this.CheckBoxAStarGreedyMovement.Visible = false;
+             // 
+            // ToolStripMenuItem1
             // 
-            // toolStripMenuItem14
+            this.ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemNewGame,
+            this.ToolStripMenuItem11,
+            this.ToolStripMenuItem14,
+            this.ToolStripMenuItem13,
+            this.ToolStripMenuItem12,
+            this.ToolStripMenuItem15,
+            this.ToolStripMenuItem21,
+            this.ToolStripMenuItem6,
+            this.ToolStripMenuItem7,
+            this.ToolStripMenuItem8,
+            this.ComputerWithComputerToolStripMenuItem,
+            this.ToolStripMenuItem9,
+            this.ComputerWithComputerToolStripMenuItem1,
+            this.ToolStripMenuItem16,
+            this.ToolStripMenuItem22,
+            this.ToolStripMenuItem19,
+            this.ToolStripMenuItem20,
+            this.ToolStripMenuItem23,
+            this.ToolStripMenuItem10,
+            this.ToolStripMenuItem18,
+            this.ToolStripMenuItem17,
+            this.ToolStripMenuItemRandomGeneticGames,
+            this.ExitToolStripMenuItem});
+            this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.ToolStripMenuItem1.Text = "File";
+            this.ToolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem14.Text = "Full Game";
-            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
+            // ToolStripMenuItemNewGame
             // 
-            // toolStripMenuItem13
+            this.ToolStripMenuItemNewGame.Name = "ToolStripMenuItemNewGame";
+            this.ToolStripMenuItemNewGame.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItemNewGame.Text = "New Game";
+            this.ToolStripMenuItemNewGame.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
             // 
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem13.Text = "Full Game NO PR";
-            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
+            // ToolStripMenuItem11
             // 
-            // toolStripMenuItem12
+            this.ToolStripMenuItem11.Enabled = false;
+            this.ToolStripMenuItem11.Name = "ToolStripMenuItem11";
+            this.ToolStripMenuItem11.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem11.Text = "Blitz Witout PR";
+            this.ToolStripMenuItem11.Visible = false;
+            this.ToolStripMenuItem11.Click += new System.EventHandler(this.ToolStripMenuItem11_Click);
             // 
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem12.Text = "Blitz No PR";
-            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
+            // ToolStripMenuItem14
             // 
-            // toolStripMenuItem15
+            this.ToolStripMenuItem14.Name = "ToolStripMenuItem14";
+            this.ToolStripMenuItem14.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem14.Text = "Full Game";
+            this.ToolStripMenuItem14.Click += new System.EventHandler(this.ToolStripMenuItem14_Click);
             // 
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem15.Text = "Computer By Computer Full Game";
-            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            // ToolStripMenuItem13
             // 
-            // toolStripMenuItem21
+            this.ToolStripMenuItem13.Name = "ToolStripMenuItem13";
+            this.ToolStripMenuItem13.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem13.Text = "Full Game NO PR";
+            this.ToolStripMenuItem13.Click += new System.EventHandler(this.ToolStripMenuItem13_Click);
             // 
-            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem21.Text = "Blitz Quantum";
-            this.toolStripMenuItem21.Click += new System.EventHandler(this.toolStripMenuItem21_Click);
+            // ToolStripMenuItem12
             // 
-            // toolStripMenuItem6
+            this.ToolStripMenuItem12.Name = "ToolStripMenuItem12";
+            this.ToolStripMenuItem12.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem12.Text = "Blitz No PR";
+            this.ToolStripMenuItem12.Click += new System.EventHandler(this.ToolStripMenuItem12_Click);
             // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem6.Text = "Blitz";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // ToolStripMenuItem15
             // 
-            // toolStripMenuItem7
+            this.ToolStripMenuItem15.Name = "ToolStripMenuItem15";
+            this.ToolStripMenuItem15.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem15.Text = "Computer By Computer Full Game";
+            this.ToolStripMenuItem15.Click += new System.EventHandler(this.ToolStripMenuItem15_Click);
             // 
-            this.toolStripMenuItem7.Enabled = false;
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem7.Text = "Computer By Person Increamental";
-            this.toolStripMenuItem7.Visible = false;
-            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click_1);
+            // ToolStripMenuItem21
             // 
-            // toolStripMenuItem8
+            this.ToolStripMenuItem21.Name = "ToolStripMenuItem21";
+            this.ToolStripMenuItem21.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem21.Text = "Blitz Quantum";
+            this.ToolStripMenuItem21.Click += new System.EventHandler(this.ToolStripMenuItem21_Click);
             // 
-            this.toolStripMenuItem8.Enabled = false;
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem8.Text = "Common Increamental Computer By Computer";
-            this.toolStripMenuItem8.Visible = false;
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // ToolStripMenuItem6
             // 
-            // computerWithComputerToolStripMenuItem
+            this.ToolStripMenuItem6.Name = "ToolStripMenuItem6";
+            this.ToolStripMenuItem6.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem6.Text = "Blitz";
+            this.ToolStripMenuItem6.Click += new System.EventHandler(this.ToolStripMenuItem6_Click);
             // 
-            this.computerWithComputerToolStripMenuItem.Enabled = false;
-            this.computerWithComputerToolStripMenuItem.Name = "computerWithComputerToolStripMenuItem";
-            this.computerWithComputerToolStripMenuItem.Size = new System.Drawing.Size(327, 22);
-            this.computerWithComputerToolStripMenuItem.Text = "Computer With Computer";
-            this.computerWithComputerToolStripMenuItem.Visible = false;
-            this.computerWithComputerToolStripMenuItem.Click += new System.EventHandler(this.computerWithComputerToolStripMenuItem_Click);
+            // ToolStripMenuItem7
             // 
-            // toolStripMenuItem9
+            this.ToolStripMenuItem7.Enabled = false;
+            this.ToolStripMenuItem7.Name = "ToolStripMenuItem7";
+            this.ToolStripMenuItem7.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem7.Text = "Computer By Person Increamental";
+            this.ToolStripMenuItem7.Visible = false;
+            this.ToolStripMenuItem7.Click += new System.EventHandler(this.ToolStripMenuItem7_Click_1);
             // 
-            this.toolStripMenuItem9.Enabled = false;
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem9.Text = "Perofesional With Computer";
-            this.toolStripMenuItem9.Visible = false;
-            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // ToolStripMenuItem8
             // 
-            // computerWithComputerToolStripMenuItem1
+            this.ToolStripMenuItem8.Enabled = false;
+            this.ToolStripMenuItem8.Name = "ToolStripMenuItem8";
+            this.ToolStripMenuItem8.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem8.Text = "Common Increamental Computer By Computer";
+            this.ToolStripMenuItem8.Visible = false;
+            this.ToolStripMenuItem8.Click += new System.EventHandler(this.ToolStripMenuItem8_Click);
             // 
-            this.computerWithComputerToolStripMenuItem1.Name = "computerWithComputerToolStripMenuItem1";
-            this.computerWithComputerToolStripMenuItem1.Size = new System.Drawing.Size(327, 22);
-            this.computerWithComputerToolStripMenuItem1.Text = "Computer With Person";
-            this.computerWithComputerToolStripMenuItem1.Visible = false;
-            this.computerWithComputerToolStripMenuItem1.Click += new System.EventHandler(this.computerWithComputerToolStripMenuItem1_Click);
+            // ComputerWithComputerToolStripMenuItem
             // 
-            // toolStripMenuItem16
+            this.ComputerWithComputerToolStripMenuItem.Enabled = false;
+            this.ComputerWithComputerToolStripMenuItem.Name = "ComputerWithComputerToolStripMenuItem";
+            this.ComputerWithComputerToolStripMenuItem.Size = new System.Drawing.Size(327, 22);
+            this.ComputerWithComputerToolStripMenuItem.Text = "Computer With Computer";
+            this.ComputerWithComputerToolStripMenuItem.Visible = false;
+            this.ComputerWithComputerToolStripMenuItem.Click += new System.EventHandler(this.ComputerWithComputerToolStripMenuItem_Click);
             // 
-            this.toolStripMenuItem16.Enabled = false;
-            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem16.Text = "Refregitz With Stockfish Blitz";
-            this.toolStripMenuItem16.Visible = false;
-            this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
+            // ToolStripMenuItem9
             // 
-            // toolStripMenuItem19
+            this.ToolStripMenuItem9.Enabled = false;
+            this.ToolStripMenuItem9.Name = "ToolStripMenuItem9";
+            this.ToolStripMenuItem9.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem9.Text = "Perofesional With Computer";
+            this.ToolStripMenuItem9.Visible = false;
+            this.ToolStripMenuItem9.Click += new System.EventHandler(this.ToolStripMenuItem9_Click);
             // 
-            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem19.Text = "Blitz Game With Stockfish 8";
-            this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
+            // ComputerWithComputerToolStripMenuItem1
             // 
-            // toolStripMenuItem20
+            this.ComputerWithComputerToolStripMenuItem1.Name = "ComputerWithComputerToolStripMenuItem1";
+            this.ComputerWithComputerToolStripMenuItem1.Size = new System.Drawing.Size(327, 22);
+            this.ComputerWithComputerToolStripMenuItem1.Text = "Computer With Person";
+            this.ComputerWithComputerToolStripMenuItem1.Visible = false;
+            this.ComputerWithComputerToolStripMenuItem1.Click += new System.EventHandler(this.ComputerWithComputerToolStripMenuItem1_Click);
             // 
-            this.toolStripMenuItem20.Enabled = false;
-            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem20.Text = "Blitz Game With stockfish 8 with No PR";
-            this.toolStripMenuItem20.Visible = false;
-            this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
+            // ToolStripMenuItem16
             // 
-            // toolStripMenuItem10
+            this.ToolStripMenuItem16.Enabled = false;
+            this.ToolStripMenuItem16.Name = "ToolStripMenuItem16";
+            this.ToolStripMenuItem16.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem16.Text = "Refregitz With Stockfish Blitz";
+            this.ToolStripMenuItem16.Visible = false;
+            this.ToolStripMenuItem16.Click += new System.EventHandler(this.ToolStripMenuItem16_Click);
             // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem10.Text = "Refregitz With Stockfish8 Full Game";
-            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
+            // ToolStripMenuItem19
             // 
-            // toolStripMenuItem18
+            this.ToolStripMenuItem19.Name = "ToolStripMenuItem19";
+            this.ToolStripMenuItem19.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem19.Text = "Blitz Game With Stockfish 8";
+            this.ToolStripMenuItem19.Click += new System.EventHandler(this.ToolStripMenuItem19_Click);
             // 
-            this.toolStripMenuItem18.Enabled = false;
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem18.Text = "Refregitz With Stockfish8 Full Game witout PR";
-            this.toolStripMenuItem18.Visible = false;
-            this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
+            // ToolStripMenuItem20
             // 
-            // toolStripMenuItem17
+            this.ToolStripMenuItem20.Enabled = false;
+            this.ToolStripMenuItem20.Name = "ToolStripMenuItem20";
+            this.ToolStripMenuItem20.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem20.Text = "Blitz Game With stockfish 8 with No PR";
+            this.ToolStripMenuItem20.Visible = false;
+            this.ToolStripMenuItem20.Click += new System.EventHandler(this.ToolStripMenuItem20_Click);
             // 
-            this.toolStripMenuItem17.Enabled = false;
-            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem17.Text = "Person with stockfish 8";
-            this.toolStripMenuItem17.Visible = false;
-            this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
+            // ToolStripMenuItem10
             // 
-            // toolStripMenuItemRandomGeneticGames
+            this.ToolStripMenuItem10.Name = "ToolStripMenuItem10";
+            this.ToolStripMenuItem10.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem10.Text = "Refregitz With Stockfish8 Full Game";
+            this.ToolStripMenuItem10.Click += new System.EventHandler(this.ToolStripMenuItem10_Click);
             // 
-            this.toolStripMenuItemRandomGeneticGames.Enabled = false;
-            this.toolStripMenuItemRandomGeneticGames.Name = "toolStripMenuItemRandomGeneticGames";
-            this.toolStripMenuItemRandomGeneticGames.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItemRandomGeneticGames.Text = "Random Genetic Games";
-            this.toolStripMenuItemRandomGeneticGames.Visible = false;
-            this.toolStripMenuItemRandomGeneticGames.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // ToolStripMenuItem18
             // 
-            // exitToolStripMenuItem
+            this.ToolStripMenuItem18.Enabled = false;
+            this.ToolStripMenuItem18.Name = "ToolStripMenuItem18";
+            this.ToolStripMenuItem18.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem18.Text = "Refregitz With Stockfish8 Full Game witout PR";
+            this.ToolStripMenuItem18.Visible = false;
+            this.ToolStripMenuItem18.Click += new System.EventHandler(this.ToolStripMenuItem18_Click);
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(327, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // ToolStripMenuItem17
             // 
-            // toolStripMenuItem4
+            this.ToolStripMenuItem17.Enabled = false;
+            this.ToolStripMenuItem17.Name = "ToolStripMenuItem17";
+            this.ToolStripMenuItem17.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem17.Text = "Person with stockfish 8";
+            this.ToolStripMenuItem17.Visible = false;
+            this.ToolStripMenuItem17.Click += new System.EventHandler(this.ToolStripMenuItem17_Click);
             // 
-            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verifyToolStripMenuItem,
-            this.clearToolStripMenuItem,
-            this.repairToolStripMenuItem,
+            // ToolStripMenuItemRandomGeneticGames
+            // 
+            this.ToolStripMenuItemRandomGeneticGames.Enabled = false;
+            this.ToolStripMenuItemRandomGeneticGames.Name = "ToolStripMenuItemRandomGeneticGames";
+            this.ToolStripMenuItemRandomGeneticGames.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItemRandomGeneticGames.Text = "Random Genetic Games";
+            this.ToolStripMenuItemRandomGeneticGames.Visible = false;
+            this.ToolStripMenuItemRandomGeneticGames.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
+            // 
+            // ExitToolStripMenuItem
+            // 
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(327, 22);
+            this.ExitToolStripMenuItem.Text = "Exit";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // ToolStripMenuItem4
+            // 
+            this.ToolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.VerifyToolStripMenuItem,
+            this.ClearToolStripMenuItem,
+            this.RepairToolStripMenuItem,
             this.opneToolStripMenuItem});
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(39, 20);
-            this.toolStripMenuItem4.Text = "Edit";
-            this.toolStripMenuItem4.Visible = false;
-            // 
-            // verifyToolStripMenuItem
-            // 
-            this.verifyToolStripMenuItem.Name = "verifyToolStripMenuItem";
-            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.verifyToolStripMenuItem.Text = "Verify";
-            this.verifyToolStripMenuItem.Visible = false;
-            this.verifyToolStripMenuItem.Click += new System.EventHandler(this.verifyToolStripMenuItem_Click);
-            // 
-            // clearToolStripMenuItem
-            // 
-            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.clearToolStripMenuItem.Text = "Clear";
-            this.clearToolStripMenuItem.Visible = false;
-            this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
-            // 
-            // repairToolStripMenuItem
-            // 
-            this.repairToolStripMenuItem.Name = "repairToolStripMenuItem";
-            this.repairToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.repairToolStripMenuItem.Text = "Repair";
-            this.repairToolStripMenuItem.Visible = false;
-            this.repairToolStripMenuItem.Click += new System.EventHandler(this.repairToolStripMenuItem_Click);
+            this.ToolStripMenuItem4.Name = "ToolStripMenuItem4";
+            this.ToolStripMenuItem4.Size = new System.Drawing.Size(39, 20);
+            this.ToolStripMenuItem4.Text = "Edit";
+            this.ToolStripMenuItem4.Visible = false;
             // 
-            // opneToolStripMenuItem
-            // 
-            this.opneToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.errorOpenToolStripMenuItem,
-            this.monitorOpenToolStripMenuItem});
-            this.opneToolStripMenuItem.Name = "opneToolStripMenuItem";
-            this.opneToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.opneToolStripMenuItem.Text = "Open";
-            this.opneToolStripMenuItem.Visible = false;
-            this.opneToolStripMenuItem.Click += new System.EventHandler(this.opneToolStripMenuItem_Click);
-            // 
-            // errorOpenToolStripMenuItem
-            // 
-            this.errorOpenToolStripMenuItem.Name = "errorOpenToolStripMenuItem";
-            this.errorOpenToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.errorOpenToolStripMenuItem.Text = "Error Open";
-            this.errorOpenToolStripMenuItem.Visible = false;
-            this.errorOpenToolStripMenuItem.Click += new System.EventHandler(this.errorOpenToolStripMenuItem_Click);
-            // 
-            // monitorOpenToolStripMenuItem
-            // 
-            this.monitorOpenToolStripMenuItem.Name = "monitorOpenToolStripMenuItem";
-            this.monitorOpenToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.monitorOpenToolStripMenuItem.Text = "Monitor Open";
-            this.monitorOpenToolStripMenuItem.Click += new System.EventHandler(this.monitorOpenToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.continueAGameToolStripMenuItem});
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(45, 20);
-            this.toolStripMenuItem5.Text = "Load";
-            this.toolStripMenuItem5.Visible = false;
-            // 
-            // continueAGameToolStripMenuItem
-            // 
-            this.continueAGameToolStripMenuItem.Name = "continueAGameToolStripMenuItem";
-            this.continueAGameToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.continueAGameToolStripMenuItem.Text = "Continue a Game";
-            this.continueAGameToolStripMenuItem.Click += new System.EventHandler(this.continueAGameToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hardestToolStripMenuItem,
-            this.medumToolStripMenuItem,
-            this.easestToolStripMenuItem});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(46, 20);
-            this.toolStripMenuItem2.Text = "Level";
-            this.toolStripMenuItem2.Visible = false;
-            // 
-            // hardestToolStripMenuItem
-            // 
-            this.hardestToolStripMenuItem.Name = "hardestToolStripMenuItem";
-            this.hardestToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.hardestToolStripMenuItem.Text = "Hardest";
-            this.hardestToolStripMenuItem.Click += new System.EventHandler(this.hardestToolStripMenuItem_Click);
-            // 
-            // medumToolStripMenuItem
-            // 
-            this.medumToolStripMenuItem.Name = "medumToolStripMenuItem";
-            this.medumToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.medumToolStripMenuItem.Text = "Medum";
-            this.medumToolStripMenuItem.Click += new System.EventHandler(this.medumToolStripMenuItem_Click);
-            // 
-            // easestToolStripMenuItem
-            // 
-            this.easestToolStripMenuItem.Name = "easestToolStripMenuItem";
-            this.easestToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.easestToolStripMenuItem.Text = "Easest";
-            this.easestToolStripMenuItem.Click += new System.EventHandler(this.easestToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.aboutToolStripMenuItem1});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
-            this.toolStripMenuItem3.Text = "Help";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click_1);
-            // 
-            // aboutToolStripMenuItem1
-            // 
-            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem1.Text = "About";
-            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
-            // 
-            // buttonNext
-            // 
-            this.buttonNext.Location = new System.Drawing.Point(691, 606);
-            this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(75, 23);
-            this.buttonNext.TabIndex = 2;
-            this.buttonNext.Text = "Next";
-            this.buttonNext.UseVisualStyleBackColor = true;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
-            // 
-            // buttonPrevious
-            // 
-            this.buttonPrevious.Location = new System.Drawing.Point(607, 606);
-            this.buttonPrevious.Name = "buttonPrevious";
-            this.buttonPrevious.Size = new System.Drawing.Size(75, 23);
-            this.buttonPrevious.TabIndex = 3;
-            this.buttonPrevious.Text = "Previous";
-            this.buttonPrevious.UseVisualStyleBackColor = true;
-            this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
-            // 
-            // textBoxStatistic
-            // 
-            this.textBoxStatistic.Location = new System.Drawing.Point(613, 111);
-            this.textBoxStatistic.Multiline = true;
-            this.textBoxStatistic.Name = "textBoxStatistic";
-            this.textBoxStatistic.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxStatistic.Size = new System.Drawing.Size(285, 69);
-            this.textBoxStatistic.TabIndex = 9;
-            // 
-            // checkBoxAStarGreedyHuristic
-            // 
-            this.checkBoxAStarGreedyHuristic.AutoSize = true;
-            this.checkBoxAStarGreedyHuristic.Location = new System.Drawing.Point(871, 192);
-            this.checkBoxAStarGreedyHuristic.Name = "checkBoxAStarGreedyHuristic";
-            this.checkBoxAStarGreedyHuristic.Size = new System.Drawing.Size(124, 17);
-            this.checkBoxAStarGreedyHuristic.TabIndex = 10;
-            this.checkBoxAStarGreedyHuristic.Text = "AStarGreedy Huristic";
-            this.checkBoxAStarGreedyHuristic.UseVisualStyleBackColor = true;
-            this.checkBoxAStarGreedyHuristic.CheckedChanged += new System.EventHandler(this.checkBoxAStarGreedyHuristic_CheckedChanged);
-            // 
-            // checkBoxOnlySelf
-            // 
-            this.checkBoxOnlySelf.AutoSize = true;
-            this.checkBoxOnlySelf.Location = new System.Drawing.Point(794, 192);
-            this.checkBoxOnlySelf.Name = "checkBoxOnlySelf";
-            this.checkBoxOnlySelf.Size = new System.Drawing.Size(71, 17);
-            this.checkBoxOnlySelf.TabIndex = 11;
-            this.checkBoxOnlySelf.Text = "Only Self ";
-            this.checkBoxOnlySelf.UseVisualStyleBackColor = true;
-            this.checkBoxOnlySelf.Visible = false;
-            this.checkBoxOnlySelf.CheckedChanged += new System.EventHandler(this.checkBoxOnlySelf_CheckedChanged);
-            // 
-            // checkBoxPredictHuristci
-            // 
-            this.checkBoxPredictHuristci.AutoSize = true;
-            this.checkBoxPredictHuristci.Checked = true;
-            this.checkBoxPredictHuristci.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPredictHuristci.Location = new System.Drawing.Point(691, 192);
-            this.checkBoxPredictHuristci.Name = "checkBoxPredictHuristci";
-            this.checkBoxPredictHuristci.Size = new System.Drawing.Size(97, 17);
-            this.checkBoxPredictHuristci.TabIndex = 12;
-            this.checkBoxPredictHuristci.Text = "Predict Huristic";
-            this.checkBoxPredictHuristci.UseVisualStyleBackColor = true;
-            this.checkBoxPredictHuristci.Visible = false;
-            this.checkBoxPredictHuristci.CheckedChanged += new System.EventHandler(this.checkBoxPredictHuristci_CheckedChanged);
-            // 
-            // checkBoxBestMovments
-            // 
-            this.checkBoxBestMovments.AutoSize = true;
-            this.checkBoxBestMovments.Location = new System.Drawing.Point(590, 192);
-            this.checkBoxBestMovments.Name = "checkBoxBestMovments";
-            this.checkBoxBestMovments.Size = new System.Drawing.Size(99, 17);
-            this.checkBoxBestMovments.TabIndex = 13;
-            this.checkBoxBestMovments.Text = "Best Movments";
-            this.checkBoxBestMovments.UseVisualStyleBackColor = true;
-            this.checkBoxBestMovments.Visible = false;
-            this.checkBoxBestMovments.CheckedChanged += new System.EventHandler(this.checkBoxBestMovments_CheckedChanged);
-            // 
-            // radioButtonOriginalImages
-            // 
-            this.radioButtonOriginalImages.AutoSize = true;
-            this.radioButtonOriginalImages.Location = new System.Drawing.Point(641, 216);
-            this.radioButtonOriginalImages.Name = "radioButtonOriginalImages";
-            this.radioButtonOriginalImages.Size = new System.Drawing.Size(97, 17);
-            this.radioButtonOriginalImages.TabIndex = 14;
-            this.radioButtonOriginalImages.Text = "Original Images";
-            this.radioButtonOriginalImages.UseVisualStyleBackColor = true;
-            this.radioButtonOriginalImages.Visible = false;
-            this.radioButtonOriginalImages.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButtonBigFittingImages
-            // 
-            this.radioButtonBigFittingImages.AutoSize = true;
-            this.radioButtonBigFittingImages.Location = new System.Drawing.Point(641, 239);
-            this.radioButtonBigFittingImages.Name = "radioButtonBigFittingImages";
-            this.radioButtonBigFittingImages.Size = new System.Drawing.Size(105, 17);
-            this.radioButtonBigFittingImages.TabIndex = 15;
-            this.radioButtonBigFittingImages.Text = "Big Fiting Images";
-            this.radioButtonBigFittingImages.UseVisualStyleBackColor = true;
-            this.radioButtonBigFittingImages.Visible = false;
-            this.radioButtonBigFittingImages.CheckedChanged += new System.EventHandler(this.radioButtonBigFittingImages_CheckedChanged);
-            // 
-            // radioButtonSmallFittingImages
-            // 
-            this.radioButtonSmallFittingImages.AutoSize = true;
-            this.radioButtonSmallFittingImages.Checked = true;
-            this.radioButtonSmallFittingImages.Location = new System.Drawing.Point(641, 262);
-            this.radioButtonSmallFittingImages.Name = "radioButtonSmallFittingImages";
-            this.radioButtonSmallFittingImages.Size = new System.Drawing.Size(118, 17);
-            this.radioButtonSmallFittingImages.TabIndex = 16;
-            this.radioButtonSmallFittingImages.TabStop = true;
-            this.radioButtonSmallFittingImages.Text = "Small Fitting Images";
-            this.radioButtonSmallFittingImages.UseVisualStyleBackColor = true;
-            this.radioButtonSmallFittingImages.Visible = false;
-            this.radioButtonSmallFittingImages.CheckedChanged += new System.EventHandler(this.radioButtonSmallFittingImages_CheckedChanged);
-            // 
-            // buttonStop
-            // 
-            this.buttonStop.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonStop.Location = new System.Drawing.Point(762, 270);
-            this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(75, 23);
-            this.buttonStop.TabIndex = 17;
-            this.buttonStop.Text = "Stop";
-            this.buttonStop.UseVisualStyleBackColor = true;
-            this.buttonStop.Visible = false;
-            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
-            // 
-            // checkBoxAStarGreadyFirstSearch
-            // 
-            this.checkBoxAStarGreadyFirstSearch.AutoSize = true;
-            this.checkBoxAStarGreadyFirstSearch.Checked = true;
-            this.checkBoxAStarGreadyFirstSearch.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAStarGreadyFirstSearch.Location = new System.Drawing.Point(753, 210);
-            this.checkBoxAStarGreadyFirstSearch.Name = "checkBoxAStarGreadyFirstSearch";
-            this.checkBoxAStarGreadyFirstSearch.Size = new System.Drawing.Size(145, 17);
-            this.checkBoxAStarGreadyFirstSearch.TabIndex = 18;
-            this.checkBoxAStarGreadyFirstSearch.Text = "AStarGreedy First Search";
-            this.checkBoxAStarGreadyFirstSearch.UseVisualStyleBackColor = true;
-            this.checkBoxAStarGreadyFirstSearch.Visible = false;
-            this.checkBoxAStarGreadyFirstSearch.CheckedChanged += new System.EventHandler(this.checkBoxAStarGreadyFirstSearch_CheckedChanged);
-            // 
-            // buttonPauseStart
-            // 
-            this.buttonPauseStart.Location = new System.Drawing.Point(851, 270);
-            this.buttonPauseStart.Name = "buttonPauseStart";
-            this.buttonPauseStart.Size = new System.Drawing.Size(75, 23);
-            this.buttonPauseStart.TabIndex = 19;
-            this.buttonPauseStart.Text = "Pause";
-            this.buttonPauseStart.UseVisualStyleBackColor = true;
-            this.buttonPauseStart.Visible = false;
-            this.buttonPauseStart.Click += new System.EventHandler(this.buttonPause_Click);
-            // 
-            // checkBoxAStarGreedyMovement
-            // 
-            this.checkBoxAStarGreedyMovement.AutoSize = true;
-            this.checkBoxAStarGreedyMovement.Location = new System.Drawing.Point(816, 350);
-            this.checkBoxAStarGreedyMovement.Name = "checkBoxAStarGreedyMovement";
-            this.checkBoxAStarGreedyMovement.Size = new System.Drawing.Size(160, 17);
-            this.checkBoxAStarGreedyMovement.TabIndex = 20;
-            this.checkBoxAStarGreedyMovement.Text = "Use AStarGreedy Movments";
-            this.checkBoxAStarGreedyMovement.UseVisualStyleBackColor = true;
-            this.checkBoxAStarGreedyMovement.Visible = false;
-            this.checkBoxAStarGreedyMovement.CheckedChanged += new System.EventHandler(this.checkBoxAStarGreedyMovement_CheckedChanged);
-            this.checkBoxAStarGreedyMovement.Enter += new System.EventHandler(this.checkBoxAStarGreedyMovement_Enter);
-            // 
-            // checkBoxUseDoubleTime
-            // 
-            this.checkBoxUseDoubleTime.AutoSize = true;
-            this.checkBoxUseDoubleTime.Location = new System.Drawing.Point(762, 233);
-            this.checkBoxUseDoubleTime.Name = "checkBoxUseDoubleTime";
-            this.checkBoxUseDoubleTime.Size = new System.Drawing.Size(102, 17);
-            this.checkBoxUseDoubleTime.TabIndex = 21;
-            this.checkBoxUseDoubleTime.Text = "UseDoubleTime";
-            this.checkBoxUseDoubleTime.UseVisualStyleBackColor = true;
-            this.checkBoxUseDoubleTime.Visible = false;
-            this.checkBoxUseDoubleTime.CheckedChanged += new System.EventHandler(this.checkBoxUseDoubleTime_CheckedChanged);
-            // 
-            // checkBoxUsePenaltyRegradMechnisam
-            // 
-            this.checkBoxUsePenaltyRegradMechnisam.AutoSize = true;
-            this.checkBoxUsePenaltyRegradMechnisam.Location = new System.Drawing.Point(580, 285);
-            this.checkBoxUsePenaltyRegradMechnisam.Name = "checkBoxUsePenaltyRegradMechnisam";
-            this.checkBoxUsePenaltyRegradMechnisam.Size = new System.Drawing.Size(184, 17);
-            this.checkBoxUsePenaltyRegradMechnisam.TabIndex = 22;
-            this.checkBoxUsePenaltyRegradMechnisam.Text = "Use Penalty Regard Mechanisam";
-            this.checkBoxUsePenaltyRegradMechnisam.UseVisualStyleBackColor = true;
-            this.checkBoxUsePenaltyRegradMechnisam.CheckedChanged += new System.EventHandler(this.checkBoxUsePenaltyRegradMechnisam_CheckedChanged);
-            // 
-            // checkBoxDynamicProgrammingAStarGreedyt
-            // 
-            this.checkBoxDynamicProgrammingAStarGreedyt.AutoSize = true;
-            this.checkBoxDynamicProgrammingAStarGreedyt.Location = new System.Drawing.Point(590, 323);
-            this.checkBoxDynamicProgrammingAStarGreedyt.Name = "checkBoxDynamicProgrammingAStarGreedyt";
-            this.checkBoxDynamicProgrammingAStarGreedyt.Size = new System.Drawing.Size(216, 17);
-            this.checkBoxDynamicProgrammingAStarGreedyt.TabIndex = 23;
-            this.checkBoxDynamicProgrammingAStarGreedyt.Text = "Dynamic Programming AStarGreedy First";
-            this.checkBoxDynamicProgrammingAStarGreedyt.UseVisualStyleBackColor = true;
-            this.checkBoxDynamicProgrammingAStarGreedyt.Visible = false;
-            this.checkBoxDynamicProgrammingAStarGreedyt.CheckedChanged += new System.EventHandler(this.checkBoxDynamicProgrammingAStarGreedyt_CheckedChanged);
-            // 
-            // progressBarVerify
-            // 
-            this.progressBarVerify.Location = new System.Drawing.Point(26, 579);
-            this.progressBarVerify.Name = "progressBarVerify";
-            this.progressBarVerify.Size = new System.Drawing.Size(551, 23);
-            this.progressBarVerify.TabIndex = 24;
-            this.progressBarVerify.CursorChanged += new System.EventHandler(this.progressBarVerify_CursorChanged);
-            this.progressBarVerify.Click += new System.EventHandler(this.progressBarVerify_Click);
-            this.progressBarVerify.Validated += new System.EventHandler(this.progressBarVerify_Validated);
+            // VerifyToolStripMenuItem
+            // 
+            this.VerifyToolStripMenuItem.Name = "VerifyToolStripMenuItem";
+            this.VerifyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.VerifyToolStripMenuItem.Text = "Verify";
+            this.VerifyToolStripMenuItem.Visible = false;
+            this.VerifyToolStripMenuItem.Click += new System.EventHandler(this.VerifyToolStripMenuItem_Click);
+            // 
+            // ClearToolStripMenuItem
+            // 
+            this.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem";
+            this.ClearToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.ClearToolStripMenuItem.Text = "Clear";
+            this.ClearToolStripMenuItem.Visible = false;
+            this.ClearToolStripMenuItem.Click += new System.EventHandler(this.ClearToolStripMenuItem_Click);
+            // 
+            // RepairToolStripMenuItem
+            // 
+            this.RepairToolStripMenuItem.Name = "RepairToolStripMenuItem";
+            this.RepairToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.RepairToolStripMenuItem.Text = "Repair";
+            this.RepairToolStripMenuItem.Visible = false;
+            this.RepairToolStripMenuItem.Click += new System.EventHandler(this.RepairToolStripMenuItem_Click);
+        
+            // 
+            // ErrorOpenToolStripMenuItem
+            // 
+            this.ErrorOpenToolStripMenuItem.Name = "ErrorOpenToolStripMenuItem";
+            this.ErrorOpenToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.ErrorOpenToolStripMenuItem.Text = "Error Open";
+            this.ErrorOpenToolStripMenuItem.Visible = false;
+            this.ErrorOpenToolStripMenuItem.Click += new System.EventHandler(this.ErrorOpenToolStripMenuItem_Click);
+            // 
+            // MonitorOpenToolStripMenuItem
+            // 
+            this.MonitorOpenToolStripMenuItem.Name = "MonitorOpenToolStripMenuItem";
+            this.MonitorOpenToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.MonitorOpenToolStripMenuItem.Text = "Monitor Open";
+            this.MonitorOpenToolStripMenuItem.Click += new System.EventHandler(this.MonitorOpenToolStripMenuItem_Click);
+            // 
+            // ToolStripMenuItem5
+            // 
+            this.ToolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ContinueAGameToolStripMenuItem});
+            this.ToolStripMenuItem5.Name = "ToolStripMenuItem5";
+            this.ToolStripMenuItem5.Size = new System.Drawing.Size(45, 20);
+            this.ToolStripMenuItem5.Text = "Load";
+            this.ToolStripMenuItem5.Visible = false;
+            // 
+            // ContinueAGameToolStripMenuItem
+            // 
+            this.ContinueAGameToolStripMenuItem.Name = "ContinueAGameToolStripMenuItem";
+            this.ContinueAGameToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.ContinueAGameToolStripMenuItem.Text = "Continue a Game";
+            this.ContinueAGameToolStripMenuItem.Click += new System.EventHandler(this.ContinueAGameToolStripMenuItem_Click);
+            // 
+            // ToolStripMenuItem2
+            // 
+            this.ToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.HardestToolStripMenuItem,
+            this.MedumToolStripMenuItem,
+            this.EasestToolStripMenuItem});
+            this.ToolStripMenuItem2.Name = "ToolStripMenuItem2";
+            this.ToolStripMenuItem2.Size = new System.Drawing.Size(46, 20);
+            this.ToolStripMenuItem2.Text = "Level";
+            this.ToolStripMenuItem2.Visible = false;
+            // 
+            // HardestToolStripMenuItem
+            // 
+            this.HardestToolStripMenuItem.Name = "HardestToolStripMenuItem";
+            this.HardestToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.HardestToolStripMenuItem.Text = "Hardest";
+            this.HardestToolStripMenuItem.Click += new System.EventHandler(this.HardestToolStripMenuItem_Click);
+            // 
+            // MedumToolStripMenuItem
+            // 
+            this.MedumToolStripMenuItem.Name = "MedumToolStripMenuItem";
+            this.MedumToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.MedumToolStripMenuItem.Text = "Medum";
+            this.MedumToolStripMenuItem.Click += new System.EventHandler(this.MedumToolStripMenuItem_Click);
+            // 
+            // EasestToolStripMenuItem
+            // 
+            this.EasestToolStripMenuItem.Name = "EasestToolStripMenuItem";
+            this.EasestToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.EasestToolStripMenuItem.Text = "Easest";
+            this.EasestToolStripMenuItem.Click += new System.EventHandler(this.EasestToolStripMenuItem_Click);
+            // 
+            // AboutToolStripMenuItem
+            // 
+            this.AboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem3,
+            this.AboutToolStripMenuItem1});
+            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.AboutToolStripMenuItem.Text = "About";
+            // 
+            // ToolStripMenuItem3
+            // 
+            this.ToolStripMenuItem3.Name = "ToolStripMenuItem3";
+            this.ToolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
+            this.ToolStripMenuItem3.Text = "Help";
+            this.ToolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click_1);
+            // 
+            // AboutToolStripMenuItem1
+            // 
+            this.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1";
+            this.AboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.AboutToolStripMenuItem1.Text = "About";
+            this.AboutToolStripMenuItem1.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
+            // 
+            // ButtonNext
+            // 
+            this.ButtonNext.Location = new System.Drawing.Point(691, 606);
+            this.ButtonNext.Name = "ButtonNext";
+            this.ButtonNext.Size = new System.Drawing.Size(75, 23);
+            this.ButtonNext.TabIndex = 2;
+            this.ButtonNext.Text = "Next";
+            this.ButtonNext.UseVisualStyleBackColor = true;
+            this.ButtonNext.Click += new System.EventHandler(this.ButtonNext_Click);
+            // 
+            // ButtonPrevious
+            // 
+            this.ButtonPrevious.Location = new System.Drawing.Point(607, 606);
+            this.ButtonPrevious.Name = "ButtonPrevious";
+            this.ButtonPrevious.Size = new System.Drawing.Size(75, 23);
+            this.ButtonPrevious.TabIndex = 3;
+            this.ButtonPrevious.Text = "Previous";
+            this.ButtonPrevious.UseVisualStyleBackColor = true;
+            this.ButtonPrevious.Click += new System.EventHandler(this.ButtonPrevious_Click);
+            // 
+            // TextBoxStatistic
+            // 
+            this.TextBoxStatistic.Location = new System.Drawing.Point(613, 111);
+            this.TextBoxStatistic.Multiline = true;
+            this.TextBoxStatistic.Name = "TextBoxStatistic";
+            this.TextBoxStatistic.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextBoxStatistic.Size = new System.Drawing.Size(285, 69);
+            this.TextBoxStatistic.TabIndex = 9;
+            // 
+            // CheckBoxAStarGreedyHuristic
+            // 
+            this.CheckBoxAStarGreedyHuristic.AutoSize = true;
+            this.CheckBoxAStarGreedyHuristic.Location = new System.Drawing.Point(871, 192);
+            this.CheckBoxAStarGreedyHuristic.Name = "CheckBoxAStarGreedyHuristic";
+            this.CheckBoxAStarGreedyHuristic.Size = new System.Drawing.Size(124, 17);
+            this.CheckBoxAStarGreedyHuristic.TabIndex = 10;
+            this.CheckBoxAStarGreedyHuristic.Text = "AStarGreedy Huristic";
+            this.CheckBoxAStarGreedyHuristic.UseVisualStyleBackColor = true;
+            this.CheckBoxAStarGreedyHuristic.CheckedChanged += new System.EventHandler(this.CheckBoxAStarGreedyHuristic_CheckedChanged);
+            
+            // 
+            // CheckBoxPredictHuristci
+            // 
+            this.CheckBoxPredictHuristci.AutoSize = true;
+            this.CheckBoxPredictHuristci.Checked = true;
+            this.CheckBoxPredictHuristci.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBoxPredictHuristci.Location = new System.Drawing.Point(691, 192);
+            this.CheckBoxPredictHuristci.Name = "CheckBoxPredictHuristci";
+            this.CheckBoxPredictHuristci.Size = new System.Drawing.Size(97, 17);
+            this.CheckBoxPredictHuristci.TabIndex = 12;
+            this.CheckBoxPredictHuristci.Text = "Predict Huristic";
+            this.CheckBoxPredictHuristci.UseVisualStyleBackColor = true;
+            this.CheckBoxPredictHuristci.Visible = false;
+            this.CheckBoxPredictHuristci.CheckedChanged += new System.EventHandler(this.CheckBoxPredictHuristci_CheckedChanged);
+           
+            // 
+            // RadioButtonOriginalImages
+            // 
+            this.RadioButtonOriginalImages.AutoSize = true;
+            this.RadioButtonOriginalImages.Location = new System.Drawing.Point(641, 216);
+            this.RadioButtonOriginalImages.Name = "RadioButtonOriginalImages";
+            this.RadioButtonOriginalImages.Size = new System.Drawing.Size(97, 17);
+            this.RadioButtonOriginalImages.TabIndex = 14;
+            this.RadioButtonOriginalImages.Text = "Original Images";
+            this.RadioButtonOriginalImages.UseVisualStyleBackColor = true;
+            this.RadioButtonOriginalImages.Visible = false;
+            this.RadioButtonOriginalImages.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
+            // 
+            // RadioButtonBigFittingImages
+            // 
+            this.RadioButtonBigFittingImages.AutoSize = true;
+            this.RadioButtonBigFittingImages.Location = new System.Drawing.Point(641, 239);
+            this.RadioButtonBigFittingImages.Name = "RadioButtonBigFittingImages";
+            this.RadioButtonBigFittingImages.Size = new System.Drawing.Size(105, 17);
+            this.RadioButtonBigFittingImages.TabIndex = 15;
+            this.RadioButtonBigFittingImages.Text = "Big Fiting Images";
+            this.RadioButtonBigFittingImages.UseVisualStyleBackColor = true;
+            this.RadioButtonBigFittingImages.Visible = false;
+            this.RadioButtonBigFittingImages.CheckedChanged += new System.EventHandler(this.RadioButtonBigFittingImages_CheckedChanged);
+            // 
+            // RadioButtonSmallFittingImages
+            // 
+            this.RadioButtonSmallFittingImages.AutoSize = true;
+            this.RadioButtonSmallFittingImages.Checked = true;
+            this.RadioButtonSmallFittingImages.Location = new System.Drawing.Point(641, 262);
+            this.RadioButtonSmallFittingImages.Name = "RadioButtonSmallFittingImages";
+            this.RadioButtonSmallFittingImages.Size = new System.Drawing.Size(118, 17);
+            this.RadioButtonSmallFittingImages.TabIndex = 16;
+            this.RadioButtonSmallFittingImages.TabStop = true;
+            this.RadioButtonSmallFittingImages.Text = "Small Fitting Images";
+            this.RadioButtonSmallFittingImages.UseVisualStyleBackColor = true;
+            this.RadioButtonSmallFittingImages.Visible = false;
+            this.RadioButtonSmallFittingImages.CheckedChanged += new System.EventHandler(this.RadioButtonSmallFittingImages_CheckedChanged);
+            // 
+            // ButtonStop
+            // 
+            this.ButtonStop.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ButtonStop.Location = new System.Drawing.Point(762, 270);
+            this.ButtonStop.Name = "ButtonStop";
+            this.ButtonStop.Size = new System.Drawing.Size(75, 23);
+            this.ButtonStop.TabIndex = 17;
+            this.ButtonStop.Text = "Stop";
+            this.ButtonStop.UseVisualStyleBackColor = true;
+            this.ButtonStop.Visible = false;
+            this.ButtonStop.Click += new System.EventHandler(this.ButtonStop_Click);
+            // 
+            // CheckBoxAStarGreadyFirstSearch
+            // 
+            this.CheckBoxAStarGreadyFirstSearch.AutoSize = true;
+            this.CheckBoxAStarGreadyFirstSearch.Checked = true;
+            this.CheckBoxAStarGreadyFirstSearch.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBoxAStarGreadyFirstSearch.Location = new System.Drawing.Point(753, 210);
+            this.CheckBoxAStarGreadyFirstSearch.Name = "CheckBoxAStarGreadyFirstSearch";
+            this.CheckBoxAStarGreadyFirstSearch.Size = new System.Drawing.Size(145, 17);
+            this.CheckBoxAStarGreadyFirstSearch.TabIndex = 18;
+            this.CheckBoxAStarGreadyFirstSearch.Text = "AStarGreedy First Search";
+            this.CheckBoxAStarGreadyFirstSearch.UseVisualStyleBackColor = true;
+            this.CheckBoxAStarGreadyFirstSearch.Visible = false;
+            this.CheckBoxAStarGreadyFirstSearch.CheckedChanged += new System.EventHandler(this.CheckBoxAStarGreadyFirstSearch_CheckedChanged);
+            // 
+            // ButtonPauseStart
+            // 
+            this.ButtonPauseStart.Location = new System.Drawing.Point(851, 270);
+            this.ButtonPauseStart.Name = "ButtonPauseStart";
+            this.ButtonPauseStart.Size = new System.Drawing.Size(75, 23);
+            this.ButtonPauseStart.TabIndex = 19;
+            this.ButtonPauseStart.Text = "Pause";
+            this.ButtonPauseStart.UseVisualStyleBackColor = true;
+            this.ButtonPauseStart.Visible = false;
+            this.ButtonPauseStart.Click += new System.EventHandler(this.ButtonPause_Click);
+           
+            // 
+            // CheckBoxUseDoubleTime
+            // 
+            this.CheckBoxUseDoubleTime.AutoSize = true;
+            this.CheckBoxUseDoubleTime.Location = new System.Drawing.Point(762, 233);
+            this.CheckBoxUseDoubleTime.Name = "CheckBoxUseDoubleTime";
+            this.CheckBoxUseDoubleTime.Size = new System.Drawing.Size(102, 17);
+            this.CheckBoxUseDoubleTime.TabIndex = 21;
+            this.CheckBoxUseDoubleTime.Text = "UseDoubleTime";
+            this.CheckBoxUseDoubleTime.UseVisualStyleBackColor = true;
+            this.CheckBoxUseDoubleTime.Visible = false;
+            this.CheckBoxUseDoubleTime.CheckedChanged += new System.EventHandler(this.CheckBoxUseDoubleTime_CheckedChanged);
+            // 
+            // CheckBoxUsePenaltyRegradMechnisam
+            // 
+            this.CheckBoxUsePenaltyRegradMechnisam.AutoSize = true;
+            this.CheckBoxUsePenaltyRegradMechnisam.Location = new System.Drawing.Point(580, 285);
+            this.CheckBoxUsePenaltyRegradMechnisam.Name = "CheckBoxUsePenaltyRegradMechnisam";
+            this.CheckBoxUsePenaltyRegradMechnisam.Size = new System.Drawing.Size(184, 17);
+            this.CheckBoxUsePenaltyRegradMechnisam.TabIndex = 22;
+            this.CheckBoxUsePenaltyRegradMechnisam.Text = "Use Penalty Regard Mechanisam";
+            this.CheckBoxUsePenaltyRegradMechnisam.UseVisualStyleBackColor = true;
+            this.CheckBoxUsePenaltyRegradMechnisam.CheckedChanged += new System.EventHandler(this.CheckBoxUsePenaltyRegradMechnisam_CheckedChanged);
+            // 
+            // CheckBoxDynamicProgrammingAStarGreedyt
+            // 
+            this.CheckBoxDynamicProgrammingAStarGreedyt.AutoSize = true;
+            this.CheckBoxDynamicProgrammingAStarGreedyt.Location = new System.Drawing.Point(590, 323);
+            this.CheckBoxDynamicProgrammingAStarGreedyt.Name = "CheckBoxDynamicProgrammingAStarGreedyt";
+            this.CheckBoxDynamicProgrammingAStarGreedyt.Size = new System.Drawing.Size(216, 17);
+            this.CheckBoxDynamicProgrammingAStarGreedyt.TabIndex = 23;
+            this.CheckBoxDynamicProgrammingAStarGreedyt.Text = "Dynamic Programming AStarGreedy First";
+            this.CheckBoxDynamicProgrammingAStarGreedyt.UseVisualStyleBackColor = true;
+            this.CheckBoxDynamicProgrammingAStarGreedyt.Visible = false;
+            this.CheckBoxDynamicProgrammingAStarGreedyt.CheckedChanged += new System.EventHandler(this.CheckBoxDynamicProgrammingAStarGreedyt_CheckedChanged);
+            // 
+            // ProgressBarVerify
+            // 
+            this.ProgressBarVerify.Location = new System.Drawing.Point(26, 579);
+            this.ProgressBarVerify.Name = "ProgressBarVerify";
+            this.ProgressBarVerify.Size = new System.Drawing.Size(551, 23);
+            this.ProgressBarVerify.TabIndex = 24;
+            this.ProgressBarVerify.CursorChanged += new System.EventHandler(this.ProgressBarVerify_CursorChanged);
+            this.ProgressBarVerify.Click += new System.EventHandler(this.ProgressBarVerify_Click);
+            this.ProgressBarVerify.Validated += new System.EventHandler(this.ProgressBarVerify_Validated);
             // 
             // labelTimesRemaining
             // 
@@ -761,33 +750,33 @@ namespace Refrigtz
             this.labelTimesRemaining.Size = new System.Drawing.Size(0, 13);
             this.labelTimesRemaining.TabIndex = 25;
             // 
-            // buttonCalculateRootGray
+            // ButtonCalculateRootGray
             // 
-            this.buttonCalculateRootGray.Location = new System.Drawing.Point(592, 350);
-            this.buttonCalculateRootGray.Name = "buttonCalculateRootGray";
-            this.buttonCalculateRootGray.Size = new System.Drawing.Size(154, 23);
-            this.buttonCalculateRootGray.TabIndex = 26;
-            this.buttonCalculateRootGray.Text = "CalculateRootGray";
-            this.buttonCalculateRootGray.UseVisualStyleBackColor = true;
-            this.buttonCalculateRootGray.Visible = false;
-            this.buttonCalculateRootGray.Click += new System.EventHandler(this.buttonCalculateRootGray_Click);
+            this.ButtonCalculateRootGray.Location = new System.Drawing.Point(592, 350);
+            this.ButtonCalculateRootGray.Name = "ButtonCalculateRootGray";
+            this.ButtonCalculateRootGray.Size = new System.Drawing.Size(154, 23);
+            this.ButtonCalculateRootGray.TabIndex = 26;
+            this.ButtonCalculateRootGray.Text = "CalculateRootGray";
+            this.ButtonCalculateRootGray.UseVisualStyleBackColor = true;
+            this.ButtonCalculateRootGray.Visible = false;
+            this.ButtonCalculateRootGray.Click += new System.EventHandler(this.ButtonCalculateRootGray_Click);
             // 
-            // checkBoxIgnoreSelf
+            // CheckBoxIgnoreSelf
             // 
-            this.checkBoxIgnoreSelf.AutoSize = true;
-            this.checkBoxIgnoreSelf.Location = new System.Drawing.Point(816, 323);
-            this.checkBoxIgnoreSelf.Name = "checkBoxIgnoreSelf";
-            this.checkBoxIgnoreSelf.Size = new System.Drawing.Size(160, 17);
-            this.checkBoxIgnoreSelf.TabIndex = 27;
-            this.checkBoxIgnoreSelf.Text = "Ignore Self Objects Thinking";
-            this.checkBoxIgnoreSelf.UseVisualStyleBackColor = true;
-            this.checkBoxIgnoreSelf.Visible = false;
-            this.checkBoxIgnoreSelf.CheckedChanged += new System.EventHandler(this.checkBoxIgnoreSelf_CheckedChanged);
+            this.CheckBoxIgnoreSelf.AutoSize = true;
+            this.CheckBoxIgnoreSelf.Location = new System.Drawing.Point(816, 323);
+            this.CheckBoxIgnoreSelf.Name = "CheckBoxIgnoreSelf";
+            this.CheckBoxIgnoreSelf.Size = new System.Drawing.Size(160, 17);
+            this.CheckBoxIgnoreSelf.TabIndex = 27;
+            this.CheckBoxIgnoreSelf.Text = "Ignore Self Objects Thinking";
+            this.CheckBoxIgnoreSelf.UseVisualStyleBackColor = true;
+            this.CheckBoxIgnoreSelf.Visible = false;
+            this.CheckBoxIgnoreSelf.CheckedChanged += new System.EventHandler(this.CheckBoxIgnoreSelf_CheckedChanged);
             // 
-            // comboBoxMaxLevel
+            // ComboBoxMaxLevel
             // 
-            this.comboBoxMaxLevel.FormattingEnabled = true;
-            this.comboBoxMaxLevel.Items.AddRange(new object[] {
+            this.ComboBoxMaxLevel.FormattingEnabled = true;
+            this.ComboBoxMaxLevel.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -829,13 +818,13 @@ namespace Refrigtz
             "300",
             "400",
             "500"});
-            this.comboBoxMaxLevel.Location = new System.Drawing.Point(842, 295);
-            this.comboBoxMaxLevel.Name = "comboBoxMaxLevel";
-            this.comboBoxMaxLevel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBoxMaxLevel.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxMaxLevel.TabIndex = 28;
-            this.comboBoxMaxLevel.Text = "2";
-            this.comboBoxMaxLevel.SelectedIndexChanged += new System.EventHandler(this.comboBoxMaxTree_SelectedIndexChanged);
+            this.ComboBoxMaxLevel.Location = new System.Drawing.Point(842, 295);
+            this.ComboBoxMaxLevel.Name = "ComboBoxMaxLevel";
+            this.ComboBoxMaxLevel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ComboBoxMaxLevel.Size = new System.Drawing.Size(84, 21);
+            this.ComboBoxMaxLevel.TabIndex = 28;
+            this.ComboBoxMaxLevel.Text = "2";
+            this.ComboBoxMaxLevel.SelectedIndexChanged += new System.EventHandler(this.ComboBoxMaxTree_SelectedIndexChanged);
             // 
             // labelMaxTree
             // 
@@ -854,12 +843,12 @@ namespace Refrigtz
             this.groupBoxGroupOfPowerity.Controls.Add(this.labelReducedAttacked);
             this.groupBoxGroupOfPowerity.Controls.Add(this.labelObjectDangour);
             this.groupBoxGroupOfPowerity.Controls.Add(this.labelAttack);
-            this.groupBoxGroupOfPowerity.Controls.Add(this.comboBoxMovments);
-            this.groupBoxGroupOfPowerity.Controls.Add(this.comboBoxKiller);
-            this.groupBoxGroupOfPowerity.Controls.Add(this.comboBoxSupport);
-            this.groupBoxGroupOfPowerity.Controls.Add(this.comboBoxReducedAttacked);
-            this.groupBoxGroupOfPowerity.Controls.Add(this.comboBoxObjectDangour);
-            this.groupBoxGroupOfPowerity.Controls.Add(this.comboBoxAttack);
+            this.groupBoxGroupOfPowerity.Controls.Add(this.ComboBoxMovments);
+            this.groupBoxGroupOfPowerity.Controls.Add(this.ComboBoxKiller);
+            this.groupBoxGroupOfPowerity.Controls.Add(this.ComboBoxSupport);
+            this.groupBoxGroupOfPowerity.Controls.Add(this.ComboBoxReducedAttacked);
+            this.groupBoxGroupOfPowerity.Controls.Add(this.ComboBoxObjectDangour);
+            this.groupBoxGroupOfPowerity.Controls.Add(this.ComboBoxAttack);
             this.groupBoxGroupOfPowerity.Location = new System.Drawing.Point(583, 528);
             this.groupBoxGroupOfPowerity.Name = "groupBoxGroupOfPowerity";
             this.groupBoxGroupOfPowerity.Size = new System.Drawing.Size(375, 72);
@@ -921,10 +910,10 @@ namespace Refrigtz
             this.labelAttack.TabIndex = 48;
             this.labelAttack.Text = "Attack";
             // 
-            // comboBoxMovments
+            // ComboBoxMovments
             // 
-            this.comboBoxMovments.FormattingEnabled = true;
-            this.comboBoxMovments.Items.AddRange(new object[] {
+            this.ComboBoxMovments.FormattingEnabled = true;
+            this.ComboBoxMovments.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -935,17 +924,17 @@ namespace Refrigtz
             "100",
             "1000",
             "10000"});
-            this.comboBoxMovments.Location = new System.Drawing.Point(294, 45);
-            this.comboBoxMovments.Name = "comboBoxMovments";
-            this.comboBoxMovments.Size = new System.Drawing.Size(55, 21);
-            this.comboBoxMovments.TabIndex = 47;
-            this.comboBoxMovments.Text = "1";
-            this.comboBoxMovments.SelectedIndexChanged += new System.EventHandler(this.comboBoxMovments_SelectedIndexChanged);
+            this.ComboBoxMovments.Location = new System.Drawing.Point(294, 45);
+            this.ComboBoxMovments.Name = "ComboBoxMovments";
+            this.ComboBoxMovments.Size = new System.Drawing.Size(55, 21);
+            this.ComboBoxMovments.TabIndex = 47;
+            this.ComboBoxMovments.Text = "1";
+            this.ComboBoxMovments.SelectedIndexChanged += new System.EventHandler(this.ComboBoxMovments_SelectedIndexChanged);
             // 
-            // comboBoxKiller
+            // ComboBoxKiller
             // 
-            this.comboBoxKiller.FormattingEnabled = true;
-            this.comboBoxKiller.Items.AddRange(new object[] {
+            this.ComboBoxKiller.FormattingEnabled = true;
+            this.ComboBoxKiller.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -956,17 +945,17 @@ namespace Refrigtz
             "100",
             "1000",
             "10000"});
-            this.comboBoxKiller.Location = new System.Drawing.Point(252, 45);
-            this.comboBoxKiller.Name = "comboBoxKiller";
-            this.comboBoxKiller.Size = new System.Drawing.Size(36, 21);
-            this.comboBoxKiller.TabIndex = 46;
-            this.comboBoxKiller.Text = "1";
-            this.comboBoxKiller.SelectedIndexChanged += new System.EventHandler(this.comboBoxHitting_SelectedIndexChanged);
+            this.ComboBoxKiller.Location = new System.Drawing.Point(252, 45);
+            this.ComboBoxKiller.Name = "ComboBoxKiller";
+            this.ComboBoxKiller.Size = new System.Drawing.Size(36, 21);
+            this.ComboBoxKiller.TabIndex = 46;
+            this.ComboBoxKiller.Text = "1";
+            this.ComboBoxKiller.SelectedIndexChanged += new System.EventHandler(this.ComboBoxHitting_SelectedIndexChanged);
             // 
-            // comboBoxSupport
+            // ComboBoxSupport
             // 
-            this.comboBoxSupport.FormattingEnabled = true;
-            this.comboBoxSupport.Items.AddRange(new object[] {
+            this.ComboBoxSupport.FormattingEnabled = true;
+            this.ComboBoxSupport.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -977,17 +966,17 @@ namespace Refrigtz
             "100",
             "1000",
             "10000"});
-            this.comboBoxSupport.Location = new System.Drawing.Point(197, 45);
-            this.comboBoxSupport.Name = "comboBoxSupport";
-            this.comboBoxSupport.Size = new System.Drawing.Size(49, 21);
-            this.comboBoxSupport.TabIndex = 45;
-            this.comboBoxSupport.Text = "1";
-            this.comboBoxSupport.SelectedIndexChanged += new System.EventHandler(this.comboBoxSupport_SelectedIndexChanged);
+            this.ComboBoxSupport.Location = new System.Drawing.Point(197, 45);
+            this.ComboBoxSupport.Name = "ComboBoxSupport";
+            this.ComboBoxSupport.Size = new System.Drawing.Size(49, 21);
+            this.ComboBoxSupport.TabIndex = 45;
+            this.ComboBoxSupport.Text = "1";
+            this.ComboBoxSupport.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSupport_SelectedIndexChanged);
             // 
-            // comboBoxReducedAttacked
+            // ComboBoxReducedAttacked
             // 
-            this.comboBoxReducedAttacked.FormattingEnabled = true;
-            this.comboBoxReducedAttacked.Items.AddRange(new object[] {
+            this.ComboBoxReducedAttacked.FormattingEnabled = true;
+            this.ComboBoxReducedAttacked.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -998,17 +987,17 @@ namespace Refrigtz
             "100",
             "1000",
             "10000"});
-            this.comboBoxReducedAttacked.Location = new System.Drawing.Point(105, 45);
-            this.comboBoxReducedAttacked.Name = "comboBoxReducedAttacked";
-            this.comboBoxReducedAttacked.Size = new System.Drawing.Size(86, 21);
-            this.comboBoxReducedAttacked.TabIndex = 44;
-            this.comboBoxReducedAttacked.Text = "1";
-            this.comboBoxReducedAttacked.SelectedIndexChanged += new System.EventHandler(this.comboBoxReducedAttacked_SelectedIndexChanged);
+            this.ComboBoxReducedAttacked.Location = new System.Drawing.Point(105, 45);
+            this.ComboBoxReducedAttacked.Name = "ComboBoxReducedAttacked";
+            this.ComboBoxReducedAttacked.Size = new System.Drawing.Size(86, 21);
+            this.ComboBoxReducedAttacked.TabIndex = 44;
+            this.ComboBoxReducedAttacked.Text = "1";
+            this.ComboBoxReducedAttacked.SelectedIndexChanged += new System.EventHandler(this.ComboBoxReducedAttacked_SelectedIndexChanged);
             // 
-            // comboBoxObjectDangour
+            // ComboBoxObjectDangour
             // 
-            this.comboBoxObjectDangour.FormattingEnabled = true;
-            this.comboBoxObjectDangour.Items.AddRange(new object[] {
+            this.ComboBoxObjectDangour.FormattingEnabled = true;
+            this.ComboBoxObjectDangour.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -1019,17 +1008,17 @@ namespace Refrigtz
             "100",
             "1000",
             "10000"});
-            this.comboBoxObjectDangour.Location = new System.Drawing.Point(57, 45);
-            this.comboBoxObjectDangour.Name = "comboBoxObjectDangour";
-            this.comboBoxObjectDangour.Size = new System.Drawing.Size(42, 21);
-            this.comboBoxObjectDangour.TabIndex = 43;
-            this.comboBoxObjectDangour.Text = "1";
-            this.comboBoxObjectDangour.SelectedIndexChanged += new System.EventHandler(this.comboBoxObjectDangour_SelectedIndexChanged);
+            this.ComboBoxObjectDangour.Location = new System.Drawing.Point(57, 45);
+            this.ComboBoxObjectDangour.Name = "ComboBoxObjectDangour";
+            this.ComboBoxObjectDangour.Size = new System.Drawing.Size(42, 21);
+            this.ComboBoxObjectDangour.TabIndex = 43;
+            this.ComboBoxObjectDangour.Text = "1";
+            this.ComboBoxObjectDangour.SelectedIndexChanged += new System.EventHandler(this.ComboBoxObjectDangour_SelectedIndexChanged);
             // 
-            // comboBoxAttack
+            // ComboBoxAttack
             // 
-            this.comboBoxAttack.FormattingEnabled = true;
-            this.comboBoxAttack.Items.AddRange(new object[] {
+            this.ComboBoxAttack.FormattingEnabled = true;
+            this.ComboBoxAttack.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -1040,34 +1029,34 @@ namespace Refrigtz
             "100",
             "1000",
             "10000"});
-            this.comboBoxAttack.Location = new System.Drawing.Point(0, 45);
-            this.comboBoxAttack.Name = "comboBoxAttack";
-            this.comboBoxAttack.Size = new System.Drawing.Size(51, 21);
-            this.comboBoxAttack.TabIndex = 42;
-            this.comboBoxAttack.Text = "1";
-            this.comboBoxAttack.SelectedIndexChanged += new System.EventHandler(this.comboBoxAttack_SelectedIndexChanged);
+            this.ComboBoxAttack.Location = new System.Drawing.Point(0, 45);
+            this.ComboBoxAttack.Name = "ComboBoxAttack";
+            this.ComboBoxAttack.Size = new System.Drawing.Size(51, 21);
+            this.ComboBoxAttack.TabIndex = 42;
+            this.ComboBoxAttack.Text = "1";
+            this.ComboBoxAttack.SelectedIndexChanged += new System.EventHandler(this.ComboBoxAttack_SelectedIndexChanged);
             // 
-            // buttonChangeArrangment
+            // ButtonChangeArrangment
             // 
-            this.buttonChangeArrangment.Enabled = false;
-            this.buttonChangeArrangment.Location = new System.Drawing.Point(592, 239);
-            this.buttonChangeArrangment.Name = "buttonChangeArrangment";
-            this.buttonChangeArrangment.Size = new System.Drawing.Size(37, 23);
-            this.buttonChangeArrangment.TabIndex = 43;
-            this.buttonChangeArrangment.Text = "<>";
-            this.buttonChangeArrangment.UseVisualStyleBackColor = true;
-            this.buttonChangeArrangment.Visible = false;
-            this.buttonChangeArrangment.Click += new System.EventHandler(this.buttonChangeArrangment_Click);
+            this.ButtonChangeArrangment.Enabled = false;
+            this.ButtonChangeArrangment.Location = new System.Drawing.Point(592, 239);
+            this.ButtonChangeArrangment.Name = "ButtonChangeArrangment";
+            this.ButtonChangeArrangment.Size = new System.Drawing.Size(37, 23);
+            this.ButtonChangeArrangment.TabIndex = 43;
+            this.ButtonChangeArrangment.Text = "<>";
+            this.ButtonChangeArrangment.UseVisualStyleBackColor = true;
+            this.ButtonChangeArrangment.Visible = false;
+            this.ButtonChangeArrangment.Click += new System.EventHandler(this.ButtonChangeArrangment_Click);
             // 
-            // textBoxText
+            // TextBoxText
             // 
-            this.textBoxText.Location = new System.Drawing.Point(590, 379);
-            this.textBoxText.Multiline = true;
-            this.textBoxText.Name = "textBoxText";
-            this.textBoxText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxText.Size = new System.Drawing.Size(368, 75);
-            this.textBoxText.TabIndex = 44;
-            this.textBoxText.TextChanged += new System.EventHandler(this.textBoxText_TextChanged);
+            this.TextBoxText.Location = new System.Drawing.Point(590, 379);
+            this.TextBoxText.Multiline = true;
+            this.TextBoxText.Name = "TextBoxText";
+            this.TextBoxText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextBoxText.Size = new System.Drawing.Size(368, 75);
+            this.TextBoxText.TabIndex = 44;
+            this.TextBoxText.TextChanged += new System.EventHandler(this.TextBoxText_TextChanged);
             // 
             // label1
             // 
@@ -1102,653 +1091,777 @@ namespace Refrigtz
             this.labelNodesCountText.TabIndex = 82;
             this.labelNodesCountText.Text = "Nodes Counts:";
             // 
-            // pictureBox32
-            // 
-            this.pictureBox32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox32.Location = new System.Drawing.Point(786, 495);
-            this.pictureBox32.Name = "pictureBox32";
-            this.pictureBox32.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox32.TabIndex = 64;
-            this.pictureBox32.TabStop = false;
-            // 
-            // pictureBox31
-            // 
-            this.pictureBox31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox31.Location = new System.Drawing.Point(760, 495);
-            this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox31.TabIndex = 65;
-            this.pictureBox31.TabStop = false;
-            // 
-            // pictureBox30
-            // 
-            this.pictureBox30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox30.Location = new System.Drawing.Point(732, 495);
-            this.pictureBox30.Name = "pictureBox30";
-            this.pictureBox30.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox30.TabIndex = 66;
-            this.pictureBox30.TabStop = false;
-            // 
-            // pictureBox29
-            // 
-            this.pictureBox29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox29.Location = new System.Drawing.Point(704, 495);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox29.TabIndex = 67;
-            this.pictureBox29.TabStop = false;
-            // 
-            // pictureBox28
-            // 
-            this.pictureBox28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox28.Location = new System.Drawing.Point(676, 495);
-            this.pictureBox28.Name = "pictureBox28";
-            this.pictureBox28.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox28.TabIndex = 68;
-            this.pictureBox28.TabStop = false;
-            // 
-            // pictureBox27
-            // 
-            this.pictureBox27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox27.Location = new System.Drawing.Point(648, 495);
-            this.pictureBox27.Name = "pictureBox27";
-            this.pictureBox27.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox27.TabIndex = 69;
-            this.pictureBox27.TabStop = false;
-            // 
-            // pictureBox26
-            // 
-            this.pictureBox26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox26.Location = new System.Drawing.Point(620, 495);
-            this.pictureBox26.Name = "pictureBox26";
-            this.pictureBox26.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox26.TabIndex = 70;
-            this.pictureBox26.TabStop = false;
-            // 
-            // pictureBox25
-            // 
-            this.pictureBox25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox25.Location = new System.Drawing.Point(593, 495);
-            this.pictureBox25.Name = "pictureBox25";
-            this.pictureBox25.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox25.TabIndex = 71;
-            this.pictureBox25.TabStop = false;
-            // 
-            // pictureBox24
-            // 
-            this.pictureBox24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox24.Location = new System.Drawing.Point(786, 462);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox24.TabIndex = 72;
-            this.pictureBox24.TabStop = false;
-            // 
-            // pictureBox23
-            // 
-            this.pictureBox23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox23.Location = new System.Drawing.Point(760, 462);
-            this.pictureBox23.Name = "pictureBox23";
-            this.pictureBox23.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox23.TabIndex = 73;
-            this.pictureBox23.TabStop = false;
-            // 
-            // pictureBox22
-            // 
-            this.pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox22.Location = new System.Drawing.Point(732, 462);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox22.TabIndex = 74;
-            this.pictureBox22.TabStop = false;
-            // 
-            // pictureBox21
-            // 
-            this.pictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox21.Location = new System.Drawing.Point(704, 462);
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox21.TabIndex = 75;
-            this.pictureBox21.TabStop = false;
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox20.Location = new System.Drawing.Point(676, 462);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox20.TabIndex = 76;
-            this.pictureBox20.TabStop = false;
-            // 
-            // pictureBox19
-            // 
-            this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox19.Location = new System.Drawing.Point(648, 462);
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox19.TabIndex = 77;
-            this.pictureBox19.TabStop = false;
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox18.Location = new System.Drawing.Point(620, 462);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox18.TabIndex = 78;
-            this.pictureBox18.TabStop = false;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox17.Location = new System.Drawing.Point(593, 462);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox17.TabIndex = 63;
-            this.pictureBox17.TabStop = false;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox16.Location = new System.Drawing.Point(788, 346);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox16.TabIndex = 60;
-            this.pictureBox16.TabStop = false;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox15.Location = new System.Drawing.Point(760, 344);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox15.TabIndex = 59;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox14.Location = new System.Drawing.Point(732, 345);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox14.TabIndex = 58;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox13.Location = new System.Drawing.Point(704, 344);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 57;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox12.Location = new System.Drawing.Point(676, 344);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 56;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox11.Location = new System.Drawing.Point(648, 344);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 55;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox10.Location = new System.Drawing.Point(620, 344);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 54;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(593, 346);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 53;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(788, 312);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 52;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(760, 312);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 51;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(732, 312);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 50;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(704, 312);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 49;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(676, 312);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 48;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(648, 312);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 47;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(620, 312);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 46;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(592, 312);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 45;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBoxTimerBrown
-            // 
-            this.pictureBoxTimerBrown.ErrorImage = global::Refrigtz.Properties.Resources.Brown;
-            this.pictureBoxTimerBrown.Image = global::Refrigtz.Properties.Resources.Brown;
-            this.pictureBoxTimerBrown.Location = new System.Drawing.Point(801, 38);
-            this.pictureBoxTimerBrown.Name = "pictureBoxTimerBrown";
-            this.pictureBoxTimerBrown.Size = new System.Drawing.Size(192, 66);
-            this.pictureBoxTimerBrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxTimerBrown.TabIndex = 8;
-            this.pictureBoxTimerBrown.TabStop = false;
-            this.pictureBoxTimerBrown.Click += new System.EventHandler(this.pictureBoxTimerBrown_Click);
-            this.pictureBoxTimerBrown.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxTimerBrown_Paint);
-            // 
-            // pictureBoxTimerGray
-            // 
-            this.pictureBoxTimerGray.ErrorImage = global::Refrigtz.Properties.Resources.Gray;
-            this.pictureBoxTimerGray.Image = global::Refrigtz.Properties.Resources.Gray;
-            this.pictureBoxTimerGray.Location = new System.Drawing.Point(595, 38);
-            this.pictureBoxTimerGray.Name = "pictureBoxTimerGray";
-            this.pictureBoxTimerGray.Size = new System.Drawing.Size(193, 66);
-            this.pictureBoxTimerGray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxTimerGray.TabIndex = 7;
-            this.pictureBoxTimerGray.TabStop = false;
-            this.pictureBoxTimerGray.Click += new System.EventHandler(this.pictureBoxTimerGray_Click);
-            this.pictureBoxTimerGray.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxTimerGray_Paint);
-            // 
-            // pictureBoxRefrigtz
-            // 
-            this.pictureBoxRefrigtz.InitialImage = global::Refrigtz.Properties.Resources.BrG;
-            this.pictureBoxRefrigtz.Location = new System.Drawing.Point(3, 38);
-            this.pictureBoxRefrigtz.Name = "pictureBoxRefrigtz";
-            this.pictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
-            this.pictureBoxRefrigtz.TabIndex = 0;
-            this.pictureBoxRefrigtz.TabStop = false;
-            this.pictureBoxRefrigtz.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxRefrigtz_Paint);
-            this.pictureBoxRefrigtz.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseClick);
-            this.pictureBoxRefrigtz.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseDoubleClick);
-            this.pictureBoxRefrigtz.MouseLeave += new System.EventHandler(this.pictureBoxRefrigtz_MouseLeave);
-            this.pictureBoxRefrigtz.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxRefrigtz_MouseMove);
-            // 
-            // backgroundWorkerAllOp
-            // 
-            this.backgroundWorkerAllOp.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
-            // 
-            // timer
-            // 
-            this.timer.Interval = 1000000000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // timerAllOperation
-            // 
-            this.timerAllOperation.Tick += new System.EventHandler(this.timerAllOperation_Tick);
-            // 
-            // backgroundWorkerSetNode
-            // 
-            this.backgroundWorkerSetNode.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerSetNode_DoWork);
-            // 
-            // backgroundWorkerSetRefD
-            // 
-            this.backgroundWorkerSetRefD.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerSetRefD_DoWork);
-            // 
-            // toolStripMenuItem22
-            // 
-            this.toolStripMenuItem22.Name = "toolStripMenuItem22";
-            this.toolStripMenuItem22.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem22.Text = "Blitz Game With SugR";
-            this.toolStripMenuItem22.Click += new System.EventHandler(this.toolStripMenuItem22_Click);
-            // 
-            // toolStripMenuItem23
-            // 
-            this.toolStripMenuItem23.Name = "toolStripMenuItem23";
-            this.toolStripMenuItem23.Size = new System.Drawing.Size(327, 22);
-            this.toolStripMenuItem23.Text = "Refregitz With SugR Full Game";
-            this.toolStripMenuItem23.Click += new System.EventHandler(this.toolStripMenuItem23_Click);
+            // PictureBox32
+            // 
+            this.PictureBox32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox32.Location = new System.Drawing.Point(786, 495);
+            this.PictureBox32.Name = "PictureBox32";
+            this.PictureBox32.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox32.TabIndex = 64;
+            this.PictureBox32.TabStop = false;
+            // 
+            // PictureBox31
+            // 
+            this.PictureBox31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox31.Location = new System.Drawing.Point(760, 495);
+            this.PictureBox31.Name = "PictureBox31";
+            this.PictureBox31.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox31.TabIndex = 65;
+            this.PictureBox31.TabStop = false;
+            // 
+            // PictureBox30
+            // 
+            this.PictureBox30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox30.Location = new System.Drawing.Point(732, 495);
+            this.PictureBox30.Name = "PictureBox30";
+            this.PictureBox30.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox30.TabIndex = 66;
+            this.PictureBox30.TabStop = false;
+            // 
+            // PictureBox29
+            // 
+            this.PictureBox29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox29.Location = new System.Drawing.Point(704, 495);
+            this.PictureBox29.Name = "PictureBox29";
+            this.PictureBox29.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox29.TabIndex = 67;
+            this.PictureBox29.TabStop = false;
+            // 
+            // PictureBox28
+            // 
+            this.PictureBox28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox28.Location = new System.Drawing.Point(676, 495);
+            this.PictureBox28.Name = "PictureBox28";
+            this.PictureBox28.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox28.TabIndex = 68;
+            this.PictureBox28.TabStop = false;
+            // 
+            // PictureBox27
+            // 
+            this.PictureBox27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox27.Location = new System.Drawing.Point(648, 495);
+            this.PictureBox27.Name = "PictureBox27";
+            this.PictureBox27.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox27.TabIndex = 69;
+            this.PictureBox27.TabStop = false;
+            // 
+            // PictureBox26
+            // 
+            this.PictureBox26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox26.Location = new System.Drawing.Point(620, 495);
+            this.PictureBox26.Name = "PictureBox26";
+            this.PictureBox26.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox26.TabIndex = 70;
+            this.PictureBox26.TabStop = false;
+            // 
+            // PictureBox25
+            // 
+            this.PictureBox25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox25.Location = new System.Drawing.Point(593, 495);
+            this.PictureBox25.Name = "PictureBox25";
+            this.PictureBox25.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox25.TabIndex = 71;
+            this.PictureBox25.TabStop = false;
+            // 
+            // PictureBox24
+            // 
+            this.PictureBox24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox24.Location = new System.Drawing.Point(786, 462);
+            this.PictureBox24.Name = "PictureBox24";
+            this.PictureBox24.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox24.TabIndex = 72;
+            this.PictureBox24.TabStop = false;
+            // 
+            // PictureBox23
+            // 
+            this.PictureBox23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox23.Location = new System.Drawing.Point(760, 462);
+            this.PictureBox23.Name = "PictureBox23";
+            this.PictureBox23.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox23.TabIndex = 73;
+            this.PictureBox23.TabStop = false;
+            // 
+            // PictureBox22
+            // 
+            this.PictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox22.Location = new System.Drawing.Point(732, 462);
+            this.PictureBox22.Name = "PictureBox22";
+            this.PictureBox22.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox22.TabIndex = 74;
+            this.PictureBox22.TabStop = false;
+            // 
+            // PictureBox21
+            // 
+            this.PictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox21.Location = new System.Drawing.Point(704, 462);
+            this.PictureBox21.Name = "PictureBox21";
+            this.PictureBox21.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox21.TabIndex = 75;
+            this.PictureBox21.TabStop = false;
+            // 
+            // PictureBox20
+            // 
+            this.PictureBox20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox20.Location = new System.Drawing.Point(676, 462);
+            this.PictureBox20.Name = "PictureBox20";
+            this.PictureBox20.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox20.TabIndex = 76;
+            this.PictureBox20.TabStop = false;
+            // 
+            // PictureBox19
+            // 
+            this.PictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox19.Location = new System.Drawing.Point(648, 462);
+            this.PictureBox19.Name = "PictureBox19";
+            this.PictureBox19.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox19.TabIndex = 77;
+            this.PictureBox19.TabStop = false;
+            // 
+            // PictureBox18
+            // 
+            this.PictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox18.Location = new System.Drawing.Point(620, 462);
+            this.PictureBox18.Name = "PictureBox18";
+            this.PictureBox18.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox18.TabIndex = 78;
+            this.PictureBox18.TabStop = false;
+            // 
+            // PictureBox17
+            // 
+            this.PictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox17.Location = new System.Drawing.Point(593, 462);
+            this.PictureBox17.Name = "PictureBox17";
+            this.PictureBox17.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox17.TabIndex = 63;
+            this.PictureBox17.TabStop = false;
+            // 
+            // PictureBox16
+            // 
+            this.PictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox16.Location = new System.Drawing.Point(788, 346);
+            this.PictureBox16.Name = "PictureBox16";
+            this.PictureBox16.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox16.TabIndex = 60;
+            this.PictureBox16.TabStop = false;
+            // 
+            // PictureBox15
+            // 
+            this.PictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox15.Location = new System.Drawing.Point(760, 344);
+            this.PictureBox15.Name = "PictureBox15";
+            this.PictureBox15.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox15.TabIndex = 59;
+            this.PictureBox15.TabStop = false;
+            // 
+            // PictureBox14
+            // 
+            this.PictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox14.Location = new System.Drawing.Point(732, 345);
+            this.PictureBox14.Name = "PictureBox14";
+            this.PictureBox14.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox14.TabIndex = 58;
+            this.PictureBox14.TabStop = false;
+            // 
+            // PictureBox13
+            // 
+            this.PictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox13.Location = new System.Drawing.Point(704, 344);
+            this.PictureBox13.Name = "PictureBox13";
+            this.PictureBox13.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox13.TabIndex = 57;
+            this.PictureBox13.TabStop = false;
+            // 
+            // PictureBox12
+            // 
+            this.PictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox12.Location = new System.Drawing.Point(676, 344);
+            this.PictureBox12.Name = "PictureBox12";
+            this.PictureBox12.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox12.TabIndex = 56;
+            this.PictureBox12.TabStop = false;
+            // 
+            // PictureBox11
+            // 
+            this.PictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox11.Location = new System.Drawing.Point(648, 344);
+            this.PictureBox11.Name = "PictureBox11";
+            this.PictureBox11.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox11.TabIndex = 55;
+            this.PictureBox11.TabStop = false;
+            // 
+            // PictureBox10
+            // 
+            this.PictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox10.Location = new System.Drawing.Point(620, 344);
+            this.PictureBox10.Name = "PictureBox10";
+            this.PictureBox10.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox10.TabIndex = 54;
+            this.PictureBox10.TabStop = false;
+            // 
+            // PictureBox9
+            // 
+            this.PictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox9.Location = new System.Drawing.Point(593, 346);
+            this.PictureBox9.Name = "PictureBox9";
+            this.PictureBox9.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox9.TabIndex = 53;
+            this.PictureBox9.TabStop = false;
+            // 
+            // PictureBox8
+            // 
+            this.PictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox8.Location = new System.Drawing.Point(788, 312);
+            this.PictureBox8.Name = "PictureBox8";
+            this.PictureBox8.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox8.TabIndex = 52;
+            this.PictureBox8.TabStop = false;
+            // 
+            // PictureBox7
+            // 
+            this.PictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox7.Location = new System.Drawing.Point(760, 312);
+            this.PictureBox7.Name = "PictureBox7";
+            this.PictureBox7.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox7.TabIndex = 51;
+            this.PictureBox7.TabStop = false;
+            // 
+            // PictureBox6
+            // 
+            this.PictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox6.Location = new System.Drawing.Point(732, 312);
+            this.PictureBox6.Name = "PictureBox6";
+            this.PictureBox6.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox6.TabIndex = 50;
+            this.PictureBox6.TabStop = false;
+            // 
+            // PictureBox5
+            // 
+            this.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox5.Location = new System.Drawing.Point(704, 312);
+            this.PictureBox5.Name = "PictureBox5";
+            this.PictureBox5.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox5.TabIndex = 49;
+            this.PictureBox5.TabStop = false;
+            // 
+            // PictureBox4
+            // 
+            this.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox4.Location = new System.Drawing.Point(676, 312);
+            this.PictureBox4.Name = "PictureBox4";
+            this.PictureBox4.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox4.TabIndex = 48;
+            this.PictureBox4.TabStop = false;
+            // 
+            // PictureBox3
+            // 
+            this.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox3.Location = new System.Drawing.Point(648, 312);
+            this.PictureBox3.Name = "PictureBox3";
+            this.PictureBox3.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox3.TabIndex = 47;
+            this.PictureBox3.TabStop = false;
+            this.PictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
+            // 
+            // PictureBox2
+            // 
+            this.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox2.Location = new System.Drawing.Point(620, 312);
+            this.PictureBox2.Name = "PictureBox2";
+            this.PictureBox2.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox2.TabIndex = 46;
+            this.PictureBox2.TabStop = false;
+            // 
+            // PictureBox1
+            // 
+            this.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBox1.Location = new System.Drawing.Point(592, 312);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(22, 27);
+            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox1.TabIndex = 45;
+            this.PictureBox1.TabStop = false;
+            // 
+            // PictureBoxTimerBrown
+            // 
+            this.PictureBoxTimerBrown.ErrorImage = global::Refrigtz.Properties.Resources.Brown;
+            this.PictureBoxTimerBrown.Image = global::Refrigtz.Properties.Resources.Brown;
+            this.PictureBoxTimerBrown.Location = new System.Drawing.Point(801, 38);
+            this.PictureBoxTimerBrown.Name = "PictureBoxTimerBrown";
+            this.PictureBoxTimerBrown.Size = new System.Drawing.Size(192, 66);
+            this.PictureBoxTimerBrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxTimerBrown.TabIndex = 8;
+            this.PictureBoxTimerBrown.TabStop = false;
+            this.PictureBoxTimerBrown.Click += new System.EventHandler(this.PictureBoxTimerBrown_Click);
+            this.PictureBoxTimerBrown.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxTimerBrown_Paint);
+            // 
+            // PictureBoxTimerGray
+            // 
+            this.PictureBoxTimerGray.ErrorImage = global::Refrigtz.Properties.Resources.Gray;
+            this.PictureBoxTimerGray.Image = global::Refrigtz.Properties.Resources.Gray;
+            this.PictureBoxTimerGray.Location = new System.Drawing.Point(595, 38);
+            this.PictureBoxTimerGray.Name = "PictureBoxTimerGray";
+            this.PictureBoxTimerGray.Size = new System.Drawing.Size(193, 66);
+            this.PictureBoxTimerGray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxTimerGray.TabIndex = 7;
+            this.PictureBoxTimerGray.TabStop = false;
+            this.PictureBoxTimerGray.Click += new System.EventHandler(this.PictureBoxTimerGray_Click);
+            this.PictureBoxTimerGray.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxTimerGray_Paint);
+            // 
+            // PictureBoxRefrigtz
+            // 
+            this.PictureBoxRefrigtz.InitialImage = global::Refrigtz.Properties.Resources.BrG;
+            this.PictureBoxRefrigtz.Location = new System.Drawing.Point(3, 38);
+            this.PictureBoxRefrigtz.Name = "PictureBoxRefrigtz";
+            this.PictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
+            this.PictureBoxRefrigtz.TabIndex = 0;
+            this.PictureBoxRefrigtz.TabStop = false;
+            this.PictureBoxRefrigtz.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxRefrigtz_Paint);
+            this.PictureBoxRefrigtz.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PictureBoxRefrigtz_MouseClick);
+            this.PictureBoxRefrigtz.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PictureBoxRefrigtz_MouseDoubleClick);
+            this.PictureBoxRefrigtz.MouseLeave += new System.EventHandler(this.PictureBoxRefrigtz_MouseLeave);
+            this.PictureBoxRefrigtz.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBoxRefrigtz_MouseMove);
+            // 
+            // BackgroundWorkerAllOp
+            // 
+            this.BackgroundWorkerAllOp.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
+            // 
+            // Timer
+            // 
+            this.Timer.Interval = 1000000000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // TimerAllOperation
+            // 
+            this.TimerAllOperation.Tick += new System.EventHandler(this.TimerAllOperation_Tick);
+            // 
+            // BackgroundWorkerSetNode
+            // 
+            this.BackgroundWorkerSetNode.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerSetNode_DoWork);
+            // 
+            // BackgroundWorkerSetRefD
+            // 
+            this.BackgroundWorkerSetRefD.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerSetRefD_DoWork);
+            // 
+            // ToolStripMenuItem22
+            // 
+            this.ToolStripMenuItem22.Name = "ToolStripMenuItem22";
+            this.ToolStripMenuItem22.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem22.Text = "Blitz Game With SugR";
+            this.ToolStripMenuItem22.Click += new System.EventHandler(this.ToolStripMenuItem22_Click);
+            // 
+            // ToolStripMenuItem23
+            // 
+            this.ToolStripMenuItem23.Name = "ToolStripMenuItem23";
+            this.ToolStripMenuItem23.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem23.Text = "Refregitz With SugR Full Game";
+            this.ToolStripMenuItem23.Click += new System.EventHandler(this.ToolStripMenuItem23_Click);
             // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.buttonStop;
+            this.CancelButton = this.ButtonStop;
             this.ClientSize = new System.Drawing.Size(1005, 653);
             this.ControlBox = false;
             this.Controls.Add(this.labelNodesCountText);
             this.Controls.Add(this.labelNodesCount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox32);
-            this.Controls.Add(this.pictureBox31);
-            this.Controls.Add(this.pictureBox30);
-            this.Controls.Add(this.pictureBox29);
-            this.Controls.Add(this.pictureBox28);
-            this.Controls.Add(this.pictureBox27);
-            this.Controls.Add(this.pictureBox26);
-            this.Controls.Add(this.pictureBox25);
-            this.Controls.Add(this.pictureBox24);
-            this.Controls.Add(this.pictureBox23);
-            this.Controls.Add(this.pictureBox22);
-            this.Controls.Add(this.pictureBox21);
-            this.Controls.Add(this.pictureBox20);
-            this.Controls.Add(this.pictureBox19);
-            this.Controls.Add(this.pictureBox18);
-            this.Controls.Add(this.pictureBox17);
-            this.Controls.Add(this.pictureBox16);
-            this.Controls.Add(this.pictureBox15);
-            this.Controls.Add(this.pictureBox14);
-            this.Controls.Add(this.pictureBox13);
-            this.Controls.Add(this.pictureBox12);
-            this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBoxText);
-            this.Controls.Add(this.buttonChangeArrangment);
+            this.Controls.Add(this.PictureBox32);
+            this.Controls.Add(this.PictureBox31);
+            this.Controls.Add(this.PictureBox30);
+            this.Controls.Add(this.PictureBox29);
+            this.Controls.Add(this.PictureBox28);
+            this.Controls.Add(this.PictureBox27);
+            this.Controls.Add(this.PictureBox26);
+            this.Controls.Add(this.PictureBox25);
+            this.Controls.Add(this.PictureBox24);
+            this.Controls.Add(this.PictureBox23);
+            this.Controls.Add(this.PictureBox22);
+            this.Controls.Add(this.PictureBox21);
+            this.Controls.Add(this.PictureBox20);
+            this.Controls.Add(this.PictureBox19);
+            this.Controls.Add(this.PictureBox18);
+            this.Controls.Add(this.PictureBox17);
+            this.Controls.Add(this.PictureBox16);
+            this.Controls.Add(this.PictureBox15);
+            this.Controls.Add(this.PictureBox14);
+            this.Controls.Add(this.PictureBox13);
+            this.Controls.Add(this.PictureBox12);
+            this.Controls.Add(this.PictureBox11);
+            this.Controls.Add(this.PictureBox10);
+            this.Controls.Add(this.PictureBox9);
+            this.Controls.Add(this.PictureBox8);
+            this.Controls.Add(this.PictureBox7);
+            this.Controls.Add(this.PictureBox6);
+            this.Controls.Add(this.PictureBox5);
+            this.Controls.Add(this.PictureBox4);
+            this.Controls.Add(this.PictureBox3);
+            this.Controls.Add(this.PictureBox2);
+            this.Controls.Add(this.PictureBox1);
+            this.Controls.Add(this.TextBoxText);
+            this.Controls.Add(this.ButtonChangeArrangment);
             this.Controls.Add(this.groupBoxGroupOfPowerity);
             this.Controls.Add(this.labelMaxTree);
-            this.Controls.Add(this.comboBoxMaxLevel);
-            this.Controls.Add(this.checkBoxIgnoreSelf);
-            this.Controls.Add(this.buttonCalculateRootGray);
+            this.Controls.Add(this.ComboBoxMaxLevel);
+            this.Controls.Add(this.CheckBoxIgnoreSelf);
+            this.Controls.Add(this.ButtonCalculateRootGray);
             this.Controls.Add(this.labelTimesRemaining);
-            this.Controls.Add(this.progressBarVerify);
-            this.Controls.Add(this.checkBoxDynamicProgrammingAStarGreedyt);
-            this.Controls.Add(this.checkBoxUsePenaltyRegradMechnisam);
-            this.Controls.Add(this.checkBoxUseDoubleTime);
-            this.Controls.Add(this.checkBoxAStarGreedyMovement);
-            this.Controls.Add(this.buttonPauseStart);
-            this.Controls.Add(this.checkBoxAStarGreadyFirstSearch);
-            this.Controls.Add(this.buttonStop);
-            this.Controls.Add(this.radioButtonSmallFittingImages);
-            this.Controls.Add(this.radioButtonBigFittingImages);
-            this.Controls.Add(this.radioButtonOriginalImages);
-            this.Controls.Add(this.checkBoxBestMovments);
-            this.Controls.Add(this.checkBoxPredictHuristci);
-            this.Controls.Add(this.checkBoxOnlySelf);
-            this.Controls.Add(this.checkBoxAStarGreedyHuristic);
-            this.Controls.Add(this.textBoxStatistic);
-            this.Controls.Add(this.pictureBoxTimerBrown);
-            this.Controls.Add(this.pictureBoxTimerGray);
-            this.Controls.Add(this.buttonPrevious);
-            this.Controls.Add(this.buttonNext);
-            this.Controls.Add(this.pictureBoxRefrigtz);
-            this.Controls.Add(this.menuStripChessRefrigitz);
-            this.MainMenuStrip = this.menuStripChessRefrigitz;
+            this.Controls.Add(this.ProgressBarVerify);
+            this.Controls.Add(this.CheckBoxDynamicProgrammingAStarGreedyt);
+            this.Controls.Add(this.CheckBoxUsePenaltyRegradMechnisam);
+            this.Controls.Add(this.CheckBoxUseDoubleTime);
+            this.Controls.Add(this.CheckBoxAStarGreedyMovement);
+            this.Controls.Add(this.ButtonPauseStart);
+            this.Controls.Add(this.CheckBoxAStarGreadyFirstSearch);
+            this.Controls.Add(this.ButtonStop);
+            this.Controls.Add(this.RadioButtonSmallFittingImages);
+            this.Controls.Add(this.RadioButtonBigFittingImages);
+            this.Controls.Add(this.RadioButtonOriginalImages);
+            this.Controls.Add(this.CheckBoxBestMovments);
+            this.Controls.Add(this.CheckBoxPredictHuristci);
+            this.Controls.Add(this.CheckBoxOnlySelf);
+            this.Controls.Add(this.CheckBoxAStarGreedyHuristic);
+            this.Controls.Add(this.TextBoxStatistic);
+            this.Controls.Add(this.PictureBoxTimerBrown);
+            this.Controls.Add(this.PictureBoxTimerGray);
+            this.Controls.Add(this.ButtonPrevious);
+            this.Controls.Add(this.ButtonNext);
+            this.Controls.Add(this.PictureBoxRefrigtz);
+            this.Controls.Add(this.MenuStripChessRefrigitz);
+            this.MainMenuStrip = this.MenuStripChessRefrigitz;
             this.Name = "FormRefrigtz";
             this.Text = "Chess Refrigtz 2018";
             this.MaximumSizeChanged += new System.EventHandler(this.FormRefrigtz_MaximumSizeChanged);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormRefrigtz_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Leave += new System.EventHandler(this.FormRefrigtz_Leave);
-            this.menuStripChessRefrigitz.ResumeLayout(false);
-            this.menuStripChessRefrigitz.PerformLayout();
+            this.MenuStripChessRefrigitz.ResumeLayout(false);
+            this.MenuStripChessRefrigitz.PerformLayout();
             this.groupBoxGroupOfPowerity.ResumeLayout(false);
             this.groupBoxGroupOfPowerity.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTimerBrown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTimerGray)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRefrigtz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTimerBrown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTimerGray)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxRefrigtz)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        
-        private System.Windows.Forms.MenuStrip menuStripChessRefrigitz;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.Button buttonNext;
-        private System.Windows.Forms.Button buttonPrevious;
-        private System.Windows.Forms.PictureBox pictureBoxTimerGray;
-        private System.Windows.Forms.PictureBox pictureBoxTimerBrown;
-        private System.Windows.Forms.TextBox textBoxStatistic;
-        private System.Windows.Forms.CheckBox checkBoxAStarGreedyHuristic;
-        private System.Windows.Forms.CheckBox checkBoxOnlySelf;
-        private System.Windows.Forms.CheckBox checkBoxPredictHuristci;
-        private System.Windows.Forms.CheckBox checkBoxBestMovments;
-        private System.Windows.Forms.RadioButton radioButtonOriginalImages;
-        private System.Windows.Forms.RadioButton radioButtonBigFittingImages;
-        private System.Windows.Forms.RadioButton radioButtonSmallFittingImages;
-        private System.Windows.Forms.Button buttonStop;
-        private System.Windows.Forms.CheckBox checkBoxAStarGreadyFirstSearch;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem hardestToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem medumToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem easestToolStripMenuItem;
-        private System.Windows.Forms.Button buttonPauseStart;
-        private System.Windows.Forms.CheckBox checkBoxAStarGreedyMovement;
-        private System.Windows.Forms.CheckBox checkBoxUseDoubleTime;
-        private System.Windows.Forms.CheckBox checkBoxUsePenaltyRegradMechnisam;
-        private System.Windows.Forms.CheckBox checkBoxDynamicProgrammingAStarGreedyt;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        [field: NonSerialized]
+        private System.Windows.Forms.MenuStrip MenuStripChessRefrigitz;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem1;
+        [field: NonSerialized]
+        private System.Windows.Forms.Button ButtonNext;
+        [field: NonSerialized]
+        private System.Windows.Forms.Button ButtonPrevious;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBoxTimerGray;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBoxTimerBrown;
+        [field: NonSerialized]
+        private System.Windows.Forms.TextBox TextBoxStatistic;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxAStarGreedyHuristic;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxOnlySelf;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxPredictHuristci;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxBestMovments;
+        [field: NonSerialized]
+        private System.Windows.Forms.RadioButton RadioButtonOriginalImages;
+        [field: NonSerialized]
+        private System.Windows.Forms.RadioButton RadioButtonBigFittingImages;
+        [field: NonSerialized]
+        private System.Windows.Forms.RadioButton RadioButtonSmallFittingImages;
+        [field: NonSerialized]
+        private System.Windows.Forms.Button ButtonStop;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxAStarGreadyFirstSearch;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem2;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem HardestToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem MedumToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem EasestToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.Button ButtonPauseStart;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxAStarGreedyMovement;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxUseDoubleTime;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxUsePenaltyRegradMechnisam;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxDynamicProgrammingAStarGreedyt;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem3;
+        [field: NonSerialized]
         private System.Windows.Forms.HelpProvider helpProviderChessRefregitz2016;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem verifyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem continueAGameToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem4;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem VerifyToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ClearToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem5;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ContinueAGameToolStripMenuItem;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelTimesRemaining;
-        private System.Windows.Forms.Button buttonCalculateRootGray;
-        private System.Windows.Forms.CheckBox checkBoxIgnoreSelf;
-        public System.Windows.Forms.ComboBox comboBoxMaxLevel;
+        [field: NonSerialized]
+        private System.Windows.Forms.Button ButtonCalculateRootGray;
+        [field: NonSerialized]
+        private System.Windows.Forms.CheckBox CheckBoxIgnoreSelf;
+        [field: NonSerialized]
+        public System.Windows.Forms.ComboBox ComboBoxMaxLevel;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelMaxTree;
-        public System.Windows.Forms.ProgressBar progressBarVerify;
-        private System.Windows.Forms.ToolStripMenuItem repairToolStripMenuItem;
+        [field: NonSerialized]
+        public System.Windows.Forms.ProgressBar ProgressBarVerify;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem RepairToolStripMenuItem;
+        [field: NonSerialized]
         private System.Windows.Forms.GroupBox groupBoxGroupOfPowerity;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelMovments;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelKiller;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelSupport;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelReducedAttacked;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelObjectDangour;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelAttack;
-        private System.Windows.Forms.ComboBox comboBoxMovments;
-        private System.Windows.Forms.ComboBox comboBoxKiller;
-        private System.Windows.Forms.ComboBox comboBoxSupport;
-        private System.Windows.Forms.ComboBox comboBoxReducedAttacked;
-        private System.Windows.Forms.ComboBox comboBoxObjectDangour;
-        private System.Windows.Forms.ComboBox comboBoxAttack;
+        [field: NonSerialized]
+        private System.Windows.Forms.ComboBox ComboBoxMovments;
+        [field: NonSerialized]
+        private System.Windows.Forms.ComboBox ComboBoxKiller;
+        [field: NonSerialized]
+        private System.Windows.Forms.ComboBox ComboBoxSupport;
+        [field: NonSerialized]
+        private System.Windows.Forms.ComboBox ComboBoxReducedAttacked;
+        [field: NonSerialized]
+        private System.Windows.Forms.ComboBox ComboBoxObjectDangour;
+        [field: NonSerialized]
+        private System.Windows.Forms.ComboBox ComboBoxAttack;
+        [field: NonSerialized]
         private System.Windows.Forms.ToolStripMenuItem opneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem errorOpenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem monitorOpenToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ErrorOpenToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem MonitorOpenToolStripMenuItem;
+        [field: NonSerialized]
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogBackup;
-        private System.Windows.Forms.Button buttonChangeArrangment;
-        public System.Windows.Forms.TextBox textBoxText;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pictureBox16;
-        private System.Windows.Forms.PictureBox pictureBoxRefrigtz;
-        private System.Windows.Forms.PictureBox pictureBox32;
-        private System.Windows.Forms.PictureBox pictureBox31;
-        private System.Windows.Forms.PictureBox pictureBox30;
-        private System.Windows.Forms.PictureBox pictureBox29;
-        private System.Windows.Forms.PictureBox pictureBox28;
-        private System.Windows.Forms.PictureBox pictureBox27;
-        private System.Windows.Forms.PictureBox pictureBox26;
-        private System.Windows.Forms.PictureBox pictureBox25;
-        private System.Windows.Forms.PictureBox pictureBox24;
-        private System.Windows.Forms.PictureBox pictureBox23;
-        private System.Windows.Forms.PictureBox pictureBox22;
-        private System.Windows.Forms.PictureBox pictureBox21;
-        private System.Windows.Forms.PictureBox pictureBox20;
-        private System.Windows.Forms.PictureBox pictureBox19;
-        private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.PictureBox pictureBox17;
+        [field: NonSerialized]
+        private System.Windows.Forms.Button ButtonChangeArrangment;
+        [field: NonSerialized]
+        public System.Windows.Forms.TextBox TextBoxText;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox1;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox2;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox3;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox4;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox5;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox6;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox7;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox8;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox9;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox10;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox11;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox12;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox13;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox14;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox15;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox16;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBoxRefrigtz;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox32;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox31;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox30;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox29;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox28;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox27;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox26;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox25;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox24;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox23;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox22;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox21;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox20;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox19;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox18;
+        [field: NonSerialized]
+        private System.Windows.Forms.PictureBox PictureBox17;
+        [field: NonSerialized]
         private System.Windows.Forms.Label label1;
+        [field: NonSerialized]
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNewGame;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem computerWithComputerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
-        private System.Windows.Forms.ToolStripMenuItem computerWithComputerToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem16;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRandomGeneticGames;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem20;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem1;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemNewGame;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem11;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem14;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem13;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem12;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem15;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem6;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem7;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem8;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ComputerWithComputerToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem9;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ComputerWithComputerToolStripMenuItem1;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem16;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem10;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem18;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem17;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRandomGeneticGames;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem19;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem20;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelNodesCount;
+        [field: NonSerialized]
         private System.Windows.Forms.Label labelNodesCountText;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem21;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerAllOp;
-        private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Timer timerAllOperation;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerSetNode;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerSetRefD;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem22;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem23;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem21;
+        [field: NonSerialized]
+        private System.ComponentModel.BackgroundWorker BackgroundWorkerAllOp;
+        [field: NonSerialized]
+        private System.Windows.Forms.Timer Timer;
+        [field: NonSerialized]
+        private System.Windows.Forms.Timer TimerAllOperation;
+        [field: NonSerialized]
+        private System.ComponentModel.BackgroundWorker BackgroundWorkerSetNode;
+        [field: NonSerialized]
+        private System.ComponentModel.BackgroundWorker BackgroundWorkerSetRefD;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem22;
+        [field: NonSerialized]
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem23;
     }
 }
 

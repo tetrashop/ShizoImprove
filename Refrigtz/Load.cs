@@ -111,9 +111,11 @@ namespace Refrigtz
     public partial class Load : Form
     {
         public FormRefrigtz ttt = null;
-        bool exit = false;
+        bool Exit = false;
         //Intiate  Global Variables.
+        [field:NonSerialized]
         Thread tt = null;
+        [field: NonSerialized]
         Thread t = null;
         public static Load THIS = null;
         static void Log(Exception ex)
@@ -144,9 +146,9 @@ namespace Refrigtz
         //Form Load Method Event Handling.
         private void Load_Load(object sender, EventArgs e)
         {
-            if (!exit)
+            if (!Exit)
             {
-                exit = true;
+                Exit = true;
                 THIS = this;
                 this.Location = this.PointToScreen(this.Location);
             }
@@ -238,7 +240,7 @@ namespace Refrigtz
             Process.GetCurrentProcess().Kill();
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
+        private void ProgressBar1_Click(object sender, EventArgs e)
         {
 
         }

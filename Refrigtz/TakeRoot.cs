@@ -157,9 +157,9 @@ namespace Refrigtz
                             RefrigtzDLL.AllDraw.DrawTable = false;
                             Curent.SetBoxText("\r\nSaved Completed.");
                             Curent.RefreshBoxText();
-                            //pictureBoxRefrigtz.SendToBack();
-                            //pictureBoxTimerGray.SendToBack();
-                            //pictureBoxTimerBrown.SendToBack();
+                            //PictureBoxRefrigtz.SendToBack();
+                            //PictureBoxTimerGray.SendToBack();
+                            //PictureBoxTimerBrown.SendToBack();
                             //MessageBox.Show("Saved Completed.");
                         }
                     }
@@ -172,9 +172,9 @@ namespace Refrigtz
                             QuantumRefrigiz.AllDraw.DrawTable = false;
                             Curent.SetBoxText("\r\nSaved Completed.");
                             Curent.RefreshBoxText();
-                            //pictureBoxRefrigtz.SendToBack();
-                            //pictureBoxTimerGray.SendToBack();
-                            //pictureBoxTimerBrown.SendToBack();
+                            //PictureBoxRefrigtz.SendToBack();
+                            //PictureBoxTimerGray.SendToBack();
+                            //PictureBoxTimerBrown.SendToBack();
                             //MessageBox.Show("Saved Completed.");
                         }
                     }
@@ -194,9 +194,9 @@ namespace Refrigtz
                         RefrigtzDLL.AllDraw.DrawTable = false;
                         Curent.SetBoxText("\r\nSaved Completed.");
                         Curent.RefreshBoxText();
-                        //pictureBoxRefrigtz.SendToBack();
-                        //pictureBoxTimerGray.SendToBack();
-                        //pictureBoxTimerBrown.SendToBack();
+                        //PictureBoxRefrigtz.SendToBack();
+                        //PictureBoxTimerGray.SendToBack();
+                        //PictureBoxTimerBrown.SendToBack();
                         //MessageBox.Show("Saved Completed.");
                     }
                 }
