@@ -12163,6 +12163,10 @@ namespace Refrigtz
         }
         void ComputerByComputerAliceAsStockFish(ref Process proc)
         {
+            Color a = Color.Gray;
+            bool StoreStateCC = false, StoreStateCP = false, StoreStateGe = false;
+            OpBeforeThinking(ref a, ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
+
             int[,] Tab = new int[8, 8];
             for (int i = 0; i < 8; i++)
             {
@@ -12314,6 +12318,9 @@ namespace Refrigtz
                 this.SetBoxText("\r\nThinking Finished by Alice!");
             RefreshBoxText();
 
+            
+
+            /*
             RefrigtzDLL.AllDraw.TableListAction.Add(Tab);
 
             if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
@@ -12354,16 +12361,16 @@ namespace Refrigtz
                 }
             }
 
-
+            */
             using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
             {
                 soundClick.Play();
                 //soundClick.Dispose();
             }
 
-            bool FOUND = false;
-            RefrigtzDLL.AllDraw THIS = null;
-
+            //bool FOUND = false;
+            //RefrigtzDLL.AllDraw THIS = null;
+            Table = new int[8, 8];
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
@@ -12371,7 +12378,7 @@ namespace Refrigtz
                     Table[i, j] = Tab[i, j];
                 }
             }
-
+            /*
             SetDrawFounding(ref FOUND, ref THIS, false);
 
 
@@ -12389,6 +12396,22 @@ namespace Refrigtz
 
 
             DrawImageOfMain();
+      */
+            bool FOUND = false;
+            RefrigtzDLL.AllDraw THIS = null;
+            QuantumRefrigiz.AllDraw THISQ = null;
+            if (!Quantum)
+                SetDrawFounding(ref FOUND, ref THIS, false);
+            else
+                SetDrawFounding(ref FOUND, ref THISQ, false);
+
+            SetAndConfirmSyntax();
+
+            OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
+
+            OrderPlate *= -1;
+
+            SetBoxTextWrite(Out);
         }
         void ComputerByComputerBobAsRefregitz(ref Process proc)
         {
