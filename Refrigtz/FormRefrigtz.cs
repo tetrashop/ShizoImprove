@@ -4624,16 +4624,18 @@ namespace Refrigtz
 
                     oleDbCmd.CommandText = String.Concat("Select * From " , TableName);
                     OleDbDataReader dr = null;
-                   /* oleDbCmd.Parameters.Add("@a", OleDbType.Numeric);
-                    oleDbCmd.Parameters.Add("@b", OleDbType.Numeric);
-                    oleDbCmd.Parameters.Add("@c", OleDbType.Numeric);
-                    oleDbCmd.Parameters.Add("@d", OleDbType.Numeric);
-                    oleDbCmd.Parameters.Add("@e", OleDbType.Numeric);
-                    oleDbCmd.Parameters.Add("@f", OleDbType.Numeric);
-                    oleDbCmd.Parameters.Add("@g", OleDbType.Numeric);
-                    oleDbCmd.Parameters.Add("@h", OleDbType.Numeric);
+                    /*   oleDbCmd.Parameters.Add("@a", System.Convert.ToInt32(Tab[0, i]));
+                 oleDbCmd.Parameters.Add("@b",  System.Convert.ToInt32(Tab[1, i]));
+                 oleDbCmd.Parameters.Add("@c",  System.Convert.ToInt32(Tab[2, i]));
+                 oleDbCmd.Parameters.Add("@d",  System.Convert.ToInt32(Tab[3, i]));
+                 oleDbCmd.Parameters.Add("@e",  System.Convert.ToInt32(Tab[4, i]));
+                 oleDbCmd.Parameters.Add("@f",  System.Convert.ToInt32(Tab[5, i]));
+                 oleDbCmd.Parameters.Add("@g",  System.Convert.ToInt32(Tab[6, i]));
+                 oleDbCmd.Parameters.Add("@h",  System.Convert.ToInt32(Tab[7, i]));
 
-*/
+
+
+ */
                     dr = oleDbCmd.ExecuteReader();
 
                     int ii = 0;
@@ -5655,14 +5657,14 @@ namespace Refrigtz
 
                 oleDbCmd.CommandText = @"insert into " + TableName + "(a,b,c,d,e,f,g,h)  values (" + Tab[0, i].ToString() + "," + Tab[1, i].ToString() + "," + Tab[2, i].ToString() + "," + Tab[3, i].ToString() + "," + Tab[4, i].ToString() + "," + Tab[5, i].ToString() + "," + Tab[6, i].ToString() + "," + Tab[7, i].ToString() + ")";
 
-                oleDbCmd.Parameters.Add("@a", OleDbType.Numeric).Value = System.Convert.ToInt32(Tab[0, i]);
-                oleDbCmd.Parameters.Add("@b", OleDbType.Numeric).Value = System.Convert.ToInt32(Tab[1, i]);
-                oleDbCmd.Parameters.Add("@c", OleDbType.Numeric).Value = System.Convert.ToInt32(Tab[2, i]);
-                oleDbCmd.Parameters.Add("@d", OleDbType.Numeric).Value = System.Convert.ToInt32(Tab[3, i]);
-                oleDbCmd.Parameters.Add("@e", OleDbType.Numeric).Value = System.Convert.ToInt32(Tab[4, i]);
-                oleDbCmd.Parameters.Add("@f", OleDbType.Numeric).Value = System.Convert.ToInt32(Tab[5, i]);
-                oleDbCmd.Parameters.Add("@g", OleDbType.Numeric).Value = System.Convert.ToInt32(Tab[6, i]);
-                oleDbCmd.Parameters.Add("@h", OleDbType.Numeric).Value = System.Convert.ToInt32(Tab[7, i]);
+                oleDbCmd.Parameters.Add("@a", System.Convert.ToInt32(Tab[0, i]));
+                oleDbCmd.Parameters.Add("@b",  System.Convert.ToInt32(Tab[1, i]));
+                oleDbCmd.Parameters.Add("@c",  System.Convert.ToInt32(Tab[2, i]));
+                oleDbCmd.Parameters.Add("@d",  System.Convert.ToInt32(Tab[3, i]));
+                oleDbCmd.Parameters.Add("@e",  System.Convert.ToInt32(Tab[4, i]));
+                oleDbCmd.Parameters.Add("@f",  System.Convert.ToInt32(Tab[5, i]));
+                oleDbCmd.Parameters.Add("@g",  System.Convert.ToInt32(Tab[6, i]));
+                oleDbCmd.Parameters.Add("@h",  System.Convert.ToInt32(Tab[7, i]));
 
                 int temp = 0;
                 temp = oleDbCmd.ExecuteNonQuery();
