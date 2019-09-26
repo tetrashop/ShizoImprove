@@ -2845,7 +2845,7 @@ if (Kind == 2)
             lock (a)
             {
                 //if (Found)
-                //return THIS;
+                //if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                 ThinkingChess.NumbersOfAllNode++;
                 if (TableList.Count > 0 && ThinkingChess.TableEqual(TableList[0], Tab))
                 {
@@ -2870,7 +2870,7 @@ if (Kind == 2)
                                         THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -2891,7 +2891,7 @@ if (Kind == 2)
                                         THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -2912,8 +2912,8 @@ if (Kind == 2)
                                         THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
-                                    }
+                                    if (THIS != null && THIS.TableList.Count > 0) return THIS; else { Found = false; return null; }
+                                }
                                 }
                                 else
                                     for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
@@ -2934,7 +2934,7 @@ if (Kind == 2)
                                         THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -2954,7 +2954,7 @@ if (Kind == 2)
                                         THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -2975,7 +2975,7 @@ if (Kind == 2)
                                         THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -3000,7 +3000,7 @@ if (Kind == 2)
                                         THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -3021,7 +3021,7 @@ if (Kind == 2)
                                         THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -3042,7 +3042,7 @@ if (Kind == 2)
                                         THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -3064,7 +3064,7 @@ if (Kind == 2)
                                         THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -3084,7 +3084,7 @@ if (Kind == 2)
                                         THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -3104,7 +3104,7 @@ if (Kind == 2)
                                         THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                                         Found = true;
                                     //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                    return THIS;
+                                    if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
                                     }
                                 }
                                 else
@@ -3114,7 +3114,7 @@ if (Kind == 2)
                            
                         }
                 }
-                return THIS;
+                if (THIS != null&&THIS.TableList.Count>0) return THIS; else { Found = false; return null; }
             }
         }
         public AllDraw FoundOfLeafDepenOfKind(int Kind, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf)

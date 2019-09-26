@@ -12364,14 +12364,7 @@ namespace Refrigtz
 
             //bool FOUND = false;
             //RefrigtzDLL.AllDraw THIS = null;
-            Table = new int[8, 8];
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    Table[i, j] = Tab[i, j];
-                }
-            }
+            Table = CloneATable(Tab);
             /*
             SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -12478,18 +12471,19 @@ namespace Refrigtz
                 //if (First)
                 //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                 //else
-                int Ord = 1;
-                if (MovmentsNumber == 1)
-                {
-                    if (Sec.RadioButtonBrownOrder.Checked)
-                        Ord = -1;
-                }
-                else
-                    Ord = OrderPlate;
-                Draw.FoundOfCurrentTableNode(Table, Ord, ref THIS, ref FOUND);
+                int Ord = OrderPlate;
+                /* if (MovmentsNumber == 1)
+                 {
+                     if (Sec.RadioButtonBrownOrder.Checked)
+                         Ord = -1;
+                 }
+                 else
+                     Ord = OrderPlate;
+                */
+                Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                 if (FOUND)
                 {
-                    THISB = THIS.AStarGreedyString;
+                    //THISB = THIS.AStarGreedyString;
                     Draw = THIS;
                     /* Draw.TableList.Clear();
                      Draw.TableList.Add(Table);
@@ -12521,7 +12515,7 @@ namespace Refrigtz
                         Draw = Draw.AStarGreedyString;
 
                     if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 2))
-                        Draw.FoundOfCurrentTableNode(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, ref THIS, ref FOUND);
+                        Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
                     if (FOUND)
                     {
                         //THISB = THIS.AStarGreedyString;
@@ -12539,7 +12533,7 @@ namespace Refrigtz
                         {
                             Ord = OrderPlate * -1;
 
-                            Draw.FoundOfCurrentTableNode(Table, Ord, ref THIS, ref FOUND);
+                            Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                             if (FOUND)
                             {
                                 //THISB = THIS.AStarGreedyString;
@@ -12657,18 +12651,19 @@ namespace Refrigtz
                 //if (First)
                 //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                 //else
-                int Ord = 1;
-                if (MovmentsNumber == 1)
+                int Ord = OrderPlate;
+                /*if (MovmentsNumber == 1)
                 {
                     if (Sec.RadioButtonBrownOrder.Checked)
                         Ord = -1;
                 }
                 else
                     Ord = OrderPlate;
-                DrawQ.FoundOfCurrentTableNode(Table, Ord, ref THIS, ref FOUND);
+               */
+                DrawQ.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                 if (FOUND)
                 {
-                    THISB = THIS.AStarGreedyString;
+                    //THISB = THIS.AStarGreedyString;
                     DrawQ = THIS;
                     /*DrawQ.TableList.Clear();
                     DrawQ.TableList.Add(Table);
@@ -12700,7 +12695,7 @@ namespace Refrigtz
                         DrawQ = DrawQ.AStarGreedyString;
 
                     if ((QuantumRefrigiz.AllDraw.TableListAction.Count >= 2))
-                        DrawQ.FoundOfCurrentTableNode(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2], Ord, ref THIS, ref FOUND);
+                        DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
                     if (FOUND)
                     {
                         //THISB = THIS.AStarGreedyString;
@@ -12718,7 +12713,7 @@ namespace Refrigtz
                         {
                             Ord = OrderPlate * -1;
 
-                            DrawQ.FoundOfCurrentTableNode(Table, Ord, ref THIS, ref FOUND);
+                            DrawQ.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                             if (FOUND)
                             {
                                 //THISB = THIS.AStarGreedyString;
