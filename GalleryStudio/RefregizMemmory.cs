@@ -32,8 +32,8 @@ namespace GalleryStudio
         string SAllDraw = "";
         public int Kind = 0;
         static GalleryStudio.RefregizMemmory Node;
-        RefrigtzDLL.AllDraw Current = null;
-        QuantumRefrigiz.AllDraw CurrentQ = null;
+        public RefrigtzDLL.AllDraw Current = null;
+        public QuantumRefrigiz.AllDraw CurrentQ = null;
         public List<GalleryStudio.RefregizMemmory> NextS = null;
         public List<GalleryStudio.RefregizMemmory> NextE = null;
         public List<GalleryStudio.RefregizMemmory> NextH = null;
@@ -99,15 +99,11 @@ namespace GalleryStudio
             {
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
-#pragma warning disable CS1717 // Assignment made to same variable; did you mean to assign something else?
                 UsePenaltyRegardMechnisa = UsePenaltyRegardMechnisa;
-#pragma warning restore CS1717 // Assignment made to same variable; did you mean to assign something else?
                 BestMovmentsT = BestMovment;
                 PredictHuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-#pragma warning disable CS1717 // Assignment made to same variable; did you mean to assign something else?
                 AStarGreedyHuris = AStarGreedyHuris;
-#pragma warning restore CS1717 // Assignment made to same variable; did you mean to assign something else?
                 ArrangmentsT = Arrangments;
             }
 
@@ -824,7 +820,7 @@ namespace GalleryStudio
                     BinaryFormatter Formatters = new BinaryFormatter();
 
                     Console.WriteLine("Loading...");
-                    DummyFileStream.Seek(0, SeekOrigin.Begin);
+                    
                    t = LoadrEC(Quantum, Order, this, DummyFileStream, Formatters);
                     
                     DummyFileStream.Flush();
@@ -871,12 +867,13 @@ namespace GalleryStudio
                 //Node.AllDrawNextAccessK = null;
                 //Node.AllDrawCurrentAccess = null;
 
-                
 
 
-                    //NEWNOD = Node.AllDrawCurrentAccess;
-                    while (DummyFileStream.Position < DummyFileStream.Length)
+                DummyFileStream.Seek(0, SeekOrigin.Begin);
+                //NEWNOD = Node.AllDrawCurrentAccess;
+                while (DummyFileStream.Position < DummyFileStream.Length)
                     {
+                    
                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                         //Dummy.CloneSphycose(Last);
                         /*{
@@ -1014,11 +1011,11 @@ namespace GalleryStudio
                 //Node.AllDrawNextAccessK = null;
                 //Node.AllDrawCurrentAccess = null;
 
-                
 
+                DummyFileStream.Seek(0, SeekOrigin.Begin);
 
-                    //NEWNOD = Node.AllDrawCurrentAccess;
-                    while (DummyFileStream.Position < DummyFileStream.Length)
+                //NEWNOD = Node.AllDrawCurrentAccess;
+                while (DummyFileStream.Position < DummyFileStream.Length)
                     {
                         Dummy = (RefregizMemmory)Formatters.Deserialize(DummyFileStream);
                         //Dummy.CloneSphycose(Last);

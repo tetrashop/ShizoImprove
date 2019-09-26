@@ -78,16 +78,9 @@ namespace Refrigtz
                                 Curent.Draw = t;
 
                                 LoadTree = true;
-#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
-                                bool FOUND = false;
-#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
-
                                 Curent.Draw = Curent.RootFound();
 
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
-                                RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
-
+                                t = Curent.Draw;
                                 //Curent.SetDrawFounding(ref FOUND, ref THIS, false);
                                 DrawDrawen = true;
 
@@ -104,16 +97,12 @@ namespace Refrigtz
                                 Curent.DrawQ = tt;
 
                                 LoadTree = true;
-#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
-                                bool FOUND = false;
-#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+
 
                                 Curent.DrawQ = Curent.RootFoundQ();
 
-#pragma warning disable CS0219 // The variable 'THISQ' is assigned but its value is never used
-                                QuantumRefrigiz.AllDraw THISQ = null;
-#pragma warning restore CS0219 // The variable 'THISQ' is assigned but its value is never used
-                                //Curent.SetDrawFounding(ref FOUND, ref THISQ, false);
+                                tt = Curent.DrawQ;
+
                                 DrawDrawen = true;
 
                                 System.Windows.Forms.MessageBox.Show("Load Completed.");
