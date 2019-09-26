@@ -12167,14 +12167,8 @@ namespace Refrigtz
             bool StoreStateCC = false, StoreStateCP = false, StoreStateGe = false;
             OpBeforeThinking(ref a, ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
-            int[,] Tab = new int[8, 8];
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    Tab[i, j] = Table[i, j];
-                }
-            }
+            int[,] Tab = CloneATable(Table);
+
             RowClickP = -1;
             ColumnClickP = -1;
             RowRealesed = -1;
@@ -12412,6 +12406,10 @@ namespace Refrigtz
             OrderPlate *= -1;
 
             SetBoxTextWrite(Out);
+
+            DrawImageOfMain();
+
+            BobSection = true;
         }
         void ComputerByComputerBobAsRefregitz(ref Process proc)
         {
@@ -13228,9 +13226,9 @@ namespace Refrigtz
                     //   FOUND = true;
                     int LeafAStarGrteedy = 0;
                     if (!Quantum)
-                        Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+                        Table = Draw.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                     else
-                        Table = DrawQ.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+                        Table = DrawQ.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                     //LoadConvertedTable = true;
                     //PaintedPaused = false;
                     this.SetBoxText("\r\nThinking Finished!");
@@ -13311,9 +13309,9 @@ namespace Refrigtz
 
                     int LeafAStarGrteedy = 0;
                     if (!Quantum)
-                        Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+                        Table = Draw.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                     else
-                        Table = DrawQ.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+                        Table = DrawQ.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
 
 
                     try
@@ -13599,6 +13597,16 @@ namespace Refrigtz
                 Clicked = false;
             }
         }
+        int[,] CloneATable(int[,] Tab)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            int[,] Table = new int[8, 8];
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
+                    Table[i, j] = Tab[i, j];
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return Table;
+        }
         //Alice Section of Computer by Computer Thinking.
         void AliceAction()
         {
@@ -13628,9 +13636,9 @@ namespace Refrigtz
 
                 int LeafAStarGrteedy = 0;
                 if (!Quantum)
-                    Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+                    Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                 else
-                    Table = DrawQ.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+                    Table = DrawQ.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
 
                 //LoadConvertedTable = true;
                 //StateCP = false;
@@ -13891,9 +13899,9 @@ namespace Refrigtz
 
                 int LeafAStarGrteedy = 0;
                 if (!Quantum)
-                    Table = Draw.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+                    Table = Draw.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                 else
-                    Table = DrawQ.Initiate(1, 4, a, Table, OrderPlate, false, FOUND, LeafAStarGrteedy);
+                    Table = DrawQ.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
 
                 //LoadConvertedTable = true;
                 StateCC = StoreStateCC;
