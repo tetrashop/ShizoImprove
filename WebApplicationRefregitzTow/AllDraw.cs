@@ -975,6 +975,7 @@ if (Kind == 2)
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index)
         {
+            AllDraw thisAStarGreedyString = this.AStarGreedyString;
             Object a1 = new Object();
             lock (a1)
             {
@@ -1406,6 +1407,7 @@ if (Kind == 2)
                     KingOnTable[i] = null;
                 SetRowColumnFinished = true;
             }
+            this.AStarGreedyString = thisAStarGreedyString;
         }
         void SetRowColumnFinishedWait()
         {

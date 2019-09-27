@@ -12400,6 +12400,9 @@ namespace Refrigtz
 
             SetBoxTextWrite(Out);
 
+            BrownTimer.StopTime();
+            GrayTimer.StartTime("GrayTimer");
+
             DrawImageOfMain();
 
             BobSection = true;

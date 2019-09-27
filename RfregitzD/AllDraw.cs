@@ -979,7 +979,8 @@ if (Kind == 2)
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index)
         {
-            long Time = TimeElapced.TimeNow(); Spaces++;
+            AllDraw thisAStarGreedyString = this.AStarGreedyString;
+            //long Time = TimeElapced.TimeNow(); Spaces++;
             Object a1 = new Object();
             lock (a1)
             {
@@ -1372,6 +1373,7 @@ if (Kind == 2)
             }
             //{ AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space); AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
             Spaces--;
+            this.AStarGreedyString = thisAStarGreedyString;
         }
         void SetRowColumnFinishedWait()
         {
