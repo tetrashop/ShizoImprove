@@ -16305,11 +16305,11 @@ namespace Refrigtz
 
         private void ToolStripMenuItem6_Click(object sender, EventArgs e)
         {
-            AStarGreedyHuristic = false;
+            /*AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-
+            */
             if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
@@ -17058,11 +17058,11 @@ namespace Refrigtz
         private void ToolStripMenuItem10_Click(object sender, EventArgs e)
         {
             Quantum = false;
-            AStarGreedyHuristic = false;
+          /*  AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 1)
+          */  if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17152,11 +17152,11 @@ namespace Refrigtz
 
         private void ToolStripMenuItem12_Click(object sender, EventArgs e)
         {
-            AStarGreedyHuristic = false;
+         /*   AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-
+            */
             if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
@@ -17211,11 +17211,11 @@ namespace Refrigtz
 
         private void ToolStripMenuItem13_Click(object sender, EventArgs e)
         {
-            AStarGreedyHuristic = false;
+         /*   AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-
+*/
             if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
@@ -17311,11 +17311,11 @@ namespace Refrigtz
         private void ToolStripMenuItem21_Click(object sender, EventArgs e)
         {
             Quantum = true;
-            AStarGreedyHuristic = false;
+          /*  AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-
+            */
             if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
@@ -17533,11 +17533,11 @@ namespace Refrigtz
         private void ToolStripMenuItem22_Click(object sender, EventArgs e)
         {
             Quantum = false;
-            UsePenaltyRegardMechnisam = false;
+            /*UsePenaltyRegardMechnisam = false;
             AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 1)
+          */  if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17597,11 +17597,11 @@ namespace Refrigtz
         private void ToolStripMenuItem23_Click(object sender, EventArgs e)
         {
             Quantum = false;
-            AStarGreedyHuristic = false;
+        /*    AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 1)
+       */     if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17657,11 +17657,11 @@ namespace Refrigtz
         private void ToolStripMenuItem14_Click(object sender, EventArgs e)
         {
 
-            AStarGreedyHuristic = false;
+          /*  AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-
+            */
             if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
@@ -17726,11 +17726,11 @@ namespace Refrigtz
 
         private void ToolStripMenuItem15_Click(object sender, EventArgs e)
         {
-            AStarGreedyHuristic = false;
+            /*AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            StateCP = false;
+           */ StateCP = false;
             StateGe = false;
             Blitz = false;
             StateCC = true;
@@ -17819,11 +17819,11 @@ namespace Refrigtz
 
         private void ToolStripMenuItem18_Click(object sender, EventArgs e)
         {
-            //AStarGreedyHuristic = false;
+            /*AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 1)
+         */   if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17853,11 +17853,11 @@ namespace Refrigtz
         private void ToolStripMenuItem19_Click(object sender, EventArgs e)
         {
             Quantum = false;
-            UsePenaltyRegardMechnisam = false;
+          /*  UsePenaltyRegardMechnisam = false;
             AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 1)
+         */   if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17914,11 +17914,11 @@ namespace Refrigtz
 
         private void ToolStripMenuItem20_Click(object sender, EventArgs e)
         {
-            //AStarGreedyHuristic = false;
+            /*AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            if (MovmentsNumber == 1)
+           */ if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
