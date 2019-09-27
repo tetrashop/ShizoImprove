@@ -4163,6 +4163,40 @@ namespace Refrigtz
            
             return Found;
         }
+        void DeleteSetADrawKindString(String S)
+        {
+            if (File.Exists(S))
+            {
+                File.Delete(S);
+            }
+        }
+        void DeleteSetAllDrawKindString()
+        {
+            if (AllDrawKind == 4)
+            {
+
+
+                AllDrawKindString = "AllDrawBT.asd";//Both True
+                DeleteSetADrawKindString(AllDrawKindString);
+            }
+            if (AllDrawKind == 3)
+            {
+                AllDrawKindString = "AllDrawFFST.asd";//First false second true
+                DeleteSetADrawKindString(AllDrawKindString);
+            }
+            if (AllDrawKind == 2)
+            {
+                AllDrawKindString = "AllDrawFTSF.asd";//First true second false
+                DeleteSetADrawKindString(AllDrawKindString);
+            }
+            if (AllDrawKind == 1)
+            {
+                AllDrawKindString = "AllDrawFFSF.asd";//Fist false second false
+                DeleteSetADrawKindString(AllDrawKindString);
+            }
+
+
+        }
         void SetAllDrawKindString()
         {
             if (AllDrawKind == 4)
@@ -15671,6 +15705,19 @@ namespace Refrigtz
 
             try
             {
+                AllOperate.Abort();
+                if (BackgroundWorkerSetRefD.WorkerSupportsCancellation)
+                    BackgroundWorkerSetRefD.CancelAsync();
+                if (BackgroundWorkerSetNode.WorkerSupportsCancellation)
+                    BackgroundWorkerSetNode.CancelAsync();
+                if (BackgroundWorkerAllOp.WorkerSupportsCancellation)
+                    BackgroundWorkerAllOp.CancelAsync();
+                GrayTimer.StopTime();
+                BrownTimer.StopTime();
+
+                PictureBoxTimerBrown.CancelAsync();
+                PictureBoxTimerGray.CancelAsync();
+                PictureBoxTimerGray.CancelAsync();
                 ////UpdateConfigurationTableVal = true;
 
                 UpdateConfigurationTable();
@@ -17652,6 +17699,92 @@ namespace Refrigtz
             //Application.Exit();
             //BobSection = true;
             //RefregitzisCurrent = false;
+        }
+
+        private void CheckBoxAStarGreedyHuristic_CheckStateChanged(object sender, EventArgs e)
+        {
+            DeleteSetAllDrawKindString();
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                AllDrawKind = 4;
+            else
+                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                AllDrawKind = 3;
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                AllDrawKind = 2;
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                AllDrawKind = 1;
+            //Set Configuration To True for some unknown reason!.
+            //UpdateConfigurationTableVal = true;                             
+            SetAllDrawKindString();
+        }
+
+        private void CheckBoxUsePenaltyRegradMechnisam_CheckStateChanged(object sender, EventArgs e)
+        {
+            DeleteSetAllDrawKindString();
+            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                AllDrawKind = 4;
+            else
+                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                AllDrawKind = 3;
+            if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                AllDrawKind = 2;
+            if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                AllDrawKind = 1;
+            //Set Configuration To True for some unknown reason!.
+            //UpdateConfigurationTableVal = true;                             
+            SetAllDrawKindString();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AllOperate.Abort();
+            if (BackgroundWorkerSetRefD.WorkerSupportsCancellation)
+                BackgroundWorkerSetRefD.CancelAsync();
+            if (BackgroundWorkerSetNode.WorkerSupportsCancellation)
+                BackgroundWorkerSetNode.CancelAsync();
+            if (BackgroundWorkerAllOp.WorkerSupportsCancellation)
+                BackgroundWorkerAllOp.CancelAsync();
+            GrayTimer.StopTime();
+            BrownTimer.StopTime();
+
+            PictureBoxTimerBrown.CancelAsync();
+            PictureBoxTimerGray.CancelAsync();
+            PictureBoxTimerGray.CancelAsync();
+            bool finished = false;
+            if (bookConn != null)
+            {
+                UpdateConfigurationTable();
+                bookConn.Close();
+                oleDbCmd.Dispose();
+                bookConn.Dispose();
+            }
+            do
+            {
+                try
+                {
+                    if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))                                          
+                        File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                    
+                    if (System.IO.File.Exists(Root + "\\Database\\Monitor.html"))                     
+                        File.Delete(Root + "\\Database\\Monitor.html");
+
+                    if (File.Exists("List.txt"))                    
+                        File.Delete("List.txt");                    
+                    if (File.Exists("output.txt"))
+                        File.Delete("output.txt");
+                    if (File.Exists("CodeLogEvent.txt"))
+                        File.Delete("CodeLogEvent.txt");
+                    if (File.Exists("ErrorProgramRun.txt"))
+                        File.Delete("ErrorProgramRun.txt");
+                    if (File.Exists("CodeLogEvent.txt"))
+                        File.Delete("CodeLogEvent.txt");
+                    finished = true;
+                }
+                catch (Exception t) { }
+            } while (!finished);
+            SetBoxText("\n\rCleared!");
+            RefreshBoxText();
+            Application.Exit();
         }
 
         private void ToolStripMenuItem14_Click(object sender, EventArgs e)

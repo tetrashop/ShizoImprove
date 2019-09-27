@@ -47,8 +47,10 @@ namespace Refrigtz
             this.ToolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.ComputerWithComputerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,8 +61,6 @@ namespace Refrigtz
             this.ClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RepairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ErrorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MonitorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.ContinueAGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +70,8 @@ namespace Refrigtz
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ErrorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MonitorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ButtonNext = new System.Windows.Forms.Button();
             this.ButtonPrevious = new System.Windows.Forms.Button();
             this.TextBoxStatistic = new System.Windows.Forms.TextBox();
@@ -154,8 +156,7 @@ namespace Refrigtz
             this.TimerAllOperation = new System.Windows.Forms.Timer(this.components);
             this.BackgroundWorkerSetNode = new System.ComponentModel.BackgroundWorker();
             this.BackgroundWorkerSetRefD = new System.ComponentModel.BackgroundWorker();
-            this.ToolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.MenuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox32)).BeginInit();
@@ -210,39 +211,6 @@ namespace Refrigtz
             this.MenuStripChessRefrigitz.Text = "MenuStrip1";
             this.MenuStripChessRefrigitz.Leave += new System.EventHandler(this.MenuStripChessRefrigitz_Leave);
             // 
-            // CheckBoxBestMovments
-            // 
-            this.CheckBoxBestMovments.AutoSize = true;
-            this.CheckBoxBestMovments.Location = new System.Drawing.Point(590, 192);
-            this.CheckBoxBestMovments.Name = "CheckBoxBestMovments";
-            this.CheckBoxBestMovments.Size = new System.Drawing.Size(99, 17);
-            this.CheckBoxBestMovments.TabIndex = 13;
-            this.CheckBoxBestMovments.Text = "Best Movments";
-            this.CheckBoxBestMovments.UseVisualStyleBackColor = true;
-            this.CheckBoxBestMovments.Visible = false;
-            // 
-            // CheckBoxOnlySelf
-            // 
-            this.CheckBoxOnlySelf.AutoSize = true;
-            this.CheckBoxOnlySelf.Location = new System.Drawing.Point(794, 192);
-            this.CheckBoxOnlySelf.Name = "CheckBoxOnlySelf";
-            this.CheckBoxOnlySelf.Size = new System.Drawing.Size(71, 17);
-            this.CheckBoxOnlySelf.TabIndex = 11;
-            this.CheckBoxOnlySelf.Text = "Only Self ";
-            this.CheckBoxOnlySelf.UseVisualStyleBackColor = true;
-            this.CheckBoxOnlySelf.Visible = false;
-            // 
-            // CheckBoxAStarGreedyMovement
-            // 
-            this.CheckBoxAStarGreedyMovement.AutoSize = true;
-            this.CheckBoxAStarGreedyMovement.Location = new System.Drawing.Point(816, 350);
-            this.CheckBoxAStarGreedyMovement.Name = "CheckBoxAStarGreedyMovement";
-            this.CheckBoxAStarGreedyMovement.Size = new System.Drawing.Size(160, 17);
-            this.CheckBoxAStarGreedyMovement.TabIndex = 20;
-            this.CheckBoxAStarGreedyMovement.Text = "Use AStarGreedy Movments";
-            this.CheckBoxAStarGreedyMovement.UseVisualStyleBackColor = true;
-            this.CheckBoxAStarGreedyMovement.Visible = false;
-             // 
             // ToolStripMenuItem1
             // 
             this.ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -385,6 +353,13 @@ namespace Refrigtz
             this.ToolStripMenuItem16.Visible = false;
             this.ToolStripMenuItem16.Click += new System.EventHandler(this.ToolStripMenuItem16_Click);
             // 
+            // ToolStripMenuItem22
+            // 
+            this.ToolStripMenuItem22.Name = "ToolStripMenuItem22";
+            this.ToolStripMenuItem22.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem22.Text = "Blitz Game With SugR";
+            this.ToolStripMenuItem22.Click += new System.EventHandler(this.ToolStripMenuItem22_Click);
+            // 
             // ToolStripMenuItem19
             // 
             this.ToolStripMenuItem19.Name = "ToolStripMenuItem19";
@@ -400,6 +375,13 @@ namespace Refrigtz
             this.ToolStripMenuItem20.Text = "Blitz Game With stockfish 8 with No PR";
             this.ToolStripMenuItem20.Visible = false;
             this.ToolStripMenuItem20.Click += new System.EventHandler(this.ToolStripMenuItem20_Click);
+            // 
+            // ToolStripMenuItem23
+            // 
+            this.ToolStripMenuItem23.Name = "ToolStripMenuItem23";
+            this.ToolStripMenuItem23.Size = new System.Drawing.Size(327, 22);
+            this.ToolStripMenuItem23.Text = "Refregitz With SugR Full Game";
+            this.ToolStripMenuItem23.Click += new System.EventHandler(this.ToolStripMenuItem23_Click);
             // 
             // ToolStripMenuItem10
             // 
@@ -477,22 +459,11 @@ namespace Refrigtz
             this.RepairToolStripMenuItem.Text = "Repair";
             this.RepairToolStripMenuItem.Visible = false;
             this.RepairToolStripMenuItem.Click += new System.EventHandler(this.RepairToolStripMenuItem_Click);
-        
             // 
-            // ErrorOpenToolStripMenuItem
+            // opneToolStripMenuItem
             // 
-            this.ErrorOpenToolStripMenuItem.Name = "ErrorOpenToolStripMenuItem";
-            this.ErrorOpenToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.ErrorOpenToolStripMenuItem.Text = "Error Open";
-            this.ErrorOpenToolStripMenuItem.Visible = false;
-            this.ErrorOpenToolStripMenuItem.Click += new System.EventHandler(this.ErrorOpenToolStripMenuItem_Click);
-            // 
-            // MonitorOpenToolStripMenuItem
-            // 
-            this.MonitorOpenToolStripMenuItem.Name = "MonitorOpenToolStripMenuItem";
-            this.MonitorOpenToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.MonitorOpenToolStripMenuItem.Text = "Monitor Open";
-            this.MonitorOpenToolStripMenuItem.Click += new System.EventHandler(this.MonitorOpenToolStripMenuItem_Click);
+            this.opneToolStripMenuItem.Name = "opneToolStripMenuItem";
+            this.opneToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             // 
             // ToolStripMenuItem5
             // 
@@ -565,6 +536,21 @@ namespace Refrigtz
             this.AboutToolStripMenuItem1.Text = "About";
             this.AboutToolStripMenuItem1.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
             // 
+            // ErrorOpenToolStripMenuItem
+            // 
+            this.ErrorOpenToolStripMenuItem.Name = "ErrorOpenToolStripMenuItem";
+            this.ErrorOpenToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.ErrorOpenToolStripMenuItem.Text = "Error Open";
+            this.ErrorOpenToolStripMenuItem.Visible = false;
+            this.ErrorOpenToolStripMenuItem.Click += new System.EventHandler(this.ErrorOpenToolStripMenuItem_Click);
+            // 
+            // MonitorOpenToolStripMenuItem
+            // 
+            this.MonitorOpenToolStripMenuItem.Name = "MonitorOpenToolStripMenuItem";
+            this.MonitorOpenToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.MonitorOpenToolStripMenuItem.Text = "Monitor Open";
+            this.MonitorOpenToolStripMenuItem.Click += new System.EventHandler(this.MonitorOpenToolStripMenuItem_Click);
+            // 
             // ButtonNext
             // 
             this.ButtonNext.Location = new System.Drawing.Point(691, 606);
@@ -604,7 +590,18 @@ namespace Refrigtz
             this.CheckBoxAStarGreedyHuristic.Text = "AStarGreedy Huristic";
             this.CheckBoxAStarGreedyHuristic.UseVisualStyleBackColor = true;
             this.CheckBoxAStarGreedyHuristic.CheckedChanged += new System.EventHandler(this.CheckBoxAStarGreedyHuristic_CheckedChanged);
-            
+            this.CheckBoxAStarGreedyHuristic.CheckStateChanged += new System.EventHandler(this.CheckBoxAStarGreedyHuristic_CheckStateChanged);
+            // 
+            // CheckBoxOnlySelf
+            // 
+            this.CheckBoxOnlySelf.AutoSize = true;
+            this.CheckBoxOnlySelf.Location = new System.Drawing.Point(794, 192);
+            this.CheckBoxOnlySelf.Name = "CheckBoxOnlySelf";
+            this.CheckBoxOnlySelf.Size = new System.Drawing.Size(71, 17);
+            this.CheckBoxOnlySelf.TabIndex = 11;
+            this.CheckBoxOnlySelf.Text = "Only Self ";
+            this.CheckBoxOnlySelf.UseVisualStyleBackColor = true;
+            this.CheckBoxOnlySelf.Visible = false;
             // 
             // CheckBoxPredictHuristci
             // 
@@ -619,7 +616,17 @@ namespace Refrigtz
             this.CheckBoxPredictHuristci.UseVisualStyleBackColor = true;
             this.CheckBoxPredictHuristci.Visible = false;
             this.CheckBoxPredictHuristci.CheckedChanged += new System.EventHandler(this.CheckBoxPredictHuristci_CheckedChanged);
-           
+            // 
+            // CheckBoxBestMovments
+            // 
+            this.CheckBoxBestMovments.AutoSize = true;
+            this.CheckBoxBestMovments.Location = new System.Drawing.Point(590, 192);
+            this.CheckBoxBestMovments.Name = "CheckBoxBestMovments";
+            this.CheckBoxBestMovments.Size = new System.Drawing.Size(99, 17);
+            this.CheckBoxBestMovments.TabIndex = 13;
+            this.CheckBoxBestMovments.Text = "Best Movments";
+            this.CheckBoxBestMovments.UseVisualStyleBackColor = true;
+            this.CheckBoxBestMovments.Visible = false;
             // 
             // RadioButtonOriginalImages
             // 
@@ -695,7 +702,17 @@ namespace Refrigtz
             this.ButtonPauseStart.UseVisualStyleBackColor = true;
             this.ButtonPauseStart.Visible = false;
             this.ButtonPauseStart.Click += new System.EventHandler(this.ButtonPause_Click);
-           
+            // 
+            // CheckBoxAStarGreedyMovement
+            // 
+            this.CheckBoxAStarGreedyMovement.AutoSize = true;
+            this.CheckBoxAStarGreedyMovement.Location = new System.Drawing.Point(816, 350);
+            this.CheckBoxAStarGreedyMovement.Name = "CheckBoxAStarGreedyMovement";
+            this.CheckBoxAStarGreedyMovement.Size = new System.Drawing.Size(160, 17);
+            this.CheckBoxAStarGreedyMovement.TabIndex = 20;
+            this.CheckBoxAStarGreedyMovement.Text = "Use AStarGreedy Movments";
+            this.CheckBoxAStarGreedyMovement.UseVisualStyleBackColor = true;
+            this.CheckBoxAStarGreedyMovement.Visible = false;
             // 
             // CheckBoxUseDoubleTime
             // 
@@ -719,6 +736,7 @@ namespace Refrigtz
             this.CheckBoxUsePenaltyRegradMechnisam.Text = "Use Penalty Regard Mechanisam";
             this.CheckBoxUsePenaltyRegradMechnisam.UseVisualStyleBackColor = true;
             this.CheckBoxUsePenaltyRegradMechnisam.CheckedChanged += new System.EventHandler(this.CheckBoxUsePenaltyRegradMechnisam_CheckedChanged);
+            this.CheckBoxUsePenaltyRegradMechnisam.CheckStateChanged += new System.EventHandler(this.CheckBoxUsePenaltyRegradMechnisam_CheckStateChanged);
             // 
             // CheckBoxDynamicProgrammingAStarGreedyt
             // 
@@ -1473,19 +1491,15 @@ namespace Refrigtz
             // 
             this.BackgroundWorkerSetRefD.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerSetRefD_DoWork);
             // 
-            // ToolStripMenuItem22
+            // button1
             // 
-            this.ToolStripMenuItem22.Name = "ToolStripMenuItem22";
-            this.ToolStripMenuItem22.Size = new System.Drawing.Size(327, 22);
-            this.ToolStripMenuItem22.Text = "Blitz Game With SugR";
-            this.ToolStripMenuItem22.Click += new System.EventHandler(this.ToolStripMenuItem22_Click);
-            // 
-            // ToolStripMenuItem23
-            // 
-            this.ToolStripMenuItem23.Name = "ToolStripMenuItem23";
-            this.ToolStripMenuItem23.Size = new System.Drawing.Size(327, 22);
-            this.ToolStripMenuItem23.Text = "Refregitz With SugR Full Game";
-            this.ToolStripMenuItem23.Click += new System.EventHandler(this.ToolStripMenuItem23_Click);
+            this.button1.Location = new System.Drawing.Point(877, 239);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 83;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FormRefrigtz
             // 
@@ -1494,6 +1508,7 @@ namespace Refrigtz
             this.CancelButton = this.ButtonStop;
             this.ClientSize = new System.Drawing.Size(1005, 653);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelNodesCountText);
             this.Controls.Add(this.labelNodesCount);
             this.Controls.Add(this.label2);
@@ -1862,6 +1877,7 @@ namespace Refrigtz
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem22;
         [field: NonSerialized]
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem23;
+        private System.Windows.Forms.Button button1;
     }
 }
 
