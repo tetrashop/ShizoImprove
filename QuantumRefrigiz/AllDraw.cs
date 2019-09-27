@@ -6560,7 +6560,7 @@ if (Kind == 2)
                 for (int k = 0; k < AllDraw.SodierMovments; k++)
                 //When There is an Movment in such situation.
                 {
-                    for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[k] != null && SolderesOnTable[i].SoldierThinkingQuantum[k] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder.Count; j++)
+                    for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[k] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder.Count; j++)
                     {
                         //System.Threading.Thread.Sleep(2);
                         {
@@ -6714,7 +6714,7 @@ if (Kind == 2)
 
                 for (int k = 0; k < AllDraw.ElefantMovments; k++)
                 {
-                    for (j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[k] != null && ElephantOnTable[i].ElefantThinkingQuantum[k] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant.Count; j++)
+                    for (j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[k] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant.Count; j++)
                     {
                         //System.Threading.Thread.Sleep(2);
                         {
@@ -6835,7 +6835,7 @@ if (Kind == 2)
 
                 for (int k = 0; k < AllDraw.HourseMovments; k++)
                 {
-                    for (j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[k] != null && HoursesOnTable[i].HourseThinkingQuantum[k] != null && j < HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse.Count; j++)
+                    for (j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[k] != null && j < HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse.Count; j++)
                     {
                         //System.Threading.Thread.Sleep(2);
                         {
@@ -6954,7 +6954,7 @@ if (Kind == 2)
 
                 for (int k = 0; k < AllDraw.CastleMovments; k++)
                 {
-                    for (j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[k] != null && CastlesOnTable[i].CastleThinkingQuantum[k] != null && j < CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle.Count; j++)
+                    for (j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[k] != null && j < CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle.Count; j++)
                     {
                         //System.Threading.Thread.Sleep(2);
                         {
@@ -7066,7 +7066,7 @@ if (Kind == 2)
 
                 for (int k = 0; k < AllDraw.MinisterMovments; k++)
                 {
-                    for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[k] != null && MinisterOnTable[i].MinisterThinkingQuantum[k] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister.Count; j++)
+                    for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[k] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister.Count; j++)
                     {
                         //System.Threading.Thread.Sleep(2);
                         {
@@ -7172,7 +7172,7 @@ if (Kind == 2)
 
                 for (int k = 0; k < AllDraw.KingMovments; k++)
                 {
-                    for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[k] != null && KingOnTable[i].KingThinkingQuantum[k] != null && j < KingOnTable[i].KingThinkingQuantum[k].TableListKing.Count; j++)
+                    for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[k] != null && KingOnTable[i].KingThinkingQuantum != null && j < KingOnTable[i].KingThinkingQuantum[k].TableListKing.Count; j++)
                     {
                         //System.Threading.Thread.Sleep(2);
                         {
