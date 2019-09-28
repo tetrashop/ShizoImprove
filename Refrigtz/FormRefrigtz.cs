@@ -13486,30 +13486,33 @@ namespace Refrigtz
                     a = Color.Brown;
             }
         }
-        void OpTableZero()
+        void OpTableZero(bool Save=true)
         {
             Object O = new Object();
             lock (O)
             {
-                if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
-                    AllDrawKind = 4;
-                else
-                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
-                    AllDrawKind = 3;
-                if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
-                    AllDrawKind = 2;
-                if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
-                    AllDrawKind = 1;
-                //Set Configuration To True for some unknown reason!.
-                //UpdateConfigurationTableVal = true;                             
-                SetAllDrawKindString();
+                if (Save)
+                {
+                    if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+                        AllDrawKind = 4;
+                    else
+                                                     if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+                        AllDrawKind = 3;
+                    if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
+                        AllDrawKind = 2;
+                    if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
+                        AllDrawKind = 1;
+                    //Set Configuration To True for some unknown reason!.
+                    //UpdateConfigurationTableVal = true;                             
+                    SetAllDrawKindString();
 
-                //Saved Midle Target.
-                (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    //Saved Midle Target.
+                    (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
 
-                CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-                SettingPRFALSE = true;
-                UpdateConfigurationTable();
+                    CheckBoxUsePenaltyRegradMechnisam.Checked = false;
+                    SettingPRFALSE = true;
+                    UpdateConfigurationTable();
+                }
                 System.IO.File.AppendAllText("CheckSum.btt", "\n\tInstallation Begine On " + DateTime.Now.ToString());
                 String FolderLocation = Root;
                 int ExitCode = 0;
@@ -17716,6 +17719,8 @@ namespace Refrigtz
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
             SetAllDrawKindString();
+            UpdateConfigurationTable();
+            OpTableZero(false);
         }
 
         private void CheckBoxUsePenaltyRegradMechnisam_CheckStateChanged(object sender, EventArgs e)
@@ -17733,6 +17738,8 @@ namespace Refrigtz
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
             SetAllDrawKindString();
+            UpdateConfigurationTable();
+            OpTableZero(false);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -17785,6 +17792,11 @@ namespace Refrigtz
             SetBoxText("\n\rCleared!");
             RefreshBoxText();
             Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void ToolStripMenuItem14_Click(object sender, EventArgs e)
