@@ -3330,22 +3330,7 @@ namespace Refrigtz
                 }
                 QuantumRefrigiz.ThinkingQuantumChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             }
-            try
-            {
-                if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
-                {
-                   if (bookConn != null)
-                        bookConn.Close();
-                    bookConn = new OleDbConnection(connParam);
-                    oleDbCmd.Connection = bookConn;
-
-                }
-            }
-            catch (FileNotFoundException t)
-            {
-                Log(t);
-
-            }
+            
 
         }
 
@@ -4239,12 +4224,7 @@ namespace Refrigtz
 
                 TimerText.StartTime("TimerText");
 
-                if (bookConn != null)
-                    bookConn.Close();
-                bookConn = new OleDbConnection(connParam);
-                oleDbCmd.Connection = bookConn;
-                bookConn.Open();
-
+            
 
                 //Thread tr = new Thread(new ThreadStart(Timerstart));
                 //tr.Start();
@@ -4292,7 +4272,7 @@ namespace Refrigtz
                     }
                 }
                 //When direcrories not exist.
-                if (!Directory.Exists(Root + "\\DataBase"))
+                /*if (!Directory.Exists(Root + "\\DataBase"))
                 {
                     if (!Directory.Exists(Root + "\\DataBase\\MainBank"))
                     {
@@ -4307,7 +4287,7 @@ namespace Refrigtz
                         Directory.CreateDirectory(Root + "\\Images\\Original");
                     }
                 }
-
+                */
                 //When file dos't exist.
                 if (!AllDrawLoad)
                 {
@@ -4319,13 +4299,23 @@ namespace Refrigtz
                         if (File.Exists("List.txt"))
                             File.Delete("List.txt");
 
-                     /*   if (bookConn != null)
-                            if (bookConn != null)
-                                bookConn.Close();
-                        bookConn = new OleDbConnection(connParam);
-                        oleDbCmd.Connection = bookConn;
+                        try
+                        {
+                            if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                            {
+                                if (bookConn != null)
+                                    bookConn.Close();
+                                bookConn = new OleDbConnection(connParam);
+                                oleDbCmd.Connection = bookConn;
+                                bookConn.Open();
 
-                    */
+                            }
+                        }
+                        catch (FileNotFoundException t)
+                        {
+                            Log(t);
+
+                        }
                         InsertTableAtDataBase(Table);
                         CreateConfigurationTable();
 
@@ -4335,7 +4325,23 @@ namespace Refrigtz
                         //When movments not occured.
                         if (!NewTable)
                         {
-                            //UpdateConfigurationTableVal = false;
+                            try
+                            {
+                                if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                                {
+                                    if (bookConn != null)
+                                        bookConn.Close();
+                                    bookConn = new OleDbConnection(connParam);
+                                    oleDbCmd.Connection = bookConn;
+                                    bookConn.Open();
+
+                                }
+                            }
+                            catch (FileNotFoundException t)
+                            {
+                                Log(t);
+
+                            } //UpdateConfigurationTableVal = false;
 
                             //When Configuration is Allowed Read Configuration.
                             ReadConfigurationTable();
@@ -4388,9 +4394,26 @@ namespace Refrigtz
                             System.IO.File.Delete(Root + "\\Database\\Monitor.html");
                             System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
                             System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
-                            InsertTableAtDataBase(Table);
-                            CreateConfigurationTable();
-                        }
+                            try
+                            {
+                                if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                                {
+                                    if (bookConn != null)
+                                        bookConn.Close();
+                                    bookConn = new OleDbConnection(connParam);
+                                    oleDbCmd.Connection = bookConn;
+                                    bookConn.Open();
+                                    InsertTableAtDataBase(Table);
+                                    CreateConfigurationTable();
+
+                                }
+                            }
+                            catch (FileNotFoundException t)
+                            {
+                                Log(t);
+
+                            }
+                         }
                     }
 
                     //Set Level Variable from selection.
@@ -5616,10 +5639,10 @@ namespace Refrigtz
                         bookConn.Close();
                         bookConn.Dispose();
                     }*/
-                    bookConn = new OleDbConnection(connParam);
+                   /* bookConn = new OleDbConnection(connParam);
                     oleDbCmd.Connection = bookConn;
                     bookConn.Open();
-
+                    */
                     oleDbCmd.CommandText = String.Concat("Update Configuration Set CheckBoxAStarGreedyHuristic=" , System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString() , ",CheckBoxPredictHuristci=" , System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString() , ",CheckBoxAStarGreadyFirstSearch=" , System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString() , ",CheckBoxBestMovments=" , System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString() , ",CheckBoxOnlySelf=" , System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString() , ",RadioButtonOriginalImages=" , System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString() , ",RadioButtonBigFittingImages=" , System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString() , ",RadioButtonSmallFittingImages=" , System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString() , ",CheckBoxAStarGreedyMovement=" , System.Convert.ToInt32(CheckBoxAStarGreedyMovement.Checked).ToString() , ",CheckBoxUseDoubleTime=" , System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString() , ",CheckBoxUsePenaltyRegradMechnisam=" , System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString() , ",CheckBoxDynamicProgrammingAStarGreedyt=" , System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString() , ",ComboBoxMaxTree=" , ComboBoxMaxLevel.Text , ",ComboBoxAttack=" , ComboBoxAttack.Text , ",ComboBoxObjectDangour=" , ComboBoxObjectDangour.Text , ",ComboBoxReducedAttacked=" , ComboBoxReducedAttacked.Text , ",ComboBoxSupport=" , ComboBoxSupport.Text , ",ComboBoxHitting=" , ComboBoxKiller.Text , ",ComboBoxMovments=" , ComboBoxMovments.Text , ",ArrangmentsChanged=" , System.Convert.ToString(System.Convert.ToInt32(ArrangmentsChanged)) , ",GrayTimer=" , GrayTimer.Times.ToString() , ",BrownTimer=" , BrownTimer.Times.ToString() , ",BobSection = " , System.Convert.ToUInt32(BobSection).ToString() , ",AliceSection =" , System.Convert.ToUInt32(AliceSection).ToString() , ",StateCP = " , System.Convert.ToUInt32(StateCP).ToString() , ",StateCC = " , System.Convert.ToUInt32(StateCC).ToString() , ",StateGe=" , System.Convert.ToUInt32(StateGe).ToString() , ",Blitz=" , System.Convert.ToUInt32(Blitz).ToString() , ",Person=" , System.Convert.ToUInt32(Person).ToString() , ",SettingPRFALSE=" , System.Convert.ToUInt32(SettingPRFALSE).ToString() , ",FullGame=" , System.Convert.ToUInt32(FullGame).ToString() , ",Stockfish=" , System.Convert.ToUInt32(Stockfish).ToString() , ",lable1='" , label1.Text , "',lable2='" , label2.Text , "',MovmentsNumber='" , MovmentsNumber.ToString() , "'," , "Quantum = '" , System.Convert.ToInt32(Quantum).ToString() , "'," , "Sugar = '" , System.Convert.ToInt32(Sugar).ToString() , "',", "MenueSelecte='", System.Convert.ToInt32(MenueSelecte).ToString(), "',", "AllDrawKind='", System.Convert.ToInt32(AllDrawKind).ToString(), "'");
 
                     oleDbCmd.Parameters.AddWithValue("@CheckBoxAStarGreedyHuristic", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked));
@@ -5750,6 +5773,8 @@ namespace Refrigtz
         }
         void DrawObjects()
         {
+            if (Draw == null)
+                return;
             for (int i = 0; i < Draw.SodierHigh; i++)
             {
                 Object O1 = new Object();
@@ -5914,12 +5939,14 @@ namespace Refrigtz
         }
         void DrawObjectsQ()
         {
+            if (DrawQ == null)
+                return;
             for (int i = 0; i < DrawQ.SodierHigh; i++)
             {
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (DrawQ.SolderesOnTable[i] != null)
+                    if (DrawQ.SolderesOnTable != null && DrawQ.SolderesOnTable[i] != null)
                     {
                         try
                         {
@@ -5945,7 +5972,7 @@ namespace Refrigtz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (DrawQ.ElephantOnTable[i] != null)
+                    if (DrawQ.ElephantOnTable != null && DrawQ.ElephantOnTable[i] != null)
                     {
                         try
                         {
@@ -5971,7 +5998,7 @@ namespace Refrigtz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (DrawQ.HoursesOnTable[i] != null)
+                    if (DrawQ.HoursesOnTable != null && DrawQ.HoursesOnTable[i] != null)
                     {
                         try
                         {
@@ -5997,7 +6024,7 @@ namespace Refrigtz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (DrawQ.CastlesOnTable[i] != null)
+                    if (DrawQ.CastlesOnTable != null && DrawQ.CastlesOnTable[i] != null)
                     {
                         try
                         {
@@ -6023,7 +6050,7 @@ namespace Refrigtz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (DrawQ.MinisterOnTable[i] != null)
+                    if (DrawQ.MinisterOnTable[i] != null && DrawQ.MinisterOnTable[i] != null)
                     {
                         try
                         {
@@ -6050,7 +6077,7 @@ namespace Refrigtz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (DrawQ.KingOnTable[i] != null)
+                    if (DrawQ.KingOnTable != null && DrawQ.KingOnTable[i] != null)
                     {
                         try
                         {
@@ -6118,7 +6145,8 @@ namespace Refrigtz
                             ChessTable = (Image)new Bitmap(PictureBoxRefrigtz.Image.Width, PictureBoxRefrigtz.Image.Height);
                             g = Graphics.FromImage(ChessTable);
                             g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height));
-                            if (Draw.TableList != null && Draw.TableList.Count > 0)
+
+                            if (Draw != null && Draw.TableList != null && Draw.TableList.Count > 0)
                                 Draw.SetObjectNumbers(Draw.TableList[0]);
 
                             for (int i = 0; i < PictureBoxRefrigtz.Image.Width; i += PictureBoxRefrigtz.Image.Width / 8)
