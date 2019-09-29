@@ -6050,7 +6050,7 @@ namespace Refrigtz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (DrawQ.MinisterOnTable[i] != null && DrawQ.MinisterOnTable[i] != null)
+                    if (DrawQ.MinisterOnTable != null && DrawQ.MinisterOnTable[i] != null)
                     {
                         try
                         {
