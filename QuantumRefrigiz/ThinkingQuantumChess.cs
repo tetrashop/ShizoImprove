@@ -8820,23 +8820,24 @@ namespace QuantumRefrigiz
             {
 
                 bool Equality = false;
-                if (kind == 1 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
+                if (kind == 1 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder != null && PenaltyRegardListSolder.Count == TableListSolder.Count)
                     Equality = true;
 
                 else
-                    if (kind == 2 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListElefant.Count == TableListElefant.Count)
+                    if (kind == 2 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListElefant != null && PenaltyRegardListElefant.Count == TableListElefant.Count)
                     Equality = true;
                 else
-                        if (kind == 3 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListHourse.Count == TableListHourse.Count)
+                        if (kind == 3 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListHourse != null && PenaltyRegardListHourse.Count == TableListHourse.Count)
                     Equality = true;
                 else
-                            if (kind == 4 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListMinister.Count == TableListMinister.Count)
+                if (kind == 4 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListCastle != null && PenaltyRegardListCastle.Count == TableListCastle.Count)
+                    Equality = true;
+
+                else
+                            if (kind == 5 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListMinister != null && PenaltyRegardListMinister.Count == TableListMinister.Count)
                     Equality = true;
                 else
-                                if (kind == 5 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListKing.Count == TableListKing.Count)
-                    Equality = true;
-                else
-                                    if (kind == 6 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
+                                     if (kind == 6 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListKing != null && PenaltyRegardListKing.Count == TableListKing.Count)
                     Equality = true;
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("EqualitOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Equality;
@@ -9106,22 +9107,22 @@ namespace QuantumRefrigiz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if (kind == 1 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
+                    if (kind == 1 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder != null && PenaltyRegardListSolder.Count == TableListSolder.Count)
                         LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
                     else
-                    if (kind == 2 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListElefant.Count == TableListElefant.Count)
+                     if (kind == 2 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListElefant != null && PenaltyRegardListElefant.Count == TableListElefant.Count)
                         LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
                     else
-                        if (kind == 3 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListHourse.Count == TableListHourse.Count)
+                        if (kind == 3 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListHourse != null && PenaltyRegardListHourse.Count == TableListHourse.Count)
                         LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
                     else
-                            if (kind == 4 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListMinister.Count == TableListMinister.Count)
+                        if (kind == 4 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListCastle != null && PenaltyRegardListCastle.Count == TableListCastle.Count)
                         LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
                     else
-                                if (kind == 5 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListKing.Count == TableListKing.Count)
+                            if (kind == 5 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListMinister != null && PenaltyRegardListMinister.Count == TableListMinister.Count)
                         LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
                     else
-                                    if (kind == 6 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder.Count == TableListSolder.Count)
+                                if (kind == 6 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListKing != null && PenaltyRegardListKing.Count == TableListKing.Count)
                         LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
                 }
                 Object O2 = new Object();
