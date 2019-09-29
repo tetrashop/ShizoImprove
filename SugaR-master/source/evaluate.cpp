@@ -142,7 +142,7 @@ namespace {
     { S( 9, 2), S(15, 5) }  // Bishop
   };
 
-  // RookOnFile[semiopen/open] contains bonuses for each rook when there is
+  // RookOnFile[semiOpen/Open] contains bonuses for each rook when there is
   // no (friendly) pawn on the rook file.
   constexpr Score RookOnFile[] = { S(20, 7), S(45, 20) };
 
@@ -461,9 +461,9 @@ namespace {
             if (relative_rank(Us, s) >= RANK_5)
                 score += RookOnPawn * popcount(pos.pieces(Them, PAWN) & PseudoAttacks[ROOK][s]);
 
-            // Bonus for rook on an open or semi-open file
-            if (pe->semiopen_file(Us, file_of(s)))
-                score += RookOnFile[bool(pe->semiopen_file(Them, file_of(s)))];
+            // Bonus for rook on an Open or semi-Open file
+            if (pe->semiOpen_file(Us, file_of(s)))
+                score += RookOnFile[bool(pe->semiOpen_file(Them, file_of(s)))];
 
             // Penalty when trapped by the king, even more if the king cannot castle
             else if (mob <= 3)
@@ -863,7 +863,7 @@ namespace {
   // available for minor pieces on the central four files on ranks 2--4. Safe
   // squares one, two or three squares behind a friendly pawn are counted
   // twice. Finally, the space bonus is multiplied by a weight. The aim is to
-  // improve play on game opening.
+  // improve play on game Opening.
 
   template<Tracing T> template<Color Us>
   Score Evaluation<T>::space() const {
@@ -887,7 +887,7 @@ namespace {
     behind |= (Us == WHITE ? behind >> 16 : behind << 16);
 
     int bonus = popcount(safe) + popcount(behind & safe);
-    int weight = pos.count<ALL_PIECES>(Us) - 2 * pe->open_files();
+    int weight = pos.count<ALL_PIECES>(Us) - 2 * pe->Open_files();
 
     Score score = make_score(bonus * weight * weight / 16, 0);
 

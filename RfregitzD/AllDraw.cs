@@ -12532,6 +12532,252 @@ if (Kind == 2)
             return IsDang;
 
         }
+        bool IsThereCalculatedAStarGreedyNode()
+        {
+            bool Is = false;
+            for (int i = 0; i < SodierHigh; i++)
+            {
+                if (SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null)
+                {
+                    if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
+                    {
+                        Is = true;
+                        break;
+                    }
+                    /*else {
+                        Object O = new Object();
+                        lock (O)
+                        {
+                            Tabl = CloneATable(Tabl);
+                            FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                            
+                        }
+                    }*/
+                }
+            }
+            if (!Is)
+            {
+                for (int i = 0; i < ElefantHigh; i++)
+                {
+                    if (ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null)
+                    {
+                        if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count > 0)
+                        {
+                            Is = true;
+                            break;
+                        }
+                        /*else
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                Tabl = CloneATable(Tabl);
+                                FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                                
+                            }
+                        }*/
+                    }
+                }
+            }
+            if (!Is)
+            {
+                for (int i = 0; i < HourseHight; i++)
+                {
+                    if (HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null)
+                    {
+                        if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count > 0)
+                        {
+                            Is = true;
+                            break;
+                        }
+                        /*else
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                Tabl = CloneATable(Tabl);
+                                FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                             }
+                        }*/
+                    }
+                }
+            }
+            if (!Is)
+            {
+                for (int i = 0; i < CastleHigh; i++)
+                {
+                    if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null)
+                    {
+                        if (CastlesOnTable[i].CastleThinking[0].TableListHourse.Count > 0)
+                        {
+                            Is = true;
+                            break;
+                        }
+                       /* else
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                Tabl = CloneATable(Tabl);
+                                FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                              }
+                        }*/
+                    }
+                }
+            }
+            if (!Is)
+            {
+                for (int i = 0; i < MinisterHigh; i++)
+                {
+                    if (MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null)
+                    {
+                        if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count > 0)
+                        {
+                            Is = true;
+                            break;
+                        }
+                       /* else
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                Tabl = CloneATable(Tabl);
+                                FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                               }
+                        }*/
+                    }
+                }
+            }
+            if (!Is)
+            {
+                for (int i = 0; i < KingHigh; i++)
+                {
+                    if (KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null&& KingOnTable[i].KingThinking[0].TableListKing != null)
+                    {
+                        if (KingOnTable[i].KingThinking[0].TableListKing.Count > 0)
+                        {
+                            Is = true;
+                            break;
+                        }
+                       /* else
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                Tabl = CloneATable(Tabl);
+                                FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                             }
+                        }*/
+                    }
+                }
+            }
+            return Is;
+        }
+        bool IsAllThereEmptyOrNonCalculatedAStarGreedyNode(int Order, int Kind, int i)
+        {
+            bool Is = false;
+            if (Kind == 1)
+            {
+                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
+                {
+                    for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                        Is = Is && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+                }
+            }
+            else
+                if (Kind == 2)
+            {
+                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null)
+                {
+                    for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                        Is = Is && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+                }
+            }
+            else
+                if (Kind == 3)
+            {
+                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null)
+                {
+                    for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                        Is = Is && HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+
+                }
+            }
+            else
+                if (Kind == 4)
+            {
+                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null)
+                {
+                    for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                        Is = Is && CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+                }
+            }
+            else
+                if (Kind == 5)
+            {
+                if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null) {
+                    for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                        Is = Is && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+                }
+            }
+            else
+            if (Kind == 6)
+            {
+                if (KingOnTable[i].KingThinking[0].AStarGreedy != null)
+                {
+                    for (int j = 0; j < KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                        Is = Is && KingOnTable[i].KingThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+                }
+            }
+            return Is;
+        }
+        bool IsThereEmptyOrNonCalculatedAStarGreedyNode(int Order, int Kind, int i, int j)
+        {
+            bool Is = false;
+            if (IsAllThereEmptyOrNonCalculatedAStarGreedyNode(Order, Kind, i))
+            {
+                if (Kind == 1)
+                {
+                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j)
+                        Is = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+                }
+                else
+                    if (Kind == 2)
+                {
+                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j)
+                        Is = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+                }
+                else
+                    if (Kind == 3)
+                {
+                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j)
+                        Is = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+
+                }
+                else
+                    if (Kind == 4)
+                {
+                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j)
+                        Is = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+
+                }
+                else
+                    if (Kind == 5)
+                {
+                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j)
+                        Is = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+
+                }
+                else
+                if (Kind == 6)
+                {
+                    if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count > j)
+                        Is = KingOnTable[i].KingThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
+
+                }
+            }
+            return Is;
+        }
         void BlitzGameThinkingTreeSolderGray(ref int PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -12550,6 +12796,8 @@ if (Kind == 2)
                     Object O = new Object();
                     lock (O)
                     {
+                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
+                            continue;
                         if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
                             continue;
 
@@ -12606,6 +12854,9 @@ if (Kind == 2)
                     Object O = new Object();
                     lock (O)
                     {
+                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
+                            continue;
+
                         if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
                             continue;
 
@@ -12665,6 +12916,9 @@ if (Kind == 2)
                     Object O = new Object();
                     lock (O)
                     {
+                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order,3, ik, j))
+                            continue;
+
                         if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
                             continue;
 
@@ -12723,6 +12977,9 @@ if (Kind == 2)
                     Object O = new Object();
                     lock (O)
                     {
+                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
+                            continue;
+
                         if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
                             continue;
 
@@ -12788,6 +13045,9 @@ if (Kind == 2)
                     Object O = new Object();
                     lock (O)
                     {
+                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
+                            continue;
+
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (MinisterOnTable[ik].MinisterThinking[0].ReturnHuristic(ik, j, Order, false) < PreviousLessM || (MinisterOnTable[ik].MinisterThinking[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -12846,6 +13106,9 @@ if (Kind == 2)
                     Object O = new Object();
                     lock (O)
                     {
+                        if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
+                            continue;
+
                         if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
                             continue;
 
@@ -13062,6 +13325,9 @@ if (Kind == 2)
                 //Soldier.
                 for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HuristicListSolder.Count; j++)
                 {
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
+                        continue;
+
                     if (SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j]
                    )
                         continue;
@@ -13118,9 +13384,13 @@ if (Kind == 2)
                     continue;
                 for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HuristicListElefant.Count; j++)
                 {
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
+                        continue;
+
                     if (ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j]
                  )
                         continue;
+                
                     if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
                         continue;
 
@@ -13176,6 +13446,9 @@ if (Kind == 2)
                     continue;
                 for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HuristicListHourse.Count; j++)
                 {
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
+                        continue;
+
                     if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j]
                     )
                         continue;
@@ -13305,6 +13578,9 @@ if (Kind == 2)
                     continue;
                 for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HuristicListCastle.Count; j++)
                 {
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
+                        continue;
+
                     if (CastlesOnTable[ik].CastleThinking[0].IsSupHu[j]
                     )
                         continue;
@@ -13367,6 +13643,9 @@ if (Kind == 2)
                     continue;
                 for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HuristicListMinister.Count; j++)
                 {
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
+                        continue;
+
                     if (MinisterOnTable[ik].MinisterThinking[0].IsSupHu[j]
                       )
                         continue;
@@ -13423,6 +13702,9 @@ if (Kind == 2)
                     continue;
                 for (j = 0; j < KingOnTable[ik].KingThinking[0].HuristicListKing.Count; j++)
                 {
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
+                        continue;
+
                     if (KingOnTable[ik].KingThinking[0].IsSupHu[j]
                      )
                         continue;

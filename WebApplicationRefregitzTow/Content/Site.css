@@ -348,11 +348,11 @@ aside {
         margin-bottom:  5px;
     }
 
-fieldset.open-auth-providers {
+fieldset.Open-auth-providers {
     margin-top: 15px;
 }
 
-    fieldset.open-auth-providers button {
+    fieldset.Open-auth-providers button {
         margin-bottom: 12px;
     }
     
@@ -396,7 +396,7 @@ fieldset {
         font-weight: 600;
     }
 
-    label.checkbox {
+    label.CheckBox {
         display: inline;
     }
 
@@ -419,7 +419,7 @@ fieldset {
             border: 1px solid #7ac0da;
         }
 
-        input[type="checkbox"] {
+        input[type="CheckBox"] {
             background: transparent;
             border: inherit;
             width: auto;
@@ -486,7 +486,7 @@ input.input-validation-error {
     border: 1px solid #e80c4d;
 }
 
-input[type="checkbox"].input-validation-error {
+input[type="CheckBox"].input-validation-error {
     border: 0 none;
 }
 

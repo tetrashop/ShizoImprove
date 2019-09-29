@@ -11,9 +11,9 @@
  * under the terms set out in this paragraph. All notices and licenses
  * below are for informational purposes only.
  *
- * jQuery UI; Copyright (c) 2012 Paul Bakaus; http://opensource.org/licenses/MIT
+ * jQuery UI; Copyright (c) 2012 Paul Bakaus; http://Opensource.org/licenses/MIT
  *
- * Includes jQuery Easing v1.3; Copyright 2008 George McGinley Smith; http://opensource.org/licenses/BSD-3-Clause
+ * Includes jQuery Easing v1.3; Copyright 2008 George McGinley Smith; http://Opensource.org/licenses/BSD-3-Clause
  *
  * NUGET: END LICENSE TEXT */
 /*! jQuery UI - v1.8.24 - 2012-09-28
@@ -5949,7 +5949,7 @@ $.widget( "ui.autocomplete", {
 					break;
 				case keyCode.ENTER:
 				case keyCode.NUMPAD_ENTER:
-					// when menu is open and has focus
+					// when menu is Open and has focus
 					if ( self.menu.active ) {
 						// #6055 - Opera still allows the keypress to occur
 						// which causes forms to submit
@@ -6199,7 +6199,7 @@ $.widget( "ui.autocomplete", {
 		if ( !this.options.disabled && content && content.length ) {
 			content = this._normalize( content );
 			this._suggest( content );
-			this._trigger( "open" );
+			this._trigger( "Open" );
 		} else {
 			this.close();
 		}
@@ -6564,7 +6564,7 @@ $.widget( "ui.button", {
 
 		var self = this,
 			options = this.options,
-			toggleButton = this.type === "checkbox" || this.type === "radio",
+			toggleButton = this.type === "CheckBox" || this.type === "radio",
 			hoverClass = "ui-state-hover" + ( !toggleButton ? " ui-state-active" : "" ),
 			focusClass = "ui-state-focus";
 
@@ -6614,7 +6614,7 @@ $.widget( "ui.button", {
 				self.refresh();
 			});
 			// if mouse moves between mousedown and mouseup (drag) set clickDragged flag
-			// prevents issue where button state changes but checkbox/radio checked state
+			// prevents issue where button state changes but CheckBox/radio checked state
 			// does not in Firefox (see ticket #6970)
 			this.buttonElement
 				.bind( "mousedown.button", function( event ) {
@@ -6635,7 +6635,7 @@ $.widget( "ui.button", {
 			});
 		}
 
-		if ( this.type === "checkbox" ) {
+		if ( this.type === "CheckBox" ) {
 			this.buttonElement.bind( "click.button", function() {
 				if ( options.disabled || clickDragged ) {
 					return false;
@@ -6709,8 +6709,8 @@ $.widget( "ui.button", {
 
 	_determineButtonType: function() {
 
-		if ( this.element.is(":checkbox") ) {
-			this.type = "checkbox";
+		if ( this.element.is(":CheckBox") ) {
+			this.type = "CheckBox";
 		} else if ( this.element.is(":radio") ) {
 			this.type = "radio";
 		} else if ( this.element.is("input") ) {
@@ -6719,7 +6719,7 @@ $.widget( "ui.button", {
 			this.type = "button";
 		}
 
-		if ( this.type === "checkbox" || this.type === "radio" ) {
+		if ( this.type === "CheckBox" || this.type === "radio" ) {
 			// we don't search against the document in case the element
 			// is disconnected from the DOM
 			var ancestor = this.element.parents().filter(":last"),
@@ -6794,7 +6794,7 @@ $.widget( "ui.button", {
 						.attr( "aria-pressed", "false" );
 				}
 			});
-		} else if ( this.type === "checkbox" ) {
+		} else if ( this.type === "CheckBox" ) {
 			if ( this.element.is( ":checked" ) ) {
 				this.buttonElement
 					.addClass( "ui-state-active" )
@@ -6853,7 +6853,7 @@ $.widget( "ui.button", {
 
 $.widget( "ui.buttonset", {
 	options: {
-		items: ":button, :submit, :reset, :checkbox, :radio, a, :data(button)"
+		items: ":button, :submit, :reset, :CheckBox, :radio, a, :data(button)"
 	},
 
 	_create: function() {
@@ -8208,7 +8208,7 @@ $.extend(Datepicker.prototype, {
 		this._adjustInstDate(inst);
 	},
 
-	/* Retrieve the default date shown on opening. */
+	/* Retrieve the default date shown on Opening. */
 	_getDefaultDate: function(inst) {
 		return this._restrictMinMax(inst,
 			this._determineDate(inst, this._get(inst, 'defaultDate'), new Date()));
@@ -8934,7 +8934,7 @@ $.widget("ui.dialog", {
 
 	_init: function() {
 		if ( this.options.autoOpen ) {
-			this.open();
+			this.Open();
 		}
 	},
 
@@ -9011,7 +9011,7 @@ $.widget("ui.dialog", {
 	},
 
 	// the force parameter allows us to move modal dialogs to their correct
-	// position on open
+	// position on Open
 	moveToTop: function(force, event) {
 		var self = this,
 			options = self.options,
@@ -9041,7 +9041,7 @@ $.widget("ui.dialog", {
 		return self;
 	},
 
-	open: function() {
+	Open: function() {
 		if (this._isOpen) { return; }
 
 		var self = this,
@@ -9082,7 +9082,7 @@ $.widget("ui.dialog", {
 				uiDialog.get()))).eq(0).focus();
 
 		self._isOpen = true;
-		self._trigger('open');
+		self._trigger('Open');
 
 		return self;
 	},

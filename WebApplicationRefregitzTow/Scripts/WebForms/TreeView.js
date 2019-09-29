@@ -42,11 +42,11 @@ function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, l
     context.isChecked = "f";
     var tr = WebForm_GetParentByTagName(node, "TR");
     if (tr) {
-        var checkbox = tr.getElementsByTagName("INPUT");
-        if (checkbox && (checkbox.length > 0)) {
-            for (var i = 0; i < checkbox.length; i++) {
-                if (checkbox[i].type.toLowerCase() == "checkbox") {
-                    if (checkbox[i].checked) {
+        var CheckBox = tr.getElementsByTagName("INPUT");
+        if (CheckBox && (CheckBox.length > 0)) {
+            for (var i = 0; i < CheckBox.length; i++) {
+                if (CheckBox[i].type.toLowerCase() == "CheckBox") {
+                    if (CheckBox[i].checked) {
                         context.isChecked = "t";
                     }
                     break;

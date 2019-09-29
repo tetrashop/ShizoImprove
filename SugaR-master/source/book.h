@@ -19,7 +19,7 @@
 */
 
 /*
-  The code in this file is based on the opening book code in PolyGlot
+  The code in this file is based on the Opening book code in PolyGlot
   by Fabien Letouzey. PolyGlot is available under the GNU General
   Public License, and can be downloaded from http://wbec-ridderkerk.nl
  */
@@ -42,7 +42,7 @@ public:
 private:
   template<typename T> PolyglotBook& operator>>(T& n);
 
-  bool open(const char* fName);
+  bool Open(const char* fName);
   size_t find_first(Key key);
 
   PRNG rng;

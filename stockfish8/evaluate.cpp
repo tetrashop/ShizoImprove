@@ -149,7 +149,7 @@ namespace {
     { S( 8, 0), S(14, 4) }  // Bishops
   };
 
-  // RookOnFile[semiopen/open] contains bonuses for each rook when there is no
+  // RookOnFile[semiOpen/Open] contains bonuses for each rook when there is no
   // friendly pawn on the rook file.
   const Score RookOnFile[2] = { S(20, 7), S(45, 20) };
 
@@ -338,9 +338,9 @@ namespace {
             if (relative_rank(Us, s) >= RANK_5)
                 score += RookOnPawn * popcount(pos.pieces(Them, PAWN) & PseudoAttacks[ROOK][s]);
 
-            // Bonus when on an open or semi-open file
-            if (ei.pi->semiopen_file(Us, file_of(s)))
-                score += RookOnFile[!!ei.pi->semiopen_file(Them, file_of(s))];
+            // Bonus when on an Open or semi-Open file
+            if (ei.pi->semiOpen_file(Us, file_of(s)))
+                score += RookOnFile[!!ei.pi->semiOpen_file(Them, file_of(s))];
 
             // Penalize when trapped by the king, even more if the king cannot castle
             else if (mob <= 3)
@@ -349,7 +349,7 @@ namespace {
 
                 if (   ((file_of(ksq) < FILE_E) == (file_of(s) < file_of(ksq)))
                     && (rank_of(ksq) == rank_of(s) || relative_rank(Us, ksq) == RANK_1)
-                    && !ei.pi->semiopen_side(Us, file_of(ksq), file_of(s) < file_of(ksq)))
+                    && !ei.pi->semiOpen_side(Us, file_of(ksq), file_of(s) < file_of(ksq)))
                     score -= (TrappedRook - make_score(mob * 22, 0)) * (1 + !pos.can_castle(Us));
             }
         }
@@ -684,7 +684,7 @@ namespace {
   // available for minor pieces on the central four files on ranks 2--4. Safe
   // squares one, two or three squares behind a friendly pawn are counted
   // twice. Finally, the space bonus is multiplied by a weight. The aim is to
-  // improve play on game opening.
+  // improve play on game Opening.
   template<Color Us>
   Score evaluate_space(const Position& pos, const EvalInfo& ei) {
 
@@ -712,7 +712,7 @@ namespace {
     // ...count safe + (behind & safe) with a single popcount
     int bonus = popcount((Us == WHITE ? safe << 32 : safe >> 32) | (behind & safe));
     bonus = std::min(16, bonus);
-    int weight = pos.count<ALL_PIECES>(Us) - 2 * ei.pi->open_files();
+    int weight = pos.count<ALL_PIECES>(Us) - 2 * ei.pi->Open_files();
 
     return make_score(bonus * weight * weight / 18, 0);
   }
@@ -853,7 +853,7 @@ Value Eval::evaluate(const Position& pos) {
           score -= Unstoppable * int(relative_rank(BLACK, frontmost_sq(BLACK, b)));
   }
 
-  // Evaluate space for both sides, only during opening
+  // Evaluate space for both sides, only during Opening
   if (pos.non_pawn_material(WHITE) + pos.non_pawn_material(BLACK) >= 12222)
       score +=  evaluate_space<WHITE>(pos, ei)
               - evaluate_space<BLACK>(pos, ei);

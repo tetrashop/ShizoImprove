@@ -88,8 +88,12 @@ namespace WebApplicationRefregitzTow
         public static int MouseClicked = 0;
         public static int CurrentClickedNumber;
         public static bool Found = false;
+#pragma warning disable CS3008 // Identifier '_1' is not CLS-compliant
         public static Control _1 = null;
+#pragma warning restore CS3008 // Identifier '_1' is not CLS-compliant
+#pragma warning disable CS3008 // Identifier '_2' is not CLS-compliant
         public static Control _2 = null;
+#pragma warning restore CS3008 // Identifier '_2' is not CLS-compliant
         public double MaxHuristicxT = Double.MinValue;
         public bool MovementsAStarGreedyHuristicFound = false;
         public bool IIgnoreSelfObjects = false;
@@ -1032,9 +1036,9 @@ namespace WebApplicationRefregitzTow
                 lblMove.Text = CheckBoxNr.ToString();
                 lblMove1.Text = "NoMove";
 
-                //Now clear all checkboxes
-                ClearCheckbox();
-                //WebApplicationRefregitzTow._Default.ucc.ClearCheckbox();
+                //Now clear all CheckBoxes
+                ClearCheckBox();
+                //WebApplicationRefregitzTow._Default.ucc.ClearCheckBox();
             }
             UserControlLoad();
         }
@@ -1500,7 +1504,7 @@ namespace WebApplicationRefregitzTow
                                 lblMove1.Text = ((Label)lblMove1).Text;
 
                                 CheckData(((j*8+i) + 1), CreateString((j*8+i) + 1), true);
-                                ClearCheckbox();
+                                ClearCheckBox();
                                 _2 = cC;
                                 ((CheckBox)_1).Checked = false;
                                 ((CheckBox)_2).Checked = false;
@@ -1609,7 +1613,7 @@ namespace WebApplicationRefregitzTow
             }
         }
 
-        public void ClearCheckbox()
+        public void ClearCheckBox()
         {
 
             CheckBox1.Checked = false;

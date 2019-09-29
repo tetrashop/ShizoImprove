@@ -34,7 +34,9 @@ namespace WebApplicationRefregitzTow.Account
         public string ReturnUrl { get; set; }
 
 
+#pragma warning disable CS3002 // Return type of 'OpenAuthProviders.GetProviderNames()' is not CLS-compliant
         public IEnumerable<ProviderDetails> GetProviderNames()
+#pragma warning restore CS3002 // Return type of 'OpenAuthProviders.GetProviderNames()' is not CLS-compliant
         {
             return OpenAuth.AuthenticationClients.GetAll();
         }

@@ -107,9 +107,13 @@ namespace RefrigtzW
         public static OleDbConnection bookConn = null;
         public static OleDbCommand oleDbCmd = new OleDbCommand();
         public static OleDbCommand oleDbCmdUser = new OleDbCommand();
+#pragma warning disable CS0414 // The field 'FormRefrigtz.BobWithStockfishFinished' is assigned but its value is never used
          bool BobWithStockfishFinished = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.BobWithStockfishFinished' is assigned but its value is never used
         bool Stockfish = false;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RefregitzisCurrent' is assigned but its value is never used
         bool RefregitzisCurrent = true;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RefregitzisCurrent' is assigned but its value is never used
         bool SettingPRFALSE = false;
         public static bool ProfesionalWithComputer = false;
         public bool TimersSet = true;
@@ -117,51 +121,109 @@ namespace RefrigtzW
         public static bool ArrangmentsChanged = true;
         public static int MaxCurrentMovmentsNumber = 1;
         public static bool ErrorTrueMonitorFalse = true;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.tM' is assigned but its value is never used
         Thread tM = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.tM' is assigned but its value is never used
         bool Clicked = true;
         public static int MaxAStarGreedyHuristicProgress = 0;
         public static String Root = System.Web.HttpRuntime.AppDomainAppPath;
         public bool MouseClicked = false;
         public static bool Blitz = false;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.LoadAG' is assigned but its value is never used
         static bool LoadAG = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.LoadAG' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz._1' is assigned but its value is never used
         static bool _1 = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz._1' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz._2' is assigned but its value is never used
         static bool _2 = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz._2' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz._3' is assigned but its value is never used
         static bool _3 = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz._3' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz._4' is assigned but its value is never used
         static bool _4 = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz._4' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.Hideag' is assigned but its value is never used
         static bool Hideag = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.Hideag' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.exit' is assigned but its value is never used
         bool exit = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.exit' is assigned but its value is never used
         bool AllDrawLoad = false;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.AllOperate' is assigned but its value is never used
         Thread AllOperate = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.AllOperate' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.Paused' is assigned but its value is never used
         static bool Paused = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.Paused' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.UpdateConfigurationTableVal' is assigned but its value is never used
         static bool UpdateConfigurationTableVal = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.UpdateConfigurationTableVal' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.NewTable' is assigned but its value is never used
         static bool NewTable = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.NewTable' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.TimerImage' is assigned but its value is never used
         Image TimerImage = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.TimerImage' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.g1' is assigned but its value is never used
         Graphics g1 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.g1' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.TimerImage1' is assigned but its value is never used
         Image TimerImage1 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.TimerImage1' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.g2' is assigned but its value is never used
         Graphics g2 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.g2' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.g' is assigned but its value is never used
         Graphics g = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.g' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ChessTable' is assigned but its value is never used
         Image ChessTable = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ChessTable' is assigned but its value is never used
         public static int LastRow = -1;
         public static int LastColumn = -1;
         Thread t1 = null;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.t2' is assigned but its value is never used
         Thread t2 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.t2' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.t3' is assigned but its value is never used
         Thread t3 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.t3' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.t4' is assigned but its value is never used
         Thread t4 = null;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.t4' is assigned but its value is never used
         Thread TTimerSet;
         public static bool LoadedTable = false;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.GrayWinner' is assigned but its value is never used
         bool GrayWinner = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.GrayWinner' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.BrownWiner' is assigned but its value is never used
         bool BrownWiner = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.BrownWiner' is assigned but its value is never used
         public Refrigtz.Timer TimerText = null;
         public Refrigtz.Timer GrayTimer = null;
         public Refrigtz.Timer BrownTimer = null;
         public static int MovmentsNumber = 0;
         public static bool EndOfGame = false;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.Maximize' is assigned but its value is never used
         bool Maximize = false;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.Maximize' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowS' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColS' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColP' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowP' is assigned but its value is never used
         static int RowP = 0, ColP = 0, RowS = 0, ColS = 0;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowP' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColP' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColS' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowS' is assigned but its value is never used
         bool BobSection = true;
         bool AliceSection = false;
         public static bool Person = true;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.CurrentKind' is assigned but its value is never used
         static int CurrentKind = 0;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.CurrentKind' is assigned but its value is never used
         public static bool StateCC = false;//Computer With Computer
         public static bool StateCP = false;//Person With Computer
         public static bool StateGe = false;//For Genetic Games.
@@ -169,9 +231,21 @@ namespace RefrigtzW
         public static int OrderPlate = 1;
         // int AllDraw.MouseClick;
         float RowClickP = -1, ColumnClickP = -1;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowClick' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnClick' is assigned but its value is never used
         int RowClick = -1, ColumnClick = -1;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnClick' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowClick' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnRealeasedP' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowRealesedP' is assigned but its value is never used
         float RowRealesedP = -1, ColumnRealeasedP = -1;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowRealesedP' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnRealeasedP' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.RowRealesed' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'FormRefrigtz.ColumnRealeased' is assigned but its value is never used
         float RowRealesed = -1, ColumnRealeased = -1;
+#pragma warning restore CS0414 // The field 'FormRefrigtz.ColumnRealeased' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'FormRefrigtz.RowRealesed' is assigned but its value is never used
         public static int[,] Table = new int[8, 8];
         FormRefrigtz THIs = null;
         String connParam = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Root +  "Database\\CurrentBank.accdb;;Persist Security Info=False; Jet OLEDB:Database Password='!HN#BGHHN&N$G$V4'";

@@ -100,7 +100,7 @@ function WebForm_DoCallback(eventTarget, eventArgument, eventCallback, context, 
                 action = encodeURI(action);
             }
         }
-        xmlRequest.open("POST", action, true);
+        xmlRequest.Open("POST", action, true);
         xmlRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
         xmlRequest.send(postData);
         return;
@@ -246,7 +246,7 @@ function WebForm_InitCallback() {
         var tagName = element.tagName.toLowerCase();
         if (tagName == "input") {
             var type = element.type;
-            if ((__callbackTextTypes.test(type) || ((type == "checkbox" || type == "radio") && element.checked))
+            if ((__callbackTextTypes.test(type) || ((type == "CheckBox" || type == "radio") && element.checked))
                 && (element.id != "__EVENTVALIDATION")) {
                 WebForm_InitCallbackAddField(element.name, element.value);
             }

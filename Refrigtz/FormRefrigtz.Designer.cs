@@ -209,7 +209,6 @@ namespace Refrigtz
             this.MenuStripChessRefrigitz.Size = new System.Drawing.Size(1005, 24);
             this.MenuStripChessRefrigitz.TabIndex = 1;
             this.MenuStripChessRefrigitz.Text = "MenuStrip1";
-            this.MenuStripChessRefrigitz.Leave += new System.EventHandler(this.MenuStripChessRefrigitz_Leave);
             // 
             // ToolStripMenuItem1
             // 
@@ -1499,7 +1498,7 @@ namespace Refrigtz
             this.buttonClear.TabIndex = 83;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonClear.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // FormRefrigtz
             // 

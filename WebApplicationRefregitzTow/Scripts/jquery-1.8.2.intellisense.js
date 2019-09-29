@@ -942,8 +942,8 @@ intellisense.annotate(jQuery.fn, {
     ///   <returns type="jQuery" />
     /// </signature>
   },
-  'checkbox': function() {
-    /// <summary>Selects all elements of type checkbox.</summary>
+  'CheckBox': function() {
+    /// <summary>Selects all elements of type CheckBox.</summary>
   },
   'checked': function() {
     /// <summary>Matches all elements that are checked.</summary>

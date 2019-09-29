@@ -192,7 +192,7 @@ function Zone_GetParentZoneElement(containedElement) {
 function Zone_AddWebPart(webPartElement, webPartTitleElement, allowZoneChange) {
     var webPart = null;
     var zoneIndex = this.webParts.length;
-    if (this.allowLayoutChange && __wpm.IsDragDropEnabled()) {
+    if (this.allowLayoutChange && __wpm.IsDragDrOpenabled()) {
         webPart = new WebPart(webPartElement, webPartTitleElement, this, zoneIndex, allowZoneChange);
     }
     else {
@@ -401,7 +401,7 @@ function WebPartManager() {
     this.menu = null;
     this.draggedWebPart = null;
     this.AddZone = WebPartManager_AddZone;
-    this.IsDragDropEnabled = WebPartManager_IsDragDropEnabled;
+    this.IsDragDrOpenabled = WebPartManager_IsDragDrOpenabled;
     this.DragDrop = WebPartManager_DragDrop;
     this.InitiateWebPartDragDrop = WebPartManager_InitiateWebPartDragDrop;
     this.CompleteWebPartDragDrop = WebPartManager_CompleteWebPartDragDrop;
@@ -428,7 +428,7 @@ function WebPartManager_AddZone(zoneElement, uniqueID, isVertical, allowLayoutCh
     this.zones[zoneIndex] = zone;
     return zone;
 }
-function WebPartManager_IsDragDropEnabled() {
+function WebPartManager_IsDragDrOpenabled() {
     return ((typeof(this.overlayContainerElement) != "undefined") && (this.overlayContainerElement != null));
 }
 function WebPartManager_DragDrop() {
@@ -616,7 +616,7 @@ function WebPartManager_ShowHelp(helpUrl, helpMode) {
             window.showModalDialog(helpUrl, null, dialogInfo);
         }
         else {
-            window.open(helpUrl, null, "scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no,location=no");
+            window.Open(helpUrl, null, "scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no,location=no");
         }
     }
     else if (helpMode == 2) {

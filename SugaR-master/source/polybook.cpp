@@ -344,16 +344,16 @@ void PolyBook::init(const std::string& bookfile)
 
 #ifdef _WIN32
 	FILE *fpt;
-	errno_t errno_local = fopen_s(&fpt, file_name, "rb");
+	errno_t errno_local = fOpen_s(&fpt, file_name, "rb");
 	if (fpt == NULL || errno_local != 0)
 	{
 		assert(errno_local != 0);
 #else
-    FILE *fpt = fopen(file_name, "rb");
+    FILE *fpt = fOpen(file_name, "rb");
     if (fpt == NULL)
     {
 #endif
-        sync_cout << "info string Could not open " << bookfile << sync_endl;
+        sync_cout << "info string Could not Open " << bookfile << sync_endl;
         enabled = false;
         return;
     }

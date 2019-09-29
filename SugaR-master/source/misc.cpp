@@ -101,13 +101,13 @@ public:
 
     static Logger l;
 
-    if (!fname.empty() && !l.file.is_open())
+    if (!fname.empty() && !l.file.is_Open())
     {
-        l.file.open(fname, ifstream::out);
+        l.file.Open(fname, ifstream::out);
         cin.rdbuf(&l.in);
         cout.rdbuf(&l.out);
     }
-    else if (fname.empty() && l.file.is_open())
+    else if (fname.empty() && l.file.is_Open())
     {
         cout.rdbuf(l.out.buf);
         cin.rdbuf(l.in.buf);

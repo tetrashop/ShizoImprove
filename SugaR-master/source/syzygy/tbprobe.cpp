@@ -173,7 +173,7 @@ class TBFile : public std::ifstream {
     std::string fname;
 
 public:
-    // Look for and open the file among the Paths directories where the .rtbw
+    // Look for and Open the file among the Paths directories where the .rtbw
     // and .rtbz files can be found. Multiple directories are separated by ";"
     // on Windows and by ":" on Unix-based operating systems.
     //
@@ -193,23 +193,23 @@ public:
 
         while (std::getline(ss, path, SepChar)) {
             fname = path + "/" + f;
-            std::ifstream::open(fname);
-            if (is_open())
+            std::ifstream::Open(fname);
+            if (is_Open())
                 return;
         }
     }
 
-    // Memory map the file and check it. File should be already open and will be
+    // Memory map the file and check it. File should be already Open and will be
     // closed after mapping.
     uint8_t* map(void** baseAddress, uint64_t* mapping, TBType type) {
 
-        assert(is_open());
+        assert(is_Open());
 
-        close(); // Need to re-open to get native file descriptor
+        close(); // Need to re-Open to get native file descriptor
 
 #ifndef _WIN32
         struct stat statbuf;
-        int fd = ::open(fname.c_str(), O_RDONLY);
+        int fd = ::Open(fname.c_str(), O_RDONLY);
 
         if (fd == -1)
             return *baseAddress = nullptr, nullptr;
@@ -225,7 +225,7 @@ public:
         }
 #else
         HANDLE fd = CreateFile(fname.c_str(), GENERIC_READ, FILE_SHARE_READ, nullptr,
-                               OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+                               Open_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
 
         if (fd == INVALID_HANDLE_VALUE)
             return *baseAddress = nullptr, nullptr;
@@ -436,7 +436,7 @@ void TBTables::add(const std::vector<PieceType>& pieces) {
 
     TBFile file(code.insert(code.find('K', 1), "v") + ".rtbw"); // KRK -> KRvK
 
-    if (!file.is_open()) // Only WDL file is checked
+    if (!file.is_Open()) // Only WDL file is checked
         return;
 
     file.close();

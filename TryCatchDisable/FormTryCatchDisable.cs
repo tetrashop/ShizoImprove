@@ -34,12 +34,12 @@ namespace TryCatchDisable
             InitializeComponent();
         }
 
-        private void buttonTryCatchDisable_Click(object sender, EventArgs e)
+        private void ButtonTryCatchDisable_Click(object sender, EventArgs e)
         {
             try
             {
-                openFileDialogTryCatchDisable.ShowDialog();
-                String A = openFileDialogTryCatchDisable.FileName;
+                OpenFileDialogTryCatchDisable.ShowDialog();
+                String A = OpenFileDialogTryCatchDisable.FileName;
                 String Contain = System.IO.File.ReadAllText(A);
                 int A1 = Contain.IndexOf("try");
                 int A2 = A1;
@@ -102,8 +102,8 @@ namespace TryCatchDisable
 
                         return true;
                     }
-                    else
-                        return false;
+                    //else
+                        //return false;
                 }
 
                 A++;
@@ -144,7 +144,7 @@ namespace TryCatchDisable
             try
             {
 
-                bool IsNew = false;
+                
 
                 while (A2 < Contain.Length && A2 > 0)
                 {

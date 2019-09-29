@@ -13,9 +13,9 @@
  *
  * Copyright (c) Faruk Ates, Paul Irish, Alex Sexton; http://www.modernizr.com/license/
  *
- * Includes matchMedia polyfill; Copyright (c) 2010 Filament Group, Inc; http://opensource.org/licenses/MIT
+ * Includes matchMedia polyfill; Copyright (c) 2010 Filament Group, Inc; http://Opensource.org/licenses/MIT
  *
- * Includes material adapted from ES5-shim https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js; Copyright 2009-2012 by contributors; http://opensource.org/licenses/MIT
+ * Includes material adapted from ES5-shim https://github.com/kriskowal/es5-shim/blob/master/es5-shim.js; Copyright 2009-2012 by contributors; http://Opensource.org/licenses/MIT
  *
  * Includes material from css-support; Copyright (c) 2005-2012 Diego Perini; https://github.com/dperini/css-support/blob/master/LICENSE
  *
@@ -506,10 +506,10 @@ window.Modernizr = (function( window, document, undefined ) {
     };
 
 
-    // Chrome incognito mode used to throw an exception when using openDatabase
+    // Chrome incognito mode used to throw an exception when using OpenDatabase
     // It doesn't anymore.
     tests['websqldatabase'] = function() {
-      return !!window.openDatabase;
+      return !!window.OpenDatabase;
     };
 
     // Vendors had inconsistent prefixing with the experimental Indexed DB:

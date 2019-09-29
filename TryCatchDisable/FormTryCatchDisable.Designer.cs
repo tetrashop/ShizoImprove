@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonTryCatchDisable = new System.Windows.Forms.Button();
-            this.openFileDialogTryCatchDisable = new System.Windows.Forms.OpenFileDialog();
+            this.OpenFileDialogTryCatchDisable = new System.Windows.Forms.OpenFileDialog();
             this.saveDialogFileTryCatchDisable = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
@@ -41,11 +41,11 @@
             this.buttonTryCatchDisable.TabIndex = 0;
             this.buttonTryCatchDisable.Text = "Open File";
             this.buttonTryCatchDisable.UseVisualStyleBackColor = true;
-            this.buttonTryCatchDisable.Click += new System.EventHandler(this.buttonTryCatchDisable_Click);
+            this.buttonTryCatchDisable.Click += new System.EventHandler(this.ButtonTryCatchDisable_Click);
             // 
-            // openFileDialogTryCatchDisable
+            // OpenFileDialogTryCatchDisable
             // 
-            this.openFileDialogTryCatchDisable.FileName = "openFileDialogTryCatchDisable";
+            this.OpenFileDialogTryCatchDisable.FileName = "OpenFileDialogTryCatchDisable";
             // 
             // FormTryCatchDisable
             // 
@@ -62,7 +62,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonTryCatchDisable;
-        private System.Windows.Forms.OpenFileDialog openFileDialogTryCatchDisable;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialogTryCatchDisable;
         private System.Windows.Forms.SaveFileDialog saveDialogFileTryCatchDisable;
     }
 }

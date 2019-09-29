@@ -27,7 +27,7 @@
                         </li>
                         <li>
                             <asp:CheckBox runat="server" ID="RememberMe" />
-                            <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Remember me?</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="CheckBox">Remember me?</asp:Label>
                         </li>
                     </ol>
                     <asp:Button runat="server" CommandName="Login" Text="Log in" />

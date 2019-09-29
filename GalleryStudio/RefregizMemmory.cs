@@ -99,11 +99,15 @@ namespace GalleryStudio
             {
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
+#pragma warning disable CS1717 // Assignment made to same variable; did you mean to assign something else?
                 UsePenaltyRegardMechnisa = UsePenaltyRegardMechnisa;
+#pragma warning restore CS1717 // Assignment made to same variable; did you mean to assign something else?
                 BestMovmentsT = BestMovment;
                 PredictHuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
+#pragma warning disable CS1717 // Assignment made to same variable; did you mean to assign something else?
                 AStarGreedyHuris = AStarGreedyHuris;
+#pragma warning restore CS1717 // Assignment made to same variable; did you mean to assign something else?
                 ArrangmentsT = Arrangments;
             }
 

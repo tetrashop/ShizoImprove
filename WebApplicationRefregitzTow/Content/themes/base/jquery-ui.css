@@ -346,12 +346,12 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-icon-transfer-e-w { background-position: -96px -80px; }
 .ui-icon-transferthick-e-w { background-position: -112px -80px; }
 .ui-icon-folder-collapsed { background-position: 0 -96px; }
-.ui-icon-folder-open { background-position: -16px -96px; }
+.ui-icon-folder-Open { background-position: -16px -96px; }
 .ui-icon-document { background-position: -32px -96px; }
 .ui-icon-document-b { background-position: -48px -96px; }
 .ui-icon-note { background-position: -64px -96px; }
 .ui-icon-mail-closed { background-position: -80px -96px; }
-.ui-icon-mail-open { background-position: -96px -96px; }
+.ui-icon-mail-Open { background-position: -96px -96px; }
 .ui-icon-suitcase { background-position: -112px -96px; }
 .ui-icon-comment { background-position: -128px -96px; }
 .ui-icon-person { background-position: -144px -96px; }

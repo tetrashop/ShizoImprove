@@ -1269,7 +1269,7 @@ jQuery.support = (function() {
 
 	// Preliminary tests
 	div.setAttribute( "className", "t" );
-	div.innerHTML = "  <link/><table></table><a href='/a'>a</a><input type='checkbox'/>";
+	div.innerHTML = "  <link/><table></table><a href='/a'>a</a><input type='CheckBox'/>";
 
 	all = div.getElementsByTagName("*");
 	a = div.getElementsByTagName("a")[ 0 ];
@@ -1314,7 +1314,7 @@ jQuery.support = (function() {
 		// (IE uses styleFloat instead of cssFloat)
 		cssFloat: !!a.style.cssFloat,
 
-		// Make sure that if no value is specified for a checkbox
+		// Make sure that if no value is specified for a CheckBox
 		// that it defaults to "on".
 		// (WebKit defaults to "" instead)
 		checkOn: ( input.value === "on" ),
@@ -1395,7 +1395,7 @@ jQuery.support = (function() {
 	// WebKit doesn't clone checked state correctly in fragments
 	support.checkClone = fragment.cloneNode( true ).cloneNode( true ).lastChild.checked;
 
-	// Check if a disconnected checkbox will retain its checked
+	// Check if a disconnected CheckBox will retain its checked
 	// value of true after appended to the DOM (IE6/7)
 	support.appendChecked = input.checked;
 
@@ -2010,7 +2010,7 @@ var nodeHook, boolHook, fixSpecified,
 	rtype = /^(?:button|input)$/i,
 	rfocusable = /^(?:button|input|object|select|textarea)$/i,
 	rclickable = /^a(?:rea|)$/i,
-	rboolean = /^(?:autofocus|autoplay|async|checked|controls|defer|disabled|hidden|loop|multiple|open|readonly|required|scoped|selected)$/i,
+	rboolean = /^(?:autofocus|autoplay|async|checked|controls|defer|disabled|hidden|loop|multiple|Open|readonly|required|scoped|selected)$/i,
 	getSetAttribute = jQuery.support.getSetAttribute;
 
 jQuery.fn.extend({
@@ -2622,9 +2622,9 @@ if ( !jQuery.support.enctype ) {
 	jQuery.propFix.enctype = "encoding";
 }
 
-// Radios and checkboxes getter/setter
+// Radios and CheckBoxes getter/setter
 if ( !jQuery.support.checkOn ) {
-	jQuery.each([ "radio", "checkbox" ], function() {
+	jQuery.each([ "radio", "CheckBox" ], function() {
 		jQuery.valHooks[ this ] = {
 			get: function( elem ) {
 				// Handle the case where in Webkit "" is returned instead of "on" if a value isn't specified
@@ -2633,7 +2633,7 @@ if ( !jQuery.support.checkOn ) {
 		};
 	});
 }
-jQuery.each([ "radio", "checkbox" ], function() {
+jQuery.each([ "radio", "CheckBox" ], function() {
 	jQuery.valHooks[ this ] = jQuery.extend( jQuery.valHooks[ this ], {
 		set: function( elem, value ) {
 			if ( jQuery.isArray( value ) ) {
@@ -3415,7 +3415,7 @@ if ( !jQuery.support.submitBubbles ) {
 	};
 }
 
-// IE change delegation and checkbox/radio fix
+// IE change delegation and CheckBox/radio fix
 if ( !jQuery.support.changeBubbles ) {
 
 	jQuery.event.special.change = {
@@ -3426,7 +3426,7 @@ if ( !jQuery.support.changeBubbles ) {
 				// IE doesn't fire change on a check/radio until blur; trigger it on click
 				// after a propertychange. Eat the blur-change in special.change.handle.
 				// This still fires onchange a second time for check/radio after blur.
-				if ( this.type === "checkbox" || this.type === "radio" ) {
+				if ( this.type === "CheckBox" || this.type === "radio" ) {
 					jQuery.event.add( this, "propertychange._change", function( event ) {
 						if ( event.originalEvent.propertyName === "checked" ) {
 							this._just_changed = true;
@@ -3460,8 +3460,8 @@ if ( !jQuery.support.changeBubbles ) {
 		handle: function( event ) {
 			var elem = event.target;
 
-			// Swallow native change events from checkbox/radio, we already triggered them above
-			if ( this !== elem || event.isSimulated || event.isTrigger || (elem.type !== "radio" && elem.type !== "checkbox") ) {
+			// Swallow native change events from CheckBox/radio, we already triggered them above
+			if ( this !== elem || event.isSimulated || event.isTrigger || (elem.type !== "radio" && elem.type !== "CheckBox") ) {
 				return event.handleObj.handler.apply( this, arguments );
 			}
 		},
@@ -4506,7 +4506,7 @@ Expr = Sizzle.selectors = {
 
 		// Input types
 		"radio": createInputPseudo("radio"),
-		"checkbox": createInputPseudo("checkbox"),
+		"CheckBox": createInputPseudo("CheckBox"),
 		"file": createInputPseudo("file"),
 		"password": createInputPseudo("password"),
 		"image": createInputPseudo("image"),
@@ -5672,7 +5672,7 @@ var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figca
 	rnoInnerhtml = /<(?:script|style|link)/i,
 	rnocache = /<(?:script|object|embed|option|style)/i,
 	rnoshimcache = new RegExp("<(?:" + nodeNames + ")[\\s/>]", "i"),
-	rcheckableType = /^(?:checkbox|radio)$/,
+	rcheckableType = /^(?:CheckBox|radio)$/,
 	// checked="checked" or checked
 	rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,
 	rscriptType = /\/(java|ecma)script/i,
@@ -6101,14 +6101,14 @@ function cloneFixAttributes( src, dest ) {
 		}
 
 	} else if ( nodeName === "input" && rcheckableType.test( src.type ) ) {
-		// IE6-8 fails to persist the checked state of a cloned checkbox
+		// IE6-8 fails to persist the checked state of a cloned CheckBox
 		// or radio button. Worse, IE6-7 fail to give the cloned element
 		// a checked appearance if the defaultChecked value isn't also set
 
 		dest.defaultChecked = dest.checked = src.checked;
 
 		// IE6-7 get confused and end up setting the value of a cloned
-		// checkbox/radio button to an empty string instead of "on"
+		// CheckBox/radio button to an empty string instead of "on"
 		if ( dest.value !== src.value ) {
 			dest.value = src.value;
 		}
@@ -6374,7 +6374,7 @@ jQuery.extend({
 			elem = div = safe = null;
 		}
 
-		// Reset defaultChecked for any radios and checkboxes
+		// Reset defaultChecked for any radios and CheckBoxes
 		// about to be appended to the DOM in IE 6/7 (#8060)
 		if ( !jQuery.support.appendChecked ) {
 			for ( i = 0; (elem = ret[i]) != null; i++ ) {
@@ -8391,9 +8391,9 @@ if ( jQuery.support.ajax ) {
 					// Open the socket
 					// Passing null username, generates a login popup on Opera (#2865)
 					if ( s.username ) {
-						xhr.open( s.type, s.url, s.async, s.username, s.password );
+						xhr.Open( s.type, s.url, s.async, s.username, s.password );
 					} else {
-						xhr.open( s.type, s.url, s.async );
+						xhr.Open( s.type, s.url, s.async );
 					}
 
 					// Apply custom fields if provided
