@@ -8918,6 +8918,7 @@ namespace RefrigtzDLL
                     {
                         RETURN = true;
                         AddAtList(kind, Current);
+                        return true;
                     }
                     //Consideration to go to Check.  
 
@@ -9115,6 +9116,7 @@ namespace RefrigtzDLL
                                 if (kind == 6 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListKing != null && PenaltyRegardListKing.Count == TableListKing.Count)
                         LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
                 }
+
                 Object O2 = new Object();
                 lock (O2)
                 {
@@ -9388,7 +9390,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+                            
                             if (SelfNotSupported && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9399,7 +9401,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+                            
                             if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9412,7 +9414,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+                            
                             if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9425,7 +9427,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+                            
                             if (IsDangerous && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9439,7 +9441,7 @@ namespace RefrigtzDLL
                                 Added = true;
 
                             }
-                            else
+                            
                             if (IsNextMovemntIsCheckOrCheckMateForEnemy && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9449,7 +9451,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+                            
                             if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9459,7 +9461,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+                            
                             if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
                             {
                                 NumberOfPenalties++;
@@ -9471,8 +9473,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
-                                AddAtList(kind, Current);
+                            
                         }
                     }
                 }

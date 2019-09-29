@@ -8533,6 +8533,7 @@ namespace RefrigtzW
                     {
                         RETURN = true;
                         AddAtList(kind, Current);
+                        return true;
                     }
                     //Consideration to go to Check.  
 
@@ -8993,7 +8994,7 @@ namespace RefrigtzW
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (SelfNotSupported && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9004,7 +9005,7 @@ namespace RefrigtzW
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9017,7 +9018,7 @@ namespace RefrigtzW
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9030,7 +9031,7 @@ namespace RefrigtzW
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (IsDangerous && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9044,7 +9045,7 @@ namespace RefrigtzW
                                 Added = true;
 
                             }
-                            else
+
                             if (IsNextMovemntIsCheckOrCheckMateForEnemy && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9054,7 +9055,7 @@ namespace RefrigtzW
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9064,7 +9065,7 @@ namespace RefrigtzW
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
                             {
                                 NumberOfPenalties++;
@@ -9076,8 +9077,7 @@ namespace RefrigtzW
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
-                                AddAtList(kind, Current);
+
                         }
                     }
                 }

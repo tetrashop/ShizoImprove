@@ -8928,6 +8928,7 @@ namespace QuantumRefrigiz
                     {
                         RETURN = true;
                         AddAtList(kind, Current);
+                        return true;
                     }
                     //Consideration to go to Check.  
 
@@ -9401,7 +9402,7 @@ namespace QuantumRefrigiz
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (SelfNotSupported && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9412,7 +9413,7 @@ namespace QuantumRefrigiz
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9425,7 +9426,7 @@ namespace QuantumRefrigiz
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9438,7 +9439,7 @@ namespace QuantumRefrigiz
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (IsDangerous && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9452,7 +9453,7 @@ namespace QuantumRefrigiz
                                 Added = true;
 
                             }
-                            else
+
                             if (IsNextMovemntIsCheckOrCheckMateForEnemy && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9462,7 +9463,7 @@ namespace QuantumRefrigiz
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9472,7 +9473,7 @@ namespace QuantumRefrigiz
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
+
                             if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
                             {
                                 NumberOfPenalties++;
@@ -9484,8 +9485,7 @@ namespace QuantumRefrigiz
                                 AddAtList(kind, Current);
                                 Added = true;
                             }
-                            else
-                                AddAtList(kind, Current);
+
                         }
 
                     }
