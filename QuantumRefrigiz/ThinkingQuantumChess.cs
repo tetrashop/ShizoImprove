@@ -7122,7 +7122,7 @@ namespace QuantumRefrigiz
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingQuantumAtRun = true; int CheckedM = 0;
+                    ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -7186,7 +7186,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -7407,7 +7407,7 @@ namespace QuantumRefrigiz
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingQuantumAtRun = true; int CheckedM = 0;
+                    ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -7471,7 +7471,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 5, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 5, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -8034,7 +8034,7 @@ namespace QuantumRefrigiz
 
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingQuantumAtRun = true; int CheckedM = 0;
+                    ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -8098,7 +8098,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 4, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 4, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -8292,7 +8292,7 @@ namespace QuantumRefrigiz
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingQuantumAtRun = true; int CheckedM = 0;
+                    ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -8356,7 +8356,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -8549,7 +8549,7 @@ namespace QuantumRefrigiz
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingQuantumAtRun = true; int CheckedM = 0;
+                    ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -8613,7 +8613,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 2, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 2, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -8952,6 +8952,7 @@ namespace QuantumRefrigiz
 
 
                         }
+                        else
                         if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
                         {
                             DoEnemySelf = false;
@@ -8970,6 +8971,7 @@ namespace QuantumRefrigiz
                                 return true;
                             }
                         }
+                        else
                         if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown)|| 
 
                             (AllDraw.OrderPlate == -1 && AA.CheckMateBrown))
@@ -8990,6 +8992,7 @@ namespace QuantumRefrigiz
 
 
                         }
+                        else
                         if (//(AllDraw.OrderPlate == 1 && AA.CheckGray) ||
                             (AllDraw.OrderPlate == 1 && AA.CheckMateGray))
                         {
@@ -9024,64 +9027,64 @@ namespace QuantumRefrigiz
                             }*/
                         }
 
-                        if (Order == 1 && AA.CheckMateBrown)
-                        {
-                            DoEnemySelf = false;
-                            EnemyCheckMateActionsString = true;
-                            CheckedM = -2;
-                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                            return true;
-                        }
-                        if (Order == -1 && AA.CheckMateGray)
-                        {
-                            DoEnemySelf = false;
-                            EnemyCheckMateActionsString = true;
-                            CheckedM = -2;
-                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                            return true;
-                        }
-                        if (Order == 1 && AA.CheckMateGray)
-                        {
+                        /* if (Order == 1 && AA.CheckMateBrown)
+                         {
+                             DoEnemySelf = false;
+                             EnemyCheckMateActionsString = true;
+                             CheckedM = -2;
+                             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                             return true;
+                         }
+                         if (Order == -1 && AA.CheckMateGray)
+                         {
+                             DoEnemySelf = false;
+                             EnemyCheckMateActionsString = true;
+                             CheckedM = -2;
+                             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                             return true;
+                         }
+                         if (Order == 1 && AA.CheckMateGray)
+                         {
 
-                            EnemyCheckMateActionsString = false;
-                            CheckedM = -2;
-                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                            return true;
-                        }
-                        if (Order == -1 && AA.CheckMateBrown)
-                        {
+                             EnemyCheckMateActionsString = false;
+                             CheckedM = -2;
+                             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                             return true;
+                         }
+                         if (Order == -1 && AA.CheckMateBrown)
+                         {
 
-                            EnemyCheckMateActionsString = false;
-                            CheckedM = -2;
-                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                            return true;
-                        }
+                             EnemyCheckMateActionsString = false;
+                             CheckedM = -2;
+                             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                             return true;
+                         }
 
-                        if (Order == 1 && AA.CheckGray)
-                        {
-                            //KishBefore = true;
-                            Object A = new object();
-                            lock (A)
-                            {
-                                NumberOfPenalties++;
-                            }
-                            CheckedM = -1;
-                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                            return true;
-                        }
-                        else
-                            if (Order == -1 && AA.CheckBrown)
-                        {
-                            //KishBefore = true;
-                            Object A = new object();
-                            lock (A)
-                            {
-                                NumberOfPenalties++;
-                            }
-                            CheckedM = -1;
-                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                            return true;
-                        }
+                         if (Order == 1 && AA.CheckGray)
+                         {
+                             //KishBefore = true;
+                             Object A = new object();
+                             lock (A)
+                             {
+                                 NumberOfPenalties++;
+                             }
+                             CheckedM = -1;
+                             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                             return true;
+                         }
+                         else
+                             if (Order == -1 && AA.CheckBrown)
+                         {
+                             //KishBefore = true;
+                             Object A = new object();
+                             lock (A)
+                             {
+                                 NumberOfPenalties++;
+                             }
+                             CheckedM = -1;
+                             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                             return true;
+                         }*/
                     }
                     if (RETURN)
                         return false;
@@ -9376,6 +9379,7 @@ namespace QuantumRefrigiz
                         }
                         else
                         {
+                            bool Added = false;
                             Object OO1 = new Object();
                             lock (OO1)
                             {
@@ -9395,9 +9399,9 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
-
+                            else
                             if (SelfNotSupported && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9406,8 +9410,9 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
+                            else
                             if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9418,8 +9423,9 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
+                            else
                             if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9430,9 +9436,9 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
-
+                            else
                             if (IsDangerous && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9443,11 +9449,10 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
+                                Added = true;
 
                             }
-
-
-
+                            else
                             if (IsNextMovemntIsCheckOrCheckMateForEnemy && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9455,9 +9460,9 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmRegard();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
-
+                            else
                             if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9465,8 +9470,9 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmRegard();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
+                            else
                             if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
                             {
                                 NumberOfPenalties++;
@@ -9476,8 +9482,12 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmRegard();
 
                                 AddAtList(kind, Current);
+                                Added = true;
                             }
+                            else
+                                AddAtList(kind, Current);
                         }
+
                     }
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -9543,7 +9553,7 @@ namespace QuantumRefrigiz
                     ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color, TableS, Order, false, 0);
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingQuantumAtRun = true; int CheckedM = 0;
+                    ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -9613,7 +9623,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -9798,7 +9808,7 @@ namespace QuantumRefrigiz
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int();
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                ThinkingQuantumAtRun = true; int CheckedM = 0;
+                ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //When is Brown Castles King.
@@ -9854,7 +9864,7 @@ namespace QuantumRefrigiz
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
 
                 //{ ThinkingQuantumAtRun = false; return; }
                 //Store Movments Items. 
@@ -10159,7 +10169,7 @@ namespace QuantumRefrigiz
                 int HeuristicKingDangour = new int();
 
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                ThinkingQuantumAtRun = true; int CheckedM = 0;
+                ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //When is Castles Gray King.
@@ -10215,7 +10225,7 @@ namespace QuantumRefrigiz
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
 
                 //{ ThinkingQuantumAtRun = false; return; }
 

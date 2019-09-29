@@ -6763,7 +6763,7 @@ namespace RefrigtzW
                 {
                     
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        ThinkingAtRun = true; int CheckedM = 0;
+                        ThinkingAtRun = true; int CheckedM = 0;bool PenaltyVCar = false;
 
                         bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -6827,7 +6827,7 @@ namespace RefrigtzW
                             Object A3 = new object();
                             lock (A3)
                             {
-                                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                                 //{ ThinkingAtRun = false; return; }
                             }
                         }
@@ -7041,7 +7041,7 @@ namespace RefrigtzW
                 {
                     
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        ThinkingAtRun = true; int CheckedM = 0;
+                        ThinkingAtRun = true; int CheckedM = 0;bool PenaltyVCar = false;
 
                         bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -7105,7 +7105,7 @@ namespace RefrigtzW
                             Object A3 = new object();
                             lock (A3)
                             {
-                                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 5, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 5, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                                 //{ ThinkingAtRun = false; return; }
                             }
                         }
@@ -7655,7 +7655,7 @@ namespace RefrigtzW
 
                     
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        ThinkingAtRun = true; int CheckedM = 0;
+                        ThinkingAtRun = true; int CheckedM = 0;bool PenaltyVCar = false;
 
                         bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -7719,7 +7719,7 @@ namespace RefrigtzW
                             Object A3 = new object();
                             lock (A3)
                             {
-                                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 4, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 4, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                                 //{ ThinkingAtRun = false; return; }
                             }
                         }
@@ -7910,7 +7910,7 @@ namespace RefrigtzW
             {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingAtRun = true; int CheckedM = 0;
+                    ThinkingAtRun = true; int CheckedM = 0;bool PenaltyVCar = false;
 
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -7974,7 +7974,7 @@ namespace RefrigtzW
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
@@ -8164,7 +8164,7 @@ namespace RefrigtzW
                 {
                     
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        ThinkingAtRun = true; int CheckedM = 0;
+                        ThinkingAtRun = true; int CheckedM = 0;bool PenaltyVCar = false;
 
                         bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -8228,7 +8228,7 @@ namespace RefrigtzW
                             Object A3 = new object();
                             lock (A3)
                             {
-                                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 2, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 2, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                                 //{ ThinkingAtRun = false; return; }
                             }
                         }
@@ -8971,6 +8971,7 @@ namespace RefrigtzW
                         }
                         else
                         {
+                            bool Added = false;
                             Object OO1 = new Object();
                             lock (OO1)
                             {
@@ -8990,9 +8991,9 @@ namespace RefrigtzW
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
-
+                            else
                             if (SelfNotSupported && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9001,8 +9002,9 @@ namespace RefrigtzW
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
+                            else
                             if (IsGardForCurrentMovmentsAndIsNotMova && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9013,8 +9015,9 @@ namespace RefrigtzW
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
+                            else
                             if (IsNotSafeToMoveAenemeyToAttackMoreThanTowObj && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9025,9 +9028,9 @@ namespace RefrigtzW
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
-
+                            else
                             if (IsDangerous && Current.IsPenaltyAction() != 0)
                             {
 
@@ -9038,11 +9041,10 @@ namespace RefrigtzW
                                 Current.LearningAlgorithmPenalty();
 
                                 AddAtList(kind, Current);
+                                Added = true;
 
                             }
-
-
-
+                            else
                             if (IsNextMovemntIsCheckOrCheckMateForEnemy && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9050,9 +9052,9 @@ namespace RefrigtzW
                                 Current.LearningAlgorithmRegard();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
-
+                            else
                             if (IsCurrentCanGardHighPriorityEne && Current.IsPenaltyAction() != 0)
                             {
                                 RemoveAtList(kind);
@@ -9060,8 +9062,9 @@ namespace RefrigtzW
                                 Current.LearningAlgorithmRegard();
 
                                 AddAtList(kind, Current);
-
+                                Added = true;
                             }
+                            else
                             if (EnemyNotSupported && Current.IsPenaltyAction() != 0 && Current.IsRewardAction() != 1)
                             {
                                 NumberOfPenalties++;
@@ -9071,7 +9074,10 @@ namespace RefrigtzW
                                 Current.LearningAlgorithmRegard();
 
                                 AddAtList(kind, Current);
+                                Added = true;
                             }
+                            else
+                                AddAtList(kind, Current);
                         }
                     }
                 }
@@ -9134,7 +9140,7 @@ namespace RefrigtzW
                     ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color, TableS, Order,false, 0);
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    ThinkingAtRun = true; int CheckedM = 0;
+                    ThinkingAtRun = true; int CheckedM = 0;bool PenaltyVCar = false;
 
                     bool Sup = false;
                     if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
@@ -9204,7 +9210,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
@@ -9387,7 +9393,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 double HeuristicFromCenter = new double();
                 double HeuristicKingDangour = new double();
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                ThinkingAtRun = true; int CheckedM = 0;
+                ThinkingAtRun = true; int CheckedM = 0;bool PenaltyVCar = false;
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //When is Brown Castles King.
@@ -9443,7 +9449,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                
                 //{ ThinkingAtRun = false; return; }
                 //Store Movments Items. 
@@ -9744,7 +9750,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 double HeuristicKingDangour = new double();
 
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                ThinkingAtRun = true; int CheckedM = 0;
+                ThinkingAtRun = true; int CheckedM = 0;bool PenaltyVCar = false;
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //When is Castles Gray King.
@@ -9800,7 +9806,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
 
                 //{ ThinkingAtRun = false; return; }
 
