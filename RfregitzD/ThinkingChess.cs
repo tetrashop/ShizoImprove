@@ -8918,7 +8918,7 @@ namespace RefrigtzDLL
                     {
                         RETURN = true;
                         AddAtList(kind, Current);
-                        return true;
+                       
                     }
                     //Consideration to go to Check.  
 

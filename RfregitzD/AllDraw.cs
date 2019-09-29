@@ -12675,7 +12675,7 @@ if (Kind == 2)
         }
         bool IsAllThereEmptyOrNonCalculatedAStarGreedyNode(int Order, int Kind, int i)
         {
-            bool Is = false;
+            bool Is = true;
             if (Kind == 1)
             {
                 if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
@@ -12734,7 +12734,7 @@ if (Kind == 2)
         bool IsThereEmptyOrNonCalculatedAStarGreedyNode(int Order, int Kind, int i, int j)
         {
             bool Is = false;
-            if (IsAllThereEmptyOrNonCalculatedAStarGreedyNode(Order, Kind, i))
+            if (!IsAllThereEmptyOrNonCalculatedAStarGreedyNode(Order, Kind, i))
             {
                 if (Kind == 1)
                 {
