@@ -157,6 +157,7 @@ namespace Refrigtz
             this.BackgroundWorkerSetNode = new System.ComponentModel.BackgroundWorker();
             this.BackgroundWorkerSetRefD = new System.ComponentModel.BackgroundWorker();
             this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonViewTree = new System.Windows.Forms.Button();
             this.MenuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox32)).BeginInit();
@@ -1492,13 +1493,23 @@ namespace Refrigtz
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(877, 239);
+            this.buttonClear.Location = new System.Drawing.Point(894, 213);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(99, 23);
             this.buttonClear.TabIndex = 83;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
+            // buttonViewTree
+            // 
+            this.buttonViewTree.Location = new System.Drawing.Point(894, 242);
+            this.buttonViewTree.Name = "buttonViewTree";
+            this.buttonViewTree.Size = new System.Drawing.Size(75, 23);
+            this.buttonViewTree.TabIndex = 84;
+            this.buttonViewTree.Text = "ViewTree";
+            this.buttonViewTree.UseVisualStyleBackColor = true;
+            this.buttonViewTree.Click += new System.EventHandler(this.buttonViewTree_Click);
             // 
             // FormRefrigtz
             // 
@@ -1507,6 +1518,7 @@ namespace Refrigtz
             this.CancelButton = this.ButtonStop;
             this.ClientSize = new System.Drawing.Size(1005, 653);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonViewTree);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.labelNodesCountText);
             this.Controls.Add(this.labelNodesCount);
@@ -1877,6 +1889,7 @@ namespace Refrigtz
         [field: NonSerialized]
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem23;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonViewTree;
     }
 }
 

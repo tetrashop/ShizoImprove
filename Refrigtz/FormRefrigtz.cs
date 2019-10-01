@@ -16848,13 +16848,13 @@ namespace Refrigtz
         private void ErrorOpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ErrorTrueMonitorFalse = true;
-            (new FormTXT()).Show();
+            //(new FormTXT()).Show();
         }
 
         private void MonitorOpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ErrorTrueMonitorFalse = false;
-            (new FormTXT()).Show();
+            //(new FormTXT()).Show();
 
         }
 
@@ -17821,6 +17821,12 @@ namespace Refrigtz
         private void Button2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void buttonViewTree_Click(object sender, EventArgs e)
+        {
+            FormTXT t = new FormTXT(Draw);
+            t.Show();
         }
 
         private void ToolStripMenuItem14_Click(object sender, EventArgs e)

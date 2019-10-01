@@ -337,7 +337,7 @@ namespace RefrigtzDLL
         [NonSerialized()] public Task ob;
         //Making String datastructure to root variable
         public AllDraw AStarGreedyString = null;
-
+        
         //Error Handling
         static void Log(Exception ex)
         {
