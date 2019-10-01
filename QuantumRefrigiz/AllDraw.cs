@@ -12738,7 +12738,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             bool Is = true;
             if (Kind == 1)
             {
-                if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null)
+                if (SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null)
                 {
                     for (int j = 0; j < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; j++)
                         Is = Is && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
@@ -12747,7 +12747,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else
                 if (Kind == 2)
             {
-                if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null)
+                if (ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null)
                 {
                     for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; j++)
                         Is = Is && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
@@ -12756,9 +12756,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else
                 if (Kind == 3)
             {
-                if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null)
+                if (HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null)
                 {
-                    for (int j = 0; j < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; j++)
+                    for (int j = 0; j < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; j++)
                         Is = Is && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
 
                 }
@@ -12766,7 +12766,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else
                 if (Kind == 4)
             {
-                if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null)
+                if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null)
                 {
                     for (int j = 0; j < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; j++)
                         Is = Is && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
@@ -12775,7 +12775,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else
                 if (Kind == 5)
             {
-                if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null)
+                if (MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null)
                 {
                     for (int j = 0; j < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; j++)
                         Is = Is && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
@@ -12784,7 +12784,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else
             if (Kind == 6)
             {
-                if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null)
+                if (KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null)
                 {
                     for (int j = 0; j < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; j++)
                         Is = Is && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
@@ -12799,40 +12799,40 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             {
                 if (Kind == 1)
                 {
-                    if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j)
+                    if (SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j)
                         Is = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
                 }
                 else
                     if (Kind == 2)
                 {
-                    if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j)
+                    if (ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j)
                         Is = ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
                 }
                 else
                     if (Kind == 3)
                 {
-                    if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j)
+                    if (HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j)
                         Is = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
 
                 }
                 else
                     if (Kind == 4)
                 {
-                    if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j)
+                    if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j)
                         Is = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
 
                 }
                 else
                     if (Kind == 5)
                 {
-                    if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j)
+                    if (MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j)
                         Is = MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
 
                 }
                 else
                 if (Kind == 6)
                 {
-                    if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j)
+                    if (KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j)
                         Is = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
 
                 }
