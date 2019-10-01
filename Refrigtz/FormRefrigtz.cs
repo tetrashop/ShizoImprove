@@ -4364,6 +4364,7 @@ namespace Refrigtz
 
                             //Read Last Table and Set MovementNumber 
                             Table = ReadTable(0, ref MovmentsNumber);
+                            OrderPlate *= -1;
 
                             if (DrawManagement())
                             {
