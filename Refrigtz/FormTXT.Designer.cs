@@ -34,6 +34,7 @@ namespace Refrigtz
             this.treeViewRefregitzDraw = new System.Windows.Forms.TreeView();
             this.contextMenuStripRefrigitzTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showTreeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorkertreeView = new System.ComponentModel.BackgroundWorker();
             this.contextMenuStripRefrigitzTree.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,24 +52,30 @@ namespace Refrigtz
             // 
             this.treeViewRefregitzDraw.Location = new System.Drawing.Point(12, 13);
             this.treeViewRefregitzDraw.Name = "treeViewRefregitzDraw";
-            this.treeViewRefregitzDraw.Size = new System.Drawing.Size(1294, 563);
+            this.treeViewRefregitzDraw.Size = new System.Drawing.Size(1308, 563);
             this.treeViewRefregitzDraw.TabIndex = 85;
             this.treeViewRefregitzDraw.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewRefregitzDraw_AfterSelect);
             this.treeViewRefregitzDraw.BindingContextChanged += new System.EventHandler(this.treeViewRefregitzDraw_BindingContextChanged);
             this.treeViewRefregitzDraw.ContextMenuStripChanged += new System.EventHandler(this.treeViewRefregitzDraw_ContextMenuStripChanged);
+            this.treeViewRefregitzDraw.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.treeViewRefregitzDraw_ControlAdded);
+            this.treeViewRefregitzDraw.MouseClick += new System.Windows.Forms.MouseEventHandler(this.treeViewRefregitzDraw_MouseClick);
             // 
             // contextMenuStripRefrigitzTree
             // 
             this.contextMenuStripRefrigitzTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showTreeToolStripMenuItem});
             this.contextMenuStripRefrigitzTree.Name = "contextMenuStripRefrigitzTree";
-            this.contextMenuStripRefrigitzTree.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStripRefrigitzTree.Size = new System.Drawing.Size(126, 26);
             // 
             // showTreeToolStripMenuItem
             // 
             this.showTreeToolStripMenuItem.Name = "showTreeToolStripMenuItem";
-            this.showTreeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showTreeToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.showTreeToolStripMenuItem.Text = "ShowTree";
+            // 
+            // backgroundWorkertreeView
+            // 
+            this.backgroundWorkertreeView.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkertreeView_DoWork);
             // 
             // FormTXT
             // 
@@ -92,5 +99,6 @@ namespace Refrigtz
         private System.Windows.Forms.TreeView treeViewRefregitzDraw;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripRefrigitzTree;
         private System.Windows.Forms.ToolStripMenuItem showTreeToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorkertreeView;
     }
 }

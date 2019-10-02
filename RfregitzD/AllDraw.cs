@@ -1036,10 +1036,15 @@ if (Kind == 2)
                                 Color a;
 
                                 if (TableList[index][Row, Column] > 0)
+                                {
+                                    OrderP = 1;
                                     a = Color.Gray;
+                                }
                                 else
+                                {
+                                    OrderP = -1;
                                     a = Color.Brown;
-                                //When int is Gray. 
+                                }     //When int is Gray. 
                                 if (a == Color.Gray)
                                 {
 
@@ -1085,10 +1090,15 @@ if (Kind == 2)
                                 //Initiate Local Variables.
                                 Color a;
                                 if (TableList[index][Row, Column] > 0)
+                                {
+                                    OrderP = 1;
                                     a = Color.Gray;
+                                }
                                 else
+                                {
+                                    OrderP = -1;
                                     a = Color.Brown;
-                                //If Gray Elepahnt
+                                }    //If Gray Elepahnt
                                 if (a == Color.Gray)
                                 {
 
@@ -1132,10 +1142,15 @@ if (Kind == 2)
                                 //Initiate Local Varibale and int.
                                 Color a;
                                 if (TableList[index][Row, Column] > 0)
+                                {
+                                    OrderP = 1;
                                     a = Color.Gray;
+                                }
                                 else
+                                {
+                                    OrderP = -1;
                                     a = Color.Brown;
-                                //If Gray Hourse.
+                                }                //If Gray Hourse.
                                 if (a == Color.Gray)
                                 {
 
@@ -1179,10 +1194,15 @@ if (Kind == 2)
                                 //Initiate of Local Variables.
                                 Color a;
                                 if (TableList[index][Row, Column] > 0)
+                                {
+                                    OrderP = 1;
                                     a = Color.Gray;
+                                }
                                 else
+                                {
+                                    OrderP = -1;
                                     a = Color.Brown;
-                                //For Gray int.
+                                }         //For Gray int.
                                 if (a == Color.Gray)
                                 {
 
@@ -1226,10 +1246,15 @@ if (Kind == 2)
                                 //Initiate Local int Varibales.
                                 Color a;
                                 if (TableList[index][Row, Column] > 0)
+                                {
+                                    OrderP = 1;
                                     a = Color.Gray;
+                                }
                                 else
+                                {
+                                    OrderP = -1;
                                     a = Color.Brown;
-                                //For Gray ints.
+                                }     //For Gray ints.
                                 if (a == Color.Gray)
                                 {
 
@@ -1275,10 +1300,15 @@ if (Kind == 2)
                                 //Initiate Of int.
                                 Color a;
                                 if (TableList[index][Row, Column] > 0)
+                                {
+                                    OrderP = 1;
                                     a = Color.Gray;
+                                }
                                 else
+                                {
+                                    OrderP = -1;
                                     a = Color.Brown;
-                                //int consideration.
+                                }     //int consideration.
                                 if (a == Color.Gray)
                                 {
 
@@ -1475,7 +1505,7 @@ if (Kind == 2)
                 bool AA = false;
                 int CDummy = Order;
                 //For Gray One.
-                if (Order == 1)
+                if (OrderP== 1)
                 {
 
                     //For Solderis.
@@ -1868,7 +1898,7 @@ if (Kind == 2)
                 int CDummy = ChessRules.CurrentOrder;
                 int COrder = Order;
                 //For Gray Order.
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     ChessRules AA = null;
 
@@ -2502,7 +2532,7 @@ if (Kind == 2)
             {
                 int COrder = Order;
                 int CDummy = ChessRules.CurrentOrder;
-                if (Order == 1)
+                if (OrderP== 1)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
@@ -2686,7 +2716,7 @@ if (Kind == 2)
             lock (a)
             {
 
-                if (Order == 1)
+                if (OrderP== 1)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
@@ -2857,7 +2887,7 @@ if (Kind == 2)
                     return THIS;
                 }
                 else
-                if (Order == 1)
+                if (OrderP== 1)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
@@ -3166,7 +3196,7 @@ if (Kind == 2)
                 //return Leaf
                 if (Found)
                     return Leaf;
-                if (Order == 1)
+                if (OrderP== 1)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
@@ -3402,7 +3432,7 @@ if (Kind == 2)
                 //return Leaf
                 if (Found)
                     return true;
-                if (Order == 1)
+                if (OrderP== 1)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
@@ -3641,7 +3671,7 @@ if (Kind == 2)
                 {
                     table = CloneATable(table);
                     OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                    if (Order == 1)
+                    if (OrderP== 1)
                     {
 
                         for (var i = 0; i < SodierMidle; i++)
@@ -3903,7 +3933,7 @@ if (Kind == 2)
                 int COrder = Order;
                 int CDummy = ChessRules.CurrentOrder;
 
-                if (Order == 1)
+                if (OrderP== 1)
                 {
 
                     for (var i = 0; i < SodierMidle; i++)
@@ -4222,7 +4252,7 @@ if (Kind == 2)
                                                     if (AB.Check(TableS, Order))
                                                     {
                                                         //When Order is Gray.
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                             if (AB.CheckGray)
@@ -4280,7 +4310,7 @@ if (Kind == 2)
                                                     Object O = new Object();
                                                     lock (O)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -4401,7 +4431,7 @@ if (Kind == 2)
                                                         Object O = new Object();
                                                         lock (O)
                                                         {
-                                                            if (Order == 1)
+                                                            if (OrderP== 1)
                                                             {
                                                                 OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                                 //THIS.RefreshBoxText();
@@ -4523,7 +4553,7 @@ if (Kind == 2)
                                                     if (AB.Check(TableS, Order))
                                                     {
                                                         //When Order is Gray.
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                             if (AB.CheckGray)
@@ -4577,7 +4607,7 @@ if (Kind == 2)
                                                     Object O = new Object();
                                                     lock (O)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Elephant By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -4633,7 +4663,7 @@ if (Kind == 2)
                                                         Object O = new Object();
                                                         lock (O)
                                                         {
-                                                            if (Order == 1)
+                                                            if (OrderP== 1)
                                                             {
                                                                 OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                                 //THIS.RefreshBoxText();
@@ -4745,7 +4775,7 @@ if (Kind == 2)
                                                         if (AB.Check(TableS, Order))
                                                         {
                                                             //When Order is Gray.
-                                                            if (Order == 1)
+                                                            if (OrderP== 1)
                                                             {
                                                                 //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                                 if (AB.CheckGray)
@@ -4801,7 +4831,7 @@ if (Kind == 2)
                                                     Object O = new Object();
                                                     lock (O)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Hourse By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -4860,7 +4890,7 @@ if (Kind == 2)
                                                         Object O = new Object();
                                                         lock (O)
                                                         {
-                                                            if (Order == 1)
+                                                            if (OrderP== 1)
                                                             {
                                                                 OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                                 //THIS.RefreshBoxText();
@@ -4974,7 +5004,7 @@ if (Kind == 2)
                                                     if (AB.Check(TableS, Order))
                                                     {
                                                         //When Order is Gray.
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                             if (AB.CheckGray)
@@ -5029,7 +5059,7 @@ if (Kind == 2)
                                                     Object O = new Object();
                                                     lock (O)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Castles By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -5084,7 +5114,7 @@ if (Kind == 2)
                                                         Object O = new Object();
                                                         lock (O)
                                                         {
-                                                            if (Order == 1)
+                                                            if (OrderP== 1)
                                                             {
                                                                 OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                                 //THIS.RefreshBoxText();
@@ -5199,7 +5229,7 @@ if (Kind == 2)
                                                     if (AB.Check(TableS, Order))
                                                     {
                                                         //When Order is Gray.
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                             if (AB.CheckGray)
@@ -5255,7 +5285,7 @@ if (Kind == 2)
                                                 Object O = new Object();
                                                 lock (O)
                                                 {
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         OutPut.Append("\r\nChess Huristic Minister By Bob!");
                                                         //THIS.RefreshBoxText();
@@ -5310,7 +5340,7 @@ if (Kind == 2)
                                                     Object O = new Object();
                                                     lock (O)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -5424,7 +5454,7 @@ if (Kind == 2)
                                                     if (AB.Check(TableS, Order))
                                                     {
                                                         //When Order is Gray.
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                             if (AB.CheckGray)
@@ -5482,7 +5512,7 @@ if (Kind == 2)
                                                     Object O = new Object();
                                                     lock (O)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic King By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -5539,7 +5569,7 @@ if (Kind == 2)
                                                         Object O = new Object();
                                                         lock (O)
                                                         {
-                                                            if (Order == 1)
+                                                            if (OrderP== 1)
                                                             {
                                                                 OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                                 //THIS.RefreshBoxText();
@@ -6016,7 +6046,7 @@ if (Kind == 2)
             if (AB.Check(TableS, Order))
             {
                 //When Order is Gray.
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                     if (AB.CheckGray)
@@ -6038,7 +6068,7 @@ if (Kind == 2)
             Object O1 = new Object();
             lock (O1)
             {
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     OutPut.Append("\r\nChess Huristic Elephant By Bob!");
                     //THIS.RefreshBoxText();
@@ -6072,7 +6102,7 @@ if (Kind == 2)
                             
                                 if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                 {
-                                if (Order == 1)
+                                if (OrderP== 1)
                                 AllDraw.OutPut.Append("\r\nHuristic Soldier By Bob was not Valid Movment!");
                                 else
                                 AllDraw.OutPut.Append("\r\nHuristic Soldier By Alice was not Valid Movment!");
@@ -6169,7 +6199,7 @@ if (Kind == 2)
                         
                             if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
-                            if (Order == 1)
+                            if (OrderP== 1)
                             AllDraw.OutPut.Append("\r\nHuristic Elephant By Bob was not Valid Movment!");
                             else
                             AllDraw.OutPut.Append("\r\nHuristic Elephant By Alice was not Valid Movment!");
@@ -6241,7 +6271,7 @@ if (Kind == 2)
 
                         if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
-                            if (Order == 1)
+                            if (OrderP== 1)
                             {
                                 AllDraw.OutPut.Append("\r\nHuristic Hourse By Bob was not Valid Movment!");
                             }
@@ -6315,7 +6345,7 @@ if (Kind == 2)
                         
                             if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
-                                if (Order == 1)
+                                if (OrderP== 1)
                                     AllDraw.OutPut.Append("\r\nHuristic Castle By Bob was not Valid Movment!");
                                 else
                                     AllDraw.OutPut.Append("\r\nHuristic Castle By Alice was not Valid Movment!");
@@ -6389,7 +6419,7 @@ if (Kind == 2)
                         
                             if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
-                            if (Order == 1)
+                            if (OrderP== 1)
                             AllDraw.OutPut.Append("\r\nHuristic Minister By Bob was not Valid Movment!");
                             else { }
                                 AllDraw.OutPut.Append("\r\nHuristic Minister By Alice was not Valid Movment!");
@@ -6464,7 +6494,7 @@ if (Kind == 2)
                         
                             if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
-                                if (Order == 1)
+                                if (OrderP== 1)
                                     AllDraw.OutPut.Append("\r\nHuristic King By Bob was not Valid Movment!");
                                 else
                                     AllDraw.OutPut.Append("\r\nHuristic King By Alice was not Valid Movment!");
@@ -7402,7 +7432,7 @@ if (Kind == 2)
                                                 if (AB.Check(TableS, Order))
                                                 {
                                                     //When Order is Gray.
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                         if (AB.CheckGray)
@@ -7457,7 +7487,7 @@ if (Kind == 2)
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                         //THIS.RefreshBoxText();
@@ -7573,7 +7603,7 @@ if (Kind == 2)
                                                         Object OO = new Object();
                                                         lock (OO)
                                                         {
-                                                            if (Order == 1)
+                                                            if (OrderP== 1)
                                                             {
                                                                 OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                                 //THIS.RefreshBoxText();
@@ -7695,7 +7725,7 @@ if (Kind == 2)
                                                 if (AB.Check(TableS, Order))
                                                 {
                                                     //When Order is Gray.
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                         if (AB.CheckGray)
@@ -7748,7 +7778,7 @@ if (Kind == 2)
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         OutPut.Append("\r\nChess Huristic Elephant By Bob!");
                                                         //THIS.RefreshBoxText();
@@ -7805,7 +7835,7 @@ if (Kind == 2)
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -7920,7 +7950,7 @@ if (Kind == 2)
                                                     if (AB.Check(TableS, Order))
                                                     {
                                                         //When Order is Gray.
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                             if (AB.CheckGray)
@@ -7976,7 +8006,7 @@ if (Kind == 2)
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         OutPut.Append("\r\nChess Huristic Hourse By Bob!");
                                                         //THIS.RefreshBoxText();
@@ -8035,7 +8065,7 @@ if (Kind == 2)
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -8146,7 +8176,7 @@ if (Kind == 2)
                                                 if (AB.Check(TableS, Order))
                                                 {
                                                     //When Order is Gray.
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                         if (AB.CheckGray)
@@ -8200,7 +8230,7 @@ if (Kind == 2)
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         OutPut.Append("\r\nChess Huristic Castles By Bob!");
                                                         //THIS.RefreshBoxText();
@@ -8259,7 +8289,7 @@ if (Kind == 2)
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -8374,7 +8404,7 @@ if (Kind == 2)
                                                     if (AB.Check(TableS, Order))
                                                     {
                                                         //When Order is Gray.
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                             if (AB.CheckGray)
@@ -8428,7 +8458,7 @@ if (Kind == 2)
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         OutPut.Append("\r\nChess Huristic Minister By Bob!");
                                                         //THIS.RefreshBoxText();
@@ -8484,7 +8514,7 @@ if (Kind == 2)
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -8600,7 +8630,7 @@ if (Kind == 2)
                                                 if (AB.Check(TableS, Order))
                                                 {
                                                     //When Order is Gray.
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         //Continue When is kish CheckObjectDangour and AStarGreadyFirstSearch .
                                                         if (AB.CheckGray)
@@ -8654,7 +8684,7 @@ if (Kind == 2)
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
-                                                    if (Order == 1)
+                                                    if (OrderP== 1)
                                                     {
                                                         OutPut.Append("\r\nChess Huristic King By Bob!");
                                                         //THIS.RefreshBoxText();
@@ -8713,7 +8743,7 @@ if (Kind == 2)
                                                     Object OO = new Object();
                                                     lock (OO)
                                                     {
-                                                        if (Order == 1)
+                                                        if (OrderP== 1)
                                                         {
                                                             OutPut.Append("\r\nChess Huristic Sodier By Bob!");
                                                             //THIS.RefreshBoxText();
@@ -8798,7 +8828,7 @@ if (Kind == 2)
                 }
                 bool Act = false;
 
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     TableHuristic = HuristicAStarGreadySearchGray(AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
@@ -8905,7 +8935,7 @@ if (Kind == 2)
                         return TableHuristic;
                 }
                 bool Act = false;
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     TableHuristic = HuristicAStarGreadySearchPenalties(AStarGreedyi, a, Order, CurrentTableHuristic, ref Act);
                 }
@@ -8992,7 +9022,7 @@ if (Kind == 2)
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                         {
                             OutPut.Append("\r\nChess Genetic By Bob!");
                             //THIS.RefreshBoxText();
@@ -9006,7 +9036,7 @@ if (Kind == 2)
                     }
                     //Initiate Local Variables.
                     int[,] TablInit = new int[8, 8];
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -9014,7 +9044,7 @@ if (Kind == 2)
                     //Found Of Random Movments.
                     do
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                             In = (new System.Random()).Next(0, 8);
                         else
                             In = (new System.Random()).Next(8, 16);
@@ -9025,7 +9055,7 @@ if (Kind == 2)
                     Object OOO = new Object();
                     lock (OOO)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                         {
                             OutPut.Append("\r\nGenetic Algorithm Begin AStarGreedy " + i.ToString() + " By Bob!");
                             //THIS.RefreshBoxText();
@@ -9045,7 +9075,7 @@ if (Kind == 2)
                     Object OOO1 = new Object();
                     lock (OOO1)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                         {
                             OutPut.Append("\r\nGenetic Algorithm Finsished AStarGreedy " + i.ToString() + " By Bob!");
                             //THIS.RefreshBoxText();
@@ -9124,7 +9154,7 @@ if (Kind == 2)
                 DummyCurrentOrder = ChessRules.CurrentOrder;
                 List<Task> tH = new List<Task>();
                 int[,] TablInit = new int[8, 8];
-                if (Order == 1)
+                if (OrderP== 1)
                     a = Color.Gray;
                 else
                     a = Color.Brown;
@@ -9145,7 +9175,7 @@ if (Kind == 2)
 
                         {
                             //If Order is Gray.
-                            if (Order == 1)
+                            if (OrderP== 1)
                             {
                                 //For Gray Soldeirs Objects. 
                                 //                    for (i = 0; i < SodierMidle; i++)
@@ -9584,7 +9614,7 @@ if (Kind == 2)
                 bool FOUND = false;
                 if (KindIndex == 1 || KindIndex == -1)
                 {
-                    SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy[SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy[SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(Tab));
                     SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy[SolderesOnTable[iIndex].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -9593,7 +9623,7 @@ if (Kind == 2)
                 else
                     if (KindIndex == 2 || KindIndex == -2)
                 {
-                    ElephantOnTable[iIndex].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    ElephantOnTable[iIndex].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     ElephantOnTable[iIndex].ElefantThinking[0].AStarGreedy[ElephantOnTable[iIndex].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     ElephantOnTable[iIndex].ElefantThinking[0].AStarGreedy[ElephantOnTable[iIndex].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(Tab));
                     ElephantOnTable[iIndex].ElefantThinking[0].AStarGreedy[ElephantOnTable[iIndex].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -9602,7 +9632,7 @@ if (Kind == 2)
                 else
                         if (KindIndex == 3 || KindIndex == -3)
                 {
-                    HoursesOnTable[iIndex].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    HoursesOnTable[iIndex].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     HoursesOnTable[iIndex].HourseThinking[0].AStarGreedy[HoursesOnTable[iIndex].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     HoursesOnTable[iIndex].HourseThinking[0].AStarGreedy[HoursesOnTable[iIndex].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(Tab));
                     HoursesOnTable[iIndex].HourseThinking[0].AStarGreedy[HoursesOnTable[iIndex].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -9611,7 +9641,7 @@ if (Kind == 2)
                 else
                             if (KindIndex == 4 || KindIndex == -4)
                 {
-                    CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy[CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy[CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(Tab));
                     CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy[CastlesOnTable[iIndex].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -9620,7 +9650,7 @@ if (Kind == 2)
                 else
                                 if (KindIndex == 5 || KindIndex == -5)
                 {
-                    MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy[MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy[MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(Tab));
                     MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy[MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -9629,7 +9659,7 @@ if (Kind == 2)
                 else
                                     if (KindIndex == 6 || KindIndex == -6)
                 {
-                    KingOnTable[iIndex].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    KingOnTable[iIndex].KingThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     KingOnTable[iIndex].KingThinking[0].AStarGreedy[MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     KingOnTable[iIndex].KingThinking[0].AStarGreedy[MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(Tab));
                     KingOnTable[iIndex].KingThinking[0].AStarGreedy[MinisterOnTable[iIndex].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -10366,7 +10396,7 @@ if (Kind == 2)
         void Serve(int Order)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            if (Order == 1)
+            if (OrderP== 1)
             {
                 for (var i = 0; i < SodierMidle; i++)
                 {
@@ -10456,7 +10486,7 @@ if (Kind == 2)
             //long Time = TimeElapced.TimeNow();Spaces++;
             if (Kind == 1)
             {
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     //if (SolderesOnTable[ii].SoldierThinking[0].IsSup[j])
                     {
@@ -10545,7 +10575,7 @@ if (Kind == 2)
             }
             else if (Kind == 2)
             {
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     //if (ElephantOnTable[ii].ElefantThinking[0].IsSup[j])
                     {
@@ -10638,7 +10668,7 @@ if (Kind == 2)
             }
             else if (Kind == 3)
             {
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     //if (HoursesOnTable[ii].HourseThinking[0].IsSup[j])
                     {
@@ -10724,7 +10754,7 @@ if (Kind == 2)
             }
             else if (Kind == 4)
             {
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     //if (CastlesOnTable[ii].CastleThinking[0].IsSup[j])
                     {
@@ -10811,7 +10841,7 @@ if (Kind == 2)
             else
             if (Kind == 5)
             {
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     //if (MinisterOnTable[ii].MinisterThinking[0].IsSup[j])
                     {
@@ -10899,7 +10929,7 @@ if (Kind == 2)
             else
             if (Kind == 6)
             {
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     //if (KingOnTable[ii].KingThinking[0].IsSup[j])
                     {
@@ -11656,7 +11686,7 @@ if (Kind == 2)
             bool IS = false;
             ////if (iAStarGreedy < 0)
             //    IS = true;
-            if (Order == 1)
+            if (OrderP== 1)
             {
                 for (int ikk = 0; ikk < SodierMidle; ikk++)
                 {
@@ -11815,11 +11845,11 @@ if (Kind == 2)
             {
 
                 //If Order is Gray.
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     int i1 = i, j1 = j;
                     int[,] Tab = CloneATable(Table);
-                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
+                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
                     bool TB1 = TB;
                     Color aa = a;
 
@@ -11885,7 +11915,7 @@ if (Kind == 2)
                 {
                     int i1 = i, j1 = j;
                     int[,] Tab = CloneATable(Table);
-                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
+                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
                     bool TB1 = TB;
                     Color aa = a;
                     //If Order is Gray.
@@ -11974,11 +12004,11 @@ if (Kind == 2)
                         Table[iii, jjj] = Tab[iii, jjj];
 
                 //If Order is Gray.
-                if (Order == 1)
+                if (OrderP== 1)
                 {
                     int i1 = i, j1 = j;
                     int[,] Tabl = CloneATable(Table);
-                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
+                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
                     bool TB1 = TB;
                     Color aa = a;
 
@@ -12046,7 +12076,7 @@ if (Kind == 2)
                 {
                     int i1 = i, j1 = j;
                     int[,] Tabl = CloneATable(Table);
-                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
+                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
                     bool TB1 = TB;
                     Color aa = a;
                     //If Order is Gray.
@@ -12144,7 +12174,7 @@ if (Kind == 2)
                 int i = 0, ik = 0;
 #pragma warning restore CS0219 // The variable 'i' is assigned but its value is never used
                 int[,] TablInit = new int[8, 8];
-                if (Order == 1)
+                if (OrderP== 1)
                     a = Color.Gray;
                 else
                     a = Color.Brown;
@@ -12204,11 +12234,11 @@ if (Kind == 2)
                         {
 
                             //If Order is Gray.
-                            if (Order == 1)
+                            if (OrderP== 1)
                             {
                                 int i1 = i, j1 = j;
                                 int[,] Tabl = CloneATable(Table);
-                                int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
+                                int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
                                 bool TB1 = TB;
                                 Color aa = a;
 
@@ -12274,7 +12304,7 @@ if (Kind == 2)
                             {
                                 int i1 = i, j1 = j;
                                 int[,] Tabl = CloneATable(Table);
-                                int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = Order;
+                                int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
                                 bool TB1 = TB;
                                 Color aa = a;
                                 //If Order is Gray.
@@ -12424,7 +12454,7 @@ if (Kind == 2)
 
                 int i = 0, ik = 0;
                 int[,] TablInit = new int[8, 8];
-                if (Order == 1)
+                if (OrderP== 1)
                     a = Color.Gray;
                 else
                     a = Color.Brown;
@@ -12468,7 +12498,7 @@ if (Kind == 2)
                     Object o = new Object();
                     lock (o)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                             this.InitiateAStarGreedytObjectGray(i, j, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                         else
                             this.InitiateAStarGreedytObjectBrown(i, j, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
@@ -13200,7 +13230,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (Index[0] != -1)
                 {
                     if (SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count == 0)
-                        SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                        SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]]);
                     SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -13228,7 +13258,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (Index[1] != -1)
                 {
                     if (ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count == 0)
-                        ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                        ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]]);
                     ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -13255,7 +13285,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (Index[2] != -1)
                 {
                     if (HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count == 0)
-                        HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                        HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]]);
                     HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -13281,7 +13311,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (Index[3] != -1)
                 {
                     if (CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count == 0)
-                        CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                        CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]]);
                     CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -13308,7 +13338,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (Index[4] != -1)
                 {
                     if (MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count == 0)
-                        MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                        MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]]);
                     MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -13335,7 +13365,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (Index[5] != -1)
                 {
                     if (KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count == 0)
-                        KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                        KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                     KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]]);
                     KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -13551,7 +13581,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
             int[] index = { -1, -1, -1, -1, -1, -1 };
             int[] jindex = { -1, -1, -1, -1, -1, -1 };
-            if (Order == 1)
+            if (OrderP== 1)
             {
                 Object O = new Object();
                 lock (O)
@@ -13797,7 +13827,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             int DummyCurrentOrder = ChessRules.CurrentOrder;
 
             Color a;
-            if (Order == 1)
+            if (OrderP== 1)
                 a = Color.Gray;
             else
                 a = Color.Brown;
@@ -13818,7 +13848,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
             }
             //For Gray Order calculating foreach Objects Maximum total Huristic Count Incl;usively.
-            if (Order == 1)
+            if (OrderP== 1)
             {
                 Object O1 = new Object();
                 lock (O1)
@@ -13857,7 +13887,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -13872,7 +13902,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -13887,7 +13917,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -13901,7 +13931,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -13915,7 +13945,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -13964,7 +13994,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -13979,7 +14009,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -13994,7 +14024,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -14008,7 +14038,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -14022,7 +14052,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -14111,7 +14141,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             int Sum = 0;
             if (A == null)
                 return Sum;
-            if (Order == 1)
+            if (OrderP== 1)
             {
                 for (var i = 0; i < A.SodierMidle; i++)
                     if (A.SolderesOnTable[i] != null)
@@ -14163,7 +14193,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             int Sum = 0;
             if (A == null)
                 return Sum;
-            if (Order == 1)
+            if (OrderP== 1)
             {
                 for (var i = 0; i < A.SodierMidle; i++)
                     if (A.SolderesOnTable[i] != null)
@@ -14331,42 +14361,42 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
-                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 2)
             {
                 if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
-                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 3)
             {
                 if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 4)
             {
                 if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
-                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 5)
             {
                 if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
-                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 6)
             {
                 if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
                     KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
-                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -14378,42 +14408,42 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
-                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 2)
             {
                 if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
-                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 3)
             {
                 if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 4)
             {
                 if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
-                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 5)
             {
                 if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
-                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 6)
             {
                 if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
                     KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
-                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartTow:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -14425,7 +14455,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
-                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
             }
@@ -14433,35 +14463,35 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
-                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 3)
             {
                 if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 4)
             {
                 if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
-                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 5)
             {
                 if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
-                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             else if (kind == 6)
             {
                 if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
                     KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
-                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartThree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -14473,7 +14503,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
-                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -14484,7 +14514,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
-                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -14495,7 +14525,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -14506,7 +14536,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
-                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -14517,7 +14547,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
-                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -14528,7 +14558,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
                     KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
-                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order , MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
@@ -14543,7 +14573,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             if (kind == 1)
             {
                 OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
-                if (Order == 1)
+                if (OrderP== 1)
                     OutPut.Append("\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
                 else
                     OutPut.Append("\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
@@ -14575,7 +14605,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else if (kind == 2)
             {
                 OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
-                if (Order == 1)
+                if (OrderP== 1)
                     OutPut.Append("\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
                 else
                     OutPut.Append("\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
@@ -14605,7 +14635,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else if (kind == 3)
             {
                 OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
-                if (Order == 1)
+                if (OrderP== 1)
                     OutPut.Append("\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
                 else
                     OutPut.Append("\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
@@ -14636,7 +14666,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else if (kind == 4)
             {
                 OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
-                if (Order == 1)
+                if (OrderP== 1)
                     OutPut.Append("\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
                 else
                     OutPut.Append("\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
@@ -14665,7 +14695,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else if (kind == 5)
             {
                 OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
-                if (Order == 1)
+                if (OrderP== 1)
                     OutPut.Append("\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
                 else
                     OutPut.Append("\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
@@ -14694,7 +14724,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else if (kind == 6)
             {
                 OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
-                if (Order == 1)
+                if (OrderP== 1)
                     OutPut.Append("\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
                 else
                     OutPut.Append("\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
@@ -16052,7 +16082,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             int DummyCurrentOrder = ChessRules.CurrentOrder;
 
             Color a;
-            if (Order == 1)
+            if (OrderP== 1)
                 a = Color.Gray;
             else
                 a = Color.Brown;
@@ -16076,7 +16106,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     //Soldeir
                     //Initiatye Variables.
                     int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                    int Ord1 = Order;
+                    int Ord1 = OrderP;
                     Color a1 = a;
                     int iAStarGreedy1 = iAStarGreedy;
                     var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
@@ -16087,7 +16117,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16107,7 +16137,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16127,7 +16157,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16147,7 +16177,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16166,7 +16196,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16185,7 +16215,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 else
                 {
                     int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                    int Ord1 = Order;
+                    int Ord1 = OrderP;
                     Color a1 = a;
                     int iAStarGreedy1 = iAStarGreedy;
                     var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
@@ -16196,7 +16226,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16216,7 +16246,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16236,7 +16266,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16256,7 +16286,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16275,7 +16305,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
-                    if (Order == 1)
+                    if (OrderP== 1)
                         a = Color.Gray;
                     else
                         a = Color.Brown;
@@ -16292,7 +16322,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 Parallel.ForEach(TH, items => Task.WaitAny(items));
             }
             */
-            if (Order == 1)
+            if (OrderP == 1)
             {
                 //Index[0] = -1;
                 //Soldeir
@@ -16305,12 +16335,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                      Object O1 = new Object();
                      lock (O1)
                      {
-                         if (Order == 1)
+                         if (OrderP== 1)
                              a = Color.Gray;
                          else
                              a = Color.Brown;
                          int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                         int Ord1 = Order;
+                         int Ord1 = OrderP;
                          Color a1 = a;
                          int iAStarGreedy1 = iAStarGreedy;
                          Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
@@ -16326,7 +16356,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                      Object O1 = new Object();
                      lock (O1)
                      {
-                         if (Order == 1)
+                         if (OrderP== 1)
                              a = Color.Gray;
                          else
                              a = Color.Brown;
@@ -16352,7 +16382,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                      Object O1 = new Object();
                      lock (O1)
                      {
-                         if (Order == 1)
+                         if (OrderP== 1)
                              a = Color.Gray;
                          else
                              a = Color.Brown;
@@ -16377,7 +16407,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                      Object O1 = new Object();
                      lock (O1)
                      {
-                         if (Order == 1)
+                         if (OrderP== 1)
                              a = Color.Gray;
                          else
                              a = Color.Brown;
@@ -16402,7 +16432,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                      Object O1 = new Object();
                      lock (O1)
                      {
-                         if (Order == 1)
+                         if (OrderP== 1)
                              a = Color.Gray;
                          else
                              a = Color.Brown;
@@ -16426,7 +16456,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                      Object O1 = new Object();
                      lock (O1)
                      {
-                         if (Order == 1)
+                         if (OrderP== 1)
                              a = Color.Gray;
                          else
                              a = Color.Brown;
@@ -16456,12 +16486,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
                         int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                        int Ord1 = Order;
+                        int Ord1 = OrderP;
                         Color a1 = a;
                         int iAStarGreedy1 = iAStarGreedy;
                         Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
@@ -16477,7 +16507,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -16502,7 +16532,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -16527,7 +16557,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -16552,7 +16582,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -16576,7 +16606,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (Order == 1)
+                        if (OrderP== 1)
                             a = Color.Gray;
                         else
                             a = Color.Brown;
@@ -16610,7 +16640,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             int DummyCurrentOrder = ChessRules.CurrentOrder;
 
             Color a;
-            if (Order == 1)
+            if (OrderP== 1)
                 a = Color.Gray;
             else
                 a = Color.Brown;
@@ -16624,7 +16654,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (AllDraw.Blitz)
                     FullGameMakimgBlitz(ref Index, ref jindex, Order, LeafAStarGreedy);
             }
-            if (Order == 1)
+            if (OrderP== 1)
             {
                 var output = Task.Factory.StartNew(() =>
                 Parallel.For(0, MaxGrayMidle(), i =>
@@ -16640,12 +16670,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                   Object O1 = new Object();
                                   lock (O1)
                                   {
-                                      if (Order == 1)
+                                      if (OrderP== 1)
                                           a = Color.Gray;
                                       else
                                           a = Color.Brown;
                                       int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                                      int Ord1 = Order;
+                                      int Ord1 = OrderP;
                                       Color a1 = a;
                                       int iAStarGreedy1 = iAStarGreedy;
                                       int i1 = i;
@@ -16670,7 +16700,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                   Object O1 = new Object();
                                   lock (O1)
                                   {
-                                      if (Order == 1)
+                                      if (OrderP== 1)
                                           a = Color.Gray;
                                       else
                                           a = Color.Brown;
@@ -16700,7 +16730,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                   Object O1 = new Object();
                                   lock (O1)
                                   {
-                                      if (Order == 1)
+                                      if (OrderP== 1)
                                           a = Color.Gray;
                                       else
                                           a = Color.Brown;
@@ -16730,7 +16760,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                   Object O1 = new Object();
                                   lock (O1)
                                   {
-                                      if (Order == 1)
+                                      if (OrderP== 1)
                                           a = Color.Gray;
                                       else
                                           a = Color.Brown;
@@ -16760,7 +16790,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                   Object O1 = new Object();
                                   lock (O1)
                                   {
-                                      if (Order == 1)
+                                      if (OrderP== 1)
                                           a = Color.Gray;
                                       else
                                           a = Color.Brown;
@@ -16790,7 +16820,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                   Object O1 = new Object();
                                   lock (O1)
                                   {
-                                      if (Order == 1)
+                                      if (OrderP== 1)
                                           a = Color.Gray;
                                       else
                                           a = Color.Brown;
@@ -16831,12 +16861,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Order == 1)
+                                if (OrderP== 1)
                                     a = Color.Gray;
                                 else
                                     a = Color.Brown;
                                 int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                                int Ord1 = Order;
+                                int Ord1 = OrderP;
                                 Color a1 = a;
                                 int iAStarGreedy1 = iAStarGreedy;
                                 int i1 = i;
@@ -16853,7 +16883,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object ooo = new Object();
                         lock (ooo)
                         {
-                            if (Order == 1)
+                            if (OrderP== 1)
                                 a = Color.Gray;
                             else
                                 a = Color.Brown;
@@ -16875,7 +16905,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O1 = new Object();
                         lock (O1)
                         {
-                            if (Order == 1)
+                            if (OrderP== 1)
                                 a = Color.Gray;
                             else
                                 a = Color.Brown;
@@ -16898,7 +16928,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object ooo = new Object();
                         lock (ooo)
                         {
-                            if (Order == 1)
+                            if (OrderP== 1)
                                 a = Color.Gray;
                             else
                                 a = Color.Brown;
@@ -16920,7 +16950,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object ooo = new Object();
                         lock (ooo)
                         {
-                            if (Order == 1)
+                            if (OrderP== 1)
                                 a = Color.Gray;
                             else
                                 a = Color.Brown;
@@ -16943,11 +16973,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object ooo = new Object();
                         lock (ooo)
                         {
-                            if (Order == 1)
+                            if (OrderP== 1)
                                 a = Color.Gray;
                             else
                                 a = Color.Brown;
-                            if (Order == 1)
+                            if (OrderP== 1)
                                 a = Color.Gray;
                             else
                                 a = Color.Brown;
@@ -17157,7 +17187,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                
             }
             //Gray Order.
-            if (Order == 1)
+            if (OrderP== 1)
             {
                 //For Gray Soders Objects.
                 for (var i = 0; i < SodierMidle; i++)
@@ -17417,7 +17447,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (ThinkingChess.LearningVarsCheckedMateOccured && ThinkingChess.LearningVarsCheckedMateOccuredOneCheckedMate)
                 {
-                    if (Order == 1)
+                    if (OrderP== 1)
                     {
                         for (var i = 0; i < SodierMidle; i++)
                             if (SolderesOnTable != null && SolderesOnTable[i] != null)
@@ -17489,7 +17519,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
                 else
                 {
-                    if (Order == 1)
+                    if (OrderP== 1)
                     {
                         for (var i = 0; i < SodierMidle; i++)
                             if (SolderesOnTable != null && SolderesOnTable[i] != null)
@@ -17823,7 +17853,7 @@ if (Kind == 5)
                 for (var j = 0; j < 8; j++)
                 {
                     //Gray Order.
-                    if (Order == 1)
+                    if (OrderP== 1)
                     {
                         //Situation 11.
                         if (and)

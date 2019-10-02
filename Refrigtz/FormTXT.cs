@@ -35,13 +35,16 @@ namespace Refrigtz
             {
                 TextBoxTXT.Text = File.ReadAllText(FormRefrigtz.Root + "\\Database\\Monitor.html");
             }*/
+            //backgroundWorkertreeView.RunWorkerAsync();
             CreateTree(D);
             treeViewRefregitzDraw.Update();
         }
 
         private void treeViewRefregitzDraw_BindingContextChanged(object sender, EventArgs e)
         {
-
+            //CreateTree(D);
+            //treeViewRefregitzDraw.Update();
+            
         }
 
         private void treeViewRefregitzDraw_AfterSelect(object sender, TreeViewEventArgs e)
@@ -55,14 +58,23 @@ namespace Refrigtz
         }
         public void CreateTree(RefrigtzDLL.AllDraw Draw)
         {
-            while (Draw.AStarGreedyString != null)
-                Draw = Draw.AStarGreedyString;
-            PopulateTreeViewS(0, null, Draw);
-            PopulateTreeViewE(0, null, Draw);
-            PopulateTreeViewH(0, null, Draw);
-            PopulateTreeViewC(0, null, Draw);
-            PopulateTreeViewM(0, null, Draw);
-            PopulateTreeViewK(0, null, Draw);
+            Object O = new Object();
+            lock (O)
+            {
+                while (Draw.AStarGreedyString != null)
+                    Draw = Draw.AStarGreedyString;
+                treeViewRefregitzDraw.BeginUpdate();
+                PopulateTreeViewS(0, null, Draw);
+                PopulateTreeViewE(0, null, Draw);
+                PopulateTreeViewH(0, null, Draw);
+                PopulateTreeViewC(0, null, Draw);
+                PopulateTreeViewM(0, null, Draw);
+                PopulateTreeViewK(0, null, Draw);
+
+                treeViewRefregitzDraw.EndUpdate();
+                treeViewRefregitzDraw.ExpandAll();
+            }
+
         }
         private void PopulateTreeViewS(int parentId, TreeNode parentNode, RefrigtzDLL.AllDraw Draw)
         {
@@ -72,8 +84,8 @@ namespace Refrigtz
                 if (Draw.SolderesOnTable == null)
                 {
                     TreeNode t = new TreeNode();
-                    t.Text = "NULL" + i.ToString();
-                    t.Name = "NULL" + i.ToString();
+                    t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                    t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
@@ -92,8 +104,8 @@ namespace Refrigtz
                     if (Draw.SolderesOnTable[i] == null)
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "NULL" + i.ToString();
-                        t.Name = "NULL" + i.ToString();
+                        t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -111,8 +123,8 @@ namespace Refrigtz
                     else
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "SoldierOnTable" + i.ToString();
-                        t.Name = "SoldierOnTable" + i.ToString();
+                        t.Text = "SoldierOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "SoldierOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -128,8 +140,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.SolderesOnTable[i].SoldierThinking != null && Draw.SolderesOnTable[i].SoldierThinking[0] != null && Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && j < Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "AstarGreedy" + j.ToString();
-                            tt.Name = "AstarGreedy" + j.ToString();
+                            tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].OrderP.ToString();
+                            tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Tag = j;
                             if (childNode == null)
                             {
@@ -141,7 +153,12 @@ namespace Refrigtz
                                 childNode.Nodes.Add(tt);
                                 AstarGreedy = tt;
                             }
-                             PopulateTreeViewS(j, AstarGreedy, Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewS(j, AstarGreedy, Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewE(j, AstarGreedy, Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewH(j, AstarGreedy, Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewC(j, AstarGreedy, Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewM(j, AstarGreedy, Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewK(j, AstarGreedy, Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
                         }
                     }
                 }
@@ -155,8 +172,8 @@ namespace Refrigtz
                 if (Draw.SolderesOnTable == null)
                 {
                     TreeNode t = new TreeNode();
-                    t.Text = "NULL" + i.ToString();
-                    t.Name = "NULL" + i.ToString();
+                    t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                    t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
@@ -175,8 +192,8 @@ namespace Refrigtz
                     if (Draw.ElephantOnTable[i] == null)
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "NULL" + i.ToString();
-                        t.Name = "NULL" + i.ToString();
+                        t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -194,8 +211,8 @@ namespace Refrigtz
                     else
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "ElephantOnTable" + i.ToString();
-                        t.Name = "ElephantOnTable" + i.ToString();
+                        t.Text = "ElephantOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "ElephantOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -211,8 +228,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.ElephantOnTable[i].ElefantThinking != null && Draw.ElephantOnTable[i].ElefantThinking[0] != null && Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && j < Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "AstarGreedy" + j.ToString();
-                            tt.Name = "AstarGreedy" + j.ToString();
+                            tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].OrderP.ToString();
+                            tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Tag = j;
 
                             if (childNode == null)
@@ -225,8 +242,14 @@ namespace Refrigtz
                                 childNode.Nodes.Add(tt);
                                 AstarGreedy = tt;
                             }
-                             PopulateTreeViewE(j, AstarGreedy, Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewS(j, AstarGreedy, Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewE(j, AstarGreedy, Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewH(j, AstarGreedy, Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewC(j, AstarGreedy, Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewM(j, AstarGreedy, Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewK(j, AstarGreedy, Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
                         }
+
                     }
                 }
             }
@@ -236,11 +259,11 @@ namespace Refrigtz
             TreeNode childNode = new TreeNode();
             for (int i = 0; i < Draw.HourseHight; i++)
             {
-                if (Draw.HourseHight == null)
+                if (Draw.HoursesOnTable == null)
                 {
                     TreeNode t = new TreeNode();
-                    t.Text = "NULL" + i.ToString();
-                    t.Name = "NULL" + i.ToString();
+                    t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                    t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
@@ -259,8 +282,8 @@ namespace Refrigtz
                     if (Draw.HoursesOnTable[i] == null)
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "NULL" + i.ToString();
-                        t.Name = "NULL" + i.ToString();
+                        t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -278,8 +301,8 @@ namespace Refrigtz
                     else
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "HoursesOnTable" + i.ToString();
-                        t.Name = "HoursesOnTable" + i.ToString();
+                        t.Text = "HoursesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "HoursesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -295,8 +318,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.HoursesOnTable[i].HourseThinking != null && Draw.HoursesOnTable[i].HourseThinking[0] != null && Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && j < Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "AstarGreedy" + j.ToString();
-                            tt.Name = "AstarGreedy" + j.ToString();
+                            tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].OrderP.ToString();
+                            tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Tag = j;
 
                             if (childNode == null)
@@ -309,7 +332,12 @@ namespace Refrigtz
                                 childNode.Nodes.Add(tt);
                                 AstarGreedy = tt;
                             }
+                            PopulateTreeViewS(j, AstarGreedy, Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewE(j, AstarGreedy, Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
                             PopulateTreeViewH(j, AstarGreedy, Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewC(j, AstarGreedy, Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewM(j, AstarGreedy, Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewK(j, AstarGreedy, Draw.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
                         }
                     }
                 }
@@ -323,8 +351,8 @@ namespace Refrigtz
                 if (Draw.CastlesOnTable == null)
                 {
                     TreeNode t = new TreeNode();
-                    t.Text = "NULL" + i.ToString();
-                    t.Name = "NULL" + i.ToString();
+                    t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                    t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
@@ -343,8 +371,8 @@ namespace Refrigtz
                     if (Draw.CastlesOnTable[i] == null)
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "NULL" + i.ToString();
-                        t.Name = "NULL" + i.ToString();
+                        t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -361,8 +389,8 @@ namespace Refrigtz
                     else
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "CastlesOnTable" + i.ToString();
-                        t.Name = "CastlesOnTable" + i.ToString();
+                        t.Text = "CastlesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "CastlesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -378,8 +406,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.CastlesOnTable[i].CastleThinking != null && Draw.CastlesOnTable[i].CastleThinking[0] != null && Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && j < Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "AstarGreedy" + j.ToString();
-                            tt.Name = "AstarGreedy" + j.ToString();
+                            tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].OrderP.ToString();
+                            tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Tag = j;
 
                             if (childNode == null)
@@ -392,7 +420,12 @@ namespace Refrigtz
                                 childNode.Nodes.Add(tt);
                                 AstarGreedy = tt;
                             }
-                             PopulateTreeViewH(j, AstarGreedy, Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewS(j, AstarGreedy, Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewE(j, AstarGreedy, Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewH(j, AstarGreedy, Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewC(j, AstarGreedy, Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewM(j, AstarGreedy, Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewK(j, AstarGreedy, Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
                         }
                     }
                 }
@@ -406,8 +439,8 @@ namespace Refrigtz
                 if (Draw.MinisterOnTable == null)
                 {
                     TreeNode t = new TreeNode();
-                    t.Text = "NULL" + i.ToString();
-                    t.Name = "NULL" + i.ToString();
+                    t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                    t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
@@ -426,8 +459,8 @@ namespace Refrigtz
                     if (Draw.MinisterOnTable[i] == null)
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "NULL" + i.ToString();
-                        t.Name = "NULL" + i.ToString();
+                        t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -445,8 +478,8 @@ namespace Refrigtz
                     else
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "MinisterOnTable" + i.ToString();
-                        t.Name = "MinisterOnTable" + i.ToString();
+                        t.Text = "MinisterOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "MinisterOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -462,8 +495,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.MinisterOnTable[i].MinisterThinking != null && Draw.MinisterOnTable[i].MinisterThinking[0] != null && Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && j < Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "AstarGreedy" + j.ToString();
-                            tt.Name = "AstarGreedy" + j.ToString();
+                            tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].OrderP.ToString();
+                            tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Tag = j;
 
                             if (childNode == null)
@@ -476,7 +509,12 @@ namespace Refrigtz
                                 childNode.Nodes.Add(tt);
                                 AstarGreedy = tt;
                             }
+                            PopulateTreeViewS(j, AstarGreedy, Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewE(j, AstarGreedy, Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewH(j, AstarGreedy, Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewC(j, AstarGreedy, Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
                             PopulateTreeViewM(j, AstarGreedy, Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewK(j, AstarGreedy, Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
                         }
                     }
                 }
@@ -490,8 +528,8 @@ namespace Refrigtz
                 if (Draw.KingOnTable == null)
                 {
                     TreeNode t = new TreeNode();
-                    t.Text = "NULL" + i.ToString();
-                    t.Name = "NULL" + i.ToString();
+                    t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                    t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
@@ -510,8 +548,8 @@ namespace Refrigtz
                     if (Draw.KingOnTable[i] == null)
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "NULL" + i.ToString();
-                        t.Name = "NULL" + i.ToString();
+                        t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -528,8 +566,8 @@ namespace Refrigtz
                     else
                     {
                         TreeNode t = new TreeNode();
-                        t.Text = "KingOnTable" + i.ToString();
-                        t.Name = "KingOnTable" + i.ToString();
+                        t.Text = "KingOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "KingOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
@@ -545,8 +583,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.KingOnTable[i].KingThinking != null && Draw.KingOnTable[i].KingThinking[0] != null && Draw.KingOnTable[i].KingThinking[0].AStarGreedy != null && j < Draw.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "AstarGreedy" + j.ToString();
-                            tt.Name = "AstarGreedy" + j.ToString();
+                            tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j].OrderP.ToString();
+                            tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Tag = j;
 
                             if (childNode == null)
@@ -559,11 +597,46 @@ namespace Refrigtz
                                 childNode.Nodes.Add(tt);
                                 AstarGreedy = tt;
                             }
+                            PopulateTreeViewS(j, AstarGreedy, Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewE(j, AstarGreedy, Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewH(j, AstarGreedy, Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewC(j, AstarGreedy, Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+                            PopulateTreeViewM(j, AstarGreedy, Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
                             PopulateTreeViewK(j, AstarGreedy, Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
-                        }
+                         }
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void backgroundWorkertreeView_DoWork(object sender, DoWorkEventArgs e)
+        {
+            do
+            {
+                treeViewRefregitzDraw.Nodes.Clear();
+                CreateTree(D);
+                treeViewRefregitzDraw.Update();
+                //System.Threading.Thread.Sleep(2000);
+            } while (true);
+        }
+
+        private void treeViewRefregitzDraw_ControlAdded(object sender, ControlEventArgs e)
+        {
+
+        }
+
+        private void treeViewRefregitzDraw_MouseClick(object sender, MouseEventArgs e)
+        {
+            treeViewRefregitzDraw.Nodes.Clear();
+            CreateTree(D);
+            //treeViewRefregitzDraw.Update();
+          
         }
     }
 }
