@@ -13,6 +13,7 @@ namespace Refrigtz
     public partial class FormTXT : Form
     {
         RefrigtzDLL.AllDraw D = null;
+        System.Threading.Thread t = null;
         public FormTXT(RefrigtzDLL.AllDraw TG)
         {
             InitializeComponent();
@@ -63,16 +64,21 @@ namespace Refrigtz
             {
                 while (Draw.AStarGreedyString != null)
                     Draw = Draw.AStarGreedyString;
-                treeViewRefregitzDraw.BeginUpdate();
+                Invoke((MethodInvoker)delegate ()
+                {
+                    treeViewRefregitzDraw.BeginUpdate();
+                });
                 PopulateTreeViewS(0, null, Draw);
                 PopulateTreeViewE(0, null, Draw);
                 PopulateTreeViewH(0, null, Draw);
                 PopulateTreeViewC(0, null, Draw);
                 PopulateTreeViewM(0, null, Draw);
                 PopulateTreeViewK(0, null, Draw);
-
-                treeViewRefregitzDraw.EndUpdate();
-                treeViewRefregitzDraw.ExpandAll();
+                Invoke((MethodInvoker)delegate ()
+                {
+                    treeViewRefregitzDraw.EndUpdate();
+                    treeViewRefregitzDraw.ExpandAll();
+                });
             }
 
         }
@@ -89,12 +95,17 @@ namespace Refrigtz
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
-                        treeViewRefregitzDraw.Nodes.Add(t);
-                        childNode = t;
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            treeViewRefregitzDraw.Nodes.Add(t);
+                        }); childNode = t;
                     }
                     else
                     {
-                        parentNode.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            parentNode.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     break;
@@ -109,12 +120,17 @@ namespace Refrigtz
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
-                            childNode = t;
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            }); childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
 
@@ -126,14 +142,24 @@ namespace Refrigtz
                         t.Text = "SoldierOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "SoldierOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
+                        if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfSelf)
+                            t.BackColor = Color.Red;
+                        else
+                      if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy)
+                            t.BackColor = Color.Green;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
-                            childNode = t;
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            }); childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         TreeNode HuristicSoldier = new TreeNode();
@@ -145,12 +171,18 @@ namespace Refrigtz
                             tt.Tag = j;
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 HuristicSoldier = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 HuristicSoldier = tt;
                             }
                         }
@@ -163,12 +195,18 @@ namespace Refrigtz
                             tt.Tag = j;
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             PopulateTreeViewS(j, AstarGreedy, Draw.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
@@ -195,12 +233,18 @@ namespace Refrigtz
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
-                        treeViewRefregitzDraw.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            treeViewRefregitzDraw.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     else
                     {
-                        parentNode.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            parentNode.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     break;
@@ -215,12 +259,18 @@ namespace Refrigtz
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
 
@@ -232,14 +282,25 @@ namespace Refrigtz
                         t.Text = "ElephantOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "ElephantOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
+                        if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf)
+                            t.BackColor = Color.Red;
+                        else
+                     if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy)
+                            t.BackColor = Color.Green;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         TreeNode HuristicElephant = new TreeNode();
@@ -251,12 +312,18 @@ namespace Refrigtz
                             tt.Tag = j;
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 HuristicElephant = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 HuristicElephant = tt;
                             }
                         }
@@ -270,12 +337,18 @@ namespace Refrigtz
 
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             PopulateTreeViewS(j, AstarGreedy, Draw.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
@@ -303,12 +376,18 @@ namespace Refrigtz
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
-                        treeViewRefregitzDraw.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            treeViewRefregitzDraw.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     else
                     {
-                        parentNode.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            parentNode.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     break;
@@ -323,12 +402,18 @@ namespace Refrigtz
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
 
@@ -340,14 +425,26 @@ namespace Refrigtz
                         t.Text = "HoursesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "HoursesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
+                        if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfSelf)
+                            t.BackColor = Color.Red;
+                        else
+                     if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy)
+                            t.BackColor = Color.Green;
+
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         TreeNode HuristicHourse = new TreeNode();
@@ -360,12 +457,18 @@ namespace Refrigtz
 
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 HuristicHourse = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 HuristicHourse = tt;
                             }
                         }
@@ -379,12 +482,18 @@ namespace Refrigtz
 
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
 
@@ -413,12 +522,18 @@ namespace Refrigtz
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
-                        treeViewRefregitzDraw.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            treeViewRefregitzDraw.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     else
                     {
-                        parentNode.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            parentNode.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     break;
@@ -433,12 +548,18 @@ namespace Refrigtz
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
 
@@ -449,14 +570,25 @@ namespace Refrigtz
                         t.Text = "CastlesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "CastlesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
+                        if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfSelf)
+                            t.BackColor = Color.Red;
+                        else
+                     if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy)
+                            t.BackColor = Color.Green;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         TreeNode HuristicCastle = new TreeNode();
@@ -469,12 +601,18 @@ namespace Refrigtz
 
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 HuristicCastle = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 HuristicCastle = tt;
                             }
                         }
@@ -488,12 +626,18 @@ namespace Refrigtz
 
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             PopulateTreeViewS(j, AstarGreedy, Draw.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
@@ -606,12 +750,18 @@ namespace Refrigtz
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
-                        treeViewRefregitzDraw.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            treeViewRefregitzDraw.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     else
                     {
-                        parentNode.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            parentNode.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     break;
@@ -626,12 +776,18 @@ namespace Refrigtz
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
 
@@ -643,14 +799,25 @@ namespace Refrigtz
                         t.Text = "MinisterOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "MinisterOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
+                        if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfSelf)
+                            t.BackColor = Color.Red;
+                        else
+                           if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy)
+                            t.BackColor = Color.Green;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         TreeNode HuristicMinister = new TreeNode();
@@ -663,12 +830,18 @@ namespace Refrigtz
 
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 HuristicMinister = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 HuristicMinister = tt;
                             }
                         }
@@ -682,12 +855,18 @@ namespace Refrigtz
 
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             PopulateTreeViewS(j, AstarGreedy, Draw.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
@@ -714,12 +893,18 @@ namespace Refrigtz
                     t.Tag = parentId;
                     if (parentNode == null)
                     {
-                        treeViewRefregitzDraw.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            treeViewRefregitzDraw.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     else
                     {
-                        parentNode.Nodes.Add(t);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            parentNode.Nodes.Add(t);
+                        });
                         childNode = t;
                     }
                     break;
@@ -734,12 +919,18 @@ namespace Refrigtz
                         t.Tag = parentId;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
 
@@ -750,14 +941,26 @@ namespace Refrigtz
                         t.Text = "KingOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "KingOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
+                        if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfSelf)
+                            t.BackColor = Color.Red;
+                        else
+                          if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfEnemy)
+                            t.BackColor = Color.Green;
                         if (parentNode == null)
                         {
-                            treeViewRefregitzDraw.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            });
                             childNode = t;
                         }
                         else
                         {
-                            parentNode.Nodes.Add(t);
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
+                            
                             childNode = t;
                         }
                         TreeNode HuristicKing = new TreeNode();
@@ -768,14 +971,21 @@ namespace Refrigtz
                             tt.Name = "HuristicKing" + j.ToString() + "_Order:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
                             tt.Tag = j;
 
+                           
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 HuristicKing = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 HuristicKing = tt;
                             }
                         }
@@ -786,15 +996,21 @@ namespace Refrigtz
                             tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Tag = j;
-
+                          
                             if (childNode == null)
                             {
-                                treeViewRefregitzDraw.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    treeViewRefregitzDraw.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             else
                             {
-                                childNode.Nodes.Add(tt);
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    childNode.Nodes.Add(tt);
+                                });
                                 AstarGreedy = tt;
                             }
                             PopulateTreeViewS(j, AstarGreedy, Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
@@ -830,12 +1046,32 @@ namespace Refrigtz
         {
 
         }
+        void Create()
+        {
+            Invoke((MethodInvoker)delegate ()
+            {
+            treeViewRefregitzDraw.Nodes.Clear();
+            });
 
+            CreateTree(D);
+        }
         private void treeViewRefregitzDraw_MouseClick(object sender, MouseEventArgs e)
         {
-            treeViewRefregitzDraw.Nodes.Clear();
-            CreateTree(D);
             //treeViewRefregitzDraw.Update();
+            if (t == null)
+            {
+                t = new System.Threading.Thread(new System.Threading.ThreadStart(Create));
+                t.Start();
+            }
+            if (t != null && (!t.IsAlive))
+            {
+                t = new System.Threading.Thread(new System.Threading.ThreadStart(Create));
+                t.Start();
+            }
+        }
+
+        private void FormTXT_MouseClick(object sender, MouseEventArgs e)
+        {
 
         }
     }

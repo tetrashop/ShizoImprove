@@ -87,6 +87,7 @@ namespace Refrigtz
             this.Name = "FormTXT";
             this.Text = "FormTXT";
             this.Load += new System.EventHandler(this.FormTXT_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FormTXT_MouseClick);
             this.contextMenuStripRefrigitzTree.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
