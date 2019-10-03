@@ -10,7 +10,11 @@ namespace RefrigtzW
     public class DrawHourse
     {
 
-
+        
+        StringBuilder Space = new StringBuilder("&nbsp;");
+#pragma warning disable CS0414 // The field 'DrawHourse.Spaces' is assigned but its value is never used
+        int Spaces = 0;
+#pragma warning restore CS0414 // The field 'DrawHourse.Spaces' is assigned but its value is never used
 
 
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
@@ -50,12 +54,14 @@ namespace RefrigtzW
         }
         public void Dispose()
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             H = null;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-
+            //long Time = TimeElapced.TimeNow();Spaces++;
             double a = ReturnHuristic();
             if (MaxHuristicxH < a)
             {
@@ -67,19 +73,23 @@ namespace RefrigtzW
                         ThinkingChess.MaxHuristicx = a;
                     MaxHuristicxH = a;
                 }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
             }
 
             MaxNotFound = true;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
         public double ReturnHuristic()
         {
+            int HaveKilled = 0;
+            //long Time = TimeElapced.TimeNow();Spaces++;
             double a = 0;
             for (var ii = 0; ii < AllDraw.HourseMovments; ii++)
 
-                a += HourseThinking[ii].ReturnHuristic(-1, -1, Order, false);
-
+                a += HourseThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         //Constructor 1.
@@ -100,6 +110,7 @@ namespace RefrigtzW
         public DrawHourse(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
 
             {
 
@@ -118,7 +129,7 @@ namespace RefrigtzW
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.HourseMovments; ii++)
-                    HourseThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
+                    HourseThinking[ii] = new ThinkingChess(3,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 4, 3);
 
                 Row = i;
                 Column = j;
@@ -126,11 +137,13 @@ namespace RefrigtzW
                 Order = Ord;
                 Current = Cur;
             }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Cloen a Copy.
         public void Clone(ref DrawHourse AA//, ref AllDraw. THIS
             )
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -141,7 +154,7 @@ namespace RefrigtzW
             for (var i = 0; i < AllDraw.HourseMovments; i++)
             {
 
-                AA.HourseThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                AA.HourseThinking[i] = new ThinkingChess(3,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                 this.HourseThinking[i].Clone(ref AA.HourseThinking[i]);
 
             }
@@ -154,11 +167,12 @@ namespace RefrigtzW
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Draw a Instatnt Hourse on the Table Method.
         public void DrawHourseOnTable(ref Graphics g, int CellW, int CellH)
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             try
             {
                 object balancelockS = new object();
@@ -198,6 +212,7 @@ namespace RefrigtzW
             {
                 Log(t);
             }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourseOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

@@ -109,11 +109,12 @@ namespace QuantumRefrigiz
         }
         public int ReturnHuristic()
         {
+            int HaveKilled = 0;
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
                 
-                    a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false);
+                    a += SoldierThinkingQuantum[ii].ReturnHuristic(-1, -1, Order,false,ref HaveKilled);
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }

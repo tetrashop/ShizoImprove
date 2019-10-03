@@ -81,6 +81,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess
     {
+        public static bool IsAtLeastOneKillerAtDraw = false;
         public bool KishSelf = false;
         public bool KishEnemy = false;
         StringBuilder Space = new StringBuilder("&nbsp;");
@@ -214,6 +215,7 @@ namespace RefrigtzDLL
         public List<int[]> HuristicListCastle = null;
         public List<int[]> HuristicListMinister = null;
         public List<int[]> HuristicListKing = null;
+        public List<int> KillerAtThinking = null;
         public List<QuantumAtamata> PenaltyRegardListSolder = null;
         public List<QuantumAtamata> PenaltyRegardListElefant = null;
         public List<QuantumAtamata> PenaltyRegardListHourse = null;
@@ -433,6 +435,7 @@ namespace RefrigtzDLL
                     HuristicListKing = new List<int[]>();
                     PenaltyRegardListKing = new List<QuantumAtamata>();
                 }
+                KillerAtThinking = new List<int>();
                 AStarGreedy = new List<AllDraw>();
 
                 //Network  QuantumAtamata Book Initiate For Every Clone.
@@ -606,6 +609,7 @@ namespace RefrigtzDLL
                     HuristicListKing = new List<int[]>();
                     PenaltyRegardListKing = new List<QuantumAtamata>();
                 }
+                KillerAtThinking = new List<int>();
                 AStarGreedy = new List<AllDraw>();
 
 
@@ -5967,7 +5971,7 @@ namespace RefrigtzDLL
             }
         }
         //Return Huristic.
-        public int ReturnHuristic(int ii, int j, int Order, bool AA)
+        public int ReturnHuristic(int ii, int j, int Order, bool AA,ref int HaveKilled)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -5984,12 +5988,12 @@ namespace RefrigtzDLL
                     if (!AA)
                     {
                         if (ii >= 0 && UsePenaltyRegardMechnisamT)
-                            Hur = (int)((double)ReturnHuristicCalculartor(0, ii, j, Order) * LearniningTable.LearingValue(Row, Column));
+                            Hur = (int)((double)ReturnHuristicCalculartor(0, ii, j, Order,ref HaveKilled) * LearniningTable.LearingValue(Row, Column));
                         else
-                            Hur = ReturnHuristicCalculartor(0, ii, j, Order);
+                            Hur = ReturnHuristicCalculartor(0, ii, j, Order,ref HaveKilled);
                     }
                     else
-                        Hur = ReturnHuristicCalculartor(0, ii, j, Order) + 1000;
+                        Hur = ReturnHuristicCalculartor(0, ii, j, Order,ref HaveKilled) + 1000;
 
                     //Optimization depend of numbers of unpealties nodes quefficient.  
                     if (UsePenaltyRegardMechnisamT)
@@ -6074,7 +6078,7 @@ namespace RefrigtzDLL
                 return A;
             }
         }
-        public int ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order)
+        public int ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order,ref int HaveKilled)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             //bool ActionStringSetting = false;
@@ -6091,6 +6095,20 @@ namespace RefrigtzDLL
                 int DummyOrder = Order;
                 if (ii != -1)
                 {
+                    if (KillerAtThinking.Count > j)
+                    {
+                        if (KillerAtThinking[j] > 0)
+                        {
+                            IsAtLeastOneKillerAtDraw = true;
+                            HaveKilled = iAstarGready;
+                        }
+                        else
+                        if (KillerAtThinking[j] < 0)
+                        {
+                            IsAtLeastOneKillerAtDraw = true;
+                            HaveKilled = (iAstarGready * -1);
+                        }
+                    }
                     //return 0;
                     /*SetObjectNumbers(TableConst);
                     //NumbersOfCurrentBranchesPenalties = 0;
@@ -6626,7 +6644,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder.Count; jj++)
-                                            Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for Elephant.
                                     for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
@@ -6638,7 +6656,7 @@ namespace RefrigtzDLL
                                        else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant.Count; jj++)
-                                            Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for Hourse.
                                     for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
@@ -6650,7 +6668,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse.Count; jj++)
-                                            Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for Castles.
                                     for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
@@ -6662,7 +6680,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle.Count; jj++)
-                                            Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for Minstre.
                                     for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
@@ -6674,7 +6692,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister.Count; jj++)
-                                            Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for King.
                                     for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
@@ -6686,7 +6704,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing.Count; jj++)
-                                            Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                 }
                                 else
@@ -6700,7 +6718,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder.Count; jj++)
-                                            Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for Elephant.
                                     for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
@@ -6712,7 +6730,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant.Count; jj++)
-                                            Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for Hourse.
                                     for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
@@ -6724,7 +6742,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse.Count; jj++)
-                                            Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for Castles.
                                     for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
@@ -6736,7 +6754,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle.Count; jj++)
-                                            Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for Minstre.
                                     for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
@@ -6748,7 +6766,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister.Count; jj++)
-                                            Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                     //Repeate for King.
                                     for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
@@ -6760,7 +6778,7 @@ namespace RefrigtzDLL
                                         else
                                             AllDraw.OutPut.Append("\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                                         for (var jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing.Count; jj++)
-                                            Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(iAstarGready, ii, jj, Order * -1);
+                                            Huristic += AStarGreedy[k].KingOnTable[m].KingThinking[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
                                     }
                                 }
                             }
@@ -7167,13 +7185,15 @@ namespace RefrigtzDLL
                         if (!Sup)
                         {
                             Object A2 = new object();
-                            lock (A2)
-                            {
-                                Killed = TableS[RowDestination, ColumnDestination];
-                                TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
-                                TableS[RowSource, ColumnSource] = 0;
-                            }
+                        lock (A2)
+                        {
+                            Killed = TableS[RowDestination, ColumnDestination];
+                            TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
+                            TableS[RowSource, ColumnSource] = 0;
                         }
+                        KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    }
+                    
 
 
 
@@ -7196,7 +7216,7 @@ namespace RefrigtzDLL
                                  int[] AS = new int[2];
                                 AS[0] = RowDestination;
                                 AS[1] = ColumnDestination;
-                                RowColumnKing.Add(AS);
+                                 RowColumnKing.Add(AS);
                                 //RowColumn[Index, 0] = RowDestination;
                                 //RowColumn[Index, 1] = ColumnDestination;
                                 //Index+=1;
@@ -7457,7 +7477,8 @@ namespace RefrigtzDLL
                                 TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                                 TableS[RowSource, ColumnSource] = 0;
                             }
-                        }
+                        KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    }
 
 
 
@@ -8083,7 +8104,8 @@ namespace RefrigtzDLL
                                 TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                                 TableS[RowSource, ColumnSource] = 0;
                             }
-                        }
+                        KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    }
 
 
 
@@ -8340,6 +8362,7 @@ namespace RefrigtzDLL
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
                         }
+                        KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                     }
 
 
@@ -8596,7 +8619,8 @@ namespace RefrigtzDLL
                                 TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                                 TableS[RowSource, ColumnSource] = 0;
                             }
-                        }
+                        KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    }
 
 
 
@@ -9593,6 +9617,17 @@ namespace RefrigtzDLL
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SoldierConversion:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+        int KilledBool(int row1,int col1,int row2,int col2,int[,] tab)
+        {
+            if (tab[row1, col1] != 0 && tab[row2, col2] != 0)
+            {
+                if (tab[row2, col2] > 0)
+                    return 1;
+                if (tab[row2, col2] < 0)
+                    return -1;
+            }
+            return 0;
+        }
         void SolderThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -9679,9 +9714,10 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         {
                             Killed = TableConst[RowDestination, ColumnDestination];
                         }
+                        KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                     }
 
-
+                    
                     //if (!Sup)
                     {
                         Object A3 = new object();

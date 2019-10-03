@@ -10,7 +10,12 @@ namespace RefrigtzW
     public class DrawElefant
 
     {
+        
 
+        StringBuilder Space = new StringBuilder("&nbsp;");
+#pragma warning disable CS0414 // The field 'DrawElefant.Spaces' is assigned but its value is never used
+        int Spaces = 0;
+#pragma warning restore CS0414 // The field 'DrawElefant.Spaces' is assigned but its value is never used
 
 
 
@@ -50,12 +55,14 @@ namespace RefrigtzW
         }
         public void Dispose()
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             E = null;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-
+            //long Time = TimeElapced.TimeNow();Spaces++;
             double a = ReturnHuristic();
             if (MaxHuristicxE < a)
             {
@@ -67,20 +74,24 @@ namespace RefrigtzW
                         ThinkingChess.MaxHuristicx = a;
                     MaxHuristicxE = a;
                 }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
             }
 
             MaxNotFound = true;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
         public double ReturnHuristic()
         {
+            int HaveKilled = 0;
+            //long Time = TimeElapced.TimeNow();Spaces++;
             double a = 0;
             for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
 
-                a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false);
+                a += ElefantThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
 
-
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
 
@@ -101,6 +112,7 @@ namespace RefrigtzW
         public DrawElefant(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//,ref AllDraw. THIS
             )
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             object balancelock = new object();
             lock (balancelock)
             {
@@ -122,7 +134,7 @@ namespace RefrigtzW
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.ElefantMovments; ii++)
-                    ElefantThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
+                    ElefantThinking[ii] = new ThinkingChess(2,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 2);
 
                 Row = i;
                 Column = j;
@@ -130,12 +142,14 @@ namespace RefrigtzW
                 Order = Ord;
                 Current = Cur;
             }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawElefant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
         }
         //Clone a Copy.
         public void Clone(ref DrawElefant AA//, ref AllDraw. THIS
             )
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -146,7 +160,7 @@ namespace RefrigtzW
             for (var i = 0; i < AllDraw.ElefantMovments; i++)
             {
 
-                AA.ElefantThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                AA.ElefantThinking[i] = new ThinkingChess(2,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                 this.ElefantThinking[i].Clone(ref AA.ElefantThinking[i]);
 
             }
@@ -159,11 +173,12 @@ namespace RefrigtzW
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Draw an Instatnt Elephant On the Table.
         public void DrawElefantOnTable(ref Graphics g, int CellW, int CellH)
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             try
             {
                 object balancelockS = new object();
@@ -204,6 +219,7 @@ namespace RefrigtzW
             {
                 Log(t);
             }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawElefantOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

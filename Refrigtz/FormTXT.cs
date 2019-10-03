@@ -1160,7 +1160,7 @@ namespace Refrigtz
                             {
                                 parentNode.Nodes.Add(t);
                             });
-                            
+
                             childNode = t;
                         }
                         TreeNode HuristicKing = new TreeNode();
@@ -1171,7 +1171,7 @@ namespace Refrigtz
                             tt.Name = "HuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
                             tt.Tag = j;
 
-                           
+
                             if (childNode == null)
                             {
                                 Invoke((MethodInvoker)delegate ()
@@ -1196,7 +1196,7 @@ namespace Refrigtz
                             tt.Text = "AstarGreedy" + j.ToString() + "_Order:" + Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Name = "AstarGreedy" + j.ToString() + "_Order:" + Draw.KingOnTable[i].KingThinking[0].AStarGreedy[j].OrderP.ToString();
                             tt.Tag = j;
-                          
+
                             if (childNode == null)
                             {
                                 Invoke((MethodInvoker)delegate ()
@@ -1250,7 +1250,7 @@ namespace Refrigtz
         {
             Invoke((MethodInvoker)delegate ()
             {
-            treeViewRefregitzDraw.Nodes.Clear();
+                treeViewRefregitzDraw.Nodes.Clear();
             });
 
             CreateTree(D);

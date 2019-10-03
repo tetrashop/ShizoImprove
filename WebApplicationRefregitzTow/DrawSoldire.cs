@@ -10,7 +10,11 @@ namespace RefrigtzW
     [Serializable]
     public class DrawSoldier : ThingsConverter
     {
-
+        
+        StringBuilder Space = new StringBuilder("&nbsp;");
+#pragma warning disable CS0414 // The field 'DrawSoldier.Spaces' is assigned but its value is never used
+        int Spaces = 0;
+#pragma warning restore CS0414 // The field 'DrawSoldier.Spaces' is assigned but its value is never used
 
 
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
@@ -28,7 +32,7 @@ namespace RefrigtzW
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static double MaxHuristicxS = Double.MinValue;
+        public static double MaxHuristicxS = int.MinValue;
         public float RowS, ColumnS;
         public Color color;
         public ThinkingChess[] SoldierThinking = new ThinkingChess[AllDraw.SodierMovments];
@@ -50,12 +54,14 @@ namespace RefrigtzW
 
         public void Dispose()
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
             S = null;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
-
+            //long Time = TimeElapced.TimeNow();Spaces++;
             double a = ReturnHuristic();
             if (MaxHuristicxS < a)
             {
@@ -67,19 +73,24 @@ namespace RefrigtzW
                         ThinkingChess.MaxHuristicx = a;
                     MaxHuristicxS = a;
                 }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
             }
 
             MaxNotFound = true;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
         public double ReturnHuristic()
         {
+            int HaveKilled = 0;
+            //long Time = TimeElapced.TimeNow();Spaces++;
             double a = 0;
             for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order, false);
+                a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
 
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         //Constructor 1.
@@ -101,6 +112,7 @@ namespace RefrigtzW
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             object balancelock = new object();
             lock (balancelock)
             {
@@ -122,18 +134,20 @@ namespace RefrigtzW
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                    SoldierThinking[ii] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
+                    SoldierThinking[ii] = new ThinkingChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
                 RowS = i;
                 ColumnS = j;
                 color = a;
                 Order = Ord;
                 Current = Cur;
             }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Clone a Copy Method.
         public void Clone(ref DrawSoldier AA//, ref AllDraw. THIS
             )
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -146,7 +160,7 @@ namespace RefrigtzW
             for (var i = 0; i < AllDraw.SodierMovments; i++)
             {
 
-                AA.SoldierThinking[i] = new ThinkingChess(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                AA.SoldierThinking[i] = new ThinkingChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                 this.SoldierThinking[i].Clone(ref AA.SoldierThinking[i]);
 
             }
@@ -159,11 +173,12 @@ namespace RefrigtzW
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
             try
             {
                 object balancelockS = new object();
@@ -309,6 +324,7 @@ namespace RefrigtzW
             {
                 Log(t);
             }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }
