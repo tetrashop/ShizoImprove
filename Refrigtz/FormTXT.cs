@@ -82,6 +82,142 @@ namespace Refrigtz
             }
 
         }
+        String Alphabet(int RowRealesed)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object O = new Object();
+            lock (O)
+            {
+                String A = "";
+                if (RowRealesed == 0)
+                    A = "a";
+                else
+                    if (RowRealesed == 1)
+                    A = "b";
+                else
+                        if (RowRealesed == 2)
+                    A = "c";
+                else
+                            if (RowRealesed == 3)
+                    A = "d";
+                else
+                                if (RowRealesed == 4)
+                    A = "e";
+                else
+                                    if (RowRealesed == 5)
+                    A = "f";
+                else
+                                        if (RowRealesed == 6)
+                    A = "g";
+                else
+                                            if (RowRealesed == 7)
+                    A = "h";
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Alphabet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+
+                return A;
+            }
+        }
+        String Number(int ColumnRealeased)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object O = new Object();
+            lock (O)
+            {
+
+                String A = "";
+                if (ColumnRealeased == 7)
+                    A = "0";
+                else
+                    if (ColumnRealeased == 6)
+                    A = "1";
+                else
+                        if (ColumnRealeased == 5)
+                    A = "2";
+                else
+                            if (ColumnRealeased == 4)
+                    A = "3";
+                else
+                                if (ColumnRealeased == 3)
+                    A = "4";
+                else
+                                    if (ColumnRealeased == 2)
+                    A = "5";
+                else
+                                        if (ColumnRealeased == 1)
+                    A = "6";
+                else
+                                            if (ColumnRealeased == 0)
+                    A = "7";
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Number:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return A;
+            }
+        }
+        String CheM(int A)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            String AA = "";
+            if (A <= -1 && A < 0)
+                AA = "+SelfChecked ";
+
+            if (A >= 1 && A > 0)
+                AA = "+EnemeyChecked ";
+
+            if (A <= -2 && A < 0)
+                AA = "++SelfMate ";
+
+            if (A >= 2 && A > 0)
+                AA = "++EnemeyMate ";
+
+            if (A <= -3 && A < 0)
+                AA = "++SelfFinished ";
+
+            if (A >= 3 && A > 0)
+                AA = "++EnemeyFinsished ";
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheM:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return AA;
+        }
+        string MoveS(RefrigtzDLL.ThinkingChess t, int kind, int j)
+        {
+            int RowDestination = -1, ColumnDestination = -1;
+            if (kind == 1)
+            {
+                RowDestination = t.RowColumnSoldier[j][0];
+                ColumnDestination = t.RowColumnSoldier[j][1];
+            }
+            else if (kind == 2)
+            {
+                RowDestination = t.RowColumnElefant[j][0];
+                ColumnDestination = t.RowColumnElefant[j][1];
+            }
+            else
+      if (kind == 3)
+            {
+                RowDestination = t.RowColumnHourse[j][0];
+                ColumnDestination = t.RowColumnHourse[j][1];
+            }
+            else
+      if (kind == 4)
+            {
+                RowDestination = t.RowColumnCastle[j][0];
+                ColumnDestination = t.RowColumnCastle[j][1];
+            }
+            else
+      if (kind == 5)
+            {
+                RowDestination = t.RowColumnMinister[j][0];
+                ColumnDestination = t.RowColumnMinister[j][1];
+            }
+            else
+      if (kind == 6)
+            {
+                RowDestination = t.RowColumnKing[j][0];
+                ColumnDestination = t.RowColumnKing[j][1];
+            }
+            string move = Alphabet(t.Row) + Number(t.Column) + Alphabet(RowDestination) + Number(ColumnDestination);
+
+            return move;
+
+        }
         private void PopulateTreeViewS(int parentId, TreeNode parentNode, RefrigtzDLL.AllDraw Draw)
         {
             TreeNode childNode = new TreeNode();
@@ -136,6 +272,30 @@ namespace Refrigtz
 
                         PopulateTreeViewS(i, childNode, null);
                     }
+                    if (Draw.SolderesOnTable[i] == null)
+                    {
+                        TreeNode t = new TreeNode();
+                        t.Text = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Name = "NULL" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
+                        t.Tag = parentId;
+                        if (parentNode == null)
+                        {
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                treeViewRefregitzDraw.Nodes.Add(t);
+                            }); childNode = t;
+                        }
+                        else
+                        {
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                parentNode.Nodes.Add(t);
+                            });
+                            childNode = t;
+                        }
+
+                        PopulateTreeViewS(i, childNode, null);
+                    }
                     else
                     {
                         TreeNode t = new TreeNode();
@@ -166,8 +326,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.SolderesOnTable[i].SoldierThinking != null && Draw.SolderesOnTable[i].SoldierThinking[0] != null && Draw.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder != null && j < Draw.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "HuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
-                            tt.Name = "HuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
+                            tt.Text = "HuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
+                            tt.Name = "HuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
                             tt.Tag = j;
                             if (childNode == null)
                             {
@@ -307,8 +467,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.ElephantOnTable[i].ElefantThinking != null && Draw.ElephantOnTable[i].ElefantThinking[0] != null && Draw.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant != null && j < Draw.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "HuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
-                            tt.Name = "HuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
+                            tt.Text = "HuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
+                            tt.Name = "HuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
                             tt.Tag = j;
                             if (childNode == null)
                             {
@@ -451,8 +611,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.HoursesOnTable[i].HourseThinking != null && Draw.HoursesOnTable[i].HourseThinking[0] != null && Draw.HoursesOnTable[i].HourseThinking[0].HuristicListHourse != null && j < Draw.HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "HuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
-                            tt.Name = "HuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
+                            tt.Text = "HuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
+                            tt.Name = "HuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
                             tt.Tag = j;
 
                             if (childNode == null)
@@ -595,8 +755,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.CastlesOnTable[i].CastleThinking != null && Draw.CastlesOnTable[i].CastleThinking[0] != null && Draw.CastlesOnTable[i].CastleThinking[0].HuristicListCastle != null && j < Draw.CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "HuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
-                            tt.Name = "HuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
+                            tt.Text = "HuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
+                            tt.Name = "HuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
                             tt.Tag = j;
 
                             if (childNode == null)
@@ -824,8 +984,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.MinisterOnTable[i].MinisterThinking != null && Draw.MinisterOnTable[i].MinisterThinking[0] != null && Draw.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister != null && j < Draw.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "HuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
-                            tt.Name = "HuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
+                            tt.Text = "HuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
+                            tt.Name = "HuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
                             tt.Tag = j;
 
                             if (childNode == null)
@@ -967,8 +1127,8 @@ namespace Refrigtz
                         for (int j = 0; Draw.KingOnTable[i].KingThinking != null && Draw.KingOnTable[i].KingThinking[0] != null && Draw.KingOnTable[i].KingThinking[0].HuristicListKing != null && j < Draw.KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
                         {
                             TreeNode tt = new TreeNode();
-                            tt.Text = "HuristicKing" + j.ToString() + "_Order:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
-                            tt.Name = "HuristicKing" + j.ToString() + "_Order:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
+                            tt.Text = "HuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
+                            tt.Name = "HuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
                             tt.Tag = j;
 
                            

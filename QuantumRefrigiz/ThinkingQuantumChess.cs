@@ -12,7 +12,7 @@
  * Probability Heuristic constant Table return*********************************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Working Not Constant Immunity*************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Constant Result Mechanism*****************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Things Order and Virtualization Error***************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
+ * Things Order and Virtualization Error***************************************RS**0.12**4**Managements and Cuation Programing***********z***********(+)
  * Misleading Things Order movement********************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Multi Movements (3 ) In Chess ThinkingQuantum**************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Location of Horse 'Bob' (Gray) After Killer Un logically UnSelfSupported***RS**0.12**4**Managements and Cuation Programing**********************(+)
