@@ -81,6 +81,10 @@ namespace RefrigtzW
     [Serializable]
     public class ThinkingChess
     {
+        public bool KishSelf = false;
+        public bool KishEnemy = false;
+
+
         StringBuilder Space = new StringBuilder("&nbsp;");
 #pragma warning disable CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
         int Spaces = 0;
@@ -8657,7 +8661,7 @@ namespace RefrigtzW
 
                         if (Order == 1 && AA.CheckGray)
                         {
-                            //KishBefore = true;
+                            KishSelf = true;
                             Object A = new object();
                             lock (A)
                             {
@@ -8669,7 +8673,32 @@ namespace RefrigtzW
                         else
                             if (Order == -1 && AA.CheckBrown)
                         {
-                            //KishBefore = true;
+                            KishSelf = true;
+
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            CheckedM = -1;
+                            //return true;
+                        }
+                        if (Order == 1 && AA.CheckBrown)
+                        {
+                            KishEnemy = true;
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            CheckedM = -1;
+                            //return true;
+                        }
+                        else
+                           if (Order == -1 && AA.CheckGray)
+                        {
+                            KishEnemy = true;
+
                             Object A = new object();
                             lock (A)
                             {

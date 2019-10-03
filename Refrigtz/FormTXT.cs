@@ -214,6 +214,11 @@ namespace Refrigtz
                 ColumnDestination = t.RowColumnKing[j][1];
             }
             string move = Alphabet(t.Row) + Number(t.Column) + Alphabet(RowDestination) + Number(ColumnDestination);
+            if (t.IsThereMateOfSelf || t.IsThereMateOfEnemy)
+                move += "++";
+            else
+            if (t.KishSelf || t.KishEnemy)
+                move += "+";
 
             return move;
 
@@ -307,6 +312,11 @@ namespace Refrigtz
                         else
                       if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy)
                             t.BackColor = Color.Green;
+                        if (Draw.SolderesOnTable[i].SoldierThinking[0].KishEnemy)
+                            t.BackColor = Color.Blue;
+                        else
+                        if (Draw.SolderesOnTable[i].SoldierThinking[0].KishSelf)
+                            t.BackColor = Color.Yellow;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -447,6 +457,12 @@ namespace Refrigtz
                         else
                      if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy)
                             t.BackColor = Color.Green;
+
+                        if (Draw.ElephantOnTable[i].ElefantThinking[0].KishEnemy)
+                            t.BackColor = Color.Blue;
+                        else
+                  if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf)
+                            t.BackColor = Color.Yellow;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -591,6 +607,11 @@ namespace Refrigtz
                      if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy)
                             t.BackColor = Color.Green;
 
+                        if (Draw.HoursesOnTable[i].HourseThinking[0].KishEnemy)
+                            t.BackColor = Color.Blue;
+                        else
+             if (Draw.HoursesOnTable[i].HourseThinking[0].KishSelf)
+                            t.BackColor = Color.Yellow;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -735,6 +756,13 @@ namespace Refrigtz
                         else
                      if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy)
                             t.BackColor = Color.Green;
+
+                        if (Draw.CastlesOnTable[i].CastleThinking[0].KishEnemy)
+                            t.BackColor = Color.Blue;
+                        else
+            if (Draw.CastlesOnTable[i].CastleThinking[0].KishSelf)
+                            t.BackColor = Color.Yellow;
+
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -964,6 +992,12 @@ namespace Refrigtz
                         else
                            if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy)
                             t.BackColor = Color.Green;
+
+                        if (Draw.MinisterOnTable[i].MinisterThinking[0].KishEnemy)
+                            t.BackColor = Color.Blue;
+                        else
+          if (Draw.MinisterOnTable[i].MinisterThinking[0].KishSelf)
+                            t.BackColor = Color.Yellow;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -1106,6 +1140,12 @@ namespace Refrigtz
                         else
                           if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfEnemy)
                             t.BackColor = Color.Green;
+
+                        if (Draw.KingOnTable[i].KingThinking[0].KishEnemy)
+                            t.BackColor = Color.Blue;
+                        else
+         if (Draw.KingOnTable[i].KingThinking[0].KishSelf)
+                            t.BackColor = Color.Yellow;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()

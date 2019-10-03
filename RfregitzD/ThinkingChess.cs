@@ -81,7 +81,8 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess
     {
-        
+        public bool KishSelf = false;
+        public bool KishEnemy = false;
         StringBuilder Space = new StringBuilder("&nbsp;");
 #pragma warning disable CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
         int Spaces = 0;
@@ -8998,6 +8999,83 @@ namespace RefrigtzDLL
                                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
+                        }
+                        if (Order == 1 && AA.CheckMateBrown)
+                        {
+                            DoEnemySelf = false;
+                            EnemyCheckMateActionsString = true;
+                            CheckedM = -2;
+                            //return true;
+                        }
+                        if (Order == -1 && AA.CheckMateGray)
+                        {
+                            DoEnemySelf = false;
+                            EnemyCheckMateActionsString = true;
+                            CheckedM = -2;
+                            //return true;
+                        }
+                        if (Order == 1 && AA.CheckMateGray)
+                        {
+
+                            EnemyCheckMateActionsString = false;
+                            CheckedM = -2;
+                            //return true;
+                        }
+                        if (Order == -1 && AA.CheckMateBrown)
+                        {
+
+                            EnemyCheckMateActionsString = false;
+                            CheckedM = -2;
+                            //return true;
+                        }
+
+                        if (Order == 1 && AA.CheckGray)
+                        {
+                            KishSelf = true;
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            CheckedM = -1;
+                            //return true;
+                        }
+                        else
+                            if (Order == -1 && AA.CheckBrown)
+                        {
+                            KishSelf = true;
+
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            CheckedM = -1;
+                            //return true;
+                        }
+                        if (Order == 1 && AA.CheckBrown)
+                        {
+                            KishEnemy = true;
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            CheckedM = -1;
+                            //return true;
+                        }
+                        else
+                           if (Order == -1 && AA.CheckGray)
+                        {
+                            KishEnemy = true;
+
+                            Object A = new object();
+                            lock (A)
+                            {
+                                NumberOfPenalties++;
+                            }
+                            CheckedM = -1;
+                            //return true;
                         }
 
                         //if (FoundFirstSelfMating > 0)
