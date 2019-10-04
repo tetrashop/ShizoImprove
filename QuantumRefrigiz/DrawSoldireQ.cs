@@ -54,7 +54,7 @@ namespace QuantumRefrigiz
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
         public static int MaxHuristicxS = int.MinValue;
-        public float RowS, ColumnS;
+        public float Row, Column;
         public Color color;
         public ThinkingQuantumChess[] SoldierThinkingQuantum = new ThinkingQuantumChess[AllDraw.SodierMovments];
         public int[,] Table = null;
@@ -163,8 +163,8 @@ namespace QuantumRefrigiz
                 {
                     SoldierThinkingQuantum[ii] = new ThinkingQuantumChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);                    
                 }
-                RowS = i;
-                ColumnS = j;
+                Row = i;
+                Column = j;
                 color = a;
                 Order = Ord;
                 Current = Cur;
@@ -196,8 +196,8 @@ namespace QuantumRefrigiz
             for (var ii = 0; ii < 8; ii++)
                 for (var jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
-            AA.RowS = RowS;
-            AA.ColumnS = ColumnS;
+            AA.Row = Row;
+            AA.Column = Column;
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
@@ -303,7 +303,7 @@ namespace QuantumRefrigiz
                     }
                 }
 
-                if (!Quantum(Table, Order, Row, Column, LastRow, LastColumn))
+                if (!Quantum(Table, Order, (int)Row, (int)Column, LastRow, LastColumn))
                     RingHalf = false;
                 if (S[0] == null || S[1] == null)
                 {
@@ -330,14 +330,14 @@ namespace QuantumRefrigiz
                                      
                                     if (ArrangmentsChanged)
                                     {
-                                        if (Table[Row, Column - 1] < 0)
+                                        if (Table[(int)Row, (int)(Column - 1)] < 0)
                                         {
                                             RingHalf = false;
                                         }
                                     }
                                     else
                                     {
-                                        if (Table[Row, Column + 1] > 0)
+                                        if (Table[(int)Row, (int)(Column + 1)] > 0)
                                         {
                                             RingHalf = false;
                                         }
@@ -382,14 +382,14 @@ namespace QuantumRefrigiz
                                     
                                     if (ArrangmentsChanged)
                                     {
-                                        if (Table[Row, Column - 1] > 0)
+                                        if (Table[(int)Row, (int)(Column - 1)] > 0)
                                         {
                                             RingHalf = false;
                                         }
                                     }
                                     else
                                     {
-                                        if (Table[Row, Column + 1] < 0)
+                                        if (Table[(int)Row, (int)(Column + 1)] < 0)
                                         {
                                             RingHalf = false;
                                         }

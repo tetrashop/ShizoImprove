@@ -579,6 +579,7 @@ namespace Refrigtz
             this.TextBoxStatistic.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TextBoxStatistic.Size = new System.Drawing.Size(285, 69);
             this.TextBoxStatistic.TabIndex = 9;
+            this.TextBoxStatistic.TextChanged += new System.EventHandler(this.TextBoxStatistic_TextChanged);
             // 
             // CheckBoxAStarGreedyHuristic
             // 

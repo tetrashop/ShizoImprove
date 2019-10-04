@@ -12639,6 +12639,7 @@ namespace Refrigtz
                     THIS = null;
 
                     a = Color.Brown;
+                    OrderPlate *= -1;
                     Ord = OrderPlate;
                     if (MovmentsNumber == 0)
                     {
@@ -12646,7 +12647,7 @@ namespace Refrigtz
                             Ord = 1;
                     }
                     else
-                        Ord = OrderPlate * -1;
+                        Ord = OrderPlate;
                     while (Draw.AStarGreedyString != null)
                         Draw = Draw.AStarGreedyString;
 
@@ -12660,7 +12661,8 @@ namespace Refrigtz
                         FOUND = Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
                         if (FOUND)
                         {
-                            Ord = OrderPlate * -1;
+                            OrderPlate *= -1;
+                            Ord = OrderPlate;
 
                             Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                             if (FOUND)
@@ -12701,6 +12703,8 @@ namespace Refrigtz
                         }
                         else
                         {
+                            OrderPlate *= -1;
+
                             if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                                 AllDrawKind = 4;
                             else
@@ -12729,6 +12733,7 @@ namespace Refrigtz
                     }
                     else
                     {
+                        OrderPlate *= -1;
                         if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                             AllDrawKind = 4;
                         else
@@ -12834,6 +12839,8 @@ namespace Refrigtz
                     //if (First)
                     //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                     //else
+                    OrderPlate *= -1;
+
                     Ord = OrderPlate;
                     if (MovmentsNumber == 0)
                     {
@@ -12841,7 +12848,7 @@ namespace Refrigtz
                             Ord = 1;
                     }
                     else
-                        Ord = OrderPlate * -1;
+                        Ord = OrderPlate;
                     while (DrawQ.AStarGreedyString != null)
                         DrawQ = DrawQ.AStarGreedyString;
 
@@ -12855,7 +12862,9 @@ namespace Refrigtz
                         FOUND = DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
                         if (FOUND)
                         {
-                            Ord = OrderPlate * -1;
+                            OrderPlate *= -1;
+
+                            Ord = OrderPlate;
 
                             DrawQ.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                             if (FOUND)
@@ -12888,6 +12897,8 @@ namespace Refrigtz
                         }
                         else
                         {
+                            OrderPlate *= -1;
+
                             SetAllDrawKind();
                             //Set Configuration To True for some unknown reason!.
                             //UpdateConfigurationTableVal = true;                             
@@ -12909,6 +12920,8 @@ namespace Refrigtz
                     }
                     else
                     {
+                        OrderPlate *= -1;
+
                         SetAllDrawKind();
                         //Set Configuration To True for some unknown reason!.
                         //UpdateConfigurationTableVal = true;                             
@@ -17827,6 +17840,11 @@ namespace Refrigtz
         {
             FormTXT t = new FormTXT(Draw);
             t.Show();
+        }
+
+        private void TextBoxStatistic_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void ToolStripMenuItem14_Click(object sender, EventArgs e)

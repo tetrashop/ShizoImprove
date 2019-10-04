@@ -33,7 +33,7 @@ namespace RefrigtzW
         public bool AStarGreedyHuristicT = false;
         public bool ArrangmentsChanged = false;
         public static double MaxHuristicxS = int.MinValue;
-        public float RowS, ColumnS;
+        public float Row, Column;
         public Color color;
         public ThinkingChess[] SoldierThinking = new ThinkingChess[AllDraw.SodierMovments];
         public int[,] Table = null;
@@ -135,8 +135,8 @@ namespace RefrigtzW
                 for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
                     SoldierThinking[ii] = new ThinkingChess(1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
-                RowS = i;
-                ColumnS = j;
+                Row = i;
+                Column = j;
                 color = a;
                 Order = Ord;
                 Current = Cur;
@@ -168,8 +168,8 @@ namespace RefrigtzW
             for (var ii = 0; ii < 8; ii++)
                 for (var jj = 0; jj < 8; jj++)
                     AA.Table[ii, jj] = Tab[ii, jj];
-            AA.RowS = RowS;
-            AA.ColumnS = ColumnS;
+            AA.Row = Row;
+            AA.Column = Column;
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
