@@ -7353,7 +7353,7 @@ if (Kind == 2)
         }
         bool KillerForce(int HaveKiller)
         {
-            return ((!(ThinkingChess.IsAtLeastOneKillerAtDraw)) && (HaveKiller > 0));
+            return ((!(ThinkingChess.IsAtLeastOneKillerAtDraw)) || (HaveKiller > 0));
         }
         int[,] HuristicAStarGreadySearchSoldier(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
@@ -14945,45 +14945,70 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             if (Order== 1)
             {
                 for (var i = 0; i < A.SodierMidle; i++)
-                    if (A.SolderesOnTable[i] != null)
+                {
+                    if (A.SolderesOnTable != null && A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = 0; i < A.ElefantMidle; i++)
-                    if (A.ElephantOnTable[i] != null)
+                {
+                    if (A.ElephantOnTable != null && A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = 0; i < A.HourseMidle; i++)
-                    if (A.HoursesOnTable[i] != null)
+                {
+                    if (A.HoursesOnTable != null && A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = 0; i < A.CastleMidle; i++)
-                    if (A.CastlesOnTable[i] != null)
+                {
+                    if (A.CastlesOnTable != null && A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = 0; i < A.MinisterMidle; i++)
-                    if (A.MinisterOnTable[i] != null)
+                {
+                    if (A.MinisterOnTable != null && A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = 0; i < A.KingMidle; i++)
-                    if (A.KingOnTable[i] != null)
+                {
+                    if (A.KingOnTable != null && A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
+                }
 
             }
             else
             {
                 for (var i = A.SodierMidle; i < A.SodierHigh; i++)
-                    if (A.SolderesOnTable[i] != null)
+                {
+                    if (A.SolderesOnTable != null && A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = A.ElefantMidle; i < A.ElefantHigh; i++)
-                    if (A.ElephantOnTable[i] != null)
+                {
+                    if (A.ElephantOnTable != null && A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = A.HourseMidle; i < A.HourseHight; i++)
-                    if (A.HoursesOnTable[i] != null)
+                {
+                    if (A.HoursesOnTable != null && A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = A.CastleMidle; i < A.CastleHigh; i++)
-                    if (A.CastlesOnTable[i] != null)
+                {
+                    if (A.CastlesOnTable != null && A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].WinOcuuredatChiled;
+                }
+
                 for (var i = A.MinisterMidle; i < A.MinisterHigh; i++)
-                    if (A.MinisterOnTable[i] != null)
+                {
+                    if (A.MinisterOnTable != null && A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].WinOcuuredatChiled;
+                }
                 for (var i = A.KingMidle; i < A.KingHigh; i++)
-                    if (A.KingOnTable[i] != null)
+                {
+                    if (A.KingOnTable != null && A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
+                }
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SumOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Sum;
@@ -14994,48 +15019,73 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             int Sum = 0;
             if (A == null)
                 return Sum;
-            if (Order== 1)
+            if (Order == 1)
             {
                 for (var i = 0; i < A.SodierMidle; i++)
-                    if (A.SolderesOnTable[i] != null)
+                {
+                    if (A.SolderesOnTable != null && A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = 0; i < A.ElefantMidle; i++)
-                    if (A.ElephantOnTable[i] != null)
+                {
+                    if (A.ElephantOnTable != null && A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = 0; i < A.HourseMidle; i++)
-                    if (A.HoursesOnTable[i] != null)
+                {
+                    if (A.HoursesOnTable != null && A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = 0; i < A.CastleMidle; i++)
-                    if (A.CastlesOnTable[i] != null)
+                {
+                    if (A.CastlesOnTable != null && A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = 0; i < A.MinisterMidle; i++)
-                    if (A.MinisterOnTable[i] != null)
+                {
+                    if (A.MinisterOnTable != null && A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = 0; i < A.KingMidle; i++)
-                    if (A.KingOnTable[i] != null)
+                {
+                    if (A.KingOnTable != null && A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].LoseOcuuredatChiled;
+                }
 
             }
             else
             {
                 for (var i = A.SodierMidle; i < A.SodierHigh; i++)
-                    if (A.SolderesOnTable[i] != null)
+                {
+                    if (A.SolderesOnTable != null && A.SolderesOnTable[i] != null)
                         Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = A.ElefantMidle; i < A.ElefantHigh; i++)
-                    if (A.ElephantOnTable[i] != null)
+                {
+                    if (A.ElephantOnTable != null && A.ElephantOnTable[i] != null)
                         Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = A.HourseMidle; i < A.HourseHight; i++)
-                    if (A.HoursesOnTable[i] != null)
+                {
+                    if (A.HoursesOnTable != null && A.HoursesOnTable[i] != null)
                         Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = A.CastleMidle; i < A.CastleHigh; i++)
-                    if (A.CastlesOnTable[i] != null)
+                {
+                    if (A.CastlesOnTable != null && A.CastlesOnTable[i] != null)
                         Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
+                }
+
                 for (var i = A.MinisterMidle; i < A.MinisterHigh; i++)
-                    if (A.MinisterOnTable[i] != null)
+                {
+                    if (A.MinisterOnTable != null && A.MinisterOnTable[i] != null)
                         Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
+                }
                 for (var i = A.KingMidle; i < A.KingHigh; i++)
-                    if (A.KingOnTable[i] != null)
+                {
+                    if (A.KingOnTable != null && A.KingOnTable[i] != null)
                         Sum += A.KingOnTable[i].LoseOcuuredatChiled;
+                }
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SumMinusOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Sum;
@@ -15709,9 +15759,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
                 SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
-            for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
                 SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
@@ -15898,9 +15948,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
                 ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
-            for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
                 ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
@@ -16092,9 +16142,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
                 HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
-            for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
                 HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
@@ -16278,9 +16328,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
                 CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
-            for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
                 CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
@@ -16473,9 +16523,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
                 MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
-            for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
                 MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
@@ -16663,9 +16713,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
                 KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
-            for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count; h++)
+            for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
                 KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;

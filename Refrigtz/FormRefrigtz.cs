@@ -97,7 +97,7 @@ namespace Refrigtz
         public static String AllDrawKindString = "";
 
         bool MenueSelecte = false;
-        String path3 = @"temp";       
+        String path3 = @"temp";
         String AllDrawReplacement = "";
         bool Sugar = false;
         public bool Quantum = false;
@@ -370,14 +370,14 @@ namespace Refrigtz
         void AllOp()
         {
             while (!LoadedTable || (!MenueSelecte)) { Thread.Sleep(1000); }
-        
+
             //if (RefrigtzDLL.AllDraw.THISDummy != null)
             // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
             if (!Quantum)
             {
-                if (MovmentsNumber == 0)
+                if (MovmentsNumber == 1)
                 {
-                   
+
                     /*   if (Stockfish)
                        {
                            GrayTimer.Sign = 1;
@@ -642,7 +642,7 @@ namespace Refrigtz
                                         ColumnRealeased = -1;
                                         //Thread.Sleep(1500);
                                         BobSection = false;
-                                        
+
                                         GrayTimer.StopTime();
                                         BrownTimer.StartTime("BrownTimer");
                                         AllDo = false;
@@ -1021,7 +1021,7 @@ namespace Refrigtz
                                         ColumnRealeased = -1;
                                         //Thread.Sleep(1500);
                                         BobSection = false;
-                                        
+
                                         GrayTimer.StopTime();
                                         BrownTimer.StartTime("BrownTimer");
 
@@ -1155,9 +1155,10 @@ namespace Refrigtz
                                 }
                                 else
                                     if (BobSection && OrderPlate == 1)
-                                { GrayTimer.StartTime("GrayTimer");
-                                        BrownTimer.StopTime();
-                                     
+                                {
+                                    GrayTimer.StartTime("GrayTimer");
+                                    BrownTimer.StopTime();
+
 
                                     if (tM != null)
                                     {
@@ -1810,7 +1811,7 @@ namespace Refrigtz
                                 using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
                                 {
                                     soundClick.Play();
-                                   // soundClick.Dispose();
+                                    // soundClick.Dispose();
                                 }
 
 
@@ -1831,9 +1832,9 @@ namespace Refrigtz
             }
             else
             {
-                if (MovmentsNumber == 0)
+                if (MovmentsNumber == 1)
                 {
-                   
+
                     /*            if (Stockfish)
                                 {
                                     GrayTimer.Sign = 1;
@@ -2099,7 +2100,7 @@ namespace Refrigtz
                                         ColumnRealeased = -1;
                                         //Thread.Sleep(1500);
                                         BobSection = false;
-                                        
+
                                         GrayTimer.StopTime();
                                         BrownTimer.StartTime("BrownTimer");
                                         AllDo = false;
@@ -2461,7 +2462,7 @@ namespace Refrigtz
                                         ColumnRealeased = -1;
                                         //Thread.Sleep(1500);
                                         BobSection = false;
-                                        
+
                                         GrayTimer.StopTime();
                                         BrownTimer.StartTime("BrownTimer");
 
@@ -3330,7 +3331,7 @@ namespace Refrigtz
                 }
                 QuantumRefrigiz.ThinkingQuantumChess.LearniningTable = new LearningMachine.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             }
-            
+
 
         }
 
@@ -3927,7 +3928,7 @@ namespace Refrigtz
                         if (RefrigtzDLL.AllDraw.OutPut.ToString() != "")
                         {
                             SetBoxText(RefrigtzDLL.AllDraw.OutPut.ToString());
-                            RefrigtzDLL.AllDraw.OutPut= new StringBuilder( "");
+                            RefrigtzDLL.AllDraw.OutPut = new StringBuilder("");
                             RefreshBoxText();
 
                         }
@@ -4047,7 +4048,7 @@ namespace Refrigtz
                         }
                         //public static AllDraw THISDummy;
                         QuantumRefrigiz.AllDraw.StateCP = StateCP;
-                            QuantumRefrigiz.AllDraw.StateCC = StateCC;
+                        QuantumRefrigiz.AllDraw.StateCC = StateCC;
                         if (StateCP && (!Stockfish))
                         {
                             if (OrderPlate == -1 && Sec.RadioButtonGrayOrder.Checked)
@@ -4100,7 +4101,7 @@ namespace Refrigtz
         bool DrawManagement()
         {
             SetAllDrawKind();
-            
+
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
             SetAllDrawKindString();
@@ -4141,7 +4142,7 @@ namespace Refrigtz
                 File.Copy(AllDrawReplacement, AllDrawKindString);
                 Found = true;
             }
-           
+
             return Found;
         }
         void DeleteSetADrawKindString(String S)
@@ -4233,7 +4234,7 @@ namespace Refrigtz
 
                 TimerText.StartTime("TimerText");
 
-            
+
 
                 //Thread tr = new Thread(new ThreadStart(Timerstart));
                 //tr.Start();
@@ -4364,7 +4365,7 @@ namespace Refrigtz
 
                             //Read Last Table and Set MovementNumber 
                             Table = ReadTable(0, ref MovmentsNumber);
-                            OrderPlate *= -1;
+                            //OrderPlate *= -1;
 
                             if (DrawManagement())
                             {
@@ -4417,7 +4418,7 @@ namespace Refrigtz
                                 Log(t);
 
                             }
-                         }
+                        }
                     }
 
                     //Set Level Variable from selection.
@@ -4679,8 +4680,14 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw.TableListAction.Clear();
             else
                 QuantumRefrigiz.AllDraw.TableListAction.Clear();
+
             do
             {
+                oleDbCmd = new OleDbCommand();
+                bookConn = new OleDbConnection(connParam);
+                bookConn.Open();
+                oleDbCmd.Connection = bookConn;
+
                 OrderPlate *= -1;
                 if (!Quantum)
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
@@ -4696,16 +4703,16 @@ namespace Refrigtz
                         Zero += "0";
                     TableName = Zero + TableName;
 
-                  /*  if (bookConn != null)
-                    {
-                        bookConn.Close();
-                        bookConn.Dispose();
-                    }
-                    bookConn = new OleDbConnection(connParam);
-                    oleDbCmd.Connection = bookConn;
-                    bookConn.Open();
-                    */
-                    oleDbCmd.CommandText = String.Concat("Select * From " , TableName);
+                    /*  if (bookConn != null)
+                      {
+                          bookConn.Close();
+                          bookConn.Dispose();
+                      }
+                      bookConn = new OleDbConnection(connParam);
+                      oleDbCmd.Connection = bookConn;
+                      bookConn.Open();
+                      */
+                    oleDbCmd.CommandText = String.Concat("Select * From ", TableName);
                     OleDbDataReader dr = null;
                     /*   oleDbCmd.Parameters.AddWithValue("@a", System.Convert.ToInt32(Tab[0, i]));
                  oleDbCmd.Parameters.AddWithValue("@b",  System.Convert.ToInt32(Tab[1, i]));
@@ -4778,10 +4785,25 @@ namespace Refrigtz
                         break;
 
                     }
+                    bookConn.Close();
+                    oleDbCmd.Clone();
+                    //oleDbCmd.Dispose();
+                    bookConn.Dispose();
+
                 }
                 catch (Exception t)
                 {
                     Log(t);
+                    bookConn.Close();
+                    oleDbCmd.Clone();
+                    //oleDbCmd.Dispose();
+                    bookConn.Dispose();
+
+                    oleDbCmd = new OleDbCommand();
+                    bookConn = new OleDbConnection(connParam);
+                    bookConn.Open();
+                    oleDbCmd.Connection = bookConn;
+
                     try
                     {
 
@@ -4794,17 +4816,17 @@ namespace Refrigtz
                             Zero += "0";
                         TableName = Zero + TableName;
 
-                      /*  if (bookConn != null)
-                        {
-                            bookConn.Close();
-                            bookConn.Dispose();
-                        }
-                        bookConn = new OleDbConnection(connParam);
-                        oleDbCmd.Connection = bookConn;
-                        bookConn.Open();
+                        /*  if (bookConn != null)
+                          {
+                              bookConn.Close();
+                              bookConn.Dispose();
+                          }
+                          bookConn = new OleDbConnection(connParam);
+                          oleDbCmd.Connection = bookConn;
+                          bookConn.Open();
 
-                        */
-                        oleDbCmd.CommandText = String.Concat("Select * From " , TableName);
+                          */
+                        oleDbCmd.CommandText = String.Concat("Select * From ", TableName);
                         OleDbDataReader dr = oleDbCmd.ExecuteReader();
                         int ii = 0;
                         while (dr.Read())
@@ -4839,7 +4861,7 @@ namespace Refrigtz
 
                             }
                         }
-                        if (!Quantum)
+                        /*if (!Quantum)
                         {
                             Draw.TableList.Clear();
                             Draw.TableList.Add(TableA);
@@ -4850,7 +4872,7 @@ namespace Refrigtz
                             DrawQ.TableList.Clear();
                             DrawQ.TableList.Add(TableA);
                             DrawQ.SetRowColumn(0);
-                        }
+                        }*/
                         if (MoveNumber > 0)
                             SetAndConfirmSyntax();
                         else
@@ -4869,9 +4891,19 @@ namespace Refrigtz
                             break;
 
                         }
+                        bookConn.Close();
+                        oleDbCmd.Clone();
+                        //oleDbCmd.Dispose();
+                        bookConn.Dispose();
+
                     }
                     catch (Exception tt)
                     {
+                        bookConn.Close();
+                        oleDbCmd.Clone();
+                        //oleDbCmd.Dispose();
+                        bookConn.Dispose();
+
                         Log(tt);
                         break;
                     }
@@ -4883,8 +4915,8 @@ namespace Refrigtz
                 {
 
                 }
+
             } while (MoveNumber <= MovmentsNumberMax);
-       
             //Draw.TableList.Clear();
             //Draw.TableList.Add(Tab);
             //Draw.SetRowColumn(0);
@@ -4916,7 +4948,7 @@ namespace Refrigtz
                         Zero += "0";
                     TableName = Zero + TableName;
 
-                    oleDbCmd.CommandText = String.Concat("Select * From " , TableName);
+                    oleDbCmd.CommandText = String.Concat("Select * From ", TableName);
                     OleDbDataReader dr = null;
                     try
                     {
@@ -5120,7 +5152,7 @@ namespace Refrigtz
                                 Zero += "0";
                             TableName = Zero + TableName;
 
-                            oleDbCmd.CommandText = String.Concat("Drop Table " , TableName);
+                            oleDbCmd.CommandText = String.Concat("Drop Table ", TableName);
                             OleDbDataReader dr = null;
                             dr = oleDbCmd.ExecuteReader();
                             return true;
@@ -5163,6 +5195,11 @@ namespace Refrigtz
         //Read Specific Table Number.
         int[,] ReadTableMovmentNumber()
         {
+            oleDbCmd = new OleDbCommand();
+            bookConn = new OleDbConnection(connParam);
+            bookConn.Open();
+            oleDbCmd.Connection = bookConn;
+
             int[,] Tab = Table;
             int Move = MovmentsNumber;
             if (!Quantum)
@@ -5191,7 +5228,7 @@ namespace Refrigtz
                     Zero += "0";
                 TableName = Zero + TableName;
 
-                oleDbCmd.CommandText = String.Concat("Select * From " , TableName);
+                oleDbCmd.CommandText = String.Concat("Select * From ", TableName);
                 OleDbDataReader dr = null;
                 dr = oleDbCmd.ExecuteReader();
                 int ii = 0;
@@ -5236,7 +5273,7 @@ namespace Refrigtz
                         Zero += "0";
                     TableName = Zero + TableName;
 
-                    oleDbCmd.CommandText = String.Concat("Select * From " , TableName);
+                    oleDbCmd.CommandText = String.Concat("Select * From ", TableName);
                     OleDbDataReader dr = null;
                     dr = oleDbCmd.ExecuteReader();
                     int ii = 0;
@@ -5270,6 +5307,10 @@ namespace Refrigtz
                 }
             }
 
+            bookConn.Close();
+            oleDbCmd.Clone();
+            //oleDbCmd.Dispose();
+            bookConn.Dispose();
 
 
             return Tab;
@@ -5284,22 +5325,30 @@ namespace Refrigtz
             try
             {
 
-
+                oleDbCmd = new OleDbCommand();
+                bookConn = new OleDbConnection(connParam);
+                bookConn.Open();
+                oleDbCmd.Connection = bookConn;
                 TableName = MovmentsNumber.ToString();
                 String Zero = "Table";
                 for (int i = 0; i < 8 - TableName.Length; i++)
                     Zero += "0";
                 TableName = Zero + TableName;
 
-               /* if (bookConn != null)
-                    bookConn.Close();
-                bookConn = new OleDbConnection(connParam);
-                oleDbCmd.Connection = bookConn;
-                bookConn.Open();
-                */
-                oleDbCmd.CommandText = String.Concat("Create Table ", TableName , " (a Number NOT NULL,b Number NOT NULL,c Number NOT NULL,d Number NOT NULL,e Number NOT NULL,f Number NOT NULL,g Number NOT NULL,h Number NOT NULL)");
+                /* if (bookConn != null)
+                     bookConn.Close();
+                 bookConn = new OleDbConnection(connParam);
+                 oleDbCmd.Connection = bookConn;
+                 bookConn.Open();
+                 */
+                oleDbCmd.CommandText = String.Concat("Create Table ", TableName, " (a Number NOT NULL,b Number NOT NULL,c Number NOT NULL,d Number NOT NULL,e Number NOT NULL,f Number NOT NULL,g Number NOT NULL,h Number NOT NULL)");
                 int temp = 0;
                 temp = oleDbCmd.ExecuteNonQuery();
+                bookConn.Close();
+                oleDbCmd.Clone();
+                //oleDbCmd.Dispose();
+                bookConn.Dispose();
+
                 return TableName;
             }
             catch (Exception t)
@@ -5313,13 +5362,13 @@ namespace Refrigtz
                     Zero += "0";
                 TableName = Zero + TableName;
 
-              /*  if (bookConn != null)
-                    bookConn.Close();
-                bookConn = new OleDbConnection(connParam);
-                oleDbCmd.Connection = bookConn;
-                bookConn.Open();
-                */
-                oleDbCmd.CommandText = String.Concat("Drop Table " , TableName);
+                /*  if (bookConn != null)
+                      bookConn.Close();
+                  bookConn = new OleDbConnection(connParam);
+                  oleDbCmd.Connection = bookConn;
+                  bookConn.Open();
+                  */
+                oleDbCmd.CommandText = String.Concat("Drop Table ", TableName);
                 int temp = 0;
                 temp = oleDbCmd.ExecuteNonQuery();
                 goto Begin12;
@@ -5333,6 +5382,11 @@ namespace Refrigtz
         //Creatiopn of Configuration Table
         void CreateConfigurationTable()
         {
+            oleDbCmd = new OleDbCommand();
+            bookConn = new OleDbConnection(connParam);
+            bookConn.Open();
+            oleDbCmd.Connection = bookConn;
+
             try
             {
                 if (!AllDrawLoad)
@@ -5351,14 +5405,14 @@ namespace Refrigtz
                         int temp = 0;
                         temp = oleDbCmd.ExecuteNonQuery();
 
-                       /* if (bookConn != null)
-                            bookConn.Close();
-                        bookConn = new OleDbConnection(connParam);
-                        oleDbCmd.Connection = bookConn;
-                        bookConn.Open();
-                        */
+                        /* if (bookConn != null)
+                             bookConn.Close();
+                         bookConn = new OleDbConnection(connParam);
+                         oleDbCmd.Connection = bookConn;
+                         bookConn.Open();
+                         */
 
-                        oleDbCmd.CommandText = String.Concat("Insert into Configuration (CheckBoxAStarGreedyHuristic,CheckBoxPredictHuristci,CheckBoxAStarGreadyFirstSearch,CheckBoxBestMovments,CheckBoxOnlySelf,RadioButtonOriginalImages,RadioButtonBigFittingImages,RadioButtonSmallFittingImages,CheckBoxAStarGreedyMovement,CheckBoxUseDoubleTime,CheckBoxUsePenaltyRegradMechnisam,CheckBoxDynamicProgrammingAStarGreedyt,ComboBoxMaxTree,ComboBoxAttack,ComboBoxObjectDangour,ComboBoxReducedAttacked,ComboBoxSupport,ComboBoxHitting,ComboBoxMovments,ArrangmentsChanged,GrayTimer,BrownTimer,BobSection,AliceSection,StateCP,StateCC,StateGe,Blitz,Person,SettingPRFALSE,FullGame,Stockfish,lable1,lable2,MovmentsNumber,Quantum,Sugar,MenueSelecte,AllDrawKind,OrderPlate) values(", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString() , "," , System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString() , "," , System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString() , "," , System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString() , "," , System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString() , "," , System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString() , "," , System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString() , "," , System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString() , "," , System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString() , "," , System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString() , "," , System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString() , "," , System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString() , "," , System.Convert.ToInt32(ComboBoxMaxLevel.Text).ToString() , "," , System.Convert.ToInt32(ComboBoxAttack.Text).ToString() , "," , System.Convert.ToInt32(ComboBoxObjectDangour.Text).ToString() , "," , System.Convert.ToInt32(ComboBoxReducedAttacked.Text).ToString() , "," , System.Convert.ToInt32(ComboBoxSupport.Text).ToString() , "," , System.Convert.ToInt32(ComboBoxKiller.Text).ToString() , "," , System.Convert.ToInt32(ComboBoxMovments.Text).ToString() , "," , System.Convert.ToInt32(ArrangmentsChanged).ToString() , "," , GrayTimer.Times.ToString() , "," , BrownTimer.Times.ToString() , "," , System.Convert.ToInt32(BobSection).ToString() , "," , System.Convert.ToInt32(AliceSection).ToString() , "," , System.Convert.ToInt32(StateCP).ToString() , "," , System.Convert.ToInt32(StateCC).ToString() , "," , System.Convert.ToInt32(StateGe).ToString() , "," , System.Convert.ToInt32(Blitz).ToString() , "," , System.Convert.ToInt32(Person).ToString() , "," , System.Convert.ToInt32(SettingPRFALSE).ToString() , "," , System.Convert.ToInt32(FullGame).ToString() , "," , System.Convert.ToInt32(Stockfish).ToString() , ",'" , label1.Text , "','" , label2.Text , "','" , MovmentsNumber.ToString() , "','" , System.Convert.ToInt32(Quantum).ToString() , "','" , System.Convert.ToInt32(Sugar).ToString() , "','", System.Convert.ToInt32(MenueSelecte).ToString(), "','" , System.Convert.ToInt32(AllDrawKind).ToString() ,"','", System.Convert.ToInt32(OrderPlate).ToString(), "')");
+                        oleDbCmd.CommandText = String.Concat("Insert into Configuration (CheckBoxAStarGreedyHuristic,CheckBoxPredictHuristci,CheckBoxAStarGreadyFirstSearch,CheckBoxBestMovments,CheckBoxOnlySelf,RadioButtonOriginalImages,RadioButtonBigFittingImages,RadioButtonSmallFittingImages,CheckBoxAStarGreedyMovement,CheckBoxUseDoubleTime,CheckBoxUsePenaltyRegradMechnisam,CheckBoxDynamicProgrammingAStarGreedyt,ComboBoxMaxTree,ComboBoxAttack,ComboBoxObjectDangour,ComboBoxReducedAttacked,ComboBoxSupport,ComboBoxHitting,ComboBoxMovments,ArrangmentsChanged,GrayTimer,BrownTimer,BobSection,AliceSection,StateCP,StateCC,StateGe,Blitz,Person,SettingPRFALSE,FullGame,Stockfish,lable1,lable2,MovmentsNumber,Quantum,Sugar,MenueSelecte,AllDrawKind,OrderPlate) values(", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString(), ",", System.Convert.ToInt32(ComboBoxMaxLevel.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxAttack.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxObjectDangour.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxReducedAttacked.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxSupport.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxKiller.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxMovments.Text).ToString(), ",", System.Convert.ToInt32(ArrangmentsChanged).ToString(), ",", GrayTimer.Times.ToString(), ",", BrownTimer.Times.ToString(), ",", System.Convert.ToInt32(BobSection).ToString(), ",", System.Convert.ToInt32(AliceSection).ToString(), ",", System.Convert.ToInt32(StateCP).ToString(), ",", System.Convert.ToInt32(StateCC).ToString(), ",", System.Convert.ToInt32(StateGe).ToString(), ",", System.Convert.ToInt32(Blitz).ToString(), ",", System.Convert.ToInt32(Person).ToString(), ",", System.Convert.ToInt32(SettingPRFALSE).ToString(), ",", System.Convert.ToInt32(FullGame).ToString(), ",", System.Convert.ToInt32(Stockfish).ToString(), ",'", label1.Text, "','", label2.Text, "','", MovmentsNumber.ToString(), "','", System.Convert.ToInt32(Quantum).ToString(), "','", System.Convert.ToInt32(Sugar).ToString(), "','", System.Convert.ToInt32(MenueSelecte).ToString(), "','", System.Convert.ToInt32(AllDrawKind).ToString(), "','", System.Convert.ToInt32(OrderPlate).ToString(), "')");
 
                         oleDbCmd.Parameters.AddWithValue("@CheckBoxAStarGreedyHuristic", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked));
                         oleDbCmd.Parameters.AddWithValue("@CheckBoxPredictHuristci", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked));
@@ -5408,12 +5462,12 @@ namespace Refrigtz
 
                         Log(t);
 
-                      /*  if (bookConn != null)
-                            bookConn.Close();
-                        bookConn = new OleDbConnection(connParam);
-                        oleDbCmd.Connection = bookConn;
-                        bookConn.Open();
-                        */
+                        /*  if (bookConn != null)
+                              bookConn.Close();
+                          bookConn = new OleDbConnection(connParam);
+                          oleDbCmd.Connection = bookConn;
+                          bookConn.Open();
+                          */
                         oleDbCmd.CommandText = @"Drop Table Configuration";
                         int temp = 0;
                         temp = oleDbCmd.ExecuteNonQuery();
@@ -5427,15 +5481,20 @@ namespace Refrigtz
 #pragma warning restore CS0168 // The variable 't' is declared but never used
             {
             }
+            bookConn.Close();
+            oleDbCmd.Clone();
+            //oleDbCmd.Dispose();
+            bookConn.Dispose();
         }
         void UpdateTable(int[,] Tabl, String TableName)
         {
             try
             {
-                if (bookConn == null)
-                    bookConn = new OleDbConnection(connParam);
-                else
-                    bookConn.Close();
+                oleDbCmd = new OleDbCommand();
+                bookConn = new OleDbConnection(connParam);
+                bookConn.Open();
+                oleDbCmd.Connection = bookConn;
+
                 oleDbCmd.CommandText = @"Drop Table " + TableName;
                 int temp = 0;
                 temp = oleDbCmd.ExecuteNonQuery();
@@ -5453,6 +5512,11 @@ namespace Refrigtz
         //Reading of Configuration Table Method.
         void ReadConfigurationTable()
         {
+            oleDbCmd = new OleDbCommand();
+            bookConn = new OleDbConnection(connParam);
+            bookConn.Open();
+            oleDbCmd.Connection = bookConn;
+
             if (!AllDrawLoad)
             {
                 Begin12:
@@ -5460,12 +5524,12 @@ namespace Refrigtz
                 {
 
 
-                   /* if (bookConn != null)
-                    {
-                        bookConn.Close();
-                        oleDbCmd.Dispose();
-                        bookConn.Dispose();
-                    }*/
+                    /* if (bookConn != null)
+                     {
+                         bookConn.Close();
+                         //oleDbCmd.Dispose();
+                         bookConn.Dispose();
+                     }*/
                     /*bookConn = new OleDbConnection(connParam);
                     oleDbCmd.Connection = bookConn;
                     bookConn.Open();
@@ -5581,6 +5645,11 @@ namespace Refrigtz
                         OrderPlate = System.Convert.ToInt32(dr["OrderPlate"]);
                         ARead = true;
                     }
+                    bookConn.Close();
+                    oleDbCmd.Clone();
+                    //oleDbCmd.Dispose();
+                    bookConn.Dispose();
+
                     if (!ARead)
                         CreateConfigurationTable();
 
@@ -5597,10 +5666,18 @@ namespace Refrigtz
                         oleDbCmd.CommandText = @"Drop Table Configuration";
                         int temp = 0;
                         temp = oleDbCmd.ExecuteNonQuery();
+                        bookConn.Close();
+                        oleDbCmd.Clone();
+                        //oleDbCmd.Dispose();
+                        bookConn.Dispose();
                     }
                     catch (Exception tt)
                     {
                         Log(tt);
+                        bookConn.Close();
+                        oleDbCmd.Clone();
+                        //oleDbCmd.Dispose();
+                        bookConn.Dispose();
                         CreateConfigurationTable();
                     }
                     goto Begin12;
@@ -5611,6 +5688,11 @@ namespace Refrigtz
         //Updating of Configuration Method.
         void UpdateConfigurationTable()
         {
+            oleDbCmd = new OleDbCommand();
+            bookConn = new OleDbConnection(connParam);
+            bookConn.Open();
+            oleDbCmd.Connection = bookConn;
+
             //if (UpdateConfigurationTableVal)
             {
 
@@ -5653,7 +5735,8 @@ namespace Refrigtz
                      oleDbCmd.Connection = bookConn;
                      bookConn.Open();
                      */
-                    oleDbCmd.CommandText = String.Concat("Update Configuration Set CheckBoxAStarGreedyHuristic=", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString(), ",CheckBoxPredictHuristci=", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString(), ",CheckBoxAStarGreadyFirstSearch=", System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString(), ",CheckBoxBestMovments=", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",CheckBoxOnlySelf=", System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString(), ",RadioButtonOriginalImages=", System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString(), ",RadioButtonBigFittingImages=", System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString(), ",RadioButtonSmallFittingImages=", System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString(), ",CheckBoxAStarGreedyMovement=", System.Convert.ToInt32(CheckBoxAStarGreedyMovement.Checked).ToString(), ",CheckBoxUseDoubleTime=", System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString(), ",CheckBoxUsePenaltyRegradMechnisam=", System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString(), ",CheckBoxDynamicProgrammingAStarGreedyt=", System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString(), ",ComboBoxMaxTree=", ComboBoxMaxLevel.Text, ",ComboBoxAttack=", ComboBoxAttack.Text, ",ComboBoxObjectDangour=", ComboBoxObjectDangour.Text, ",ComboBoxReducedAttacked=", ComboBoxReducedAttacked.Text, ",ComboBoxSupport=", ComboBoxSupport.Text, ",ComboBoxHitting=", ComboBoxKiller.Text, ",ComboBoxMovments=", ComboBoxMovments.Text, ",ArrangmentsChanged=", System.Convert.ToString(System.Convert.ToInt32(ArrangmentsChanged)), ",GrayTimer=", GrayTimer.Times.ToString(), ",BrownTimer=", BrownTimer.Times.ToString(), ",BobSection = ", System.Convert.ToUInt32(BobSection).ToString(), ",AliceSection =", System.Convert.ToUInt32(AliceSection).ToString(), ",StateCP = ", System.Convert.ToUInt32(StateCP).ToString(), ",StateCC = ", System.Convert.ToUInt32(StateCC).ToString(), ",StateGe=", System.Convert.ToUInt32(StateGe).ToString(), ",Blitz=", System.Convert.ToUInt32(Blitz).ToString(), ",Person=", System.Convert.ToUInt32(Person).ToString(), ",SettingPRFALSE=", System.Convert.ToUInt32(SettingPRFALSE).ToString(), ",FullGame=", System.Convert.ToUInt32(FullGame).ToString(), ",Stockfish=", System.Convert.ToUInt32(Stockfish).ToString(), ",lable1='", label1.Text, "',lable2='", label2.Text, "',MovmentsNumber='", MovmentsNumber.ToString(), "',", "Quantum = '", System.Convert.ToInt32(Quantum).ToString(), "',", "Sugar = '", System.Convert.ToInt32(Sugar).ToString(), "',", "MenueSelecte='", System.Convert.ToInt32(MenueSelecte).ToString(), "',", "AllDrawKind='", System.Convert.ToInt32(AllDrawKind).ToString(),"',", "OrderPlate='", System.Convert.ToInt32(OrderPlate).ToString(), "'");
+
+                    oleDbCmd.CommandText = String.Concat("Update Configuration Set CheckBoxAStarGreedyHuristic=", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString(), ",CheckBoxPredictHuristci=", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString(), ",CheckBoxAStarGreadyFirstSearch=", System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString(), ",CheckBoxBestMovments=", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",CheckBoxOnlySelf=", System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString(), ",RadioButtonOriginalImages=", System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString(), ",RadioButtonBigFittingImages=", System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString(), ",RadioButtonSmallFittingImages=", System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString(), ",CheckBoxAStarGreedyMovement=", System.Convert.ToInt32(CheckBoxAStarGreedyMovement.Checked).ToString(), ",CheckBoxUseDoubleTime=", System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString(), ",CheckBoxUsePenaltyRegradMechnisam=", System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString(), ",CheckBoxDynamicProgrammingAStarGreedyt=", System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString(), ",ComboBoxMaxTree=", ComboBoxMaxLevel.Text, ",ComboBoxAttack=", ComboBoxAttack.Text, ",ComboBoxObjectDangour=", ComboBoxObjectDangour.Text, ",ComboBoxReducedAttacked=", ComboBoxReducedAttacked.Text, ",ComboBoxSupport=", ComboBoxSupport.Text, ",ComboBoxHitting=", ComboBoxKiller.Text, ",ComboBoxMovments=", ComboBoxMovments.Text, ",ArrangmentsChanged=", System.Convert.ToString(System.Convert.ToInt32(ArrangmentsChanged)), ",GrayTimer=", GrayTimer.Times.ToString(), ",BrownTimer=", BrownTimer.Times.ToString(), ",BobSection = ", System.Convert.ToUInt32(BobSection).ToString(), ",AliceSection =", System.Convert.ToUInt32(AliceSection).ToString(), ",StateCP = ", System.Convert.ToUInt32(StateCP).ToString(), ",StateCC = ", System.Convert.ToUInt32(StateCC).ToString(), ",StateGe=", System.Convert.ToUInt32(StateGe).ToString(), ",Blitz=", System.Convert.ToUInt32(Blitz).ToString(), ",Person=", System.Convert.ToUInt32(Person).ToString(), ",SettingPRFALSE=", System.Convert.ToUInt32(SettingPRFALSE).ToString(), ",FullGame=", System.Convert.ToUInt32(FullGame).ToString(), ",Stockfish=", System.Convert.ToUInt32(Stockfish).ToString(), ",lable1='", label1.Text, "',lable2='", label2.Text, "',MovmentsNumber='", MovmentsNumber.ToString(), "',", "Quantum = '", System.Convert.ToInt32(Quantum).ToString(), "',", "Sugar = '", System.Convert.ToInt32(Sugar).ToString(), "',", "MenueSelecte='", System.Convert.ToInt32(MenueSelecte).ToString(), "',", "AllDrawKind='", System.Convert.ToInt32(AllDrawKind).ToString(), "',", "OrderPlate='", System.Convert.ToInt32(OrderPlate).ToString(), "'");
 
                     oleDbCmd.Parameters.AddWithValue("@CheckBoxAStarGreedyHuristic", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked));
                     oleDbCmd.Parameters.AddWithValue("@CheckBoxPredictHuristci", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked));
@@ -5691,7 +5774,7 @@ namespace Refrigtz
                     oleDbCmd.Parameters.AddWithValue("@lable2", label2.Text);
                     oleDbCmd.Parameters.AddWithValue("@MovmentsNumber", System.Convert.ToInt32(MovmentsNumber));
                     oleDbCmd.Parameters.AddWithValue("@Quantum", System.Convert.ToInt32(Quantum));
-                    oleDbCmd.Parameters.AddWithValue("@Sugar",System.Convert.ToInt32(Sugar));
+                    oleDbCmd.Parameters.AddWithValue("@Sugar", System.Convert.ToInt32(Sugar));
                     oleDbCmd.Parameters.AddWithValue("@MenueSelecte", System.Convert.ToInt32(MenueSelecte));
                     oleDbCmd.Parameters.AddWithValue("@AllDrawKind", System.Convert.ToInt32(AllDrawKind));
                     oleDbCmd.Parameters.AddWithValue("@OrderPlate", System.Convert.ToInt32(OrderPlate));
@@ -5713,19 +5796,19 @@ namespace Refrigtz
                     try
                     {
 
-                    /*    if (bookConn != null)
-                            bookConn.Close();
-                        bookConn = new OleDbConnection(connParam);
-                        oleDbCmd.Connection = bookConn;
-                        bookConn.Open();
-*/
+                        /*    if (bookConn != null)
+                                bookConn.Close();
+                            bookConn = new OleDbConnection(connParam);
+                            oleDbCmd.Connection = bookConn;
+                            bookConn.Open();
+    */
                         oleDbCmd.CommandText = @"Drop Table Configuration";
                         int temp = 0;
                         temp = oleDbCmd.ExecuteNonQuery();
 
                         CreateConfigurationTable();
 
-                      // goto Begin12;
+                        // goto Begin12;
                     }
                     catch (Exception tt)
                     {
@@ -5735,6 +5818,10 @@ namespace Refrigtz
 
                 }
             }
+            bookConn.Close();
+            oleDbCmd.Clone();
+            //oleDbCmd.Dispose();
+            bookConn.Dispose();
         }
         //Inserting of New Tabler at Database.
         void InsertTableAtDataBase(int[,] Table)
@@ -5748,34 +5835,43 @@ namespace Refrigtz
                     Tab[i, j] = Table[i, j];
                 }
             }
-        
+
             String TableName = CreatTable();
+
+            oleDbCmd = new OleDbCommand();
+            bookConn = new OleDbConnection(connParam);
+            bookConn.Open();
+            oleDbCmd.Connection = bookConn;
 
 
             for (int i = 0; i < 8; i++)
             {
-              /*  if (bookConn != null)
-                    bookConn.Close();
-                bookConn = new OleDbConnection(connParam);
-                oleDbCmd.Connection = bookConn;
-                bookConn.Open();
-*/
+                /*  if (bookConn != null)
+                      bookConn.Close();
+                  bookConn = new OleDbConnection(connParam);
+                  oleDbCmd.Connection = bookConn;
+                  bookConn.Open();
+  */
                 oleDbCmd.CommandText = @"insert into " + TableName + "(a,b,c,d,e,f,g,h)  values (" + Tab[0, i].ToString() + "," + Tab[1, i].ToString() + "," + Tab[2, i].ToString() + "," + Tab[3, i].ToString() + "," + Tab[4, i].ToString() + "," + Tab[5, i].ToString() + "," + Tab[6, i].ToString() + "," + Tab[7, i].ToString() + ")";
 
                 oleDbCmd.Parameters.AddWithValue("@a", System.Convert.ToInt32(Tab[0, i]));
-                oleDbCmd.Parameters.AddWithValue("@b",  System.Convert.ToInt32(Tab[1, i]));
-                oleDbCmd.Parameters.AddWithValue("@c",  System.Convert.ToInt32(Tab[2, i]));
-                oleDbCmd.Parameters.AddWithValue("@d",  System.Convert.ToInt32(Tab[3, i]));
-                oleDbCmd.Parameters.AddWithValue("@e",  System.Convert.ToInt32(Tab[4, i]));
-                oleDbCmd.Parameters.AddWithValue("@f",  System.Convert.ToInt32(Tab[5, i]));
-                oleDbCmd.Parameters.AddWithValue("@g",  System.Convert.ToInt32(Tab[6, i]));
-                oleDbCmd.Parameters.AddWithValue("@h",  System.Convert.ToInt32(Tab[7, i]));
+                oleDbCmd.Parameters.AddWithValue("@b", System.Convert.ToInt32(Tab[1, i]));
+                oleDbCmd.Parameters.AddWithValue("@c", System.Convert.ToInt32(Tab[2, i]));
+                oleDbCmd.Parameters.AddWithValue("@d", System.Convert.ToInt32(Tab[3, i]));
+                oleDbCmd.Parameters.AddWithValue("@e", System.Convert.ToInt32(Tab[4, i]));
+                oleDbCmd.Parameters.AddWithValue("@f", System.Convert.ToInt32(Tab[5, i]));
+                oleDbCmd.Parameters.AddWithValue("@g", System.Convert.ToInt32(Tab[6, i]));
+                oleDbCmd.Parameters.AddWithValue("@h", System.Convert.ToInt32(Tab[7, i]));
 
                 int temp = 0;
                 temp = oleDbCmd.ExecuteNonQuery();
 
             }
             //MaxCurrent
+            bookConn.Close();
+            oleDbCmd.Clone();
+            //oleDbCmd.Dispose();
+            bookConn.Dispose();
             if (MovmentsNumber >= 1)
                 GameStarted = true;
             MovmentsNumber++;
@@ -6484,15 +6580,15 @@ namespace Refrigtz
             System.Threading.Thread.Sleep(5);
         }
 
-        int CalculateMoveMentHueuristicUser(int Kind,int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
+        int CalculateMoveMentHueuristicUser(int Kind, int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
         {
 
             RefrigtzDLL.ThinkingChess th = null;
             QuantumRefrigiz.ThinkingQuantumChess th1 = null;
             if (!Quantum)
-                th = new RefrigtzDLL.ThinkingChess(Kind,0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
+                th = new RefrigtzDLL.ThinkingChess(Kind, 0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
             else
-                th1 = new QuantumRefrigiz.ThinkingQuantumChess(Kind,0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
+                th1 = new QuantumRefrigiz.ThinkingQuantumChess(Kind, 0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
             int HuristicAttackValue = new int();
             int HuristicMovementValue = new int();
             int HuristicSelfSupportedValue = new int();
@@ -6758,7 +6854,7 @@ namespace Refrigtz
             {
                 if (Kind == 7)
                 {
-                    RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind,Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                    RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind, Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                     LastRow = (int)RowRealesed;
                     LastColumn = (int)ColumnRealeased;
                     CurrentKind = 7;
@@ -6771,7 +6867,7 @@ namespace Refrigtz
                 }
                 else if (Kind == -7)
                 {
-                    RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind,Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                    RefrigtzDLL.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind, Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                     LastRow = (int)RowRealesed;
                     LastColumn = (int)ColumnRealeased;
                     CurrentKind = -7;
@@ -6785,7 +6881,7 @@ namespace Refrigtz
             {
                 if (Kind == 7)
                 {
-                    QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind,Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
+                    QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind, Table, 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                     LastRow = (int)RowRealesed;
                     LastColumn = (int)ColumnRealeased;
                     CurrentKind = 7;
@@ -6798,7 +6894,7 @@ namespace Refrigtz
                 }
                 else if (Kind == -7)
                 {
-                    QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind,Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
+                    QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(Kind, Table, -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                     LastRow = (int)RowRealesed;
                     LastColumn = (int)ColumnRealeased;
                     CurrentKind = -7;
@@ -6834,7 +6930,7 @@ namespace Refrigtz
                             }
                             if ((RefrigtzDLL.ChessRules.SmallKingCastleGray || RefrigtzDLL.ChessRules.BigKingCastleGray) && (!RefrigtzDLL.ChessRules.CastleActGray))
                                 RefrigtzDLL.ChessRules.CastleActGray = true;
-                            RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
+                            RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
                         }
                         else
                         {
@@ -6846,7 +6942,7 @@ namespace Refrigtz
                             if ((RefrigtzDLL.ChessRules.SmallKingCastleBrown || RefrigtzDLL.ChessRules.BigKingCastleBrown) && (!RefrigtzDLL.ChessRules.CastleActBrown))
                                 RefrigtzDLL.ChessRules.CastleActBrown = true;
 
-                            RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
+                            RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
                         }
                         SetBoxStatistic(RefrigtzDLL.AllDraw.SyntaxToWrite);
                         RefreshBoxStatistic();
@@ -6876,7 +6972,7 @@ namespace Refrigtz
                             }
                             if ((QuantumRefrigiz.ChessRules.SmallKingCastleGray || QuantumRefrigiz.ChessRules.BigKingCastleGray) && (!QuantumRefrigiz.ChessRules.CastleActGray))
                                 QuantumRefrigiz.ChessRules.CastleActGray = true;
-                            QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
+                            QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
                         }
                         else
                         {
@@ -6888,7 +6984,7 @@ namespace Refrigtz
                             if ((QuantumRefrigiz.ChessRules.SmallKingCastleBrown || QuantumRefrigiz.ChessRules.BigKingCastleBrown) && (!QuantumRefrigiz.ChessRules.CastleActBrown))
                                 QuantumRefrigiz.ChessRules.CastleActBrown = true;
 
-                            QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
+                            QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
                         }
                         SetBoxStatistic(QuantumRefrigiz.AllDraw.SyntaxToWrite);
                         RefreshBoxStatistic();
@@ -7104,7 +7200,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -7263,7 +7359,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -7355,7 +7451,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -7447,7 +7543,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -7542,7 +7638,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -7639,7 +7735,7 @@ namespace Refrigtz
                                                 OrderPlate = OrderPlate * -1;
 
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -7732,7 +7828,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -7929,7 +8025,7 @@ namespace Refrigtz
                                                 RefrigtzDLL.AllDraw.DrawTable = false;
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -8082,7 +8178,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -8173,7 +8269,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -8266,7 +8362,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -8359,7 +8455,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -8453,7 +8549,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -8551,7 +8647,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
 
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
@@ -8812,7 +8908,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -8974,7 +9070,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -9070,7 +9166,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -9165,7 +9261,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -9265,7 +9361,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -9365,7 +9461,7 @@ namespace Refrigtz
                                                 OrderPlate = OrderPlate * -1;
 
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -9461,7 +9557,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -9663,7 +9759,7 @@ namespace Refrigtz
                                                 QuantumRefrigiz.AllDraw.DrawTable = false;
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 GrayTimer.StopTime();
                                                 BrownTimer.StartTime("BrownTimer");
                                                 InsertTableAtDataBase(Table);
@@ -9818,7 +9914,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -9912,7 +10008,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -10009,7 +10105,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -10105,7 +10201,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -10202,7 +10298,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
                                                 InsertTableAtDataBase(Table);
@@ -10303,7 +10399,7 @@ namespace Refrigtz
 
                                                 OrderPlate = OrderPlate * -1;
                                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
-                                                
+
 
                                                 BrownTimer.StopTime();
                                                 GrayTimer.StartTime("GrayTimer");
@@ -11844,7 +11940,7 @@ namespace Refrigtz
 
                 if (File.Exists("output.txt"))
                     Next = File.ReadAllText("output.txt");
-                if (Preveios == Next || Next.Length< 1)
+                if (Preveios == Next || Next.Length < 1)
                     return true;
             }
             catch (Exception t)
@@ -11858,8 +11954,9 @@ namespace Refrigtz
             //WaitOn = false;
             return false;
         }
-        bool SetDrawFoundingQuantum(bool ConvertQ,int i, int j, int ii, int jj, int[,] Table, int[,] Tab)
-        { bool FOUND = false;
+        bool SetDrawFoundingQuantum(bool ConvertQ, int i, int j, int ii, int jj, int[,] Table, int[,] Tab)
+        {
+            bool FOUND = false;
             QuantumRefrigiz.AllDraw THIS = null;
             DrawQ.FoundOfCurrentTableNode(Table, OrderPlate, ref THIS, ref FOUND);
             if (FOUND)
@@ -11880,8 +11977,8 @@ namespace Refrigtz
                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                 }
-                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(0,Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
-              // OrderPlate = DrawQ.OrderP;
+                QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(0, Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                // OrderPlate = DrawQ.OrderP;
                 /*QuantumRefrigiz.AllDraw.TableListAction.Add(Tab);
                 Person = false;
                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
@@ -11953,7 +12050,7 @@ namespace Refrigtz
             }
             return false;
         }
-        bool SetDrawFoundingMovemnetDLL(bool ConvertD,int i, int j, int ii, int jj, int[,] Table, int[,] Tab)
+        bool SetDrawFoundingMovemnetDLL(bool ConvertD, int i, int j, int ii, int jj, int[,] Table, int[,] Tab)
         {
             bool FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
@@ -11976,7 +12073,7 @@ namespace Refrigtz
                     RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
                     RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                 }
-                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(0,Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
+                RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(0, Table, -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
                 // OrderPlate = Draw.OrderP;
                 /*RefrigtzDLL.AllDraw.TableListAction.Add(Tab);
                 Person = false;
@@ -12087,18 +12184,18 @@ namespace Refrigtz
                             {
 
                                 Table[(int)RowClickP, (int)ColumnClickP] = 0;
-                                  if (Draw.SolderesOnTable[Soldier].ConvertedToMinister)
-                                      Table[(int)RowRealesed, (int)ColumnRealeased] = 5;
-                                  else if (Draw.SolderesOnTable[Soldier].ConvertedToCastle)
-                                      Table[(int)RowRealesed, (int)ColumnRealeased] = 4;
-                                  else if (Draw.SolderesOnTable[Soldier].ConvertedToHourse)
-                                      Table[(int)RowRealesed, (int)ColumnRealeased] = 3;
-                                  else if (Draw.SolderesOnTable[Soldier].ConvertedToElefant)
-                                      Table[(int)RowRealesed, (int)ColumnRealeased] = 2;
+                                if (Draw.SolderesOnTable[Soldier].ConvertedToMinister)
+                                    Table[(int)RowRealesed, (int)ColumnRealeased] = 5;
+                                else if (Draw.SolderesOnTable[Soldier].ConvertedToCastle)
+                                    Table[(int)RowRealesed, (int)ColumnRealeased] = 4;
+                                else if (Draw.SolderesOnTable[Soldier].ConvertedToHourse)
+                                    Table[(int)RowRealesed, (int)ColumnRealeased] = 3;
+                                else if (Draw.SolderesOnTable[Soldier].ConvertedToElefant)
+                                    Table[(int)RowRealesed, (int)ColumnRealeased] = 2;
 
                                 if (OrderPlate == -1)
                                     Table[(int)RowRealesed, (int)ColumnRealeased] *= -1;
-                                
+
                                 RefrigtzDLL.ThingsConverter.ClickOcurred = false;
                                 for (int ik = 0; ik < 8; ik++)
                                 {
@@ -12122,7 +12219,7 @@ namespace Refrigtz
                             }
                         }
 
-                        bool FOUND = SetDrawFoundingMovemnetDLL(Draw.SolderesOnTable[Soldier].Convert,i, j, ii, jj, Table, Tab);
+                        bool FOUND = SetDrawFoundingMovemnetDLL(Draw.SolderesOnTable[Soldier].Convert, i, j, ii, jj, Table, Tab);
                         if (FOUND)
                         {
                             //Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -12133,7 +12230,7 @@ namespace Refrigtz
                         DrawImageOfMain();
                         return false;
 
-                        }
+                    }
                     else
                     {
                         SetBoxText("\r\nWait...");
@@ -12145,7 +12242,7 @@ namespace Refrigtz
                         return true;
                     }
                 }
-            }            
+            }
             else
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -12179,14 +12276,14 @@ namespace Refrigtz
                             {
 
                                 Table[(int)RowClickP, (int)ColumnClickP] = 0;
-                                  if (Draw.SolderesOnTable[Soldier].ConvertedToMinister)
-                                      Table[(int)RowRealesed, (int)ColumnRealeased] = 5;
-                                  else if (Draw.SolderesOnTable[Soldier].ConvertedToCastle)
-                                      Table[(int)RowRealesed, (int)ColumnRealeased] = 4;
-                                  else if (Draw.SolderesOnTable[Soldier].ConvertedToHourse)
-                                      Table[(int)RowRealesed, (int)ColumnRealeased] = 3;
-                                  else if (Draw.SolderesOnTable[Soldier].ConvertedToElefant)
-                                      Table[(int)RowRealesed, (int)ColumnRealeased] = 2;
+                                if (Draw.SolderesOnTable[Soldier].ConvertedToMinister)
+                                    Table[(int)RowRealesed, (int)ColumnRealeased] = 5;
+                                else if (Draw.SolderesOnTable[Soldier].ConvertedToCastle)
+                                    Table[(int)RowRealesed, (int)ColumnRealeased] = 4;
+                                else if (Draw.SolderesOnTable[Soldier].ConvertedToHourse)
+                                    Table[(int)RowRealesed, (int)ColumnRealeased] = 3;
+                                else if (Draw.SolderesOnTable[Soldier].ConvertedToElefant)
+                                    Table[(int)RowRealesed, (int)ColumnRealeased] = 2;
                                 if (OrderPlate == -1)
                                     Table[(int)RowRealesed, (int)ColumnRealeased] *= -1;
 
@@ -12246,7 +12343,7 @@ namespace Refrigtz
                             DrawQ.KingOnTable[King].IsQuntumMove = true;
                         }
 
-                        bool FOUND = SetDrawFoundingQuantum(DrawQ.SolderesOnTable[Soldier].Convert,i, j, ii, jj, Table, Tab);
+                        bool FOUND = SetDrawFoundingQuantum(DrawQ.SolderesOnTable[Soldier].Convert, i, j, ii, jj, Table, Tab);
                         if (FOUND)
                         {
                             // DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -12422,7 +12519,7 @@ namespace Refrigtz
                 this.SetBoxText("\r\nThinking Finished by Alice!");
             RefreshBoxText();
 
-            
+
 
             /*
             RefrigtzDLL.AllDraw.TableListAction.Add(Tab);
@@ -12494,6 +12591,8 @@ namespace Refrigtz
 
             DrawImageOfMain();
       */
+            SetAndConfirmSyntax();
+
             bool FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
             QuantumRefrigiz.AllDraw THISQ = null;
@@ -12502,8 +12601,7 @@ namespace Refrigtz
             else
                 SetDrawFounding(ref FOUND, ref THISQ, false);
 
-            SetAndConfirmSyntax();
-
+     
             OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
             OrderPlate *= -1;
@@ -12559,7 +12657,7 @@ namespace Refrigtz
             ColumnRealeased = -1;
             //Thread.Sleep(1500);
             BobSection = false;
-            
+
             GrayTimer.StopTime();
             BrownTimer.StartTime("BrownTimer");
 
@@ -12641,7 +12739,7 @@ namespace Refrigtz
                     a = Color.Brown;
                     OrderPlate *= -1;
                     Ord = OrderPlate;
-                    if (MovmentsNumber == 0)
+                    if (MovmentsNumber == 1)
                     {
                         if (Sec.RadioButtonBrownOrder.Checked)
                             Ord = 1;
@@ -12842,7 +12940,7 @@ namespace Refrigtz
                     OrderPlate *= -1;
 
                     Ord = OrderPlate;
-                    if (MovmentsNumber == 0)
+                    if (MovmentsNumber == 1)
                     {
                         if (Sec.RadioButtonBrownOrder.Checked)
                             Ord = 1;
@@ -12959,7 +13057,7 @@ namespace Refrigtz
             sortOutPut = new StringBuilder("");
 
             ProcessStartInfo start = new ProcessStartInfo();
-            if((!Sugar))
+            if ((!Sugar))
                 start.FileName = FolderLocation + "\\" + "stockfish8.exe";
             else
                 start.FileName = FolderLocation + "\\" + "Sugar.exe";
@@ -13340,9 +13438,9 @@ namespace Refrigtz
                     //   FOUND = true;
                     int LeafAStarGrteedy = 0;
                     if (!Quantum)
-                        Table = Draw.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                        Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                     else
-                        Table = DrawQ.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                        Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                     //LoadConvertedTable = true;
                     //PaintedPaused = false;
                     this.SetBoxText("\r\nThinking Finished!");
@@ -13378,7 +13476,7 @@ namespace Refrigtz
 
                     DrawImageOfMain();
 
-                
+
                 }
                 catch (Exception t)
                 {
@@ -13423,9 +13521,9 @@ namespace Refrigtz
 
                     int LeafAStarGrteedy = 0;
                     if (!Quantum)
-                        Table = Draw.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                        Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                     else
-                        Table = DrawQ.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                        Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
 
 
                     try
@@ -13460,7 +13558,7 @@ namespace Refrigtz
                     DrawImageOfMain();
 
 
-                 }
+                }
                 catch (Exception t)
                 {
                     Log(t);
@@ -13497,7 +13595,7 @@ namespace Refrigtz
                 StoreStateGe = StateGe;
 
                 //AliceSection = false;
-                
+
 
 
                 if (OrderPlate == 1)
@@ -13560,9 +13658,9 @@ namespace Refrigtz
                     Disposingole = true;
                 }
                 if (Disposingbook)
-                    oleDbCmd.Dispose();
-                if (Disposingole)
-                    bookConn.Dispose();
+                    //oleDbCmd.Dispose();
+                    if (Disposingole)
+                        bookConn.Dispose();
                 System.IO.File.AppendAllText("CheckSum.btt", "\n\tInstallation Begine On " + DateTime.Now.ToString());
                 String FolderLocation = Root;
                 int ExitCode = 0;
@@ -13601,7 +13699,7 @@ namespace Refrigtz
 
                     RefrigtzDLL.AllDraw.TableListAction.Add(Table);
 
-                    if (RefrigtzDLL.AllDraw.TableListAction.Count >=1)
+                    if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
                     {
                         RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, OrderPlate, true))
@@ -13622,7 +13720,7 @@ namespace Refrigtz
                                 }
                                 if ((RefrigtzDLL.ChessRules.SmallKingCastleGray || RefrigtzDLL.ChessRules.BigKingCastleGray) && (!RefrigtzDLL.ChessRules.CastleActGray))
                                     RefrigtzDLL.ChessRules.CastleActGray = true;
-                                RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
+                                RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
                             }
                             else
                             {
@@ -13634,7 +13732,7 @@ namespace Refrigtz
                                 if ((RefrigtzDLL.ChessRules.SmallKingCastleBrown || RefrigtzDLL.ChessRules.BigKingCastleBrown) && (!RefrigtzDLL.ChessRules.CastleActBrown))
                                     RefrigtzDLL.ChessRules.CastleActBrown = true;
 
-                                RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
+                                RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
                             }
                             SetBoxStatistic(RefrigtzDLL.AllDraw.SyntaxToWrite);
                             RefreshBoxStatistic();
@@ -13666,7 +13764,7 @@ namespace Refrigtz
                                 }
                                 if ((QuantumRefrigiz.ChessRules.SmallKingCastleGray || QuantumRefrigiz.ChessRules.BigKingCastleGray) && (!QuantumRefrigiz.ChessRules.CastleActGray))
                                     QuantumRefrigiz.ChessRules.CastleActGray = true;
-                                QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
+                                QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
                             }
                             else
                             {
@@ -13678,7 +13776,7 @@ namespace Refrigtz
                                 if ((QuantumRefrigiz.ChessRules.SmallKingCastleBrown || QuantumRefrigiz.ChessRules.BigKingCastleBrown) && (!QuantumRefrigiz.ChessRules.CastleActBrown))
                                     QuantumRefrigiz.ChessRules.CastleActBrown = true;
 
-                                QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
+                                QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
                             }
                             SetBoxStatistic(QuantumRefrigiz.AllDraw.SyntaxToWrite);
                             RefreshBoxStatistic();
@@ -13764,7 +13862,7 @@ namespace Refrigtz
                 if (!Quantum)
                     Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                 else
-                    Table = DrawQ.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                    Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
 
                 //LoadConvertedTable = true;
                 //StateCP = false;
@@ -13803,7 +13901,7 @@ namespace Refrigtz
 
                 DrawImageOfMain();
 
-          
+
             }
             //BackgroundWorkerAllOp.RunWorkerAsync();
             //BackgroundWorkerSetNode.RunWorkerAsync();
@@ -13830,7 +13928,7 @@ namespace Refrigtz
             else
                 QuantumRefrigiz.ThinkingQuantumChess.ThinkingQuantumRun = true;
             StateGe = false;
-            
+
 
 
             if (OrderPlate == 1)
@@ -13891,7 +13989,7 @@ namespace Refrigtz
                             }
                             if ((RefrigtzDLL.ChessRules.SmallKingCastleGray || RefrigtzDLL.ChessRules.BigKingCastleGray) && (!RefrigtzDLL.ChessRules.CastleActGray))
                                 RefrigtzDLL.ChessRules.CastleActGray = true;
-                            RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
+                            RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
                         }
                         else
                         {
@@ -13903,7 +14001,7 @@ namespace Refrigtz
                             if ((RefrigtzDLL.ChessRules.SmallKingCastleBrown || RefrigtzDLL.ChessRules.BigKingCastleBrown) && (!RefrigtzDLL.ChessRules.CastleActBrown))
                                 RefrigtzDLL.ChessRules.CastleActBrown = true;
 
-                            RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
+                            RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
                         }
                         SetBoxStatistic(RefrigtzDLL.AllDraw.SyntaxToWrite);
                         RefreshBoxStatistic();
@@ -13953,7 +14051,7 @@ namespace Refrigtz
                             }
                             if ((QuantumRefrigiz.ChessRules.SmallKingCastleGray || QuantumRefrigiz.ChessRules.BigKingCastleGray) && (!QuantumRefrigiz.ChessRules.CastleActGray))
                                 QuantumRefrigiz.ChessRules.CastleActGray = true;
-                            QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
+                            QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
                         }
                         else
                         {
@@ -13965,7 +14063,7 @@ namespace Refrigtz
                             if ((QuantumRefrigiz.ChessRules.SmallKingCastleBrown || QuantumRefrigiz.ChessRules.BigKingCastleBrown) && (!QuantumRefrigiz.ChessRules.CastleActBrown))
                                 QuantumRefrigiz.ChessRules.CastleActBrown = true;
 
-                            QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber  , QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
+                            QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, Table, MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
                         }
                         SetBoxStatistic(QuantumRefrigiz.AllDraw.SyntaxToWrite);
                         RefreshBoxStatistic();
@@ -14025,9 +14123,9 @@ namespace Refrigtz
 
                 int LeafAStarGrteedy = 0;
                 if (!Quantum)
-                    Table = Draw.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                    Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                 else
-                    Table = DrawQ.Initiate(1, 4, a,CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                    Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
 
                 //LoadConvertedTable = true;
                 StateCC = StoreStateCC;
@@ -14080,7 +14178,7 @@ namespace Refrigtz
 
                 DrawImageOfMain();
 
-       
+
             }
             //BackgroundWorkerAllOp.RunWorkerAsync();
             //BackgroundWorkerSetNode.RunWorkerAsync();
@@ -15439,7 +15537,7 @@ namespace Refrigtz
                     if (MovmentsNumber < MaxCurrentMovmentsNumber)
                     {
                         //Increased a movments.
-                        
+
                         //Read Increased Movments.
                         Table = ReadTableMovmentNumber();
                         //Clear Table List of Draw.
@@ -15498,7 +15596,7 @@ namespace Refrigtz
                         using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
                         {
                             soundClick.Play();
-                           //soundClick.Dispose();
+                            //soundClick.Dispose();
                         }
                         //Decreased a Movments.
 
@@ -15559,7 +15657,7 @@ namespace Refrigtz
 
                 UpdateConfigurationTable();
                 bookConn.Close();
-                oleDbCmd.Dispose();
+                //oleDbCmd.Dispose();
                 bookConn.Dispose();
                 if (!Quantum)
                 {
@@ -15733,7 +15831,8 @@ namespace Refrigtz
 
 
             try
-            {if (AllOperate != null)
+            {
+                if (AllOperate != null)
                     AllOperate.Abort();
                 if (BackgroundWorkerSetRefD.WorkerSupportsCancellation)
                     BackgroundWorkerSetRefD.CancelAsync();
@@ -15748,7 +15847,7 @@ namespace Refrigtz
                 PictureBoxTimerGray.CancelAsync();
                 PictureBoxTimerGray.CancelAsync();
                 ////UpdateConfigurationTableVal = true;
-                
+
                 UpdateConfigurationTable();
                 bool Disposingbook = false;
                 bool Disposingole = false;
@@ -15763,9 +15862,9 @@ namespace Refrigtz
                     Disposingole = true;
                 }
                 if (Disposingbook)
-                    oleDbCmd.Dispose();
-                if (Disposingole)
-                    bookConn.Dispose();
+                    //oleDbCmd.Dispose();
+                    if (Disposingole)
+                        bookConn.Dispose();
                 if (!Quantum)
                 {
                     RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -1, Table, OrderPlate, -1, -1);
@@ -15933,10 +16032,10 @@ namespace Refrigtz
                 //UpdateConfigurationTableVal = true;                             
                 SetAllDrawKindString();
 
-                bool A1=(new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                bool A1 = (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 while (!A1) { }
                 ExitM = true;
-               Application.Exit();
+                Application.Exit();
             }
             catch (Exception t) { Log(t); }
         }
@@ -15987,7 +16086,7 @@ namespace Refrigtz
                             AStarGreedyHuristic = true;
                         else
                             AStarGreedyHuristic = false;
-                        if (MovmentsNumber == 0)
+                        if (MovmentsNumber == 1)
                         {
                             Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             Draw.TableList.Clear();
@@ -16008,7 +16107,7 @@ namespace Refrigtz
                             AStarGreedyHuristic = true;
                         else
                             AStarGreedyHuristic = false;
-                        if (MovmentsNumber == 0)
+                        if (MovmentsNumber == 1)
                         {
                             DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             DrawQ.TableList.Clear();
@@ -16136,45 +16235,45 @@ namespace Refrigtz
         //Hardes Games tool Strip Event Handling.
         private void HardestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           /* CheckBoxAStarGreedyHuristic.Checked = true;
-            CheckBoxPredictHuristci.Checked = true;
-            CheckBoxAStarGreadyFirstSearch.Checked = true;
-            CheckBoxBestMovments.Checked = false;
-            CheckBoxOnlySelf.Checked = false;
-            CheckBoxUsePenaltyRegradMechnisam.Checked = true;
-          */  //RunInBackground();
-            //UpdateConfigurationTable();
-            //RunInFront();
+            /* CheckBoxAStarGreedyHuristic.Checked = true;
+             CheckBoxPredictHuristci.Checked = true;
+             CheckBoxAStarGreadyFirstSearch.Checked = true;
+             CheckBoxBestMovments.Checked = false;
+             CheckBoxOnlySelf.Checked = false;
+             CheckBoxUsePenaltyRegradMechnisam.Checked = true;
+           */  //RunInBackground();
+               //UpdateConfigurationTable();
+               //RunInFront();
         }
         //Medum Game tool Strip Event Handling .
         private void MedumToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           /* CheckBoxAStarGreedyHuristic.Checked = true;
-            CheckBoxPredictHuristci.Checked = true;
-            CheckBoxAStarGreadyFirstSearch.Checked = false;
-            CheckBoxBestMovments.Checked = false;
-            CheckBoxOnlySelf.Checked = false;
-         */   //RunInBackground();
-            //UpdateConfigurationTable();
-            //RunInFront();
+            /* CheckBoxAStarGreedyHuristic.Checked = true;
+             CheckBoxPredictHuristci.Checked = true;
+             CheckBoxAStarGreadyFirstSearch.Checked = false;
+             CheckBoxBestMovments.Checked = false;
+             CheckBoxOnlySelf.Checked = false;
+          */   //RunInBackground();
+               //UpdateConfigurationTable();
+               //RunInFront();
 
         }
         //Easest tool Strip Event Handling .
         private void EasestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           /* CheckBoxAStarGreedyHuristic.Checked = false;
+            /* CheckBoxAStarGreedyHuristic.Checked = false;
 
-            CheckBoxPredictHuristci.Checked = false;
-            CheckBoxAStarGreadyFirstSearch.Checked = false;
-            if (!Quantum)
-                RefrigtzDLL.AllDraw.AStarGreadyFirstSearch = false;
-            else
-                QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch = false;
-            CheckBoxBestMovments.Checked = false;
-            CheckBoxOnlySelf.Checked = true;
-         */   //RunInBackground();
-            //UpdateConfigurationTable();
-            //RunInFront();
+             CheckBoxPredictHuristci.Checked = false;
+             CheckBoxAStarGreadyFirstSearch.Checked = false;
+             if (!Quantum)
+                 RefrigtzDLL.AllDraw.AStarGreadyFirstSearch = false;
+             else
+                 QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch = false;
+             CheckBoxBestMovments.Checked = false;
+             CheckBoxOnlySelf.Checked = true;
+          */   //RunInBackground();
+               //UpdateConfigurationTable();
+               //RunInFront();
 
         }
         //Maximum Size Form Refregitz Evemnt Handling Operation.
@@ -16384,7 +16483,7 @@ namespace Refrigtz
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
             */
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -16550,7 +16649,7 @@ namespace Refrigtz
                         UsePenaltyRegardMechnisam = true;
                     else
                         UsePenaltyRegardMechnisam = false;
-                    if (MovmentsNumber == 0)
+                    if (MovmentsNumber == 1)
                     {
                         if (!Quantum)
                         {
@@ -16963,7 +17062,7 @@ namespace Refrigtz
             else
                 QuantumRefrigiz.AllDraw.DrawTable = false;
 
-            /*if (MovmentsNumber == 0)
+            /*if (MovmentsNumber == 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -17099,7 +17198,7 @@ namespace Refrigtz
 
             }
 
-        }     
+        }
         private void ToolStripMenuItem9_Click(object sender, EventArgs e)
         {
             ProfesionalWithComputer = true;
@@ -17134,11 +17233,12 @@ namespace Refrigtz
         private void ToolStripMenuItem10_Click(object sender, EventArgs e)
         {
             Quantum = false;
-          /*  AStarGreedyHuristic = false;
-            CheckBoxAStarGreedyHuristic.Checked = false;
-            UsePenaltyRegardMechnisam = false;
-            CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-          */  if (MovmentsNumber == 0)
+            /*  AStarGreedyHuristic = false;
+              CheckBoxAStarGreedyHuristic.Checked = false;
+              UsePenaltyRegardMechnisam = false;
+              CheckBoxUsePenaltyRegradMechnisam.Checked = false;
+            */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17228,12 +17328,12 @@ namespace Refrigtz
 
         private void ToolStripMenuItem12_Click(object sender, EventArgs e)
         {
-         /*   AStarGreedyHuristic = false;
-            CheckBoxAStarGreedyHuristic.Checked = false;
-            UsePenaltyRegardMechnisam = false;
-            CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            */
-            if (MovmentsNumber == 0)
+            /*   AStarGreedyHuristic = false;
+               CheckBoxAStarGreedyHuristic.Checked = false;
+               UsePenaltyRegardMechnisam = false;
+               CheckBoxUsePenaltyRegradMechnisam.Checked = false;
+               */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17287,12 +17387,12 @@ namespace Refrigtz
 
         private void ToolStripMenuItem13_Click(object sender, EventArgs e)
         {
-         /*   AStarGreedyHuristic = false;
-            CheckBoxAStarGreedyHuristic.Checked = false;
-            UsePenaltyRegardMechnisam = false;
-            CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-*/
-            if (MovmentsNumber == 0)
+            /*   AStarGreedyHuristic = false;
+               CheckBoxAStarGreedyHuristic.Checked = false;
+               UsePenaltyRegardMechnisam = false;
+               CheckBoxUsePenaltyRegradMechnisam.Checked = false;
+   */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17347,7 +17447,7 @@ namespace Refrigtz
             AllDo = false;
         }
 
-        
+
 
         private void PictureBoxTimerBrown_Click(object sender, EventArgs e)
         {
@@ -17380,12 +17480,12 @@ namespace Refrigtz
         private void ToolStripMenuItem21_Click(object sender, EventArgs e)
         {
             Quantum = true;
-          /*  AStarGreedyHuristic = false;
-            CheckBoxAStarGreedyHuristic.Checked = false;
-            UsePenaltyRegardMechnisam = false;
-            CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            */
-            if (MovmentsNumber == 0)
+            /*  AStarGreedyHuristic = false;
+              CheckBoxAStarGreedyHuristic.Checked = false;
+              UsePenaltyRegardMechnisam = false;
+              CheckBoxUsePenaltyRegradMechnisam.Checked = false;
+              */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17431,7 +17531,7 @@ namespace Refrigtz
                 label1.Text = "Refregiz";
                 label2.Text = "You";
             }
-            if (MovmentsNumber == 0)
+            if (MovmentsNumber == 1)
             {
                 DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                 DrawQ.TableList.Clear();
@@ -17528,7 +17628,7 @@ namespace Refrigtz
                 try
                 {
                     //System.Threading.Thread.Sleep(2);
-                    
+
                     //tttt.Start();
                     //ttt.Start();
                     SetRefregitzDLL();
@@ -17606,7 +17706,8 @@ namespace Refrigtz
             AStarGreedyHuristic = false;
             CheckBoxAStarGreedyHuristic.Checked = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-          */  if (MovmentsNumber == 0)
+          */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17666,11 +17767,12 @@ namespace Refrigtz
         private void ToolStripMenuItem23_Click(object sender, EventArgs e)
         {
             Quantum = false;
-        /*    AStarGreedyHuristic = false;
-            CheckBoxAStarGreedyHuristic.Checked = false;
-            UsePenaltyRegardMechnisam = false;
-            CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-       */     if (MovmentsNumber == 0)
+            /*    AStarGreedyHuristic = false;
+                CheckBoxAStarGreedyHuristic.Checked = false;
+                UsePenaltyRegardMechnisam = false;
+                CheckBoxUsePenaltyRegradMechnisam.Checked = false;
+           */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17725,7 +17827,7 @@ namespace Refrigtz
 
         private void CheckBoxAStarGreedyHuristic_CheckStateChanged(object sender, EventArgs e)
         {
-           
+
 
         }
         void OptionChanged()
@@ -17749,7 +17851,7 @@ namespace Refrigtz
                  PictureBoxTimerGray.CancelAsync();
                  PictureBoxTimerGray.CancelAsync();
                */
-                
+
                 UpdateConfigurationTable();
 
 
@@ -17759,15 +17861,15 @@ namespace Refrigtz
                 SetAllDrawKind();
 
                 //Set Configuration To True for some unknown reason!.
-                                 //UpdateConfigurationTableVal = true;                             
-                                 //SetAllDrawKindString();
-                                 //UpdateConfigurationTable();
-                                 /* if (bookConn != null)
-                                  {
-                                      bookConn.Close();
-                                      oleDbCmd.Dispose();
-                                      bookConn.Dispose();
-                                  }*/
+                //UpdateConfigurationTableVal = true;                             
+                //SetAllDrawKindString();
+                //UpdateConfigurationTable();
+                /* if (bookConn != null)
+                 {
+                     bookConn.Close();
+                     //oleDbCmd.Dispose();
+                     bookConn.Dispose();
+                 }*/
                 if (i != AllDrawKind)
                     OpTableZero(false);
             }
@@ -17775,10 +17877,11 @@ namespace Refrigtz
 
         private void CheckBoxUsePenaltyRegradMechnisam_CheckStateChanged(object sender, EventArgs e)
         {
-         }
+        }
 
         private void Button1_Click_1(object sender, EventArgs e)
-        {if (AllOperate != null)
+        {
+            if (AllOperate != null)
                 AllOperate.Abort();
             if (BackgroundWorkerSetRefD.WorkerSupportsCancellation)
                 BackgroundWorkerSetRefD.CancelAsync();
@@ -17797,21 +17900,21 @@ namespace Refrigtz
             {
                 UpdateConfigurationTable();
                 bookConn.Close();
-                oleDbCmd.Dispose();
+                //oleDbCmd.Dispose();
                 bookConn.Dispose();
             }
             do
             {
                 try
                 {
-                    if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))                                          
+                    if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
                         File.Delete(Root + "\\Database\\CurrentBank.accdb");
-                    
-                    if (System.IO.File.Exists(Root + "\\Database\\Monitor.html"))                     
+
+                    if (System.IO.File.Exists(Root + "\\Database\\Monitor.html"))
                         File.Delete(Root + "\\Database\\Monitor.html");
 
-                    if (File.Exists("List.txt"))                    
-                        File.Delete("List.txt");                    
+                    if (File.Exists("List.txt"))
+                        File.Delete("List.txt");
                     if (File.Exists("output.txt"))
                         File.Delete("output.txt");
                     if (File.Exists("CodeLogEvent.txt"))
@@ -17833,7 +17936,7 @@ namespace Refrigtz
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void buttonViewTree_Click(object sender, EventArgs e)
@@ -17850,12 +17953,12 @@ namespace Refrigtz
         private void ToolStripMenuItem14_Click(object sender, EventArgs e)
         {
 
-          /*  AStarGreedyHuristic = false;
-            CheckBoxAStarGreedyHuristic.Checked = false;
-            UsePenaltyRegardMechnisam = false;
-            CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-            */
-            if (MovmentsNumber == 0)
+            /*  AStarGreedyHuristic = false;
+              CheckBoxAStarGreedyHuristic.Checked = false;
+              UsePenaltyRegardMechnisam = false;
+              CheckBoxUsePenaltyRegradMechnisam.Checked = false;
+              */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -17923,7 +18026,8 @@ namespace Refrigtz
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-           */ StateCP = false;
+           */
+            StateCP = false;
             StateGe = false;
             Blitz = false;
             StateCC = true;
@@ -17984,7 +18088,7 @@ namespace Refrigtz
         private void ToolStripMenuItem17_Click(object sender, EventArgs e)
         {
             //UsePenaltyRegardMechnisam = true;
-           // CheckBoxUsePenaltyRegradMechnisam.Checked = true;
+            // CheckBoxUsePenaltyRegradMechnisam.Checked = true;
             //TimerIniataite = true;
             label1.Text = "You";
             label2.Text = "stockfish-8";
@@ -18016,7 +18120,8 @@ namespace Refrigtz
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-         */   if (MovmentsNumber == 0)
+         */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -18046,11 +18151,12 @@ namespace Refrigtz
         private void ToolStripMenuItem19_Click(object sender, EventArgs e)
         {
             Quantum = false;
-          /*  UsePenaltyRegardMechnisam = false;
-            AStarGreedyHuristic = false;
-            CheckBoxAStarGreedyHuristic.Checked = false;
-            CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-         */   if (MovmentsNumber == 0)
+            /*  UsePenaltyRegardMechnisam = false;
+              AStarGreedyHuristic = false;
+              CheckBoxAStarGreedyHuristic.Checked = false;
+              CheckBoxUsePenaltyRegradMechnisam.Checked = false;
+           */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -18111,7 +18217,8 @@ namespace Refrigtz
             CheckBoxAStarGreedyHuristic.Checked = false;
             UsePenaltyRegardMechnisam = false;
             CheckBoxUsePenaltyRegradMechnisam.Checked = false;
-           */ if (MovmentsNumber == 0)
+           */
+            if (MovmentsNumber == 1)
             {
                 GrayTimer = new Refrigtz.Timer(true);
                 BrownTimer = new Refrigtz.Timer(true);
@@ -18146,7 +18253,7 @@ namespace Refrigtz
             }
             AllDo = false;
         }
-        
+
 
     }
 }
