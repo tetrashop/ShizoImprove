@@ -6851,9 +6851,11 @@ if (Kind == 2)
                         MaxLess1 = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHuristic(i, j, Order, AA, ref HaveKilled);
                         if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                         {
-                            if (!KiillerForce(HaveKilled) && HaveKilled < 0)
+                            if (!KiilledForce(HaveKilled) && HaveKilled < 0)
                                 return true;
                         }
+                        if (!KillerForce(HaveKilled))
+                            return true;
 
                         //When Soldeirs is Greater than Others these Set Max.
                         if (MaxLess1 > MaxLess2)
@@ -6954,9 +6956,11 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (!KiillerForce(HaveKilled) && HaveKilled < 0)
+                        if (!KiilledForce(HaveKilled) && HaveKilled < 0)
                             return true;
                     }
+                    if (!KillerForce(HaveKilled))
+                        return true;
 
                     if (MaxLess2 > MaxLess1)
                         MaxLess1 = -1;
@@ -7034,9 +7038,11 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (!KiillerForce(HaveKilled) && HaveKilled < 0)
+                        if (!KiilledForce(HaveKilled) && HaveKilled < 0)
                             return true;
                     }
+                    if (!KillerForce(HaveKilled))
+                        return true;
 
                     if (MaxLess3 > MaxLess1)
                         MaxLess1 = -1;
@@ -7113,9 +7119,11 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (!KiillerForce(HaveKilled) && HaveKilled < 0)
+                        if (!KiilledForce(HaveKilled) && HaveKilled < 0)
                             return true;
                     }
+                    if (!KillerForce(HaveKilled))
+                        return true;
 
                     if (MaxLess4 > MaxLess1)
                         MaxLess1 = -1;
@@ -7195,9 +7203,12 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (!KiillerForce(HaveKilled) && HaveKilled < 0)
+                        if (!KiilledForce(HaveKilled) && HaveKilled < 0)
                             return true;
                     }
+                    if (!KillerForce(HaveKilled))
+                        return true;
+
 
                     if (MaxLess5 > MaxLess1)
                         MaxLess1 = -1;
@@ -7275,9 +7286,11 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (!KiillerForce(HaveKilled) && HaveKilled < 0)
+                        if (!KiilledForce(HaveKilled) && HaveKilled < 0)
                             return true;
                     }
+                    if (!KillerForce(HaveKilled))
+                        return true;
 
                     if (MaxLess6 > MaxLess1)
                         MaxLess1 = -1;
@@ -7321,7 +7334,7 @@ if (Kind == 2)
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicMainBody:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return continued;
         }
-        bool KiillerForce(int HaveKiller)
+        bool KiilledForce(int HaveKiller)
         {
             if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
             {
@@ -7330,6 +7343,10 @@ if (Kind == 2)
 
             }
             return false;
+        }
+        bool KillerForce(int HaveKiller)
+        {
+            return ((!(ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)) && (HaveKiller > 0));
         }
         int[,] HuristicAStarGreadySearchSoldier(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {

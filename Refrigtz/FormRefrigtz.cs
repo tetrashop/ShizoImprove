@@ -15748,7 +15748,7 @@ namespace Refrigtz
                 PictureBoxTimerGray.CancelAsync();
                 PictureBoxTimerGray.CancelAsync();
                 ////UpdateConfigurationTableVal = true;
-
+                
                 UpdateConfigurationTable();
                 bool Disposingbook = false;
                 bool Disposingole = false;
