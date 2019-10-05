@@ -4676,11 +4676,11 @@ namespace Refrigtz
 #pragma warning restore CS0219 // The variable 'OneIncreament' is assigned but its value is never used
             int[,] Tab = Table;
             int Move = 0;
-            if (!Quantum)
+            /*if (!Quantum)
                 RefrigtzDLL.AllDraw.TableListAction.Clear();
             else
                 QuantumRefrigiz.AllDraw.TableListAction.Clear();
-
+*/
             do
             {
                 oleDbCmd = new OleDbCommand();
@@ -12669,9 +12669,19 @@ namespace Refrigtz
         }
         public void SetDrawFounding(ref bool FOUND, ref RefrigtzDLL.AllDraw THIS, bool First)
         {
+            if (Draw == null)
+                return;
+            int Dummy = OrderPlate;
+            if (Sec.RadioButtonGrayOrder.Checked)
+                OrderPlate = 1;
+            else
+                OrderPlate = -1;
             RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString;
             while (Draw.AStarGreedyString != null)
                 Draw = Draw.AStarGreedyString;
+            
+            OrderPlate = Draw.OrderP;
+           
             /*Object O = new Object();
             lock (O)
             {
@@ -12726,6 +12736,7 @@ namespace Refrigtz
                 Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                 if (FOUND)
                 {
+                    
                     //THISB = THIS.AStarGreedyString;
                     Draw = THIS;
                     SetBoxText("\r\nDraw Found");
@@ -12737,34 +12748,36 @@ namespace Refrigtz
                     THIS = null;
 
                     a = Color.Brown;
-                    OrderPlate *= -1;
-                    Ord = OrderPlate;
-                    if (MovmentsNumber == 1)
+
+                    Ord = OrderPlate * -1;
+                    if (LoadO)
                     {
-                        if (Sec.RadioButtonBrownOrder.Checked)
-                            Ord = 1;
+                        if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 2))
+                            Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
                     }
                     else
-                        Ord = OrderPlate;
-                    while (Draw.AStarGreedyString != null)
-                        Draw = Draw.AStarGreedyString;
+                    {
+                        if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 1))
+                            Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
 
-                    if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 2))
-                        Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
+                    }
+
                     if (FOUND)
                     {
+                        Ord = OrderPlate;
+
                         Draw = THIS;
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
                         FOUND = Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
                         if (FOUND)
                         {
-                            OrderPlate *= -1;
                             Ord = OrderPlate;
 
                             Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                             if (FOUND)
                             {
+                                OrderPlate = Dummy;
                                 //THISB = THIS.AStarGreedyString;
                                 Draw = THIS;
                                 SetBoxText("\r\nDraw Found Target Of Tree Expansion!");
@@ -12772,6 +12785,7 @@ namespace Refrigtz
                             }
                             else
                             {
+                                OrderPlate = Dummy;
                                 if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                                     AllDrawKind = 4;
                                 else
@@ -12801,7 +12815,7 @@ namespace Refrigtz
                         }
                         else
                         {
-                            OrderPlate *= -1;
+                            Ord = Dummy;
 
                             if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                                 AllDrawKind = 4;
@@ -12831,7 +12845,7 @@ namespace Refrigtz
                     }
                     else
                     {
-                        OrderPlate *= -1;
+                        OrderPlate = Dummy;
                         if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                             AllDrawKind = 4;
                         else
@@ -12860,13 +12874,21 @@ namespace Refrigtz
                     }
                 }
             }
-
+            OrderPlate = Dummy;
         }
         public void SetDrawFounding(ref bool FOUND, ref QuantumRefrigiz.AllDraw THIS, bool First)
         {
+            if (DrawQ == null)
+                return;
+            int Dummy = OrderPlate;
+            if (Sec.RadioButtonGrayOrder.Checked)
+                OrderPlate = 1;
+            else
+                OrderPlate = -1;
             QuantumRefrigiz.AllDraw THISB = DrawQ.AStarGreedyString;
             while (DrawQ.AStarGreedyString != null)
                 DrawQ = DrawQ.AStarGreedyString;
+            OrderPlate = DrawQ.OrderP;
             /*Object O = new Object();
             lock (O)
             {
@@ -12937,32 +12959,33 @@ namespace Refrigtz
                     //if (First)
                     //Draw.FoundOfCurrentTableNode(Table, OrderPlate * -1, ref THIS, ref FOUND);
                     //else
-                    OrderPlate *= -1;
-
-                    Ord = OrderPlate;
-                    if (MovmentsNumber == 1)
-                    {
-                        if (Sec.RadioButtonBrownOrder.Checked)
-                            Ord = 1;
-                    }
-                    else
-                        Ord = OrderPlate;
+                     
                     while (DrawQ.AStarGreedyString != null)
                         DrawQ = DrawQ.AStarGreedyString;
 
-                    if ((QuantumRefrigiz.AllDraw.TableListAction.Count >= 2))
-                        DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
+                    Ord = OrderPlate * -1;
+                    if (LoadO)
+                    {
+                        if ((QuantumRefrigiz.AllDraw.TableListAction.Count >= 2))
+                            DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
+                    }
+                    else
+                    {
+                        if ((QuantumRefrigiz.AllDraw.TableListAction.Count >= 1))
+                            DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
+                    }
                     if (FOUND)
                     {
+                        Ord = OrderPlate;
+
                         DrawQ = THIS;
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
                         FOUND = DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
                         if (FOUND)
                         {
-                            OrderPlate *= -1;
-
-                            Ord = OrderPlate;
+                           
+                            Ord = Dummy;
 
                             DrawQ.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                             if (FOUND)
@@ -12973,6 +12996,7 @@ namespace Refrigtz
                             }
                             else
                             {
+                                OrderPlate = Dummy;
                                 SetAllDrawKind();
                                 //Set Configuration To True for some unknown reason!.
                                 //UpdateConfigurationTableVal = true;                             
@@ -12995,7 +13019,7 @@ namespace Refrigtz
                         }
                         else
                         {
-                            OrderPlate *= -1;
+                            OrderPlate = Dummy;
 
                             SetAllDrawKind();
                             //Set Configuration To True for some unknown reason!.
@@ -13018,7 +13042,7 @@ namespace Refrigtz
                     }
                     else
                     {
-                        OrderPlate *= -1;
+                        OrderPlate = Dummy;
 
                         SetAllDrawKind();
                         //Set Configuration To True for some unknown reason!.
@@ -13042,7 +13066,7 @@ namespace Refrigtz
                     }
                 }
             }
-
+            OrderPlate = Dummy;
         }
         //All Operation of Thinking Handling.
         void AllOperations()
