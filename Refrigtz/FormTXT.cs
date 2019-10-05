@@ -317,6 +317,13 @@ namespace Refrigtz
                         else
                         if (Draw.SolderesOnTable[i].SoldierThinking[0].KishSelf)
                             t.BackColor = Color.Yellow;
+                        else
+                        if (Draw.HaveKilled > 0)
+                            t.BackColor = Color.Gray;
+                        else if (Draw.HaveKilled < 0)
+                            t.BackColor = Color.Brown;
+
+
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -463,6 +470,11 @@ namespace Refrigtz
                         else
                   if (Draw.ElephantOnTable[i].ElefantThinking[0].KishSelf)
                             t.BackColor = Color.Yellow;
+                        else
+                        if (Draw.HaveKilled > 0)
+                            t.BackColor = Color.Gray;
+                        else if (Draw.HaveKilled < 0)
+                            t.BackColor = Color.Brown;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -612,6 +624,11 @@ namespace Refrigtz
                         else
              if (Draw.HoursesOnTable[i].HourseThinking[0].KishSelf)
                             t.BackColor = Color.Yellow;
+                        else
+                        if (Draw.HaveKilled > 0)
+                            t.BackColor = Color.Gray;
+                        else if (Draw.HaveKilled < 0)
+                            t.BackColor = Color.Brown;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -762,6 +779,11 @@ namespace Refrigtz
                         else
             if (Draw.CastlesOnTable[i].CastleThinking[0].KishSelf)
                             t.BackColor = Color.Yellow;
+                        else
+                        if (Draw.HaveKilled > 0)
+                            t.BackColor = Color.Gray;
+                        else if (Draw.HaveKilled < 0)
+                            t.BackColor = Color.Brown;
 
                         if (parentNode == null)
                         {
@@ -998,6 +1020,11 @@ namespace Refrigtz
                         else
           if (Draw.MinisterOnTable[i].MinisterThinking[0].KishSelf)
                             t.BackColor = Color.Yellow;
+                        else
+                        if (Draw.HaveKilled > 0)
+                            t.BackColor = Color.Gray;
+                        else if (Draw.HaveKilled < 0)
+                            t.BackColor = Color.Brown;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()
@@ -1146,6 +1173,11 @@ namespace Refrigtz
                         else
          if (Draw.KingOnTable[i].KingThinking[0].KishSelf)
                             t.BackColor = Color.Yellow;
+                        else
+                        if (Draw.HaveKilled > 0)
+                            t.BackColor = Color.Gray;
+                        else if (Draw.HaveKilled < 0)
+                            t.BackColor = Color.Brown;
                         if (parentNode == null)
                         {
                             Invoke((MethodInvoker)delegate ()

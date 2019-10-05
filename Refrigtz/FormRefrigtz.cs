@@ -12622,7 +12622,7 @@ namespace Refrigtz
 
             OrderPlate *= -1;
 
-            SetBoxTextWrite(Out);
+            //SetBoxTextWrite(Out);
 
             BrownTimer.StopTime();
             GrayTimer.StartTime("GrayTimer");

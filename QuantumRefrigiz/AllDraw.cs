@@ -177,7 +177,7 @@ namespace QuantumRefrigiz
               {-1, -1, - 1, -1, -1, -1, -1, -1 },
               {-1, -1, - 1, -1, -1, -1, -1, -1 }}};
 
-        int HaveKilled = 0;
+        public int HaveKilled = 0;
         StringBuilder Space = new StringBuilder("&nbsp;");
         int Spaces = 0;
         bool SetDeptIgnore = false;
@@ -3387,7 +3387,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Add(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]);
@@ -3436,7 +3436,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Add(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]);
@@ -3490,7 +3490,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Add(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]);
@@ -3539,7 +3539,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Add(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]);
@@ -3593,7 +3593,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Add(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]);
@@ -3642,7 +3642,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Add(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]);
@@ -3696,7 +3696,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Add(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]);
@@ -3745,7 +3745,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Add(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]);
@@ -3799,7 +3799,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Add(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]);
@@ -3848,7 +3848,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Add(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]);
@@ -3902,7 +3902,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Add(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]);
@@ -3951,7 +3951,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count >= j)
+                                if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == j)
                                 {
                                     //KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                                     //KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Add(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]);
@@ -6908,10 +6908,10 @@ if (Kind == 2)
                         MaxLess1 = SolderesOnTable[RW1].SoldierThinkingQuantum[CL1].ReturnHuristic(i, j, Order, AA, ref HaveKilled);
                         if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                         {
-                            if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                            if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                                 return true;
                         }
-                        if (KillerForce(HaveKilled))
+                        if (!KillerForce(HaveKilled))
                             return true;
 
                         //When Soldeirs is Greater than Others these Set Max.
@@ -7013,10 +7013,10 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
                     if (MaxLess2 > MaxLess1)
@@ -7095,10 +7095,10 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
                     if (MaxLess3 > MaxLess1)
@@ -7176,10 +7176,10 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
                     if (MaxLess4 > MaxLess1)
@@ -7260,10 +7260,10 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
 
@@ -7343,10 +7343,10 @@ if (Kind == 2)
 
                     if (ThinkingQuantumChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
                     if (MaxLess6 > MaxLess1)
@@ -18654,7 +18654,7 @@ if (Kind == 5)
             {
                 OutPut.Append("\r\nMinimum ThinkingQuantum Tree Depth:" + MinThinkingQuantumTreeDepth.ToString() + "!");
             }
-            Order = OrderP;
+            //Order = OrderP;
 
             TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
             if ((TableHuristic == null || ((TableZero(TableHuristic)))) && UsePenaltyRegardMechnisamT)

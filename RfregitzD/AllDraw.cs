@@ -159,7 +159,7 @@ namespace RefrigtzDLL
 
     public class AllDraw
     {
-        int HaveKilled = 0;
+        public int HaveKilled = 0;
         StringBuilder Space = new StringBuilder("&nbsp;");
         int Spaces = 0;
         bool SetDeptIgnore = false;
@@ -3368,7 +3368,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count >= j)
+                                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == j)
                                 {
                                     //SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                                     //SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]);
@@ -3417,7 +3417,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count >= j)
+                                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == j)
                                 {
                                     //SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                                     //SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]);
@@ -3471,7 +3471,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count >= j)
+                                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == j)
                                 {
                                     //ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                                     //ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]);
@@ -3520,7 +3520,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count >= j)
+                                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == j)
                                 {
                                     //ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                                     //ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]);
@@ -3574,7 +3574,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count >= j)
+                                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == j)
                                 {
                                     //HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                                     //HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]);
@@ -3623,7 +3623,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count >= j)
+                                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == j)
                                 {
                                     //HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                                     //HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]);
@@ -3677,7 +3677,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count >= j)
+                                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == j)
                                 {
                                     //CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                                     //CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]);
@@ -3726,7 +3726,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count >= j)
+                                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == j)
                                 {
                                     //CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                                     //CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]);
@@ -3780,7 +3780,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count >= j)
+                                if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == j)
                                 {
                                     //MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                                     //MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]);
@@ -3829,7 +3829,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count >= j)
+                                if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == j)
                                 {
                                     //MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                                     //MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]);
@@ -3883,7 +3883,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count >= j)
+                                if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count == j)
                                 {
                                     //KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                                     //KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(KingOnTable[i].KingThinking[0].TableListKing[j]);
@@ -3932,7 +3932,7 @@ if (Kind == 2)
                             }
                             else
                             {
-                                if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count >= j)
+                                if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count == j)
                                 {
                                     //KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                                     //KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(KingOnTable[i].KingThinking[0].TableListKing[j]);
@@ -6913,10 +6913,10 @@ if (Kind == 2)
                         MaxLess1 = SolderesOnTable[RW1].SoldierThinking[CL1].ReturnHuristic(i, j, Order, AA, ref HaveKilled);
                         if (ThinkingChess.IsAtLeastOneKillerAtDraw)
                         {
-                            if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                            if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                                 return true;
                         }
-                        if (KillerForce(HaveKilled))
+                        if (!KillerForce(HaveKilled))
                             return true;
 
                         //When Soldeirs is Greater than Others these Set Max.
@@ -7018,10 +7018,10 @@ if (Kind == 2)
 
                     if (ThinkingChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
                     if (MaxLess2 > MaxLess1)
@@ -7100,10 +7100,10 @@ if (Kind == 2)
 
                     if (ThinkingChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
                     if (MaxLess3 > MaxLess1)
@@ -7181,10 +7181,10 @@ if (Kind == 2)
 
                     if (ThinkingChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
                     if (MaxLess4 > MaxLess1)
@@ -7265,10 +7265,10 @@ if (Kind == 2)
 
                     if (ThinkingChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
 
@@ -7348,10 +7348,10 @@ if (Kind == 2)
 
                     if (ThinkingChess.IsAtLeastOneKillerAtDraw)
                     {
-                        if (KiilledForce(HaveKilled) && HaveKilled < 0)
+                        if ((!KiilledForce(HaveKilled)) && (HaveKilled < 0))
                             return true;
                     }
-                    if (KillerForce(HaveKilled))
+                    if (!KillerForce(HaveKilled))
                         return true;
 
                     if (MaxLess6 > MaxLess1)
@@ -18659,7 +18659,7 @@ if (Kind == 5)
                 {
                     OutPut.Append("\r\nMinimum Thinking Tree Depth:" + MinThinkingTreeDepth.ToString() + "!");
                 }
-                Order = OrderP;
+                //Order = OrderP;
 
                 TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
             if ((TableHuristic == null || ((TableZero(TableHuristic)))) && UsePenaltyRegardMechnisamT)
