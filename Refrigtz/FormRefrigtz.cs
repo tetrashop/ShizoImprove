@@ -4214,6 +4214,7 @@ namespace Refrigtz
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 TakeRoot y = new TakeRoot();
@@ -4328,7 +4329,14 @@ namespace Refrigtz
                         }
                         InsertTableAtDataBase(Table);
                         CreateConfigurationTable();
-
+                        if (MovmentsNumber == 1)
+                        {
+                            SetAllDrawKind();
+                            //Set Configuration To True for some unknown reason!.
+                            //UpdateConfigurationTableVal = true;                             
+                            SetAllDrawKindString();
+                            (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                        }
                     }
                     else
                     {
@@ -4411,6 +4419,14 @@ namespace Refrigtz
                                     InsertTableAtDataBase(Table);
                                     CreateConfigurationTable();
 
+                                    if (MovmentsNumber == 1)
+                                    {
+                                        SetAllDrawKind();
+                                        //Set Configuration To True for some unknown reason!.
+                                        //UpdateConfigurationTableVal = true;                             
+                                        SetAllDrawKindString();
+                                        (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                    }
                                 }
                             }
                             catch (FileNotFoundException t)
@@ -4447,10 +4463,10 @@ namespace Refrigtz
                 //Loaded = true;
                 LoadedDLL = true;
 
-                if (Sec.RadioButtonGrayOrder.Checked && MovmentsNumber == 0)
+                if (Sec.RadioButtonGrayOrder.Checked && MovmentsNumber == 1)
                     OrderPlate = 1;
                 else
-                 if (Sec.RadioButtonBrownOrder.Checked && MovmentsNumber == 0)
+                 if (Sec.RadioButtonBrownOrder.Checked && MovmentsNumber == 1)
                     OrderPlate = -1;
 
                 if (Sec.RadioButtonGrayOrder.Checked && OrderPlate == 1)
@@ -6216,7 +6232,7 @@ namespace Refrigtz
                     if (RefrigtzDLL.AllDraw.DrawTable)
                     {
                         //System.Threading.Thread.Sleep(2);
-                        if (GameStarted && MovmentsNumber == 0)
+                        if (GameStarted && MovmentsNumber == 1)
                             ButtonChangeArrangment.Visible = false;
                         //System.Threading.Thread.Sleep(8);
 
@@ -6342,7 +6358,7 @@ namespace Refrigtz
                         if (RefrigtzDLL.AllDraw.DrawTable)
                         {
                             //System.Threading.Thread.Sleep(100);
-                            if (GameStarted && MovmentsNumber == 0)
+                            if (GameStarted && MovmentsNumber == 1)
                                 ButtonChangeArrangment.Visible = false;
                             //System.Threading.Thread.Sleep(8);
 
@@ -6459,7 +6475,7 @@ namespace Refrigtz
                         if (QuantumRefrigiz.AllDraw.DrawTable)
                         {
                             //System.Threading.Thread.Sleep(100);
-                            if (GameStarted && MovmentsNumber == 0)
+                            if (GameStarted && MovmentsNumber == 1)
                                 ButtonChangeArrangment.Visible = false;
                             //System.Threading.Thread.Sleep(8);
 
