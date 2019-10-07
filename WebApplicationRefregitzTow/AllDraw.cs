@@ -3460,6 +3460,7 @@ if (Kind == 2)
             return Is;
 
         }
+
         public bool FoundOfCurrentTableNodeSolderIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
             if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
@@ -3489,7 +3490,7 @@ if (Kind == 2)
             {
                 if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == j)
                 {
-                    if (!IsAstargreedyHaveNode(1, Order))
+                    if (!SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
                     {
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]);
@@ -3502,6 +3503,7 @@ if (Kind == 2)
             }
             return false;
         }
+
         public bool FoundOfCurrentTableNodeSoldeir(int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
             if (Order == 1)
@@ -3568,7 +3570,7 @@ if (Kind == 2)
             {
                 if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == j)
                 {
-                    if (!IsAstargreedyHaveNode(2, Order))
+                    if (!ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
                     {
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]);
@@ -3649,7 +3651,7 @@ if (Kind == 2)
             {
                 if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == j)
                 {
-                    if (!IsAstargreedyHaveNode(3, Order))
+                    if (!HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
                     {
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]);
@@ -3731,7 +3733,7 @@ if (Kind == 2)
             {
                 if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == j)
                 {
-                    if (!IsAstargreedyHaveNode(4, Order))
+                    if (!CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
                     {
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]);
@@ -3813,7 +3815,7 @@ if (Kind == 2)
             {
                 if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == j)
                 {
-                    if (!IsAstargreedyHaveNode(5, Order))
+                    if (!MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
                     {
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]);
@@ -3892,7 +3894,7 @@ if (Kind == 2)
             {
                 if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count == j)
                 {
-                    if (!IsAstargreedyHaveNode(6, Order))
+                    if (!KingOnTable[i].KingThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
                     {
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(KingOnTable[i].KingThinking[0].TableListKing[j]);
