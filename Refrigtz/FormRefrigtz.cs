@@ -12627,8 +12627,11 @@ namespace Refrigtz
             BrownTimer.StopTime();
             GrayTimer.StartTime("GrayTimer");
 
-            DrawImageOfMain();
+            SetBoxTextWrite(Out);
 
+
+            DrawImageOfMain();
+         
             BobSection = true;
         }
         void ComputerByComputerBobAsRefregitz(ref Process proc)
@@ -12785,7 +12788,14 @@ namespace Refrigtz
                         Draw = THIS;
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
-                        FOUND = Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                        if (LoadO)
+                        {
+                            FOUND = Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                        }
+                        else
+                        {
+                            FOUND = Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        }
                         if (FOUND)
                         {
                             Ord = OrderPlate;
@@ -12997,7 +13007,15 @@ namespace Refrigtz
                         DrawQ = THIS;
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
-                        FOUND = DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                        if (LoadO)
+                        {
+                            FOUND = DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                        }
+                        else
+                        {
+                            FOUND = DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+
+                        }
                         if (FOUND)
                         {
                            
