@@ -1052,7 +1052,7 @@ if (Kind == 2)
                                     //if (SolderesOnTable[So1] != null)
                                     //SolderesOnTable[So1].Dispose();
                                     //Construct Soder Gray.
-                                    SolderesOnTable[So1] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, So1);
+                                    SolderesOnTable[So1] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), 1, false, So1);
 
                                     BlitzNotValidFullGameThinkingTreePartThree(So1, OrderP, 1);
 
@@ -1074,7 +1074,7 @@ if (Kind == 2)
                                     //if (SolderesOnTable[So2] != null)
                                     // SolderesOnTable[So2].Dispose();
                                     //Construct Soldeir Brown.
-                                    SolderesOnTable[So2] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, So2);
+                                    SolderesOnTable[So2] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), -1, false, So2);
 
                                     BlitzNotValidFullGameThinkingTreePartThree(So2, OrderP, 1);
                                     //Increase So2.
@@ -1107,7 +1107,7 @@ if (Kind == 2)
                                     // ElephantOnTable[El1].Dispose();
 
                                     //Construction of Draw Object.
-                                    ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
+                                    ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), 1, false, El1);
                                     BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2);
                                     //Increament of Gray Index.
                                     El1++;
@@ -1126,7 +1126,7 @@ if (Kind == 2)
                                     // ElephantOnTable[El2].Dispose();
 
                                     //Construction of Draw Brown Elephant Object. 
-                                    ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
+                                    ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), -1, false, El2);
                                     BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2);
                                     //Increament of Index.
                                     El2++;
@@ -1160,7 +1160,7 @@ if (Kind == 2)
                                     // HoursesOnTable[Ho1].Dispose();
 
                                     //Construction of Draw Brown Hourse.
-                                    HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
+                                    HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), 1, false, Ho1);
                                     BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3);
                                     //Increament of Index.
                                     Ho1++;
@@ -1179,7 +1179,7 @@ if (Kind == 2)
                                     //  HoursesOnTable[Ho2].Dispose();
 
                                     //Construction of Draw Brown Hourse.
-                                    HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
+                                    HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), -1, false, Ho2);
                                     BlitzNotValidFullGameThinkingTreePartThree(Ho2, OrderP, 3);
                                     //Increament of Index.
                                     Ho2++;
@@ -1212,7 +1212,7 @@ if (Kind == 2)
                                     //CastlesOnTable[Br1].Dispose();
 
                                     //Construction of New Draw Gray Castles.
-                                    CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
+                                    CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), 1, false, Br1);
                                     BlitzNotValidFullGameThinkingTreePartThree(Br1, OrderP, 4);
                                     //Increamnt of Index.
                                     Br1++;
@@ -1231,7 +1231,7 @@ if (Kind == 2)
                                     //CastlesOnTable[Br2].Dispose();
 
                                     //Construction Draw of New Brown Castles.
-                                    CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
+                                    CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), -1, false, Br2);
                                     BlitzNotValidFullGameThinkingTreePartThree(Br2,OrderP, 4);
                                     //Increament of Index.
                                     Br2++;
@@ -1265,7 +1265,7 @@ if (Kind == 2)
                                     // MinisterOnTable[Mi1].Dispose();
 
                                     //construction of new draw Gray Minster.
-                                    MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
+                                    MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), 1, false, Mi1);
                                     BlitzNotValidFullGameThinkingTreePartThree(Mi1, OrderP, 5);
                                     //Increament of Index.
                                     Mi1++;
@@ -1285,7 +1285,7 @@ if (Kind == 2)
                                     // MinisterOnTable[Mi2].Dispose();
 
                                     //Construction of New Draw Brown Minster.
-                                    MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
+                                    MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), -1, false, Mi2);
                                     BlitzNotValidFullGameThinkingTreePartThree(Mi2, OrderP, 5);
                                     //Increament Index.
                                     Mi2++;
@@ -1318,7 +1318,7 @@ if (Kind == 2)
                                     //KingOnTable[Ki1].Dispose();
 
                                     //Construction of New Draw Gray King.
-                                    KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
+                                    KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a,CloneATable(TableList[index]), 1, false, Ki1);
                                     BlitzNotValidFullGameThinkingTreePartThree(Ki1, OrderP, 6);
                                     //Increament of Index.
                                     Ki1++;
@@ -1338,7 +1338,7 @@ if (Kind == 2)
                                     // KingOnTable[Ki2].Dispose();
 
                                     //Construction of New Draw King Brown Object.
-                                    KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
+                                    KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ki2);
                                     BlitzNotValidFullGameThinkingTreePartThree(Ki2, OrderP, 6);
                                     //Increament of Index.
                                     Ki2++;
@@ -18546,7 +18546,7 @@ if (Kind == 5)
                 }
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Initiate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            return TableHuristic;
+            return CloneATable(TableHuristic);
         }
         //Identification of Illegal AStarGreedy First and Common Hurist Movments.
         public bool IsEnemyThingsinStable(int[,] TableHuristic, int[,] TableAction, int Order)

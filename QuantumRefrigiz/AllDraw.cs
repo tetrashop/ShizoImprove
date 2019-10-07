@@ -1043,18 +1043,18 @@ if (Kind == 2)
                             /* if (!TableZero(Tabl))
                              {
 
-                                 if (TableEqual(TableList[index], Tabl))
+                                 if (TableEqual(CloneATable(TableList[index]), Tabl))
                                      return;
                              }*/
-                            if (TableList[index][Row, Column] == 0)
+                            if (CloneATable(TableList[index])[Row, Column] == 0)
                                 continue;
                             //When Things are Soldiers.
-                            if (System.Math.Abs(TableList[index][Row, Column]) == 1)
+                            if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 1)
                             {
                                 //Determine int
                                 Color a;
 
-                                if (TableList[index][Row, Column] > 0)
+                                if (CloneATable(TableList[index])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1071,7 +1071,7 @@ if (Kind == 2)
                                     //if (SolderesOnTable[So1] != null)
                                     //SolderesOnTable[So1].Dispose();
                                     //Construct Soder Gray.
-                                    SolderesOnTable[So1] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, So1);
+                                    SolderesOnTable[So1] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, So1);
 
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(So1, OrderP, 1);
 
@@ -1093,7 +1093,7 @@ if (Kind == 2)
                                     //if (SolderesOnTable[So2] != null)
                                     // SolderesOnTable[So2].Dispose();
                                     //Construct Soldeir Brown.
-                                    SolderesOnTable[So2] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, So2);
+                                    SolderesOnTable[So2] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, So2);
 
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(So2, OrderP, 1);
                                     //Increase So2.
@@ -1105,11 +1105,11 @@ if (Kind == 2)
                                 }
                             }
                             else //For Elephant Objects.
-                                if (System.Math.Abs(TableList[index][Row, Column]) == 2)
+                                if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 2)
                             {
                                 //Initiate Local Variables.
                                 Color a;
-                                if (TableList[index][Row, Column] > 0)
+                                if (CloneATable(TableList[index])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1126,7 +1126,7 @@ if (Kind == 2)
                                     // ElephantOnTable[El1].Dispose();
 
                                     //Construction of Draw Object.
-                                    ElephantOnTable[El1] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, El1);
+                                    ElephantOnTable[El1] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, El1);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(El1, OrderP, 2);
                                     //Increament of Gray Index.
                                     El1++;
@@ -1145,7 +1145,7 @@ if (Kind == 2)
                                     // ElephantOnTable[El2].Dispose();
 
                                     //Construction of Draw Brown Elephant Object. 
-                                    ElephantOnTable[El2] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, El2);
+                                    ElephantOnTable[El2] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, El2);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(El2, OrderP, 2);
                                     //Increament of Index.
                                     El2++;
@@ -1157,11 +1157,11 @@ if (Kind == 2)
                                 }
                             }
                             else//For Hourse Objects.
-                                    if (System.Math.Abs(TableList[index][Row, Column]) == 3)
+                                    if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 3)
                             {
                                 //Initiate Local Varibale and int.
                                 Color a;
-                                if (TableList[index][Row, Column] > 0)
+                                if (CloneATable(TableList[index])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1179,7 +1179,7 @@ if (Kind == 2)
                                     // HoursesOnTable[Ho1].Dispose();
 
                                     //Construction of Draw Brown Hourse.
-                                    HoursesOnTable[Ho1] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ho1);
+                                    HoursesOnTable[Ho1] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ho1);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(Ho1, OrderP, 3);
                                     //Increament of Index.
                                     Ho1++;
@@ -1198,7 +1198,7 @@ if (Kind == 2)
                                     //  HoursesOnTable[Ho2].Dispose();
 
                                     //Construction of Draw Brown Hourse.
-                                    HoursesOnTable[Ho2] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ho2);
+                                    HoursesOnTable[Ho2] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ho2);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(Ho2, OrderP, 3);
                                     //Increament of Index.
                                     Ho2++;
@@ -1209,11 +1209,11 @@ if (Kind == 2)
                                 }
                             }
                             else//For Castles Objects.
-                                        if (System.Math.Abs(TableList[index][Row, Column]) == 4)
+                                        if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 4)
                             {
                                 //Initiate of Local Variables.
                                 Color a;
-                                if (TableList[index][Row, Column] > 0)
+                                if (CloneATable(TableList[index])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1231,7 +1231,7 @@ if (Kind == 2)
                                     //CastlesOnTable[Br1].Dispose();
 
                                     //Construction of New Draw Gray Castles.
-                                    CastlesOnTable[Br1] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Br1);
+                                    CastlesOnTable[Br1] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Br1);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(Br1, OrderP, 4);
                                     //Increamnt of Index.
                                     Br1++;
@@ -1250,7 +1250,7 @@ if (Kind == 2)
                                     //CastlesOnTable[Br2].Dispose();
 
                                     //Construction Draw of New Brown Castles.
-                                    CastlesOnTable[Br2] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Br2);
+                                    CastlesOnTable[Br2] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Br2);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(Br2, OrderP, 4);
                                     //Increament of Index.
                                     Br2++;
@@ -1261,11 +1261,11 @@ if (Kind == 2)
                                 }
                             }
                             else//For Minister Objects.
-                                            if (System.Math.Abs(TableList[index][Row, Column]) == 5)
+                                            if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 5)
                             {
                                 //Initiate Local int Varibales.
                                 Color a;
-                                if (TableList[index][Row, Column] > 0)
+                                if (CloneATable(TableList[index])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1284,7 +1284,7 @@ if (Kind == 2)
                                     // MinisterOnTable[Mi1].Dispose();
 
                                     //construction of new draw Gray Minster.
-                                    MinisterOnTable[Mi1] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Mi1);
+                                    MinisterOnTable[Mi1] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Mi1);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(Mi1, OrderP, 5);
                                     //Increament of Index.
                                     Mi1++;
@@ -1304,7 +1304,7 @@ if (Kind == 2)
                                     // MinisterOnTable[Mi2].Dispose();
 
                                     //Construction of New Draw Brown Minster.
-                                    MinisterOnTable[Mi2] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Mi2);
+                                    MinisterOnTable[Mi2] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Mi2);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(Mi2, OrderP, 5);
                                     //Increament Index.
                                     Mi2++;
@@ -1315,11 +1315,11 @@ if (Kind == 2)
                                 }
                             }
                             else//for King Objects.        
-                            if (System.Math.Abs(TableList[index][Row, Column]) == 6)
+                            if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 6)
                             {
                                 //Initiate Of int.
                                 Color a;
-                                if (TableList[index][Row, Column] > 0)
+                                if (CloneATable(TableList[index])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1337,7 +1337,7 @@ if (Kind == 2)
                                     //KingOnTable[Ki1].Dispose();
 
                                     //Construction of New Draw Gray King.
-                                    KingOnTable[Ki1] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], 1, false, Ki1);
+                                    KingOnTable[Ki1] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ki1);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(Ki1, OrderP, 6);
                                     //Increament of Index.
                                     Ki1++;
@@ -1357,7 +1357,7 @@ if (Kind == 2)
                                     // KingOnTable[Ki2].Dispose();
 
                                     //Construction of New Draw King Brown Object.
-                                    KingOnTable[Ki2] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, TableList[index], -1, false, Ki2);
+                                    KingOnTable[Ki2] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ki2);
                                     BlitzNotValidFullGameThinkingQuantumTreePartThree(Ki2, OrderP, 6);
                                     //Increament of Index.
                                     Ki2++;
@@ -18329,7 +18329,7 @@ if (Kind == 5)
                 }
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Initiate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            return TableHuristic;
+            return CloneATable(TableHuristic);
         }
         //Identification of Illegal AStarGreedy First and Common Hurist Movments.
         public bool IsEnemyThingsinStable(int[,] TableHuristic, int[,] TableAction, int Order)
