@@ -1023,11 +1023,11 @@ namespace QuantumRefrigiz
                     {
                         if (Before)
                         {
-                            if (Attack(Table, RowS, ColS, RowD, ColD, a, Order))
+                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
 
                                 //Find Huristic Value Of Current and Add to Sumation.
-                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
+                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD))));
                                 //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
                                 /*int Supported = new int();
                                 int SupportedS = new int();
@@ -1058,8 +1058,8 @@ namespace QuantumRefrigiz
                                         Object O2 = new Object();
                                         lock (O2)
                                         {
-                                            A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
-                                            B = Support(Table, g, h, RowS, ColS, a, Order);
+                                            A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1);
+                                            B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
                                         }
                                         //When Enemy is Supported.
                                         if (B)
@@ -1127,10 +1127,10 @@ namespace QuantumRefrigiz
                     {
                         if (Before)
                         {
-                            if (Attack(Table, RowS, ColS, RowD, ColD, a, Order))
+                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
 
-                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD)
+                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD)
                                )));
 
                                 //When there is supporter of attacked Objects take huristic negative else take muliply sign and muliply huristic.
@@ -1165,8 +1165,8 @@ namespace QuantumRefrigiz
                                         Object O12 = new Object();
                                         lock (O12)
                                         {
-                                            A = Support(Table, g, h, RowD, ColD, aaa, Order * -1);
-                                            B = Support(Table, g, h, RowS, ColS, a, Order);
+                                            A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1);
+                                            B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
                                         }
                                         //When Enemy is Supported.
                                         if (B)
@@ -1277,10 +1277,10 @@ namespace QuantumRefrigiz
                             {
                                 if (Before)
                                 {
-                                    if (Attack(Table, RowD, ColD, RowS, ColS, a, Order))
+                                    if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                     {
 
-                                        HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowD, ColD, RowS, ColS))));
+                                        HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS))));
                                         /*int Reduced = new int();
                                         int Increased = new int();
                                         Reduced = 0;
@@ -1310,8 +1310,8 @@ namespace QuantumRefrigiz
                                                 Object O2 = new Object();
                                                 lock (O2)
                                                 {
-                                                    A = Support(Table, g, h, RowD, ColD, aaa, Order * 1);
-                                                    B = Support(Table, g, h, RowS, ColS, a, Order);
+                                                    A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * 1);
+                                                    B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
                                                 }
                                                 //When Enemy is Supported.
                                                 if (B)
@@ -1390,10 +1390,10 @@ namespace QuantumRefrigiz
                                         {
                                             if (Before)
                                             {
-                                                if (Attack(Table, RowD, ColD, RowS, ColS, a, Order))
+                                                if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                                 {
 
-                                                    HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowD, ColD, RowS, ColS))));
+                                                    HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS))));
                                                     /*int Reduced = new int();
                                                     int Increased = new int();
                                                     Reduced = 0;
@@ -1424,8 +1424,8 @@ namespace QuantumRefrigiz
                                                             Object O2 = new Object();
                                                             lock (O2)
                                                             {
-                                                                A = Support(Table, g, h, RowD, ColD, aaa, Order * 1);
-                                                                B = Support(Table, g, h, RowS, ColS, a, Order);
+                                                                A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * 1);
+                                                                B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
                                                             }
                                                             //When Enemy is Supported.
                                                             if (B)
@@ -1527,10 +1527,10 @@ namespace QuantumRefrigiz
                     else
                         return HuristicObjectDangourCheckMateValue;
                     //For ObjectDanger Movments.
-                    if (ObjectDanger(Table, RowD, ColD, RowS, ColS, a, Order))
+                    if (ObjectDanger(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                     {
                         //Find Local Sumation of ObjectDanger Huristic.                                
-                        HA += Sign * (ObjectValueCalculator(Table, RowD, ColD, RowS, ColS));
+                        HA += Sign * (ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS));
                     }
                 }
                 //For All Table Home Find ObjectDanger Huristic
@@ -1570,10 +1570,10 @@ namespace QuantumRefrigiz
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (ObjectDanger(Table, RowD, ColD, RowS, ColS, a, Order))
+                        if (ObjectDanger(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                         {
                             //Find Local Sumation of ObjectDanger Huristic.                                
-                            HA += Sign * (ObjectValueCalculator(Table, RowD, ColD, RowS, ColS));
+                            HA += Sign * (ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS));
                         }
                     }
                 }
@@ -1907,7 +1907,7 @@ namespace QuantumRefrigiz
                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return 0;
                 }
-                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order * -1, i, j);
+                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order * -1, i, j);
                 Color a = Color.Gray;
                 if (Order * -1 == -1)
                     a = Color.Brown;
@@ -2526,9 +2526,9 @@ namespace QuantumRefrigiz
                                         Table[RowD, ColD] = Table[RowS, ColS];
                                         Table[RowS, ColS] = 0;
                                         //Is Dangrous for King.
-                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], Table, Order * -1, RowD, ColD);
-                                        //if (A.ObjectDangourKingMove(Order, Table, false))
-                                        A.ObjectDangourKingMove(Order, Table, false);
+                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Table), Order * -1, RowD, ColD);
+                                        //if (A.ObjectDangourKingMove(Order, CloneATable(Table), false))
+                                        A.ObjectDangourKingMove(Order, CloneATable(Table), false);
                                         {
                                            for (int ij = 0; ij < 8; ij++)
                                             {
@@ -2547,11 +2547,11 @@ namespace QuantumRefrigiz
                                                 //When Before Move such situation is observed calculate huristic count.
                                                 if (Order == 1 && A.CheckGrayObjectDangour)
                                                     HA +=// AllDraw.SignKingSafe * 
-                                                        (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
+                                                        (ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD));
                                                 else
                                                 if (Order == -1 && A.CheckBrownObjectDangour)
                                                     HA += //AllDraw.SignKingSafe * 
-                                                        (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD));
+                                                        (ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD));
 
                                             }               
                                         }
@@ -2579,8 +2579,8 @@ namespace QuantumRefrigiz
                 }
             }
             int HA = 0;
-            ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], Table, Order * -1, RowD, ColD);
-            //if (A.ObjectDangourKingMove(Order, Table, false))
+            ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Table), Order * -1, RowD, ColD);
+            //if (A.ObjectDangourKingMove(Order, CloneATable(Table), false))
             A.ObjectDangourKingMove(Order, Table);
             {
                 for (int ij = 0; ij < 8; ij++)
@@ -2600,11 +2600,11 @@ namespace QuantumRefrigiz
                     //When Before Move such situation is observed calculate huristic count.
                     if (Order == 1 && A.CheckGrayObjectDangour)
                         HA += (AllDraw.SignKingSafe *
-                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD)));
+                            (ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD)));
                     else
                     if (Order == -1 && A.CheckBrownObjectDangour)
                         HA += (AllDraw.SignKingSafe *
-                            (ObjectValueCalculator(Table, RowS, ColS, RowD, ColD)));
+                            (ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD)));
 
                 }
             }
@@ -2675,8 +2675,8 @@ namespace QuantumRefrigiz
                                     Object O3 = new Object();
                                     lock (O3)
                                     {
-                                        //if (A.ObjectDangourKingMove(Order, Table, false))
-                                        A.ObjectDangourKingMove(Order, Table, false);
+                                        //if (A.ObjectDangourKingMove(Order, CloneATable(Table), false))
+                                        A.ObjectDangourKingMove(Order, CloneATable(Table), false);
                                         {
                                             int[,] Table1 = new int[8, 8];
                                             //Clone a Copy.
@@ -2735,7 +2735,7 @@ namespace QuantumRefrigiz
             Object O3 = new Object();
             lock (O3)
             {
-                //if (A.ObjectDangourKingMove(Order, Table, false))
+                //if (A.ObjectDangourKingMove(Order, CloneATable(Table), false))
                 A.ObjectDangourKingMove(Order, Table);
                 {
                     int[,] Table1 = new int[8, 8];
@@ -3156,7 +3156,7 @@ namespace QuantumRefrigiz
                         Table[p, k] = Tab[p, k];
                 //Initiate Local Variables.
                 int Store = Table[ii, jj];
-                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j);
+                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j);
                 ///Table[ii, jj] = 0;
                 //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                 if (A.Rules(i, j, ii, jj, a, Order))
@@ -3173,8 +3173,8 @@ namespace QuantumRefrigiz
                     int DummyOrder = Order;
                     int DummyCurrentOrder = ChessRules.CurrentOrder;
                     //Consider Global Check Variables.
-                    ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Ord, ii, jj);
-                    AA.Check(Table, Ord);
+                    ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Ord, ii, jj);
+                    AA.Check(CloneATable(Table), Ord);
                     //Reaasignment of Premitive Variables.
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -3277,7 +3277,7 @@ namespace QuantumRefrigiz
                         for (var RowS = 0; RowS < 8; RowS++)
                             for (var ColS = 0; ColS < 8; ColS++)
                                 Table[RowS, ColS] = Tab[RowS, ColS];
-                        ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Order * -1, ii, jj);
+                        ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Order * -1, ii, jj);
                         Color a = Color.Gray;
                         if (Order * -1 == -1)
                             a = Color.Brown;
@@ -3285,20 +3285,20 @@ namespace QuantumRefrigiz
                         if (A.Rules(ii, jj, i, j, a, Table[ii, jj]))
                         {
                             //Number of Attacks and take move.
-                            int Count = AttackerCount(Table, Order * -1, a, ii, jj);
+                            int Count = AttackerCount(CloneATable(Table), Order * -1, a, ii, jj);
                             //When there is Object Danger.
                             //Clone a Copy.
                             for (var RowS = 0; RowS < 8; RowS++)
                                 for (var ColS = 0; ColS < 8; ColS++)
                                     Table[RowS, ColS] = Tab[RowS, ColS];
                             //Create New Chess Rule Object.
-                            A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Order, ii, jj);
+                            A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Order, ii, jj);
                             //Detect int.
                             a = Color.Gray;
                             if (Order == -1)
                                 a = Color.Brown;
                             //When Current Movments Attacks Enemy.
-                            if (Attack(Table, i, j, ii, jj, a, Order))
+                            if (Attack(CloneATable(Table), i, j, ii, jj, a, Order))
                             {
                                 //For Current Home.
                                 for (var RowS = 0; RowS < 8; RowS++)
@@ -3310,7 +3310,7 @@ namespace QuantumRefrigiz
                                         if (Order == -1 && Tab[RowS, ColS] >= 0)
                                             continue;
                                         //Whn Value Of Current is Less That Enemy.
-                                        if (ObjectValueCalculator(Table, i, j) < ObjectValueCalculator(Table, ii, jj))
+                                        if (ObjectValueCalculator(CloneATable(Table), i, j) < ObjectValueCalculator(CloneATable(Table), ii, jj))
                                         {
                                             //Take Move.
                                             Table[ii, jj] = Table[i, j];
@@ -3319,7 +3319,7 @@ namespace QuantumRefrigiz
                                             if (Order * -1 == -1)
                                                 a = Color.Brown;
                                             //When Enemy Attacks Current Moved.
-                                            if (!Attack(Table, RowS, ColS, ii, jj, a, Order * -1))
+                                            if (!Attack(CloneATable(Table), RowS, ColS, ii, jj, a, Order * -1))
                                             {
                                                 //For Current Order.
                                                 for (int RowD = 0; RowD < 8; RowD++)
@@ -3334,10 +3334,10 @@ namespace QuantumRefrigiz
                                                         if (Order == -1)
                                                             a = Color.Brown;
                                                         //When Self Supported Current
-                                                        if (Support(Table, RowD, ColD, i, j, a, Order))
+                                                        if (Support(CloneATable(Table), RowD, ColD, i, j, a, Order))
                                                         {
                                                             //If V alue of Enemy is Greater Than Current and Value of Enemy is Greater than Supporter.
-                                                            if (ObjectValueCalculator(Table, RowS, ColS) < ObjectValueCalculator(Table, ii, jj) && ObjectValueCalculator(Table, RowS, ColS) > ObjectValueCalculator(Table, Row, ColS))
+                                                            if (ObjectValueCalculator(CloneATable(Table), RowS, ColS) < ObjectValueCalculator(CloneATable(Table), ii, jj) && ObjectValueCalculator(CloneATable(Table), RowS, ColS) > ObjectValueCalculator(CloneATable(Table), Row, ColS))
                                                             {
                                                                 Remove = true;
                                                                 return Remove;
@@ -4270,7 +4270,7 @@ namespace QuantumRefrigiz
                                                 a = Color.Gray;
                                             else
                                                 a = Color.Brown;
-                                            IsGardHighPriority = IsGardHighPriority || IsCurrentCanGardHighPriorityEnemy(Depth, Table, Order * -1, a, ii, jj, i, j, OrderPlate);
+                                            IsGardHighPriority = IsGardHighPriority || IsCurrentCanGardHighPriorityEnemy(Depth, CloneATable(Table), Order * -1, a, ii, jj, i, j, OrderPlate);
                                         }
 
                                     }
@@ -4312,12 +4312,12 @@ namespace QuantumRefrigiz
                 lock (O1)
                 {
                     //Consider Global Check CheckMate ObjectDanger Variables Orderly.
-                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[Row, Column], Table, Order, Row, Column);
-                    ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[Row, Column], Table, Order, Row, Column);
-                    A.CheckMate(Table, Order);
-                    AAA.Check(Table, Order);
-                    ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[Row, Column], Table, Order, Row, Column);
-                    AA.ObjectDangourKingMove(Order, Table, false);
+                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[Row, Column], CloneATable(Table), Order, Row, Column);
+                    ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[Row, Column], CloneATable(Table), Order, Row, Column);
+                    A.CheckMate(CloneATable(Table), Order);
+                    AAA.Check(CloneATable(Table), Order);
+                    ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[Row, Column], CloneATable(Table), Order, Row, Column);
+                    AA.ObjectDangourKingMove(Order, CloneATable(Table), false);
                     {
                         //Consider Value to More Valuable Positive and Negative Check CheckMate ObjectDanger 
                         if (A.CheckMateGray || A.CheckMateBrown)
@@ -4474,7 +4474,7 @@ namespace QuantumRefrigiz
                         else
                             if (Order == -1 && Table[i, j] >= 0)
                             continue;
-                        if (Support(Table, i, j, ii, jj, a, Order))
+                        if (Support(CloneATable(Table), i, j, ii, jj, a, Order))
                         {
                             Count++;
                         }
@@ -4549,7 +4549,7 @@ namespace QuantumRefrigiz
                         else
                             if (Order == -1 && Table[i, j] <= 0)
                             continue;
-                        if (Attack(Table, i, j, ii, jj, a, Order * -1))
+                        if (Attack(CloneATable(Table), i, j, ii, jj, a, Order * -1))
                         {
                             Count++;
                         }
@@ -5010,14 +5010,14 @@ namespace QuantumRefrigiz
                     if (Before)
                     {
                         //When is Movable Movement inCurrent.
-                        if (Movable(Table, RowS, ColS, RowD, ColD, a, Order))
+                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                         {
                             int[,] Tab = new int[8, 8];
 
                             for (var ik = 0; ik < 8; ik++)
                                 for (var jk = 0; jk < 8; jk++)
                                     Tab[ik, jk] = Table[ik, jk];
-                            HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
+                            HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD))));
                             /* int Supported = 0;
                              int Attacked = 0;
                              //For All Enemy Obejcts.                                             
@@ -5120,9 +5120,9 @@ namespace QuantumRefrigiz
                     if (Before)
                     {
                         //When is Movable Movement inCurrent.
-                        if (Movable(Table, RowS, ColS, RowD, ColD, a, Order))
+                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                         {
-                            HA += (Sign * (System.Math.Abs(ObjectValueCalculator(Table, RowS, ColS, RowD, ColD))));
+                            HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD))));
                             /*int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -5150,8 +5150,8 @@ namespace QuantumRefrigiz
                                         //When Enemy is Supported.
                                         bool A = new bool();
                                         bool B = new bool();
-                                        A = Support(Table, g, h, RowS, ColS, a, Order);
-                                        B = Attack(Table, g, h, RowS, ColS, aaa, Order * -1);
+                                        A = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
+                                        B = Attack(CloneATable(Table), g, h, RowS, ColS, aaa, Order * -1);
                                         //When Enemy is Supported.
                                         if (B)
                                         {
@@ -5209,7 +5209,7 @@ namespace QuantumRefrigiz
                         Table[ik, jk] = Tab[ik, jk];
 
                 //when there is a Movment from Parameter One to Second Parameter return Attacke..
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Order) //&& Table[ii, jj] != 0
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order) //&& Table[ii, jj] != 0
                     )
                 {
                     ChessRules.CurrentOrder = CCurentOrder;
@@ -5238,7 +5238,7 @@ namespace QuantumRefrigiz
                     }
                 ChessRules.CurrentOrder = Order;
                 ///When [i,j] is Attacked [ii,jj] retrun true when enemy is located in [ii,jj].
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Order))
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order))
                 {
                     //Initiate Local Variables.
                     for (var RowS = 0; RowS < 8; RowS++)
@@ -5250,8 +5250,8 @@ namespace QuantumRefrigiz
                     Table[ii, jj] = Table[i, j];
                     Table[i, j] = 0;
                     //Consider Check.
-                    ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], Table, Order, ii, jj);
-                    if (AA.ObjectDangourKingMove(Order, Table, false))
+                    ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Order, ii, jj);
+                    if (AA.ObjectDangourKingMove(Order, CloneATable(Table), false))
                     {
                         ChessRules.CurrentOrder = CCurrentOrder;
                         //Return ObjectDanger.
@@ -5267,7 +5267,7 @@ namespace QuantumRefrigiz
                             return true;
                         }
                     }
-                    if (AA.CheckMate(Table, Order))
+                    if (AA.CheckMate(CloneATable(Table), Order))
                     {
                         ChessRules.CurrentOrder = CCurrentOrder;
                         //Return ObjectDanger.
@@ -5314,7 +5314,7 @@ namespace QuantumRefrigiz
                 if (Table[i, j] > 0 && Table[ii, jj] > 0)
                 {
                     ///When [i,j] Supporte [ii,jj].
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
+                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return true;
@@ -5329,7 +5329,7 @@ namespace QuantumRefrigiz
                 if (Table[i, j] < 0 && Table[ii, jj] < 0)
                 {
                     ///When [i,j] Supporetd [ii,jj].
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], Table, Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
+                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return true;
@@ -6144,7 +6144,7 @@ namespace QuantumRefrigiz
                             for (var i = 0; i < AStarGreedy.Count; i++)
                             {
                                 //For All solder DrawOn Table Count.
-                                for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m++)
+                                for (int m = 0; m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnCloneATable(Table), true, AStarGreedy[i].SodierHigh); m++)
                                 for (int m = 0; m < AStarGreedy[i].SodierMidle; m++)
                                 {
                                     //When Depth of Solders On Table is Not NULL.
@@ -6170,7 +6170,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All Elephant On Table Count.
-                                for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m++)
+                                for (int m = 0; m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnCloneATable(Table), true, AStarGreedy[i].ElefantHigh); m++)
                                 for (int m = 0; m < AStarGreedy[i].ElefantMidle; m++)
                                 {
 
@@ -6196,7 +6196,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All Hourse on Table Count.
-                                for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m++)
+                                for (int m = 0; m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnCloneATable(Table), true, AStarGreedy[i].HourseHight); m++)
                                 for (int m = 0; m < AStarGreedy[i].HourseMidle; m++)
                                 {
                                     //When is HourseOn Table Depth Object is Not NULL.
@@ -6222,7 +6222,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All Castles on table Count.
-                                for (int m = 0; m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m++)
+                                for (int m = 0; m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnCloneATable(Table), true, AStarGreedy[i].CastleHigh); m++)
                                 for (  int m = 0; m < AStarGreedy[i].CastleMidle; m++)
                                 {
                                     //When Depth Objects of Hourse Table is Not NULL.
@@ -6248,7 +6248,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All Minsiter on table count.
-                                for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m++)
+                                for (int m = 0; m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnCloneATable(Table), true, AStarGreedy[i].MinisterHigh); m++)
                                 for (int m = 0; m < AStarGreedy[i].MinisterMidle; m++)
                                 {
                                     //When Minster of Depth is Not Null.
@@ -6268,7 +6268,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All King on table Count.
-                                for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m++)
+                                for (int m = 0; m < KingOnTableCount(ref AStarGreedy[i].KingOnCloneATable(Table), true, AStarGreedy[i].KingHigh); m++)
                                 for (int m = 0; m < AStarGreedy[i].KingMidle; m++)
                                 {
                                     //When Depth Object of King Table is Not NULL.
@@ -6301,7 +6301,7 @@ namespace QuantumRefrigiz
                             for (var i = 0; i < AStarGreedy.Count; i++)
                             {
                                 //For All Brown Solders on table count.
-                                for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, true, AStarGreedy[i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnTable, false, AStarGreedy[i].SodierHigh); m++)
+                                for (int m = SolderOnTableCount(ref AStarGreedy[i].SolderesOnCloneATable(Table), true, AStarGreedy[i].SodierHigh); m < SolderOnTableCount(ref AStarGreedy[i].SolderesOnCloneATable(Table), false, AStarGreedy[i].SodierHigh); m++)
                                 for (int m = AStarGreedy[i].SodierMidle; m < AStarGreedy[i].SodierHigh; m++)
                                 {
                                     //When solderis on table depth obejcts is nopt null.
@@ -6325,7 +6325,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All Elephant On Table Count.
-                                for (int m = ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, true, AStarGreedy[i].ElefantHigh); m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnTable, false, AStarGreedy[i].ElefantHigh); m++)
+                                for (int m = ElefantOnTableCount(ref AStarGreedy[i].ElephantOnCloneATable(Table), true, AStarGreedy[i].ElefantHigh); m < ElefantOnTableCount(ref AStarGreedy[i].ElephantOnCloneATable(Table), false, AStarGreedy[i].ElefantHigh); m++)
                                 for (int m = AStarGreedy[i].ElefantMidle; m < AStarGreedy[i].ElefantHigh; m++)
                                 {
                                     //For All Elephant in Depth Count.
@@ -6350,7 +6350,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All Hourse on Table Count.
-                                for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, true, AStarGreedy[i].HourseHight); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnTable, false, AStarGreedy[i].HourseHight); m++)
+                                for (int m = HourseOnTableCount(ref AStarGreedy[i].HoursesOnCloneATable(Table), true, AStarGreedy[i].HourseHight); m < HourseOnTableCount(ref AStarGreedy[i].HoursesOnCloneATable(Table), false, AStarGreedy[i].HourseHight); m++)
                                 for (int m = AStarGreedy[i].HourseMidle; m < AStarGreedy[i].HourseHight; m++)
                                 {
                                     //When is HourseOn Table Depth Object is Not NULL.
@@ -6373,7 +6373,7 @@ namespace QuantumRefrigiz
                                         //CodeClass.SaveByCode(2, callStack.GetFileLineNumber(), callStack.GetFileName());
                                 }
                                 //For All Castles on table Count.
-                                for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, true, AStarGreedy[i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnTable, false, AStarGreedy[i].CastleHigh); m++)
+                                for (int m = CastleOnTableCount(ref AStarGreedy[i].CastlesOnCloneATable(Table), true, AStarGreedy[i].CastleHigh); m < CastleOnTableCount(ref AStarGreedy[i].CastlesOnCloneATable(Table), false, AStarGreedy[i].CastleHigh); m++)
                                 for (int m = AStarGreedy[i].CastleMidle; m < AStarGreedy[i].CastleHigh; m++)
                                 {
                                     //When Depth Objects of Hourse Table is Not NULL.
@@ -6397,7 +6397,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All Minsiter on table count.
-                                for (int m = MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, true, AStarGreedy[i].MinisterHigh); m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnTable, false, AStarGreedy[i].MinisterHigh); m++)
+                                for (int m = MinisterOnTableCount(ref AStarGreedy[i].MinisterOnCloneATable(Table), true, AStarGreedy[i].MinisterHigh); m < MinisterOnTableCount(ref AStarGreedy[i].MinisterOnCloneATable(Table), false, AStarGreedy[i].MinisterHigh); m++)
                                 for (int m = AStarGreedy[i].MinisterMidle; m < AStarGreedy[i].MinisterHigh; m++)
                                 {
                                     //When Minster of Depth is Not Null.
@@ -6421,7 +6421,7 @@ namespace QuantumRefrigiz
 
                                 }
                                 //For All King on table Count.
-                                for (int m = KingOnTableCount(ref AStarGreedy[i].KingOnTable, true, AStarGreedy[i].KingHigh); m < KingOnTableCount(ref AStarGreedy[i].KingOnTable, false, AStarGreedy[i].KingHigh); m++)
+                                for (int m = KingOnTableCount(ref AStarGreedy[i].KingOnCloneATable(Table), true, AStarGreedy[i].KingHigh); m < KingOnTableCount(ref AStarGreedy[i].KingOnCloneATable(Table), false, AStarGreedy[i].KingHigh); m++)
                                 for (int m = AStarGreedy[i].KingMidle; m < AStarGreedy[i].KingHigh; m++)
                                 {
                                     //When Minster of Depth is Not Null.
@@ -7135,7 +7135,7 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[RowSource, ColumnSource],CloneATable(TableS), Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color,CloneATable(TableS)[RowSource, ColumnSource], false))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -7177,7 +7177,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0,CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -7194,7 +7194,7 @@ namespace QuantumRefrigiz
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
                         }
-                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination,CloneATable(TableS)));
                     }
 
 
@@ -7205,7 +7205,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6,CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -7232,7 +7232,7 @@ namespace QuantumRefrigiz
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup) { CalculateHuristics(false, Killed,CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -7422,7 +7422,7 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[RowSource, ColumnSource],CloneATable(TableS), Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color,CloneATable(TableS)[RowSource, ColumnSource], false))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -7464,7 +7464,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0,CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -7481,7 +7481,7 @@ namespace QuantumRefrigiz
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
                         }
-                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination,CloneATable(TableS)));
                     }
 
 
@@ -7491,7 +7491,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 5, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 5,CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -7518,7 +7518,7 @@ namespace QuantumRefrigiz
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup) { CalculateHuristics(false, Killed,CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -7845,7 +7845,7 @@ namespace QuantumRefrigiz
                                                 continue;
 
                                             if (AttackCount <= 1 && (!(LearningV[0] || LearningV[1] || LearningV[2])))
-                                                AttackCount = AttackCount + IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(AttackCount, TableS, Order, i, j, RowS, ColS//, ii, jj, RowD, ColD
+                                                AttackCount = AttackCount + IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(AttackCount,CloneATable(TableS), Order, i, j, RowS, ColS//, ii, jj, RowD, ColD
                                                     );
                                             else
                                             if (!(LearningV[0] || LearningV[1] || LearningV[2]))
@@ -7977,18 +7977,18 @@ namespace QuantumRefrigiz
                     }
                     if ((!IsNextMovemntIsCheckOrCheckMateForCurrent) && (!SelfNotSupported) && (!IsPrviousMovemntIsDangrousForCurr) && (!IsGardForCurrentMovmentsAndIsNotMova) && (!IsNotSafeToMoveAenemeyToAttackMoreThanTowObj) && (!IsDangerous))
                     {
-                        EnemyNotSupported = InAttackEnemyThatIsNotSupportedAll(IsTowValuableObjectEnemy, TableS, Order, color, i, j, ii, jj, ref ValuableEnemyNotSupported);
+                        EnemyNotSupported = InAttackEnemyThatIsNotSupportedAll(IsTowValuableObjectEnemy,CloneATable(TableS), Order, color, i, j, ii, jj, ref ValuableEnemyNotSupported);
                     }
                     if ((!IsNextMovemntIsCheckOrCheckMateForCurrent) && (!SelfNotSupported) && (!IsPrviousMovemntIsDangrousForCurr) && (!IsGardForCurrentMovmentsAndIsNotMova) && (!IsNotSafeToMoveAenemeyToAttackMoreThanTowObj) && (!EnemyNotSupported) && (!IsDangerous))
-                        EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed, TableS, Order, color, i, j, ii, jj);
+                        EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed,CloneATable(TableS), Order, color, i, j, ii, jj);
                     if ((!IsNextMovemntIsCheckOrCheckMateForCurrent) && (!SelfNotSupported) && (!IsPrviousMovemntIsDangrousForCurr) && (!IsGardForCurrentMovmentsAndIsNotMova) && (!IsNotSafeToMoveAenemeyToAttackMoreThanTowObj) && (!EnemyNotSupported) && (!IsDangerous))
                     {
-                        EnemyNotSupported = InAttackEnemyThatIsNotSupportedAll(IsTowValuableObjectEnemy, TableS, Order, color, i, j, ii, jj, ref ValuableEnemyNotSupported);
+                        EnemyNotSupported = InAttackEnemyThatIsNotSupportedAll(IsTowValuableObjectEnemy,CloneATable(TableS), Order, color, i, j, ii, jj, ref ValuableEnemyNotSupported);
                     }
                     if (CurrentAStarGredyMax == 0 && (!IsNextMovemntIsCheckOrCheckMateForCurrent) && (!SelfNotSupported) && (!IsPrviousMovemntIsDangrousForCurr) && (!IsGardForCurrentMovmentsAndIsNotMova) && (!IsNotSafeToMoveAenemeyToAttackMoreThanTowObj) && (!EnemyNotSupported) && (!IsDangerous))
                     {
                         //when is true must regard.
-                        IsCurrentCanGardHighPriorityEne = IsCurrentCanGardHighPriorityEnemy(0, TableS, Order, color, i, j, ii, jj, Order);
+                        IsCurrentCanGardHighPriorityEne = IsCurrentCanGardHighPriorityEnemy(0,CloneATable(TableS), Order, color, i, j, ii, jj, Order);
                     }
                     if (SelfNotSupported || IsNextMovemntIsCheckOrCheckMateForCurrent || IsPrviousMovemntIsDangrousForCurr || IsGardForCurrentMovmentsAndIsNotMova && IsDangerous)
                     {
@@ -8049,7 +8049,7 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[RowSource, ColumnSource],CloneATable(TableS), Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color,CloneATable(TableS)[RowSource, ColumnSource], false))
                 {
 
 
@@ -8092,7 +8092,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0,CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -8109,7 +8109,7 @@ namespace QuantumRefrigiz
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
                         }
-                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination,CloneATable(TableS)));
                     }
 
 
@@ -8119,7 +8119,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 4, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 4,CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -8146,7 +8146,7 @@ namespace QuantumRefrigiz
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup) { CalculateHuristics(false, Killed,CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -8309,7 +8309,7 @@ namespace QuantumRefrigiz
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
 
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[RowSource, ColumnSource],CloneATable(TableS), Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color,CloneATable(TableS)[RowSource, ColumnSource], false))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -8351,7 +8351,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0,CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -8368,7 +8368,7 @@ namespace QuantumRefrigiz
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
                         }
-                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination,CloneATable(TableS)));
                     }
 
 
@@ -8378,7 +8378,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3,CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -8405,7 +8405,7 @@ namespace QuantumRefrigiz
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup) { CalculateHuristics(false, Killed,CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -8567,7 +8567,7 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[RowSource, ColumnSource],CloneATable(TableS), Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color,CloneATable(TableS)[RowSource, ColumnSource], false))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -8609,7 +8609,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0,CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -8626,7 +8626,7 @@ namespace QuantumRefrigiz
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
                         }
-                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination,CloneATable(TableS)));
                     }
 
 
@@ -8636,7 +8636,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 2, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 2,CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -8663,7 +8663,7 @@ namespace QuantumRefrigiz
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup) { CalculateHuristics(false, Killed,CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -8943,7 +8943,7 @@ namespace QuantumRefrigiz
             {
                 bool RETURN = false;
                 Object O3 = new Object();
-                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, AllDraw.OrderPlate, ii, jj);
+                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[ii, jj],CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
                 Object O = new Object();
                 lock (O)
                 {
@@ -9112,7 +9112,7 @@ namespace QuantumRefrigiz
 
                         //if (FoundFirstSelfMating > 0)
                         {
-                            /*if ((new IsNextEnemyMovementForCheckedMate(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS)).Is())
+                            /*if ((new IsNextEnemyMovementForCheckedMate(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS),)).Is())
                             {
                                 IsThereMateOfSelf = true;
                                 FoundFirstSelfMating++;
@@ -9209,22 +9209,22 @@ namespace QuantumRefrigiz
                 lock (O1)
                 {
                     if (kind == 1 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListSolder != null && PenaltyRegardListSolder.Count == TableListSolder.Count)
-                        LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                        LearningV = CalculateLearningVars(Killed,CloneATable(TableS), ii, jj, i, j);
                     else
                      if (kind == 2 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListElefant != null && PenaltyRegardListElefant.Count == TableListElefant.Count)
-                        LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                        LearningV = CalculateLearningVars(Killed,CloneATable(TableS), ii, jj, i, j);
                     else
                         if (kind == 3 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListHourse != null && PenaltyRegardListHourse.Count == TableListHourse.Count)
-                        LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                        LearningV = CalculateLearningVars(Killed,CloneATable(TableS), ii, jj, i, j);
                     else
                         if (kind == 4 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListCastle != null && PenaltyRegardListCastle.Count == TableListCastle.Count)
-                        LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                        LearningV = CalculateLearningVars(Killed,CloneATable(TableS), ii, jj, i, j);
                     else
                             if (kind == 5 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListMinister != null && PenaltyRegardListMinister.Count == TableListMinister.Count)
-                        LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                        LearningV = CalculateLearningVars(Killed,CloneATable(TableS), ii, jj, i, j);
                     else
                                 if (kind == 6 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListKing != null && PenaltyRegardListKing.Count == TableListKing.Count)
-                        LearningV = CalculateLearningVars(Killed, TableS, ii, jj, i, j);
+                        LearningV = CalculateLearningVars(Killed,CloneATable(TableS), ii, jj, i, j);
                 }
 
                 Object O2 = new Object();
@@ -9255,7 +9255,7 @@ namespace QuantumRefrigiz
                 {
                     if (Equality)
                     {
-                        ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, Order, Row, Column);
+                        ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[ii, jj],CloneATable(TableS), Order, Row, Column);
                         if (A.Check(TableS, Order))
                         {
                             if (Order == 1 && (A.CheckGray))
@@ -9595,7 +9595,7 @@ namespace QuantumRefrigiz
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
-            t.ConvertOperation((int)RowSource, (int)ColumnSource, color, TableS, Order, false, 0);
+            t.ConvertOperation((int)RowSource, (int)ColumnSource, color,CloneATable(TableS), Order, false, 0);
 
             int[,] TableCon = new int[8, 8];
 
@@ -9656,10 +9656,10 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], TableS, Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false))
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[RowSource, ColumnSource],CloneATable(TableS), Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color,CloneATable(TableS)[RowSource, ColumnSource], false))
                 {
 
-                    ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color, TableS, Order, false, 0);
+                    ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color,CloneATable(TableS), Order, false, 0);
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
@@ -9685,7 +9685,7 @@ namespace QuantumRefrigiz
                     }
                     if (!Sup)
                     {
-                        SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS);
+                        SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestination,CloneATable(TableS));
                         ///Add Table to List of Private.
                         HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
 
@@ -9699,7 +9699,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        CalculateHuristics(true, 0,CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -9723,7 +9723,7 @@ namespace QuantumRefrigiz
                         {
                             Killed = TableConst[RowDestination, ColumnDestination];
                         }
-                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                        KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination,CloneATable(TableS)));
                     }
 
 
@@ -9732,7 +9732,7 @@ namespace QuantumRefrigiz
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1,CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
                             //{ ThinkingQuantumAtRun = false; return; }
                         }
                     }
@@ -9759,7 +9759,7 @@ namespace QuantumRefrigiz
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup) { CalculateHuristics(false, Killed,CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -9949,7 +9949,7 @@ namespace QuantumRefrigiz
                 {
                     ThinkingQuantumRun = true;
                 }
-                CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                CalculateHuristics(true, 0,CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                 Object A = new object();
                 lock (A)
                 {
@@ -9973,7 +9973,7 @@ namespace QuantumRefrigiz
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7,CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
 
                 //{ ThinkingQuantumAtRun = false; return; }
                 //Store Movments Items. 
@@ -10065,7 +10065,7 @@ namespace QuantumRefrigiz
                     lock (O)
                     {
                         int[,] TableSS = CloneATable(TableS);
-                        Huriistic = HuristicAll(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
+                        Huriistic = HuristicAll(Before, Killed,CloneATable(TableSS), color, Order, RowS, ColS, RowD, ColD);
                     }
                 }
                 , () =>
@@ -10289,7 +10289,7 @@ namespace QuantumRefrigiz
                     ThinkingQuantumRun = true;
                 }
 
-                CalculateHuristics(true, 0, TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                CalculateHuristics(true, 0,CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                 Object A = new object();
                 lock (A)
                 {
@@ -10334,7 +10334,7 @@ namespace QuantumRefrigiz
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, TableS, RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7,CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
 
                 //{ ThinkingQuantumAtRun = false; return; }
 
@@ -10347,7 +10347,7 @@ namespace QuantumRefrigiz
                 IndexKing++;
                 //Calculate Movment Huristic After Movments.
                 //Caused this for Stachostic results.
-                CalculateHuristics(false, Killed, TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                CalculateHuristics(false, Killed,CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
                 String H = "";
                 int[] Hu = new int[10];
                 Object A6 = new Object();
@@ -10487,7 +10487,7 @@ namespace QuantumRefrigiz
                 {
                     Order = ord;
 
-                    SolderThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                    SolderThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                 }
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumSoldierBase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -10545,7 +10545,7 @@ namespace QuantumRefrigiz
                     if (Scop(ii, jj, i, j, 2) && System.Math.Abs(TableS[ii, jj]) == 2 && System.Math.Abs(Kind) == 2)
                     {
                         Order = ord;
-                        ElephantThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                        ElephantThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                     }
                 }
             }
@@ -10620,7 +10620,7 @@ namespace QuantumRefrigiz
                 {
                     Order = ord;
                     if (Scop(ii, jj, ii + 2, jj + 1, 3))
-                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle);
                 }
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumHourseOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -10646,7 +10646,7 @@ namespace QuantumRefrigiz
                     }
                 Order = ord;
                 if (Scop(ii, jj, ii - 2, jj - 1, 3))
-                    HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj - 1, Castle
+                    HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj - 1, Castle
         );
 
             }
@@ -10675,7 +10675,7 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii + 2, jj - 1, 3))
-                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle);
                 }
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumHourseThree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -10700,7 +10700,7 @@ namespace QuantumRefrigiz
                     }
                 Order = ord;
                 if (Scop(ii, jj, ii - 2, jj + 1, 3))
-                    HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle
+                    HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle
         );
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumHourseFour:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -10729,7 +10729,7 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii + 1, jj + 2, 3))
-                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj + 2, Castle
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj + 2, Castle
         );
                 }
             }
@@ -10759,7 +10759,7 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii - 1, jj - 2, 3))
-                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle);
                 }
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumHourseSix:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -10789,7 +10789,7 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii + 1, jj - 2, 3))
-                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle);
                 }
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumHourseSeven:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -10817,7 +10817,7 @@ namespace QuantumRefrigiz
                         }
                     Order = ord;
                     if (Scop(ii, jj, ii - 1, jj + 2, 3))
-                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle);
+                        HourseThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle);
                 }
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumHourseEight:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -10915,7 +10915,7 @@ namespace QuantumRefrigiz
                         {
                             while (ThinkingQuantumAtRun) { }
                             Order = ord;
-                            CastlesThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                            CastlesThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                         }
                     }
                 }//);
@@ -10952,7 +10952,7 @@ namespace QuantumRefrigiz
                         {
                             while (ThinkingQuantumAtRun) { }
                             Order = ord;
-                            CastlesThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
+                            CastlesThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
     );
                         }
 
@@ -11001,7 +11001,7 @@ namespace QuantumRefrigiz
                     {
                         while (ThinkingQuantumAtRun) { }
                         Order = ord;
-                        MinisterThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
+                        MinisterThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
         );
                     }
 
@@ -11056,9 +11056,9 @@ namespace QuantumRefrigiz
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
                     ///Calculate of Castles of Brown.
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, -7, TableS, Order, ii, jj)).Rules(ii, jj, i, jj, color, -7) && (ChessRules.CastleKingAllowedBrown))
+                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, -7,CloneATable(TableS), Order, ii, jj)).Rules(ii, jj, i, jj, color, -7) && (ChessRules.CastleKingAllowedBrown))
                     {
-                        CastleThinkingQuantumBrown(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle);
+                        CastleThinkingQuantumBrown(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle);
                     }
                     ThinkingQuantumAtRun = false;
                 }
@@ -11086,9 +11086,9 @@ namespace QuantumRefrigiz
                         {
                             TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 7, TableS, Order, ii, jj)).Rules(ii, jj, i, jj, color, 7) && (ChessRules.CastleKingAllowedGray))
+                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 7,CloneATable(TableS), Order, ii, jj)).Rules(ii, jj, i, jj, color, 7) && (ChessRules.CastleKingAllowedGray))
                     {
-                        CastleThinkingQuantumGray(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle);
+                        CastleThinkingQuantumGray(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle);
                     }
                     ThinkingQuantumAtRun = false;
                 }
@@ -11129,7 +11129,7 @@ namespace QuantumRefrigiz
                             {
                                 while (ThinkingQuantumAtRun) { }
                                 Order = ord;
-                                KingThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, TableS, ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
+                                KingThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder,CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle);
                             }
                         }//);
                     }//);
@@ -11273,7 +11273,7 @@ namespace QuantumRefrigiz
                 bool Castle = false;
                 //ExistInDestinationEnemy = false;
                 bool DoEnemySelf = true;
-                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], TableS, AllDraw.OrderPlate, ii, jj);
+                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged,CloneATable(TableS)[ii, jj],CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
                 if (AAA.CheckMate(TableS, AllDraw.OrderPlate))
                 {
                     if (AAA.CheckMateGray || AAA.CheckMateBrown)
@@ -11404,7 +11404,7 @@ namespace QuantumRefrigiz
             //long Time = TimeElapced.TimeNow();Spaces++;
             int Val = 1;
             /*
-            ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
+            ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], CloneATable(Table), Order, RowS, ColS);
             Object O1 = new Object();
             lock (O1)
             {
@@ -11444,16 +11444,16 @@ namespace QuantumRefrigiz
                                         int Ord = 0;
                                           if (SignEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
                                         {
-                                            if (Support(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
-                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            if (Support(CloneATable(Table), RowS, ColS, RowO, ColumnO, AAB, Ord))
+                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, CloneATable(Table), 1));
                                             //else
                                                 //Val--;
                                         }
                                         else
                                         if (SignNotEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
                                         {
-                                            if (Attack(Table, RowS, ColS, RowO, ColumnO, AAB, Ord))
-                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            if (Attack(CloneATable(Table), RowS, ColS, RowO, ColumnO, AAB, Ord))
+                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, CloneATable(Table), 1));
                                             //else
                                                 //Val--;
                                         }//when there is self support inc.                                                                                            
@@ -11465,16 +11465,16 @@ namespace QuantumRefrigiz
                                         int Ord = 0;
                                         if (SignEnemyEmpty(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                         {
-                                            if (Support(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
-                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            if (Support(CloneATable(Table), RowO, ColumnO, RowS, ColS, AAB, Ord))
+                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, CloneATable(Table), 1));
                                             //else
                                                 //Val--;
                                         }
                                         else
                                             if (SignNotEqualEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
                                         {
-                                            if (Attack(Table, RowO, ColumnO, RowS, ColS, AAB, Ord))
-                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, Table, 1));
+                                            if (Attack(CloneATable(Table), RowO, ColumnO, RowS, ColS, AAB, Ord))
+                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, CloneATable(Table), 1));
                                             //else
                                                 //Val++;
                                         }//when there is self support inc.                                                                                            else
@@ -11485,8 +11485,8 @@ namespace QuantumRefrigiz
                         }//);
                     }//)/\;
                 }//));
-                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], Table, Order, RowS, ColS);
-                if (A.ObjectDangourKingMove(Order, Table, false,RowS,ColS))
+                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[RowS, ColS], CloneATable(Table), Order, RowS, ColS);
+                if (A.ObjectDangourKingMove(Order, CloneATable(Table), false,RowS,ColS))
                 {
                     if (Order == 1 && A.CheckGrayObjectDangour)
                         Val--;
@@ -11497,11 +11497,11 @@ namespace QuantumRefrigiz
                     //else
                         //Val++;
                     if (Order == -1 && A.CheckGrayObjectDangour)
-                        Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+                        Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, CloneATable(Table), 1);
                     //else
                         ///Val--;
                     if (Order == 1 && A.CheckBrownObjectDangour)
-                        Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, Table, 1);
+                        Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, CloneATable(Table), 1);
                     ///else
                         //Val--;
                     

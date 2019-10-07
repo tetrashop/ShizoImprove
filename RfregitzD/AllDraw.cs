@@ -4439,7 +4439,7 @@ if (Kind == 2)
                 return Found;
             }
         }
-        public void FoundOfLeafDepenOfKindFullGame(int[,] table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy)
+        public void FoundOfLeafDepenOfKindFullGame(int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
@@ -4452,7 +4452,7 @@ if (Kind == 2)
                 Object O = new Object();
                 lock (O)
                 {
-                    table = CloneATable(table);
+                    //table = CloneATable(table);
                     OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
                     if (Order== 1)
                     {
@@ -4698,8 +4698,8 @@ if (Kind == 2)
                         Color a = Color.Gray;
                         if (Order == -1)
                             a = Color.Brown;
-                        InitiateAStarGreedytObject(MaxAStarGreedy, ii, jj, a, table, Order, false, false, LeafAStarGreedy);
-                        //Initiate(ii, jj, a, table, Order, false, false,LeafAStarGreedy);
+                        InitiateAStarGreedytObject(MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);
+                        //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                     }
                 }
                 //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKindFullGame:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -5030,7 +5030,7 @@ if (Kind == 2)
                                                 //When there is not Penalty regard mechanism.
                                                 //if (!UsePenaltyRegardMechnisamT)
                                                 {
-                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, TableS, Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
+                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1,CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
                                                     //If there is kish or kshachamaz Order.
                                                     if (AB.Check(TableS, Order))
                                                     {
@@ -5331,7 +5331,7 @@ if (Kind == 2)
                                                 //When there is not Penalty regard mechanism.
                                                 //if (!UsePenaltyRegardMechnisamT)
                                                 {
-                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 2, TableS, Order, -1, -1);
+                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 2,CloneATable(TableS), Order, -1, -1);
                                                     //If there is kish or kshachamaz Order.
                                                     if (AB.Check(TableS, Order))
                                                     {
@@ -5553,7 +5553,7 @@ if (Kind == 2)
                                                     //When there is not Penalty regard mechanism.
                                                     //if (!UsePenaltyRegardMechnisamT)
                                                     {
-                                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 3, TableS, Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
+                                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 3,CloneATable(TableS), Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
                                                         //If there is kish or kshachamaz Order.
                                                         if (AB.Check(TableS, Order))
                                                         {
@@ -5782,7 +5782,7 @@ if (Kind == 2)
                                                 //When there is not Penalty regard mechanism.
                                                 //if (!UsePenaltyRegardMechnisamT)
                                                 {
-                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 4, TableS, Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
+                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 4,CloneATable(TableS), Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
                                                     //If there is kish or kshachamaz Order.
                                                     if (AB.Check(TableS, Order))
                                                     {
@@ -6007,7 +6007,7 @@ if (Kind == 2)
                                                 //When there is not Penalty regard mechanism.
                                                 //if (!UsePenaltyRegardMechnisamT)
                                                 {
-                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 5, TableS, Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
+                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 5,CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
                                                     //If there is kish or kshachamaz Order.
                                                     if (AB.Check(TableS, Order))
                                                     {
@@ -6232,7 +6232,7 @@ if (Kind == 2)
                                                 //When there is not Penalty regard mechanism.
                                                 //if (!UsePenaltyRegardMechnisamT)
                                                 {
-                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6, TableS, Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
+                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6,CloneATable(TableS), Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
                                                     //If there is kish or kshachamaz Order.
                                                     if (AB.Check(TableS, Order))
                                                     {
@@ -6824,7 +6824,7 @@ if (Kind == 2)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool continued = false;
-            ChessRules AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, TableS, Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
+            ChessRules AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1,CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
             //If there is kish or kshachamaz Order.
             if (AB.Check(TableS, Order))
             {
@@ -8277,7 +8277,7 @@ if (Kind == 2)
                                             //When there is not Penalty regard mechanism.
                                             //if (!UsePenaltyRegardMechnisamT)
                                             {
-                                                AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, TableS, Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
+                                                AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1,CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
                                                 //If there is kish or kshachamaz Order.
                                                 if (AB.Check(TableS, Order))
                                                 {
@@ -8570,7 +8570,7 @@ if (Kind == 2)
                                             //When there is not Penalty regard mechanism.
                                             //if (!UsePenaltyRegardMechnisamT)
                                             {
-                                                AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 2, TableS, Order, ElephantOnTable[i].ElefantThinking[k].Row, ElephantOnTable[i].ElefantThinking[k].Column);
+                                                AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 2,CloneATable(TableS), Order, ElephantOnTable[i].ElefantThinking[k].Row, ElephantOnTable[i].ElefantThinking[k].Column);
                                                 //If there is kish or kshachamaz Order.
                                                 if (AB.Check(TableS, Order))
                                                 {
@@ -8795,7 +8795,7 @@ if (Kind == 2)
                                                 //When there is not Penalty regard mechanism.
                                                 //if (!UsePenaltyRegardMechnisamT)
                                                 {
-                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 3, TableS, Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
+                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 3,CloneATable(TableS), Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
                                                     //If there is kish or kshachamaz Order.
                                                     if (AB.Check(TableS, Order))
                                                     {
@@ -9021,7 +9021,7 @@ if (Kind == 2)
                                             //When there is not Penalty regard mechanism.
                                             //if (!UsePenaltyRegardMechnisamT)
                                             {
-                                                AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 4, TableS, Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
+                                                AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 4,CloneATable(TableS), Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
                                                 //If there is kish or kshachamaz Order.
                                                 if (AB.Check(TableS, Order))
                                                 {
@@ -9249,7 +9249,7 @@ if (Kind == 2)
                                                 //When there is not Penalty regard mechanism.
                                                 //if (!UsePenaltyRegardMechnisamT)
                                                 {
-                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 5, TableS, Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
+                                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 5,CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
                                                     //If there is kish or kshachamaz Order.
                                                     if (AB.Check(TableS, Order))
                                                     {
@@ -9475,7 +9475,7 @@ if (Kind == 2)
                                             //When there is not Penalty regard mechanism.
                                             //if (!UsePenaltyRegardMechnisamT)
                                             {
-                                                AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6, TableS, Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
+                                                AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 6,CloneATable(TableS), Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
                                                 //If there is kish or kshachamaz Order.
                                                 if (AB.Check(TableS, Order))
                                                 {
@@ -9968,7 +9968,7 @@ if (Kind == 2)
                     }
                 }
             //Determination of CheckMate Consideration.
-            (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, Table, Order, -1, -1)).CheckMate(Table, Order);
+            (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, 1, CloneATable(Table), Order, -1, -1)).CheckMate(CloneATable(Table), Order);
 
                 //Reconstruction of Order Global Varibales.
                 Order = DummyOrder;
@@ -10629,7 +10629,7 @@ if (Kind == 2)
                                             jj = (int)SolderesOnTable[i].Column;
                                             //Construction of Thinking Gray Soldier By Local Variables.
                                             //if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                            //SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //If There is no Thinking Movments on Current Object  
 
                                             if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
@@ -10680,7 +10680,7 @@ if (Kind == 2)
                                             jj = (int)ElephantOnTable[i].Column;
                                             //Construction of Thinking Objects By Local Varibales.
                                             //if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                                //ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                                //ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //If There is Not Thinking Objetive List Elephant Gray. 
                                             if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                                             {
@@ -10730,7 +10730,7 @@ if (Kind == 2)
                                             jj = (int)HoursesOnTable[i].Column;
                                             //Construction of Gray Hourse Thinking Objects..
                                             //if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                                //HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                                //HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //When There is Not HourseList Count. 
                                             if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                                             {
@@ -10777,7 +10777,7 @@ if (Kind == 2)
                                             jj = (int)CastlesOnTable[i].Column;
                                             //Construction of Thinking Variables By Local Variables.
                                             //if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                                //CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                                //CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //When Count of Table Castles of Thinking Not Exist Do Operational.
                                             if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
                                             {
@@ -10828,7 +10828,7 @@ if (Kind == 2)
                                             jj = (int)MinisterOnTable[i].Column;
                                             //Construction of Thinking Objects Gray Minister.
                                             //if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                            //MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //If There is Not Minister Of Gray In The Thinking Table List.   
                                             if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                                             {
@@ -10882,7 +10882,7 @@ if (Kind == 2)
                                             jj = (int)KingOnTable[i].Column;
                                             //Construction of Gray King Thinking Objects.
                                             //if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                            //KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //When There is Not Thinking Table Gray King Movments.
                                             if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                                             {
@@ -10946,7 +10946,7 @@ if (Kind == 2)
                                             jj = (int)SolderesOnTable[i].Column;
                                             //Construction of Thinking Gray Soldier By Local Variables.
                                             //if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                            //SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //If There is no Thinking Movments on Current Object  
 
                                             if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
@@ -10995,7 +10995,7 @@ if (Kind == 2)
                                             jj = (int)ElephantOnTable[i].Column;
                                             //Construction of Thinking Objects By Local Varibales.
                                             //if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                            //ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //If There is Not Thinking Objetive List Elephant Gray. 
                                             if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                                             {
@@ -11043,7 +11043,7 @@ if (Kind == 2)
                                             jj = (int)HoursesOnTable[i].Column;
                                             //Construction of Gray Hourse Thinking Objects..
                                             //if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                            //HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //When There is Not HourseList Count. 
                                             if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                                             {
@@ -11091,7 +11091,7 @@ if (Kind == 2)
                                             jj = (int)CastlesOnTable[i].Column;
                                             //Construction of Thinking Variables By Local Variables.
                                             //if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                            //CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //When Count of Table Castles of Thinking Not Exist Do Operational.
                                             if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
                                             {
@@ -11139,7 +11139,7 @@ if (Kind == 2)
                                             jj = (int)MinisterOnTable[i].Column;
                                             //Construction of Thinking Objects Gray Minister.
                                             //if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                            //MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //If There is Not Minister Of Gray In The Thinking Table List.   
                                             if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                                             {
@@ -11187,7 +11187,7 @@ if (Kind == 2)
                                             jj = (int)KingOnTable[i].Column;
                                             //Construction of Gray King Thinking Objects.
                                             //if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                            //KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                            //KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                             //When There is Not Thinking Table Gray King Movments.
                                             if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                                             {
@@ -11897,7 +11897,7 @@ if (Kind == 2)
                                 jj = (int)SolderesOnTable[i].Column;
                                 //Construction of Thinking Gray Soldier By Local Variables.
                                 if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                    SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                 //If There is no Thinking Movments on Current Object  
 
                                 if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
@@ -11951,7 +11951,7 @@ if (Kind == 2)
                                 jj = (int)ElephantOnTable[i].Column;
                                 //Construction of Thinking Objects By Local Varibales.
                                 if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                 //If There is Not Thinking Objetive List Elephant Gray. 
                                 if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                                 {
@@ -12005,7 +12005,7 @@ if (Kind == 2)
                                 jj = (int)HoursesOnTable[i].Column;
                                 //Construction of Gray Hourse Thinking Objects..
                                 if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                 //When There is Not HourseList Count. 
                                 if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                                 {
@@ -12061,7 +12061,7 @@ if (Kind == 2)
                                 jj = (int)CastlesOnTable[i].Column;
                                 //Construction of Thinking Variables By Local Variables.
                                 if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                 //When Count of Table Castles of Thinking Not Exist Do Operational.
                                 if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
                                 {
@@ -12116,7 +12116,7 @@ if (Kind == 2)
                                 jj = (int)MinisterOnTable[i].Column;
                                 //Construction of Thinking Objects Gray Minister.
                                 if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                 //If There is Not Minister Of Gray In The Thinking Table List.   
                                 if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                                 {
@@ -12171,7 +12171,7 @@ if (Kind == 2)
                                 jj = (int)KingOnTable[i].Column;
                                 //Construction of Gray King Thinking Objects.
                                 if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                 //When There is Not Thinking Table Gray King Movments.
                                 if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                                 {
@@ -12224,7 +12224,7 @@ if (Kind == 2)
                                 jj = (int)SolderesOnTable[i].Column;
                                 //Construction of Thinking Brown Current Objects.
                                 if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                    SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                 {
                                     //When There is Current Brown Object Table List Thinking Objective Movments.
                                     if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
@@ -12279,7 +12279,7 @@ if (Kind == 2)
                                 jj = (int)ElephantOnTable[i].Column;
                                 //Construction of Thinking Brown Current Objects.
                                 if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
                                 {
                                     //When There is Current Brown Object Table List Thinking Objective Movments.
                                     if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
@@ -12333,7 +12333,7 @@ if (Kind == 2)
                                 jj = (int)HoursesOnTable[i].Column;
                                 //Construction of Thinking Brown Current Objects.
                                 if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
 
                                 {
                                     //When There is Current Brown Object Table List Thinking Objective Movments.
@@ -12390,7 +12390,7 @@ if (Kind == 2)
                                 jj = (int)CastlesOnTable[i].Column;
                                 //Construction of Thinking Brown Current Objects.
                                 if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
 
                                 {
                                     //When There is Current Brown Object Table List Thinking Objective Movments.
@@ -12445,7 +12445,7 @@ if (Kind == 2)
                                 jj = (int)MinisterOnTable[i].Column;
                                 //Construction of Thinking Brown Current Objects.
                                 if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
 
                                 //When There is Current Brown Object Table List Thinking Objective Movments.
                                 if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
@@ -12497,7 +12497,7 @@ if (Kind == 2)
                                 jj = (int)KingOnTable[i].Column;
                                 //Construction of Thinking Brown Current Objects.
                                 if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, Table, Order, false, i);
+                                    KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
 
                                 //When There is Current Brown Object Table List Thinking Objective Movments.
                                 if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
@@ -13349,9 +13349,9 @@ if (Kind == 2)
                     lock (o)
                     {
                         if (Order== 1)
-                            this.InitiateAStarGreedytObjectGray(i, j, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
+                            this.InitiateAStarGreedytObjectGray(i, j, CloneATable(Table), DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                         else
-                            this.InitiateAStarGreedytObjectBrown(i, j, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
+                            this.InitiateAStarGreedytObjectBrown(i, j, CloneATable(Table), DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                     }
                 }
 
@@ -18043,7 +18043,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 
                     //Construction of Current Solders. 
-                    Dummy.SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, SolderesOnTable[i].Row, SolderesOnTable[i].Column, SolderesOnTable[i].color, SolderesOnTable[i].Table, SolderesOnTable[i].Order, false, SolderesOnTable[i].Current);
+                    Dummy.SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, SolderesOnTable[i].Row, SolderesOnTable[i].Column, SolderesOnTable[i].color, CloneATable(SolderesOnTable[i].Table), SolderesOnTable[i].Order, false, SolderesOnTable[i].Current);
                
             }
             //For All Elephant Objects.
@@ -18051,7 +18051,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 
                     //Construction of Curren Elephant.
-                    Dummy.ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ElephantOnTable[i].Row, ElephantOnTable[i].Column, ElephantOnTable[i].color, ElephantOnTable[i].Table, ElephantOnTable[i].Order, false, ElephantOnTable[i].Current);
+                    Dummy.ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, ElephantOnTable[i].Row, ElephantOnTable[i].Column, ElephantOnTable[i].color, CloneATable(ElephantOnTable[i].Table), ElephantOnTable[i].Order, false, ElephantOnTable[i].Current);
                
             }
             //for All Hourse Objects.
@@ -18059,7 +18059,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 
                     //Construction of Hourse Objects.
-                    Dummy.HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, HoursesOnTable[i].Row, HoursesOnTable[i].Column, HoursesOnTable[i].color, HoursesOnTable[i].Table, HoursesOnTable[i].Order, false, HoursesOnTable[i].Current);
+                    Dummy.HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, HoursesOnTable[i].Row, HoursesOnTable[i].Column, HoursesOnTable[i].color, CloneATable(HoursesOnTable[i].Table), HoursesOnTable[i].Order, false, HoursesOnTable[i].Current);
                
             }
             //For All Castles Objects.
@@ -18067,7 +18067,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 
                     //Construction of Castles Objects.
-                    Dummy.CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, CastlesOnTable[i].Row, CastlesOnTable[i].Column, CastlesOnTable[i].color, CastlesOnTable[i].Table, CastlesOnTable[i].Order, false, CastlesOnTable[i].Current);
+                    Dummy.CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, CastlesOnTable[i].Row, CastlesOnTable[i].Column, CastlesOnTable[i].color, CloneATable(CastlesOnTable[i].Table), CastlesOnTable[i].Order, false, CastlesOnTable[i].Current);
                
             }
             //For All Minister Objects.
@@ -18075,7 +18075,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 
                     //Construction of Current Minister.
-                    Dummy.MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, MinisterOnTable[i].Row, MinisterOnTable[i].Column, MinisterOnTable[i].color, MinisterOnTable[i].Table, MinisterOnTable[i].Order, false, MinisterOnTable[i].Current);
+                    Dummy.MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, MinisterOnTable[i].Row, MinisterOnTable[i].Column, MinisterOnTable[i].color, CloneATable(MinisterOnTable[i].Table), MinisterOnTable[i].Order, false, MinisterOnTable[i].Current);
                
             }
             //For All King Objects.
@@ -18083,7 +18083,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 
                     //Construction of Kings Objects.
-                    Dummy.KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, KingOnTable[i].Row, KingOnTable[i].Column, KingOnTable[i].color, KingOnTable[i].Table, KingOnTable[i].Order, false, KingOnTable[i].Current);
+                    Dummy.KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, KingOnTable[i].Row, KingOnTable[i].Column, KingOnTable[i].color, CloneATable(KingOnTable[i].Table), KingOnTable[i].Order, false, KingOnTable[i].Current);
                
             }
             //Gray Order.

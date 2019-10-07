@@ -5945,7 +5945,7 @@ jQuery.fn.extend({
 		return this.remove( selector, true );
 	},
 
-	domManip: function( args, table, callback ) {
+	domManip: function( args, CloneATable(Table), callback ) {
 
 		// Flatten any nested arrays
 		args = [].concat.apply( [], args );
@@ -5959,7 +5959,7 @@ jQuery.fn.extend({
 		// We can't cloneNode fragments that contain checked, in WebKit
 		if ( !jQuery.support.checkClone && l > 1 && typeof value === "string" && rchecked.test( value ) ) {
 			return this.each(function() {
-				jQuery(this).domManip( args, table, callback );
+				jQuery(this).domManip( args, CloneATable(Table), callback );
 			});
 		}
 
@@ -5967,7 +5967,7 @@ jQuery.fn.extend({
 			return this.each(function(i) {
 				var self = jQuery(this);
 				args[0] = value.call( this, i, table ? self.html() : undefined );
-				self.domManip( args, table, callback );
+				self.domManip( args, CloneATable(Table), callback );
 			});
 		}
 
