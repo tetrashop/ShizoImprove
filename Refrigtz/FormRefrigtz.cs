@@ -12692,11 +12692,12 @@ namespace Refrigtz
             if (Draw == null)
                 return;
             int Dummy = OrderPlate;
-           /*  if (Sec.RadioButtonGrayOrder.Checked)
-                 OrderPlate = 1;
-             else
-                 OrderPlate = -1;
-      */      RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString;
+            /*  if (Sec.RadioButtonGrayOrder.Checked)
+                  OrderPlate = 1;
+              else
+                  OrderPlate = -1;
+       */
+            RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString;
             while (Draw.AStarGreedyString != null)
                 Draw = Draw.AStarGreedyString;
             /*
@@ -12760,7 +12761,7 @@ namespace Refrigtz
                 Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                 if (FOUND)
                 {
-                    
+
                     //THISB = THIS.AStarGreedyString;
                     Draw = THIS;
                     Draw.IsCurrentDraw = true;
@@ -12797,20 +12798,18 @@ namespace Refrigtz
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
                         FOUND = false;
-                        if (LoadO)
-                        {
-                            Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
-                            Draw.FoundOfCurrentTableNodeFirstLevel(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, ref THIS, ref FOUND);
+                        Ord = OrderPlate;
 
-                        }
-                        else
-                        {
-                            Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
-                            Draw.FoundOfCurrentTableNodeFirstLevel(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
+                        Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        Draw.FoundOfCurrentTableNodeFirstLevel(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
 
-                        }
+
                         if (FOUND)
                         {
+                            Draw = THIS;
+                            SetBoxText("\r\nRecurved Draw Constructed and Found!");
+                            RefreshBoxText();
+                            /*
                             Ord = OrderPlate;
 
                             FOUND = false;
@@ -12824,6 +12823,7 @@ namespace Refrigtz
                                 Draw.IsCurrentDraw = true;
                                 SetBoxText("\r\nDraw Found Target Of Tree Expansion!");
                                 RefreshBoxText();
+                            }
                             }
                             else
                             {
@@ -12854,7 +12854,8 @@ namespace Refrigtz
                                 RefrigtzDLL.AllDraw.DepthIterative = 0;
                                 SetBoxText("\r\nDraw Not Found by break");
                                 RefreshBoxText();
-                            }
+                                }
+                            */
                         }
                         else
                         {
@@ -13008,10 +13009,7 @@ namespace Refrigtz
                     THIS = null;
 
                     a = Color.Brown;
-                    //if (First)
-                    //Draw.FoundOfCurrentTableNode(CloneATable(Table), OrderPlate * -1, ref THIS, ref FOUND);
-                    //else
-                     
+                   
                     while (DrawQ.AStarGreedyString != null)
                         DrawQ = DrawQ.AStarGreedyString;
 
@@ -13028,69 +13026,29 @@ namespace Refrigtz
                     }
                     if (FOUND)
                     {
-                       
+
                         DrawQ = THIS;
-                        
+                        Ord = OrderPlate;
+
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
                         FOUND = false;
 
-                        if (LoadO)
-                        {
-                            DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
-                            DrawQ.FoundOfCurrentTableNodeFirstLevel(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, ref THIS, ref FOUND);
 
-                        }
-                        else
-                        {
-                            DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
-                            DrawQ.FoundOfCurrentTableNodeFirstLevel(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
+                        DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        DrawQ.FoundOfCurrentTableNodeFirstLevel(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
 
-                        }
+
 
                         if (FOUND)
                         {
-                           
-                            Ord = Dummy;
-                            FOUND = false;
-
-                            DrawQ.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
-                            if (FOUND)
-                            {
-                                DrawQ = THIS;
-                                DrawQ.IsCurrentDraw = true;
-
-                                SetBoxText("\r\nDraw Found Target Of Tree Expansion!");
-                                RefreshBoxText();
-                            }
-                            else
-                            {
-                                OrderPlate = Dummy;
-                                SetAllDrawKind();
-                                //Set Configuration To True for some unknown reason!.
-                                //UpdateConfigurationTableVal = true;                             
-                                SetAllDrawKindString();
-
-                                (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                DrawManagement();
-                                //THISB = DrawQ.AStarGreedyString;
-                                DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                                DrawQ.TableList.Clear();
-                                DrawQ.TableList.Add(Table);
-                                DrawQ.SetRowColumn(0);
-                                DrawQ.IsCurrentDraw = true;
-
-                                //DrawQ.AStarGreedyString = THISB;
-                                RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
-                                RefrigtzDLL.AllDraw.DepthIterative = 0;
-                                SetBoxText("\r\nDraw Not Found by break");
-                                RefreshBoxText();
-
-                            }
+                            DrawQ = THIS;
+                            SetBoxText("\r\nRecurved Draw Constructed and Found!");
+                            RefreshBoxText();
+                            
                         }
                         else
                         {
-                            OrderPlate = Dummy;
 
                             SetAllDrawKind();
                             //Set Configuration To True for some unknown reason!.
@@ -13099,20 +13057,23 @@ namespace Refrigtz
 
                             (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             DrawManagement();
-
+                            //THISB = DrawQ.AStarGreedyString;
                             DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             DrawQ.TableList.Clear();
                             DrawQ.TableList.Add(Table);
                             DrawQ.SetRowColumn(0);
                             DrawQ.IsCurrentDraw = true;
 
-                            // DrawQ.AStarGreedyString = THISB;
+                            //DrawQ.AStarGreedyString = THISB;
                             RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                             RefrigtzDLL.AllDraw.DepthIterative = 0;
-                            SetBoxText("\r\nDraw Not Found");
+                            SetBoxText("\r\nDraw Not Found by break");
                             RefreshBoxText();
+
                         }
+
                     }
+
                     else
                     {
                         OrderPlate = Dummy;
@@ -13126,22 +13087,24 @@ namespace Refrigtz
                         DrawManagement();
 
                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-
                         DrawQ.TableList.Clear();
                         DrawQ.TableList.Add(Table);
                         DrawQ.SetRowColumn(0);
                         DrawQ.IsCurrentDraw = true;
 
-                        //DrawQ.AStarGreedyString = THISB;
+                        // DrawQ.AStarGreedyString = THISB;
                         RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                         RefrigtzDLL.AllDraw.DepthIterative = 0;
                         SetBoxText("\r\nDraw Not Found");
                         RefreshBoxText();
 
+
                     }
+
                 }
+
+                OrderPlate = Dummy;
             }
-            OrderPlate = Dummy;
         }
         //All Operation of Thinking Handling.
         void AllOperations()

@@ -3463,7 +3463,7 @@ if (Kind == 2)
         {
             if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
             {
-                for (int h = 0; h < j; h++)
+                for (int h = 0; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 1);
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]);
@@ -3475,7 +3475,7 @@ if (Kind == 2)
             else
                                     if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count < j)
             {
-                for (int h = SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; h < j; h++)
+                for (int h = SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 1);
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]);
@@ -3486,7 +3486,7 @@ if (Kind == 2)
             }
             else
             {
-                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == j)
+                if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == (j+1))
                 {
                     if (!SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
                     {
@@ -3543,7 +3543,7 @@ if (Kind == 2)
         {
             if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
             {
-                for (int h = 0; h < j; h++)
+                for (int h = 0; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 2);
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]);
@@ -3555,7 +3555,7 @@ if (Kind == 2)
             else
                                     if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count < j)
             {
-                for (int h = ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; h < j; h++)
+                for (int h = ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 2);
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]);
@@ -3566,7 +3566,7 @@ if (Kind == 2)
             }
             else
             {
-                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == j)
+                if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == (j+1))
                 {
                     if (!ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
                     {
@@ -3624,7 +3624,7 @@ if (Kind == 2)
         {
             if (HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
             {
-                for (int h = 0; h < j; h++)
+                for (int h = 0; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 3);
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]);
@@ -3636,7 +3636,7 @@ if (Kind == 2)
             else
                                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count < j)
             {
-                for (int h = HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; h < j; h++)
+                for (int h = HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 3);
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]);
@@ -3647,7 +3647,7 @@ if (Kind == 2)
             }
             else
             {
-                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == j)
+                if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == (j+1))
                 {
                     if (!HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
                     {
@@ -3706,7 +3706,7 @@ if (Kind == 2)
         {
             if (CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
             {
-                for (int h = 0; h < j; h++)
+                for (int h = 0; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 4);
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]);
@@ -3718,7 +3718,7 @@ if (Kind == 2)
             else
                       if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count < j)
             {
-                for (int h = CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; h < j; h++)
+                for (int h = CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 4);
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]);
@@ -3729,7 +3729,7 @@ if (Kind == 2)
             }
             else
             {
-                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == j)
+                if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == (j+1))
                 {
                     if (!CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
                     {
@@ -3788,7 +3788,7 @@ if (Kind == 2)
         {
             if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
             {
-                for (int h = 0; h < j; h++)
+                for (int h = 0; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 5);
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]);
@@ -3800,7 +3800,7 @@ if (Kind == 2)
             else
                                     if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count < j)
             {
-                for (int h = MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; h < j; h++)
+                for (int h = MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 5);
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]);
@@ -3811,7 +3811,7 @@ if (Kind == 2)
             }
             else
             {
-                if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == j)
+                if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == (j+1))
                 {
                     if (!MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
                     {
@@ -3867,7 +3867,7 @@ if (Kind == 2)
         {
             if (KingOnTable[i].KingThinking[0].AStarGreedy == null)
             {
-                for (int h = 0; h < j; h++)
+                for (int h = 0; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 6);
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(KingOnTable[i].KingThinking[0].TableListKing[j]);
@@ -3879,7 +3879,7 @@ if (Kind == 2)
             else
                                     if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count < j)
             {
-                for (int h = KingOnTable[i].KingThinking[0].AStarGreedy.Count; h < j; h++)
+                for (int h = KingOnTable[i].KingThinking[0].AStarGreedy.Count; h <= j; h++)
                     BlitzNotValidFullGameThinkingTreePartThree(i, Order, 6);
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(KingOnTable[i].KingThinking[0].TableListKing[j]);
@@ -3890,7 +3890,7 @@ if (Kind == 2)
             }
             else
             {
-                if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count == j)
+                if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count == (j+1))
                 {
                     if (!KingOnTable[i].KingThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
                     {
