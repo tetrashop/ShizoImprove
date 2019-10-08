@@ -307,7 +307,9 @@ namespace Refrigtz
                         t.Text = "SoldierOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "SoldierOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
-                        if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfSelf)
+                        if (Draw.IsCurrentDraw)
+                            t.BackColor = Color.DeepPink;
+                        else if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfSelf)
                             t.BackColor = Color.Red;
                         else
                       if (Draw.SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy)
@@ -459,7 +461,10 @@ namespace Refrigtz
                         t.Text = "ElephantOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "ElephantOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
-                        if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf)
+                        if (Draw.IsCurrentDraw)
+                            t.BackColor = Color.DeepPink;
+                       else
+                       if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfSelf)
                             t.BackColor = Color.Red;
                         else
                      if (Draw.ElephantOnTable[i].ElefantThinking[0].IsThereMateOfEnemy)
@@ -613,7 +618,10 @@ namespace Refrigtz
                         t.Text = "HoursesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "HoursesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
-                        if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfSelf)
+                        if (Draw.IsCurrentDraw)
+                            t.BackColor = Color.DeepPink;
+                       else
+                       if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfSelf)
                             t.BackColor = Color.Red;
                         else
                      if (Draw.HoursesOnTable[i].HourseThinking[0].IsThereMateOfEnemy)
@@ -768,7 +776,10 @@ namespace Refrigtz
                         t.Text = "CastlesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "CastlesOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
-                        if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfSelf)
+                        if (Draw.IsCurrentDraw)
+                            t.BackColor = Color.DeepPink;
+                        else
+                    if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfSelf)
                             t.BackColor = Color.Red;
                         else
                      if (Draw.CastlesOnTable[i].CastleThinking[0].IsThereMateOfEnemy)
@@ -1009,7 +1020,10 @@ namespace Refrigtz
                         t.Text = "MinisterOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "MinisterOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
-                        if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfSelf)
+                        if (Draw.IsCurrentDraw)
+                            t.BackColor = Color.DeepPink;
+                        else if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfSelf)
+
                             t.BackColor = Color.Red;
                         else
                            if (Draw.MinisterOnTable[i].MinisterThinking[0].IsThereMateOfEnemy)
@@ -1162,7 +1176,9 @@ namespace Refrigtz
                         t.Text = "KingOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Name = "KingOnTable" + i.ToString() + ":Order=" + Draw.OrderP.ToString();
                         t.Tag = parentId;
-                        if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfSelf)
+                        if (Draw.IsCurrentDraw)
+                            t.BackColor = Color.DeepPink;
+                        else if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfSelf)
                             t.BackColor = Color.Red;
                         else
                           if (Draw.KingOnTable[i].KingThinking[0].IsThereMateOfEnemy)

@@ -12692,11 +12692,11 @@ namespace Refrigtz
             if (Draw == null)
                 return;
             int Dummy = OrderPlate;
-             if (Sec.RadioButtonGrayOrder.Checked)
+           /*  if (Sec.RadioButtonGrayOrder.Checked)
                  OrderPlate = 1;
              else
                  OrderPlate = -1;
-            RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString;
+      */      RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString;
             while (Draw.AStarGreedyString != null)
                 Draw = Draw.AStarGreedyString;
             /*
@@ -12763,6 +12763,7 @@ namespace Refrigtz
                     
                     //THISB = THIS.AStarGreedyString;
                     Draw = THIS;
+                    Draw.IsCurrentDraw = true;
                     SetBoxText("\r\nDraw Found");
                     RefreshBoxText();
                 }
@@ -12772,6 +12773,8 @@ namespace Refrigtz
                     THIS = null;
 
                     a = Color.Brown;
+                    while (Draw.AStarGreedyString != null)
+                        Draw = Draw.AStarGreedyString;
 
                     Ord = OrderPlate * -1;
                     if (LoadO)
@@ -12788,22 +12791,29 @@ namespace Refrigtz
 
                     if (FOUND)
                     {
-                        Ord = OrderPlate;
 
                         Draw = THIS;
+                        Draw.IsCurrentDraw = true;
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
+                        FOUND = false;
                         if (LoadO)
                         {
-                            FOUND = Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                            Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                            Draw.FoundOfCurrentTableNodeFirstLevel(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, ref THIS, ref FOUND);
+
                         }
                         else
                         {
-                            FOUND = Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                            Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                            Draw.FoundOfCurrentTableNodeFirstLevel(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
+
                         }
                         if (FOUND)
                         {
                             Ord = OrderPlate;
+
+                            FOUND = false;
 
                             Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                             if (FOUND)
@@ -12811,6 +12821,7 @@ namespace Refrigtz
                                 OrderPlate = Dummy;
                                 //THISB = THIS.AStarGreedyString;
                                 Draw = THIS;
+                                Draw.IsCurrentDraw = true;
                                 SetBoxText("\r\nDraw Found Target Of Tree Expansion!");
                                 RefreshBoxText();
                             }
@@ -12837,6 +12848,7 @@ namespace Refrigtz
                                 Draw.TableList.Clear();
                                 Draw.TableList.Add(CloneATable(Table));
                                 Draw.SetRowColumn(0);
+                                Draw.IsCurrentDraw = true;
                                 //Draw.AStarGreedyString = THISB;
                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                 RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -12867,6 +12879,7 @@ namespace Refrigtz
                             Draw.TableList.Clear();
                             Draw.TableList.Add(CloneATable(Table));
                             Draw.SetRowColumn(0);
+                            Draw.IsCurrentDraw = true;
                             //Draw.AStarGreedyString = THISB;
                             RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                             RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -12897,6 +12910,7 @@ namespace Refrigtz
                         Draw.TableList.Clear();
                         Draw.TableList.Add(CloneATable(Table));
                         Draw.SetRowColumn(0);
+                        Draw.IsCurrentDraw = true;
                         //Draw.AStarGreedyString = THISB;
                         RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                         RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -12912,19 +12926,20 @@ namespace Refrigtz
             if (DrawQ == null)
                 return;
             int Dummy = OrderPlate;
-               if (Sec.RadioButtonGrayOrder.Checked)
+            /*   if (Sec.RadioButtonGrayOrder.Checked)
                    OrderPlate = 1;
                else
                    OrderPlate = -1;
+          */
             QuantumRefrigiz.AllDraw THISB = DrawQ.AStarGreedyString;
             while (DrawQ.AStarGreedyString != null)
                 DrawQ = DrawQ.AStarGreedyString;
-/*
-            OrderPlate = DrawQ.OrderP;
-            if ((Stockfish || Sugar || StateCC || StateCP) && (!BobSection) && LoadO)
-                OrderPlate *= -1;
-           */
-           //OrderPlate = DrawQ.OrderP;
+
+            ///OrderPlate = DrawQ.OrderP;
+            /*      if ((Stockfish || Sugar || StateCC || StateCP) && (!BobSection) && LoadO)
+                      OrderPlate *= -1;
+                 */
+            //OrderPlate = DrawQ.OrderP;
             /*Object O = new Object();
             lock (O)
             {
@@ -12983,6 +12998,7 @@ namespace Refrigtz
                 {
                     //THISB = THIS.AStarGreedyString;
                     DrawQ = THIS;
+                    DrawQ.IsCurrentDraw = true;
                     SetBoxText("\r\nDraw Found");
                     RefreshBoxText();
                 }
@@ -13012,29 +13028,38 @@ namespace Refrigtz
                     }
                     if (FOUND)
                     {
-                        Ord = OrderPlate;
-
+                       
                         DrawQ = THIS;
+                        
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
+                        FOUND = false;
+
                         if (LoadO)
                         {
-                            FOUND = DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                            DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, false, false, 0);
+                            DrawQ.FoundOfCurrentTableNodeFirstLevel(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], Ord, ref THIS, ref FOUND);
+
                         }
                         else
                         {
-                            FOUND = DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                            DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                            DrawQ.FoundOfCurrentTableNodeFirstLevel(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
 
                         }
+
                         if (FOUND)
                         {
                            
                             Ord = Dummy;
+                            FOUND = false;
 
                             DrawQ.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                             if (FOUND)
                             {
                                 DrawQ = THIS;
+                                DrawQ.IsCurrentDraw = true;
+
                                 SetBoxText("\r\nDraw Found Target Of Tree Expansion!");
                                 RefreshBoxText();
                             }
@@ -13053,6 +13078,8 @@ namespace Refrigtz
                                 DrawQ.TableList.Clear();
                                 DrawQ.TableList.Add(Table);
                                 DrawQ.SetRowColumn(0);
+                                DrawQ.IsCurrentDraw = true;
+
                                 //DrawQ.AStarGreedyString = THISB;
                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                 RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -13077,6 +13104,8 @@ namespace Refrigtz
                             DrawQ.TableList.Clear();
                             DrawQ.TableList.Add(Table);
                             DrawQ.SetRowColumn(0);
+                            DrawQ.IsCurrentDraw = true;
+
                             // DrawQ.AStarGreedyString = THISB;
                             RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                             RefrigtzDLL.AllDraw.DepthIterative = 0;
@@ -13101,6 +13130,8 @@ namespace Refrigtz
                         DrawQ.TableList.Clear();
                         DrawQ.TableList.Add(Table);
                         DrawQ.SetRowColumn(0);
+                        DrawQ.IsCurrentDraw = true;
+
                         //DrawQ.AStarGreedyString = THISB;
                         RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                         RefrigtzDLL.AllDraw.DepthIterative = 0;

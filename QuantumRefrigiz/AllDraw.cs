@@ -159,6 +159,8 @@ namespace QuantumRefrigiz
 
     public class AllDraw
     {
+        public bool IsCurrentDraw = false;
+
         public static int[,,] QuntumTable = {
             {{-1, -1, - 1, -1, -1, -1, -1, -1 },
              {-1, -1, - 1, -1, -1, -1, -1, -1 },

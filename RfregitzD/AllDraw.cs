@@ -159,6 +159,7 @@ namespace RefrigtzDLL
 
     public class AllDraw
     {
+        public bool IsCurrentDraw = false;
         public int HaveKilled = 0;
         StringBuilder Space = new StringBuilder("&nbsp;");
         int Spaces = 0;
