@@ -13102,7 +13102,7 @@ namespace Refrigtz
                         {
                             DrawQ = THIS;
                             DrawQ.TableList.Clear();
-                            DrawQ.TableList.Add(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]));
+                            DrawQ.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
 
                             if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                                 AllDrawKind = 4;
