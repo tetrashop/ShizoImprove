@@ -15820,6 +15820,22 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("OpOfFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+        void ReturnFullGameThinkingTreeSemaphoreAs(int ik,int Kind)
+        {
+            Object OO1 = new Object();
+            lock (OO1)
+            {
+                TaskBegin++;
+                
+                    //int S = 0;
+                    while (ReturnFullGameThinkingTreeSemaphore(ik, Kind))
+                    {
+                        System.Threading.Thread.Sleep(2);
+                    }
+                
+
+            }
+        }
             bool FullGameThinkingTreeSoldier(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -15827,17 +15843,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             Object O1 = new Object();
             lock (O1)
             {
-                Object OO1 = new Object();
-                lock (OO1)
-                {
-                    TaskBegin++;
-                    //int S = 0;
-                    while (ReturnFullGameThinkingTreeSemaphore(ik, 1))
-                    {
-                        System.Threading.Thread.Sleep(2);
-                    }
+                var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(ik, 1));
+                array.Wait();
 
-                }
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
@@ -16014,15 +16022,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             Object O1 = new Object();
             lock (O1)
             {
-                Object OO1 = new Object();
-                lock (OO1)
-                {
-                    TaskBegin++;
-                    while (ReturnFullGameThinkingTreeSemaphore(ik, 2))
-                    {
-                        Thread.Sleep(2);
-                    }
-                }
+                var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(ik, 2));
+                array.Wait();
+
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
@@ -16205,16 +16207,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             Object O1 = new Object();
             lock (O1)
             {
-                Object OO1 = new Object();
-                lock (OO1)
-                {
-                    TaskBegin++;
-                    //int S = 0;
-                    while (ReturnFullGameThinkingTreeSemaphore(ik, 3))
-                    {
-                        Thread.Sleep(2);
-                     }
-                }
+                var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(ik, 3));
+                array.Wait();
+
 
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -16399,16 +16394,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             Object O1 = new Object();
             lock (O1)
             {
-                Object OO1 = new Object();
-                lock (OO1)
-                {
-                    TaskBegin++;
+                var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(ik, 4));
+                array.Wait();
 
-                    while (ReturnFullGameThinkingTreeSemaphore(ik, 4))
-                    {
-                        Thread.Sleep(2);
-                     }
-                 }
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
@@ -16584,16 +16572,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             Object O1 = new Object();
             lock (O1)
             {
-                Object OO1 = new Object();
-                lock (OO1)
-                {
-                    TaskBegin++;
+                var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(ik, 5));
+                array.Wait();
 
-                    while (ReturnFullGameThinkingTreeSemaphore(ik, 5))
-                    {
-                        Thread.Sleep(2);
-                    }
-                }
+
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
@@ -16779,16 +16761,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             Object O1 = new Object();
             lock (O1)
             {
-                Object OO1 = new Object();
-                lock (OO1)
-                {
-                    TaskBegin++;
-                    //int S = 0;
-                    while (ReturnFullGameThinkingTreeSemaphore(ik, 6))
-                    {
-                        Thread.Sleep(2);
-                    }
-                }
+                var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(ik, 6));
+                array.Wait();
+
+
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
