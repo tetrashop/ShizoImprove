@@ -3321,7 +3321,7 @@ if (Kind == 2)
 
             return Found;
         }
-        bool IsAstargreedyHaveNode(int Kind,int Order)
+        bool IsAstargreedyHaveNode(int Kind, int Order)
         {
 
             bool Is = false;
@@ -3391,7 +3391,8 @@ if (Kind == 2)
                 }
 
             }
-            else {
+            else
+            {
                 if (Kind == 1)
                 {
                     for (int i = SodierMidle; SolderesOnTable != null && i < SodierHigh; i++)
@@ -3457,6 +3458,169 @@ if (Kind == 2)
             }
 
             return Is;
+
+        }
+        public void ClearAllTablesHuristicsAndMore(int Order)
+        {
+
+            if (Order == 1)
+            {
+
+                for (int i = 0; SolderesOnTable != null && i < SodierMidle; i++)
+                {
+                    if (SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
+                    {
+                        SolderesOnTable[i].SoldierThinking[0].TableListSolder.Clear();
+                        SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Clear();
+                        SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Clear();
+                        SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Clear();
+                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+                for (int i = 0; ElephantOnTable != null && i < ElefantMidle; i++)
+                {
+                    if (ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count > 0)
+                    {
+                        ElephantOnTable[i].ElefantThinking[0].TableListElefant.Clear();
+                        ElephantOnTable[i].ElefantThinking[0].HuristicListSolder.Clear();
+                        ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Clear();
+                        ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Clear();
+                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+
+                for (int i = 0; HoursesOnTable != null && i < HourseMidle; i++)
+                {
+                    if (HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && HoursesOnTable[i].HourseThinking[0].TableListHourse.Count > 0)
+                    {
+                        HoursesOnTable[i].HourseThinking[0].TableListHourse.Clear();
+                        HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Clear();
+                        HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Clear();
+                        HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Clear();
+                        HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+                for (int i = 0; CastlesOnTable != null && i < CastleMidle; i++)
+                {
+                    if (CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > 0)
+                    {
+                        CastlesOnTable[i].CastleThinking[0].TableListCastle.Clear();
+                        CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Clear();
+                        CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Clear();
+                        CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Clear();
+                        CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+                for (int i = 0; MinisterOnTable != null && i < MinisterMidle; i++)
+                {
+                    if (MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count > 0)
+                    {
+                        MinisterOnTable[i].MinisterThinking[0].TableListMinister.Clear();
+                        MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Clear();
+                        MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Clear();
+                        MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Clear();
+                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+                for (int i = 0; KingOnTable != null && i < KingMidle; i++)
+                {
+                    if (KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && KingOnTable[i].KingThinking[0].TableListKing.Count > 0)
+                    {
+                        KingOnTable[i].KingThinking[0].TableListKing.Clear();
+                        KingOnTable[i].KingThinking[0].HuristicListKing.Clear();
+                        KingOnTable[i].KingThinking[0].RowColumnKing.Clear();
+                        KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Clear();
+                        KingOnTable[i].KingThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+
+            }
+            else
+            {
+
+                for (int i = SodierMidle; SolderesOnTable != null && i < SodierHigh; i++)
+                {
+                    if (SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
+                    {
+                        SolderesOnTable[i].SoldierThinking[0].TableListSolder.Clear();
+                        SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Clear();
+                        SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Clear();
+                        SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Clear();
+                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+                for (int i = ElefantMidle; ElephantOnTable != null && i < ElefantHigh; i++)
+                {
+                    if (ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count > 0)
+                    {
+                        ElephantOnTable[i].ElefantThinking[0].TableListElefant.Clear();
+                        ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Clear();
+                        ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Clear();
+                        ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Clear();
+                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+                for (int i = HourseMidle; HoursesOnTable != null && i < HourseHight; i++)
+                {
+                    if (HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && HoursesOnTable[i].HourseThinking[0].TableListHourse.Count > 0)
+                    {
+                        HoursesOnTable[i].HourseThinking[0].TableListHourse.Clear();
+                        HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Clear();
+                        HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Clear();
+                        HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Clear();
+                        HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+
+                for (int i = CastleMidle; CastlesOnTable != null && i < CastleHigh; i++)
+                {
+                    if (CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > 0)
+                    {
+                        CastlesOnTable[i].CastleThinking[0].TableListCastle.Clear();
+                        CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Clear();
+                        CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Clear();
+                        CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Clear();
+                        CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+
+                for (int i = MinisterHigh; MinisterOnTable != null && i < MinisterHigh; i++)
+                {
+                    if (MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count > 0)
+                    {
+                        MinisterOnTable[i].MinisterThinking[0].TableListMinister.Clear();
+                        MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Clear();
+                        MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Clear();
+                        MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Clear();
+                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+                for (int i = KingMidle; KingOnTable != null && i < KingHigh; i++)
+                {
+                    if (KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && KingOnTable[i].KingThinking[0].TableListKing.Count > 0)
+                    {
+                        KingOnTable[i].KingThinking[0].TableListKing.Clear();
+                        KingOnTable[i].KingThinking[0].HuristicListKing.Clear();
+                        KingOnTable[i].KingThinking[0].RowColumnKing.Clear();
+                        KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Clear();
+                        KingOnTable[i].KingThinking[0].AStarGreedy.Clear();
+                    }
+                }
+
+            }
+
+
 
         }
         public bool FoundOfCurrentTableNodeSolderIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)

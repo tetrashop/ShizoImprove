@@ -12801,6 +12801,7 @@ namespace Refrigtz
                         Ord = OrderPlate;
 
                         Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        Draw.ClearAllTablesHuristicsAndMore(Ord);
                         Draw.FoundOfCurrentTableNodeFirstLevel(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
 
 
@@ -13036,6 +13037,7 @@ namespace Refrigtz
 
 
                         DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        DrawQ.ClearAllTablesHuristicsAndMore(Ord);
                         DrawQ.FoundOfCurrentTableNodeFirstLevel(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
 
 
