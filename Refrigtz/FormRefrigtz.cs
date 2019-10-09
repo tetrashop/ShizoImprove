@@ -5713,9 +5713,11 @@ namespace Refrigtz
             //if (UpdateConfigurationTableVal)
             {
 
-                Begin12:
+                //Begin12:
+#pragma warning disable CS0164 // This label has not been referenced
                 try
                 {
+#pragma warning restore CS0164 // This label has not been referenced
                     /* if (AStarGreedyHuristic)
                          CheckBoxAStarGreedyHuristic.Checked = true;
                      else

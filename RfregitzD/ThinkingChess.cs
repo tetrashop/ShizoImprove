@@ -9470,7 +9470,9 @@ namespace RefrigtzDLL
                         }
                         else
                         {
+#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
                             bool Added = false;
+#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
                             Object OO1 = new Object();
                             lock (OO1)
                             {
