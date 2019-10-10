@@ -3670,7 +3670,7 @@ if (Kind == 2)
             }
             else
             {
-                if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == (j+1))
+                if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j)
                 {
                     if (!SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
                     {
@@ -3749,7 +3749,7 @@ if (Kind == 2)
             }
             else
             {
-                if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == (j+1))
+                if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j)
                 {
                     if (!ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
                     {
@@ -3830,7 +3830,7 @@ if (Kind == 2)
             }
             else
             {
-                if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == (j+1))
+                if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j)
                 {
                     if (!HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
                     {
@@ -3912,7 +3912,7 @@ if (Kind == 2)
             }
             else
             {
-                if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == (j+1))
+                if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j)
                 {
                     if (!CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
                     {
@@ -3994,7 +3994,7 @@ if (Kind == 2)
             }
             else
             {
-                if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == (j+1))
+                if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j)
                 {
                     if (!MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
                     {
@@ -4073,7 +4073,7 @@ if (Kind == 2)
             }
             else
             {
-                if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == (j+1))
+                if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j)
                 {
                     if (!KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
                     {
