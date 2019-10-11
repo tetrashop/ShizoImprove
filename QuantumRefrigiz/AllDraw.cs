@@ -5641,7 +5641,7 @@ if (Kind == 2)
                         });
                     }
                 }
-                /*if (!FullGameFound)
+                if (!FullGameFound)
                 {
                     Object O1 = new Object();
                     lock (O1)
@@ -5653,7 +5653,7 @@ if (Kind == 2)
                         InitiateAStarGreedytObject(MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);
                         //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                     }
-                }*/
+                }
                 //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKindFullGame:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return;
             }
