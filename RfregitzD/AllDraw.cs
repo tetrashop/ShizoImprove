@@ -159,6 +159,7 @@ namespace RefrigtzDLL
 
     public class AllDraw
     {
+        public static int NumberOfLeafComputation = 0;
         public bool IsCurrentDraw = false;
         public int HaveKilled = 0;
         StringBuilder Space = new StringBuilder("&nbsp;");
@@ -5256,6 +5257,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                            SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                            SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
 
                                     }
                                     else
@@ -5268,6 +5273,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
                                             }
                                         }
                                         else
@@ -5281,6 +5290,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5303,6 +5316,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                            ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5314,6 +5331,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                                    ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                                    ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
                                             }
                                         }
                                         else
@@ -5327,6 +5348,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                                    ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                                    ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5351,6 +5376,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                            HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                            HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5362,6 +5391,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
                                             }
                                         }
                                         else
@@ -5375,6 +5408,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5401,6 +5438,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                            CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                            CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5412,6 +5453,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
                                             }
                                         }
                                         else
@@ -5425,6 +5470,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5449,6 +5498,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                            MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                            MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5460,6 +5513,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5474,6 +5531,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5495,6 +5556,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                            KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                            KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5506,6 +5571,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                                    KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5520,6 +5589,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                                    KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5549,6 +5622,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                            SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                            SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5560,6 +5637,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
                                             }
                                         }
                                         else
@@ -5573,6 +5654,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5597,6 +5682,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                            ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5608,6 +5697,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                                    ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                                    ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
                                             }
                                         }
                                         else
@@ -5621,6 +5714,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                                    ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                                                    ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5644,6 +5741,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                            HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                            HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5655,6 +5756,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5669,6 +5774,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5692,6 +5801,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                            CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                            CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5703,6 +5816,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
                                             }
                                         }
                                         else
@@ -5715,6 +5832,10 @@ if (Kind == 2)
                                                 int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
 
                                             }
 
@@ -5740,6 +5861,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                            MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                            MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5751,6 +5876,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
                                             }
                                         }
                                         else
@@ -5764,6 +5893,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -5787,6 +5920,10 @@ if (Kind == 2)
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                            KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                            KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
                                     }
                                     else
                                     {
@@ -5798,6 +5935,10 @@ if (Kind == 2)
 
                                                 //ThinkingChess.NumbersOfAllNode++;
                                                 KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                                    KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
                                             }
 
 
@@ -5813,6 +5954,10 @@ if (Kind == 2)
 
                                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                                    KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
+                                                for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
                                             }
 
                                         }
@@ -13842,12 +13987,15 @@ if (Kind == 2)
                     OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
                     IS = true;
                 }
-               /* else
-                //if (iAStarGreedy < 0)
-                {
-                    iAStarGreedy = MaxAStarGreedy;
-                    OutPut.Append("\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
-                }*/
+                /* else
+                 //if (iAStarGreedy < 0)
+                 {
+                     iAStarGreedy = MaxAStarGreedy;
+                     OutPut.Append("\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
+                 }*/
+                if (ThinkingChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation > 100)
+                    return true;
+
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return IS;
@@ -19810,6 +19958,7 @@ if (Kind == 5)
         //Main Initiate Thinking Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
+            NumberOfLeafComputation = ThinkingChess.NumbersOfAllNode;
             ThinkingChess.IsAtLeastOneKillerAtDraw = false;
             //long Time = TimeElapced.TimeNow();Spaces++;
             var parallelOptions = new ParallelOptions();
