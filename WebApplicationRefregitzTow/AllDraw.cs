@@ -3702,55 +3702,49 @@ if (Kind == 2)
             {
                 if (Kind == 1)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; h++)
                     {
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy.RemoveAt(h);
-                        e--;
                     }
                 }
                 else
                     if (Kind == 2)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; h++)
                     {
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy.RemoveAt(h);
-                        e--;
                     }
                 }
                 else
                     if (Kind == 3)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; h++)
                     {
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy.RemoveAt(h);
-                        e--;
                     }
                 }
                 else
                     if (Kind == 4)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; h++)
                     {
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy.RemoveAt(h);
-                        e--;
                     }
                 }
                 else
                     if (Kind == 5)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; h++)
                     {
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy.RemoveAt(h);
-                        e--;
                     }
                 }
                 else
                     if (Kind == 6)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count; h++)
                     {
                         KingOnTable[i].KingThinking[0].AStarGreedy.RemoveAt(h);
-                        e--;
                     }
                 }
             }
@@ -5189,10 +5183,10 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; h++)
                             {
                                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy.RemoveAt(h);
-                                e--;
+                                //e--;
                             }
                         }
                         if (a == 0)
@@ -5215,10 +5209,10 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; h++)
                             {
                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy.RemoveAt(h);
-                                e--;
+
                             }
                         }
                         if (a == 0)
@@ -5241,10 +5235,9 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; h++)
                             {
                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy.RemoveAt(h);
-                                e--;
                             }
 
                         }
@@ -5269,10 +5262,10 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; h++)
                             {
                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy.RemoveAt(h);
-                                e--;
+
                             }
                         }
                         if (a == 0)
@@ -5296,10 +5289,10 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; h++)
                             {
                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy.RemoveAt(h);
-                                e--;
+
                             }
                         }
                         if (a == 0)
@@ -5322,10 +5315,9 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count; h++)
                             {
                                 KingOnTable[i].KingThinking[0].AStarGreedy.RemoveAt(h);
-                                e--;
                             }
                         }
                         if (a == 0)

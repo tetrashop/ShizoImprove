@@ -3720,56 +3720,50 @@ if (Kind == 2)
             {
                 if (Kind == 1)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
                     {
                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                        e--;
-                    }
+                     }
                 }
                 else
                     if (Kind == 2)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
                     {
                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                        e--;
                     }
                 }
                 else
                     if (Kind == 3)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
                     {
                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                        e--;
                     }
                 }
                 else
                     if (Kind == 4)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
                     {
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                        e--;
-                    }
+                     }
                 }
                 else
                     if (Kind == 5)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
                     {
                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                        e--;
-                    }
+                     }
                 }
                 else
                     if (Kind == 6)
                 {
-                    for (int h = a; h < e; h++)
+                    for (int h = a; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; h++)
                     {
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                        e--;
-                    }
+                     }
                 }
             }
             if (!(a == b && b == c && c == d))
@@ -4970,10 +4964,10 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; h++)
                             {
                                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                                e--;
+                                //e--;
                             }
                         }
                         if (a == 0)
@@ -4996,10 +4990,10 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; h++)
                             {
                                 ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                                e--;
+
                             }
                         }
                         if (a == 0)
@@ -5022,10 +5016,9 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; h++)
                             {
                                 HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                                e--;
                             }
 
                         }
@@ -5050,10 +5043,10 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; h++)
                             {
                                 CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                                e--;
+
                             }
                         }
                         if (a == 0)
@@ -5077,10 +5070,10 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; h++)
                             {
                                 MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                                e--;
+
                             }
                         }
                         if (a == 0)
@@ -5103,10 +5096,9 @@ if (Kind == 2)
                     {
                         if (e > a)
                         {
-                            for (int h = a; h < e; h++)
+                            for (int h = a; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; h++)
                             {
                                 KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.RemoveAt(h);
-                                e--;
                             }
                         }
                         if (a == 0)
