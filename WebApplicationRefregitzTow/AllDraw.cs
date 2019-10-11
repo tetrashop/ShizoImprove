@@ -4910,6 +4910,205 @@ if (Kind == 2)
                 return Found;
             }
         }
+        int IsSuitableForInitiation(int i, int j, int Kind)
+        {
+            int Is = -1;//1 for Astar non empty ; 2 for AstasrEmpty and not contaied computations; 3 for empty and contained compuatations
+            bool a = IsNotAStarGreedyConanaied(i, j, Kind);
+            bool b = IsNotComputationsConanaiedAStarGreedy(i, j, Kind);
+            if (a)
+            {
+                if (b) Is = 2;
+
+                else
+                    Is = 3;
+
+            }
+            else
+                Is = 1;
+            return Is;
+        }
+        bool IsNotAStarGreedyConanaied(int i, int j, int Kind)
+        {
+            bool Is = false;
+            int e = 0;
+            int d = 0;
+            if (Kind == 1)
+            {
+                if (SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
+                {
+                    e = SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count;
+                    if (e > 0 && j < e)
+                        d = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Count;
+
+
+                }
+            }
+            else if (Kind == 2)
+            {
+
+                if (ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count > 0)
+                {
+                    e = ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count;
+                    if (e > 0 && j < e)
+                        d = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Count;
+                }
+            }
+            else if (Kind == 3)
+            {
+
+                if (HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && HoursesOnTable[i].HourseThinking[0].TableListHourse.Count > 0)
+                {
+                    e = HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count;
+                    if (e > 0 && j < e)
+                        d = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Count;
+                }
+            }
+            else if (Kind == 4)
+            {
+
+                if (CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > 0)
+                {
+                    e = CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count;
+                    if (e > 0 && j < e)
+                        d = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Count;
+                }
+            }
+            else if (Kind == 5)
+            {
+                if (MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count > 0)
+                {
+                    e = MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count;
+                    if (e > 0 && j < e)
+                        d = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Count;
+                }
+            }
+            else if (Kind == 6)
+            {
+                if (KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && KingOnTable[i].KingThinking[0].TableListKing.Count > 0)
+                {
+                    e = KingOnTable[i].KingThinking[0].AStarGreedy.Count;
+                    if (e > 0 && j < e)
+                        d = KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Count;
+                }
+            }
+            if (e == 0)
+                Is = true;
+            if (d == 0)
+                Is = true;
+            return Is;
+
+
+        }
+        bool IsNotComputationsConanaiedAStarGreedy(int i, int j,int Kind)
+        {
+            bool Is = false;
+            int e = 0;
+            if (Kind == 1)
+            {
+                if (SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
+                {
+                    int a = SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count;
+                    e = SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count;
+                    if (a == e && e > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Count > 0)
+                    {
+                        if (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]))
+                            Is = true;
+                    }
+                    else
+                        if (a == 0)
+                        Is = true;
+                }
+            }
+            else if (Kind == 2)
+            {
+                if (ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count > 0)
+                {
+                    int a = ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count;
+                    e = ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count;
+                    if (a == e && e > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Count > 0)
+                    {
+                        if (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]))
+                            Is = true;
+                    }
+                    else
+                        if (a == 0)
+                        Is = true;
+                }
+            }
+            else if (Kind == 3)
+            {
+                if (HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && HoursesOnTable[i].HourseThinking[0].TableListHourse.Count > 0)
+                {
+                    int a = HoursesOnTable[i].HourseThinking[0].TableListHourse.Count;
+                    e = HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count;
+                    if (a == e && e > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Count > 0)
+                    {
+                        if (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], HoursesOnTable[i].HourseThinking[0].TableListHourse[j]))
+                            Is = true;
+                    }
+                    else
+                        if (a == 0)
+                        Is = true;
+                }
+            }
+            else if (Kind == 4)
+            {
+
+                if (CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > 0)
+                {
+                    int a = CastlesOnTable[i].CastleThinking[0].TableListCastle.Count;
+                    e = CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count;
+                    if (a == e && e > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Count > 0)
+                    {
+                        if (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CastlesOnTable[i].CastleThinking[0].TableListCastle[j]))
+                            Is = true;
+                    }
+                    else
+                        if (a == 0)
+                        Is = true;
+                }
+            }
+            else if (Kind == 5)
+            {
+
+                if (MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count > 0)
+                {
+                    int a = MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count;
+                    e = MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count;
+                    if (a == e && e > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Count > 0)
+                    {
+                        if (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]))
+                            Is = true;
+                    }
+                    else
+                        if (a == 0)
+                        Is = true;
+                }
+            }
+            else if (Kind == 6)
+            {
+                if (KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && KingOnTable[i].KingThinking[0].TableListKing.Count > 0)
+                {
+                    int a = KingOnTable[i].KingThinking[0].TableListKing.Count;
+                    e = KingOnTable[i].KingThinking[0].AStarGreedy.Count;
+                    if (a == e && e > j && KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList != null && KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Count > 0)
+                    {
+                        if (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], KingOnTable[i].KingThinking[0].TableListKing[j]))
+                            Is = true;
+                    }
+                    else
+                        if (a == 0)
+                        Is = true;
+                }
+            }
+            if (e < j)
+                Is = true;
+
+            return Is;
+
+
+        }
+
         public void FoundOfLeafDepenOfKindFullGame(int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -4931,11 +5130,12 @@ if (Kind == 2)
                         {
                             for (var i = 0; i < SodierMidle; i++)
                             {
-                                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null //&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 1);
 
-
-                                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0)
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -4944,23 +5144,45 @@ if (Kind == 2)
 
                                     }
                                     else
-                                        for (var iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            for (var iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
                                         }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
                                 }
                             }
                         }, () =>
                         {
                             for (var i = 0; i < ElefantMidle; i++)
                             {
-                                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 2);
 
-                                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -4968,12 +5190,32 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                        }
+                                            for (var iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
 
 
                                 }
@@ -4982,10 +5224,13 @@ if (Kind == 2)
                         {
                             for (var i = 0; i < HourseMidle; i++)
                             {
-                                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count && HoursesOnTable[i].HourseThinking[0].TableListHourse != null //&& HoursesOnTable[i].HourseThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 3);
 
-                                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -4993,11 +5238,32 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            for (var iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
                                         }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
 
 
 
@@ -5008,10 +5274,13 @@ if (Kind == 2)
                         {
                             for (var i = 0; i < CastleMidle; i++)
                             {
-                                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count && CastlesOnTable[i].CastleThinking[0].TableListCastle != null; j++)
+                                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count //&& CastlesOnTable[i].CastleThinking[0].TableListCastle != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 4);
 
-                                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -5019,11 +5288,32 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            for (var iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
                                         }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
 
 
                                 }
@@ -5032,10 +5322,13 @@ if (Kind == 2)
                         {
                             for (var i = 0; i < MinisterMidle; i++)
                             {
-                                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 5);
 
-                                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -5043,25 +5336,45 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            for (var iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
+
                                         }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                            }
 
+                                        }
+                                    }
                                 }
                             }
                         }, () =>
                         {
                             for (var i = 0; i < KingMidle; i++)
                             {
-                                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count && KingOnTable[i].KingThinking[0].TableListKing != null && KingOnTable[i].KingThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count && KingOnTable[i].KingThinking[0].TableListKing != null //&& KingOnTable[i].KingThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 6);
 
-                                    if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0)
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -5069,13 +5382,33 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            for (var iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList != null && KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
+
                                         }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
 
                                 }
                             }
@@ -5088,11 +5421,14 @@ if (Kind == 2)
                         {
                             for (var i = SodierMidle; i < SodierHigh; i++)
                             {
-                                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null //&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
 
+                                    int Is = IsSuitableForInitiation(i, j, 1);
 
-                                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -5100,11 +5436,32 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            for (var iii = 0; iii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
                                         }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
 
                                 }
                             }
@@ -5112,11 +5469,14 @@ if (Kind == 2)
                         {
                             for (var i = ElefantMidle; i < ElefantHigh; i++)
                             {
-                                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null //&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
 
+                                    int Is = IsSuitableForInitiation(i, j, 2);
 
-                                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -5124,11 +5484,32 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            for (var iii = 0; iii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
                                         }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
 
                                 }
                             }
@@ -5136,11 +5517,13 @@ if (Kind == 2)
                         {
                             for (var i = HourseMidle; i < HourseHight; i++)
                             {
-                                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count && HoursesOnTable[i].HourseThinking[0].TableListHourse != null// && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 3);
 
 
-                                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0)
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -5148,23 +5531,47 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                        }
+                                            for (var iii = 0; iii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
                                 }
                             }
                         }, () =>
                         {
                             for (var i = CastleMidle; i < CastleHigh; i++)
                             {
-                                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count && CastlesOnTable[i].CastleThinking[0].TableListCastle != null //&& CastlesOnTable[i].CastleThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 4);
 
 
-                                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -5172,12 +5579,32 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                        }
+                                            for (var iii = 0; iii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
 
                                 }
                             }
@@ -5185,10 +5612,13 @@ if (Kind == 2)
                         {
                             for (var i = MinisterMidle; i < MinisterHigh; i++)
                             {
-                                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 5);
 
-                                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
 
                                         FullGameFound = true;
@@ -5197,12 +5627,32 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                        }
+                                            for (var iii = 0; iii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
+
+                                            }
+
+                                        }
+                                    }
 
                                 }
                             }
@@ -5210,10 +5660,13 @@ if (Kind == 2)
                         {
                             for (var i = KingMidle; i < KingHigh; i++)
                             {
-                                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count && KingOnTable[i].KingThinking[0].TableListKing != null && KingOnTable[i].KingThinking[0].AStarGreedy != null; j++)
+                                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count && KingOnTable[i].KingThinking[0].TableListKing != null //&& KingOnTable[i].KingThinking[0].AStarGreedy != null
+                                ; j++)
                                 {
+                                    int Is = IsSuitableForInitiation(i, j, 6);
 
-                                    if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0)
+
+                                    if (Is == 2)
                                     {
                                         FullGameFound = true;
                                         OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
@@ -5221,14 +5674,34 @@ if (Kind == 2)
                                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                     }
                                     else
-                                        for (var iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                    {
+                                        if (Is == 1)
                                         {
-                                            //ThinkingChess.NumbersOfAllNode++;
-                                            KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            for (var iii = 0; iii < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList != null && KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                                            {
+                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                                //ThinkingChess.NumbersOfAllNode++;
+                                                KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
+                                            }
+
+
                                         }
+                                        else
+                                        {
+                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
+                                                this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
 
+                                            }
+
+                                        }
+                                    }
                                 }
                             }
                         });
