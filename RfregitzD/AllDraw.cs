@@ -3700,37 +3700,55 @@ if (Kind == 2)
                 if (Kind == 1)
                 {
                     for (int h = a; h < e; h++)
+                    {
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy.RemoveAt(h);
+                        e--;
+                    }
                 }
                 else
                     if (Kind == 2)
                 {
                     for (int h = a; h < e; h++)
+                    {
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy.RemoveAt(h);
+                        e--;
+                    }
                 }
                 else
                     if (Kind == 3)
                 {
                     for (int h = a; h < e; h++)
+                    {
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy.RemoveAt(h);
+                        e--;
+                    }
                 }
                 else
                     if (Kind == 4)
                 {
                     for (int h = a; h < e; h++)
+                    {
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy.RemoveAt(h);
+                        e--;
+                    }
                 }
                 else
                     if (Kind == 5)
                 {
                     for (int h = a; h < e; h++)
+                    {
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy.RemoveAt(h);
+                        e--;
+                    }
                 }
                 else
                     if (Kind == 6)
                 {
                     for (int h = a; h < e; h++)
+                    {
                         KingOnTable[i].KingThinking[0].AStarGreedy.RemoveAt(h);
+                        e--;
+                    }
                 }
             }
             if (!(a == b && b == c && c == d))
@@ -4947,6 +4965,8 @@ if (Kind == 2)
             }
             else
                 Is = 1;
+            if (Is == 2)
+                IsThereCalculatedAStarGreedyNode(i);
             return Is;
         }
         bool IsNotAStarGreedyConanaied(int i,int j, int Kind)
@@ -5037,8 +5057,18 @@ if (Kind == 2)
                             Is = true;
                     }
                     else
+                    {
+                        if (e > a)
+                        {
+                            for (int h = a; h < e; h++)
+                            {
+                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy.RemoveAt(h);
+                                e--;
+                            }
+                        }
                         if (a == 0)
-                        Is = true;
+                            Is = true;
+                    }
                 }
             }
             else if (Kind == 2)
@@ -5053,8 +5083,18 @@ if (Kind == 2)
                             Is = true;
                     }
                     else
+                    {
+                        if (e > a)
+                        {
+                            for (int h = a; h < e; h++)
+                            {
+                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy.RemoveAt(h);
+                                e--;
+                            }
+                        }
                         if (a == 0)
-                        Is = true;
+                            Is = true;
+                    }
                 }
             }
             else if (Kind == 3)
@@ -5069,8 +5109,19 @@ if (Kind == 2)
                             Is = true;
                     }
                     else
+                    {
+                        if (e > a)
+                        {
+                            for (int h = a; h < e; h++)
+                            {
+                                HoursesOnTable[i].HourseThinking[0].AStarGreedy.RemoveAt(h);
+                                e--;
+                            }
+
+                        }
                         if (a == 0)
-                        Is = true;
+                            Is = true;
+                    }
                 }
             }
             else if (Kind == 4)
@@ -5086,8 +5137,18 @@ if (Kind == 2)
                             Is = true;
                     }
                     else
+                    {
+                        if (e > a)
+                        {
+                            for (int h = a; h < e; h++)
+                            {
+                                CastlesOnTable[i].CastleThinking[0].AStarGreedy.RemoveAt(h);
+                                e--;
+                            }
+                        }
                         if (a == 0)
-                        Is = true;
+                            Is = true;
+                    }
                 }
             }
             else if (Kind == 5)
@@ -5103,8 +5164,18 @@ if (Kind == 2)
                             Is = true;
                     }
                     else
+                    {
+                        if (e > a)
+                        {
+                            for (int h = a; h < e; h++)
+                            {
+                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy.RemoveAt(h);
+                                e--;
+                            }
+                        }
                         if (a == 0)
-                        Is = true;
+                            Is = true;
+                    }
                 }
             }
             else if (Kind == 6)
@@ -5119,8 +5190,18 @@ if (Kind == 2)
                             Is = true;
                     }
                     else
+                    {
+                        if (e > a)
+                        {
+                            for (int h = a; h < e; h++)
+                            {
+                                KingOnTable[i].KingThinking[0].AStarGreedy.RemoveAt(h);
+                                e--;
+                            }
+                        }
                         if (a == 0)
-                        Is = true;
+                            Is = true;
+                    }
                 }
             }
             if (e < j)
@@ -5137,6 +5218,18 @@ if (Kind == 2)
             Object a1 = new Object();
             lock (a1)
             {
+                Object Omm = new Object();
+                lock (Omm)
+                {
+                    Object OOOO = new Object();
+                    lock (OOOO)
+                    {
+
+                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                            return ;
+
+                    }
+                }
                 //if()
                 bool FullGameFound = false;
                 //if (ThinkingChess.FoundFirstMating > MaxAStarGreedy)
@@ -14660,6 +14753,156 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                          }*/
                     }
                 }
+            }
+            return Is;
+        }
+        bool IsThereCalculatedAStarGreedyNode(int i)
+        {
+            bool Is = false;
+                if (SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null)
+                {
+                    if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
+                    {
+                        Is = true;
+                        
+                    }
+                    else
+                        ClearAStarGreadyWhenListsAreEmpy(1, i);
+                    /*else {
+                        Object O = new Object();
+                        lock (O)
+                        {
+                            Tabl = CloneATable(Tabl);
+                            FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                            
+                        }
+                    }*/
+                
+            }
+            if (!Is)
+            {
+               
+                    if (ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null)
+                    {
+                        if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count > 0)
+                        {
+                            Is = true;
+                            
+                        }
+                        else
+                            ClearAStarGreadyWhenListsAreEmpy(2, i);
+                        /*else
+                          {
+                              Object O = new Object();
+                              lock (O)
+                              {
+                                  Tabl = CloneATable(Tabl);
+                                  FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+
+                              }
+                          }*/
+                    }
+                
+            }
+            if (!Is)
+            {
+                
+                    if (HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null)
+                    {
+                        if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count > 0)
+                        {
+                            Is = true;
+                            
+                        }
+                        else
+                            ClearAStarGreadyWhenListsAreEmpy(3, i);
+
+                        /*else
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                Tabl = CloneATable(Tabl);
+                                FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                             }
+                        }*/
+                    }
+                
+            }
+            if (!Is)
+            {
+                
+                    if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null)
+                    {
+                        if (CastlesOnTable[i].CastleThinking[0].TableListHourse.Count > 0)
+                        {
+                            Is = true;
+                            
+                        }
+                        else
+                            ClearAStarGreadyWhenListsAreEmpy(4, i);
+
+                        /* else
+                         {
+                             Object O = new Object();
+                             lock (O)
+                             {
+                                 Tabl = CloneATable(Tabl);
+                                 FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                               }
+                         }*/
+                    }
+                
+            }
+            if (!Is)
+            {
+                
+                    if (MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null)
+                    {
+                        if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count > 0)
+                        {
+                            Is = true;
+                            
+                        }
+                        else
+                            ClearAStarGreadyWhenListsAreEmpy(5, i);
+
+                        /* else
+                         {
+                             Object O = new Object();
+                             lock (O)
+                             {
+                                 Tabl = CloneATable(Tabl);
+                                 FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                                }
+                         }*/
+                    }
+                
+            }
+            if (!Is)
+            {
+                
+                    if (KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null)
+                    {
+                        if (KingOnTable[i].KingThinking[0].TableListKing.Count > 0)
+                        {
+                            Is = true;
+                            
+                        }
+                        else
+                            ClearAStarGreadyWhenListsAreEmpy(6, i);
+
+                        /* else
+                         {
+                             Object O = new Object();
+                             lock (O)
+                             {
+                                 Tabl = CloneATable(Tabl);
+                                 FoundOfLeafDepenOfKindFullGame(Tabl, OrderP, 0, i, j, -1, -1, true, true);
+                              }
+                         }*/
+                    }
+               
             }
             return Is;
         }
