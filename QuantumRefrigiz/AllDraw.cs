@@ -5122,6 +5122,376 @@ if (Kind == 2)
 
         }
 
+        public void FoundOfLeafDepenOfKindFullGameSoldeir(Color a, ref bool FullGameFound, int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int i, int jjj, bool FOUND, int LeafAStarGreedy)
+        {
+            Object P = new Object();
+            lock (P)
+            {
+                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null //&& SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null
+                         ; j++)
+                {
+                    int Is = IsSuitableForInitiation(i, j, 1);
+
+                    if (Is == 2)
+                    {
+                        FullGameFound = true;
+                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
+                            SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                        for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
+                            SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+
+                    }
+                    else
+                    {
+                        if (Is == 1)
+                        {
+                            for (var iii = 0; iii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                            {
+                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
+                                SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
+                                    SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
+                                    SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+                        }
+                        else
+                        {
+                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
+
+                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
+
+                                for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
+                                    SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
+                                    SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+        public void FoundOfLeafDepenOfKindFullGameElepahnt(Color a, ref bool FullGameFound, int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int i, int jjj, bool FOUND, int LeafAStarGreedy)
+        {
+            Object P = new Object();
+            lock (P)
+            {
+                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null
+            ; j++)
+                {
+
+                    int Is = IsSuitableForInitiation(i, j, 2);
+
+
+                    if (Is == 2)
+                    {
+                        FullGameFound = true;
+                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
+                            ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                        for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
+                            ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                    }
+                    else
+                    {
+                        if (Is == 1)
+                        {
+                            for (var iii = 0; iii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                            {
+                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
+                                ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
+                                    ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
+                                    ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+                        }
+                        else
+                        {
+                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
+
+                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
+
+                                for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
+                                    ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
+                                    ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+
+                        }
+                    }
+
+                }
+            }
+        }
+        public void FoundOfLeafDepenOfKindFullGameHourse(Color a, ref bool FullGameFound, int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int i, int jjj, bool FOUND, int LeafAStarGreedy)
+        {
+            Object P = new Object();
+            lock (P)
+            {
+                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null //&& HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null
+           ; j++)
+                {
+                    int Is = IsSuitableForInitiation(i, j, 3);
+
+
+                    if (Is == 2)
+                    {
+                        FullGameFound = true;
+                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
+                            HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                        for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
+                            HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                    }
+                    else
+                    {
+                        if (Is == 1)
+                        {
+                            for (var iii = 0; iii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                            {
+                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
+                                HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
+                                    HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
+                                    HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+                        }
+                        else
+                        {
+                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
+
+                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
+
+                                for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
+                                    HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
+                                    HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+
+                        }
+                    }
+
+
+
+
+                }
+            }
+        }
+        public void FoundOfLeafDepenOfKindFullGameCastle(Color a, ref bool FullGameFound, int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int i, int jjj, bool FOUND, int LeafAStarGreedy)
+        {
+            Object P = new Object();
+            lock (P)
+            {
+                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count //&& CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null
+                                  ; j++)
+                {
+                    int Is = IsSuitableForInitiation(i, j, 4);
+
+
+                    if (Is == 2)
+                    {
+                        FullGameFound = true;
+                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
+                            CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                        for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
+                            CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                    }
+                    else
+                    {
+                        if (Is == 1)
+                        {
+                            for (var iii = 0; iii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                            {
+                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
+                                CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
+                                    CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
+                                    CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+                        }
+                        else
+                        {
+                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
+
+                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
+
+                                for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
+                                    CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
+                                    CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+
+                        }
+                    }
+
+
+                }
+            }
+        }
+        public void FoundOfLeafDepenOfKindFullGameMinister(Color a, ref bool FullGameFound, int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int i, int jjj, bool FOUND, int LeafAStarGreedy)
+        {
+            Object P = new Object();
+            lock (P)
+            {
+                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null
+                  ; j++)
+                {
+                    int Is = IsSuitableForInitiation(i, j, 5);
+
+
+                    if (Is == 2)
+                    {
+                        FullGameFound = true;
+                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
+                            MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                        for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
+                            MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                    }
+                    else
+                    {
+                        if (Is == 1)
+                        {
+                            for (var iii = 0; iii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                            {
+                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
+                                MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
+                                    MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
+                                    MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+
+                        }
+                        else
+                        {
+                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
+
+                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
+
+                                for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
+                                    MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
+                                    MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+        public void FoundOfLeafDepenOfKindFullGameKing(Color a, ref bool FullGameFound, int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int i, int jjj, bool FOUND, int LeafAStarGreedy)
+        {
+            Object P = new Object();
+            lock (P)
+            {
+                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null
+           ; j++)
+                {
+                    int Is = IsSuitableForInitiation(i, j, 6);
+
+                    if (Is == 2)
+                    {
+                        FullGameFound = true;
+                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
+                            KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                        for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
+                            KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                    }
+                    else
+                    {
+                        if (Is == 1)
+                        {
+                            for (var iii = 0; iii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
+                            {
+                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
+                                KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
+                                    KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
+                                    KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+
+                        }
+                        else
+                        {
+                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
+
+                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
+
+                                for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
+                                    KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                                for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
+                                    KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                            }
+
+                        }
+                    }
+
+                }
+            }
+        }
         public void FoundOfLeafDepenOfKindFullGame(int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -5142,7 +5512,7 @@ if (Kind == 2)
                 }
                 //if()
                 bool FullGameFound = false;
-                //if (ThinkingQuantumChess.FoundFirstMating > MaxAStarGreedy)
+                //if (ThinkingChess.FoundFirstMating > MaxAStarGreedy)
                 //   return;
                 Object O = new Object();
                 lock (O)
@@ -5155,358 +5525,60 @@ if (Kind == 2)
                         {
                             for (var i = 0; i < SodierMidle; i++)
                             {
-                                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null //&& SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 1);
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                            SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                            SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
+                                    FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = 0; i < ElefantMidle; i++)
                             {
-                                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 2);
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                            ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
-
-
+                                    FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = 0; i < HourseMidle; i++)
                             {
-                                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null //&& HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 3);
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                            HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                            HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
-
-
-
-
+                                    FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = 0; i < CastleMidle; i++)
                             {
-                                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count //&& CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 4);
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                            CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                            CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
-
-
+                                    FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = 0; i < MinisterMidle; i++)
                             {
-                                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 5);
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                            MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                            MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
+                                    FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = 0; i < KingMidle; i++)
                             {
-                                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 6);
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                            KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                            KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
-
+                                    FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         });
@@ -5518,359 +5590,60 @@ if (Kind == 2)
                         {
                             for (var i = SodierMidle; i < SodierHigh; i++)
                             {
-                                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null //&& SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-
-                                    int Is = IsSuitableForInitiation(i, j, 1);
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                            SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                            SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
-
+                                    FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = ElefantMidle; i < ElefantHigh; i++)
                             {
-                                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-
-                                    int Is = IsSuitableForInitiation(i, j, 2);
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                            ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
-
+                                    FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = HourseMidle; i < HourseHight; i++)
                             {
-                                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null// && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 3);
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                            HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                            HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
+                                    FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = CastleMidle; i < CastleHigh; i++)
                             {
-                                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null //&& CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 4);
-
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                            CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                            CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
-
-                                            }
-
-                                        }
-                                    }
-
+                                    FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = MinisterMidle; i < MinisterHigh; i++)
                             {
-                                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 5);
-
-
-                                    if (Is == 2)
-                                    {
-
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                            MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                            MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
-
+                                    FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         }, () =>
                         {
                             for (var i = KingMidle; i < KingHigh; i++)
                             {
-                                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null
-                                ; j++)
+                                Object P = new Object();
+                                lock (P)
                                 {
-                                    int Is = IsSuitableForInitiation(i, j, 6);
-
-
-                                    if (Is == 2)
-                                    {
-                                        FullGameFound = true;
-                                        OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
-                                        for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                            KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                        for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                            KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                    }
-                                    else
-                                    {
-                                        if (Is == 1)
-                                        {
-                                            for (var iii = 0; iii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
-                                            {
-                                                OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                                //ThinkingQuantumChess.NumbersOfAllNode++;
-                                                KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, ik, jjj, FOUND, LeafAStarGreedy++);
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-
-                                        }
-                                        else
-                                        {
-                                            OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-
-                                            Object O1 = new Object();
-                                            lock (O1)
-                                            {
-                                                int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-
-                                                this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                                for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                                    KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
-                                            }
-
-                                        }
-                                    }
+                                    FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 }
                             }
                         });
@@ -13900,7 +13673,7 @@ if (Kind == 2)
                      iAStarGreedy = MaxAStarGreedy;
                      OutPut.Append("\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                  }*/
-                if (ThinkingQuantumChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation > 100)
+                if ((ThinkingQuantumChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation > 100) && AllDraw.NumberOfLeafComputation != -1)
                     return true;
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -19713,7 +19486,10 @@ if (Kind == 5)
         //Main Initiate ThinkingQuantum Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
-            NumberOfLeafComputation = ThinkingQuantumChess.NumbersOfAllNode;
+            if (FOUND)
+                NumberOfLeafComputation = ThinkingQuantumChess.NumbersOfAllNode;
+            else
+                NumberOfLeafComputation = -1;
 
             ThinkingQuantumChess.IsAtLeastOneKillerAtDraw = false;
             //long Time = TimeElapced.TimeNow();Spaces++;
