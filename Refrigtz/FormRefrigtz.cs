@@ -3921,15 +3921,15 @@ namespace Refrigtz
                         if (RefrigtzDLL.AllDraw.ActionStringReady)
                         {
                             SetBoxText(RefrigtzDLL.AllDraw.ActionString.ToString());
-                            RefrigtzDLL.AllDraw.ActionString = new StringBuilder("");
+                            RefrigtzDLL.AllDraw.ActionString.Clear();
                             RefrigtzDLL.AllDraw.ActionStringReady = false;
                             RefreshBoxText();
                         }
 
-                        if (RefrigtzDLL.AllDraw.OutPut.ToString() != "")
+                        if (RefrigtzDLL.AllDraw.OutPut.Length != 0)
                         {
                             SetBoxText(RefrigtzDLL.AllDraw.OutPut.ToString());
-                            RefrigtzDLL.AllDraw.OutPut = new StringBuilder("");
+                            RefrigtzDLL.AllDraw.OutPut.Clear();
                             RefreshBoxText();
 
                         }
@@ -4018,26 +4018,26 @@ namespace Refrigtz
                         {
                             SetBoxText(QuantumRefrigiz.AllDraw.ActionString.ToString());
                             RefreshBoxText();
-                            QuantumRefrigiz.AllDraw.ActionString = new StringBuilder("");
+                            QuantumRefrigiz.AllDraw.ActionString.Clear();
                             QuantumRefrigiz.AllDraw.ActionStringReady = false;
                         }
-                        if (QuantumRefrigiz.AllDraw.OutPut.ToString() != "")
+                        if (QuantumRefrigiz.AllDraw.OutPut.ToString().Length != 0)
                         {
                             SetBoxText(QuantumRefrigiz.AllDraw.OutPut.ToString());
                             RefreshBoxText();
-                            RefrigtzDLL.AllDraw.OutPut.Append("");
+                            QuantumRefrigiz.AllDraw.OutPut.Clear();
 
                         }
 
 
-                        if (RefrigtzDLL.AllDraw.ConvertedKind == -1)
+                        if (QuantumRefrigiz.AllDraw.ConvertedKind == -1)
                         {
                             FormُSelectItems.Items = -1;
                             FormُSelectItems A = new FormُSelectItems();
                             A.ShowDialog();
 
 
-                            while (RefrigtzDLL.AllDraw.ConvertedKind == -1) { QuantumRefrigiz.AllDraw.ConvertedKind = FormُSelectItems.Items; Thread.Sleep(2); }
+                            while (QuantumRefrigiz.AllDraw.ConvertedKind == -1) { QuantumRefrigiz.AllDraw.ConvertedKind = FormُSelectItems.Items; Thread.Sleep(2); }
 
 
                         }
@@ -13212,7 +13212,7 @@ namespace Refrigtz
 
             //Fen();
             String FolderLocation = Root;
-            sortOutPut = new StringBuilder("");
+            sortOutPut.Clear();
 
             ProcessStartInfo start = new ProcessStartInfo();
             if ((!Sugar))
@@ -17781,13 +17781,20 @@ namespace Refrigtz
             {
                 try
                 {
-                    //System.Threading.Thread.Sleep(2);
+                    Object O = new Object();
+                    lock (O)
+                    {
+                        //System.Threading.Thread.Sleep(2);
 
-                    //tttt.Start();
-                    //ttt.Start();
-                    SetRefregitzDLL();
-                    System.Threading.Thread.Sleep(1);
-                    // AllOperate.Start();
+                        //tttt.Start();
+                        //ttt.Start();
+                        //Thread t = new Thread(new ThreadStart(SetRefregitzDLL));
+                        //t.Start();
+                        //t.Join();
+                        SetRefregitzDLL();
+                        //System.Threading.Thread.Sleep(1);
+                        // AllOperate.Start();
+                    }
                 }
                 catch (Exception t) { Log(t); }
             } while (true);
@@ -18095,8 +18102,12 @@ namespace Refrigtz
 
         private void buttonViewTree_Click(object sender, EventArgs e)
         {
-            FormTXT t = new FormTXT(Draw);
-            t.Show();
+            Object O = new Object();
+            lock (O)
+            {
+                FormTXT t = new FormTXT(Draw);
+                t.Show();
+            }
         }
 
         private void TextBoxStatistic_TextChanged(object sender, EventArgs e)

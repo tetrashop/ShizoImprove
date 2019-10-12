@@ -1761,13 +1761,13 @@ namespace RefrigtzW
                     if (AllDraw.ActionStringReady)
                     {
                         SetBoxText(AllDraw.ActionString.ToString());
-                        AllDraw.ActionString = new StringBuilder("");
+                        AllDraw.ActionString.Clear();
                         AllDraw.ActionStringReady = false;
                     }
                     if (AllDraw.OutPut.ToString() != "")
                     {
                         SetBoxText(AllDraw.OutPut.ToString());
-                        AllDraw.OutPut = new StringBuilder("");
+                        AllDraw.OutPut.Clear();
 
                     }
                     

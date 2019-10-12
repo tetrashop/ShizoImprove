@@ -173,7 +173,7 @@ namespace RefrigtzDLL
         public static int DepthIterative = 0;
         int PerceptionCount = 0;
         public String OutPutAction = "";
-        public static StringBuilder OutPut =new StringBuilder("");
+        public static StringBuilder OutPut = new StringBuilder("");
         public static StringBuilder ActionString =new StringBuilder("");
         public static bool ActionStringReady = false;
         //static variable to be Initiate
