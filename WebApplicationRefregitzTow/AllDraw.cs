@@ -19836,9 +19836,11 @@ if (Kind == 5)
                 {
                     OutPut.Append("\r\nMinimum Thinking Tree Depth:" + MinThinkingTreeDepth.ToString() + "!");
                 }
-                //Order = OrderP;
+            //Order = OrderP;
+            NumberOfLeafComputation = -1;
 
-                TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
+
+            TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
             if ((TableHuristic == null || ((TableZero(TableHuristic)))) && UsePenaltyRegardMechnisamT)
             {
 

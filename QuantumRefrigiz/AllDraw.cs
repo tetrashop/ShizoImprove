@@ -19617,6 +19617,7 @@ if (Kind == 5)
                 OutPut.Append("\r\nMinimum ThinkingQuantum Tree Depth:" + MinThinkingQuantumTreeDepth.ToString() + "!");
             }
             //Order = OrderP;
+            NumberOfLeafComputation = -1;
 
             TableHuristic = HuristicAStarGreedySearch(0, a, Order, false);
             if ((TableHuristic == null || ((TableZero(TableHuristic)))) && UsePenaltyRegardMechnisamT)
