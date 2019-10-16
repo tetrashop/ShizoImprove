@@ -238,6 +238,8 @@ namespace Refrigtz
         { Object O = new Object();
             lock (O)
             {
+                if (Draw == null)
+                    return;
                 TreeNode childNode = new TreeNode();
                 for (int i = 0; i < Draw.SodierHigh; i++)
                 {
@@ -418,6 +420,9 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
+                if (Draw == null)
+                    return;
+
                 TreeNode childNode = new TreeNode();
                 for (int i = 0; i < Draw.ElefantHigh; i++)
                 {
@@ -578,6 +583,9 @@ namespace Refrigtz
         { Object O = new Object();
             lock (O)
             {
+                if (Draw == null)
+                    return;
+
                 TreeNode childNode = new TreeNode();
                 for (int i = 0; i < Draw.HourseHight; i++)
                 {
@@ -741,6 +749,9 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
+                if (Draw == null)
+                    return;
+
                 TreeNode childNode = new TreeNode();
                 for (int i = 0; i < Draw.CastleHigh; i++)
                 {
@@ -993,6 +1004,9 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
+                if (Draw == null)
+                    return;
+
                 TreeNode childNode = new TreeNode();
                 for (int i = 0; i < Draw.MinisterHigh; i++)
                 {
@@ -1154,6 +1168,9 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
+                if (Draw == null)
+                    return;
+
                 TreeNode childNode = new TreeNode();
                 for (int i = 0; i < Draw.KingHigh; i++)
                 {

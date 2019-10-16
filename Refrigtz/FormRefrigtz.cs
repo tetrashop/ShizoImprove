@@ -4212,10 +4212,13 @@ namespace Refrigtz
             if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
                 AllDrawKind = 1;
         }
+        void LoadForm()
+        {
+
+        }
         //Load Refregitz Form.
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             try
             {
                 TakeRoot y = new TakeRoot();
@@ -4330,14 +4333,33 @@ namespace Refrigtz
                         }
                         InsertTableAtDataBase(Table);
                         CreateConfigurationTable();
-                        if (MovmentsNumber == 1)
+                        SetAllDrawKind();
+
+                        //Set Configuration To True for some unknown reason!.
+                        //UpdateConfigurationTableVal = true;                             
+                        SetAllDrawKindString();
+
+                        if (DrawManagement())
                         {
-                            SetAllDrawKind();
-                            //Set Configuration To True for some unknown reason!.
-                            //UpdateConfigurationTableVal = true;                             
-                            SetAllDrawKindString();
-                            (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            //Load AllDraw.asd
+                            if (!Quantum)
+                                DrawDrawen = y.Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            else
+                                DrawDrawen = y.Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+
                         }
+                        else
+                        {
+                            if (MovmentsNumber == 1)
+                            {
+                                SetAllDrawKind();
+                                //Set Configuration To True for some unknown reason!.
+                                //UpdateConfigurationTableVal = true;                             
+                                SetAllDrawKindString();
+                                (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            }
+                        }
+
                     }
                     else
                     {
@@ -4420,13 +4442,31 @@ namespace Refrigtz
                                     InsertTableAtDataBase(Table);
                                     CreateConfigurationTable();
 
-                                    if (MovmentsNumber == 1)
+                                    SetAllDrawKind();
+
+                                    //Set Configuration To True for some unknown reason!.
+                                    //UpdateConfigurationTableVal = true;                             
+                                    SetAllDrawKindString();
+
+                                    if (DrawManagement())
                                     {
-                                        SetAllDrawKind();
-                                        //Set Configuration To True for some unknown reason!.
-                                        //UpdateConfigurationTableVal = true;                             
-                                        SetAllDrawKindString();
-                                        (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                        //Load AllDraw.asd
+                                        if (!Quantum)
+                                            DrawDrawen = y.Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                        else
+                                            DrawDrawen = y.Load(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+
+                                    }
+                                    else
+                                    {
+                                        if (MovmentsNumber == 1)
+                                        {
+                                            SetAllDrawKind();
+                                            //Set Configuration To True for some unknown reason!.
+                                            //UpdateConfigurationTableVal = true;                             
+                                            SetAllDrawKindString();
+                                            (new TakeRoot()).Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                        }
                                     }
                                 }
                             }
@@ -18105,8 +18145,12 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                FormTXT t = new FormTXT(Draw);
-                t.Show();
+                try
+                {
+                    FormTXT t = new FormTXT(Draw);
+                    t.Show();
+                }
+                catch (Exception t) { Log(t); }
             }
         }
 

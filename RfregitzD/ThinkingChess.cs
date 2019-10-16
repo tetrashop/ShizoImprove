@@ -4289,12 +4289,12 @@ namespace RefrigtzDLL
             {
                 int HA = 0;
                 //int DummyOrder = AllDraw.OrderPlate;
-                int DummyOrder = Order;
+                int DummyOrder = AllDraw.OrderPlate;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //int ObjectDangour = 1;
                 //int Check = 1000;
-                int ObjectDangour = 0;// 100;
-                int Check = 0;// 1000;
+                int ObjectDangour = 100;
+                int Check = 1000;
                 int CheckMate = 100000;
                 //When is self objects order divide valuse by 100
                 //Becuse reduce from danger is most favareable of caused to enemy attack
@@ -4304,8 +4304,8 @@ namespace RefrigtzDLL
                     Check = 100;
                     CheckMate = 1000;
                 }*/
-                
-                    Object O1 = new Object();
+
+                Object O1 = new Object();
                     lock (O1)
                     {
                         //Consider Global Check CheckMate ObjectDanger Variables Orderly.
@@ -10204,7 +10204,9 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         HuristicAttackValue = (Huriistic[0] * SignOrderToPlate(Order));
                         HuristicKillerValue = (Huriistic[1] * SignOrderToPlate(Order));
                         HuristicMovementValue = (Huriistic[2] * SignOrderToPlate(Order));
-                        HuristicObjectDangourCheckMateValue = ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
+                        //HuristicObjectDangourCheckMateValue = ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue = ((Huriistic[3] ) * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue += ((HCheck));
                         HuristicReducedAttackValue = (Huriistic[4] * SignOrderToPlate(Order));
                         HuristicSelfSupportedValue = (Huriistic[5] * SignOrderToPlate(Order));
                         HeuristicDistabceOfCurrentMoveFromEnemyKingValue = (HDistance * SignOrderToPlate(Order));
@@ -10262,7 +10264,8 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                         HuristicAttackValue += (Huriistic[0] * SignOrderToPlate(Order));
                         HuristicKillerValue += (Huriistic[1] * SignOrderToPlate(Order));
                         HuristicMovementValue += (Huriistic[2] * SignOrderToPlate(Order));
-                        HuristicObjectDangourCheckMateValue += ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue += ((Huriistic[3] ) * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue += ((HCheck));
                         HuristicReducedAttackValue += (Huriistic[4] * SignOrderToPlate(Order));
                         HuristicSelfSupportedValue += (Huriistic[5] * SignOrderToPlate(Order));
                         HeuristicDistabceOfCurrentMoveFromEnemyKingValue += (HDistance * SignOrderToPlate(Order));

@@ -4292,12 +4292,12 @@ namespace QuantumRefrigiz
             {
                 int HA = 0;
                 //int DummyOrder = AllDraw.OrderPlate;
-                int DummyOrder = Order;
+                int DummyOrder = AllDraw.OrderPlate;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //int ObjectDangour = 1;
                 //int Check = 1000;
-                int ObjectDangour = 0;// 100;
-                int Check = 0;// 1000;
+                int ObjectDangour = 100;
+                int Check = 1000;
                 int CheckMate = 100000;
                 //When is self objects order divide valuse by 100
                 //Becuse reduce from danger is most favareable of caused to enemy attack
@@ -10095,16 +10095,16 @@ namespace QuantumRefrigiz
 
 
         public void CalculateHuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-            , ref int HuristicAttackValue
-                , ref int HuristicMovementValue
-                , ref int HuristicSelfSupportedValue
-                , ref int HuristicObjectDangourCheckMateValue
-               , ref int HuristicKillerValue
-                , ref int HuristicReducedAttackValue
-                , ref int HeuristicDistabceOfCurrentMoveFromEnemyKingValue
-            , ref int HeuristicKingSafe
-            , ref int HeuristicFromCenter
-            , ref int HeuristicKingDangour)
+           , ref int HuristicAttackValue
+               , ref int HuristicMovementValue
+               , ref int HuristicSelfSupportedValue
+               , ref int HuristicObjectDangourCheckMateValue
+              , ref int HuristicKillerValue
+               , ref int HuristicReducedAttackValue
+               , ref int HeuristicDistabceOfCurrentMoveFromEnemyKingValue
+           , ref int HeuristicKingSafe
+           , ref int HeuristicFromCenter
+           , ref int HeuristicKingDangour)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -10123,7 +10123,7 @@ namespace QuantumRefrigiz
                     lock (O)
                     {
                         int[,] TableSS = CloneATable(TableS);
-                        Huriistic = HuristicAll(Before, Killed,CloneATable(TableSS), color, Order, RowS, ColS, RowD, ColD);
+                        Huriistic = HuristicAll(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
                     }
                 }
                 , () =>
@@ -10213,7 +10213,9 @@ namespace QuantumRefrigiz
                         HuristicAttackValue = (Huriistic[0] * SignOrderToPlate(Order));
                         HuristicKillerValue = (Huriistic[1] * SignOrderToPlate(Order));
                         HuristicMovementValue = (Huriistic[2] * SignOrderToPlate(Order));
-                        HuristicObjectDangourCheckMateValue = ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
+                        //HuristicObjectDangourCheckMateValue = ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue = ((Huriistic[3]) * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue += ((HCheck));
                         HuristicReducedAttackValue = (Huriistic[4] * SignOrderToPlate(Order));
                         HuristicSelfSupportedValue = (Huriistic[5] * SignOrderToPlate(Order));
                         HeuristicDistabceOfCurrentMoveFromEnemyKingValue = (HDistance * SignOrderToPlate(Order));
@@ -10271,7 +10273,8 @@ namespace QuantumRefrigiz
                         HuristicAttackValue += (Huriistic[0] * SignOrderToPlate(Order));
                         HuristicKillerValue += (Huriistic[1] * SignOrderToPlate(Order));
                         HuristicMovementValue += (Huriistic[2] * SignOrderToPlate(Order));
-                        HuristicObjectDangourCheckMateValue += ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue += ((Huriistic[3]) * SignOrderToPlate(Order));
+                        HuristicObjectDangourCheckMateValue += ((HCheck));
                         HuristicReducedAttackValue += (Huriistic[4] * SignOrderToPlate(Order));
                         HuristicSelfSupportedValue += (Huriistic[5] * SignOrderToPlate(Order));
                         HeuristicDistabceOfCurrentMoveFromEnemyKingValue += (HDistance * SignOrderToPlate(Order));
