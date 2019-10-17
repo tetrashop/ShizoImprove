@@ -14448,7 +14448,7 @@ if (Kind == 2)
         }
 
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
-            )
+              )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             OrderP = Order;
@@ -14474,7 +14474,7 @@ if (Kind == 2)
             int i = 0, ik = 0;
 #pragma warning restore CS0219 // The variable 'i' is assigned but its value is never used
             int[,] TablInit = new int[8, 8];
-            if (Order== 1)
+            if (Order == 1)
                 a = Color.Gray;
             else
                 a = Color.Brown;
@@ -14503,7 +14503,7 @@ if (Kind == 2)
                 DepthIterative++;
                 lock (O)
                 {
-                    OutPut.Append("\r\nMinimum Level During ThinkingQuantum Tree Creation is " + MaxDuringLevelThinkingQuantumCreation.ToString() + "at Iterative " + DepthIterative.ToString());
+                    OutPut.Append("\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingQuantumCreation.ToString() + "at Iterative " + DepthIterative.ToString());
                 }
             }
 
@@ -14518,7 +14518,8 @@ if (Kind == 2)
                 {
 
 
-                    InitiateAStarGreedytCreationThinkingQuantum(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
+                    var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinkingQuantum(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
+                    array1.Wait();
 
                 }
 
@@ -14675,7 +14676,9 @@ if (Kind == 2)
             Order = DummyOrder;
             ChessRules.CurrentOrder = DummyCurrentOrder;
 
-            Serve(Order);
+            var array = Task.Factory.StartNew(() => Serve(Order));
+            array.Wait();
+
 
             if (FOUND)
             {
@@ -14683,7 +14686,8 @@ if (Kind == 2)
                 lock (O)
                 {
                     Tabl = CloneATable(Table);
-                    FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy);
+                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy));
+                    array1.Wait();
                     /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
                     tFoundOfLeafDepenOfKindFullGame.Start();
                     T.Add(tFoundOfLeafDepenOfKindFullGame);*/
@@ -14700,10 +14704,11 @@ if (Kind == 2)
                     //System.Threading.Thread.Sleep(2);
                     //Parallel.Invoke(() =>
                     {
-                        Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
-                        /*tFullGameThinkingQuantumTree = new Task(new Action(() => Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
-                        tFullGameThinkingQuantumTree.Start();
-                        T.Add(tFullGameThinkingQuantumTree);*/
+                        var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
+                        array1.Wait();
+                        /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
+                        tFullGameThinkingTree.Start();
+                        T.Add(tFullGameThinkingTree);*/
 
 
                     }//);
@@ -20181,7 +20186,8 @@ if (Kind == 5)
             }
             int[,] Tabl = CloneATable(Table);
             Color aaa = a;
-            InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
+            var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
+            array.Wait();
 
             Object Om = new Object();
             lock (Om)
