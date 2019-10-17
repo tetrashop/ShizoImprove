@@ -1,95 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph DataVirtualized="True" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="(@17 Namespace=Refrigtz Type=Program Member=Main)" Category="CodeSchema_Method" Bounds="419.52,0,62.58,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Main" Icon="CodeSchema_Method" Label="Main" SourceLocation="(Assembly=file:///G:/'Personal'_'Files'/Refregitz/Refrigtz/Program.cs StartLineNumber=93 StartCharacterOffset=0 EndLineNumber=93 EndCharacterOffset=0)">
+    <Node Id="(@3 Namespace=Refrigtz Type=Program Member=Main)" Category="CodeSchema_Method" Bounds="47.4266665942001,-16.6034108505916,62.58,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Main" Icon="CodeSchema_Method" Label="Main" SourceLocation="(Assembly=file:///G:/'Personal'_'Files'/Refregitz/Refrigtz/Program.cs StartLineNumber=93 StartCharacterOffset=0 EndLineNumber=93 EndCharacterOffset=0)">
       <Category Ref="CallStackEntry" />
       <Category Ref="CodeSchema_SourceLocation" />
     </Node>
-    <Node Id="(Name=RefrigtzDLL.AllDraw.FullGameThinkingTreeCastle @28 @2 OverloadingParameters=[(@23 Name=Order),(@23 Name=iAStarGreedy),(@23 Name=ik),(Type=System.Drawing.Color Name=a),(@23 Name=ii),(@23 Name=jj),(@23 Name=ik1),(@23 Name=j1),(@2 Name=FOUND),(@23 Name=LeafAStarGreedy)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="78.6633333333335,671.52,184.766666666667,25.96" Label="FullGameThinkingTreeCastle" SourceLocation="(Assembly=file:///G:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=17683 StartCharacterOffset=0 EndLineNumber=17683 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="(Name=System.Threading._ThreadPoolWaitCallback.PerformWaitCallback @1 @2 @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="98.1166666666667,0,145.86,25.96" Label="PerformWaitCallback" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/threadpool.cs StartLineNumber=1160 StartCharacterOffset=0 EndLineNumber=1160 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="(Name=System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop @22 @2 OverloadingParameters=[(Type=System.IntPtr Name=dwComponentID),(@23 Name=reason),(@23 Name=pvLoopData)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="380.456666666667,223.84,140.706666666667,25.96" Label="FPushMessageLoop">
+    <Node Id="(Name=System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop @4 Type=bool OverloadingParameters=[(Type=System.IntPtr Name=dwComponentID),(Type=int Name=reason),(Type=int Name=pvLoopData)] IsUnresolved=True)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="8.36332468748817,263.686706832598,140.706666666667,25.96" Label="FPushMessageLoop">
       <Category Ref="CallStackEntry" />
     </Node>
-    <Node Id="@13" Category="CodeSchema_Method" Bounds="61.8900000000001,615.56,218.313333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="FullGameThinkingTreeCastleBrown" Icon="CodeSchema_Method" Label="FullGameThinkingTreeCastleBrown" SourceLocation="(Assembly=file:///G:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=18308 StartCharacterOffset=0 EndLineNumber=18308 EndCharacterOffset=0)">
+    <Node Id="@2" Category="CodeSchema_Method" Bounds="50.3383334113095,39.3565891494084,56.7566666666667,25.96" CodeSchemaProperty_IsExternal="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Run" Icon="CodeSchema_Method" Label="Run">
       <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@14" Category="CodeSchema_Method" Bounds="88.8900000000001,559.6,164.313333333333,25.96" CodeSchemaProperty_IsAnonymous="True" Label="AnonymousMethod__11" SourceLocation="(Assembly=file:///G:/'Personal'_'Files'/Refregitz/RfregitzD/AllDraw.cs StartLineNumber=18878 StartCharacterOffset=0 EndLineNumber=18878 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@16" Category="CodeSchema_Method" Bounds="121.935,503.64,98.2233333333334,25.96" CodeSchemaProperty_IsExternal="True" CodeSchemaProperty_IsVirtual="True" CommonLabel="InnerInvoke" Icon="CodeSchema_Method" Label="InnerInvoke" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/Tasks/Task.cs StartLineNumber=2881 StartCharacterOffset=0 EndLineNumber=2881 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
       <Category Ref="ExternalCallStackEntry" />
     </Node>
-    <Node Id="@18" Category="CodeSchema_Method" Bounds="-1.4210854715202E-14,111.92,342.093333333333,25.96" CodeSchemaProperty_IsExternal="True" CodeSchemaProperty_IsPrivate="True" CommonLabel="System.Threading.IThreadPoolWorkItem.ExecuteWorkItem" Icon="CodeSchema_Method" Label="System.Threading.IThreadPoolWorkItem.ExecuteWorkItem" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/Tasks/Task.cs StartLineNumber=2703 StartCharacterOffset=0 EndLineNumber=2703 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-      <Category Ref="ExternalCallStackEntry" />
-    </Node>
-    <Node Id="@19" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="119.328333333333,167.88,103.436666666667,25.96" Label="ExecuteEntry" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/Tasks/Task.cs StartLineNumber=2763 StartCharacterOffset=0 EndLineNumber=2763 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@20" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="88.3266666666667,223.84,165.44,25.96" Label="ExecuteWithThreadLocal" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/Tasks/Task.cs StartLineNumber=2823 StartCharacterOffset=0 EndLineNumber=2823 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@21" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="84.9650000000001,391.72,172.163333333333,25.96" Label="ExecutionContextCallback" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/Tasks/Task.cs StartLineNumber=2860 StartCharacterOffset=0 EndLineNumber=2860 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@24" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="385.705,111.92,130.21,25.96" Label="RunMessageLoop">
+    <Node Id="@5" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="13.6116698681812,95.3165891494084,130.21,25.96" Label="RunMessageLoop">
       <Category Ref="CallStackEntry" />
     </Node>
-    <Node Id="@25" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="372.093333333333,167.88,157.433333333333,25.96" Label="RunMessageLoopInner">
+    <Node Id="@6" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="5.09200093290474E-06,177.781027521953,157.433333333333,25.96" Label="RunMessageLoopInner">
       <Category Ref="CallStackEntry" />
-    </Node>
-    <Node Id="@26" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="142.668333333333,279.8,56.7566666666667,25.96" Label="Run" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/executioncontext.cs StartLineNumber=927 StartCharacterOffset=0 EndLineNumber=927 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@27" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="122.516666666667,335.76,97.06,25.96" Label="RunInternal" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/executioncontext.cs StartLineNumber=974 StartCharacterOffset=0 EndLineNumber=974 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@4" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="130.06,55.96,81.9733333333333,25.96" Label="Dispatch" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/threadpool.cs StartLineNumber=819 StartCharacterOffset=0 EndLineNumber=819 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@6" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="132.781666666667,447.68,76.53,25.96" Label="Execute" SourceLocation="(Assembly=file:///f:/dd/ndp/clr/src/BCL/system/threading/Tasks/Task.cs StartLineNumber=2493 StartCharacterOffset=0 EndLineNumber=2493 EndCharacterOffset=0)">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="CodeSchema_SourceLocation" />
-    </Node>
-    <Node Id="@8" Category="CodeSchema_Method" Bounds="422.431666666667,55.96,56.7566666666667,25.96" CodeSchemaProperty_IsExternal="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Run" Icon="CodeSchema_Method" Label="Run">
-      <Category Ref="CallStackEntry" />
-      <Category Ref="ExternalCallStackEntry" />
     </Node>
   </Nodes>
   <Links>
-    <Link Source="(@17 Namespace=Refrigtz Type=Program Member=Main)" Target="@8" Category="CallStackDirectCall" Bounds="450.809997558594,25.9599990844727,0,21" />
-    <Link Source="(Name=System.Threading._ThreadPoolWaitCallback.PerformWaitCallback @1 @2 @3)" Target="@4" Category="CallStackDirectCall" Bounds="171.046661376953,25.9599990844727,0,21" />
-    <Link Source="@13" Target="(Name=RefrigtzDLL.AllDraw.FullGameThinkingTreeCastle @28 @2 OverloadingParameters=[(@23 Name=Order),(@23 Name=iAStarGreedy),(@23 Name=ik),(Type=System.Drawing.Color Name=a),(@23 Name=ii),(@23 Name=jj),(@23 Name=ik1),(@23 Name=j1),(@2 Name=FOUND),(@23 Name=LeafAStarGreedy)] @3)" Category="CallStackDirectCall" Bounds="171.046661376953,641.52001953125,0,21" />
-    <Link Source="@14" Target="@13" Category="CallStackDirectCall" Bounds="171.046661376953,585.559997558594,0,21" />
-    <Link Source="@16" Target="@14" Category="CallStackDirectCall" Bounds="171.046661376953,529.599975585938,0,21" />
-    <Link Source="@18" Target="@19" Category="CallStackDirectCall" Bounds="171.046661376953,137.880004882813,0,21" />
-    <Link Source="@19" Target="@20" Category="CallStackDirectCall" Bounds="171.046661376953,193.839996337891,0,21" />
-    <Link Source="@20" Target="@26" Category="CallStackDirectCall" Bounds="171.046661376953,249.800003051758,0,20.9999847412109" />
-    <Link Source="@21" Target="@6" Category="CallStackDirectCall" Bounds="171.046661376953,417.679992675781,0,21" />
-    <Link Source="@24" Target="@25" Category="CallStackDirectCall" Bounds="450.809997558594,137.880004882813,0,21" />
-    <Link Source="@25" Target="(Name=System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop @22 @2 OverloadingParameters=[(Type=System.IntPtr Name=dwComponentID),(@23 Name=reason),(@23 Name=pvLoopData)] @3)" Category="CallStackDirectCall" Bounds="450.809997558594,193.839996337891,0,21" />
-    <Link Source="@26" Target="@27" Category="CallStackDirectCall" Bounds="171.046661376953,305.760009765625,0,21" />
-    <Link Source="@27" Target="@21" Category="CallStackDirectCall" Bounds="171.046661376953,361.720001220703,0,21" />
-    <Link Source="@4" Target="@18" Category="CallStackDirectCall" Bounds="171.046661376953,81.9199981689453,0,21" />
-    <Link Source="@6" Target="@16" Category="CallStackDirectCall" Bounds="171.046661376953,473.640014648438,0,21" />
-    <Link Source="@8" Target="@24" Category="CallStackDirectCall" Bounds="450.809997558594,81.9199981689453,0,21" />
+    <Link Source="(@3 Namespace=Refrigtz Type=Program Member=Main)" Target="@2" Category="CallStackDirectCall" Bounds="78.7166666290954,9.35648914940841,5.64565425520414E-08,21.0001" />
+    <Link Source="@2" Target="@5" Category="CallStackDirectCall" Bounds="78.7166674691506,65.3165891494084,1.17216758610539E-06,21.0001" />
+    <Link Source="@5" Target="@6" Category="CallStackDirectCall" Bounds="78.7166701657463,121.276689149408,1.08903206808009E-06,47.5043383725441" />
+    <Link Source="@6" Target="(Name=System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop @4 Type=bool OverloadingParameters=[(Type=System.IntPtr Name=dwComponentID),(Type=int Name=reason),(Type=int Name=pvLoopData)] IsUnresolved=True)" Category="CallStackDirectCall" Bounds="78.7166615358145,203.741027521953,8.14712028329723E-06,50.9456793106459" />
   </Links>
   <Categories>
     <Category Id="CallStackDirectCall" Label="Call Stack direct call" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Call Stack direct call" OutgoingActionLabel="Call Stack direct call" />
@@ -104,12 +38,9 @@
     <Property Id="Bounds" DataType="System.Windows.Rect" />
     <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
     <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
-    <Property Id="CodeSchemaProperty_IsAnonymous" Label="Is Anonymous" Description="Flag indicating if this delegate, type, or method is anonymous" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_IsExternal" Label="Is External" Description="Flag indicating whether this node is considered external" DataType="System.Boolean" />
-    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
-    <Property Id="CodeSchemaProperty_IsVirtual" Label="Is Virtual" Description="Flag to indicate the method can be overridden" DataType="System.Boolean" />
     <Property Id="CommonLabel" DataType="System.String" />
     <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
     <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
@@ -139,34 +70,12 @@
     <Name Id="Type" Label="Type" ValueType="System.Object" />
   </QualifiedNames>
   <IdentifierAliases>
-    <Alias n="1" Uri="Assembly=mscorlib.dll" />
-    <Alias n="2" Id="Type=bool" />
-    <Alias n="3" Id="IsUnresolved=True" />
-    <Alias n="4" Id="(Name=System.Threading.ThreadPoolWorkQueue.Dispatch @1 @2 @3)" />
-    <Alias n="5" Id="Type=void" />
-    <Alias n="6" Id="(Name=System.Threading.Tasks.Task.Execute @1 @5 @3)" />
-    <Alias n="7" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6.2/System.Windows.Forms.dll" />
-    <Alias n="8" Id="(@7 Namespace=System.Windows.Forms Type=Application Member=(Name=Run OverloadingParameters=[(@7 Namespace=System.Windows.Forms Type=Form)]))" />
-    <Alias n="9" Uri="Assembly=$(6fe9bef7-bd1c-48c4-9967-6d1517c76661.OutputPathUri)" />
-    <Alias n="10" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6.2/System.Drawing.dll" />
-    <Alias n="11" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6.2/mscorlib.dll" />
-    <Alias n="12" Id="(@11 Namespace=System Type=Int32)" />
-    <Alias n="13" Id="(@9 Namespace=RefrigtzDLL Type=AllDraw Member=(Name=FullGameThinkingTreeCastleBrown OverloadingParameters=[(@10 Namespace=System.Drawing Type=Color),@12,@12,@12,@12,@12,@12,(@11 Namespace=System Type=Boolean),@12]))" />
-    <Alias n="14" Id="(@9 Namespace=RefrigtzDLL Type=AllDraw Member=AnonymousMethod__11)" />
-    <Alias n="15" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6.1/mscorlib.dll" />
-    <Alias n="16" Id="(@15 Namespace=System.Threading.Tasks Type=Task Member=InnerInvoke)" />
-    <Alias n="17" Uri="Assembly=$(54dd9d6d-eb54-4aed-bd2e-397b746a9bf6.OutputPathUri)" />
-    <Alias n="18" Id="(@15 Namespace=System.Threading.Tasks Type=Task Member=System.Threading.IThreadPoolWorkItem.ExecuteWorkItem)" />
-    <Alias n="19" Id="(Name=System.Threading.Tasks.Task.ExecuteEntry @1 @2 OverloadingParameters=[(@2 Name=bPreventDoubleExecution)] @3)" />
-    <Alias n="20" Id="(Name=System.Threading.Tasks.Task.ExecuteWithThreadLocal @1 @5 OverloadingParameters=[(Type=System.Threading.Tasks.Task Name=currentTaskSlot)] @3)" />
-    <Alias n="21" Id="(Name=System.Threading.Tasks.Task.ExecutionContextCallback @1 @5 OverloadingParameters=[(Type=object Name=obj)] @3)" />
-    <Alias n="22" Uri="Assembly=System.Windows.Forms.dll" />
-    <Alias n="23" Id="Type=int" />
-    <Alias n="24" Id="(Name=System.Windows.Forms.Application.ThreadContext.RunMessageLoop @22 @5 OverloadingParameters=[(@23 Name=reason),(Type=System.Windows.Forms.ApplicationContext Name=context)] @3)" />
-    <Alias n="25" Id="(Name=System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner @22 @5 OverloadingParameters=[(@23 Name=reason),(Type=System.Windows.Forms.ApplicationContext Name=context)] @3)" />
-    <Alias n="26" Id="(Name=System.Threading.ExecutionContext.Run @1 @5 OverloadingParameters=[(Type=System.Threading.ExecutionContext Name=executionContext),(Type=System.Threading.ContextCallback Name=callback),(Type=object Name=state),(@2 Name=preserveSyncCtx)] @3)" />
-    <Alias n="27" Id="(Name=System.Threading.ExecutionContext.RunInternal @1 @5 OverloadingParameters=[(Type=System.Threading.ExecutionContext Name=executionContext),(Type=System.Threading.ContextCallback Name=callback),(Type=object Name=state),(@2 Name=preserveSyncCtx)] @3)" />
-    <Alias n="28" Uri="Assembly=RefrigtzDLL.dll" />
+    <Alias n="1" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.6.2/System.Windows.Forms.dll" />
+    <Alias n="2" Id="(@1 Namespace=System.Windows.Forms Type=Application Member=(Name=Run OverloadingParameters=[(@1 Namespace=System.Windows.Forms Type=Form)]))" />
+    <Alias n="3" Uri="Assembly=$(54dd9d6d-eb54-4aed-bd2e-397b746a9bf6.OutputPathUri)" />
+    <Alias n="4" Uri="Assembly=System.Windows.Forms.dll" />
+    <Alias n="5" Id="(Name=System.Windows.Forms.Application.ThreadContext.RunMessageLoop @4 Type=void OverloadingParameters=[(Type=int Name=reason),(Type=System.Windows.Forms.ApplicationContext Name=context)] IsUnresolved=True)" />
+    <Alias n="6" Id="(Name=System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner @4 Type=void OverloadingParameters=[(Type=int Name=reason),(Type=System.Windows.Forms.ApplicationContext Name=context)] IsUnresolved=True)" />
   </IdentifierAliases>
   <Styles>
     <Style TargetType="Link" GroupLabel="Current Call Stack Link" ValueLabel="True" Visibility="Hidden">
@@ -432,7 +341,6 @@
   </Styles>
   <Paths>
     <Path Id="54dd9d6d-eb54-4aed-bd2e-397b746a9bf6.OutputPathUri" Value="file:///G:/'Personal'_'Files'/Refregitz/Refrigtz/bin/Debug/Refrigtz.exe" />
-    <Path Id="6fe9bef7-bd1c-48c4-9967-6d1517c76661.OutputPathUri" Value="file:///G:/'Personal'_'Files'/Refregitz/RfregitzD/bin/Debug/RefrigtzDLL.dll" />
     <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files/Reference Assemblies/Microsoft/Framework" />
   </Paths>
 </DirectedGraph>

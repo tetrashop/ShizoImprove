@@ -14345,7 +14345,7 @@ if (Kind == 2)
             {
                 for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
                 {
-                    if (SolderesOnTable[ikk] == null)
+                    if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
                         continue;
                     if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
@@ -14355,7 +14355,7 @@ if (Kind == 2)
                 }
                 for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
                 {
-                    if (ElephantOnTable[ikk] == null)
+                    if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
                         continue;
                     if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
@@ -14365,7 +14365,7 @@ if (Kind == 2)
                 }
                 for (int ikk = HourseMidle; ikk < HourseHight; ikk++)
                 {
-                    if (HoursesOnTable[ikk] == null)
+                    if (HoursesOnTable == null || HoursesOnTable[ikk] == null)
                         continue;
                     if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
@@ -14375,7 +14375,7 @@ if (Kind == 2)
                 }
                 for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
                 {
-                    if (CastlesOnTable[ikk] == null)
+                    if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
                         continue;
                     if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
@@ -14385,7 +14385,7 @@ if (Kind == 2)
                 }
                 for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
                 {
-                    if (MinisterOnTable[ikk] == null)
+                    if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
                         continue;
                     if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
@@ -14395,7 +14395,7 @@ if (Kind == 2)
                 }
                 for (int ikk = KingMidle; ikk < KingHigh; ikk++)
                 {
-                    if (KingOnTable[ikk] == null)
+                    if (KingOnTable == null || KingOnTable[ikk] == null)
                         continue;
                     if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
@@ -14414,14 +14414,14 @@ if (Kind == 2)
                      iAStarGreedy = MaxAStarGreedy;
                      OutPut.Append("\r\nLevel Boundry Conditon for iAStarGreedy is Set To " + iAStarGreedy.ToString() + "MaxAStarGreedy";
                  }*/
-
             }
+
             if (((ThinkingChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
                 IS = true;
 
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return IS;
-        } //AStarGreedy First Initiat Thinking Main Method.
+        }
         void AstarGreedyThinking(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int[,] Table, Color a, bool TB, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -17224,7 +17224,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             else if (kind == 3)
             {
-                if (HoursesOnTable[ik].HourseThinking[0].TableListSolder.Count > HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
+                if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
                 {
                     if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                         HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
@@ -17238,7 +17238,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             else if (kind == 4)
             {
-                if (CastlesOnTable[ik].CastleThinking[0].TableListSolder.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
+                if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
                 {
                     if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
