@@ -2555,13 +2555,13 @@ namespace QuantumRefrigiz
                 //Initiate Global Variable and Return CheckMate.
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
-                Object On = new Object();
+                /*Object On = new Object();
                 lock (On)
                 {
                     AllDraw.EndOfGame = true;
                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return true;
-                }
+                }*/
             }
             //Initiate Global Variables.
             CheckGray = CheckGrayDummy;

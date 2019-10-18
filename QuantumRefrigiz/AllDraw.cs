@@ -6172,8 +6172,11 @@ if (Kind == 2)
                     }
                 }
                  if (!FullGameFound)
-                 {
-                     Object O1 = new Object();
+                {
+                    if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                        return;
+
+                    Object O1 = new Object();
                      lock (O1)
                      {
                          iAStarGreedy++;

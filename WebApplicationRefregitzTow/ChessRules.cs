@@ -2442,12 +2442,12 @@ namespace RefrigtzW
                 //Initiate Global Variable and Return CheckMate.
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
-                Object On = new Object();
+                /*Object On = new Object();
                 lock (On)
                 {
                     AllDraw.EndOfGame = true;
                     return true;
-                }
+                }*/
             }
             //Initiate Global Variables.
             CheckGray = CheckGrayDummy;

@@ -5375,6 +5375,8 @@ if (Kind == 2)
                             Object OO1 = new Object();
                             lock (OO1)
                             {
+                                FullGameFound = true;
+
                                 iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
@@ -5742,6 +5744,8 @@ if (Kind == 2)
                             Object OO1 = new Object();
                             lock (OO1)
                             {
+                                FullGameFound = true;
+
                                 iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
@@ -5865,6 +5869,8 @@ if (Kind == 2)
                             Object OO1 = new Object();
                             lock (OO1)
                             {
+                                FullGameFound = true;
+
                                 iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
@@ -6266,8 +6272,11 @@ if (Kind == 2)
                  {
                      Object O1 = new Object();
                      lock (O1)
-                     {
-                         iAStarGreedy++;
+                    {
+                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                            return;
+
+                        iAStarGreedy++;
                          Color a = Color.Gray;
                          if (Order == -1)
                              a = Color.Brown;
