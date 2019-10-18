@@ -17522,14 +17522,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             lock (OO1)
             {
                 TaskBegin++;
-
+                //long t = TimeElapced.TimeNow();
                 //int S = 0;
                 while (ReturnFullGameThinkingTreeSemaphore(ik, Kind))
                 {
                     System.Threading.Thread.Sleep(2);
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         break;
-
+                    /*if (TimeElapced.TimeNow() - t > 5000)
+                        break;*/
                 }
 
 

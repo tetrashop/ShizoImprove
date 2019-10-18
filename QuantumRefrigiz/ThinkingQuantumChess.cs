@@ -11209,12 +11209,17 @@ namespace QuantumRefrigiz
             {
                 if (CurrentAStarGredyMax > AllDraw.MaxAStarGreedy)
                 {
+                    ThinkingQuantumBegin = false;
+
                     ThinkingQuantumFinished = true;
                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return;
                 }
                 while (!ThinkingQuantumBegin)
                 {
+                    if (AllDraw.NumberOfLeafComputation != -1)
+                        break;
+
                     System.Threading.Thread.Sleep(2);
                 }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
