@@ -14769,7 +14769,7 @@ if (Kind == 2)
                 {
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
-                    int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+                    int Ord = Order * -1, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
                     //System.Threading.Thread.Sleep(2);
                     //Parallel.Invoke(() =>
                     {
