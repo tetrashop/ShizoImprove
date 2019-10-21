@@ -159,6 +159,8 @@ namespace RefrigtzDLL
 
     public class AllDraw
     {
+        public static bool FirstTraversalTree = true;
+
         public static int NumberOfLeafComputation = 0;
         public bool IsCurrentDraw = false;
         public int HaveKilled = 0;
@@ -5320,6 +5322,8 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
+
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5443,6 +5447,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5564,6 +5569,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5689,6 +5695,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5813,6 +5820,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5934,6 +5942,8 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
+
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -20420,7 +20430,7 @@ if (Kind == 5)
         //Main Initiate Thinking Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
-            if (FOUND)
+            if (FOUND && (!FirstTraversalTree))
                 NumberOfLeafComputation = ThinkingChess.NumbersOfAllNode;
             else
                 NumberOfLeafComputation = -1;

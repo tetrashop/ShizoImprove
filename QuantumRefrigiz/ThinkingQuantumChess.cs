@@ -6117,7 +6117,7 @@ namespace QuantumRefrigiz
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier[j][0]) + Number(RowColumnSoldier[j][1]);
                             if (Order == 1)
@@ -6146,7 +6146,7 @@ namespace QuantumRefrigiz
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant[j][0]) + Number(RowColumnElefant[j][1]);
                             if (Order == 1)
@@ -6174,7 +6174,7 @@ namespace QuantumRefrigiz
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse[j][0]) + Number(RowColumnHourse[j][1]);
                             if (Order == 1)
@@ -6203,7 +6203,7 @@ namespace QuantumRefrigiz
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
                             if (Order == 1)
@@ -6230,7 +6230,7 @@ namespace QuantumRefrigiz
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
                             if (Order == 1)
@@ -6258,7 +6258,7 @@ namespace QuantumRefrigiz
                         Object O1 = new Object();
                         lock (O1)
                         {
-                            if (AllDraw.NumberOfLeafComputation == -1)
+                            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                             {
                                 ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
                                 if (Order == 1)
@@ -6293,7 +6293,7 @@ namespace QuantumRefrigiz
                     Object OOO = new Object();
                     lock (OOO)
                     {
-                        if (Order == 1)
+                        if (Order == -1)
                         {
                             //Repeate for Solder.
                             for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
@@ -6375,7 +6375,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0] == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].TableListKing == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6394,7 +6394,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].TableListMinister == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6413,7 +6413,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].TableListCastle == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6433,7 +6433,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].TableListHourse == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6454,7 +6454,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].TableListElefant == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6476,7 +6476,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].TableListSolder == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");

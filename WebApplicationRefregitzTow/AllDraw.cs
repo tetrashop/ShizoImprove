@@ -159,6 +159,8 @@ namespace RefrigtzW
 
     public class AllDraw
     {
+        public static bool FirstTraversalTree = true;
+
         public static int NumberOfLeafComputation = 0;
         public bool IsCurrentDraw = false;
 
@@ -5447,6 +5449,8 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
+
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5568,6 +5572,8 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
+
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5689,6 +5695,8 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
+
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5814,6 +5822,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5936,6 +5945,8 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
+
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -6055,6 +6066,8 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
+
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;

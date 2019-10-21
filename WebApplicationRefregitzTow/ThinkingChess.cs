@@ -6132,7 +6132,7 @@ namespace RefrigtzW
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier[j][0]) + Number(RowColumnSoldier[j][1]);
                             if (Order == 1)
@@ -6161,7 +6161,7 @@ namespace RefrigtzW
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant[j][0]) + Number(RowColumnElefant[j][1]);
                             if (Order == 1)
@@ -6189,7 +6189,7 @@ namespace RefrigtzW
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse[j][0]) + Number(RowColumnHourse[j][1]);
                             if (Order == 1)
@@ -6218,7 +6218,7 @@ namespace RefrigtzW
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
                             if (Order == 1)
@@ -6245,7 +6245,7 @@ namespace RefrigtzW
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (AllDraw.NumberOfLeafComputation == -1)
+                        if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
                             if (Order == 1)
@@ -6273,7 +6273,7 @@ namespace RefrigtzW
                         Object O1 = new Object();
                         lock (O1)
                         {
-                            if (AllDraw.NumberOfLeafComputation == -1)
+                            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
                             {
                                 ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
                                 if (Order == 1)
@@ -6308,7 +6308,7 @@ namespace RefrigtzW
                     Object OOO = new Object();
                     lock (OOO)
                     {
-                        if (Order == 1)
+                        if (Order == -1)
                         {
                             //Repeate for Solder.
                             for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
@@ -6390,7 +6390,7 @@ namespace RefrigtzW
 
             if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null || AStarGreedy[k].KingOnTable[m].KingThinking == null || AStarGreedy[k].KingOnTable[m].KingThinking[0] == null || AStarGreedy[k].KingOnTable[m].KingThinking[0].TableListKing == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6409,7 +6409,7 @@ namespace RefrigtzW
 
             if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinking == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinking[0].TableListMinister == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6428,7 +6428,7 @@ namespace RefrigtzW
 
             if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinking == null || AStarGreedy[k].CastlesOnTable[m].CastleThinking[0] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinking[0].TableListCastle == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6448,7 +6448,7 @@ namespace RefrigtzW
 
             if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinking == null || AStarGreedy[k].HoursesOnTable[m].HourseThinking[0] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinking[0].TableListHourse == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6469,7 +6469,7 @@ namespace RefrigtzW
 
             if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinking == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinking[0].TableListElefant == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
@@ -6491,7 +6491,7 @@ namespace RefrigtzW
 
             if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinking == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinking[0].TableListSolder == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1)
+            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");

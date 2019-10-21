@@ -159,6 +159,7 @@ namespace QuantumRefrigiz
 
     public class AllDraw
     {
+        public static bool FirstTraversalTree = true;
         public static int NumberOfLeafComputation = 0;
         public bool IsCurrentDraw = false;
 
@@ -5226,9 +5227,11 @@ if (Kind == 2)
                         {
                             for (var iii = 0; iii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
                             {
+                        
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5347,9 +5350,11 @@ if (Kind == 2)
                         {
                             for (var iii = 0; iii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList.Count > 0; iii++)
                             {
+                              
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5471,6 +5476,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5596,6 +5602,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5718,6 +5725,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -5837,6 +5845,7 @@ if (Kind == 2)
                                 Object OOOO = new Object();
                                 lock (OOOO)
                                 {
+                                    FirstTraversalTree = false;
 
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -20169,7 +20178,7 @@ if (Kind == 5)
         //Main Initiate ThinkingQuantum Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
-            if (FOUND)
+            if (FOUND && (!FirstTraversalTree))
                 NumberOfLeafComputation = ThinkingQuantumChess.NumbersOfAllNode;
             else
                 NumberOfLeafComputation = -1;
