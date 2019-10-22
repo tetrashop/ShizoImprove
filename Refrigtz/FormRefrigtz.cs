@@ -3296,7 +3296,6 @@ namespace Refrigtz
         //Constructor No2
         public FormRefrigtz(bool AllDra)
         {
-
             AllDrawLoad = AllDra;
             InitializeComponent();
             X1 = TextBoxText.Location.X;

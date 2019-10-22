@@ -6375,13 +6375,13 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0] == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].TableListKing == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
+            /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                 else
                     AllDraw.OutPut.Append("\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }
+            }*/
             for (var jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].TableListKing.Count; jj++)
                 Huristic += AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -6394,13 +6394,13 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].TableListMinister == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
+            /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                 else
                     AllDraw.OutPut.Append("\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }
+            }*/
             for (var jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].TableListMinister.Count; jj++)
                 Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -6413,13 +6413,13 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].TableListCastle == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
-            {
-                if (Order == 1)
-                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
-                else
-                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }
+            /* if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
+             {
+                 if (Order == 1)
+                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
+                 else
+                     AllDraw.OutPut.Append("\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
+             }*/
             for (var jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].TableListCastle.Count; jj++)
                 Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -6433,13 +6433,13 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].TableListHourse == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
+            /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                 else
                     AllDraw.OutPut.Append("\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }
+            }*/
             for (var jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].TableListHourse.Count; jj++)
                 Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -6454,13 +6454,13 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].TableListElefant == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
+            /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                 else
                     AllDraw.OutPut.Append("\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }
+            }*/
             for (var jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].TableListElefant.Count; jj++)
                 Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -6476,13 +6476,13 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].TableListSolder == null)
                 return Huristic;
-            if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
-            {
-                if (Order == 1)
-                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
-                else
-                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }
+            /* if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
+             {
+                 if (Order == 1)
+                         AllDraw.OutPut.Append("\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
+                     else
+                         AllDraw.OutPut.Append("\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
+                 }*/
             for (var jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].TableListSolder.Count; jj++)
                 Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
 

@@ -1433,8 +1433,8 @@ namespace Refrigtz
             // 
             // PictureBoxTimerBrown
             // 
-            this.PictureBoxTimerBrown.ErrorImage = global::Refrigtz.Properties.Resources.Brown;
-            this.PictureBoxTimerBrown.Image = global::Refrigtz.Properties.Resources.Brown;
+            //this.PictureBoxTimerBrown.ErrorImage = global::Refrigtz.Properties.Resources.Brown;
+            //this.PictureBoxTimerBrown.Image = global::Refrigtz.Properties.Resources.Brown;
             this.PictureBoxTimerBrown.Location = new System.Drawing.Point(801, 38);
             this.PictureBoxTimerBrown.Name = "PictureBoxTimerBrown";
             this.PictureBoxTimerBrown.Size = new System.Drawing.Size(192, 66);
@@ -1446,8 +1446,8 @@ namespace Refrigtz
             // 
             // PictureBoxTimerGray
             // 
-            this.PictureBoxTimerGray.ErrorImage = global::Refrigtz.Properties.Resources.Gray;
-            this.PictureBoxTimerGray.Image = global::Refrigtz.Properties.Resources.Gray;
+            //this.PictureBoxTimerGray.ErrorImage = global::Refrigtz.Properties.Resources.Gray;
+           //this.PictureBoxTimerGray.Image = global::Refrigtz.Properties.Resources.Gray;
             this.PictureBoxTimerGray.Location = new System.Drawing.Point(595, 38);
             this.PictureBoxTimerGray.Name = "PictureBoxTimerGray";
             this.PictureBoxTimerGray.Size = new System.Drawing.Size(193, 66);
@@ -1459,7 +1459,7 @@ namespace Refrigtz
             // 
             // PictureBoxRefrigtz
             // 
-            this.PictureBoxRefrigtz.InitialImage = global::Refrigtz.Properties.Resources.BrG;
+            //this.PictureBoxRefrigtz.InitialImage = global::Refrigtz.Properties.Resources.BrG;
             this.PictureBoxRefrigtz.Location = new System.Drawing.Point(3, 38);
             this.PictureBoxRefrigtz.Name = "PictureBoxRefrigtz";
             this.PictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
