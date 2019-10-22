@@ -4131,16 +4131,16 @@ namespace Refrigtz
             AllDrawReplacement = Path.Combine(P, AllDrawKindString);
             if (File.Exists(AllDrawKindString))
             {
+
                 if (File.Exists(AllDrawReplacement))
                 {
-                    if (((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                    if ((!FOUND) && ((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
                     {
                         File.Delete(AllDrawKindString);
                         File.Copy(AllDrawReplacement, AllDrawKindString);
                         Found = true;
                     }
-
-                    else
+                    else if (FOUND)
                     {
                         if (File.Exists(AllDrawReplacement))
                             File.Delete(AllDrawReplacement);
@@ -4163,7 +4163,7 @@ namespace Refrigtz
                 File.Copy(AllDrawReplacement, AllDrawKindString);
                 Found = true;
             }
-            
+
             return Found;
         }
         void DeleteSetADrawKindString(String S)
