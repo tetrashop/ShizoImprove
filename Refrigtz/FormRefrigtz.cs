@@ -3371,7 +3371,7 @@ namespace Refrigtz
                         Refrigtz.Timer.StoreAllDrawCount = QuantumRefrigiz.AllDraw.StoreADraw.Count;
                     }
                 }
-                System.Threading.Thread.Sleep(2);
+                //System.Threading.Thread.Sleep(2);
             }
             while (true);
             //SetTimer = false;
@@ -3879,7 +3879,7 @@ namespace Refrigtz
                         else
                             SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
                     }
-                    //System.Threading.Thread.Sleep(1);
+                    ////System.Threading.Thread.Sleep(1);
 
                 }
             } //while (true);
@@ -3899,7 +3899,7 @@ namespace Refrigtz
                 {
                     if (!Quantum)
                     {
-                        //System.Threading.Thread.Sleep(10);
+                        ////System.Threading.Thread.Sleep(10);
                         RefrigtzDLL.AllDraw.Root = Root;
                         RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
                         RefrigtzDLL.AllDraw.Blitz = Blitz;
@@ -3996,12 +3996,12 @@ namespace Refrigtz
                                 NextColumn = RefrigtzDLL.AllDraw.NextRow;
                             }
                         }
-                        //System.Threading.Thread.Sleep(2);
+                        ////System.Threading.Thread.Sleep(2);
 
                     }
                     else
                     {
-                        //System.Threading.Thread.Sleep(10);
+                        ////System.Threading.Thread.Sleep(10);
                         QuantumRefrigiz.AllDraw.Root = Root;
                         QuantumRefrigiz.AllDraw.OrderPlate = OrderPlate;
                         QuantumRefrigiz.AllDraw.Blitz = Blitz;
@@ -4098,7 +4098,7 @@ namespace Refrigtz
 
                             }
                         }
-                        //System.Threading.Thread.Sleep(1);
+                        ////System.Threading.Thread.Sleep(1);
                     }
 
                 }
@@ -5289,7 +5289,7 @@ namespace Refrigtz
                             return false;
                         }
 #pragma warning disable CS0162 // Unreachable code detected
-                        System.Threading.Thread.Sleep(2);
+                        //System.Threading.Thread.Sleep(2);
 #pragma warning restore CS0162 // Unreachable code detected
                     } while (true);
                 }
@@ -5310,7 +5310,7 @@ namespace Refrigtz
                     }
                 }
 
-                //System.Threading.Thread.Sleep(2);
+                ////System.Threading.Thread.Sleep(2);
             } while (Move <= MovmentsNumberMax);
 
             return true;
@@ -6342,10 +6342,10 @@ namespace Refrigtz
                 {
                     if (RefrigtzDLL.AllDraw.DrawTable)
                     {
-                        //System.Threading.Thread.Sleep(2);
+                        ////System.Threading.Thread.Sleep(2);
                         if (GameStarted && MovmentsNumber == 1)
                             ButtonChangeArrangment.Visible = false;
-                        //System.Threading.Thread.Sleep(8);
+                        ////System.Threading.Thread.Sleep(8);
 
                         //if (RefrigtzDLL.AllDraw.TableListAction.Count > 3)
                         //ToolStripMenuItemRandomGeneticGames.Enabled = true;
@@ -6444,7 +6444,7 @@ namespace Refrigtz
 
                     /*while (PaintedPaused && DrawNumber > 50)
                     {
-                        System.Threading.Thread.Sleep(10);
+                        //System.Threading.Thread.Sleep(10);
                     }
 
                     DrawNumber++;
@@ -6457,7 +6457,7 @@ namespace Refrigtz
                     //PictureBoxTimerGray.Invalidate();
 
                     //return;
-                    //System.Threading.Thread.Sleep(2);
+                    ////System.Threading.Thread.Sleep(2);
                 }
                 //PictureBoxRefrigtz.Invalidate();
                 //PictureBoxRefrigtz.Update();
@@ -6468,10 +6468,10 @@ namespace Refrigtz
                     {
                         if (RefrigtzDLL.AllDraw.DrawTable)
                         {
-                            //System.Threading.Thread.Sleep(100);
+                            ////System.Threading.Thread.Sleep(100);
                             if (GameStarted && MovmentsNumber == 1)
                                 ButtonChangeArrangment.Visible = false;
-                            //System.Threading.Thread.Sleep(8);
+                            ////System.Threading.Thread.Sleep(8);
 
                             //if (QuantumRefrigiz.AllDraw.TableListAction.Count > 3)
                             //ToolStripMenuItemRandomGeneticGames.Enabled = true;
@@ -6566,7 +6566,7 @@ namespace Refrigtz
 
                         /*while (PaintedPaused && DrawNumber > 50)
                         {
-                            System.Threading.Thread.Sleep(10);
+                            //System.Threading.Thread.Sleep(10);
                         }
 
                         DrawNumber++;
@@ -6579,16 +6579,16 @@ namespace Refrigtz
                         //PictureBoxTimerGray.Invalidate();
 
                         //return;
-                        //System.Threading.Thread.Sleep(20);
+                        ////System.Threading.Thread.Sleep(20);
                     }
                     else
                     {
                         if (QuantumRefrigiz.AllDraw.DrawTable)
                         {
-                            //System.Threading.Thread.Sleep(100);
+                            ////System.Threading.Thread.Sleep(100);
                             if (GameStarted && MovmentsNumber == 1)
                                 ButtonChangeArrangment.Visible = false;
-                            //System.Threading.Thread.Sleep(8);
+                            ////System.Threading.Thread.Sleep(8);
 
                             //if (QuantumRefrigiz.AllDraw.TableListAction.Count > 3)
                             //ToolStripMenuItemRandomGeneticGames.Enabled = true;
@@ -6683,7 +6683,7 @@ namespace Refrigtz
 
                         /*while (PaintedPaused && DrawNumber > 50)
                         {
-                            System.Threading.Thread.Sleep(10);
+                            //System.Threading.Thread.Sleep(10);
                         }
 
                         DrawNumber++;
@@ -6704,7 +6704,7 @@ namespace Refrigtz
             PictureBoxTimerGray.Invalidate();
             PictureBoxTimerGray.Update();
 
-            System.Threading.Thread.Sleep(5);
+            //System.Threading.Thread.Sleep(5);
         }
 
         int CalculateMoveMentHueuristicUser(int Kind, int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
@@ -7135,11 +7135,11 @@ namespace Refrigtz
                             )
                         {
                             //SetRefregitzBicture();
-                            System.Threading.Thread.Sleep(50);
+                            //System.Threading.Thread.Sleep(50);
 
                         }
                         //else
-                        System.Threading.Thread.Sleep(10);
+                        //System.Threading.Thread.Sleep(10);
 
                         int[,] TabStor = new int[8, 8];
                         for (int i = 0; i < 8; i++)
@@ -8821,7 +8821,7 @@ namespace Refrigtz
                         }
                         RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
 
-                        System.Threading.Thread.Sleep(10);
+                        //System.Threading.Thread.Sleep(10);
                     }
 
                     while (true);
@@ -8835,11 +8835,11 @@ namespace Refrigtz
                             )
                         {
                             //SetRefregitzBicture();
-                            System.Threading.Thread.Sleep(50);
+                            //System.Threading.Thread.Sleep(50);
 
                         }
                         //else
-                        System.Threading.Thread.Sleep(10);
+                        //System.Threading.Thread.Sleep(10);
 
                         int[,] TabStor = new int[8, 8];
                         for (int i = 0; i < 8; i++)
@@ -10572,7 +10572,7 @@ namespace Refrigtz
                         }
                         QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
 
-                        System.Threading.Thread.Sleep(100);
+                        //System.Threading.Thread.Sleep(100);
 
                     }
                     while (true);
@@ -15130,7 +15130,7 @@ namespace Refrigtz
         //Mouse Click Form Refregitz PictureBox Event Handling.
         private void PictureBoxRefrigtz_MouseClick(object sender, MouseEventArgs e)
         {
-            System.Threading.Thread.Sleep(10);
+            //System.Threading.Thread.Sleep(10);
             MouseClicked = true;
             for (int i = 0; i < 8; i++)
             {
@@ -16454,7 +16454,7 @@ namespace Refrigtz
 
 
 
-            System.Threading.Thread.Sleep(10);
+            //System.Threading.Thread.Sleep(10);
 
             if (t1.IsBackground)
                 new Syncronization(t1, 3);
@@ -16955,7 +16955,7 @@ namespace Refrigtz
             do
             {
 
-                System.Threading.Thread.Sleep(10);
+                //System.Threading.Thread.Sleep(10);
                 if (System.IO.File.Exists(FormRefrigtz.Root + "\\Database\\Games\\CurrentBank" + Max.ToString() + ".accdb"))
                     Max++;
 
@@ -17284,7 +17284,7 @@ namespace Refrigtz
                         Log(t);
                     }
                 }
-                System.Threading.Thread.Sleep(5);
+                //System.Threading.Thread.Sleep(5);
 
                 PictureBoxTimerBrown.Invalidate();
                 PictureBoxTimerBrown.Update();
@@ -17343,7 +17343,7 @@ namespace Refrigtz
                         //RunInFront();
                     }
                 }
-                System.Threading.Thread.Sleep(5);
+                //System.Threading.Thread.Sleep(5);
                 //PictureBoxTimerGray.Invalidate();
                 //PictureBoxTimerGray.Update();
 
@@ -17720,13 +17720,13 @@ namespace Refrigtz
             {
                 try
                 {
-                    //System.Threading.Thread.Sleep(2);
+                    ////System.Threading.Thread.Sleep(2);
                     //tttt.Start();
                     //ttt.Start();
                     AllOp();
                     if (EndOfGame)
                         return;
-                    System.Threading.Thread.Sleep(10);
+                    //System.Threading.Thread.Sleep(10);
                     // AllOperate.Start();
                 }
                 catch (Exception t) { Log(t); }
@@ -17737,7 +17737,7 @@ namespace Refrigtz
         {
             try
             {
-                //System.Threading.Thread.Sleep(2);
+                ////System.Threading.Thread.Sleep(2);
                 //tttt.Start();
                 //ttt.Start();
                 SetRefregitzDLL();
@@ -17767,11 +17767,11 @@ namespace Refrigtz
             {
                 try
                 {
-                    //System.Threading.Thread.Sleep(2);
+                    ////System.Threading.Thread.Sleep(2);
                     //tttt.Start();
                     //ttt.Start();
                     SetNodesCount();
-                    System.Threading.Thread.Sleep(10);
+                    //System.Threading.Thread.Sleep(10);
                     // AllOperate.Start();
                 }
                 catch (Exception t) { Log(t); }
@@ -17787,7 +17787,7 @@ namespace Refrigtz
                     Object O = new Object();
                     lock (O)
                     {
-                        System.Threading.Thread.Sleep(2);
+                        //System.Threading.Thread.Sleep(2);
 
                         //tttt.Start();
                         //ttt.Start();
@@ -17795,7 +17795,7 @@ namespace Refrigtz
                         //t.Start();
                         //t.Join();
                         SetRefregitzDLL();
-                        //System.Threading.Thread.Sleep(1);
+                        ////System.Threading.Thread.Sleep(1);
                         // AllOperate.Start();
                     }
                 }
