@@ -5776,6 +5776,10 @@ namespace Refrigtz
                         AllDrawKind = System.Convert.ToInt32(dr["AllDrawKind"]);
                         OrderPlate = System.Convert.ToInt32(dr["OrderPlate"]);
                         Deeperthandeeper = System.Convert.ToBoolean(dr["Deeperthandeeper"]);
+                        if (Deeperthandeeper)
+                            checkBoxDeeperthandeeper.Checked = true;
+                        else
+                            checkBoxDeeperthandeeper.Checked = false;
                         ARead = true;
                     }
                     bookConn.Close();
@@ -12934,7 +12938,11 @@ namespace Refrigtz
                         Ord = OrderPlate;
 
                         Draw.ClearAllTablesHuristicsAndMore(Ord);
+                        bool Store = Deeperthandeeper;
+                        Deeperthandeeper = false;
                         Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        Deeperthandeeper = Store;
+
                         Draw.FoundOfCurrentTableNode(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
 
 
@@ -13106,7 +13114,12 @@ namespace Refrigtz
                         FOUND = false;
 
                         DrawQ.ClearAllTablesHuristicsAndMore(Ord);
+                        bool Store = Deeperthandeeper;
+                        Deeperthandeeper = false;
+
                         DrawQ.InitiateAStarGreedytCreationThinkingQuantum(0, 0, 0, a, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        Deeperthandeeper = Store;
+
                         DrawQ.FoundOfCurrentTableNode(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, ref THIS, ref FOUND);
 
 

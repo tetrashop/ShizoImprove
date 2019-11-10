@@ -11026,56 +11026,56 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
 
                 if (Kind == 1)
                 {
-                    for (int i = 0; i < TableListSolder.Count; i++)
+                    Parallel.For(0, TableListSolder.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListSolder[i], Order, false, false, 0);
-                    }
+                       AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListSolder[i], Order, false, false, 0);
+                   });
                 }
                 else
                 if (Kind == 2)
                 {
-                    for (int i = 0; i < TableListElefant.Count; i++)
+                    Parallel.For(0, TableListElefant.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
                         AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListElefant[i], Order, false, false, 0);
-                    }
+                    });
                 }
                 else
                 if (Kind == 3)
                 {
-                    for (int i = 0; i < TableListHourse.Count; i++)
+                    Parallel.For(0, TableListHourse.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
                         AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListHourse[i], Order, false, false, 0);
-                    }
+                    });
                 }
                 else
                 if (Kind == 4)
                 {
-                    for (int i = 0; i < TableListCastle.Count; i++)
+                    Parallel.For(0, TableListCastle.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
                         AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListCastle[i], Order, false, false, 0);
-                    }
+                    });
                 }
                 else
                 if (Kind == 5)
                 {
-                    for (int i = 0; i < TableListMinister.Count; i++)
+                    Parallel.For(0, TableListMinister.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
                         AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListMinister[i], Order, false, false, 0);
-                    }
+                    });
                 }
                 else
                     if (Kind == 6)
                 {
-                    for (int i = 0; i < TableListKing.Count; i++)
+                    Parallel.For(0, TableListKing.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
                         AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListKing[i], Order, false, false, 0);
-                    }
+                    });
                 }
 
 
