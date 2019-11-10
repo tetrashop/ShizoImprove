@@ -14824,7 +14824,7 @@ namespace QuantumRefrigiz
             }
             else
             {
-                if (!Deeperthandeeper)
+                if (!Deeperthandeeper || ThinkingQuantumChess.FullGameAllow)
                 {
                     Object O = new Object();
                     lock (O)

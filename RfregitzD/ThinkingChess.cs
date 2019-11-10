@@ -81,7 +81,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess
     {
-        
+        public static bool FullGameAllow = false;
         int iIndex = -1;
         public static bool IsAtLeastOneKillerAtDraw = false;
         public bool KishSelf = false;
@@ -11023,14 +11023,15 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
         {
             if (AllDraw.Deeperthandeeper)
             {
+                FullGameAllow = true;
 
                 if (Kind == 1)
                 {
                     Parallel.For(0, TableListSolder.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                       AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListSolder[i], Order, false, false, 0);
-                   });
+                        AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListSolder[i], Order, false, false, 0);
+                    });
                 }
                 else
                 if (Kind == 2)
@@ -11078,6 +11079,7 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                     });
                 }
 
+                FullGameAllow = false;
 
             }
 

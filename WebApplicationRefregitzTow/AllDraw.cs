@@ -14810,20 +14810,23 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                    int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                    //System.Threading.Thread.Sleep(2);
-                    //Parallel.Invoke(() =>
+                    if (!Deeperthandeeper || ThinkingChess.FullGameAllow)
                     {
-                        var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
-                        array1.Wait();
-                        /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
-                        tFullGameThinkingTree.Start();
-                        T.Add(tFullGameThinkingTree);*/
+                        Order = DummyOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                        int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+                        //System.Threading.Thread.Sleep(2);
+                        //Parallel.Invoke(() =>
+                        {
+                            var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
+                            array1.Wait();
+                            /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
+                            tFullGameThinkingTree.Start();
+                            T.Add(tFullGameThinkingTree);*/
 
 
-                    }//);
+                        }//);
+                    }
                 }
 
 

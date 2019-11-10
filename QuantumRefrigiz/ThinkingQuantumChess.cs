@@ -81,6 +81,8 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ThinkingQuantumChess
     {
+        public static bool FullGameAllow = false;
+
         int iIndex = -1;
 
         public static bool IsAtLeastOneKillerAtDraw = false;
@@ -11025,6 +11027,7 @@ namespace QuantumRefrigiz
         {
             if (AllDraw.Deeperthandeeper)
             {
+                FullGameAllow = true;
 
                 if (Kind == 1)
                 {
@@ -11080,6 +11083,7 @@ namespace QuantumRefrigiz
                     });
                 }
 
+                FullGameAllow = false;
 
             }
 

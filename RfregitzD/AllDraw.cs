@@ -14805,7 +14805,7 @@ namespace RefrigtzDLL
             }
             else
             {
-                if (!Deeperthandeeper)
+                if (!Deeperthandeeper || ThinkingChess.FullGameAllow)
                 {
                     Object O = new Object();
                     lock (O)

@@ -80,6 +80,8 @@ namespace RefrigtzW
     [Serializable]
     public class ThinkingChess
     {
+        public static bool FullGameAllow = false;
+
         int iIndex = -1;
 
         public static bool IsAtLeastOneKillerAtDraw = false;
@@ -11046,6 +11048,7 @@ namespace RefrigtzW
         {
             if (AllDraw.Deeperthandeeper)
             {
+                FullGameAllow = true;
 
                 if (Kind == 1)
                 {
@@ -11101,6 +11104,7 @@ namespace RefrigtzW
                     });
                 }
 
+                FullGameAllow = false;
 
             }
 
