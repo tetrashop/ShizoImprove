@@ -132,7 +132,7 @@ namespace RefrigtzDLL
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.MinisterMovments; ii++)
-                    MinisterThinking[ii] = new ThinkingChess(5,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 32, Ord, TB, Cur, 2, 5);
+                    MinisterThinking[ii] = new ThinkingChess(ii,5,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 32, Ord, TB, Cur, 2, 5);
 
                 Row = i;
                 Column = j;
@@ -193,7 +193,7 @@ namespace RefrigtzDLL
             for (var i = 0; i < AllDraw.MinisterMovments; i++)
             {
 
-                AA.MinisterThinking[i] = new ThinkingChess(5,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                AA.MinisterThinking[i] = new ThinkingChess(i,5,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                 this.MinisterThinking[i].Clone(ref AA.MinisterThinking[i]);
 
 

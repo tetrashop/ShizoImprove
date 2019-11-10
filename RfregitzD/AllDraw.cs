@@ -160,6 +160,7 @@ namespace RefrigtzDLL
     public class AllDraw
     {   //Initiate Variables.       
 
+        public static bool Deeperthandeeper = false;
         public static bool FirstTraversalTree = true;
 
         public static int NumberOfLeafComputation = 0;
@@ -220,7 +221,7 @@ namespace RefrigtzDLL
         public bool PredictHuristicT = true;
         public bool OnlySelfT = false;
         public bool AStarGreedyHuristicT = false;
-        int[] Index = { -1, -1, -1, -1, -1, -1 }, jindex = { -1, -1, -1, -1, -1, -1 }, Kind = { -1, -1, -1, -1, -1, -1 };
+        public int[] Index = { -1, -1, -1, -1, -1, -1 }, jindex = { -1, -1, -1, -1, -1, -1 }, Kind = { -1, -1, -1, -1, -1, -1 };
         public bool ArrangmentsChanged = false;
         public static int AStarGreedytMaxCount = 0;
         public static bool FoundATable = false;
@@ -11737,7 +11738,7 @@ namespace RefrigtzDLL
                             //Thinking of Gray Solder Operation.
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
+                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
                                             SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
@@ -11749,7 +11750,7 @@ namespace RefrigtzDLL
                             //Thinking of Gray Soldeir Operations.
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
+                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
                                             SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
@@ -11772,7 +11773,7 @@ namespace RefrigtzDLL
                             //Operational Thinking Gray Elephant. 
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
+                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
                                             ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
@@ -11783,7 +11784,7 @@ namespace RefrigtzDLL
                             //Gray Elephant Object Thinking Operations.
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
+                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
                                             ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
@@ -11806,7 +11807,7 @@ namespace RefrigtzDLL
                             //Thinking of Gray Hourse Oprational.
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingBegin = true;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
-                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
+                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
                                             HoursesOnTable[iIndex].HourseThinking[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                 { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
@@ -11818,7 +11819,7 @@ namespace RefrigtzDLL
                             HoursesOnTable[iIndex].HourseThinking[0].TableT = HoursesOnTable[iIndex].HourseThinking[0].TableListHourse[j];
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingBegin = true;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
-                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
+                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
                                             HoursesOnTable[iIndex].HourseThinking[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
@@ -11841,7 +11842,7 @@ namespace RefrigtzDLL
                             //Thinking of Gray Castles Operational.
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingBegin = true;
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
-                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
+                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
                                             CastlesOnTable[iIndex].CastleThinking[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
@@ -11854,7 +11855,7 @@ namespace RefrigtzDLL
                             CastlesOnTable[iIndex].CastleThinking[0].TableT = CastlesOnTable[iIndex].CastleThinking[0].TableListCastle[j];
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingBegin = true;
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
-                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
+                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
                                             CastlesOnTable[iIndex].CastleThinking[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
@@ -11873,7 +11874,7 @@ namespace RefrigtzDLL
                          //Thinking of Gray Minister Operational.
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingBegin = true;
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
+                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
                                             MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
@@ -11884,7 +11885,7 @@ namespace RefrigtzDLL
                             MinisterOnTable[iIndex].Table = MinisterOnTable[iIndex].MinisterThinking[0].TableListMinister[j];
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingBegin = true;
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
+                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
                                             MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
@@ -11905,7 +11906,7 @@ namespace RefrigtzDLL
                          //Thinking Of Gray King Operatins.
                             KingOnTable[iIndex].KingThinking[0].ThinkingBegin = true;
                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
-                            KingOnTable[iIndex].KingThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
+                            KingOnTable[iIndex].KingThinking[0].Thinking(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
                                             KingOnTable[iIndex].KingThinking[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
@@ -11915,7 +11916,7 @@ namespace RefrigtzDLL
                             //Gray King Thinking Operations.                                        
                             KingOnTable[iIndex].KingThinking[0].ThinkingBegin = true;
                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
-                            KingOnTable[iIndex].KingThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
+                            KingOnTable[iIndex].KingThinking[0].Thinking(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
                                             KingOnTable[iIndex].KingThinking[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
@@ -11939,7 +11940,7 @@ namespace RefrigtzDLL
                             //Thinking Operations of Brown Current Objects.
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
+                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
                                             SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
@@ -11951,7 +11952,7 @@ namespace RefrigtzDLL
                             //Thinking of Thinking Brown CurrentTable Objective Operations.
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
+                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
                                             SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
@@ -11971,7 +11972,7 @@ namespace RefrigtzDLL
                             //Thinking Operations of Brown Current Objects.
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
+                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
                                             ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
@@ -11982,7 +11983,7 @@ namespace RefrigtzDLL
                             //Thinking of Thinking Brown CurrentTable Objective Operations.                                                   
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
+                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
                                             ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
@@ -12004,7 +12005,7 @@ namespace RefrigtzDLL
                          //HoursesOnTable[iIndex].HourseThinking[0].TableT = HoursesOnTable[iIndex].HourseThinking[0].TableT;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingBegin = true;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
-                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
+                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
                                             HoursesOnTable[iIndex].HourseThinking[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
@@ -12015,7 +12016,7 @@ namespace RefrigtzDLL
                             //Thinking of Thinking Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinking[0].Table = SolderesOnTable[iIndex].SoldierThinking[0].TableListSolder[j];
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingBegin = true;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
-                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
+                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
                                             HoursesOnTable[iIndex].HourseThinking[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                     { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
@@ -12041,7 +12042,7 @@ namespace RefrigtzDLL
                          //Thinking Operations of Brown Current Objects.
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingBegin = true;
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
-                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
+                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
                                             CastlesOnTable[iIndex].CastleThinking[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
@@ -12051,7 +12052,7 @@ namespace RefrigtzDLL
                             //Thinking of Thinking Brown CurrentTable Objective Operations.        
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingBegin = true;
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
-                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
+                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
                                             CastlesOnTable[iIndex].CastleThinking[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                     { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
@@ -12071,7 +12072,7 @@ namespace RefrigtzDLL
                          //Thinking Operations of Brown Current Objects.
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingBegin = true;
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
+                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(this,ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
                                             MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                 { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
@@ -12081,7 +12082,7 @@ namespace RefrigtzDLL
                             //Thinking of Thinking Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinking[0].Table = SolderesOnTable[iIndex].SoldierThinking[0].TableListSolder[j];
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingBegin = true;
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
+                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(this,ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
                                             MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
@@ -12103,7 +12104,7 @@ namespace RefrigtzDLL
                          //Thinking Operations of Brown Current Objects.
                             KingOnTable[iIndex].KingThinking[0].ThinkingBegin = true;
                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
-                            KingOnTable[iIndex].KingThinking[0].Thinking(ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
+                            KingOnTable[iIndex].KingThinking[0].Thinking(this,ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
                                             KingOnTable[iIndex].KingThinking[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
@@ -12115,7 +12116,7 @@ namespace RefrigtzDLL
                             KingOnTable[iIndex].KingThinking[0].TableT = KingOnTable[iIndex].KingThinking[0].TableListKing[j];
                             KingOnTable[iIndex].KingThinking[0].ThinkingBegin = true;
                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
-                            KingOnTable[iIndex].KingThinking[0].Thinking(ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
+                            KingOnTable[iIndex].KingThinking[0].Thinking(this,ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
                                             KingOnTable[iIndex].KingThinking[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
@@ -12323,7 +12324,7 @@ namespace RefrigtzDLL
                                                     SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                     SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                                     SolderesOnTable[i].SoldierThinking[0].Kind = 1;
-                                                    SolderesOnTable[i].SoldierThinking[j].Thinking(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
+                                                    SolderesOnTable[i].SoldierThinking[j].Thinking(this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
                                                         
 
                                                 }
@@ -12371,7 +12372,7 @@ namespace RefrigtzDLL
                                                     MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                                     MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
                                                     MinisterOnTable[i].MinisterThinking[0].Kind = 5;
-                                                    MinisterOnTable[i].MinisterThinking[0].Thinking(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
+                                                    MinisterOnTable[i].MinisterThinking[0].Thinking(this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12419,7 +12420,7 @@ namespace RefrigtzDLL
                                                     KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                                     KingOnTable[i].KingThinking[0].ThinkingFinished = false;
                                                     KingOnTable[i].KingThinking[0].Kind = 6;
-                                                    KingOnTable[i].KingThinking[0].Thinking(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
+                                                    KingOnTable[i].KingThinking[0].Thinking(this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
 
                                                 }
                                             }//);
@@ -12482,7 +12483,7 @@ namespace RefrigtzDLL
                                                     SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                                     SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                                     SolderesOnTable[i].SoldierThinking[0].Kind = 1;
-                                                    SolderesOnTable[i].SoldierThinking[0].Thinking(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
+                                                    SolderesOnTable[i].SoldierThinking[0].Thinking(this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12528,7 +12529,7 @@ namespace RefrigtzDLL
                                                     ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                                     ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
                                                     ElephantOnTable[i].ElefantThinking[0].Kind = 2;
-                                                    ElephantOnTable[i].ElefantThinking[0].Thinking(ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);
+                                                    ElephantOnTable[i].ElefantThinking[0].Thinking(this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12574,7 +12575,7 @@ namespace RefrigtzDLL
                                                     HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                                     HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
                                                     HoursesOnTable[i].HourseThinking[0].Kind = 3;
-                                                    HoursesOnTable[i].HourseThinking[0].Thinking(ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);
+                                                    HoursesOnTable[i].HourseThinking[0].Thinking(this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12620,7 +12621,7 @@ namespace RefrigtzDLL
                                                     CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                                     CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
                                                     CastlesOnTable[i].CastleThinking[0].Kind = 4;
-                                                    CastlesOnTable[i].CastleThinking[0].Thinking(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
+                                                    CastlesOnTable[i].CastleThinking[0].Thinking(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12666,7 +12667,7 @@ namespace RefrigtzDLL
                                                     MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                                     MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
                                                     MinisterOnTable[i].MinisterThinking[0].Kind = 5;
-                                                    MinisterOnTable[i].MinisterThinking[0].Thinking(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
+                                                    MinisterOnTable[i].MinisterThinking[0].Thinking(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12711,7 +12712,7 @@ namespace RefrigtzDLL
                                                     KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                                     KingOnTable[i].KingThinking[0].ThinkingFinished = false;
                                                     KingOnTable[i].KingThinking[0].Kind = 6;
-                                                    KingOnTable[i].KingThinking[0].Thinking(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
+                                                    KingOnTable[i].KingThinking[0].Thinking(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -13418,7 +13419,7 @@ namespace RefrigtzDLL
                                     {
                                         SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                         SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         //ServeISSup(Order,1, i);
                                     }
@@ -13475,7 +13476,7 @@ namespace RefrigtzDLL
                                         ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                         ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
 
-                                        var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         //ServeISSup(Order,2, i);
 
@@ -13532,7 +13533,7 @@ namespace RefrigtzDLL
                                     {
                                         HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                         HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
 
                                         //ServeISSup(Order,3, i);
@@ -13593,7 +13594,7 @@ namespace RefrigtzDLL
                                         CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                         CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
 
-                                        var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         //ServeISSup(Order,4, i);
 
@@ -13652,7 +13653,7 @@ namespace RefrigtzDLL
                                         MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                         MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
 
-                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         //ServeISSup(Order,5, i);
 
@@ -13709,7 +13710,7 @@ namespace RefrigtzDLL
                                     {
                                         KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                         KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                                        ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
+                                        ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(this,ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
 
                                         //ServeISSup(Order,6, i);
@@ -13766,7 +13767,7 @@ namespace RefrigtzDLL
                                         {
                                             SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
                                             SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
-                                            var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
+                                            var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
                                             tH.Add(array);
                                             //ServeISSup(Order,1, i);
                                         }
@@ -13824,7 +13825,7 @@ namespace RefrigtzDLL
                                            //Thinking Operations of Brown Current Objects.
                                            ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
                                             ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
-                                            var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
+                                            var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
                                             tH.Add(array);
 
                                            //ServeISSup(Order,2, i);
@@ -13885,7 +13886,7 @@ namespace RefrigtzDLL
                                            HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
                                             HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
                                             ;
-                                            var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
+                                            var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
                                             tH.Add(array);
                                            //ServeISSup(Order,3, i);
                                        }
@@ -13944,7 +13945,7 @@ namespace RefrigtzDLL
                                             //Thinking Operations of Brown Current Objects.
                                             CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                             CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-                                            var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
+                                            var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
                                             tH.Add(array); ;
                                             //ServeISSup(Order,4, i);
                                         }
@@ -14001,7 +14002,7 @@ namespace RefrigtzDLL
                                         //Thinking Operations of Brown Current Objects.
                                         MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
                                         MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
 
 
@@ -14058,7 +14059,7 @@ namespace RefrigtzDLL
                                         //Thinking Operations of Brown Current Objects.
                                         KingOnTable[i].KingThinking[0].ThinkingBegin = true;
                                         KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(this,ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         ;
                                         //ServeISSup(Order,6, i);
@@ -14789,7 +14790,6 @@ namespace RefrigtzDLL
             var array = Task.Factory.StartNew(() => Serve(Order));
             array.Wait();
 
-
             if (FOUND)
             {
                 Object O = new Object();
@@ -14805,35 +14805,38 @@ namespace RefrigtzDLL
             }
             else
             {
-                Object O = new Object();
-                lock (O)
+                if (!Deeperthandeeper)
                 {
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                    int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                    //System.Threading.Thread.Sleep(2);
-                    //Parallel.Invoke(() =>
+                    Object O = new Object();
+                    lock (O)
                     {
-                        var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
-                        array1.Wait();
-                        /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
-                        tFullGameThinkingTree.Start();
-                        T.Add(tFullGameThinkingTree);*/
+                        Order = DummyOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                        int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
+                        //System.Threading.Thread.Sleep(2);
+                        //Parallel.Invoke(() =>
+                        {
+                            var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
+                            array1.Wait();
+                            /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
+                            tFullGameThinkingTree.Start();
+                            T.Add(tFullGameThinkingTree);*/
 
 
-                    }//);
-                }
-
-
-                Object Om = new Object();
-                lock (Om)
-                {
-                    if (!Do)
-                        if (iAStarGreedy < MinThinkingTreeDepth)
-                            MinThinkingTreeDepth = iAStarGreedy;
+                        }//);
+                    }
                 }
 
             }
+            Object Om = new Object();
+            lock (Om)
+            {
+                if (!Do)
+                    if (iAStarGreedy < MinThinkingTreeDepth)
+                        MinThinkingTreeDepth = iAStarGreedy;
+            }
+
+        
 
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(T, items => Task.WaitAll(items));
@@ -18848,7 +18851,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             return Do;
         }
         //full game main method for deeper decicion and making
-        bool FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
+        public bool FullGameThinkingTree(int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
       

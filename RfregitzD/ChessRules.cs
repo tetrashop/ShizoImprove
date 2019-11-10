@@ -689,7 +689,7 @@ namespace RefrigtzDLL
                                     //Ignore Brown.
                                     if (Tab[iii, jjj] < 0)
                                         continue;
-                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(-1,0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
                                     //When There is Attacked to Gray from Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
                                     {
@@ -757,7 +757,7 @@ namespace RefrigtzDLL
                                     if (Tab[iii, jjj] > 0)
                                         continue;
 
-                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(-1,0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
                                     //When There is Attack to Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
                                     {
@@ -892,7 +892,7 @@ namespace RefrigtzDLL
                                     //Ignore Brown.
                                     if (Tab[iii, jjj] < 0)
                                         continue;
-                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(-1,0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
                                     //When There is Attacked to Gray from Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Brown, Order * -1))
                                     {
@@ -960,7 +960,7 @@ namespace RefrigtzDLL
                                     if (Tab[iii, jjj] > 0)
                                         continue;
 
-                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
+                                    RefrigtzDLL.ThinkingChess AA = new RefrigtzDLL.ThinkingChess(-1,0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, ii, jj);
                                     //When There is Attack to Brown.
                                     if (AA.Attack(Tab, ii, jj, iii, jjj, Color.Gray, Order * -1))
                                     {
@@ -1719,7 +1719,7 @@ namespace RefrigtzDLL
                                 for (var jj = 0; jj < 8; jj++)
                                 {
                                     //If First Home is Movable to Second Home.
-                                    if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(CloneATable(Table), i, j, ii, jj, A, Order))
+                                    if ((new RefrigtzDLL.ThinkingChess(-1,0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(CloneATable(Table), i, j, ii, jj, A, Order))
                                     {
                                         //If Array Exist in Home.
                                         if (ArrayInList(List, AA))
@@ -1810,7 +1810,7 @@ namespace RefrigtzDLL
                                                 Tab[iii, jjj] = Table[iii, jjj];
                                             }
                                         //If Is Movable.
-                                        if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Brown, -1))
+                                        if ((new RefrigtzDLL.ThinkingChess(-1,0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Brown, -1))
                                         {
                                             //Clone a Copy.
                                             for (var iii = 0; iii < 8; iii++)
@@ -1880,7 +1880,7 @@ namespace RefrigtzDLL
                                                 Tab[iii, jjj] = Table[iii, jjj];
                                             }
                                         //Moveable Movemnts in the Tow Traversal Kind.
-                                        if ((new RefrigtzDLL.ThinkingChess(0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Gray, 1))
+                                        if ((new RefrigtzDLL.ThinkingChess(-1,0,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsBoard, i, j)).Movable(Tab, i, j, ii, jj, Color.Gray, 1))
                                         {
                                             for (var iii = 0; iii < 8; iii++)
                                                 for (var jjj = 0; jjj < 8; jjj++)

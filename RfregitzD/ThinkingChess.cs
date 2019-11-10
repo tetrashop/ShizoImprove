@@ -81,6 +81,8 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess
     {
+        
+        int iIndex = -1;
         public static bool IsAtLeastOneKillerAtDraw = false;
         public bool KishSelf = false;
         public bool KishEnemy = false;
@@ -363,7 +365,7 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Constructor
-        public ThinkingChess(int KindO, int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
+        public ThinkingChess(int iInde ,int KindO, int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             //Kind = Kin;
@@ -371,7 +373,7 @@ namespace RefrigtzDLL
             lock (O)
             {
                 //Initiate Variables.
-
+                iIndex = iInde;
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -537,12 +539,13 @@ namespace RefrigtzDLL
 
         }
         //Constructor
-        public ThinkingChess(int KindO, int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, Color a, int[,] Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin)
+        public ThinkingChess(int iInde, int KindO, int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, Color a, int[,] Tab, int Ma, int Ord, bool ThinkingBeg, int CurA, int ThingN, int Kin)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
+                iIndex = iInde;
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -730,7 +733,7 @@ namespace RefrigtzDLL
                 //Assignment Content to New Content Object.
                 //Initaite New Object.
                 if (AA == null)
-                    AA = new ThinkingChess(Kind, CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column//, Kind
+                    AA = new ThinkingChess(iIndex, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column//, Kind
                         );
                 AA.ArrangmentsChanged = ArrangmentsChanged;
                 //When Depth Object is not NULL.
@@ -10924,7 +10927,162 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
             }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
         }
-        public void Thinking(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
+      //operantinal of creation of current deeper node and set string making
+        void FullGameThinkingTreeInitialization(AllDraw THIS, int ik, int j, int Order, int kind)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            //soldier
+            if (kind == 1)
+            {
+                //when valid do create of deeper node and string making
+                if (TableListSolder.Count > AStarGreedy.Count)
+                {
+                    if (AStarGreedy == null)
+                        AStarGreedy = new List<AllDraw>();
+                    AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Add(CloneATable(TableListSolder[j]));
+                    AStarGreedy[AStarGreedy.Count - 1].SetRowColumn(0);
+                    AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
+                }
+            }
+            else if (kind == 2)//elephant 
+            {
+                //when valid do create of deeper node and string making
+                if (TableListElefant.Count > AStarGreedy.Count)
+                {
+                    if (AStarGreedy == null)
+                        AStarGreedy = new List<AllDraw>();
+                    AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Add(CloneATable(TableListElefant[j]));
+                    AStarGreedy[AStarGreedy.Count - 1].SetRowColumn(0);
+                    AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
+                }
+            }
+            else if (kind == 3)//hourse
+            {
+                //when valid do create of deeper node and string making
+                if (TableListHourse.Count > AStarGreedy.Count)
+                {
+                    if (AStarGreedy == null)
+                        AStarGreedy = new List<AllDraw>();
+                    AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Add(CloneATable(TableListHourse[j]));
+                    AStarGreedy[AStarGreedy.Count - 1].SetRowColumn(0);
+                    AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
+                }
+            }
+            else if (kind == 4)//castle
+            {
+                //when valid do create of deeper node and string making
+                if (TableListCastle.Count > AStarGreedy.Count)
+                {
+                    if (AStarGreedy == null)
+                        AStarGreedy = new List<AllDraw>();
+                    AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Add(CloneATable(TableListCastle[j]));
+                    AStarGreedy[AStarGreedy.Count - 1].SetRowColumn(0);
+                    AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
+                }
+            }
+            else if (kind == 5)//minister
+            {
+                //when valid do create of deeper node and string making
+                if (TableListMinister.Count > AStarGreedy.Count)
+                {
+                    if (AStarGreedy == null)
+                        AStarGreedy = new List<AllDraw>();
+                    AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Add(CloneATable(TableListMinister[j]));
+                    AStarGreedy[AStarGreedy.Count - 1].SetRowColumn(0);
+                    AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
+                }
+            }
+            else if (kind == 6)//king
+            {
+                //when valid do create of deeper node and string making
+                if (TableListKing.Count > AStarGreedy.Count)
+                {
+                    if (AStarGreedy == null)
+                        AStarGreedy = new List<AllDraw>();
+                    AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged));
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
+                    AStarGreedy[AStarGreedy.Count - 1].TableList.Add(CloneATable(TableListKing[j]));
+                    AStarGreedy[AStarGreedy.Count - 1].SetRowColumn(0);
+                    AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
+                }
+            }
+            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+        }
+        //Deeper than deeper
+        void ThinkingFullGame(AllDraw THIS)
+        {
+            if (AllDraw.Deeperthandeeper)
+            {
+
+                if (Kind == 1)
+                {
+                    for (int i = 0; i < TableListSolder.Count; i++)
+                    {
+                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                        AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListSolder[i], Order, false, false, 0);
+                    }
+                }
+                else
+                if (Kind == 2)
+                {
+                    for (int i = 0; i < TableListElefant.Count; i++)
+                    {
+                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                        AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListElefant[i], Order, false, false, 0);
+                    }
+                }
+                else
+                if (Kind == 3)
+                {
+                    for (int i = 0; i < TableListHourse.Count; i++)
+                    {
+                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                        AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListHourse[i], Order, false, false, 0);
+                    }
+                }
+                else
+                if (Kind == 4)
+                {
+                    for (int i = 0; i < TableListCastle.Count; i++)
+                    {
+                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                        AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListCastle[i], Order, false, false, 0);
+                    }
+                }
+                else
+                if (Kind == 5)
+                {
+                    for (int i = 0; i < TableListMinister.Count; i++)
+                    {
+                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                        AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListMinister[i], Order, false, false, 0);
+                    }
+                }
+                else
+                    if (Kind == 6)
+                {
+                    for (int i = 0; i < TableListKing.Count; i++)
+                    {
+                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                        AStarGreedy[i].InitiateAStarGreedyt(0, 0, 0, color, TableListKing[i], Order, false, false, 0);
+                    }
+                }
+
+
+            }
+
+        }
+        public void Thinking(AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
@@ -11170,6 +11328,9 @@ SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestinat
                 //
                 ///Return at End.
             }
+
+            ThinkingFullGame(THIS);
+
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Thinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return;
         }

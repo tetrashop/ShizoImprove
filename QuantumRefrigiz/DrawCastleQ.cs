@@ -136,7 +136,7 @@ namespace QuantumRefrigiz
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
-                    CastleThinkingQuantum[ii] = new ThinkingQuantumChess(4,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
+                    CastleThinkingQuantum[ii] = new ThinkingQuantumChess(ii,4,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
 
                 Row = i;
                 Column = j;
@@ -161,7 +161,7 @@ namespace QuantumRefrigiz
             for (var i = 0; i < AllDraw.CastleMovments; i++)
             {
                 
-                    AA.CastleThinkingQuantum[i] = new ThinkingQuantumChess(4,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                    AA.CastleThinkingQuantum[i] = new ThinkingQuantumChess(i,4,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                     this.CastleThinkingQuantum[i].Clone(ref AA.CastleThinkingQuantum[i]);
                
             }

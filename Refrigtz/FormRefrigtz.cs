@@ -89,6 +89,8 @@ namespace Refrigtz
     //Constructor
     public partial class FormRefrigtz : Form
     {
+        bool Deeperthandeeper = false;
+
         bool FOUND = false;
         
 #pragma warning disable CS0414 // The field 'FormRefrigtz.LoadO' is assigned but its value is never used
@@ -3899,6 +3901,7 @@ namespace Refrigtz
                 {
                     if (!Quantum)
                     {
+                        RefrigtzDLL.AllDraw.Deeperthandeeper = Deeperthandeeper;
                         ////System.Threading.Thread.Sleep(10);
                         RefrigtzDLL.AllDraw.Root = Root;
                         RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
@@ -4001,6 +4004,7 @@ namespace Refrigtz
                     }
                     else
                     {
+                        QuantumRefrigiz.AllDraw.Deeperthandeeper = Deeperthandeeper;
                         ////System.Threading.Thread.Sleep(10);
                         QuantumRefrigiz.AllDraw.Root = Root;
                         QuantumRefrigiz.AllDraw.OrderPlate = OrderPlate;
@@ -5526,7 +5530,7 @@ namespace Refrigtz
                         oleDbCmd.Connection = bookConn;
                         bookConn.Open();
                         */
-                        oleDbCmd.CommandText = @"Create Table Configuration (CheckBoxAStarGreedyHuristic Number NOT NULL,CheckBoxPredictHuristci Number NOT NULL,CheckBoxAStarGreadyFirstSearch Number NOT NULL,CheckBoxBestMovments Number NOT NULL,CheckBoxOnlySelf Number NOT NULL,RadioButtonOriginalImages Number NOT NULL,RadioButtonBigFittingImages Number NOT NULL,RadioButtonSmallFittingImages Number NOT NULL,CheckBoxAStarGreedyMovement Number NOT NULL,CheckBoxUseDoubleTime Number NOT NULL,CheckBoxUsePenaltyRegradMechnisam Number NOT NULL,CheckBoxDynamicProgrammingAStarGreedyt Number NOT NULL,ComboBoxMaxTree Number NOT NULL,ComboBoxAttack Number NOT NULL,ComboBoxObjectDangour Number NOT NULL,ComboBoxReducedAttacked Number NOT NULL,ComboBoxSupport Number NOT NULL,ComboBoxHitting Number NOT NULL,ComboBoxMovments Number NOT NULL,ArrangmentsChanged Number NOT NULL,GrayTimer Number NOT NULL,BrownTimer Number NOT NULL,BobSection Number NOT NULL,AliceSection Number NOT NULL,StateCP Number NOT NULL,StateCC Number NOT NULL,StateGe Number NOT NULL,Blitz Number NOT NULL,Person Number NOT NULL,SettingPRFALSE Number NOT NULL,FullGame Number NOT NULL,Stockfish Number NOT NULL,lable1 Text NOT NULL,lable2 Text NOT NULL,MovmentsNumber Number NOT NULL,Quantum Number NOT NULL,Sugar Number NOT NULL,MenueSelecte Number NOT NULL,AllDrawKind Number NOT NULL,OrderPlate Number NOT NULL)";
+                        oleDbCmd.CommandText = @"Create Table Configuration (CheckBoxAStarGreedyHuristic Number NOT NULL,CheckBoxPredictHuristci Number NOT NULL,CheckBoxAStarGreadyFirstSearch Number NOT NULL,CheckBoxBestMovments Number NOT NULL,CheckBoxOnlySelf Number NOT NULL,RadioButtonOriginalImages Number NOT NULL,RadioButtonBigFittingImages Number NOT NULL,RadioButtonSmallFittingImages Number NOT NULL,CheckBoxAStarGreedyMovement Number NOT NULL,CheckBoxUseDoubleTime Number NOT NULL,CheckBoxUsePenaltyRegradMechnisam Number NOT NULL,CheckBoxDynamicProgrammingAStarGreedyt Number NOT NULL,ComboBoxMaxTree Number NOT NULL,ComboBoxAttack Number NOT NULL,ComboBoxObjectDangour Number NOT NULL,ComboBoxReducedAttacked Number NOT NULL,ComboBoxSupport Number NOT NULL,ComboBoxHitting Number NOT NULL,ComboBoxMovments Number NOT NULL,ArrangmentsChanged Number NOT NULL,GrayTimer Number NOT NULL,BrownTimer Number NOT NULL,BobSection Number NOT NULL,AliceSection Number NOT NULL,StateCP Number NOT NULL,StateCC Number NOT NULL,StateGe Number NOT NULL,Blitz Number NOT NULL,Person Number NOT NULL,SettingPRFALSE Number NOT NULL,FullGame Number NOT NULL,Stockfish Number NOT NULL,lable1 Text NOT NULL,lable2 Text NOT NULL,MovmentsNumber Number NOT NULL,Quantum Number NOT NULL,Sugar Number NOT NULL,MenueSelecte Number NOT NULL,AllDrawKind Number NOT NULL,OrderPlate Number NOT NULL,Deeperthandeeper Number NOT NULL)";
                         int temp = 0;
                         temp = oleDbCmd.ExecuteNonQuery();
 
@@ -5537,7 +5541,7 @@ namespace Refrigtz
                          bookConn.Open();
                          */
 
-                        oleDbCmd.CommandText = String.Concat("Insert into Configuration (CheckBoxAStarGreedyHuristic,CheckBoxPredictHuristci,CheckBoxAStarGreadyFirstSearch,CheckBoxBestMovments,CheckBoxOnlySelf,RadioButtonOriginalImages,RadioButtonBigFittingImages,RadioButtonSmallFittingImages,CheckBoxAStarGreedyMovement,CheckBoxUseDoubleTime,CheckBoxUsePenaltyRegradMechnisam,CheckBoxDynamicProgrammingAStarGreedyt,ComboBoxMaxTree,ComboBoxAttack,ComboBoxObjectDangour,ComboBoxReducedAttacked,ComboBoxSupport,ComboBoxHitting,ComboBoxMovments,ArrangmentsChanged,GrayTimer,BrownTimer,BobSection,AliceSection,StateCP,StateCC,StateGe,Blitz,Person,SettingPRFALSE,FullGame,Stockfish,lable1,lable2,MovmentsNumber,Quantum,Sugar,MenueSelecte,AllDrawKind,OrderPlate) values(", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString(), ",", System.Convert.ToInt32(ComboBoxMaxLevel.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxAttack.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxObjectDangour.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxReducedAttacked.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxSupport.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxKiller.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxMovments.Text).ToString(), ",", System.Convert.ToInt32(ArrangmentsChanged).ToString(), ",", GrayTimer.Times.ToString(), ",", BrownTimer.Times.ToString(), ",", System.Convert.ToInt32(BobSection).ToString(), ",", System.Convert.ToInt32(AliceSection).ToString(), ",", System.Convert.ToInt32(StateCP).ToString(), ",", System.Convert.ToInt32(StateCC).ToString(), ",", System.Convert.ToInt32(StateGe).ToString(), ",", System.Convert.ToInt32(Blitz).ToString(), ",", System.Convert.ToInt32(Person).ToString(), ",", System.Convert.ToInt32(SettingPRFALSE).ToString(), ",", System.Convert.ToInt32(FullGame).ToString(), ",", System.Convert.ToInt32(Stockfish).ToString(), ",'", label1.Text, "','", label2.Text, "','", MovmentsNumber.ToString(), "','", System.Convert.ToInt32(Quantum).ToString(), "','", System.Convert.ToInt32(Sugar).ToString(), "','", System.Convert.ToInt32(MenueSelecte).ToString(), "','", System.Convert.ToInt32(AllDrawKind).ToString(), "','", System.Convert.ToInt32(OrderPlate).ToString(), "')");
+                        oleDbCmd.CommandText = String.Concat("Insert into Configuration (CheckBoxAStarGreedyHuristic,CheckBoxPredictHuristci,CheckBoxAStarGreadyFirstSearch,CheckBoxBestMovments,CheckBoxOnlySelf,RadioButtonOriginalImages,RadioButtonBigFittingImages,RadioButtonSmallFittingImages,CheckBoxAStarGreedyMovement,CheckBoxUseDoubleTime,CheckBoxUsePenaltyRegradMechnisam,CheckBoxDynamicProgrammingAStarGreedyt,ComboBoxMaxTree,ComboBoxAttack,ComboBoxObjectDangour,ComboBoxReducedAttacked,ComboBoxSupport,ComboBoxHitting,ComboBoxMovments,ArrangmentsChanged,GrayTimer,BrownTimer,BobSection,AliceSection,StateCP,StateCC,StateGe,Blitz,Person,SettingPRFALSE,FullGame,Stockfish,lable1,lable2,MovmentsNumber,Quantum,Sugar,MenueSelecte,AllDrawKind,OrderPlate,Deeperthandeeper) values(", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString(), ",", System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString(), ",", System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString(), ",", System.Convert.ToInt32(ComboBoxMaxLevel.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxAttack.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxObjectDangour.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxReducedAttacked.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxSupport.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxKiller.Text).ToString(), ",", System.Convert.ToInt32(ComboBoxMovments.Text).ToString(), ",", System.Convert.ToInt32(ArrangmentsChanged).ToString(), ",", GrayTimer.Times.ToString(), ",", BrownTimer.Times.ToString(), ",", System.Convert.ToInt32(BobSection).ToString(), ",", System.Convert.ToInt32(AliceSection).ToString(), ",", System.Convert.ToInt32(StateCP).ToString(), ",", System.Convert.ToInt32(StateCC).ToString(), ",", System.Convert.ToInt32(StateGe).ToString(), ",", System.Convert.ToInt32(Blitz).ToString(), ",", System.Convert.ToInt32(Person).ToString(), ",", System.Convert.ToInt32(SettingPRFALSE).ToString(), ",", System.Convert.ToInt32(FullGame).ToString(), ",", System.Convert.ToInt32(Stockfish).ToString(), ",'", label1.Text, "','", label2.Text, "','", MovmentsNumber.ToString(), "','", System.Convert.ToInt32(Quantum).ToString(), "','", System.Convert.ToInt32(Sugar).ToString(), "','", System.Convert.ToInt32(MenueSelecte).ToString(), "','", System.Convert.ToInt32(AllDrawKind).ToString(), "','", System.Convert.ToInt32(OrderPlate).ToString(), "','" + System.Convert.ToInt32(Deeperthandeeper).ToString() + "')");
 
                         oleDbCmd.Parameters.AddWithValue("@CheckBoxAStarGreedyHuristic", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked));
                         oleDbCmd.Parameters.AddWithValue("@CheckBoxPredictHuristci", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked));
@@ -5579,6 +5583,7 @@ namespace Refrigtz
                         oleDbCmd.Parameters.AddWithValue("@MenueSelecte", System.Convert.ToInt32(MenueSelecte));
                         oleDbCmd.Parameters.AddWithValue("@AllDrawKind", System.Convert.ToInt32(AllDrawKind));
                         oleDbCmd.Parameters.AddWithValue("@OrderPlate", System.Convert.ToInt32(OrderPlate));
+                        oleDbCmd.Parameters.AddWithValue("@Deeperthandeeper", System.Convert.ToInt32(Deeperthandeeper));
                         temp = oleDbCmd.ExecuteNonQuery();
 
                     }
@@ -5701,6 +5706,8 @@ namespace Refrigtz
                     oleDbCmd.Parameters.AddWithValue("@MenueSelecte", System.Convert.ToInt32(MenueSelecte));
                     oleDbCmd.Parameters.AddWithValue("@AllDrawKind", System.Convert.ToInt32(AllDrawKind));
                     oleDbCmd.Parameters.AddWithValue("@OrderPlate", System.Convert.ToInt32(OrderPlate));
+                    oleDbCmd.Parameters.AddWithValue("@Deeperthandeeper", System.Convert.ToInt32(Deeperthandeeper));
+
                     dr = oleDbCmd.ExecuteReader();
                     bool ARead = false;
 
@@ -5768,6 +5775,7 @@ namespace Refrigtz
                         MenueSelecte = System.Convert.ToBoolean(dr["MenueSelecte"]);
                         AllDrawKind = System.Convert.ToInt32(dr["AllDrawKind"]);
                         OrderPlate = System.Convert.ToInt32(dr["OrderPlate"]);
+                        Deeperthandeeper = System.Convert.ToBoolean(dr["Deeperthandeeper"]);
                         ARead = true;
                     }
                     bookConn.Close();
@@ -5863,7 +5871,7 @@ namespace Refrigtz
                      bookConn.Open();
                      */
 
-                    oleDbCmd.CommandText = String.Concat("Update Configuration Set CheckBoxAStarGreedyHuristic=", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString(), ",CheckBoxPredictHuristci=", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString(), ",CheckBoxAStarGreadyFirstSearch=", System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString(), ",CheckBoxBestMovments=", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",CheckBoxOnlySelf=", System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString(), ",RadioButtonOriginalImages=", System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString(), ",RadioButtonBigFittingImages=", System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString(), ",RadioButtonSmallFittingImages=", System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString(), ",CheckBoxAStarGreedyMovement=", System.Convert.ToInt32(CheckBoxAStarGreedyMovement.Checked).ToString(), ",CheckBoxUseDoubleTime=", System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString(), ",CheckBoxUsePenaltyRegradMechnisam=", System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString(), ",CheckBoxDynamicProgrammingAStarGreedyt=", System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString(), ",ComboBoxMaxTree=", ComboBoxMaxLevel.Text, ",ComboBoxAttack=", ComboBoxAttack.Text, ",ComboBoxObjectDangour=", ComboBoxObjectDangour.Text, ",ComboBoxReducedAttacked=", ComboBoxReducedAttacked.Text, ",ComboBoxSupport=", ComboBoxSupport.Text, ",ComboBoxHitting=", ComboBoxKiller.Text, ",ComboBoxMovments=", ComboBoxMovments.Text, ",ArrangmentsChanged=", System.Convert.ToString(System.Convert.ToInt32(ArrangmentsChanged)), ",GrayTimer=", GrayTimer.Times.ToString(), ",BrownTimer=", BrownTimer.Times.ToString(), ",BobSection = ", System.Convert.ToUInt32(BobSection).ToString(), ",AliceSection =", System.Convert.ToUInt32(AliceSection).ToString(), ",StateCP = ", System.Convert.ToUInt32(StateCP).ToString(), ",StateCC = ", System.Convert.ToUInt32(StateCC).ToString(), ",StateGe=", System.Convert.ToUInt32(StateGe).ToString(), ",Blitz=", System.Convert.ToUInt32(Blitz).ToString(), ",Person=", System.Convert.ToUInt32(Person).ToString(), ",SettingPRFALSE=", System.Convert.ToUInt32(SettingPRFALSE).ToString(), ",FullGame=", System.Convert.ToUInt32(FullGame).ToString(), ",Stockfish=", System.Convert.ToUInt32(Stockfish).ToString(), ",lable1='", label1.Text, "',lable2='", label2.Text, "',MovmentsNumber='", MovmentsNumber.ToString(), "',", "Quantum = '", System.Convert.ToInt32(Quantum).ToString(), "',", "Sugar = '", System.Convert.ToInt32(Sugar).ToString(), "',", "MenueSelecte='", System.Convert.ToInt32(MenueSelecte).ToString(), "',", "AllDrawKind='", System.Convert.ToInt32(AllDrawKind).ToString(), "',", "OrderPlate='", System.Convert.ToInt32(OrderPlate).ToString(), "'");
+                    oleDbCmd.CommandText = String.Concat("Update Configuration Set CheckBoxAStarGreedyHuristic=", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked).ToString(), ",CheckBoxPredictHuristci=", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked).ToString(), ",CheckBoxAStarGreadyFirstSearch=", System.Convert.ToInt32(CheckBoxAStarGreadyFirstSearch.Checked).ToString(), ",CheckBoxBestMovments=", System.Convert.ToInt32(CheckBoxBestMovments.Checked).ToString(), ",CheckBoxOnlySelf=", System.Convert.ToInt32(CheckBoxOnlySelf.Checked).ToString(), ",RadioButtonOriginalImages=", System.Convert.ToInt32(RadioButtonOriginalImages.Checked).ToString(), ",RadioButtonBigFittingImages=", System.Convert.ToInt32(RadioButtonBigFittingImages.Checked).ToString(), ",RadioButtonSmallFittingImages=", System.Convert.ToInt32(RadioButtonSmallFittingImages.Checked).ToString(), ",CheckBoxAStarGreedyMovement=", System.Convert.ToInt32(CheckBoxAStarGreedyMovement.Checked).ToString(), ",CheckBoxUseDoubleTime=", System.Convert.ToInt32(CheckBoxUseDoubleTime.Checked).ToString(), ",CheckBoxUsePenaltyRegradMechnisam=", System.Convert.ToInt32(CheckBoxUsePenaltyRegradMechnisam.Checked).ToString(), ",CheckBoxDynamicProgrammingAStarGreedyt=", System.Convert.ToInt32(CheckBoxDynamicProgrammingAStarGreedyt.Checked).ToString(), ",ComboBoxMaxTree=", ComboBoxMaxLevel.Text, ",ComboBoxAttack=", ComboBoxAttack.Text, ",ComboBoxObjectDangour=", ComboBoxObjectDangour.Text, ",ComboBoxReducedAttacked=", ComboBoxReducedAttacked.Text, ",ComboBoxSupport=", ComboBoxSupport.Text, ",ComboBoxHitting=", ComboBoxKiller.Text, ",ComboBoxMovments=", ComboBoxMovments.Text, ",ArrangmentsChanged=", System.Convert.ToString(System.Convert.ToInt32(ArrangmentsChanged)), ",GrayTimer=", GrayTimer.Times.ToString(), ",BrownTimer=", BrownTimer.Times.ToString(), ",BobSection = ", System.Convert.ToUInt32(BobSection).ToString(), ",AliceSection =", System.Convert.ToUInt32(AliceSection).ToString(), ",StateCP = ", System.Convert.ToUInt32(StateCP).ToString(), ",StateCC = ", System.Convert.ToUInt32(StateCC).ToString(), ",StateGe=", System.Convert.ToUInt32(StateGe).ToString(), ",Blitz=", System.Convert.ToUInt32(Blitz).ToString(), ",Person=", System.Convert.ToUInt32(Person).ToString(), ",SettingPRFALSE=", System.Convert.ToUInt32(SettingPRFALSE).ToString(), ",FullGame=", System.Convert.ToUInt32(FullGame).ToString(), ",Stockfish=", System.Convert.ToUInt32(Stockfish).ToString(), ",lable1='", label1.Text, "',lable2='", label2.Text, "',MovmentsNumber='", MovmentsNumber.ToString(), "',", "Quantum = '", System.Convert.ToInt32(Quantum).ToString(), "',", "Sugar = '", System.Convert.ToInt32(Sugar).ToString(), "',", "MenueSelecte='", System.Convert.ToInt32(MenueSelecte).ToString(), "',", "AllDrawKind='", System.Convert.ToInt32(AllDrawKind).ToString(), "',", "OrderPlate='", System.Convert.ToInt32(OrderPlate).ToString(), "'," + "Deeperthandeeper='" + System.Convert.ToInt32(Deeperthandeeper).ToString() + "'");
 
                     oleDbCmd.Parameters.AddWithValue("@CheckBoxAStarGreedyHuristic", System.Convert.ToInt32(CheckBoxAStarGreedyHuristic.Checked));
                     oleDbCmd.Parameters.AddWithValue("@CheckBoxPredictHuristci", System.Convert.ToInt32(CheckBoxPredictHuristci.Checked));
@@ -5905,8 +5913,8 @@ namespace Refrigtz
                     oleDbCmd.Parameters.AddWithValue("@MenueSelecte", System.Convert.ToInt32(MenueSelecte));
                     oleDbCmd.Parameters.AddWithValue("@AllDrawKind", System.Convert.ToInt32(AllDrawKind));
                     oleDbCmd.Parameters.AddWithValue("@OrderPlate", System.Convert.ToInt32(OrderPlate));
-
-
+                    oleDbCmd.Parameters.AddWithValue("@Deeperthandeeper", System.Convert.ToInt32(Deeperthandeeper));
+                    
                     /*   if (bookConn != null)
                            bookConn.Close();
                        bookConn = new OleDbConnection(connParam);
@@ -6713,9 +6721,9 @@ namespace Refrigtz
             RefrigtzDLL.ThinkingChess th = null;
             QuantumRefrigiz.ThinkingQuantumChess th1 = null;
             if (!Quantum)
-                th = new RefrigtzDLL.ThinkingChess(Kind, 0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
+                th = new RefrigtzDLL.ThinkingChess(-1,Kind, 0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
             else
-                th1 = new QuantumRefrigiz.ThinkingQuantumChess(Kind, 0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
+                th1 = new QuantumRefrigiz.ThinkingQuantumChess(-1,Kind, 0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, Row, Column);
             int HuristicAttackValue = new int();
             int HuristicMovementValue = new int();
             int HuristicSelfSupportedValue = new int();
@@ -18119,6 +18127,16 @@ namespace Refrigtz
 
         private void TextBoxStatistic_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void checkBoxDeeperthandeeper_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBoxDeeperthandeeper.Checked)
+                Deeperthandeeper = true;
+            else
+                Deeperthandeeper = false;
 
         }
 

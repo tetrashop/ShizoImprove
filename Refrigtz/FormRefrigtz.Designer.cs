@@ -158,6 +158,7 @@ namespace Refrigtz
             this.BackgroundWorkerSetRefD = new System.ComponentModel.BackgroundWorker();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonViewTree = new System.Windows.Forms.Button();
+            this.checkBoxDeeperthandeeper = new System.Windows.Forms.CheckBox();
             this.MenuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox32)).BeginInit();
@@ -1433,8 +1434,6 @@ namespace Refrigtz
             // 
             // PictureBoxTimerBrown
             // 
-            //this.PictureBoxTimerBrown.ErrorImage = global::Refrigtz.Properties.Resources.Brown;
-            //this.PictureBoxTimerBrown.Image = global::Refrigtz.Properties.Resources.Brown;
             this.PictureBoxTimerBrown.Location = new System.Drawing.Point(801, 38);
             this.PictureBoxTimerBrown.Name = "PictureBoxTimerBrown";
             this.PictureBoxTimerBrown.Size = new System.Drawing.Size(192, 66);
@@ -1446,8 +1445,6 @@ namespace Refrigtz
             // 
             // PictureBoxTimerGray
             // 
-            //this.PictureBoxTimerGray.ErrorImage = global::Refrigtz.Properties.Resources.Gray;
-           //this.PictureBoxTimerGray.Image = global::Refrigtz.Properties.Resources.Gray;
             this.PictureBoxTimerGray.Location = new System.Drawing.Point(595, 38);
             this.PictureBoxTimerGray.Name = "PictureBoxTimerGray";
             this.PictureBoxTimerGray.Size = new System.Drawing.Size(193, 66);
@@ -1459,7 +1456,6 @@ namespace Refrigtz
             // 
             // PictureBoxRefrigtz
             // 
-            //this.PictureBoxRefrigtz.InitialImage = global::Refrigtz.Properties.Resources.BrG;
             this.PictureBoxRefrigtz.Location = new System.Drawing.Point(3, 38);
             this.PictureBoxRefrigtz.Name = "PictureBoxRefrigtz";
             this.PictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
@@ -1512,6 +1508,17 @@ namespace Refrigtz
             this.buttonViewTree.UseVisualStyleBackColor = true;
             this.buttonViewTree.Click += new System.EventHandler(this.buttonViewTree_Click);
             // 
+            // checkBoxDeeperthandeeper
+            // 
+            this.checkBoxDeeperthandeeper.AutoSize = true;
+            this.checkBoxDeeperthandeeper.Location = new System.Drawing.Point(750, 247);
+            this.checkBoxDeeperthandeeper.Name = "checkBoxDeeperthandeeper";
+            this.checkBoxDeeperthandeeper.Size = new System.Drawing.Size(121, 17);
+            this.checkBoxDeeperthandeeper.TabIndex = 85;
+            this.checkBoxDeeperthandeeper.Text = "Deeper than deeper";
+            this.checkBoxDeeperthandeeper.UseVisualStyleBackColor = true;
+            this.checkBoxDeeperthandeeper.CheckedChanged += new System.EventHandler(this.checkBoxDeeperthandeeper_CheckedChanged);
+            // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1519,6 +1526,7 @@ namespace Refrigtz
             this.CancelButton = this.ButtonStop;
             this.ClientSize = new System.Drawing.Size(1005, 653);
             this.ControlBox = false;
+            this.Controls.Add(this.checkBoxDeeperthandeeper);
             this.Controls.Add(this.buttonViewTree);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.labelNodesCountText);
@@ -1891,6 +1899,7 @@ namespace Refrigtz
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem23;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonViewTree;
+        private System.Windows.Forms.CheckBox checkBoxDeeperthandeeper;
     }
 }
 
