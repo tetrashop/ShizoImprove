@@ -10965,6 +10965,7 @@ namespace RefrigtzW
                     return;
                 }
                 System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkingWaite));
+                t.Start();
                 t.Join();
 
                 NumberOfPenalties = 0;

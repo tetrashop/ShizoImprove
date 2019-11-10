@@ -13429,7 +13429,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
 
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytSodlerGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13486,7 +13486,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
@@ -13546,7 +13546,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
 
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13605,7 +13605,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
 
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13664,7 +13664,7 @@ namespace RefrigtzDLL
                     }
 
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
@@ -13720,7 +13720,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
@@ -13779,7 +13779,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
 
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13837,7 +13837,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
 
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13897,7 +13897,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
 
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13956,7 +13956,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
 
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -14013,7 +14013,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
@@ -14070,7 +14070,7 @@ namespace RefrigtzDLL
 
                     }
                 });
-                Parallel.ForEach(tH, items => Task.WaitAny(items));
+                Parallel.ForEach(tH, items => Task.WaitAll(items));
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
@@ -14836,7 +14836,7 @@ namespace RefrigtzDLL
             }
 
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            //Parallel.ForEach(T, items => Task.WaitAny(items));
+            //Parallel.ForEach(T, items => Task.WaitAll(items));
             return this;
 
         }
@@ -18193,7 +18193,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }//);
                 /*if (tHA.Count > 1)
                 {
-                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAny(items)));
+                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAll(items)));
                     //array.Start();
                     Task.WaitAll(array);
                 }*/
@@ -19102,7 +19102,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     //array6.Start();
                     //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                 }
-                Parallel.ForEach(TH, items => Task.WaitAny(items));
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
             }
             */
             if (Order == 1)
