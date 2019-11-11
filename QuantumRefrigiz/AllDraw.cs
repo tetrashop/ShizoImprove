@@ -11761,7 +11761,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of Gray Solder Operation.
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
+                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t); } }*/
@@ -11773,7 +11773,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of Gray Soldeir Operations.
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
+                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t); } }*/
@@ -11796,7 +11796,7 @@ namespace QuantumRefrigiz
                             //Operational ThinkingQuantum Gray Elephant. 
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
+                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t); } }*/
@@ -11807,7 +11807,7 @@ namespace QuantumRefrigiz
                             //Gray Elephant Object ThinkingQuantum Operations.
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
+                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t); } }*/
@@ -11830,7 +11830,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of Gray Hourse Oprational.
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
+                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                 { tH.Add(HoursesOnTable[iIndex].HourseThinkingQuantum[0].t); } }*/
@@ -11842,7 +11842,7 @@ namespace QuantumRefrigiz
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableT = HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableListHourse[j];
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
+                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(HoursesOnTable[iIndex].HourseThinkingQuantum[0].t); } }*/
@@ -11865,7 +11865,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of Gray Castles Operational.
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
+                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(CastlesOnTable[iIndex].CastleThinkingQuantum[0].t); } }*/
@@ -11878,7 +11878,7 @@ namespace QuantumRefrigiz
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].TableT = CastlesOnTable[iIndex].CastleThinkingQuantum[0].TableListCastle[j];
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
+                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(CastlesOnTable[iIndex].CastleThinkingQuantum[0].t); } }*/
@@ -11897,7 +11897,7 @@ namespace QuantumRefrigiz
                          //ThinkingQuantum of Gray Minister Operational.
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
+                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t); } }*/
@@ -11908,7 +11908,7 @@ namespace QuantumRefrigiz
                             MinisterOnTable[iIndex].Table = MinisterOnTable[iIndex].MinisterThinkingQuantum[0].TableListMinister[j];
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
+                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t); } }*/
@@ -11929,7 +11929,7 @@ namespace QuantumRefrigiz
                          //ThinkingQuantum Of Gray King Operatins.
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
+                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
                                             KingOnTable[iIndex].KingThinkingQuantum[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinkingQuantum[0].t); } }*/
@@ -11939,7 +11939,7 @@ namespace QuantumRefrigiz
                             //Gray King ThinkingQuantum Operations.                                        
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
+                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
                                             KingOnTable[iIndex].KingThinkingQuantum[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinkingQuantum[0].t); } }*/
@@ -11963,7 +11963,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum Operations of Brown Current Objects.
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
+                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t); } }*/
@@ -11975,7 +11975,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
+                            SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].ThinkingQuantum));
                                             SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t.Start();
                                             if (SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(SolderesOnTable[iIndex].SoldierThinkingQuantum[0].t); } }*/
@@ -11995,7 +11995,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum Operations of Brown Current Objects.
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
+                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t); } }*/
@@ -12006,7 +12006,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.                                                   
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
+                            ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].ThinkingQuantum));
                                             ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t.Start();
                                             if (ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(ElephantOnTable[iIndex].ElefantThinkingQuantum[0].t); } }*/
@@ -12028,7 +12028,7 @@ namespace QuantumRefrigiz
                          //HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableT = HoursesOnTable[iIndex].HourseThinkingQuantum[0].TableT;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
+                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(HoursesOnTable[iIndex].HourseThinkingQuantum[0].t); } }*/
@@ -12039,7 +12039,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinkingQuantum[0].Table = SolderesOnTable[iIndex].SoldierThinkingQuantum[0].TableListSolder[j];
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
+                            HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinkingQuantum[0].ThinkingQuantum));
                                             HoursesOnTable[iIndex].HourseThinkingQuantum[0].t.Start();
                                             if (HoursesOnTable[iIndex].HourseThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                     { tH.Add(HoursesOnTable[iIndex].HourseThinkingQuantum[0].t); } }*/
@@ -12065,7 +12065,7 @@ namespace QuantumRefrigiz
                          //ThinkingQuantum Operations of Brown Current Objects.
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
+                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(CastlesOnTable[iIndex].CastleThinkingQuantum[0].t); } }*/
@@ -12075,7 +12075,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.        
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
+                            CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinkingQuantum[0].ThinkingQuantum));
                                             CastlesOnTable[iIndex].CastleThinkingQuantum[0].t.Start();
                                             if (CastlesOnTable[iIndex].CastleThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                     { tH.Add(CastlesOnTable[iIndex].CastleThinkingQuantum[0].t); } }*/
@@ -12095,7 +12095,7 @@ namespace QuantumRefrigiz
                          //ThinkingQuantum Operations of Brown Current Objects.
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(this,ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
+                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt)
                                                 { tH.Add(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t); } }*/
@@ -12105,7 +12105,7 @@ namespace QuantumRefrigiz
                             //ThinkingQuantum of ThinkingQuantum Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinkingQuantum[0].Table = SolderesOnTable[iIndex].SoldierThinkingQuantum[0].TableListSolder[j];
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(this,ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
+                            MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].ThinkingQuantum));
                                             MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t.Start();
                                             if (MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                     { tH.Add(MinisterOnTable[iIndex].MinisterThinkingQuantum[0].t); } }*/
@@ -12127,7 +12127,7 @@ namespace QuantumRefrigiz
                          //ThinkingQuantum Operations of Brown Current Objects.
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(this,ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
+                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
                                             KingOnTable[iIndex].KingThinkingQuantum[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinkingQuantum[0].t); } }*/
@@ -12139,7 +12139,7 @@ namespace QuantumRefrigiz
                             KingOnTable[iIndex].KingThinkingQuantum[0].TableT = KingOnTable[iIndex].KingThinkingQuantum[0].TableListKing[j];
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                             KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(this,ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
+                            KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinkingQuantum[0].ThinkingQuantum));
                                             KingOnTable[iIndex].KingThinkingQuantum[0].t.Start();
                                             if (KingOnTable[iIndex].KingThinkingQuantum[0].t != null) { Object tttt = new Object(); lock (tttt) 
                                                 { tH.Add(KingOnTable[iIndex].KingThinkingQuantum[0].t); } }*/
@@ -12347,7 +12347,7 @@ namespace QuantumRefrigiz
                                                     SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     SolderesOnTable[i].SoldierThinkingQuantum[0].Kind = 1;
-                                                    SolderesOnTable[i].SoldierThinkingQuantum[j].ThinkingQuantum(this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
+                                                    SolderesOnTable[i].SoldierThinkingQuantum[j].ThinkingQuantum(iAStarGreedy, this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
 
 
                                                 }
@@ -12395,7 +12395,7 @@ namespace QuantumRefrigiz
                                                     MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     MinisterOnTable[i].MinisterThinkingQuantum[0].Kind = 5;
-                                                    MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
+                                                    MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12443,7 +12443,7 @@ namespace QuantumRefrigiz
                                                     KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     KingOnTable[i].KingThinkingQuantum[0].Kind = 6;
-                                                    KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
+                                                    KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled);
 
                                                 }
                                             }//);
@@ -12506,7 +12506,7 @@ namespace QuantumRefrigiz
                                                     SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     SolderesOnTable[i].SoldierThinkingQuantum[0].Kind = 1;
-                                                    SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
+                                                    SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12552,7 +12552,7 @@ namespace QuantumRefrigiz
                                                     ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     ElephantOnTable[i].ElefantThinkingQuantum[0].Kind = 2;
-                                                    ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);
+                                                    ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12598,7 +12598,7 @@ namespace QuantumRefrigiz
                                                     HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     HoursesOnTable[i].HourseThinkingQuantum[0].Kind = 3;
-                                                    HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);
+                                                    HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12644,7 +12644,7 @@ namespace QuantumRefrigiz
                                                     CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     CastlesOnTable[i].CastleThinkingQuantum[0].Kind = 4;
-                                                    CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
+                                                    CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12690,7 +12690,7 @@ namespace QuantumRefrigiz
                                                     MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     MinisterOnTable[i].MinisterThinkingQuantum[0].Kind = 5;
-                                                    MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
+                                                    MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -12735,7 +12735,7 @@ namespace QuantumRefrigiz
                                                     KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                                     KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
                                                     KingOnTable[i].KingThinkingQuantum[0].Kind = 6;
-                                                    KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
+                                                    KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled);
                                                 }
                                             }//);
                                         }
@@ -13417,7 +13417,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(1));
-                arr.Wait();
+                //arr.Wait();
 
                 //For Gray Soldeirs Objects. 
                 Parallel.For(0, SodierMidle, i =>
@@ -13451,7 +13451,7 @@ namespace QuantumRefrigiz
                                     {
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                         SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                        var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         //ServeISSup(Order,1, i);
                                     }
@@ -13477,7 +13477,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(2));
-                arr.Wait();
+                //arr.Wait();
 
                 Parallel.For(0, ElefantMidle, i =>
                 //for (var i = 0; i < ElefantMidle; i++)
@@ -13510,7 +13510,7 @@ namespace QuantumRefrigiz
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                         ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
 
-                                        var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         //ServeISSup(Order,2, i);
 
@@ -13536,7 +13536,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(3));
-                arr.Wait();
+                //arr.Wait();
 
                 //For All Gray Hourse Objects.
                 Parallel.For(0, HourseMidle, i =>
@@ -13569,7 +13569,7 @@ namespace QuantumRefrigiz
                                     {
                                         HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                         HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                        var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
 
                                         //ServeISSup(Order,3, i);
@@ -13598,7 +13598,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(4));
-                arr.Wait();
+                //arr.Wait();
 
                 //For All Possible Gray Castles Objects.
                 Parallel.For(0, CastleMidle, i =>
@@ -13632,7 +13632,7 @@ namespace QuantumRefrigiz
                                         CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                         CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
 
-                                        var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         //ServeISSup(Order,4, i);
 
@@ -13659,7 +13659,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(5));
-                arr.Wait();
+                //arr.Wait();
 
                 //For All Possible Gray Minister Movments.
                 Parallel.For(0, MinisterMidle, i =>
@@ -13693,7 +13693,7 @@ namespace QuantumRefrigiz
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
 
-                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         //ServeISSup(Order,5, i);
 
@@ -13719,7 +13719,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(6));
-                arr.Wait();
+                //arr.Wait();
 
                 //For All Possible Gray King Objects.
                 Parallel.For(0, KingMidle, i =>
@@ -13752,7 +13752,7 @@ namespace QuantumRefrigiz
                                     {
                                         KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                         KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                        ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(this,ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
+                                        ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
 
                                         //ServeISSup(Order,6, i);
@@ -13777,7 +13777,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(7));
-                arr.Wait();
+                //arr.Wait();
 
                 //For Each Objects of Brown Sodiers.
                 Parallel.For(SodierMidle, SodierHigh, i =>
@@ -13811,7 +13811,7 @@ namespace QuantumRefrigiz
                                         {
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
+                                            var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
                                             tH.Add(array);
                                             //ServeISSup(Order,1, i);
                                         }
@@ -13839,7 +13839,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(8));
-                arr.Wait();
+                //arr.Wait();
 
 
                 Parallel.For(ElefantMidle, ElefantHigh, i =>
@@ -13872,7 +13872,7 @@ namespace QuantumRefrigiz
                                             //ThinkingQuantum Operations of Brown Current Objects.
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
+                                            var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
                                             tH.Add(array);
 
                                             //ServeISSup(Order,2, i);
@@ -13900,7 +13900,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(9));
-                arr.Wait();
+                //arr.Wait();
 
                 Parallel.For(HourseMidle, HourseHight, i =>
                 //for (var i = HourseMidle; i < HourseHight; i++)
@@ -13935,7 +13935,7 @@ namespace QuantumRefrigiz
                                             HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantumFinished = false;
                                             ;
-                                            var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
+                                            var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
                                             tH.Add(array);
                                             //ServeISSup(Order,3, i);
                                         }
@@ -13961,8 +13961,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(10));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(10));
+                //arr.Wait();
 
                 Parallel.For(CastleMidle, CastleHigh, i =>
                 //for (var i = CastleMidle; i < CastleHigh; i++)
@@ -13996,7 +13996,7 @@ namespace QuantumRefrigiz
                                             //ThinkingQuantum Operations of Brown Current Objects.
                                             CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumBegin = true;
                                             CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                            var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(this,ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
+                                            var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
                                             tH.Add(array); ;
                                             //ServeISSup(Order,4, i);
                                         }
@@ -14023,7 +14023,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(11));
-                arr.Wait();
+                //arr.Wait();
 
 
                 Parallel.For(MinisterMidle, MinisterHigh, i =>
@@ -14056,7 +14056,7 @@ namespace QuantumRefrigiz
                                         //ThinkingQuantum Operations of Brown Current Objects.
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumBegin = true;
                                         MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
 
 
@@ -14083,7 +14083,7 @@ namespace QuantumRefrigiz
             lock (oo)
             {
                 var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(12));
-                arr.Wait();
+                //arr.Wait();
 
 
                 Parallel.For(KingMidle, KingHigh, i =>
@@ -14116,7 +14116,7 @@ namespace QuantumRefrigiz
                                         //ThinkingQuantum Operations of Brown Current Objects.
                                         KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumBegin = true;
                                         KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantumFinished = false;
-                                        var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(this,ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
+                                        var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this,ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
                                         tH.Add(array);
                                         ;
                                         //ServeISSup(Order,6, i);
@@ -14141,7 +14141,10 @@ namespace QuantumRefrigiz
 
 
             bool IS = false;
-
+            if (iAStarGreedy < 0 && iAStarGreedy < MaxDuringLevelThinkingQuantumCreation)
+            {
+                IS = true;
+            }
             //gray
             if (Order == 1)
             {
