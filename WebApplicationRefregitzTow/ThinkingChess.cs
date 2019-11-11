@@ -11044,7 +11044,7 @@ namespace RefrigtzW
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Deeper than deeper
-        void ThinkingFullGame(int iAStarGreedy,AllDraw THIS)
+        void ThinkingFullGame(int iAStarGreedy, AllDraw THIS)
         {
             if (AllDraw.Deeperthandeeper)
             {
@@ -11055,7 +11055,7 @@ namespace RefrigtzW
                     Parallel.For(0, TableListSolder.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, color, TableListSolder[i], Order, false, false, 0);
+                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListSolder[i], Order * -1, false, false, 0);
                     });
                 }
                 else
@@ -11064,7 +11064,7 @@ namespace RefrigtzW
                     Parallel.For(0, TableListElefant.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, color, TableListElefant[i], Order, false, false, 0);
+                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListElefant[i], Order * -1, false, false, 0);
                     });
                 }
                 else
@@ -11073,7 +11073,7 @@ namespace RefrigtzW
                     Parallel.For(0, TableListHourse.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, color, TableListHourse[i], Order, false, false, 0);
+                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListHourse[i], Order * -1, false, false, 0);
                     });
                 }
                 else
@@ -11082,7 +11082,7 @@ namespace RefrigtzW
                     Parallel.For(0, TableListCastle.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, color, TableListCastle[i], Order, false, false, 0);
+                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListCastle[i], Order * -1, false, false, 0);
                     });
                 }
                 else
@@ -11091,7 +11091,7 @@ namespace RefrigtzW
                     Parallel.For(0, TableListMinister.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, color, TableListMinister[i], Order, false, false, 0);
+                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListMinister[i], Order * -1, false, false, 0);
                     });
                 }
                 else
@@ -11100,13 +11100,20 @@ namespace RefrigtzW
                     Parallel.For(0, TableListKing.Count, i =>
                     {
                         FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, color, TableListKing[i], Order, false, false, 0);
+                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListKing[i], Order * -1, false, false, 0);
                     });
                 }
 
                 FullGameAllow = false;
 
             }
+
+        }
+        Color colorOpposite(Color a)
+        {
+            if (a == Color.Gray)
+                return Color.Brown;
+            return Color.Gray;
 
         }
         ///Kernel of Thinking
