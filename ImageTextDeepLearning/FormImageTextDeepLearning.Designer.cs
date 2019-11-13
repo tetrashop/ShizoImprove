@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormImageTextDeepLearning));
             this.PictureBoxImageTextDeepLearning = new System.Windows.Forms.PictureBox();
             this.textBoxImageTextDeepLearning = new System.Windows.Forms.TextBox();
             this.buttonOpen = new System.Windows.Forms.Button();
@@ -42,11 +43,13 @@
             // 
             // PictureBoxImageTextDeepLearning
             // 
+            this.PictureBoxImageTextDeepLearning.Image = ((System.Drawing.Image)(resources.GetObject("PictureBoxImageTextDeepLearning.Image")));
             this.PictureBoxImageTextDeepLearning.Location = new System.Drawing.Point(13, 13);
             this.PictureBoxImageTextDeepLearning.Name = "PictureBoxImageTextDeepLearning";
             this.PictureBoxImageTextDeepLearning.Size = new System.Drawing.Size(545, 383);
             this.PictureBoxImageTextDeepLearning.TabIndex = 0;
             this.PictureBoxImageTextDeepLearning.TabStop = false;
+            this.PictureBoxImageTextDeepLearning.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxImageTextDeepLearning_Paint);
             // 
             // textBoxImageTextDeepLearning
             // 

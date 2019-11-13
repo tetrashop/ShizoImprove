@@ -17,14 +17,15 @@
     [Serializable]
     public class MainForm : Form
     {
+
         private Capture _capture;
-        private Image<Bgr, byte> frame;
-        private ImageProcessor processor;
+        public Image<Bgr, byte> frame;
+        public ImageProcessor processor;
         private Dictionary<string, Image> AugmentedRealityImages = new Dictionary<string, Image>();
         private bool captureFromCam = true;
         private int frameCount = 0;
         private int oldFrameCount = 0;
-        private bool showAngle;
+        public bool showAngle;
         private int camWidth = 640;
         private int camHeight = 480;
         private string templateFile;
@@ -33,7 +34,7 @@
         private Panel pnSettings;
         private StatusStrip ssMain;
         private Splitter splitter1;
-        private ToolStripStatusLabel lbFPS;
+        public  ToolStripStatusLabel lbFPS;
         private ToolStripStatusLabel lbContoursCount;
         private Timer tmUpdateState;
         private ToolStripStatusLabel lbRecognized;
@@ -224,7 +225,7 @@
             base.Dispose(disposing);
         }
 
-        private void DrawAugmentedReality(FoundTemplateDesc found, Graphics gr)
+        public void DrawAugmentedReality(FoundTemplateDesc found, Graphics gr)
         {
             string key = Path.GetDirectoryName(this.templateFile) + @"\" + found.template.name;
             if (!this.AugmentedRealityImages.ContainsKey(key))
@@ -277,9 +278,11 @@
                             Contour<Point> current = enumerator.Current;
                             if (current.Total > 1)
                             {
-                                e.Graphics.DrawLines(Pens.Red, current.ToArray());
+                                 e.Graphics.DrawLines(Pens.Red, current.ToArray());
                             }
+
                         }
+                       
                     }
                 }
             }
@@ -312,6 +315,7 @@
                             name = name + $"angle={((180.0 * current.angle) / 3.1415926535897931):000}°scale={current.scale:0.0}";
 
                         }
+               
                         e.Graphics.DrawRectangle(pen, sourceBoundingRect);
                         e.Graphics.DrawString(name, font, brush, new PointF((float) ((point.X + 1) - (font.Height / 3)), (float) ((point.Y + 1) - font.Height)));
                         e.Graphics.DrawString(name, font, brush2, new PointF((float) (point.X - (font.Height / 3)), (float) (point.Y - font.Height)));
