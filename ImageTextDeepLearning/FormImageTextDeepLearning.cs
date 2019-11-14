@@ -54,6 +54,11 @@ namespace ImageTextDeepLearning
 
         private void buttonSplitationConjunction_Click(object sender, EventArgs e)
         {
+            if (PictureBoxImageTextDeepLearning.BackgroundImage == null)
+            {
+                PictureBoxImageTextDeepLearning.BackgroundImage = PictureBoxImageTextDeepLearning.Image;
+                PictureBoxImageTextDeepLearning.Image = null;
+            }
             if (buttonSplitationConjunction.Text == "Splitation")
             {
                 t = new SmallImageing(PictureBoxImageTextDeepLearning.BackgroundImage);
@@ -155,11 +160,12 @@ if (t.ConjuctedBegin)
 
 
            
-            textBoxImageTextDeepLearning.Refresh();
-            textBoxImageTextDeepLearning.Update();
+            //textBoxImageTextDeepLearning.Refresh();
+           //textBoxImageTextDeepLearning.Update();
             //d.Dispose();
-            PictureBoxImageTextDeepLearning.Refresh();
             PictureBoxImageTextDeepLearning.Update();
+            PictureBoxImageTextDeepLearning.Refresh();
+
         }
 
         private void PictureBoxImageTextDeepLearning_Paint(object sender, PaintEventArgs e)
@@ -238,6 +244,13 @@ if (t.ConjuctedBegin)
                 }
                 
             }
+            PictureBoxImageTextDeepLearning.Update();
+            PictureBoxImageTextDeepLearning.Refresh();
+        }
+
+        private void PictureBoxImageTextDeepLearning_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

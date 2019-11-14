@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormImageTextDeepLearning));
-            this.PictureBoxImageTextDeepLearning = new System.Windows.Forms.PictureBox();
             this.textBoxImageTextDeepLearning = new System.Windows.Forms.TextBox();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.openFileDialogImageTextDeepLearning = new System.Windows.Forms.OpenFileDialog();
@@ -37,19 +36,12 @@
             this.pictureBoxTest = new System.Windows.Forms.PictureBox();
             this.progressBarCompleted = new System.Windows.Forms.ProgressBar();
             this.buttonTxtDetect = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).BeginInit();
+            this.panelImageTextDeepLearning = new System.Windows.Forms.Panel();
+            this.PictureBoxImageTextDeepLearning = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTest)).BeginInit();
+            this.panelImageTextDeepLearning.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PictureBoxImageTextDeepLearning
-            // 
-            this.PictureBoxImageTextDeepLearning.Image = ((System.Drawing.Image)(resources.GetObject("PictureBoxImageTextDeepLearning.Image")));
-            this.PictureBoxImageTextDeepLearning.Location = new System.Drawing.Point(13, 13);
-            this.PictureBoxImageTextDeepLearning.Name = "PictureBoxImageTextDeepLearning";
-            this.PictureBoxImageTextDeepLearning.Size = new System.Drawing.Size(545, 383);
-            this.PictureBoxImageTextDeepLearning.TabIndex = 0;
-            this.PictureBoxImageTextDeepLearning.TabStop = false;
-            this.PictureBoxImageTextDeepLearning.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxImageTextDeepLearning_Paint);
             // 
             // textBoxImageTextDeepLearning
             // 
@@ -110,31 +102,53 @@
             this.buttonTxtDetect.UseVisualStyleBackColor = true;
             this.buttonTxtDetect.Click += new System.EventHandler(this.buttonTxtDetect_Click);
             // 
+            // panelImageTextDeepLearning
+            // 
+            this.panelImageTextDeepLearning.AutoScroll = true;
+            this.panelImageTextDeepLearning.Controls.Add(this.PictureBoxImageTextDeepLearning);
+            this.panelImageTextDeepLearning.Location = new System.Drawing.Point(13, 13);
+            this.panelImageTextDeepLearning.Name = "panelImageTextDeepLearning";
+            this.panelImageTextDeepLearning.Size = new System.Drawing.Size(545, 383);
+            this.panelImageTextDeepLearning.TabIndex = 7;
+            // 
+            // PictureBoxImageTextDeepLearning
+            // 
+            this.PictureBoxImageTextDeepLearning.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBoxImageTextDeepLearning.Image = ((System.Drawing.Image)(resources.GetObject("PictureBoxImageTextDeepLearning.Image")));
+            this.PictureBoxImageTextDeepLearning.Location = new System.Drawing.Point(3, 3);
+            this.PictureBoxImageTextDeepLearning.Name = "PictureBoxImageTextDeepLearning";
+            this.PictureBoxImageTextDeepLearning.Size = new System.Drawing.Size(1013, 619);
+            this.PictureBoxImageTextDeepLearning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBoxImageTextDeepLearning.TabIndex = 1;
+            this.PictureBoxImageTextDeepLearning.TabStop = false;
+            this.PictureBoxImageTextDeepLearning.Click += new System.EventHandler(this.PictureBoxImageTextDeepLearning_Click);
+            this.PictureBoxImageTextDeepLearning.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxImageTextDeepLearning_Paint);
+            // 
             // FormImageTextDeepLearning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panelImageTextDeepLearning);
             this.Controls.Add(this.buttonTxtDetect);
             this.Controls.Add(this.progressBarCompleted);
             this.Controls.Add(this.pictureBoxTest);
             this.Controls.Add(this.buttonSplitationConjunction);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.textBoxImageTextDeepLearning);
-            this.Controls.Add(this.PictureBoxImageTextDeepLearning);
             this.Name = "FormImageTextDeepLearning";
             this.Text = "FormImageTextDeepLearning";
             this.Load += new System.EventHandler(this.FormImageTextDeepLearning_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTest)).EndInit();
+            this.panelImageTextDeepLearning.ResumeLayout(false);
+            this.panelImageTextDeepLearning.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox PictureBoxImageTextDeepLearning;
         private System.Windows.Forms.TextBox textBoxImageTextDeepLearning;
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialogImageTextDeepLearning;
@@ -142,6 +156,8 @@
         private System.Windows.Forms.PictureBox pictureBoxTest;
         private System.Windows.Forms.ProgressBar progressBarCompleted;
         private System.Windows.Forms.Button buttonTxtDetect;
+        private System.Windows.Forms.Panel panelImageTextDeepLearning;
+        private System.Windows.Forms.PictureBox PictureBoxImageTextDeepLearning;
     }
 }
 
