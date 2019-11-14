@@ -17,7 +17,7 @@
     [Serializable]
     public class MainForm : Form
     {
-
+        public bool DisablePaintOnAligns = false;
         private Capture _capture;
         public Image<Bgr, byte> frame;
         public ImageProcessor processor;
@@ -251,74 +251,77 @@
 
         private void ibMain_Paint(object sender, PaintEventArgs e)
         {
-            Font font;
-            Brush brush;
-            Brush brush2;
-            Pen pen;
-            bool flag2;
-            if (!ReferenceEquals(this.frame, null))
+            if (!DisablePaintOnAligns)
             {
-                font = new Font(this.Font.FontFamily, 24f);
-                e.Graphics.DrawString(this.lbFPS.Text, new Font(this.Font.FontFamily, 16f), Brushes.Yellow, new PointF(1f, 1f));
-                brush = new SolidBrush(Color.FromArgb(0xff, 0, 0, 0));
-                brush2 = new SolidBrush(Color.FromArgb(0xff, 0xff, 0xff, 0xff));
-                pen = new Pen(Color.FromArgb(150, 0, 0xff, 0));
-                flag2 = !this.cbShowContours.Checked;
-                if (!flag2)
+                Font font;
+                Brush brush;
+                Brush brush2;
+                Pen pen;
+                bool flag2;
+                if (!ReferenceEquals(this.frame, null))
                 {
-                    using (List<Contour<Point>>.Enumerator enumerator = this.processor.contours.GetEnumerator())
+                    font = new Font(this.Font.FontFamily, 24f);
+                    e.Graphics.DrawString(this.lbFPS.Text, new Font(this.Font.FontFamily, 16f), Brushes.Yellow, new PointF(1f, 1f));
+                    brush = new SolidBrush(Color.FromArgb(0xff, 0, 0, 0));
+                    brush2 = new SolidBrush(Color.FromArgb(0xff, 0xff, 0xff, 0xff));
+                    pen = new Pen(Color.FromArgb(150, 0, 0xff, 0));
+                    flag2 = !this.cbShowContours.Checked;
+                    if (!flag2)
+                    {
+                        using (List<Contour<Point>>.Enumerator enumerator = this.processor.contours.GetEnumerator())
+                        {
+                            while (true)
+                            {
+                                flag2 = enumerator.MoveNext();
+                                if (!flag2)
+                                {
+                                    break;
+                                }
+                                Contour<Point> current = enumerator.Current;
+                                if (current.Total > 1)
+                                {
+                                    e.Graphics.DrawLines(Pens.Red, current.ToArray());
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+                else
+                {
+                    return;
+                }
+                lock (this.processor.foundTemplates)
+                {
+                    using (List<FoundTemplateDesc>.Enumerator enumerator2 = this.processor.foundTemplates.GetEnumerator())
                     {
                         while (true)
                         {
-                            flag2 = enumerator.MoveNext();
+                            flag2 = enumerator2.MoveNext();
                             if (!flag2)
                             {
                                 break;
                             }
-                            Contour<Point> current = enumerator.Current;
-                            if (current.Total > 1)
+                            FoundTemplateDesc current = enumerator2.Current;
+                            if (current.template.name.EndsWith(".png") || current.template.name.EndsWith(".jpg"))
                             {
-                                 e.Graphics.DrawLines(Pens.Red, current.ToArray());
+                                this.DrawAugmentedReality(current, e.Graphics);
+                                continue;
+                            }
+                            Rectangle sourceBoundingRect = current.sample.contour.SourceBoundingRect;
+                            Point point = new Point((sourceBoundingRect.Left + sourceBoundingRect.Right) / 2, sourceBoundingRect.Top);
+                            string name = current.template.name;
+                            if (this.showAngle)
+                            {
+                                name = name + $"angle={((180.0 * current.angle) / 3.1415926535897931):000}°scale={current.scale:0.0}";
+
                             }
 
+                            e.Graphics.DrawRectangle(pen, sourceBoundingRect);
+                            e.Graphics.DrawString(name, font, brush, new PointF((float)((point.X + 1) - (font.Height / 3)), (float)((point.Y + 1) - font.Height)));
+                            e.Graphics.DrawString(name, font, brush2, new PointF((float)(point.X - (font.Height / 3)), (float)(point.Y - font.Height)));
                         }
-                       
-                    }
-                }
-            }
-            else
-            {
-                return;
-            }
-            lock (this.processor.foundTemplates)
-            {
-                using (List<FoundTemplateDesc>.Enumerator enumerator2 = this.processor.foundTemplates.GetEnumerator())
-                {
-                    while (true)
-                    {
-                        flag2 = enumerator2.MoveNext();
-                        if (!flag2)
-                        {
-                            break;
-                        }
-                        FoundTemplateDesc current = enumerator2.Current;
-                        if (current.template.name.EndsWith(".png") || current.template.name.EndsWith(".jpg"))
-                        {
-                            this.DrawAugmentedReality(current, e.Graphics);
-                            continue;
-                        }
-                        Rectangle sourceBoundingRect = current.sample.contour.SourceBoundingRect;
-                        Point point = new Point((sourceBoundingRect.Left + sourceBoundingRect.Right) / 2, sourceBoundingRect.Top);
-                        string name = current.template.name;
-                        if (this.showAngle)
-                        {
-                            name = name + $"angle={((180.0 * current.angle) / 3.1415926535897931):000}°scale={current.scale:0.0}";
-
-                        }
-               
-                        e.Graphics.DrawRectangle(pen, sourceBoundingRect);
-                        e.Graphics.DrawString(name, font, brush, new PointF((float) ((point.X + 1) - (font.Height / 3)), (float) ((point.Y + 1) - font.Height)));
-                        e.Graphics.DrawString(name, font, brush2, new PointF((float) (point.X - (font.Height / 3)), (float) (point.Y - font.Height)));
                     }
                 }
             }

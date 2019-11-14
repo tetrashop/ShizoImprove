@@ -38,6 +38,8 @@
             this.buttonTxtDetect = new System.Windows.Forms.Button();
             this.panelImageTextDeepLearning = new System.Windows.Forms.Panel();
             this.PictureBoxImageTextDeepLearning = new System.Windows.Forms.PictureBox();
+            this.checkBoxDisablePaintOnAligns = new System.Windows.Forms.CheckBox();
+            this.CreateConSha = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTest)).BeginInit();
             this.panelImageTextDeepLearning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).BeginInit();
@@ -68,7 +70,7 @@
             // 
             // buttonSplitationConjunction
             // 
-            this.buttonSplitationConjunction.Location = new System.Drawing.Point(176, 415);
+            this.buttonSplitationConjunction.Location = new System.Drawing.Point(132, 415);
             this.buttonSplitationConjunction.Name = "buttonSplitationConjunction";
             this.buttonSplitationConjunction.Size = new System.Drawing.Size(75, 23);
             this.buttonSplitationConjunction.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // pictureBoxTest
             // 
-            this.pictureBoxTest.Location = new System.Drawing.Point(292, 407);
+            this.pictureBoxTest.Location = new System.Drawing.Point(294, 407);
             this.pictureBoxTest.Name = "pictureBoxTest";
             this.pictureBoxTest.Size = new System.Drawing.Size(31, 31);
             this.pictureBoxTest.TabIndex = 4;
@@ -124,11 +126,34 @@
             this.PictureBoxImageTextDeepLearning.Click += new System.EventHandler(this.PictureBoxImageTextDeepLearning_Click);
             this.PictureBoxImageTextDeepLearning.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxImageTextDeepLearning_Paint);
             // 
+            // checkBoxDisablePaintOnAligns
+            // 
+            this.checkBoxDisablePaintOnAligns.AutoSize = true;
+            this.checkBoxDisablePaintOnAligns.Location = new System.Drawing.Point(356, 392);
+            this.checkBoxDisablePaintOnAligns.Name = "checkBoxDisablePaintOnAligns";
+            this.checkBoxDisablePaintOnAligns.Size = new System.Drawing.Size(136, 17);
+            this.checkBoxDisablePaintOnAligns.TabIndex = 2;
+            this.checkBoxDisablePaintOnAligns.Text = "Disable Paint On Aligns";
+            this.checkBoxDisablePaintOnAligns.UseVisualStyleBackColor = true;
+            this.checkBoxDisablePaintOnAligns.CheckedChanged += new System.EventHandler(this.checkBoxDisablePaintOnAligns_CheckedChanged);
+            // 
+            // CreateConSha
+            // 
+            this.CreateConSha.Location = new System.Drawing.Point(213, 415);
+            this.CreateConSha.Name = "CreateConSha";
+            this.CreateConSha.Size = new System.Drawing.Size(75, 23);
+            this.CreateConSha.TabIndex = 8;
+            this.CreateConSha.Text = "CreateConSha";
+            this.CreateConSha.UseVisualStyleBackColor = true;
+            this.CreateConSha.Click += new System.EventHandler(this.CreateConSha_Click);
+            // 
             // FormImageTextDeepLearning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CreateConSha);
+            this.Controls.Add(this.checkBoxDisablePaintOnAligns);
             this.Controls.Add(this.panelImageTextDeepLearning);
             this.Controls.Add(this.buttonTxtDetect);
             this.Controls.Add(this.progressBarCompleted);
@@ -158,6 +183,8 @@
         private System.Windows.Forms.Button buttonTxtDetect;
         private System.Windows.Forms.Panel panelImageTextDeepLearning;
         private System.Windows.Forms.PictureBox PictureBoxImageTextDeepLearning;
+        private System.Windows.Forms.CheckBox checkBoxDisablePaintOnAligns;
+        private System.Windows.Forms.Button CreateConSha;
     }
 }
 

@@ -20,6 +20,7 @@ namespace ImageTextDeepLearning
 {
     public partial class FormImageTextDeepLearning : Form
     {
+        List<ConjunctedShape> conShapes = new List<ConjunctedShape>();
         SmallImageing t = null;
         MainForm d = null;
         public FormImageTextDeepLearning()
@@ -251,6 +252,37 @@ if (t.ConjuctedBegin)
         private void PictureBoxImageTextDeepLearning_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBoxDisablePaintOnAligns_CheckedChanged(object sender, EventArgs e)
+        {
+            if (d != null)
+            {
+                if (checkBoxDisablePaintOnAligns.Checked)
+                    d.DisablePaintOnAligns = true;
+                else
+                    d.DisablePaintOnAligns = false;
+            }
+        }
+        void CreateOneConShape()
+        {
+            if (!ReferenceEquals(d.frame, null))
+            {
+                lock (d.processor.foundTemplates)
+                {
+                    
+                        ConjunctedShape One = new ConjunctedShape(d);
+
+                        One.ConjunctedShapeCreate(d);
+                    
+                }
+            }
+
+        }
+        private void CreateConSha_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
+            t.Start();
         }
     }
 }
