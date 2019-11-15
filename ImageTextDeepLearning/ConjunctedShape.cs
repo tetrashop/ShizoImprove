@@ -49,8 +49,7 @@ namespace ImageTextDeepLearning
                            
                             if (!All.Contains(Collection) && Collection.Count > 1)
                             {
-                                All.Add(Collection);
-                                Collection.Clear();
+                                All.Add(Collection);                         
                                 Collection = new List<Point>();
 
                             }
