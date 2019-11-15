@@ -20,6 +20,7 @@ namespace ImageTextDeepLearning
 {
     public partial class FormImageTextDeepLearning : Form
     {
+        int Width = 30, Height = 30;
         List<ConjunctedShape> conShapes = new List<ConjunctedShape>();
         SmallImageing t = null;
         MainForm d = null;
@@ -270,11 +271,8 @@ if (t.ConjuctedBegin)
             {
                 lock (d.processor.foundTemplates)
                 {
-                    
-                        ConjunctedShape One = new ConjunctedShape(d);
-
-                        One.ConjunctedShapeCreate(d);
-                    
+                    ConjunctedShape One = new ConjunctedShape(d);
+                    One.CreateSAhapeFromConjucted(Width, Height);
                 }
             }
 
