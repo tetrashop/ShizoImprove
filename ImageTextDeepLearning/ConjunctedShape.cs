@@ -81,46 +81,45 @@ namespace ImageTextDeepLearning
                     for (int i = 0; i < All.Count; i++)
                     {
                         List<Bitmap> TempAllImage = new List<Bitmap>();
-     
-                        for (int s = 0; s < All[i].Count; s++)
+
+
+                        Bitmap Temp = null;
+                        List<Point> Tem = new List<Point>();
+                        Tem = All[i];
+                        int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
+                        for (int k = 0; k < Tem.Count; k++)
+                            Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
+
+                        MiX = MinX(Tem);
+                        MiY = MinY(Tem);
+                        MaX = MaxX(Tem);
+                        MaY = MaxY(Tem);
+
+                        Temp = new Bitmap(MaX, MaY);
+                        for (int j = 0; j < All[i].Count; j++)
                         {
-                            Bitmap Temp = null;
-                            List<Point> Tem = new List<Point>();
-                            Tem = All[i];
-                            int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
-                            for (int k = 0; k < Tem.Count; k++)
-                                Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
 
-                            MiX = MinX(Tem);
-                            MiY = MinY(Tem);
-                            MaX = MaxX(Tem);
-                            MaY = MaxY(Tem);
-
-                            Temp = new Bitmap(MaX, MaY);
-                            for (int j = 0; j < All[i].Count; j++)
+                            for (int k = 0; k < MaX; k++)
                             {
-
-                                for (int k = 0; k < MaX; k++)
+                                for (int p = 0; p < MaY; p++)
                                 {
-                                    for (int p = 0; p < MaY; p++)
+                                    if (k == All[i][j].X && All[i][j].Y == p)
                                     {
-                                        if (k == All[i][j].X && All[i][j].Y == p)
-                                        {
-                                            Graphics e = Graphics.FromImage(Temp);
-                                            e.DrawString(".", new Font(d.Font.FontFamily, 16F), Brushes.Black, new PointF(k, p));
+                                        Graphics e = Graphics.FromImage(Temp);
+                                        e.DrawString(".", new Font(d.Font.FontFamily, 16F), Brushes.Black, new PointF(k, p));
 
-                                        }
                                     }
                                 }
-                                Temp = new Bitmap(Temp, new Size(Wi, Hei));
-                                TempAllImage.Add(Temp);
-
                             }
-                            AllImage.Add(TempAllImage);
+                            Temp = new Bitmap(Temp, new Size(Wi, Hei));
+                            TempAllImage.Add(Temp);
 
                         }
+                        AllImage.Add(TempAllImage);
 
                     }
+
+
                 }
                 else
                 {
@@ -134,6 +133,8 @@ namespace ImageTextDeepLearning
 
                 return false;
             }
+            All.Clear();
+            Collection.Clear();
             return true;
         }
         bool ConjunctedShapeCreate(MainForm d)

@@ -7,17 +7,17 @@ using System.Drawing;
 using ContourAnalysisDemo;
 namespace ImageTextDeepLearning
 {
-    
+
     class DetectionOfLitteral
     {
-        int Width = 3, Heigh = 30;
+        int Width = 30, Heigh = 30;
         AllKeyboardOfWorld t = new AllKeyboardOfWorld();
         ConjunctedShape tt = null;
         //AllKeyLocation
         List<List<String>> Detected = new List<List<String>>();
-        
+
         MainForm dd = null;
-        AllKeyboardOfWorld ConjunctedShapeListRequired  = null;
+        AllKeyboardOfWorld ConjunctedShapeListRequired = null;
         public DetectionOfLitteral(MainForm d)
         {
             try
@@ -53,56 +53,45 @@ namespace ImageTextDeepLearning
                     }
                 }
             }
-            catch (Exception t) { return Wi*Hei; }
+            catch (Exception t) { return Wi * Hei; }
             return Dif;
         }
-        public bool Detection(int Wi,int Hei)
+        public bool Detection(int Wi, int Hei)
         {
             try
             {
 
-                int KeyBoardDif = Wi * Hei;
                 Detected.Clear();
-                int k = 0;
-                do
+
+                List<String> TempDetected = new List<String>();
+                bool Do = false;
+                for (int i = 0; i < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList.Count; i++)
                 {
-                    List<String> TempDetected = new List<String>();
-                    bool Do = false;
-                    for (int i = 0; i < t.KeyboardAllConjunctionMatrix.Count; i++)
+
+                    TempDetected = new List<String>();
+                    for (int j = 0; j < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[j].Count; j++)
                     {
                         int IndecCurrent = -1;
-
-                        for (int j = 0; j < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrix.Count; j++)
+                        int KeyBoardDif = Wi * Hei;
+                        for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
                         {
-                            int KeyDif = DifferentBool(t.KeyboardAllConjunctionMatrix[i], ConjunctedShapeListRequired.KeyboardAllConjunctionMatrix[j], Wi, Hei);
+                            int KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i][j], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
                             if (KeyDif < KeyBoardDif)
                             {
                                 KeyBoardDif = KeyDif;
-                                IndecCurrent = i;
+                                IndecCurrent = k;
                             }
-
                         }
-                        if (t.KeyboardAllConjunctionMatrix.Count == t.KeyboardAllStrings.Count)
+                        if (IndecCurrent > -1)
                         {
                             Do = true;
-                             TempDetected.Add(t.KeyboardAllStrings[IndecCurrent]);
-                            //Detected.Add(t.KeyboardAllStrings[IndecCurrent]);
-
-
+                            TempDetected.Add(t.KeyboardAllStrings[IndecCurrent].ToString());
                         }
                         else
-                        {
-                            Do = true;
-                               TempDetected.Add("");
-                            //Detected.Add("");
-
-                        }
+                            return false;
                     }
-                    if (Do)
-                        Detected.Add(TempDetected);
-                    k++;
-                } while (k < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrix.Count);
-
+                    Detected.Add(TempDetected);
+                }
             }
             catch (Exception t)
             {

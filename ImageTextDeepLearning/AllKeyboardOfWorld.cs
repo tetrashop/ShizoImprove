@@ -145,7 +145,7 @@ namespace ImageTextDeepLearning
                     {
                         Bitmap Temp = new Bitmap(Width, Height);
                         Graphics e = Graphics.FromImage(Temp);
-                        e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 16F), new SolidBrush(Color.Black), new Rectangle(0, 0, Width, Height));
+                        e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 16F), Brushes.Black, new Rectangle(0, 0, Width, Height));
                         KeyboardAllImage.Add(Temp);
                         bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)
@@ -172,7 +172,7 @@ namespace ImageTextDeepLearning
                 //System.Windows.Forms.MessageBox.Show("Fatual Error!");
                 return false;
             }
-
+            KeyboardAllImage.Clear();
             return true;
         }
         public bool ConvertAllImageToMatrix(List<List<Bitmap>> Temp)
@@ -191,7 +191,7 @@ namespace ImageTextDeepLearning
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                                if (Temp[i][j].GetPixel(k, p) == Color.Red)
+                                if (Temp[i][j].GetPixel(k, p).ToArgb() == 0)
                                     Tem[k, p] = true;
 
                             }
