@@ -113,12 +113,10 @@ namespace ImageTextDeepLearning
                         AllImage.Add(Temp);
 
                     }
-                    System.Windows.Forms.MessageBox.Show("Completed " + AllImage.Count + " .");
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Fatual Error!");
-
+                 
                     return false;
                 }
             }

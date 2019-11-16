@@ -19,7 +19,7 @@ namespace ImageTextDeepLearning
             KeyboardAllStrings.Clear();
             try
             {
-                for (int i = 0; i < Int64.MaxValue; i++)
+                for (int i = 0; i < int.MaxValue; i++)
                 {
 
                     if (i.ToString().GetType().IsArray)
@@ -107,12 +107,13 @@ namespace ImageTextDeepLearning
 
             return true;
         }
-        public bool ConvertAllShapesToImage(List<Bitmap> Temp)
+        public bool ConvertAllImageToMatrix(List<Bitmap> Temp)
         {
             try
             {
+                KeyboardAllConjunctionMatrix.Clear();
                 
-                    for (int i = 0; i < KeyboardAllStrings.Count; i++)
+                    for (int i = 0; i < Temp.Count; i++)
                     {
 
                         bool[,] Tem = new bool[Width, Height];
@@ -125,9 +126,13 @@ namespace ImageTextDeepLearning
                             }
                         KeyboardAllConjunctionMatrix.Add(Tem);
                     }
-                
+                System.Windows.Forms.MessageBox.Show("Completed " + KeyboardAllConjunctionMatrix.Count + " .");
+
             }
-            catch (Exception t) { return false; }
+            catch (Exception t)
+            {
+                System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                return false; }
 
             return true;
         }

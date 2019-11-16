@@ -273,6 +273,8 @@ if (t.ConjuctedBegin)
                 {
                     ConjunctedShape One = new ConjunctedShape(d);
                     One.CreateSAhapeFromConjucted(Width, Height);
+                    AllKeyboardOfWorld Tow = new AllKeyboardOfWorld();
+                    Tow.ConvertAllImageToMatrix(One.AllImage);
                 }
             }
 
