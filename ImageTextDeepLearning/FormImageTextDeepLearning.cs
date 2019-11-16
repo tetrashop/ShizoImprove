@@ -275,6 +275,8 @@ if (t.ConjuctedBegin)
                     One.CreateSAhapeFromConjucted(Width, Height);
                     AllKeyboardOfWorld Tow = new AllKeyboardOfWorld();
                     Tow.ConvertAllImageToMatrix(One.AllImage);
+                    AllKeyboardOfWorld Three = new AllKeyboardOfWorld();
+                    Three.ConvertAllStringToImage();
                 }
             }
 

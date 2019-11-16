@@ -19,19 +19,30 @@ namespace ImageTextDeepLearning
             KeyboardAllStrings.Clear();
             try
             {
-                for (int i = 0; i < int.MaxValue; i++)
+                for (int i = 0; i < char.MaxValue; i++)
                 {
-
-                    if (i.ToString().GetType().IsArray)
+                    Type t = ((char)i).GetType();
+                    if (t.Equals(typeof(char)) && t.IsVisible && t.IsSerializable)
                     {
-                        KeyboardAllStrings.Add(i.ToString());
-
+                        int ch = i;
+                        if ((ch >= 0x0020 && ch <= 0xD7FF) ||
+                                (ch >= 0xE000 && ch <= 0xFFFD) ||
+                                ch == 0x0009 ||
+                                ch == 0x000A ||
+                                ch == 0x000D)
+                        {
+                            if (!KeyboardAllStrings.Contains(((char)i).ToString()))
+                                KeyboardAllStrings.Add(((char)i).ToString());
+                        }
                     }
 
                 }
 
             }
-            catch (Exception t) { return false; }
+            catch (Exception t)
+            {
+                return false;
+            }
             return true;
         }
         bool SaveAll()
@@ -40,15 +51,37 @@ namespace ImageTextDeepLearning
             {
                 if (!File.Exists("KeyboardAllStrings.asd"))
                 {
-                    Byte[] Written = new byte[KeyboardAllStrings.Count];
-                    for (int i = 0; i < KeyboardAllStrings.Count; i++)
+                    /*  byte[] Written = new byte[KeyboardAllStrings.Count];
+                      for (int i = 0; i < KeyboardAllStrings.Count; i++)
+                      {
+                          Written[i] = System.Convert.ToByte(KeyboardAllStrings[i]);
+                      }
+                      File.WriteAllBytes("KeyboardAllStrings.asd", Written);
+                 */
+                    lock (KeyboardAllStrings)
                     {
-                        Written[i] = System.Convert.ToByte(KeyboardAllStrings[i]);
+                        for (int i = 0; i < KeyboardAllStrings.Count; i++)
+                        {
+                            File.AppendAllText("KeyboardAllStrings.asd", KeyboardAllStrings[i]);
+                        }
                     }
-                    File.WriteAllBytes("KeyboardAllStrings.asd", Written);
+                }
+                else
+                {
+                    File.Delete("KeyboardAllStrings.asd");
+                    lock (KeyboardAllStrings)
+                    {
+                        for (int i = 0; i < KeyboardAllStrings.Count; i++)
+                        {
+                            if (KeyboardAllStrings[i].GetType().IsUnicodeClass)
+                                File.AppendAllText("KeyboardAllStrings.asd", KeyboardAllStrings[i]);
+                        }
+                    }
                 }
             }
-            catch (Exception t) { return false; }
+                        
+            catch (Exception t) {
+                System.Windows.Forms.MessageBox.Show("Fatual Error!" + t.ToString()); return false; }
             return true;
         }
         bool ReadAll()
@@ -58,15 +91,36 @@ namespace ImageTextDeepLearning
                 if (File.Exists("KeyboardAllStrings.asd"))
                 {
                     KeyboardAllStrings.Clear();
+                    KeyboardAllImage.Clear();
+                    KeyboardAllConjunctionMatrix.Clear();
 
-                    Byte[] Written = File.ReadAllBytes("KeyboardAllStrings.asd");
-                    int i = 0;
-                    do
+                    /* Byte[] Written = File.ReadAllBytes("KeyboardAllStrings.asd");
+                     int i = 0;
+                     do
+                     {
+                         KeyboardAllStrings[i] = System.Convert.ToString(Written[i]);
+                         i++;
+                     } while (Written[i] != 0);                   
+
+               */
+                    
+                        String Tem = File.ReadAllText("KeyboardAllStrings.asd");
+                    if (Tem.Length > 0)
                     {
-                        KeyboardAllStrings[i] = System.Convert.ToString(Written[i]);
-                        i++;
-                    } while (Written[i] != 0);
+                        for (int i = 0; i < Tem.Length; i++)
+                        {
+                            KeyboardAllStrings.Add(Tem[i].ToString());
+                        }
+                    }
+                    else
+                    {
+                        bool Do = CreateString();
+                        if (!Do)
+                            return false;
+                    }
                 }
+                else
+                    return false;
             }
             catch (Exception t) { return false; }
             return true;
@@ -79,7 +133,14 @@ namespace ImageTextDeepLearning
                 if (!ReadAll())
                 {
                     Do = CreateString();
-                }
+                    if (Do)
+                       Do= SaveAll();
+                    if (!Do)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                        return false;
+                    }
+  }
                 else
                     Do = true;
                 if (Do)
@@ -101,9 +162,21 @@ namespace ImageTextDeepLearning
                             }
                         KeyboardAllConjunctionMatrix.Add(Tem);
                     }
+                    Do = SaveAll();
+                    if (!Do)
+                        System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                    else
+                        System.Windows.Forms.MessageBox.Show("Completed " + KeyboardAllConjunctionMatrix.Count + " .");
                 }
+                else
+                    System.Windows.Forms.MessageBox.Show("Fatual Error!");
+
             }
-            catch (Exception t) { return false; }
+            catch (Exception t)
+            {
+                System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                return false;
+            }
 
             return true;
         }
@@ -126,12 +199,10 @@ namespace ImageTextDeepLearning
                             }
                         KeyboardAllConjunctionMatrix.Add(Tem);
                     }
-                System.Windows.Forms.MessageBox.Show("Completed " + KeyboardAllConjunctionMatrix.Count + " .");
-
+           
             }
             catch (Exception t)
             {
-                System.Windows.Forms.MessageBox.Show("Fatual Error!");
                 return false; }
 
             return true;
