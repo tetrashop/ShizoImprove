@@ -191,7 +191,7 @@ namespace ImageTextDeepLearning
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                                if (Temp[i][j].GetPixel(k, p) != Color.White)
+                                if (Temp[i][j].GetPixel(k, p) == Color.Red)
                                     Tem[k, p] = true;
 
                             }

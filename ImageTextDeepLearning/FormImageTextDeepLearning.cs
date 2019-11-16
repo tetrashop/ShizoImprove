@@ -20,6 +20,7 @@ namespace ImageTextDeepLearning
 {
     public partial class FormImageTextDeepLearning : Form
     {
+        DetectionOfLitteral On = null;
         int Width = 30, Height = 30;
         List<ConjunctedShape> conShapes = new List<ConjunctedShape>();
         SmallImageing t = null;
@@ -279,7 +280,7 @@ if (t.ConjuctedBegin)
                      Three.ConvertAllStringToImage(d);
 
                  */
-                    DetectionOfLitteral On = new DetectionOfLitteral(d);
+                     On = new DetectionOfLitteral(d);
                 }
             }
 

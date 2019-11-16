@@ -67,7 +67,7 @@ namespace ImageTextDeepLearning
                 do
                 {
                     List<String> TempDetected = new List<String>();
-
+                    bool Do = false;
                     for (int i = 0; i < t.KeyboardAllConjunctionMatrix.Count; i++)
                     {
                         int IndecCurrent = -1;
@@ -84,6 +84,7 @@ namespace ImageTextDeepLearning
                         }
                         if (t.KeyboardAllConjunctionMatrix.Count == t.KeyboardAllStrings.Count)
                         {
+                            Do = true;
                              TempDetected.Add(t.KeyboardAllStrings[IndecCurrent]);
                             //Detected.Add(t.KeyboardAllStrings[IndecCurrent]);
 
@@ -91,12 +92,14 @@ namespace ImageTextDeepLearning
                         }
                         else
                         {
+                            Do = true;
                                TempDetected.Add("");
                             //Detected.Add("");
 
                         }
                     }
-                    Detected.Add(TempDetected);
+                    if (Do)
+                        Detected.Add(TempDetected);
                     k++;
                 } while (k < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrix.Count);
 
