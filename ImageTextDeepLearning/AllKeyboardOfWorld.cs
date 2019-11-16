@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
+using ContourAnalysisDemo;
 namespace ImageTextDeepLearning
 {
     class AllKeyboardOfWorld
@@ -24,6 +25,8 @@ namespace ImageTextDeepLearning
                     Type t = ((char)i).GetType();
                     if (t.Equals(typeof(char)) && t.IsVisible && t.IsSerializable)
                     {
+                        //if (((char)i).ToString().Contains("\\u"))
+                              //continue;
                         int ch = i;
                         if ((ch >= 0x0020 && ch <= 0xD7FF) ||
                                 (ch >= 0xE000 && ch <= 0xFFFD) ||
@@ -66,18 +69,7 @@ namespace ImageTextDeepLearning
                         }
                     }
                 }
-                else
-                {
-                    File.Delete("KeyboardAllStrings.asd");
-                    lock (KeyboardAllStrings)
-                    {
-                        for (int i = 0; i < KeyboardAllStrings.Count; i++)
-                        {
-                            if (KeyboardAllStrings[i].GetType().IsUnicodeClass)
-                                File.AppendAllText("KeyboardAllStrings.asd", KeyboardAllStrings[i]);
-                        }
-                    }
-                }
+                
             }
                         
             catch (Exception t) {
@@ -125,7 +117,7 @@ namespace ImageTextDeepLearning
             catch (Exception t) { return false; }
             return true;
         }
-        public bool ConvertAllStringToImage()
+        public bool ConvertAllStringToImage(MainForm d)
         {
             try
             {
@@ -150,7 +142,7 @@ namespace ImageTextDeepLearning
                     {
                         Bitmap Temp = new Bitmap(Width, Height);
                         Graphics e = Graphics.FromImage(Temp);
-                        e.DrawString(KeyboardAllStrings[i], new Font(Font.FromHdc(IntPtr.Zero), FontStyle.Regular), new SolidBrush(Color.Black), new Rectangle(0, 0, Width, Height));
+                        e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 16F), new SolidBrush(Color.Black), new Rectangle(0, 0, Width, Height));
                         KeyboardAllImage.Add(Temp);
                         bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)

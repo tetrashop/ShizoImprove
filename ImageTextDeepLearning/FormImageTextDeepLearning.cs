@@ -276,7 +276,7 @@ if (t.ConjuctedBegin)
                     AllKeyboardOfWorld Tow = new AllKeyboardOfWorld();
                     Tow.ConvertAllImageToMatrix(One.AllImage);
                     AllKeyboardOfWorld Three = new AllKeyboardOfWorld();
-                    Three.ConvertAllStringToImage();
+                    Three.ConvertAllStringToImage(d);
                 }
             }
 
