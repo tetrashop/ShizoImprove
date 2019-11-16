@@ -11,9 +11,10 @@ namespace ImageTextDeepLearning
     class AllKeyboardOfWorld
     {
         int Width = 30, Height = 30;
-        List<String> KeyboardAllStrings = new List<String>();
+        public List<String> KeyboardAllStrings = new List<String>();
         List<Image> KeyboardAllImage = new List<Image>();
-        List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();
+        public List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();
+        public List<List<bool[,]>> KeyboardAllConjunctionMatrixList = new List<List<bool[,]>>();
 
         public bool CreateString()
         {
@@ -26,7 +27,7 @@ namespace ImageTextDeepLearning
                     if (t.Equals(typeof(char)) && t.IsVisible && t.IsSerializable)
                     {
                         //if (((char)i).ToString().Contains("\\u"))
-                              //continue;
+                        //continue;
                         int ch = i;
                         if ((ch >= 0x0020 && ch <= 0xD7FF) ||
                                 (ch >= 0xE000 && ch <= 0xFFFD) ||
@@ -69,11 +70,13 @@ namespace ImageTextDeepLearning
                         }
                     }
                 }
-                
+
             }
-                        
-            catch (Exception t) {
-                System.Windows.Forms.MessageBox.Show("Fatual Error!" + t.ToString()); return false; }
+
+            catch (Exception t)
+            {
+                //System.Windows.Forms.MessageBox.Show("Fatual Error!" + t.ToString()); return false;
+            }
             return true;
         }
         bool ReadAll()
@@ -95,8 +98,8 @@ namespace ImageTextDeepLearning
                      } while (Written[i] != 0);                   
 
                */
-                    
-                        String Tem = File.ReadAllText("KeyboardAllStrings.asd");
+
+                    String Tem = File.ReadAllText("KeyboardAllStrings.asd");
                     if (Tem.Length > 0)
                     {
                         for (int i = 0; i < Tem.Length; i++)
@@ -126,13 +129,13 @@ namespace ImageTextDeepLearning
                 {
                     Do = CreateString();
                     if (Do)
-                       Do= SaveAll();
+                        Do = SaveAll();
                     if (!Do)
                     {
-                        System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                        //System.Windows.Forms.MessageBox.Show("Fatual Error!");
                         return false;
                     }
-  }
+                }
                 else
                     Do = true;
                 if (Do)
@@ -155,47 +158,54 @@ namespace ImageTextDeepLearning
                         KeyboardAllConjunctionMatrix.Add(Tem);
                     }
                     Do = SaveAll();
-                    if (!Do)
-                        System.Windows.Forms.MessageBox.Show("Fatual Error!");
-                    else
-                        System.Windows.Forms.MessageBox.Show("Completed " + KeyboardAllConjunctionMatrix.Count + " .");
+                    //if (!Do)
+                    //System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                    //else
+                    //System.Windows.Forms.MessageBox.Show("Completed " + KeyboardAllConjunctionMatrix.Count + " .");
                 }
-                else
-                    System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                //else
+                //System.Windows.Forms.MessageBox.Show("Fatual Error!");
 
             }
             catch (Exception t)
             {
-                System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                //System.Windows.Forms.MessageBox.Show("Fatual Error!");
                 return false;
             }
 
             return true;
         }
-        public bool ConvertAllImageToMatrix(List<Bitmap> Temp)
+        public bool ConvertAllImageToMatrix(List<List<Bitmap>> Temp)
         {
             try
             {
-                KeyboardAllConjunctionMatrix.Clear();
-                
-                    for (int i = 0; i < Temp.Count; i++)
+                KeyboardAllConjunctionMatrixList.Clear();
+
+                for (int i = 0; i < Temp.Count; i++)
+                {
+                    List<bool[,]> Te = new List<bool[,]>();
+                    for (int j = 0; j < Temp[i].Count; j++)
                     {
 
                         bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                                if (Temp[i].GetPixel(k, p) != Color.White)
+                                if (Temp[i][j].GetPixel(k, p) != Color.White)
                                     Tem[k, p] = true;
 
                             }
-                        KeyboardAllConjunctionMatrix.Add(Tem);
+                        Te.Add(Tem);
                     }
-           
+                    KeyboardAllConjunctionMatrixList.Add(Te);
+
+                }
+
             }
             catch (Exception t)
             {
-                return false; }
+                return false;
+            }
 
             return true;
         }

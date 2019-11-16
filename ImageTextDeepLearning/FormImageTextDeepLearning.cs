@@ -271,12 +271,15 @@ if (t.ConjuctedBegin)
             {
                 lock (d.processor.foundTemplates)
                 {
-                    ConjunctedShape One = new ConjunctedShape(d);
-                    One.CreateSAhapeFromConjucted(Width, Height);
-                    AllKeyboardOfWorld Tow = new AllKeyboardOfWorld();
-                    Tow.ConvertAllImageToMatrix(One.AllImage);
-                    AllKeyboardOfWorld Three = new AllKeyboardOfWorld();
-                    Three.ConvertAllStringToImage(d);
+                    /* ConjunctedShape One = new ConjunctedShape(d);
+                     One.CreateSAhapeFromConjucted(Width, Height);
+                     AllKeyboardOfWorld Tow = new AllKeyboardOfWorld();
+                     Tow.ConvertAllImageToMatrix(One.AllImage);
+                     AllKeyboardOfWorld Three = new AllKeyboardOfWorld();
+                     Three.ConvertAllStringToImage(d);
+
+                 */
+                    DetectionOfLitteral On = new DetectionOfLitteral(d);
                 }
             }
 

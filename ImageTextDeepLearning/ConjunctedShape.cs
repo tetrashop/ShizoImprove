@@ -19,7 +19,7 @@ namespace ImageTextDeepLearning
         public List<Point> Collection = new List<Point>();
 
         public List<List<Point>> All = new List<List<Point>>();
-        public List<Bitmap> AllImage = new List<Bitmap>();
+        public List<List<Bitmap>> AllImage = new List<List<Bitmap>>();
         public ConjunctedShape(MainForm dd)
         {
 
@@ -77,52 +77,60 @@ namespace ImageTextDeepLearning
             {
                 if (Do)
                 {
+                    AllImage.Clear();
                     for (int i = 0; i < All.Count; i++)
                     {
-                        Bitmap Temp = null;
-                        List<Point> Tem = new List<Point>();
-                        Tem = All[i];
-                        int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
-                        for (int k = 0; k < Tem.Count; k++)
-                            Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
-
-                        MiX = MinX(Tem);
-                        MiY = MinY(Tem);
-                        MaX = MaxX(Tem);
-                        MaY = MaxY(Tem);
-
-                        Temp = new Bitmap(MaX, MaY);
-                        for (int j = 0; j < All[i].Count; j++)
+                        List<Bitmap> TempAllImage = new List<Bitmap>();
+     
+                        for (int s = 0; s < All[i].Count; s++)
                         {
+                            Bitmap Temp = null;
+                            List<Point> Tem = new List<Point>();
+                            Tem = All[i];
+                            int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
+                            for (int k = 0; k < Tem.Count; k++)
+                                Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
 
-                            for (int k = 0; k < MaX; k++)
+                            MiX = MinX(Tem);
+                            MiY = MinY(Tem);
+                            MaX = MaxX(Tem);
+                            MaY = MaxY(Tem);
+
+                            Temp = new Bitmap(MaX, MaY);
+                            for (int j = 0; j < All[i].Count; j++)
                             {
-                                for (int p = 0; p < MaY; p++)
-                                {
-                                    if (k == All[i][j].X && All[i][j].Y == p)
-                                    {
-                                        Graphics e = Graphics.FromImage(Temp);
-                                        e.DrawString(".", new Font(d.Font.FontFamily, 16F), Brushes.Black, new PointF(k, p));
 
+                                for (int k = 0; k < MaX; k++)
+                                {
+                                    for (int p = 0; p < MaY; p++)
+                                    {
+                                        if (k == All[i][j].X && All[i][j].Y == p)
+                                        {
+                                            Graphics e = Graphics.FromImage(Temp);
+                                            e.DrawString(".", new Font(d.Font.FontFamily, 16F), Brushes.Black, new PointF(k, p));
+
+                                        }
                                     }
                                 }
-                            }
-                        }
-                        Temp = new Bitmap(Temp, new Size(Wi, Hei));
+                                Temp = new Bitmap(Temp, new Size(Wi, Hei));
+                                TempAllImage.Add(Temp);
 
-                        AllImage.Add(Temp);
+                            }
+                            AllImage.Add(TempAllImage);
+
+                        }
 
                     }
                 }
                 else
                 {
-                 
+
                     return false;
                 }
             }
             catch (Exception t)
             {
-                System.Windows.Forms.MessageBox.Show("Fatual Error!" + t.ToString());
+                //System.Windows.Forms.MessageBox.Show("Fatual Error!" + t.ToString());
 
                 return false;
             }
