@@ -79,37 +79,39 @@ namespace ImageTextDeepLearning
                 {
                     for (int i = 0; i < All.Count; i++)
                     {
+                        Bitmap Temp = null;
+                        List<Point> Tem = new List<Point>();
+                        Tem = All[i];
+                        int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
+                        for (int k = 0; k < Tem.Count; k++)
+                            Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
 
+                        MiX = MinX(Tem);
+                        MiY = MinY(Tem);
+                        MaX = MaxX(Tem);
+                        MaY = MaxY(Tem);
+
+                        Temp = new Bitmap(MaX, MaY);
                         for (int j = 0; j < All[i].Count; j++)
                         {
-                            List<Point> Tem = new List<Point>();
-                            Tem = All[i];
-                            int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
-                            for (int k = 0; k < Tem.Count; k++)
-                                Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
 
-                            MiX = MinX(Tem);
-                            MiY = MinY(Tem);
-                            MaX = MaxX(Tem);
-                            MaY = MaxY(Tem);
-
-                            Bitmap Temp = new Bitmap(MaX, MaY);
-
-                            for (int k = 0; k < Wi; k++)
+                            for (int k = 0; k < MaX; k++)
                             {
-                                for (int p = 0; p < Wi; p++)
+                                for (int p = 0; p < MaY; p++)
                                 {
-                                    Graphics e = Graphics.FromImage(Temp);
-                                    e.DrawString(".", new Font(d.Font.FontFamily, 16F), Brushes.Black, new PointF(k, p));
+                                    if (k == All[i][j].X && All[i][j].Y == p)
+                                    {
+                                        Graphics e = Graphics.FromImage(Temp);
+                                        e.DrawString(".", new Font(d.Font.FontFamily, 16F), Brushes.Black, new PointF(k, p));
 
-
+                                    }
                                 }
                             }
-                            Temp = new Bitmap(Temp, new Size(Wi, Hei));
-
-                            AllImage.Add(Temp);
-
                         }
+                        Temp = new Bitmap(Temp, new Size(Wi, Hei));
+
+                        AllImage.Add(Temp);
+
                     }
                     System.Windows.Forms.MessageBox.Show("Completed " + AllImage.Count + " .");
                 }
