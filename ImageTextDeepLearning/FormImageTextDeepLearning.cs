@@ -291,13 +291,9 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             t.Start();
             t.Join();
             for (int i = 0; i < On.Detected.Count; i++)
-            {
-                for (int j = 0; j < On.Detected[i].Count; j++)
-                {
-                    textBoxImageTextDeepLearning.AppendText(On.Detected[i][j]);
-                }
-                textBoxImageTextDeepLearning.AppendText("\r\n");
-
+            {               
+                    textBoxImageTextDeepLearning.AppendText(On.Detected[i]);
+              
             }
         }
     }

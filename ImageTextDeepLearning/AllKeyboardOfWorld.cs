@@ -14,7 +14,7 @@ namespace ImageTextDeepLearning
         public List<String> KeyboardAllStrings = new List<String>();
         List<Image> KeyboardAllImage = new List<Image>();
         public List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();
-        public List<List<bool[,]>> KeyboardAllConjunctionMatrixList = new List<List<bool[,]>>();
+        public List<bool[,]> KeyboardAllConjunctionMatrixList = new List<bool[,]>();
 
         public bool CreateString()
         {
@@ -176,7 +176,7 @@ namespace ImageTextDeepLearning
             KeyboardAllImage.Clear();
             return true;
         }
-        public bool ConvertAllImageToMatrix(List<List<Bitmap>> Temp)
+        public bool ConvertAllImageToMatrix(List<Bitmap> Temp)
         {
             try
             {
@@ -185,20 +185,17 @@ namespace ImageTextDeepLearning
                 for (int i = 0; i < Temp.Count; i++)
                 {
                     List<bool[,]> Te = new List<bool[,]>();
-                    for (int j = 0; j < Temp[i].Count; j++)
-                    {
+                    
 
                         bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                                if (Temp[i][j].GetPixel(k, p).ToArgb() == 0)
+                                if (Temp[i].GetPixel(k, p).ToArgb() == 0)
                                     Tem[k, p] = true;
 
                             }
-                        Te.Add(Tem);
-                    }
-                    KeyboardAllConjunctionMatrixList.Add(Te);
+                     KeyboardAllConjunctionMatrixList.Add(Tem);
 
                 }
 

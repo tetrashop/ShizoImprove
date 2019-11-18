@@ -14,7 +14,7 @@ namespace ImageTextDeepLearning
         AllKeyboardOfWorld t = new AllKeyboardOfWorld();
         ConjunctedShape tt = null;
         //AllKeyLocation
-        public List<List<String>> Detected = new List<List<String>>();
+        public List<String> Detected = new List<String>();
 
         MainForm dd = null;
         AllKeyboardOfWorld ConjunctedShapeListRequired = null;
@@ -63,35 +63,33 @@ namespace ImageTextDeepLearning
 
                 Detected.Clear();
 
-                List<String> TempDetected = new List<String>();
+                String TempDetected = "";
                 bool Do = false;
                 for (int i = 0; i < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList.Count; i++)
                 {
 
-                    TempDetected = new List<String>();
-                    for (int j = 0; j < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[j].Count; j++)
+                  
+                    int IndecCurrent = -1;
+                    int KeyBoardDif = Wi * Hei;
+                    for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
                     {
-                        int IndecCurrent = -1;
-                        int KeyBoardDif = Wi * Hei;
-                        for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
+                        int KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
+                        if (KeyDif < KeyBoardDif)
                         {
-                            int KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i][j], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
-                            if (KeyDif < KeyBoardDif)
-                            {
-                                KeyBoardDif = KeyDif;
-                                IndecCurrent = k;
-                            }
+                            KeyBoardDif = KeyDif;
+                            IndecCurrent = k;
                         }
-                        if (IndecCurrent > -1)
-                        {
-                            Do = true;
-                            TempDetected.Add(t.KeyboardAllStrings[IndecCurrent].ToString());
-                        }
-                        else
-                            return false;
                     }
+                    if (IndecCurrent > -1)
+                    {
+                        Do = true;
+                        TempDetected = t.KeyboardAllStrings[IndecCurrent].ToString();
+                    }
+                    else
+                        return false;
                     Detected.Add(TempDetected);
                 }
+
             }
             catch (Exception t)
             {
@@ -99,5 +97,5 @@ namespace ImageTextDeepLearning
             }
             return true;
         }
-    }
+     }
 }
