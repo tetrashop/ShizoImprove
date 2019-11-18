@@ -88,30 +88,31 @@ namespace ImageTextDeepLearning
                         List<Point> Tem = new List<Point>();
                         Tem = All[i];
                         int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
-                        for (int k = 0; k < Tem.Count; k++)
+                      /*  for (int k = 0; k < Tem.Count; k++)
                             Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
 
                         MiX = MinX(Tem);
                         MiY = MinY(Tem);
                         MaX = MaxX(Tem);
                         MaY = MaxY(Tem);
-
+                        */
 
                         Temp = new Bitmap(MaX, MaY);
 
                         for (int k = 0; k < Tem.Count; k++)
                         {
                             Graphics e = Graphics.FromImage(Temp);
-                            e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.Black, new PointF(Tem[k].X, Tem[k].Y));
+                            e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.Black, new Point(Tem[k].X, Tem[k].Y));
                             e.Dispose();
 
                         }
-                        Do = ColorizedCountreImage(Temp);
+                        Do = ColorizedCountreImageConjunction(Temp);
                         if (!Do)
                         {
                             MessageBox.Show("Coloriezed Fatal Error");
                             return false;
                         }
+                     
                         Temp = new Bitmap(Temp, new Size(Wi, Hei));
 
                         AllImage.Add(Temp);
@@ -136,7 +137,7 @@ namespace ImageTextDeepLearning
             Collection.Clear();
             return true;
         }
-        bool ColorizedCountreImage(List<Bitmap> Im)
+        bool ColorizedCountreImageCommon(List<Bitmap> Im)
         {
             try
             {
@@ -145,7 +146,7 @@ namespace ImageTextDeepLearning
                     Graphics e = Graphics.FromImage(Im[i]);
                     for (int j = 0; j < Im[i].Width; j++)
                     {
-                        Point[] Po = new Point[2];
+                        PointF[] Po = new PointF[2];
                         int nu = 0;
                         for (int k = 0; k < Im[i].Height; k++)
                         {
@@ -153,7 +154,7 @@ namespace ImageTextDeepLearning
                             {
                                 if (Im[i].GetPixel(j, k).ToArgb() == 0)
                                 {
-                                    Po[0] = new Point(j, k);
+                                    Po[0] = new PointF(j, k);
                                     nu++;
                                 }
                             }
@@ -162,7 +163,7 @@ namespace ImageTextDeepLearning
                             {
                                 if (Im[i].GetPixel(j, k).ToArgb() == 0)
                                 {
-                                    Po[1] = new Point(j, k);
+                                    Po[1] = new PointF(j, k);
                                     nu++;
                                     e.DrawLine(new Pen(Brushes.Black), Po[0], Po[1]);
                                     nu = 0;
@@ -184,7 +185,7 @@ namespace ImageTextDeepLearning
             }
             return true;
         }
-        bool ColorizedCountreImage(Bitmap Im)
+        bool ColorizedCountreImageCommmon(Bitmap Im)
         {
             try
             {
@@ -204,7 +205,7 @@ namespace ImageTextDeepLearning
                                 nu++;
                             }
                         }
-                        else 
+                        else
                         if (nu == 1)
                         {
                             if (Im.GetPixel(j, k).ToArgb() == 0)
@@ -228,7 +229,110 @@ namespace ImageTextDeepLearning
                 MessageBox.Show(t.ToString());
 
                 return false;
-             }
+            }
+            return true;
+        }
+        bool ColorizedCountreImageConjunction(List<Bitmap> Im)
+        {
+            try
+            {
+                for (int i = 0; i < Im.Count; i++)
+                {
+                    Graphics e = Graphics.FromImage(Im[i]);
+                    for (int j = 0; j < Im[i].Width; j++)
+                    {
+                        PointF[] Po = new PointF[2];
+                        int nu = 0;
+                        for (int k = 0; k < Im[i].Height; k++)
+                        {
+                            if (nu == 0)
+                            {
+                                if (Im[i].GetPixel(j, k).ToArgb()==0)
+                                {
+                                    Po[0] = new PointF(j, k);
+                                    nu++;
+                                }
+                            }
+                            else
+                            if (nu == 1)
+                            {
+                                if (Im[i].GetPixel(j, k).ToArgb()==0)
+                                {
+                                    Po[1] = new PointF(j, k);
+                                    nu++;
+                                    e.DrawLine(new Pen(Brushes.Black), Po[0], Po[1]);
+                                    nu = 0;
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+
+
+            }
+            catch (Exception t)
+            {
+                MessageBox.Show(t.ToString());
+
+                return false;
+            }
+            return true;
+        }
+        bool ColorizedCountreImageConjunction(Bitmap Im)
+        {
+            try
+            {
+
+                Graphics e = Graphics.FromImage(Im);
+                for (int j = 0; j < Im.Width; j++)
+                {
+                    Point[] Po = new Point[2];
+                    int nu = 0;
+                    for (int k = 0; k < Im.Height; k++)
+                    {
+                        if (nu == 0)
+                        {
+                            if (Im.GetPixel(j, k).ToArgb() == 0)
+                            {
+                                Po[0] = new Point(j, k);
+                                nu++;
+                            }
+                            else
+                            {
+                                nu = nu;
+                            }
+                        }
+                        else
+                        if (nu == 1)
+                        {
+                            if (Im.GetPixel(j, k).ToArgb()==0)
+                            {
+                                Po[1] = new Point(j, k);
+                                nu++;
+                                e.DrawLine(new Pen(Brushes.Black), Po[0], Po[1]);
+                                nu = 0;
+                            }
+                            else
+                            {
+                                nu = nu;
+                            }
+                        }
+                    }
+                }
+
+
+
+
+
+            }
+            catch (Exception t)
+            {
+                MessageBox.Show(t.ToString());
+
+                return false;
+            }
             return true;
         }
 
