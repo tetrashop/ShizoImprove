@@ -14,7 +14,7 @@ namespace ImageTextDeepLearning
         AllKeyboardOfWorld t = new AllKeyboardOfWorld();
         ConjunctedShape tt = null;
         //AllKeyLocation
-        List<List<String>> Detected = new List<List<String>>();
+        public List<List<String>> Detected = new List<List<String>>();
 
         MainForm dd = null;
         AllKeyboardOfWorld ConjunctedShapeListRequired = null;

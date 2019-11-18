@@ -146,12 +146,13 @@ namespace ImageTextDeepLearning
                         Bitmap Temp = new Bitmap(Width, Height);
                         Graphics e = Graphics.FromImage(Temp);
                         e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 16F), Brushes.Black, new Rectangle(0, 0, Width, Height));
+                        e.Dispose();
                         KeyboardAllImage.Add(Temp);
                         bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                                if (Temp.GetPixel(k, p) == Color.Black)
+                                if (Temp.GetPixel(k, p).ToArgb() == 0)
                                     Tem[k, p] = true;
 
                             }

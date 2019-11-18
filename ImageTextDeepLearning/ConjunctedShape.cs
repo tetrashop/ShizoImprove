@@ -25,7 +25,7 @@ namespace ImageTextDeepLearning
 
             d = dd;
         }
-       
+
 
         int MaxX(List<Point> Tem)
         {
@@ -67,7 +67,7 @@ namespace ImageTextDeepLearning
                 if (te > Tem[i].Y)
                     te = Tem[i].Y;
             }
-         return te;
+            return te;
         }
         public bool CreateSAhapeFromConjucted(int Wi, int Hei)
         {
@@ -95,9 +95,9 @@ namespace ImageTextDeepLearning
                         MaX = MaxX(Tem);
                         MaY = MaxY(Tem);
 
-                        Temp = new Bitmap(MaX, MaY);
                         for (int j = 0; j < All[i].Count; j++)
                         {
+                            Temp = new Bitmap(MaX, MaY);
 
                             for (int k = 0; k < MaX; k++)
                             {
@@ -106,9 +106,10 @@ namespace ImageTextDeepLearning
                                     if (k == All[i][j].X && All[i][j].Y == p)
                                     {
                                         Graphics e = Graphics.FromImage(Temp);
-                                        e.DrawString(".", new Font(d.Font.FontFamily, 16F), Brushes.Black, new PointF(k, p));
-
+                                        e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.Black, new PointF(k, p));
+                                        e.Dispose();
                                     }
+
                                 }
                             }
                             Temp = new Bitmap(Temp, new Size(Wi, Hei));
@@ -153,14 +154,14 @@ namespace ImageTextDeepLearning
                         }
                         else
                             flag = false;
-                        
+
                         bool flag1 = false, flag2 = false;
                         while (true)
                         {
-                           
+
                             if (!All.Contains(Collection) && Collection.Count > 1)
                             {
-                                All.Add(Collection);                         
+                                All.Add(Collection);
                                 Collection = new List<Point>();
 
                             }
@@ -177,50 +178,24 @@ namespace ImageTextDeepLearning
 
 
                             Point[] PointP1 = current1.ToArray();
-                            /* while (true)
-                             {
-                                 flag2 = enumerator2.MoveNext();
-                                 if (!flag2)
-                                 {
-                                     break;
-                                 }
-                                 Contour<Point> current2 = enumerator2.Current;
 
-                                 Point[] PointP2 = current2.ToArray();
-                                 */
                             //Do Target
                             for (int i = 0; i < PointP1.Length; i++)
                             {
-                                for (int j = 0; j < PointP1.Length; j++)
+                                if (!Collection.Contains(PointP1[i]))
                                 {
-                                    if (PointP1[i] == PointP1[j])
-                                        continue;
-                                    if ((System.Math.Abs(PointP1[i].X - PointP1[j].X) < Threashold) && (System.Math.Abs(PointP1[i].Y - PointP1[j].Y) < Threashold))
-                                    {
-                                        if (!Collection.Contains(PointP1[i]))
-                                        {
-                                            flag = true;
-                                            Collection.Add(PointP1[i]);
-                                        }
-                                         if (!Collection.Contains(PointP1[j]))
-                                         {
-                                             flag = true;
-                                             Collection.Add(PointP1[j]);
-                                         }
-                                         
-
-                                    }
-                                    // }
-                                    //}
+                                    flag = true;
+                                    Collection.Add(PointP1[i]);
                                 }
+
                             }
                         }
-                    }while (true);
+                    } while (true);
                 }
             }
             catch (Exception t)
             {
-                 return false;
+                return false;
             }
             return true;
         }

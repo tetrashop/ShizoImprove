@@ -34,7 +34,7 @@ namespace ImageTextDeepLearning
         {
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Progress));
             t.Start();
-    }
+        }
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
@@ -47,7 +47,7 @@ namespace ImageTextDeepLearning
             PictureBoxImageTextDeepLearning.Refresh();
             PictureBoxImageTextDeepLearning.Update();
 
-        
+
         }
 
         private void openFileDialogImageTextDeepLearning_FileOk(object sender, CancelEventArgs e)
@@ -65,7 +65,7 @@ namespace ImageTextDeepLearning
             if (buttonSplitationConjunction.Text == "Splitation")
             {
                 t = new SmallImageing(PictureBoxImageTextDeepLearning.BackgroundImage);
-           
+
                 bool Do = t.Splitation(pictureBoxTest);
 
                 if (Do)
@@ -77,7 +77,7 @@ namespace ImageTextDeepLearning
             else
 if (buttonSplitationConjunction.Text == "Conjunction")
             {
-                bool Do = t.Conjunction(pictureBoxTest,PictureBoxImageTextDeepLearning);
+                bool Do = t.Conjunction(pictureBoxTest, PictureBoxImageTextDeepLearning);
                 if (Do)
                 {
                     PictureBoxImageTextDeepLearning.BackgroundImage = t.RootConjuction;
@@ -93,68 +93,68 @@ if (buttonSplitationConjunction.Text == "Conjunction")
 
         private void progressBarCompleted_Click(object sender, EventArgs e)
         {
-          /*  if (t.SplitedBegin)
-            {
-                int Total = t.RootWidth * t.RootWidth;
-                int Cuurent = t.i * t.j;
-                progressBarCompleted.Maximum = Total;
-                progressBarCompleted.Minimum = 0;
-                progressBarCompleted.Value = Cuurent;
-            }
-            else
-if (t.ConjuctedBegin)
-            {
-                int Total = t.imgarray.Count;
-                int Cuurent = t.i;
-                progressBarCompleted.Maximum = Total;
-                progressBarCompleted.Minimum = 0;
-                progressBarCompleted.Value = Cuurent;
-            }*/
+            /*  if (t.SplitedBegin)
+              {
+                  int Total = t.RootWidth * t.RootWidth;
+                  int Cuurent = t.i * t.j;
+                  progressBarCompleted.Maximum = Total;
+                  progressBarCompleted.Minimum = 0;
+                  progressBarCompleted.Value = Cuurent;
+              }
+              else
+  if (t.ConjuctedBegin)
+              {
+                  int Total = t.imgarray.Count;
+                  int Cuurent = t.i;
+                  progressBarCompleted.Maximum = Total;
+                  progressBarCompleted.Minimum = 0;
+                  progressBarCompleted.Value = Cuurent;
+              }*/
         }
 
         private void backgroundWorkerProgress_DoWork(object sender, DoWorkEventArgs e)
         {
-            
+
         }
         void Progress()
         {
-          /*  bool init = false;
-            do
-            {
-                if (t != null)
-                {
-                    if (t.SplitedBegin)
-                    {
-                        int Cuurent = t.i * t.j;
-                        int Total = t.RootWidth * t.RootHeight;
+            /*  bool init = false;
+              do
+              {
+                  if (t != null)
+                  {
+                      if (t.SplitedBegin)
+                      {
+                          int Cuurent = t.i * t.j;
+                          int Total = t.RootWidth * t.RootHeight;
 
-                        d.Invoke((MethodInvoker)delegate ()
-                        {
-                             progressBarCompleted.Maximum = Total;
-                            progressBarCompleted.Minimum = 0;
+                          d.Invoke((MethodInvoker)delegate ()
+                          {
+                               progressBarCompleted.Maximum = Total;
+                              progressBarCompleted.Minimum = 0;
 
-                            progressBarCompleted.Value = Cuurent;
-                            progressBarCompleted.Update();
-                        });
-                    }
-                    else
-    if (t.ConjuctedBegin)
-                    {
-                        int Total = t.imgarray.Count;
-                        int Cuurent = t.i;
+                              progressBarCompleted.Value = Cuurent;
+                              progressBarCompleted.Update();
+                          });
+                      }
+                      else
+      if (t.ConjuctedBegin)
+                      {
+                          int Total = t.imgarray.Count;
+                          int Cuurent = t.i;
 
 
-                        d.Invoke((MethodInvoker)delegate ()
-                        {
-                            progressBarCompleted.Maximum = Total;
-                            progressBarCompleted.Minimum = 0;
+                          d.Invoke((MethodInvoker)delegate ()
+                          {
+                              progressBarCompleted.Maximum = Total;
+                              progressBarCompleted.Minimum = 0;
 
-                            progressBarCompleted.Value = Cuurent;
-                            progressBarCompleted.Update();
-                        });
-                    }
-                }
-            } while (true);*/
+                              progressBarCompleted.Value = Cuurent;
+                              progressBarCompleted.Update();
+                          });
+                      }
+                  }
+              } while (true);*/
         }
         private void buttonTxtDetect_Click(object sender, EventArgs e)
         {
@@ -162,9 +162,9 @@ if (t.ConjuctedBegin)
             d.ShowDialog();
 
 
-           
+
             //textBoxImageTextDeepLearning.Refresh();
-           //textBoxImageTextDeepLearning.Update();
+            //textBoxImageTextDeepLearning.Update();
             //d.Dispose();
             PictureBoxImageTextDeepLearning.Update();
             PictureBoxImageTextDeepLearning.Refresh();
@@ -245,7 +245,7 @@ if (t.ConjuctedBegin)
                         }
                     }
                 }
-                
+
             }
             PictureBoxImageTextDeepLearning.Update();
             PictureBoxImageTextDeepLearning.Refresh();
@@ -280,7 +280,7 @@ if (t.ConjuctedBegin)
                      Three.ConvertAllStringToImage(d);
 
                  */
-                     On = new DetectionOfLitteral(d);
+                    On = new DetectionOfLitteral(d);
                 }
             }
 
@@ -289,6 +289,16 @@ if (t.ConjuctedBegin)
         {
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
             t.Start();
+            t.Join();
+            for (int i = 0; i < On.Detected.Count; i++)
+            {
+                for (int j = 0; j < On.Detected[i].Count; j++)
+                {
+                    textBoxImageTextDeepLearning.AppendText(On.Detected[i][j]);
+                }
+                textBoxImageTextDeepLearning.AppendText("\r\n");
+
+            }
         }
     }
 }
