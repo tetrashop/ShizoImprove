@@ -3725,7 +3725,7 @@ namespace Refrigtz
                                                                     if (BrownCountHiiting == 29)
                         SetImageOfPictrueBox(ref PictureBox29, Hit);
                     else
-                                                                        if (BrownCountHiiting == 30)
+                                                                        if (BrownCountHiiting == 10)
                         SetImageOfPictrueBox(ref PictureBox30, Hit);
                     else
                                                                             if (BrownCountHiiting == 31)
@@ -3832,7 +3832,7 @@ namespace Refrigtz
                                                                     if (BrownCountHiiting == 29)
                         SetImageOfPictrueBox(ref PictureBox29, Hit);
                     else
-                                                                        if (BrownCountHiiting == 30)
+                                                                        if (BrownCountHiiting == 10)
                         SetImageOfPictrueBox(ref PictureBox30, Hit);
                     else
                                                                             if (BrownCountHiiting == 31)

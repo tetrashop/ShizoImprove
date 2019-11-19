@@ -6,7 +6,7 @@
     [Serializable]
     public class Templates : List<Template>
     {
-        public int templateSize = 30;
+        public int templateSize = 10;
     }
 }
 

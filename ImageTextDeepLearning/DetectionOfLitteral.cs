@@ -10,7 +10,7 @@ namespace ImageTextDeepLearning
 
     class DetectionOfLitteral
     {
-        int Width = 30, Heigh = 30;
+        int Width = 10, Heigh = 10;
         AllKeyboardOfWorld t = new AllKeyboardOfWorld();
         public ConjunctedShape tt = null;
         //AllKeyLocation
@@ -24,9 +24,9 @@ namespace ImageTextDeepLearning
             {
                 dd = d;
 
+                t.ConvertAllStringToImage(d);
                 tt = new ConjunctedShape(d);
                 tt.CreateSAhapeFromConjucted(Width, Heigh);
-                t.ConvertAllStringToImage(d);
                 ConjunctedShapeListRequired = new AllKeyboardOfWorld();
                 ConjunctedShapeListRequired.ConvertAllImageToMatrixConjucted(tt.AllImage);
                 Detection(Width, Heigh);
@@ -40,19 +40,14 @@ namespace ImageTextDeepLearning
                 System.Windows.Forms.MessageBox.Show("Completed Detetcted " + Detected.Count);
             }
         }
-        int DifferentBool(bool[,] Key, bool[,] Src, int Wi, int Hei)
+        double DifferentBool(bool[,] Key, bool[,] Src, int Wi, int Hei)
         {
-            int Dif = 0;
+            double Dif = 0;
+            if (Wi != Hei)
+                Dif = 0;
             try
             {
-                for (int i = 0; i < Wi; i++)
-                {
-                    for (int j = 0; j < Hei; j++)
-                    {
-                        if (Key[i, j] != Src[i, j])
-                            Dif++;
-                    }
-                }
+                Dif = LearningMachine.Interpolate.Similarity(Key, Src, Wi);
             }
             catch (Exception t) { return Wi * Hei; }
             return Dif;
@@ -71,11 +66,11 @@ namespace ImageTextDeepLearning
 
                   
                     int IndecCurrent = -1;
-                    int KeyBoardDif = Wi * Hei;
+                    double KeyBoardDif = 0;
                     for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
                     {
-                        int KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
-                        if (KeyDif < KeyBoardDif)
+                        double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
+                        if (KeyDif > KeyBoardDif)
                         {
                             KeyBoardDif = KeyDif;
                             IndecCurrent = k;
