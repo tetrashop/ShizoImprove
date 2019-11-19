@@ -70,6 +70,20 @@ namespace ImageTextDeepLearning
             }
             return te;
         }
+        int MaxMax(int maxx, int maxy)
+        {
+            if (maxx < maxy)
+                return maxy;
+            return maxx;
+
+        }
+        int MinMin(int minx, int miny)
+        {
+            if (minx < miny)
+                return minx;
+            return miny;
+
+        }
         public bool CreateSAhapeFromConjucted(int Wi, int Hei)
         {
             bool Do = ConjunctedShapeCreate(d);
@@ -88,27 +102,35 @@ namespace ImageTextDeepLearning
                         List<Point> Tem = new List<Point>();
                         Tem = All[i];
                         int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
-                        /*  for (int k = 0; k < Tem.Count; k++)
-                              Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
+
+                        int Min = MinMin(MiX, MiY);
+
+                        for (int k = 0; k < Tem.Count; k++)
+                              Tem[k] = new Point(Tem[k].X - Min, Tem[k].Y - Min);
 
                           MiX = MinX(Tem);
                           MiY = MinY(Tem);
                           MaX = MaxX(Tem);
                           MaY = MaxY(Tem);
-                          */
 
-                        Temp = new Bitmap(MaX, MaY);
+                        int Ma = MaxMax(MaX, MaY);
+                        Min = MinMin(MiX, MiY);
+
+                        Temp = new Bitmap(Ma, Ma);
+
                         Graphics e = Graphics.FromImage(Temp);
 
                         for (int k = 0; k < Tem.Count; k++)
                         {
-                            for (int l = 0; l < MaX; l++)
-                                for (int p = 0; p < MaY; p++)
+                            for (int l = Min; l < Ma; l++)
+                                for (int p = Min; p < Ma; p++)
                                 {
                                     if (l == Tem[k].X && p == Tem[k].Y)
                                         e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.Black, new Point(Tem[k].X, Tem[k].Y));
                                     else
-                                        e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.White, new Point(l, p));
+                                        continue;
+                                    //else
+                                        //e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.White, new Point(l, p));
                                 }
                         }
 
