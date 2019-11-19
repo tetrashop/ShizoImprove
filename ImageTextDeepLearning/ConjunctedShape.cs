@@ -88,31 +88,39 @@ namespace ImageTextDeepLearning
                         List<Point> Tem = new List<Point>();
                         Tem = All[i];
                         int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
-                      /*  for (int k = 0; k < Tem.Count; k++)
-                            Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
+                        /*  for (int k = 0; k < Tem.Count; k++)
+                              Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
 
-                        MiX = MinX(Tem);
-                        MiY = MinY(Tem);
-                        MaX = MaxX(Tem);
-                        MaY = MaxY(Tem);
-                        */
+                          MiX = MinX(Tem);
+                          MiY = MinY(Tem);
+                          MaX = MaxX(Tem);
+                          MaY = MaxY(Tem);
+                          */
 
                         Temp = new Bitmap(MaX, MaY);
+                        Graphics e = Graphics.FromImage(Temp);
 
                         for (int k = 0; k < Tem.Count; k++)
                         {
-                            Graphics e = Graphics.FromImage(Temp);
-                            e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.Black, new Point(Tem[k].X, Tem[k].Y));
-                            e.Dispose();
-
+                            for (int l = 0; l < MaX; l++)
+                                for (int p = 0; p < MaY; p++)
+                                {
+                                    if (l == Tem[k].X && p == Tem[k].Y)
+                                        e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.Black, new Point(Tem[k].X, Tem[k].Y));
+                                    else
+                                        e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.White, new Point(l, p));
+                                }
                         }
+
+                        e.Dispose();
+
                         Do = ColorizedCountreImageConjunction(Temp);
                         if (!Do)
                         {
                             MessageBox.Show("Coloriezed Fatal Error");
                             return false;
                         }
-                     
+
                         Temp = new Bitmap(Temp, new Size(Wi, Hei));
 
                         AllImage.Add(Temp);

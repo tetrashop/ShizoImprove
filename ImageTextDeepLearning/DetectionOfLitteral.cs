@@ -23,9 +23,10 @@ namespace ImageTextDeepLearning
             try
             {
                 dd = d;
-                t.ConvertAllStringToImage(d);
+
                 tt = new ConjunctedShape(d);
                 tt.CreateSAhapeFromConjucted(Width, Heigh);
+                t.ConvertAllStringToImage(d);
                 ConjunctedShapeListRequired = new AllKeyboardOfWorld();
                 ConjunctedShapeListRequired.ConvertAllImageToMatrixConjucted(tt.AllImage);
                 Detection(Width, Heigh);
