@@ -290,7 +290,13 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
             t.Start();
             t.Join();
-
+            for (int i = 0; i < On.tt.AllImage.Count; i++)
+            {
+                pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
+                pictureBoxTest.Refresh();
+                pictureBoxTest.Update();
+                System.Threading.Thread.Sleep(1000);
+            }
             for (int i = 0; i < On.Detected.Count; i++)
             {               
                     textBoxImageTextDeepLearning.AppendText(On.Detected[i]);

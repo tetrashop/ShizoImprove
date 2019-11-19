@@ -12,7 +12,7 @@ namespace ImageTextDeepLearning
     {
         int Width = 30, Heigh = 30;
         AllKeyboardOfWorld t = new AllKeyboardOfWorld();
-        ConjunctedShape tt = null;
+        public ConjunctedShape tt = null;
         //AllKeyLocation
         public List<String> Detected = new List<String>();
 
