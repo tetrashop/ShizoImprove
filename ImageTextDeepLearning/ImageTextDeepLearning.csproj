@@ -112,6 +112,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Refrigtz\bin\Debug\All\All\chtc.csproj">
+      <Project>{ac2b4cf6-3294-46d5-9af0-c58ee5b637d4}</Project>
+      <Name>chtc</Name>
+    </ProjectReference>
     <ProjectReference Include="ContourAnalysisProcessing\ContourAnalysisProcessing.csproj">
       <Project>{e7bf3470-8f33-4917-9295-7782aae5c475}</Project>
       <Name>ContourAnalysisProcessing</Name>
