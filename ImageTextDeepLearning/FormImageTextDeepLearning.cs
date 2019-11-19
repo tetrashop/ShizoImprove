@@ -293,6 +293,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             for (int i = 0; i < On.tt.AllImage.Count; i++)
             {
                 pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
+                pictureBoxTest.BackgroundImageLayout = ImageLayout.Stretch;
                 pictureBoxTest.Refresh();
                 pictureBoxTest.Update();
                 System.Threading.Thread.Sleep(1000);

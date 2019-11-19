@@ -123,19 +123,19 @@ namespace ImageTextDeepLearning
 
 
 
-                        e.DrawLines(Pens.Black, Tem.ToArray());
+                        e.FillPolygon(Brushes.Black, Tem.ToArray());
 
 
 
                         e.Dispose();
 
-                        Do = ColorizedCountreImageConjunction(ref Temp);
+                       /* Do = ColorizedCountreImageConjunction(ref Temp);
                         if (!Do)
                         {
                             MessageBox.Show("Coloriezed Fatal Error");
                             return false;
                         }
-
+                        */
                         Temp = new Bitmap(Temp, new Size(Wi, Hei));
 
                         AllImage.Add(Temp);
