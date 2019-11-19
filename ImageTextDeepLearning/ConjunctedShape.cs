@@ -101,42 +101,35 @@ namespace ImageTextDeepLearning
                         Bitmap Temp = null;
                         List<Point> Tem = new List<Point>();
                         Tem = All[i];
-                        int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
-
-                        int Min = MinMin(MiX, MiY);
-
+                        int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);                     
+                  
                         for (int k = 0; k < Tem.Count; k++)
-                              Tem[k] = new Point(Tem[k].X - Min, Tem[k].Y - Min);
+                            Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
 
-                          MiX = MinX(Tem);
-                          MiY = MinY(Tem);
-                          MaX = MaxX(Tem);
-                          MaY = MaxY(Tem);
+                        MiX = MinX(Tem);
+                        MiY = MinY(Tem);
+                        MaX = MaxX(Tem);
+                        MaY = MaxY(Tem);
 
-                        int Ma = MaxMax(MaX, MaY);
-                        Min = MinMin(MiX, MiY);
-
-                        Temp = new Bitmap(Ma, Ma);
+                        int Mx = (MaX + MiX) / 2;
+                        int My = (MiY + MaY) / 2;
+                        Mx *= 2;
+                        My *= 2;
+                        Temp = new Bitmap(Mx, My);
 
                         Graphics e = Graphics.FromImage(Temp);
+                        e.FillRectangle(Brushes.White, new Rectangle(0, 0, Mx, My));
 
-                        for (int k = 0; k < Tem.Count; k++)
-                        {
-                            for (int l = Min; l < Ma; l++)
-                                for (int p = Min; p < Ma; p++)
-                                {
-                                    if (l == Tem[k].X && p == Tem[k].Y)
-                                        e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.Black, new Point(Tem[k].X, Tem[k].Y));
-                                    else
-                                        continue;
-                                    //else
-                                        //e.DrawString(".", new Font(d.Font.FontFamily, 1F), Brushes.White, new Point(l, p));
-                                }
-                        }
+
+
+
+                        e.DrawLines(Pens.Black, Tem.ToArray());
+
+
 
                         e.Dispose();
 
-                        Do = ColorizedCountreImageConjunction(Temp);
+                        Do = ColorizedCountreImageConjunction(ref Temp);
                         if (!Do)
                         {
                             MessageBox.Show("Coloriezed Fatal Error");
@@ -310,7 +303,7 @@ namespace ImageTextDeepLearning
             }
             return true;
         }
-        bool ColorizedCountreImageConjunction(Bitmap Im)
+        bool ColorizedCountreImageConjunction(ref Bitmap Im)
         {
             try
             {
