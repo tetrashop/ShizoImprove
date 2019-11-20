@@ -127,8 +127,7 @@ namespace ImageTextDeepLearning
 
 
 
-                        e.Dispose();
-
+                   
                        /* Do = ColorizedCountreImageConjunction(ref Temp);
                         if (!Do)
                         {
@@ -139,6 +138,7 @@ namespace ImageTextDeepLearning
                         Temp = new Bitmap(Temp, new Size(Wi, Hei));
 
                         AllImage.Add(Temp);
+                        e.Dispose();
 
                     }
 
@@ -175,7 +175,7 @@ namespace ImageTextDeepLearning
                         {
                             if (nu == 0)
                             {
-                                if (Im[i].GetPixel(j, k).ToArgb() == 0)
+                                if (!(Im[i].GetPixel(j, k).A == 255 && Im[i].GetPixel(j, k).R == 255 && Im[i].GetPixel(j, k).B == 255 && Im[i].GetPixel(j, k).G == 255))
                                 {
                                     Po[0] = new PointF(j, k);
                                     nu++;
@@ -184,7 +184,7 @@ namespace ImageTextDeepLearning
                             else
                             if (nu == 1)
                             {
-                                if (Im[i].GetPixel(j, k).ToArgb() == 0)
+                                if (!(Im[i].GetPixel(j, k).A == 255 && Im[i].GetPixel(j, k).R == 255 && Im[i].GetPixel(j, k).B == 255 && Im[i].GetPixel(j, k).G == 255))
                                 {
                                     Po[1] = new PointF(j, k);
                                     nu++;
@@ -194,7 +194,7 @@ namespace ImageTextDeepLearning
                             }
                         }
                     }
-
+                    e.Dispose();
 
                 }
 
@@ -222,7 +222,7 @@ namespace ImageTextDeepLearning
                     {
                         if (nu == 0)
                         {
-                            if (Im.GetPixel(j, k).ToArgb() == 0)
+                            if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
                             {
                                 Po[0] = new Point(j, k);
                                 nu++;
@@ -231,7 +231,7 @@ namespace ImageTextDeepLearning
                         else
                         if (nu == 1)
                         {
-                            if (Im.GetPixel(j, k).ToArgb() == 0)
+                            if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
                             {
                                 Po[1] = new Point(j, k);
                                 nu++;
@@ -270,7 +270,7 @@ namespace ImageTextDeepLearning
                         {
                             if (nu == 0)
                             {
-                                if (Im[i].GetPixel(j, k).ToArgb()==0)
+                                if (!(Im[i].GetPixel(j, k).A == 255 && Im[i].GetPixel(j, k).R == 255 && Im[i].GetPixel(j, k).B == 255 && Im[i].GetPixel(j, k).G == 255))
                                 {
                                     Po[0] = new PointF(j, k);
                                     nu++;
@@ -279,7 +279,7 @@ namespace ImageTextDeepLearning
                             else
                             if (nu == 1)
                             {
-                                if (Im[i].GetPixel(j, k).ToArgb()==0)
+                                if (!(Im[i].GetPixel(j, k).A == 255 && Im[i].GetPixel(j, k).R == 255 && Im[i].GetPixel(j, k).B == 255 && Im[i].GetPixel(j, k).G == 255))
                                 {
                                     Po[1] = new PointF(j, k);
                                     nu++;

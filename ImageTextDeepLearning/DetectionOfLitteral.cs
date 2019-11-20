@@ -28,7 +28,7 @@ namespace ImageTextDeepLearning
                 tt = new ConjunctedShape(d);
                 tt.CreateSAhapeFromConjucted(Width, Heigh);
                 ConjunctedShapeListRequired = new AllKeyboardOfWorld();
-                ConjunctedShapeListRequired.ConvertAllImageToMatrixConjucted(tt.AllImage);
+                ConjunctedShapeListRequired.ConvertAllTempageToMatrix(tt.AllImage);
                 Detection(Width, Heigh);
             }
             catch (Exception te)

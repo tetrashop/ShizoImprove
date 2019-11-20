@@ -167,7 +167,7 @@ namespace ImageTextDeepLearning
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                                if (Temp.GetPixel(k, p).ToArgb() == 0)
+                                if (!(Temp.GetPixel(k,p).A == 255 && Temp.GetPixel(k,p).R == 255 && Temp.GetPixel(k,p).B == 255 && Temp.GetPixel(k,p).G == 255))
                                     Tem[k, p] = true;
                                 else
                                     Tem[k, p] = false;
@@ -193,7 +193,7 @@ namespace ImageTextDeepLearning
             //KeyboardAllImage.Clear();
             return true;
         }
-        public bool ConvertAllImageToMatrixTHIS(List<Bitmap> Temp)
+        public bool ConvertAllTempageToMatrix(List<Bitmap> Temp)
         {
             try
             {
@@ -208,14 +208,17 @@ namespace ImageTextDeepLearning
 
                         bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)
+                        {
                             for (int p = 0; p < Height; p++)
                             {
-                                if (Temp[i].GetPixel(k, p).ToArgb() == 0)
+                                if (!(Temp[i].GetPixel(k,p).A == 255 && Temp[i].GetPixel(k,p).R == 255 && Temp[i].GetPixel(k,p).B == 255 && Temp[i].GetPixel(k,p).G == 255))
+
                                     Tem[k, p] = true;
                                 else
                                     Tem[k, p] = false;
 
                             }
+                        }
                         KeyboardAllConjunctionMatrixList.Add(Tem);
 
                     }
@@ -231,44 +234,6 @@ namespace ImageTextDeepLearning
             {
                 return false;
             }
-            return true;
-        }
-        public bool ConvertAllImageToMatrixConjucted(List<Bitmap> Temp)
-        {
-            try
-            {
-                if (KeyboardAllConjunctionMatrixList.Count == 0)
-                {
-
-                    KeyboardAllConjunctionMatrixList.Clear();
-
-                    for (int i = 0; i < Temp.Count; i++)
-                    {
-                        List<bool[,]> Te = new List<bool[,]>();
-
-
-                        bool[,] Tem = new bool[Width, Height];
-                        for (int k = 0; k < Width; k++)
-                            for (int p = 0; p < Height; p++)
-                            {
-                                if (Temp[i].GetPixel(k, p).ToArgb() == 0)
-                                    Tem[k, p] = true;
-                                else
-                                    Tem[k, p] = false;
-
-                            }
-                        KeyboardAllConjunctionMatrixList.Add(Tem);
-
-                    }
-                }
-                else
-                    return true;
-            }
-            catch (Exception t)
-            {
-                return false;
-            }
-
             return true;
         }
     }
