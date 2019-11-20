@@ -69,7 +69,7 @@ namespace GalleryStudio
         {
             Object o = new Object();
             lock (o)
-            {
+            {             
                 FileStream DummyFileStream = new FileStream(SAllKeyboardOfWorld, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
                 BinaryFormatter Formatters = new BinaryFormatter();
 

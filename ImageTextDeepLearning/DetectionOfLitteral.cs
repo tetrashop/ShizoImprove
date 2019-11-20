@@ -49,7 +49,7 @@ namespace ImageTextDeepLearning
             {
                 Dif = LearningMachine.Interpolate.Similarity(Key, Src, Wi);
             }
-            catch (Exception t) { return Wi * Hei; }
+            catch (Exception t) { return 0; }
             return Dif;
         }
         public bool Detection(int Wi, int Hei)
