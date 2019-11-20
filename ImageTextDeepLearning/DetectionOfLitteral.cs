@@ -40,16 +40,16 @@ namespace ImageTextDeepLearning
                 System.Windows.Forms.MessageBox.Show("Completed Detetcted " + Detected.Count);
             }
         }
-        double DifferentBool(bool[,] Key, bool[,] Src, int Wi, int Hei)
+        bool DifferentBool(bool[,] Key, bool[,] Src, int Wi, int Hei)
         {
-            double Dif = 0;
+            bool Dif = false;
             if (Wi != Hei)
-                Dif = 0;
+                Dif = false;
             try
             {
                 Dif = LearningMachine.Interpolate.Similarity(Key, Src, Wi);
             }
-            catch (Exception t) { return 0; }
+            catch (Exception t) { return false; }
             return Dif;
         }
         public bool Detection(int Wi, int Hei)
@@ -66,14 +66,15 @@ namespace ImageTextDeepLearning
 
                   
                     int IndecCurrent = -1;
-                    double KeyBoardDif = 0;
+                    bool KeyBoardDif = false;
                     for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
                     {
-                        double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
-                        if (KeyDif > KeyBoardDif)
+                        bool KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
+                        if (KeyDif || KeyBoardDif)
                         {
                             KeyBoardDif = KeyDif;
                             IndecCurrent = k;
+                            break;
                         }
                     }
                     if (IndecCurrent > -1)
