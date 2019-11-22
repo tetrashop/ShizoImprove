@@ -40,9 +40,19 @@
             this.PictureBoxImageTextDeepLearning = new System.Windows.Forms.PictureBox();
             this.checkBoxDisablePaintOnAligns = new System.Windows.Forms.CheckBox();
             this.CreateConSha = new System.Windows.Forms.Button();
+            this.labelMonitor = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createConjunctionShapesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTest)).BeginInit();
             this.panelImageTextDeepLearning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxImageTextDeepLearning
@@ -82,15 +92,15 @@
             // 
             this.pictureBoxTest.Location = new System.Drawing.Point(294, 407);
             this.pictureBoxTest.Name = "pictureBoxTest";
-            this.pictureBoxTest.Size = new System.Drawing.Size(31, 31);
+            this.pictureBoxTest.Size = new System.Drawing.Size(30, 30);
             this.pictureBoxTest.TabIndex = 4;
             this.pictureBoxTest.TabStop = false;
             // 
             // progressBarCompleted
             // 
-            this.progressBarCompleted.Location = new System.Drawing.Point(412, 415);
+            this.progressBarCompleted.Location = new System.Drawing.Point(530, 415);
             this.progressBarCompleted.Name = "progressBarCompleted";
-            this.progressBarCompleted.Size = new System.Drawing.Size(376, 23);
+            this.progressBarCompleted.Size = new System.Drawing.Size(258, 23);
             this.progressBarCompleted.TabIndex = 5;
             this.progressBarCompleted.Click += new System.EventHandler(this.progressBarCompleted_Click);
             // 
@@ -108,9 +118,9 @@
             // 
             this.panelImageTextDeepLearning.AutoScroll = true;
             this.panelImageTextDeepLearning.Controls.Add(this.PictureBoxImageTextDeepLearning);
-            this.panelImageTextDeepLearning.Location = new System.Drawing.Point(13, 13);
+            this.panelImageTextDeepLearning.Location = new System.Drawing.Point(24, 27);
             this.panelImageTextDeepLearning.Name = "panelImageTextDeepLearning";
-            this.panelImageTextDeepLearning.Size = new System.Drawing.Size(545, 383);
+            this.panelImageTextDeepLearning.Size = new System.Drawing.Size(534, 369);
             this.panelImageTextDeepLearning.TabIndex = 7;
             // 
             // PictureBoxImageTextDeepLearning
@@ -147,11 +157,86 @@
             this.CreateConSha.UseVisualStyleBackColor = true;
             this.CreateConSha.Click += new System.EventHandler(this.CreateConSha_Click);
             // 
+            // labelMonitor
+            // 
+            this.labelMonitor.AutoSize = true;
+            this.labelMonitor.Location = new System.Drawing.Point(413, 415);
+            this.labelMonitor.Name = "labelMonitor";
+            this.labelMonitor.Size = new System.Drawing.Size(0, 13);
+            this.labelMonitor.TabIndex = 9;
+            this.labelMonitor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStripImageTextDeepLearning";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.splitationToolStripMenuItem,
+            this.createConjunctionShapesToolStripMenuItem,
+            this.txtDetectionToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.toolStripMenuItem1.Text = "File";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // splitationToolStripMenuItem
+            // 
+            this.splitationToolStripMenuItem.Name = "splitationToolStripMenuItem";
+            this.splitationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.splitationToolStripMenuItem.Text = "Splitation";
+            this.splitationToolStripMenuItem.Click += new System.EventHandler(this.splitationToolStripMenuItem_Click);
+            // 
+            // createConjunctionShapesToolStripMenuItem
+            // 
+            this.createConjunctionShapesToolStripMenuItem.Name = "createConjunctionShapesToolStripMenuItem";
+            this.createConjunctionShapesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.createConjunctionShapesToolStripMenuItem.Text = "Create Conjunction Shapes";
+            this.createConjunctionShapesToolStripMenuItem.Click += new System.EventHandler(this.createConjunctionShapesToolStripMenuItem_Click);
+            // 
+            // txtDetectionToolStripMenuItem
+            // 
+            this.txtDetectionToolStripMenuItem.Name = "txtDetectionToolStripMenuItem";
+            this.txtDetectionToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.txtDetectionToolStripMenuItem.Text = "TxtDetection";
+            this.txtDetectionToolStripMenuItem.Click += new System.EventHandler(this.txtDetectionToolStripMenuItem_Click);
+            // 
             // FormImageTextDeepLearning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelMonitor);
             this.Controls.Add(this.CreateConSha);
             this.Controls.Add(this.checkBoxDisablePaintOnAligns);
             this.Controls.Add(this.panelImageTextDeepLearning);
@@ -161,6 +246,8 @@
             this.Controls.Add(this.buttonSplitationConjunction);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.textBoxImageTextDeepLearning);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormImageTextDeepLearning";
             this.Text = "FormImageTextDeepLearning";
             this.Load += new System.EventHandler(this.FormImageTextDeepLearning_Load);
@@ -168,6 +255,8 @@
             this.panelImageTextDeepLearning.ResumeLayout(false);
             this.panelImageTextDeepLearning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,6 +274,15 @@
         private System.Windows.Forms.PictureBox PictureBoxImageTextDeepLearning;
         private System.Windows.Forms.CheckBox checkBoxDisablePaintOnAligns;
         private System.Windows.Forms.Button CreateConSha;
+        public System.Windows.Forms.Label labelMonitor;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem splitationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createConjunctionShapesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem txtDetectionToolStripMenuItem;
     }
 }
 

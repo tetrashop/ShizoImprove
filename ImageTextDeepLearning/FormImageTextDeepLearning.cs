@@ -21,7 +21,7 @@ namespace ImageTextDeepLearning
     public partial class FormImageTextDeepLearning : Form
     {
         DetectionOfLitteral On = null;
-        int Width = 10, Height = 10;
+        int Width = 30, Height = 30;
         List<ConjunctedShape> conShapes = new List<ConjunctedShape>();
         SmallImageing t = null;
         MainForm d = null;
@@ -170,6 +170,33 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             PictureBoxImageTextDeepLearning.Refresh();
 
         }
+        delegate void CallRefLable();
+        public void RefCallSetLablr()
+        {
+            if (this.InvokeRequired)
+            {
+                CallRefLable t = new CallRefLable(RefCallSetLablr);
+
+                this.Invoke(new Action(() => labelMonitor.Refresh()));
+
+            }
+
+
+        }
+        delegate void CallSetLable(String Text);
+        public void SetCallSetLablr(String Text)
+        {
+            if (this.InvokeRequired)
+            {
+                CallSetLable t = new CallSetLable(SetCallSetLablr);
+
+                this.Invoke(new Action(() => labelMonitor.Text = Text));
+
+            }
+
+
+        }
+
 
         private void PictureBoxImageTextDeepLearning_Paint(object sender, PaintEventArgs e)
         {
@@ -280,11 +307,107 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                      Three.ConvertAllStringToImage(d);
 
                  */
-                    On = new DetectionOfLitteral(d);
+                    On = new DetectionOfLitteral(this,d);
                 }
             }
 
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new AboutBoxImageTextDeepLearning()).Show();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialogImageTextDeepLearning.ShowDialog();
+            PictureBoxImageTextDeepLearning.BackgroundImage = Image.FromFile(openFileDialogImageTextDeepLearning.FileName);
+            //PictureBoxImageTextDeepLearning.Size = new Size(PictureBoxImageTextDeepLearning.BackgroundImage.Width, PictureBoxImageTextDeepLearning.BackgroundImage.Height);
+
+            PictureBoxImageTextDeepLearning.BackgroundImageLayout = ImageLayout.Stretch;
+
+            PictureBoxImageTextDeepLearning.Refresh();
+            PictureBoxImageTextDeepLearning.Update();
+
+
+        }
+
+        private void splitationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (PictureBoxImageTextDeepLearning.BackgroundImage == null)
+            {
+                PictureBoxImageTextDeepLearning.BackgroundImage = PictureBoxImageTextDeepLearning.Image;
+                PictureBoxImageTextDeepLearning.Image = null;
+            }
+            if (buttonSplitationConjunction.Text == "Splitation")
+            {
+                t = new SmallImageing(PictureBoxImageTextDeepLearning.BackgroundImage);
+
+                bool Do = t.Splitation(pictureBoxTest);
+
+                if (Do)
+                {
+                    buttonSplitationConjunction.Text = "Conjunction";
+                    MessageBox.Show("Splited!");
+                }
+            }
+            else
+if (buttonSplitationConjunction.Text == "Conjunction")
+            {
+                bool Do = t.Conjunction(pictureBoxTest, PictureBoxImageTextDeepLearning);
+                if (Do)
+                {
+                    PictureBoxImageTextDeepLearning.BackgroundImage = t.RootConjuction;
+                    PictureBoxImageTextDeepLearning.Refresh();
+                    PictureBoxImageTextDeepLearning.Update();
+                    buttonSplitationConjunction.Text = "Splitation";
+                    MessageBox.Show("Conjuncted!");
+                }
+            }
+        }
+
+        private void createConjunctionShapesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
+            t.Start();
+            t.Join();
+            for (int i = 0; i < On.tt.AllImage.Count; i++)
+            {
+                pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
+                pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                pictureBoxTest.Refresh();
+                pictureBoxTest.Update();
+                System.Threading.Thread.Sleep(1000);
+            }
+            for (int i = 0; i < On.Detected.Count; i++)
+            {
+                textBoxImageTextDeepLearning.AppendText(On.Detected[i]);
+
+            }
+            /* for (int i = 0; i < On.t.KeyboardAllImage.Count; i++)
+             {
+                 pictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
+                 pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                 pictureBoxTest.Refresh();
+                 pictureBoxTest.Update();
+                 System.Threading.Thread.Sleep(1000);
+             }*/
+        }
+
+        private void txtDetectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            d = new MainForm();
+            d.ShowDialog();
+
+
+
+            //textBoxImageTextDeepLearning.Refresh();
+            //textBoxImageTextDeepLearning.Update();
+            //d.Dispose();
+            PictureBoxImageTextDeepLearning.Update();
+            PictureBoxImageTextDeepLearning.Refresh();
+        }
+
         private void CreateConSha_Click(object sender, EventArgs e)
         {
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
@@ -293,7 +416,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             for (int i = 0; i < On.tt.AllImage.Count; i++)
             {
                 pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
-                pictureBoxTest.BackgroundImageLayout = ImageLayout.Stretch;
+                pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
                 pictureBoxTest.Refresh();
                 pictureBoxTest.Update();
                 System.Threading.Thread.Sleep(1000);
@@ -303,6 +426,14 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                     textBoxImageTextDeepLearning.AppendText(On.Detected[i]);
               
             }
+           /* for (int i = 0; i < On.t.KeyboardAllImage.Count; i++)
+            {
+                pictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
+                pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                pictureBoxTest.Refresh();
+                pictureBoxTest.Update();
+                System.Threading.Thread.Sleep(1000);
+            }*/
         }
     }
 }

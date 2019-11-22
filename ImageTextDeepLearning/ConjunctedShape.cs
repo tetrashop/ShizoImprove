@@ -14,7 +14,7 @@ namespace ImageTextDeepLearning
     [Serializable]
     class ConjunctedShape
     {
-        int Width = 10, Height = 10;
+        int Width = 30, Height = 30;
         MainForm d = null;
         int Threashold = 5;
         public List<Point> Collection = new List<Point>();
@@ -118,12 +118,12 @@ namespace ImageTextDeepLearning
                         Temp = new Bitmap(Mx, My);
 
                         Graphics e = Graphics.FromImage(Temp);
-                        e.FillRectangle(Brushes.White, new Rectangle(0, 0, Mx, My));
+                        e.FillRectangle(Brushes.White, new Rectangle(((int)(((double)Mx) * 0.01)), ((int)(((double)My) * 0.01)), Mx - ((int)(((double)Mx) * 0.01)), My - ((int)(((double)My) * 0.01))));
 
 
 
 
-                        e.FillPolygon(Brushes.Black, Tem.ToArray());
+                        e.DrawLines(Pens.Black, Tem.ToArray());
 
 
 
@@ -188,7 +188,7 @@ namespace ImageTextDeepLearning
                                 {
                                     Po[1] = new PointF(j, k);
                                     nu++;
-                                    e.DrawLine(new Pen(Brushes.Black), Po[0], Po[1]);
+                                    e.DrawLines(Pens.Black, Po);
                                     nu = 0;
                                 }
                             }
@@ -235,7 +235,7 @@ namespace ImageTextDeepLearning
                             {
                                 Po[1] = new Point(j, k);
                                 nu++;
-                                e.DrawLine(new Pen(Brushes.Black), Po[0], Po[1]);
+                                e.DrawLines(Pens.Black, Po);
                                 nu = 0;
                             }
                         }
@@ -283,7 +283,7 @@ namespace ImageTextDeepLearning
                                 {
                                     Po[1] = new PointF(j, k);
                                     nu++;
-                                    e.DrawLine(new Pen(Brushes.Black), Po[0], Po[1]);
+                                    e.DrawLines(Pens.Black, Po);
                                     nu = 0;
                                 }
                             }
@@ -307,7 +307,7 @@ namespace ImageTextDeepLearning
         {
             try
             {
-
+               
                 Graphics e = Graphics.FromImage(Im);
                 for (int j = 0; j < Im.Width; j++)
                 {
@@ -317,30 +317,22 @@ namespace ImageTextDeepLearning
                     {
                         if (nu == 0)
                         {
-                            if (Im.GetPixel(j, k).ToArgb() == 0)
+                            if (!(Im.GetPixel(j ,k).A == 255 && Im.GetPixel(j ,k).R == 255 && Im.GetPixel(j ,k).B == 255 && Im.GetPixel(j ,k).G == 255))
                             {
                                 Po[0] = new Point(j, k);
                                 nu++;
-                            }
-                            else
-                            {
-                                nu = nu;
-                            }
+                            }                            
                         }
                         else
                         if (nu == 1)
                         {
-                            if (Im.GetPixel(j, k).ToArgb()==0)
+                            if (!(Im.GetPixel(j ,k).A == 255 && Im.GetPixel(j ,k).R == 255 && Im.GetPixel(j ,k).B == 255 && Im.GetPixel(j ,k).G == 255))
                             {
                                 Po[1] = new Point(j, k);
                                 nu++;
-                                e.DrawLine(new Pen(Brushes.Black), Po[0], Po[1]);
+                                e.DrawLines(Pens.Black, Po);
                                 nu = 0;
-                            }
-                            else
-                            {
-                                nu = nu;
-                            }
+                            }                            
                         }
                     }
                 }

@@ -11,9 +11,9 @@ namespace ImageTextDeepLearning
     [Serializable]
     class AllKeyboardOfWorld
     {
-        int Width = 10, Height = 10;
+        int Width = 30, Height = 30;
         public List<String> KeyboardAllStrings = new List<String>();
-        List<Image> KeyboardAllImage = new List<Image>();
+        public List<Image> KeyboardAllImage = new List<Image>();
         public List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();
         public List<bool[,]> KeyboardAllConjunctionMatrixList = new List<bool[,]>();
 
@@ -160,7 +160,7 @@ namespace ImageTextDeepLearning
                     {
                         Bitmap Temp = new Bitmap(Width, Height);
                         Graphics e = Graphics.FromImage(Temp);
-                        e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
+                        e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(((int)(((double)Width) * 0.01)), ((int)(((double)Height) * 0.01)), Width - ((int)(((double)Width) * 0.01)), Height - ((int)(((double)Height) * 0.01))));
                         e.Dispose();
                         KeyboardAllImage.Add(Temp);
                         bool[,] Tem = new bool[Width, Height];

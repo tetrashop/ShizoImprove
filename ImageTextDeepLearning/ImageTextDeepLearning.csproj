@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBoxImageTextDeepLearning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxImageTextDeepLearning.Designer.cs">
+      <DependentUpon>AboutBoxImageTextDeepLearning.cs</DependentUpon>
+    </Compile>
     <Compile Include="AutoGenerateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AllKeyboardOfWorld.cs" />
+    <EmbeddedResource Include="AboutBoxImageTextDeepLearning.resx">
+      <DependentUpon>AboutBoxImageTextDeepLearning.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormImageTextDeepLearning.resx">
       <DependentUpon>FormImageTextDeepLearning.cs</DependentUpon>
     </EmbeddedResource>
