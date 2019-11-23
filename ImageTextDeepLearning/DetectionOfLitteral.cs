@@ -12,9 +12,10 @@ using System.Drawing;
 using ContourAnalysisDemo;
 namespace ImageTextDeepLearning
 {
-
+    //detection of literal class
     class DetectionOfLitteral
     {
+        //initiate global vars
         int Width = 30, Heigh = 30;
         public AllKeyboardOfWorld t = new AllKeyboardOfWorld();
         public ConjunctedShape tt = null;
@@ -23,6 +24,7 @@ namespace ImageTextDeepLearning
 
         MainForm dd = null;
         AllKeyboardOfWorld ConjunctedShapeListRequired = null;
+        //Constructor
         public DetectionOfLitteral(ImageTextDeepLearning.FormImageTextDeepLearning This, MainForm d)
         {
             try
@@ -59,6 +61,7 @@ namespace ImageTextDeepLearning
                 System.Windows.Forms.MessageBox.Show("Completed Detetcted " + Detected.Count);
             }
         }
+        //Detection main similarity method
         double DifferentBool(bool[,] Key, bool[,] Src, int Wi, int Hei)
         {
             double Dif = 0;
@@ -71,46 +74,58 @@ namespace ImageTextDeepLearning
             catch (Exception t) { return 0; }
             return Dif;
         }
+        //detection main method
         public bool Detection(int Wi, int Hei)
         {
             try
             {
-
+                //clear list and initate...
                 Detected.Clear();
 
                 String TempDetected = "";
                 bool Do = false;
+
+                //for evey conjuncted shape retrived matrix items
                 for (int i = 0; i < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList.Count; i++)
                 {
 
-                  
+                  //initate
                     int IndecCurrent = -1;
                     double KeyBoardDif = double.MinValue;
+                    //for evey all keyboard able to char matrix of conjunction
                     for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
                     {
+                        //retrive similarity value
                         double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
+                        //when is ready and greater
                         if (KeyDif > KeyBoardDif)
                         {
+                            //set
                             KeyBoardDif = KeyDif;
                             IndecCurrent = k;
                             break;
                         }
                     }
+                    //when found
                     if (IndecCurrent > -1)
                     {
+                        //set items
                         Do = true;
                         TempDetected = t.KeyboardAllStrings[IndecCurrent].ToString();
                     }
                     ///else
                        // return false;
+                       //Add created items string to list
                     Detected.Add(TempDetected);
                 }
 
             }
             catch (Exception t)
             {
+                //when exist exeption return unsuccessfull 
                 return false;
             }
+            //when successfull return validity
             return true;
         }
      }

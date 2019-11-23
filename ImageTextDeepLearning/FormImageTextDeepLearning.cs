@@ -23,32 +23,38 @@ using Emgu.CV.Structure;
 
 namespace ImageTextDeepLearning
 {
+    //Constructor
     public partial class FormImageTextDeepLearning : Form
     {
+        //Global vars
         DetectionOfLitteral On = null;
         int Width = 30, Height = 30;
         List<ConjunctedShape> conShapes = new List<ConjunctedShape>();
         SmallImageing t = null;
         MainForm d = null;
+        //Main Form constructor
         public FormImageTextDeepLearning()
         {
             InitializeComponent();
         }
-
+        //Load form
         private void FormImageTextDeepLearning_Load(object sender, EventArgs e)
         {
+            //Thread of load
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Progress));
             t.Start();
         }
-
+        //click on open buttonb event
         private void buttonOpen_Click(object sender, EventArgs e)
         {
+            //determine file of image name
             openFileDialogImageTextDeepLearning.ShowDialog();
+            //Assign content of image on main picture box
             PictureBoxImageTextDeepLearning.BackgroundImage = Image.FromFile(openFileDialogImageTextDeepLearning.FileName);
             //PictureBoxImageTextDeepLearning.Size = new Size(PictureBoxImageTextDeepLearning.BackgroundImage.Width, PictureBoxImageTextDeepLearning.BackgroundImage.Height);
-
+            //set scale
             PictureBoxImageTextDeepLearning.BackgroundImageLayout = ImageLayout.Stretch;
-
+            //refresh and update to pain event occured
             PictureBoxImageTextDeepLearning.Refresh();
             PictureBoxImageTextDeepLearning.Update();
 
@@ -59,32 +65,40 @@ namespace ImageTextDeepLearning
         {
 
         }
-
+        //splitation and conjunction of one load image deterministic
         private void buttonSplitationConjunction_Click(object sender, EventArgs e)
         {
+            //when there is no image
             if (PictureBoxImageTextDeepLearning.BackgroundImage == null)
             {
+                //set image to back image
                 PictureBoxImageTextDeepLearning.BackgroundImage = PictureBoxImageTextDeepLearning.Image;
                 PictureBoxImageTextDeepLearning.Image = null;
             }
+            //wen ready to splitation
             if (buttonSplitationConjunction.Text == "Splitation")
             {
+                //create constructor image
                 t = new SmallImageing(PictureBoxImageTextDeepLearning.BackgroundImage);
-
+                //Do splitation
                 bool Do = t.Splitation(pictureBoxTest);
-
+                //wen successfull
                 if (Do)
                 {
+                    //change operation recurve
                     buttonSplitationConjunction.Text = "Conjunction";
                     MessageBox.Show("Splited!");
                 }
             }
-            else
+            else//when ready to conjunction
 if (buttonSplitationConjunction.Text == "Conjunction")
             {
+                //Do conjunction
                 bool Do = t.Conjunction(pictureBoxTest, PictureBoxImageTextDeepLearning);
+                //when successfull
                 if (Do)
                 {
+                    //assgin conjuncted image to back image and refresh and update to pain even occured
                     PictureBoxImageTextDeepLearning.BackgroundImage = t.RootConjuction;
                     PictureBoxImageTextDeepLearning.Refresh();
                     PictureBoxImageTextDeepLearning.Update();
@@ -161,8 +175,10 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                   }
               } while (true);*/
         }
+        //detect of literalson image to be text 
         private void buttonTxtDetect_Click(object sender, EventArgs e)
         {
+            //detection foregin unnkown app constructor
             d = new MainForm();
             d.ShowDialog();
 
@@ -175,6 +191,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             PictureBoxImageTextDeepLearning.Refresh();
 
         }
+        //delegates on lables
         delegate void CallRefLable();
         public void RefCallSetLablr()
         {
@@ -202,16 +219,19 @@ if (buttonSplitationConjunction.Text == "Conjunction")
 
         }
 
-
+        //main picture boc pain event
         private void PictureBoxImageTextDeepLearning_Paint(object sender, PaintEventArgs e)
         {
+            //when foregin is ready
             if (d != null)
             {
+                //initiate local vars
                 Font font;
                 Brush brush;
                 Brush brush2;
                 Pen pen;
                 bool flag2;
+                //when is ready top detected unconjuncted shapes set draw parameters
                 if (!ReferenceEquals(d.frame, null))
                 {
                     font = new Font(d.Font.FontFamily, 24f);
@@ -287,7 +307,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
         {
 
         }
-
+        //disable algins paint on foregin form
         private void checkBoxDisablePaintOnAligns_CheckedChanged(object sender, EventArgs e)
         {
             if (d != null)
@@ -298,8 +318,10 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                     d.DisablePaintOnAligns = false;
             }
         }
+        //main detection form
         void CreateOneConShape()
         {
+            //when cunsoming is ready
             if (!ReferenceEquals(d.frame, null))
             {
                 lock (d.processor.foundTemplates)
@@ -312,17 +334,18 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                      Three.ConvertAllStringToImage(d);
 
                  */
+                 //call detection constructor
                     On = new DetectionOfLitteral(this,d);
                 }
             }
 
         }
-
+        //about
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new AboutBoxImageTextDeepLearning()).Show();
         }
-
+        //menue strip of open file 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialogImageTextDeepLearning.ShowDialog();
@@ -336,7 +359,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
 
 
         }
-
+        //splitation and conjunction 
         private void splitationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (PictureBoxImageTextDeepLearning.BackgroundImage == null)
@@ -370,7 +393,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                 }
             }
         }
-
+        //conjuncton create shapes menue strip
         private void createConjunctionShapesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
@@ -398,7 +421,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                  System.Threading.Thread.Sleep(1000);
              }*/
         }
-
+        //detection form munue strip
         private void txtDetectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             d = new MainForm();
@@ -412,7 +435,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             PictureBoxImageTextDeepLearning.Update();
             PictureBoxImageTextDeepLearning.Refresh();
         }
-
+        //create main detection button
         private void CreateConSha_Click(object sender, EventArgs e)
         {
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));

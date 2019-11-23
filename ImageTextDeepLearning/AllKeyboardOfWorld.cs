@@ -13,29 +13,37 @@ using System.Drawing;
 using ContourAnalysisDemo;
 namespace ImageTextDeepLearning
 {
+    //To Store All Keyboard literals
     [Serializable]
     class AllKeyboardOfWorld
     {
+        //Initiate global vars
         int Width = 30, Height = 30;
         public List<String> KeyboardAllStrings = new List<String>();
         public List<Image> KeyboardAllImage = new List<Image>();
         public List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();
         public List<bool[,]> KeyboardAllConjunctionMatrixList = new List<bool[,]>();
-
+        //Crate all able chars on List indevidully
         public bool CreateString()
         {
+            //when not existence
             if (KeyboardAllStrings.Count == 0)
             {
+                //clear
                 KeyboardAllStrings.Clear();
                 try
                 {
+                    //for all possible
                     for (int i = 0; i < char.MaxValue; i++)
                     {
+                        //get type of current
                         Type t = ((char)i).GetType();
+                        //when is char and visible and is serializable
                         if (t.Equals(typeof(char)) && t.IsVisible && t.IsSerializable)
                         {
                             //if (((char)i).ToString().Contains("\\u"))
                             //continue;
+                            //when existemnce of this conditions continue
                             int ch = i;
                             if ((ch >= 0x0020 && ch <= 0xD7FF) ||
                                     (ch >= 0xE000 && ch <= 0xFFFD) ||
@@ -43,6 +51,7 @@ namespace ImageTextDeepLearning
                                     ch == 0x000A ||
                                     ch == 0x000D)
                             {
+                                //sdetermine and Store
                                 if (!KeyboardAllStrings.Contains(((char)i).ToString()))
                                     KeyboardAllStrings.Add(((char)i).ToString());
                             }
@@ -58,10 +67,12 @@ namespace ImageTextDeepLearning
             }
             return true;
         }
+        //Savle all
         bool SaveAll()
         {
             try
             {
+                //when file dos not exist
                 if (!File.Exists("KeyboardAllStrings.asd"))
                 {
 
@@ -72,7 +83,7 @@ namespace ImageTextDeepLearning
                                File.AppendAllText("KeyboardAllStrings.asd", KeyboardAllStrings[i]);
                            }
                        }*/
-
+                       //serialized on take root
                     if (this.KeyboardAllImage.Count > 0)
                     {
                         Refrigtz.TakeRoot t = new Refrigtz.TakeRoot();
@@ -80,7 +91,7 @@ namespace ImageTextDeepLearning
 
                     }
                 }
-                else {
+                else {//delete and serilized take root
                     File.Delete("KeyboardAllStrings.asd");
                     if (this.KeyboardAllImage.Count > 0)
                     {
@@ -98,12 +109,15 @@ namespace ImageTextDeepLearning
             }
             return true;
         }
+        //read all
         bool ReadAll()
         {
             try
             {
+                //when existence
                 if (File.Exists("KeyboardAllStrings.asd"))
                 {
+                    //clear
                     KeyboardAllStrings.Clear();
                     KeyboardAllImage.Clear();
                     KeyboardAllConjunctionMatrix.Clear();
@@ -123,6 +137,7 @@ namespace ImageTextDeepLearning
                          if (!Do)
                              return false;
                      }*/
+                     //serilized
                     Refrigtz.TakeRoot tr = new Refrigtz.TakeRoot();
                     AllKeyboardOfWorld t = tr.Load("KeyboardAllStrings.asd");
                     this.KeyboardAllConjunctionMatrix = t.KeyboardAllConjunctionMatrix;
@@ -131,43 +146,60 @@ namespace ImageTextDeepLearning
                     this.KeyboardAllStrings = t.KeyboardAllStrings;
 
                 }
-                else
+                else//others retiurn unsuccessfull
                     return false;
             }
-            catch (Exception t) { return false; }
+            catch (Exception t) {
+                //when unsuccessfull return false
+                return false;
+            }
+            //return true
             return true;
         }
+        //stor all strings list to proper  images themselves list
         public bool ConvertAllStringToImage(MainForm d)
         {
             try
             {
                 bool Do = false;
+                //when is not ok
                 if (!ReadAll())
                 {
+                    //create list
                     Do = CreateString();
-                    if (Do)
+                    //when is successfull 
+                    if (Do)//Save
                         Do = SaveAll();
+                    //when not return successfull
                     if (!Do)
                     {
                         //System.Windows.Forms.MessageBox.Show("Fatual Error!");
                         return false;
                     }
                 }
-                else
+                else//else return successfull
                 {
                     Do = true;
                     
                 }
+                //when existence os string list and empty od image list
                 if (Do && KeyboardAllImage.Count == 0)
                 {
+                    //clear
                     KeyboardAllImage.Clear();
+                    //for all lists items
                     for (int i = 0; i < KeyboardAllStrings.Count; i++)
                     {
+                        //proper empty image coinstruction object
                         Bitmap Temp = new Bitmap(Width, Height);
+                        //create proper image graphics
                         Graphics e = Graphics.FromImage(Temp);
+                        //draw string
                         e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(((int)(((double)Width) * 0.01)), ((int)(((double)Height) * 0.01)), Width - ((int)(((double)Width) * 0.01)), Height - ((int)(((double)Height) * 0.01))));
                         e.Dispose();
+                        //Add
                         KeyboardAllImage.Add(Temp);
+                        //create proper conjunction matrix
                         bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
@@ -178,8 +210,10 @@ namespace ImageTextDeepLearning
                                     Tem[k, p] = false;
 
                             }
+                        //Add
                         KeyboardAllConjunctionMatrix.Add(Tem);
                     }
+                    //save all
                     Do = SaveAll();
                     //if (!Do)
                     //System.Windows.Forms.MessageBox.Show("Fatual Error!");
@@ -192,30 +226,39 @@ namespace ImageTextDeepLearning
             }
             catch (Exception t)
             {
+                //when existence of exeptio return false
                 //System.Windows.Forms.MessageBox.Show("Fatual Error!");
                 return false;
             }
+            //return successfulll
             //KeyboardAllImage.Clear();
             return true;
         }
+        //Convert image list to conjunction matrix
         public bool ConvertAllTempageToMatrix(List<Bitmap> Temp)
         {
             try
             {
+                //when list is empty
                 if (KeyboardAllConjunctionMatrixList.Count == 0)
                 {
+                    //clear
                     KeyboardAllConjunctionMatrixList.Clear();
-
+                    //for all list count
                     for (int i = 0; i < Temp.Count; i++)
                     {
+                        //matrix boolean object constructor list
                         List<bool[,]> Te = new List<bool[,]>();
 
-
+                        //boolean object constructor
                         bool[,] Tem = new bool[Width, Height];
+                        //for all width
                         for (int k = 0; k < Width; k++)
                         {
+                            //for all height
                             for (int p = 0; p < Height; p++)
                             {
+                                //assigne proper matrix
                                 if (!(Temp[i].GetPixel(k,p).A == 255 && Temp[i].GetPixel(k,p).R == 255 && Temp[i].GetPixel(k,p).B == 255 && Temp[i].GetPixel(k,p).G == 255))
 
                                     Tem[k, p] = true;
@@ -224,21 +267,25 @@ namespace ImageTextDeepLearning
 
                             }
                         }
+                        //add
                         KeyboardAllConjunctionMatrixList.Add(Tem);
 
                     }
                 }
-                else
+                else//othewise return successfull
                     return true;
             }
             catch (Exception t)
             {
+                //when is exeption return unsuccessfull
                 return false;
             }
+            //when save is not valid return successfull
             if (!SaveAll())
             {
                 return false;
             }
+            //return successfull
             return true;
         }
     }
