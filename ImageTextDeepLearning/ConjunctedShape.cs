@@ -21,12 +21,12 @@ namespace ImageTextDeepLearning
     class ConjunctedShape
     {
         //initiate global vars
-        int Width =10, Height =10;
+        int Width = 10, Height = 10;
         MainForm d = null;
         int Threashold = 5;
-        public List<Point> Collection = new List<Point>();
+        public List<Point[]> Collection = new List<Point[]>();
 
-        public List<List<Point>> All = new List<List<Point>>();
+        public List<List<Point[]>> All = new List<List<Point[]>>();
         public List<Bitmap> AllImage = new List<Bitmap>();
         //Constructor
         public ConjunctedShape(MainForm dd)
@@ -36,49 +36,40 @@ namespace ImageTextDeepLearning
         }
 
         //Max of list
-        int MaxX(List<Point> Tem)
+        int MaxX(List<Point[]> Tem, int i)
         {
             int te = 0;
-            for (int i = 0; i < Tem.Count; i++)
-            {
-                if (te < Tem[i].X)
-                    te = Tem[i].X;
-            }
+            Point t = Tem[i].Max<Point>();
+            te = t.X;
+
             return te;
         }
         //Max of list
-        int MaxY(List<Point> Tem)
+        int MaxY(List<Point[]> Tem, int i)
         {
             int te = 0;
-            for (int i = 0; i < Tem.Count; i++)
-            {
-                if (te < Tem[i].Y)
-                    te = Tem[i].Y;
+            Point t = Tem[i].Max<Point>();
+            te = t.Y;
 
-            }
+
             return te;
         }
         //Min of list
-        int MinX(List<Point> Tem)
+        int MinX(List<Point[]> Tem, int i)
         {
             int te = Int32.MaxValue;
-            for (int i = 0; i < Tem.Count; i++)
-            {
-                if (te > Tem[i].X)
-                    te = Tem[i].X;
 
-            }
+            Point t = Tem[i].Min<Point>();
+            te = t.X;
+
             return te;
         }
         //Min of list
-        int MinY(List<Point> Tem)
+        int MinY(List<Point[]> Tem, int i)
         {
             int te = Int32.MaxValue;
-            for (int i = 0; i < Tem.Count; i++)
-            {
-                if (te > Tem[i].Y)
-                    te = Tem[i].Y;
-            }
+            Point t = Tem[i].Min<Point>();
+            te = t.Y;
             return te;
         }
         //max of to object
@@ -118,26 +109,18 @@ namespace ImageTextDeepLearning
 
 
                         Bitmap Temp = null;
-                        List<Point> Tem = new List<Point>();
+                        List<Point[]> Tem = new List<Point[]>();
                         //retrive current item
                         Tem = All[i];
                         //retrive min and max of tow X and Y
-                        int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);                     
-                  
-                        //Map to left up corner
-                        for (int k = 0; k < Tem.Count; k++)
-                            Tem[k] = new Point(Tem[k].X - MiX, Tem[k].Y - MiY);
-                        //again
-                        MiX = MinX(Tem);
-                        MiY = MinY(Tem);
-                        MaX = MaxX(Tem);
-                        MaY = MaxY(Tem);
+                        int MiX = MinX(Tem, i), MiY = MinY(Tem, i), MaX = MaxX(Tem, i), MaY = MaxY(Tem, i);
+
 
                         //centeralized
-                        int Mx = (MaX + MiX) / 2;
-                        int My = (MiY + MaY) / 2;
-                        Mx *= 2;
-                        My *= 2;
+                        int MxM = (MaX + MiX) / 2;
+                        int MyM = (MiY + MaY) / 2;
+                        int Mx = MxM * 2;
+                        int My = MyM * 2;
                         //initate new root image empty
                         Temp = new Bitmap(Mx, My);
 
@@ -148,21 +131,22 @@ namespace ImageTextDeepLearning
 
 
                         //draw all points
-                        e.DrawLines(Pens.Black, Tem.ToArray());
+                        e.FillPolygon(Brushes.Black, Tem[i].ToArray());
 
 
+                        Rectangle cropArea = new Rectangle((Tem[i].ToArray().Min<Point>()).X, (Tem[i].ToArray().Min<Point>()).Y, (Tem[i].ToArray().Max<Point>()).X, (Tem[i].ToArray().Max<Point>()).Y);
+                        //crop to proper space
 
-                   
+                        Temp = Temp.Clone(cropArea, Temp.PixelFormat);
+
+
                         Do = ColorizedCountreImageCommmon(ref Temp);
                         if (!Do)
                         {
                             MessageBox.Show("Coloriezed Fatal Error");
                             return false;
                         }
-                        
-                        //resized to proper space
-                        Temp = new Bitmap(Temp, new Size(Wi, Hei));
-
+                      
                         //add image
                         AllImage.Add(Temp);
                         e.Dispose();
@@ -328,7 +312,7 @@ namespace ImageTextDeepLearning
                             {
                                 //add collection
                                 All.Add(Collection);
-                                Collection = new List<Point>();
+                                Collection = new List<Point[]>();
 
                             }
                             //next enumerator
@@ -347,16 +331,9 @@ namespace ImageTextDeepLearning
                             //current points
                             Point[] PointP1 = current1.ToArray();
 
-                            //Do Target
-                            for (int i = 0; i < PointP1.Length; i++)
-                            {
-                                if (!Collection.Contains(PointP1[i]))
-                                {
-                                    flag = true;
-                                    Collection.Add(PointP1[i]);
-                                }
 
-                            }
+                            Collection.Add(PointP1);
+
                         }
                     } while (true);
                 }

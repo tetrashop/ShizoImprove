@@ -31,25 +31,25 @@ namespace ImageTextDeepLearning
             try
             {
                 dd = d;
-                This.SetCallSetLablr("Initiate All Key...");
-                This.RefCallSetLablr();
+                //This.SetCallSetLablr("Initiate All Key...");
+                //This.RefCallSetLablr();
                 t.ConvertAllStringToImage(d);
-                This.SetCallSetLablr("Initiate Conjunction...");
-                This.RefCallSetLablr();
+                //This.SetCallSetLablr("Initiate Conjunction...");
+                //This.RefCallSetLablr();
 
                 tt = new ConjunctedShape(d);
-                This.SetCallSetLablr("Cretion Conjuncted untile Mattix...");
-                This.RefCallSetLablr();
+                //This.SetCallSetLablr("Cretion Conjuncted untile Mattix...");
+                //This.RefCallSetLablr();
                 tt.CreateSAhapeFromConjucted(Width, Heigh);
-                This.SetCallSetLablr("Initiate...");
-                This.RefCallSetLablr();
+                //This.SetCallSetLablr("Initiate...");
+                //This.RefCallSetLablr();
                 ConjunctedShapeListRequired = new AllKeyboardOfWorld();
-                This.SetCallSetLablr("Initiate For Key Matrix...");
-                This.RefCallSetLablr();
+                //This.SetCallSetLablr("Initiate For Key Matrix...");
+                //This.RefCallSetLablr();
 
                 ConjunctedShapeListRequired.ConvertAllTempageToMatrix(tt.AllImage);
-                This.SetCallSetLablr("Detection...");
-                This.RefCallSetLablr();
+                //This.SetCallSetLablr("Detection...");
+                //This.RefCallSetLablr();
 
                 Detection(Width, Heigh);
             }
@@ -83,21 +83,22 @@ namespace ImageTextDeepLearning
                 //clear list and initate...
                 Detected.Clear();
 
-                String TempDetected = "";
                 bool Do = false;
 
                 //for evey conjuncted shape retrived matrix items
                 for (int i = 0; i < ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList.Count; i++)
                 {
 
-                  //initate
+                    //initate
+                    StringBuilder TempDetected = new StringBuilder();
+
                     int IndecCurrent = -1;
                     double KeyBoardDif = double.MinValue;
                     //for evey all keyboard able to char matrix of conjunction
                     for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
                     {
                         //retrive similarity value
-                        //double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrixList[k], Wi, Hei);
+                        //double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
                         double KeyDif = Colleralation.GetCorrelationScore(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Width);
                         //when is ready and proper
                         //if (System.Math.Abs(1- KeyDif ) < Threashold)
@@ -116,12 +117,12 @@ namespace ImageTextDeepLearning
                     {
                         //set items
                         Do = true;
-                        TempDetected = t.KeyboardAllStrings[IndecCurrent].ToString();
+                        TempDetected.Append(t.KeyboardAllStrings[IndecCurrent]);
                     }
                     ///else
                        // return false;
                        //Add created items string to list
-                    Detected.Add(TempDetected);
+                    Detected.Add(TempDetected.ToString());
                 }
 
             }
