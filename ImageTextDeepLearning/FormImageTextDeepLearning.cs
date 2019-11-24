@@ -360,7 +360,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
 
 
         }
-        //splitation and conjunction 
+        //Open file and load
         private void splitationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (PictureBoxImageTextDeepLearning.BackgroundImage == null)
