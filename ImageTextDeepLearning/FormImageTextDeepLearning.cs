@@ -28,7 +28,7 @@ namespace ImageTextDeepLearning
     {
         //Global vars
         DetectionOfLitteral On = null;
-        int Width = 30, Height = 30;
+        int Width =10, Height =10;
         List<ConjunctedShape> conShapes = new List<ConjunctedShape>();
         SmallImageing t = null;
         MainForm d = null;

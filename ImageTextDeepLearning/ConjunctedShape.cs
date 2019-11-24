@@ -21,7 +21,7 @@ namespace ImageTextDeepLearning
     class ConjunctedShape
     {
         //initiate global vars
-        int Width = 30, Height = 30;
+        int Width =10, Height =10;
         MainForm d = null;
         int Threashold = 5;
         public List<Point> Collection = new List<Point>();

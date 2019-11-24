@@ -18,7 +18,7 @@ namespace ImageTextDeepLearning
     class AllKeyboardOfWorld
     {
         //Initiate global vars
-        int Width = 30, Height = 30;
+        int Width =10, Height =10;
         public List<String> KeyboardAllStrings = new List<String>();
         public List<Image> KeyboardAllImage = new List<Image>();
         public List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();

@@ -552,7 +552,7 @@
             this.label3.Location = new Point(0x61, 0x12);
             this.label3.Name = "label3";
             this.label3.Size = new Size(90, 13);
-            this.label3.TabIndex = 30;
+            this.label3.TabIndex =10;
             this.label3.Text = "Min. contour area";
             this.groupBox1.Controls.Add(this.nudAdaptiveThBlockSize);
             this.groupBox1.Controls.Add(this.label7);
