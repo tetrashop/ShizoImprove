@@ -26,30 +26,30 @@ namespace ImageTextDeepLearning
         MainForm dd = null;
         AllKeyboardOfWorld ConjunctedShapeListRequired = null;
         //Constructor
-        public DetectionOfLitteral(ImageTextDeepLearning.FormImageTextDeepLearning This, MainForm d)
+        public DetectionOfLitteral(ref ImageTextDeepLearning.FormImageTextDeepLearning This, MainForm d)
         {
             try
             {
                 dd = d;
-                //This.SetCallSetLablr("Initiate All Key...");
-                //This.RefCallSetLablr();
+                This.SetCallSetLablr("Initiate All Key...");
+                This.RefCallSetLablr();
                 t.ConvertAllStringToImage(d);
-                //This.SetCallSetLablr("Initiate Conjunction...");
-                //This.RefCallSetLablr();
+                This.SetCallSetLablr("Initiate Conjunction...");
+                This.RefCallSetLablr();
 
                 tt = new ConjunctedShape(d);
-                //This.SetCallSetLablr("Cretion Conjuncted untile Mattix...");
-                //This.RefCallSetLablr();
+                This.SetCallSetLablr("Cretion Conjuncted untile Mattix...");
+                This.RefCallSetLablr();
                 tt.CreateSAhapeFromConjucted(Width, Heigh);
-                //This.SetCallSetLablr("Initiate...");
-                //This.RefCallSetLablr();
+                This.SetCallSetLablr("Initiate...");
+                This.RefCallSetLablr();
                 ConjunctedShapeListRequired = new AllKeyboardOfWorld();
-                //This.SetCallSetLablr("Initiate For Key Matrix...");
-                //This.RefCallSetLablr();
+                This.SetCallSetLablr("Initiate For Key Matrix...");
+                This.RefCallSetLablr();
 
                 ConjunctedShapeListRequired.ConvertAllTempageToMatrix(tt.AllImage);
-                //This.SetCallSetLablr("Detection...");
-                //This.RefCallSetLablr();
+                This.SetCallSetLablr("Detection...");
+                This.RefCallSetLablr();
 
                 Detection(Width, Heigh);
             }
@@ -97,13 +97,17 @@ namespace ImageTextDeepLearning
                     for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
                     {
                         //retrive similarity value
-                        double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
+                        //double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrixList[k], Wi, Hei);
+                        double KeyDif = Colleralation.GetCorrelationScore(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Width);
                         //when is ready and proper
-                        if (System.Math.Abs(1- KeyDif ) < Threashold)
+                        //if (System.Math.Abs(1- KeyDif ) < Threashold)
+                        if (KeyDif > KeyBoardDif)
                         {
                             //set
                             IndecCurrent = k;
-                            break;
+                            KeyBoardDif = KeyDif;
+                            if (KeyDif >= Width * Heigh)
+                                break;
 
                         }
                     }

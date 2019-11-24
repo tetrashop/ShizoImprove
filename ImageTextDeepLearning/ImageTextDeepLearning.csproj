@@ -67,6 +67,7 @@
     <Compile Include="AutoGenerateForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Colleralation.cs" />
     <Compile Include="ConjunctedShape.cs" />
     <Compile Include="DetectionOfLitteral.cs" />
     <Compile Include="FormImageTextDeepLearning.cs">
