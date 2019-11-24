@@ -26,7 +26,7 @@ namespace ImageTextDeepLearning
         MainForm dd = null;
         AllKeyboardOfWorld ConjunctedShapeListRequired = null;
         //Constructor
-        public DetectionOfLitteral(ImageTextDeepLearning.FormImageTextDeepLearning This, MainForm d)
+        public DetectionOfLitteral(ref ImageTextDeepLearning.FormImageTextDeepLearning This, MainForm d)
         {
             try
             {
@@ -97,13 +97,17 @@ namespace ImageTextDeepLearning
                     for (int k = 0; k < t.KeyboardAllConjunctionMatrix.Count; k++)
                     {
                         //retrive similarity value
-                        double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
+                        //double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrixList[k], Wi, Hei);
+                        double KeyDif = Colleralation.GetCorrelationScore(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Width);
                         //when is ready and proper
-                        if (System.Math.Abs(1- KeyDif ) < Threashold)
+                        //if (System.Math.Abs(1- KeyDif ) < Threashold)
+                        if (KeyDif > KeyBoardDif)
                         {
                             //set
                             IndecCurrent = k;
-                            break;
+                            KeyBoardDif = KeyDif;
+                            if (KeyDif >= Width * Heigh)
+                                break;
 
                         }
                     }

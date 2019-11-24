@@ -204,7 +204,7 @@ namespace ImageTextDeepLearning
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                                //Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
+                               // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
 
                                 if (!(Temp.GetPixel(k,p).A == 255 && Temp.GetPixel(k,p).R == 255 && Temp.GetPixel(k,p).B == 255 && Temp.GetPixel(k,p).G == 255))
                                     Tem[k, p] = true;

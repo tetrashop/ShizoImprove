@@ -334,8 +334,9 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                      Three.ConvertAllStringToImage(d);
 
                  */
-                 //call detection constructor
-                    On = new DetectionOfLitteral(this,d);
+                    //call detection constructor
+                    FormImageTextDeepLearning This = this;
+                    On = new DetectionOfLitteral(ref This,d);
                 }
             }
 
