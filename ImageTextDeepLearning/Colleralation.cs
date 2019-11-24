@@ -9,7 +9,7 @@ namespace ImageTextDeepLearning
 {
     class Colleralation
     {
-
+        static double Threshold = 0.2;
         public static int GetCorrelationScore(bool[,] seriesA, bool[,] seriesB,int n)
         {
             int correlationScore = 0;
@@ -20,7 +20,7 @@ namespace ImageTextDeepLearning
                 bool A = true;
                 for (var j = 0; j < n; j++)
                 {
-                    A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), 0.5
+                    A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), Threshold
                         );
                     if (A)
                         correlationScore++;
