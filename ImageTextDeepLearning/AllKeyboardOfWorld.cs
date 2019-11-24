@@ -21,8 +21,8 @@ namespace ImageTextDeepLearning
         int Width = 30, Height = 30;
         public List<String> KeyboardAllStrings = new List<String>();
         public List<Image> KeyboardAllImage = new List<Image>();
-        public List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();
-        public List<bool[,]> KeyboardAllConjunctionMatrixList = new List<bool[,]>();
+        public List<double[,]> KeyboardAllConjunctionMatrix = new List<double[,]>();
+        public List<double[,]> KeyboardAllConjunctionMatrixList = new List<double[,]>();
         //Crate all able chars on List indevidully
         public bool CreateString()
         {
@@ -200,15 +200,17 @@ namespace ImageTextDeepLearning
                         //Add
                         KeyboardAllImage.Add(Temp);
                         //create proper conjunction matrix
-                        bool[,] Tem = new bool[Width, Height];
+                        double[,] Tem = new double[Width, Height];
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                                if (!(Temp.GetPixel(k,p).A == 255 && Temp.GetPixel(k,p).R == 255 && Temp.GetPixel(k,p).B == 255 && Temp.GetPixel(k,p).G == 255))
+                                Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
+
+                                /*if (!(Temp.GetPixel(k,p).A == 255 && Temp.GetPixel(k,p).R == 255 && Temp.GetPixel(k,p).B == 255 && Temp.GetPixel(k,p).G == 255))
                                     Tem[k, p] = true;
                                 else
                                     Tem[k, p] = false;
-
+*/
                             }
                         //Add
                         KeyboardAllConjunctionMatrix.Add(Tem);
@@ -248,10 +250,10 @@ namespace ImageTextDeepLearning
                     for (int i = 0; i < Temp.Count; i++)
                     {
                         //matrix boolean object constructor list
-                        List<bool[,]> Te = new List<bool[,]>();
+                        List<double[,]> Te = new List<double[,]>();
 
                         //boolean object constructor
-                        bool[,] Tem = new bool[Width, Height];
+                        double[,] Tem = new double[Width, Height];
                         //for all width
                         for (int k = 0; k < Width; k++)
                         {
@@ -259,12 +261,13 @@ namespace ImageTextDeepLearning
                             for (int p = 0; p < Height; p++)
                             {
                                 //assigne proper matrix
-                                if (!(Temp[i].GetPixel(k,p).A == 255 && Temp[i].GetPixel(k,p).R == 255 && Temp[i].GetPixel(k,p).B == 255 && Temp[i].GetPixel(k,p).G == 255))
+                                Tem[k, p] = Temp[i].GetPixel(k, p).ToArgb();
+                               /* if (!(Temp[i].GetPixel(k,p).A == 255 && Temp[i].GetPixel(k,p).R == 255 && Temp[i].GetPixel(k,p).B == 255 && Temp[i].GetPixel(k,p).G == 255))
 
                                     Tem[k, p] = true;
                                 else
                                     Tem[k, p] = false;
-
+*/
                             }
                         }
                         //add

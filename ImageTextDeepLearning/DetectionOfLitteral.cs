@@ -17,6 +17,7 @@ namespace ImageTextDeepLearning
     {
         //initiate global vars
         int Width = 30, Heigh = 30;
+        double Threashold = 0.01;
         public AllKeyboardOfWorld t = new AllKeyboardOfWorld();
         public ConjunctedShape tt = null;
         //AllKeyLocation
@@ -62,7 +63,7 @@ namespace ImageTextDeepLearning
             }
         }
         //Detection main similarity method
-        double DifferentBool(bool[,] Key, bool[,] Src, int Wi, int Hei)
+        double DifferentBool(double[,] Key, double[,] Src, int Wi, int Hei)
         {
             double Dif = 0;
             if (Wi != Hei)
@@ -97,13 +98,13 @@ namespace ImageTextDeepLearning
                     {
                         //retrive similarity value
                         double KeyDif = DifferentBool(ConjunctedShapeListRequired.KeyboardAllConjunctionMatrixList[i], t.KeyboardAllConjunctionMatrix[k], Wi, Hei);
-                        //when is ready and greater
-                        if (KeyDif > KeyBoardDif)
+                        //when is ready and proper
+                        if (System.Math.Abs(KeyDif - 1) < Threashold)
                         {
                             //set
-                            KeyBoardDif = KeyDif;
                             IndecCurrent = k;
                             break;
+
                         }
                     }
                     //when found
