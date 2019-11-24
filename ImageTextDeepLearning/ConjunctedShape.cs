@@ -153,13 +153,13 @@ namespace ImageTextDeepLearning
 
 
                    
-                       /* Do = ColorizedCountreImageConjunction(ref Temp);
+                        Do = ColorizedCountreImageCommmon(ref Temp);
                         if (!Do)
                         {
                             MessageBox.Show("Coloriezed Fatal Error");
                             return false;
                         }
-                        */
+                        
                         //resized to proper space
                         Temp = new Bitmap(Temp, new Size(Wi, Hei));
 
@@ -247,7 +247,7 @@ namespace ImageTextDeepLearning
             return true;
         }
         //Colorized an image
-        bool ColorizedCountreImageCommmon(Bitmap Im)
+        bool ColorizedCountreImageCommmon(ref Bitmap Im)
         {
             try
             {

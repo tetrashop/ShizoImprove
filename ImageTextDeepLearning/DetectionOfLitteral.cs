@@ -63,7 +63,7 @@ namespace ImageTextDeepLearning
             }
         }
         //Detection main similarity method
-        double DifferentBool(double[,] Key, double[,] Src, int Wi, int Hei)
+        double DifferentBool(bool[,] Key, bool[,] Src, int Wi, int Hei)
         {
             double Dif = 0;
             if (Wi != Hei)
