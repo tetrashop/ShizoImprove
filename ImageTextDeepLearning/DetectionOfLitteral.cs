@@ -118,11 +118,12 @@ namespace ImageTextDeepLearning
                         //set items
                         Do = true;
                         TempDetected.Append(t.KeyboardAllStrings[IndecCurrent]);
+                        Detected.Add(TempDetected.ToString());
                     }
                     ///else
                        // return false;
                        //Add created items string to list
-                    Detected.Add(TempDetected.ToString());
+                    
                 }
 
             }

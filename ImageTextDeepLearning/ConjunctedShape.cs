@@ -2,6 +2,7 @@
  * Ramin Edjlal*********************************************************************
  CopyRighted 1398/0802**************************************************************
  TetraShop.Ir***********************************************************************
+ https://www.codingdefined.com/2015/04/solved-bitmapclone-out-of-memory.html********
  ***********************************************************************************/
 using System;
 using System.Collections.Generic;
@@ -36,40 +37,49 @@ namespace ImageTextDeepLearning
         }
 
         //Max of list
-        int MaxX(List<Point[]> Tem, int i)
+        int MaxX(Point[] Tem)
         {
             int te = 0;
-            Point t = Tem[i].Max<Point>();
-            te = t.X;
-
+            for (int j = 0; j < Tem.Length; j++)
+            {
+                if (Tem[j].X > te)
+                    te = Tem[j].X;
+            }
             return te;
         }
         //Max of list
-        int MaxY(List<Point[]> Tem, int i)
+        int MaxY(Point[] Tem)
         {
             int te = 0;
-            Point t = Tem[i].Max<Point>();
-            te = t.Y;
-
-
-            return te;
-        }
-        //Min of list
-        int MinX(List<Point[]> Tem, int i)
-        {
-            int te = Int32.MaxValue;
-
-            Point t = Tem[i].Min<Point>();
-            te = t.X;
+            for (int j = 0; j < Tem.Length; j++)
+            {
+                if (Tem[j].Y > te)
+                    te = Tem[j].Y;
+            }
 
             return te;
         }
         //Min of list
-        int MinY(List<Point[]> Tem, int i)
+        int MinX(Point[] Tem)
         {
             int te = Int32.MaxValue;
-            Point t = Tem[i].Min<Point>();
-            te = t.Y;
+
+            for (int j = 0; j < Tem.Length; j++)
+            {
+                if (Tem[j].X < te)
+                    te = Tem[j].X;
+            }
+            return te;
+        }
+        //Min of list
+        int MinY(Point[] Tem)
+        {
+            int te = Int32.MaxValue;
+            for (int j = 0; j < Tem.Length; j++)
+            {
+                if (Tem[j].Y < te)
+                    te = Tem[j].Y;
+            }
             return te;
         }
         //max of to object
@@ -88,6 +98,26 @@ namespace ImageTextDeepLearning
             return miny;
 
         }
+        Bitmap cropImage(Bitmap img, Rectangle cropArea)
+        {
+            int wi = cropArea.X + cropArea.Width - cropArea.X;
+
+            int Hi = cropArea.Height - cropArea.Y;
+            int X = cropArea.X;
+            int Y = cropArea.Y;
+            int XX = cropArea.Width;
+            int YY = cropArea.Height;
+
+
+
+
+            Bitmap bmp = new Bitmap(Width, Height);
+            using (Graphics gph = Graphics.FromImage(bmp))
+            {
+                gph.DrawImage(img, new Rectangle(0, 0, Width, Height), new Rectangle(X, Y, XX, YY), GraphicsUnit.Pixel);
+            }
+            return bmp;
+        }
         //Create shape of conjuncted countor poins
         public bool CreateSAhapeFromConjucted(int Wi, int Hei)
         {
@@ -104,55 +134,57 @@ namespace ImageTextDeepLearning
                     //for all items
                     for (int i = 0; i < All.Count; i++)
                     {
-                        //initate constructor object and initate...
-                        List<Bitmap> TempAllImage = new List<Bitmap>();
-
-
-                        Bitmap Temp = null;
-                        List<Point[]> Tem = new List<Point[]>();
-                        //retrive current item
-                        Tem = All[i];
-                        //retrive min and max of tow X and Y
-                        int MiX = MinX(Tem, i), MiY = MinY(Tem, i), MaX = MaxX(Tem, i), MaY = MaxY(Tem, i);
-
-
-                        //centeralized
-                        int MxM = (MaX + MiX) / 2;
-                        int MyM = (MiY + MaY) / 2;
-                        int Mx = MxM * 2;
-                        int My = MyM * 2;
-                        //initate new root image empty
-                        Temp = new Bitmap(Mx, My);
-
-                        //Draw fill white image
-                        Graphics e = Graphics.FromImage(Temp);
-                        e.FillRectangle(Brushes.White, new Rectangle(((int)(((double)Mx) * 0.01)), ((int)(((double)My) * 0.01)), Mx - ((int)(((double)Mx) * 0.01)), My - ((int)(((double)My) * 0.01))));
-
-
-
-                        //draw all points
-                        e.FillPolygon(Brushes.Black, Tem[i].ToArray());
-
-
-                        Rectangle cropArea = new Rectangle((Tem[i].ToArray().Min<Point>()).X, (Tem[i].ToArray().Min<Point>()).Y, (Tem[i].ToArray().Max<Point>()).X, (Tem[i].ToArray().Max<Point>()).Y);
-                        //crop to proper space
-
-                        Temp = Temp.Clone(cropArea, Temp.PixelFormat);
-
-
-                        Do = ColorizedCountreImageCommmon(ref Temp);
-                        if (!Do)
+                        for (int j = 0; j < All[i].Count; j++)
                         {
-                            MessageBox.Show("Coloriezed Fatal Error");
-                            return false;
+                            //initate constructor object and initate...
+                            List<Bitmap> TempAllImage = new List<Bitmap>();
+
+
+                            
+                            Point[] Tem = null;
+                            //retrive current item
+                            Tem = All[i][j];
+                            //retrive min and max of tow X and Y
+                            int MiX = MinX(Tem), MiY = MinY(Tem), MaX = MaxX(Tem), MaY = MaxY(Tem);
+
+
+                            //centeralized
+                            int MxM = (MaX + MiX) / 2;
+                            int MyM = (MiY + MaY) / 2;
+                            int Mx = MxM * 2;
+                            int My = MyM * 2;
+                            //initate new root image empty
+                            Bitmap Temp = new Bitmap(Mx, My);
+
+                            //Draw fill white image
+                            Graphics e = Graphics.FromImage(Temp);
+                            e.FillRectangle(Brushes.White, new Rectangle(0, 0, Mx, My));
+
+
+
+                            //draw all points
+                            e.DrawLines(Pens.Black, Tem);
+
+
+                            //Rectangle cropArea = new Rectangle(MiX, MiY, MaX, MaY);
+                            //crop to proper space
+
+                            Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
+
+
+                          /*  Do = ColorizedCountreImageCommmon(ref Te);
+                            if (!Do)
+                            {
+                                MessageBox.Show("Coloriezed Fatal Error");
+                                return false;
+                            }
+*/
+                            //add image
+                            AllImage.Add(Te);
+                            e.Dispose();
+
                         }
-                      
-                        //add image
-                        AllImage.Add(Temp);
-                        e.Dispose();
-
                     }
-
 
                 }
                 else

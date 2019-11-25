@@ -195,7 +195,7 @@ namespace ImageTextDeepLearning
                         //create proper image graphics
                         Graphics e = Graphics.FromImage(Temp);
                         //draw string
-                        e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(((int)(((double)Width) * 0.01)), ((int)(((double)Height) * 0.01)), Width - ((int)(((double)Width) * 0.01)), Height - ((int)(((double)Height) * 0.01))));
+                        e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
                         e.Dispose();
                         //Add
                         KeyboardAllImage.Add(Temp);
@@ -206,7 +206,7 @@ namespace ImageTextDeepLearning
                             {
                                // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
 
-                                if (!(Temp.GetPixel(k,p).A == 255 && Temp.GetPixel(k,p).R == 255 && Temp.GetPixel(k,p).B == 255 && Temp.GetPixel(k,p).G == 255))
+                                if ((Temp.GetPixel(k,p).A == 0 && Temp.GetPixel(k,p).R == 0 && Temp.GetPixel(k,p).B == 0 && Temp.GetPixel(k,p).G == 0))
                                     Tem[k, p] = true;
                                 else
                                     Tem[k, p] = false;
@@ -262,7 +262,7 @@ namespace ImageTextDeepLearning
                             {
                                 //assigne proper matrix
                                 //Tem[k, p] = Temp[i].GetPixel(k, p).ToArgb();
-                                if (!(Temp[i].GetPixel(k,p).A == 255 && Temp[i].GetPixel(k,p).R == 255 && Temp[i].GetPixel(k,p).B == 255 && Temp[i].GetPixel(k,p).G == 255))
+                                if ((Temp[i].GetPixel(k,p).A == 0 && Temp[i].GetPixel(k,p).R == 0 && Temp[i].GetPixel(k,p).B == 0 && Temp[i].GetPixel(k,p).G == 0))
 
                                     Tem[k, p] = true;
                                 else
