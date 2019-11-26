@@ -172,13 +172,13 @@ namespace ImageTextDeepLearning
                             Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
 
 
-                          /*  Do = ColorizedCountreImageCommmon(ref Te);
+                            Do = ColorizedCountreImageCommmon(ref Te);
                             if (!Do)
                             {
                                 MessageBox.Show("Coloriezed Fatal Error");
                                 return false;
                             }
-*/
+
                             //add image
                             AllImage.Add(Te);
                             e.Dispose();

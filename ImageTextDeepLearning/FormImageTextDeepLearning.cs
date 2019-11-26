@@ -394,20 +394,35 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                 }
             }
         }
+        void Draw()
+        {
+            for (int i = 0; i < On.tt.AllImage.Count; i++)
+            {
+                Object O = new Object();
+                lock (O)
+                {
+                    try
+                    {
+                        pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
+                        pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                        pictureBoxTest.Refresh();
+                        pictureBoxTest.Update();
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    catch (System.Exception t) { }
+                }
+            }
+        }
         //conjuncton create shapes menue strip
         private void createConjunctionShapesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
             t.Start();
             t.Join();
-            for (int i = 0; i < On.tt.AllImage.Count; i++)
-            {
-                pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
-                pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                pictureBoxTest.Refresh();
-                pictureBoxTest.Update();
-                System.Threading.Thread.Sleep(1000);
-            }
+             t = new System.Threading.Thread(new System.Threading.ThreadStart(Draw));
+            t.Start();
+            t.Join();
+
             for (int i = 0; i < On.Detected.Count; i++)
             {
                 textBoxImageTextDeepLearning.AppendText(On.Detected[i]);

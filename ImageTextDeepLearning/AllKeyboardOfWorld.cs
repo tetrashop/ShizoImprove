@@ -194,8 +194,12 @@ namespace ImageTextDeepLearning
                         Bitmap Temp = new Bitmap(Width, Height);
                         //create proper image graphics
                         Graphics e = Graphics.FromImage(Temp);
+
+                        //Draw fill white image
+                        e.FillRectangle(Brushes.White, new Rectangle(0, 0, Width, Height));
+
                         //draw string
-                        e.DrawString(KeyboardAllStrings[i], new Font(d.Font.FontFamily, 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
+                        e.DrawString(KeyboardAllStrings[i], new Font("Arial", 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
                         e.Dispose();
                         //Add
                         KeyboardAllImage.Add(Temp);
