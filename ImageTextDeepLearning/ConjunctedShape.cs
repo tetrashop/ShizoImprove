@@ -160,7 +160,7 @@ namespace ImageTextDeepLearning
 
 
                             //draw all points
-                            e.DrawLines(Pens.Black, Tem);
+                            e.FillPolygon(Brushes.Black, Tem,System.Drawing.Drawing2D.FillMode.Alternate);
 
 
                             //Rectangle cropArea = new Rectangle(MiX, MiY, MaX, MaY);
@@ -169,13 +169,13 @@ namespace ImageTextDeepLearning
                             Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
 
 
-                            Do = ColorizedCountreImageCommmon(ref Te);
+                           /* Do = ColorizedCountreImageCommmon(ref Te);
                             if (!Do)
                             {
                                 MessageBox.Show("Coloriezed Fatal Error");
                                 return false;
                             }
-
+                            */
                             //add image
                             AllImage.Add(Te);
                             e.Dispose();
