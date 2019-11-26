@@ -200,17 +200,15 @@ namespace ImageTextDeepLearning
 
                         //draw string
                         e.DrawString(KeyboardAllStrings[i], new Font("Arial", 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
-                        e.Dispose();
                         //Add
                         KeyboardAllImage.Add(Temp);
                         //create proper conjunction matrix
-                        bool[,] Tem = new bool[Width, Height];
+                         bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
-                               // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
-
-                                if ((Temp.GetPixel(k,p).A == 0 && Temp.GetPixel(k,p).R == 0 && Temp.GetPixel(k,p).B == 0 && Temp.GetPixel(k,p).G == 0))
+                                // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
+                                if (!(Temp.GetPixel(k,p).A == 255 && Temp.GetPixel(k,p).R == 255 && Temp.GetPixel(k,p).B == 255 && Temp.GetPixel(k,p).G == 255))
                                     Tem[k, p] = true;
                                 else
                                     Tem[k, p] = false;
@@ -218,6 +216,7 @@ namespace ImageTextDeepLearning
                             }
                         //Add
                         KeyboardAllConjunctionMatrix.Add(Tem);
+                        e.Dispose();
                     }
                     //save all
                     Do = SaveAll();
@@ -266,7 +265,7 @@ namespace ImageTextDeepLearning
                             {
                                 //assigne proper matrix
                                 //Tem[k, p] = Temp[i].GetPixel(k, p).ToArgb();
-                                if ((Temp[i].GetPixel(k,p).A == 0 && Temp[i].GetPixel(k,p).R == 0 && Temp[i].GetPixel(k,p).B == 0 && Temp[i].GetPixel(k,p).G == 0))
+                                if (!(Temp[i].GetPixel(k, p).A == 255 && Temp[i].GetPixel(k, p).R == 255 && Temp[i].GetPixel(k, p).B == 255 && Temp[i].GetPixel(k, p).G == 255))
 
                                     Tem[k, p] = true;
                                 else
