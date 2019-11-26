@@ -42,13 +42,14 @@
             this.CreateConSha = new System.Windows.Forms.Button();
             this.labelMonitor = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createConjunctionShapesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonTxtTemplates = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTest)).BeginInit();
             this.panelImageTextDeepLearning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).BeginInit();
@@ -177,14 +178,6 @@
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStripImageTextDeepLearning";
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -196,24 +189,17 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.toolStripMenuItem1.Text = "File";
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // splitationToolStripMenuItem
             // 
             this.splitationToolStripMenuItem.Name = "splitationToolStripMenuItem";
-            this.splitationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.splitationToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.splitationToolStripMenuItem.Text = "Splitation";
             this.splitationToolStripMenuItem.Click += new System.EventHandler(this.splitationToolStripMenuItem_Click);
             // 
@@ -231,11 +217,37 @@
             this.txtDetectionToolStripMenuItem.Text = "TxtDetection";
             this.txtDetectionToolStripMenuItem.Click += new System.EventHandler(this.txtDetectionToolStripMenuItem_Click);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // buttonTxtTemplates
+            // 
+            this.buttonTxtTemplates.Location = new System.Drawing.Point(420, 415);
+            this.buttonTxtTemplates.Name = "buttonTxtTemplates";
+            this.buttonTxtTemplates.Size = new System.Drawing.Size(82, 23);
+            this.buttonTxtTemplates.TabIndex = 11;
+            this.buttonTxtTemplates.Text = "TxtTemplatets";
+            this.buttonTxtTemplates.UseVisualStyleBackColor = true;
+            this.buttonTxtTemplates.Click += new System.EventHandler(this.buttonTxtTemplates_Click);
+            // 
             // FormImageTextDeepLearning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonTxtTemplates);
             this.Controls.Add(this.labelMonitor);
             this.Controls.Add(this.CreateConSha);
             this.Controls.Add(this.checkBoxDisablePaintOnAligns);
@@ -283,6 +295,7 @@
         private System.Windows.Forms.ToolStripMenuItem splitationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createConjunctionShapesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem txtDetectionToolStripMenuItem;
+        private System.Windows.Forms.Button buttonTxtTemplates;
     }
 }
 

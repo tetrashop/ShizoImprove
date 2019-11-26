@@ -26,6 +26,7 @@ namespace ImageTextDeepLearning
     //Constructor
     public partial class FormImageTextDeepLearning : Form
     {
+        bool Recognized = false;
         //Global vars
         DetectionOfLitteral On = null;
         int Width =10, Height =10;
@@ -178,6 +179,9 @@ if (buttonSplitationConjunction.Text == "Conjunction")
         //detect of literalson image to be text 
         private void buttonTxtDetect_Click(object sender, EventArgs e)
         {
+            Recognized = false;
+            textBoxImageTextDeepLearning.Text = "";
+            
             //detection foregin unnkown app constructor
             d = new MainForm();
             d.ShowDialog();
@@ -222,6 +226,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
         //main picture boc pain event
         private void PictureBoxImageTextDeepLearning_Paint(object sender, PaintEventArgs e)
         {
+            bool Re = false;
             //when foregin is ready
             if (d != null)
             {
@@ -290,7 +295,13 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                                 name = name + $"angle={((180.0 * current.angle) / 3.1415926535897931):000}°scale={current.scale:0.0}";
 
                             }
-
+                            if (!Recognized)
+                            {
+                                textBoxImageTextDeepLearning.Text += name;
+                                textBoxImageTextDeepLearning.Refresh();
+                                textBoxImageTextDeepLearning.Update();
+                                Re = true;
+                            }
                             e.Graphics.DrawRectangle(pen, sourceBoundingRect);
                             e.Graphics.DrawString(name, font, brush, new PointF((float)((point.X + 1) - (font.Height / 3)), (float)((point.Y + 1) - font.Height)));
                             e.Graphics.DrawString(name, font, brush2, new PointF((float)(point.X - (font.Height / 3)), (float)(point.Y - font.Height)));
@@ -299,6 +310,8 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                 }
 
             }
+            if (Re)
+                Recognized = true;
             PictureBoxImageTextDeepLearning.Update();
             PictureBoxImageTextDeepLearning.Refresh();
         }
@@ -451,6 +464,12 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             PictureBoxImageTextDeepLearning.Update();
             PictureBoxImageTextDeepLearning.Refresh();
         }
+
+        private void buttonTxtTemplates_Click(object sender, EventArgs e)
+        {
+    
+        }
+
         //create main detection button
         private void CreateConSha_Click(object sender, EventArgs e)
         {

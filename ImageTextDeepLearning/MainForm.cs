@@ -847,6 +847,7 @@
             this.lbContoursCount.Size = new System.Drawing.Size(120, 17);
             this.lbContoursCount.Text = "Total Contours: ";
             this.lbContoursCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbContoursCount.Click += new System.EventHandler(this.lbContoursCount_Click);
             // 
             // lbRecognized
             // 
@@ -859,6 +860,7 @@
             this.lbRecognized.Size = new System.Drawing.Size(150, 17);
             this.lbRecognized.Text = "Recognized Contours: ";
             this.lbRecognized.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbRecognized.Click += new System.EventHandler(this.btOpenTemplates_Click);
             // 
             // btNewTemplates
             // 
@@ -956,6 +958,7 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(86, 22);
             this.toolStripLabel1.Text = "toolStripLabel1";
+            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -1109,6 +1112,16 @@
         }
 
         private void ssMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbContoursCount_Click(object sender, EventArgs e)
         {
 
         }
