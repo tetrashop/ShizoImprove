@@ -860,7 +860,7 @@
             this.lbRecognized.Size = new System.Drawing.Size(150, 17);
             this.lbRecognized.Text = "Recognized Contours: ";
             this.lbRecognized.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbRecognized.Click += new System.EventHandler(this.btOpenTemplates_Click);
+            this.lbRecognized.Click += new System.EventHandler(this.btAutoGenerate_Click);
             // 
             // btNewTemplates
             // 

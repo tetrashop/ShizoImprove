@@ -100,9 +100,6 @@ namespace ImageTextDeepLearning
         }
         Bitmap cropImage(Bitmap img, Rectangle cropArea)
         {
-            int wi = cropArea.X + cropArea.Width - cropArea.X;
-
-            int Hi = cropArea.Height - cropArea.Y;
             int X = cropArea.X;
             int Y = cropArea.Y;
             int XX = cropArea.Width;

@@ -156,6 +156,84 @@ namespace ImageTextDeepLearning
             //return true
             return true;
         }
+        int MinY(Bitmap Im)
+        {
+            int Mi = 0;
+            int j = 0;
+            for (int k = 0; k < Im.Height; k++)
+            {
+                if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
+                {
+                    Mi = k;
+                    break;
+                }
+            }
+            return Mi;
+
+        }
+        Bitmap cropImage(Bitmap img, Rectangle cropArea)
+        {
+               int X = cropArea.X;
+            int Y = cropArea.Y;
+            int XX = cropArea.Width;
+            int YY = cropArea.Height;
+
+
+
+
+            Bitmap bmp = new Bitmap(Width, Height);
+            using (Graphics gph = Graphics.FromImage(bmp))
+            {
+                gph.DrawImage(img, new Rectangle(0, 0, Width, Height), new Rectangle(X, Y, XX, YY), GraphicsUnit.Pixel);
+            }
+            return bmp;
+        }
+
+        int MinX(Bitmap Im)
+        {
+            int Mi = 0;
+            int k = 0;
+            for (int j = 0; j < Im.Width; j++)
+            {
+                if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
+                {
+                    Mi = j;
+                    break;
+                }
+            }
+            return Mi;
+
+        }
+        int MaxY(Bitmap Im)
+        {
+            int Ma = 0;
+            int j = 0;
+            for (int k = Im.Height-1; k >= 0; k--)
+            {
+                if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
+                {
+                    Ma = k;
+                    break;
+                }
+            }
+            return Ma;
+
+        }
+        int MaxX(Bitmap Im)
+        {
+            int Ma = 0;
+            int k = 0;
+            for (int j = Im.Width-1; j >= 0; j--)
+            {
+                if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
+                {
+                    Ma = j;
+                    break;
+                }
+            }
+            return Ma;
+
+        }
         //stor all strings list to proper  images themselves list
         public bool ConvertAllStringToImage(MainForm d)
         {
@@ -180,7 +258,7 @@ namespace ImageTextDeepLearning
                 else//else return successfull
                 {
                     Do = true;
-                    
+
                 }
                 //when existence os string list and empty od image list
                 if (Do && KeyboardAllImage.Count == 0)
@@ -200,15 +278,21 @@ namespace ImageTextDeepLearning
 
                         //draw string
                         e.DrawString(KeyboardAllStrings[i], new Font("Arial", 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
+                        //retrive min and max of tow X and Y
+                        int MiX = MinX(Temp), MiY = MinY(Temp), MaX = MaxX(Temp), MaY = MaxY(Temp);
+
+                        //crop to proper space
+                        Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
+
                         //Add
-                        KeyboardAllImage.Add(Temp);
+                        KeyboardAllImage.Add(Te);
                         //create proper conjunction matrix
-                         bool[,] Tem = new bool[Width, Height];
+                        bool[,] Tem = new bool[Width, Height];
                         for (int k = 0; k < Width; k++)
                             for (int p = 0; p < Height; p++)
                             {
                                 // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
-                                if (!(Temp.GetPixel(k,p).A == 255 && Temp.GetPixel(k,p).R == 255 && Temp.GetPixel(k,p).B == 255 && Temp.GetPixel(k,p).G == 255))
+                                if (!(Te.GetPixel(k, p).A == 255 && Te.GetPixel(k, p).R == 255 && Te.GetPixel(k, p).B == 255 && Te.GetPixel(k, p).G == 255))
                                     Tem[k, p] = true;
                                 else
                                     Tem[k, p] = false;
