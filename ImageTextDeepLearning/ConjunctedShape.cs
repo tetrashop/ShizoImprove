@@ -318,6 +318,8 @@ namespace ImageTextDeepLearning
         //Create Conjuncted image
         bool ConjunctedShapeCreate(MainForm d)
         {
+            All.Clear();
+            Collection.Clear();
             try
             {
                 //get counter points of foreign
@@ -340,13 +342,13 @@ namespace ImageTextDeepLearning
                         while (true)
                         {
                             //when there is not and is not empty at list
-                            if (!All.Contains(Collection) && Collection.Count > 1)
+                          /*  if (!All.Contains(Collection) && Collection.Count > 1)
                             {
                                 //add collection
                                 All.Add(Collection);
                                 Collection = new List<Point[]>();
 
-                            }
+                            }*/
                             //next enumerator
                             flag1 = enumerator1.MoveNext();
                             //when is finished break 
@@ -365,8 +367,11 @@ namespace ImageTextDeepLearning
 
 
                             Collection.Add(PointP1);
-
+                            flag2 = true;
                         }
+                        if(flag2)                         
+                            All.Add(Collection);
+                        Collection = new List<Point[]>();
                     } while (true);
                 }
             }
