@@ -17,8 +17,22 @@ namespace ImageTextDeepLearning
     [Serializable]
     class AllKeyboardOfWorld
     {
-        //Initiate global vars
-        int Width =10, Height =10;
+        public static List<string> fonts = new List<string>();
+
+        public AllKeyboardOfWorld()
+        {
+            if (fonts.Count == 0)
+            {
+                fonts.Clear();
+                bool Do = ListAllFonts();
+                if (!Do)
+                    fonts.Clear();
+            }
+
+        }
+
+    //Initiate global vars
+    int Width =10, Height =10;
         public List<String> KeyboardAllStrings = new List<String>();
         public List<Image> KeyboardAllImage = new List<Image>();
         public List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();
@@ -65,6 +79,18 @@ namespace ImageTextDeepLearning
                     return false;
                 }
             }
+            return true;
+        }
+        bool ListAllFonts()
+        {
+            try
+            {
+                foreach (FontFamily font in System.Drawing.FontFamily.Families)
+                {
+                    fonts.Add(font.Name);
+                }
+            }
+            catch (Exception t) { return false; }
             return true;
         }
         //Savle all
@@ -268,39 +294,80 @@ namespace ImageTextDeepLearning
                     //for all lists items
                     for (int i = 0; i < KeyboardAllStrings.Count; i++)
                     {
-                        //proper empty image coinstruction object
-                        Bitmap Temp = new Bitmap(Width, Height);
-                        //create proper image graphics
-                        Graphics e = Graphics.FromImage(Temp);
+                        if (fonts.Count > 0)
+                        {
+                            //Do literal Database for All fonts
+                            for (int h = 0; h < fonts.Count; h++)
+                            {    //proper empty image coinstruction object
+                                Bitmap Temp = new Bitmap(Width, Height);
+                                //create proper image graphics
+                                Graphics e = Graphics.FromImage(Temp);
 
-                        //Draw fill white image
-                        e.FillRectangle(Brushes.White, new Rectangle(0, 0, Width, Height));
+                                //Draw fill white image
+                                e.FillRectangle(Brushes.White, new Rectangle(0, 0, Width, Height));
 
-                        //draw string
-                        e.DrawString(KeyboardAllStrings[i], new Font("Arial", 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
-                        //retrive min and max of tow X and Y
-                        int MiX = MinX(Temp), MiY = MinY(Temp), MaX = MaxX(Temp), MaY = MaxY(Temp);
+                                //draw string
+                                e.DrawString(KeyboardAllStrings[i], new Font(fonts[h], 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
+                                //retrive min and max of tow X and Y
+                                int MiX = MinX(Temp), MiY = MinY(Temp), MaX = MaxX(Temp), MaY = MaxY(Temp);
 
-                        //crop to proper space
-                        Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
+                                //crop to proper space
+                                Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
 
-                        //Add
-                        KeyboardAllImage.Add(Te);
-                        //create proper conjunction matrix
-                        bool[,] Tem = new bool[Width, Height];
-                        for (int k = 0; k < Width; k++)
-                            for (int p = 0; p < Height; p++)
-                            {
-                                // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
-                                if (!(Te.GetPixel(k, p).A == 255 && Te.GetPixel(k, p).R == 255 && Te.GetPixel(k, p).B == 255 && Te.GetPixel(k, p).G == 255))
-                                    Tem[k, p] = true;
-                                else
-                                    Tem[k, p] = false;
+                                //Add
+                                KeyboardAllImage.Add(Te);
+                                //create proper conjunction matrix
+                                bool[,] Tem = new bool[Width, Height];
+                                for (int k = 0; k < Width; k++)
+                                    for (int p = 0; p < Height; p++)
+                                    {
+                                        // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
+                                        if (!(Te.GetPixel(k, p).A == 255 && Te.GetPixel(k, p).R == 255 && Te.GetPixel(k, p).B == 255 && Te.GetPixel(k, p).G == 255))
+                                            Tem[k, p] = true;
+                                        else
+                                            Tem[k, p] = false;
 
+                                    }
+                                //Add
+                                KeyboardAllConjunctionMatrix.Add(Tem);
+                                e.Dispose();
                             }
-                        //Add
-                        KeyboardAllConjunctionMatrix.Add(Tem);
-                        e.Dispose();
+                        }
+                        else
+                        {
+                            Bitmap Temp = new Bitmap(Width, Height);
+                            //create proper image graphics
+                            Graphics e = Graphics.FromImage(Temp);
+
+                            //Draw fill white image
+                            e.FillRectangle(Brushes.White, new Rectangle(0, 0, Width, Height));
+
+                            //draw string
+                            e.DrawString(KeyboardAllStrings[i], new Font("Arial", 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
+                            //retrive min and max of tow X and Y
+                            int MiX = MinX(Temp), MiY = MinY(Temp), MaX = MaxX(Temp), MaY = MaxY(Temp);
+
+                            //crop to proper space
+                            Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
+
+                            //Add
+                            KeyboardAllImage.Add(Te);
+                            //create proper conjunction matrix
+                            bool[,] Tem = new bool[Width, Height];
+                            for (int k = 0; k < Width; k++)
+                                for (int p = 0; p < Height; p++)
+                                {
+                                    // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
+                                    if (!(Te.GetPixel(k, p).A == 255 && Te.GetPixel(k, p).R == 255 && Te.GetPixel(k, p).B == 255 && Te.GetPixel(k, p).G == 255))
+                                        Tem[k, p] = true;
+                                    else
+                                        Tem[k, p] = false;
+
+                                }
+                            //Add
+                            KeyboardAllConjunctionMatrix.Add(Tem);
+                            e.Dispose();
+                        }
                     }
                     //save all
                     Do = SaveAll();
