@@ -182,6 +182,7 @@ namespace ImageTextDeepLearning
             //return true
             return true;
         }
+        //Founf Min of Y
         int MinY(Bitmap Im)
         {
             int Mi = 0;
@@ -197,6 +198,7 @@ namespace ImageTextDeepLearning
             return Mi;
 
         }
+        //Cropping and fitting image
         Bitmap cropImage(Bitmap img, Rectangle cropArea)
         {
                int X = cropArea.X;
@@ -214,7 +216,7 @@ namespace ImageTextDeepLearning
             }
             return bmp;
         }
-
+        //Found of Min of X
         int MinX(Bitmap Im)
         {
             int Mi = 0;
@@ -230,6 +232,7 @@ namespace ImageTextDeepLearning
             return Mi;
 
         }
+        //Found of Max Of Y
         int MaxY(Bitmap Im)
         {
             int Ma = 0;
@@ -245,6 +248,7 @@ namespace ImageTextDeepLearning
             return Ma;
 
         }
+        //Found of Max of X
         int MaxX(Bitmap Im)
         {
             int Ma = 0;
@@ -260,7 +264,7 @@ namespace ImageTextDeepLearning
             return Ma;
 
         }
-        //stor all strings list to proper  images themselves list
+        //store all strings list to proper  images themselves list
         public bool ConvertAllStringToImage(MainForm d)
         {
             try
@@ -294,6 +298,7 @@ namespace ImageTextDeepLearning
                     //for all lists items
                     for (int i = 0; i < KeyboardAllStrings.Count; i++)
                     {
+                        //For all font prototype
                         if (fonts.Count > 0)
                         {
                             //Do literal Database for All fonts
@@ -315,7 +320,7 @@ namespace ImageTextDeepLearning
                                 Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
 
                                 //Add
-                                KeyboardAllImage.Add(Te);
+                                //KeyboardAllImage.Add(Te);
                                 //create proper conjunction matrix
                                 bool[,] Tem = new bool[Width, Height];
                                 for (int k = 0; k < Width; k++)
@@ -333,7 +338,7 @@ namespace ImageTextDeepLearning
                                 e.Dispose();
                             }
                         }
-                        else
+                        else//When font not installed
                         {
                             Bitmap Temp = new Bitmap(Width, Height);
                             //create proper image graphics
@@ -351,7 +356,7 @@ namespace ImageTextDeepLearning
                             Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
 
                             //Add
-                            KeyboardAllImage.Add(Te);
+                            //KeyboardAllImage.Add(Te);
                             //create proper conjunction matrix
                             bool[,] Tem = new bool[Width, Height];
                             for (int k = 0; k < Width; k++)

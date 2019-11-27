@@ -98,6 +98,7 @@ namespace ImageTextDeepLearning
             return miny;
 
         }
+        //Cropping and fitting image to correcttly map
         Bitmap cropImage(Bitmap img, Rectangle cropArea)
         {
             int X = cropArea.X;
@@ -165,7 +166,6 @@ namespace ImageTextDeepLearning
 
                             //Rectangle cropArea = new Rectangle(MiX, MiY, MaX, MaY);
                             //crop to proper space
-
                             Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
 
 
