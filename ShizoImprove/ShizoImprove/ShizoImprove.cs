@@ -82,7 +82,7 @@ namespace ShizoImprove
             return false;
 
         }
-        public bool FormShizoImprove(String Pro,ref System.Windows.Forms.ProgressBar progressBarWorking)
+        public bool FormShizoImprove(String Pro, ref System.Windows.Forms.ProgressBar progressBarWorking)
         {
             try
             {
@@ -101,10 +101,12 @@ namespace ShizoImprove
                         else
                         {
                             try
-                            {if (!File.Exists(Des))
+                            {
+                                if (!File.Exists(Des))
                                     File.Copy(AllFiles[i], Des);
                             }
-                            catch (Exception t) {
+                            catch (Exception t)
+                            {
                                 return false;
                             }
                         }
@@ -113,7 +115,69 @@ namespace ShizoImprove
 
                 }
 
-            } catch (Exception y) {
+            }
+            catch (Exception y)
+            {
+                return false;
+            }
+            return true;
+
+
+
+        }
+        public bool FormImprove(String Pro, ref System.Windows.Forms.ProgressBar progressBarWorking)
+        {
+            try
+            {
+                for (int i = 0; i < AllFiles.Count; i++)
+                {
+                    progressBarWorking.Value = i;
+                    if (AllFiles[i].Contains(Pro))
+                    {
+                        String Des = AllFiles[i].Substring(AllFiles[i].IndexOf(Pro));
+                        for (int j = 1990; j <= DateTime.Now.Year; j++)
+                        {
+                            if (Des.Contains(j.ToString()))
+                            {
+                                int A = Des.IndexOf(j.ToString()) + 4;
+                                Des = Des.Substring(A, Des.Length - A);
+                            }
+                        }
+                        Des = "C:\\ShizoImprove\\Improved\\" + Pro + "\\" + Des;
+                         if (!IsFile(Des))
+                        {
+                            if (!Directory.Exists(Des))
+                                Directory.CreateDirectory(Des);
+                        }
+                        else
+                        {
+                            try
+                            {
+                                if (!File.Exists(Des))
+                                    File.Copy(AllFiles[i], Des);
+                                else
+                                {
+                                    if ((new FileInfo(AllFiles[i])).LastWriteTime < (new FileInfo(Des)).LastWriteTime)
+                                    {
+                                        File.Delete(Des);
+                                        File.Copy(AllFiles[i], Des);
+                                    }
+
+                                }
+                            }
+                            catch (Exception t)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+
+
+                }
+
+            }
+            catch (Exception y)
+            {
                 return false;
             }
             return true;

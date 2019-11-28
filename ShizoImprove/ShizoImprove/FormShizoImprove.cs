@@ -43,5 +43,39 @@ namespace ShizoImprove
         {
             path = textBoxInput.Text;
         }
+
+        private void buttonSetImprove_Click(object sender, EventArgs e)
+        {
+            textBoxInput.Text = "C:\\ShizoImprove\\" + textBoxWorkingProject.Text + "\\";
+            textBoxOutput.Text = "C:\\ShizoImprove\\Improved\\";
+            path = textBoxInput.Text;
+            buttonImproved.Enabled = true;
+        }
+
+        private void textBoxOutput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ShizoImprove.AllFiles.Count > 0)
+            {
+                ShizoImprove.AllFiles.Clear();
+                t = new ShizoImprove(path);
+
+                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                progressBarWorking.Minimum = 0;
+                t.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+            }
+            else
+            {
+                t = new ShizoImprove(path);
+
+                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                progressBarWorking.Minimum = 0;
+                t.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+            }
+        }
     }
 }

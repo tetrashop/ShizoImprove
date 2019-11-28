@@ -35,6 +35,8 @@
             this.textBoxInput = new System.Windows.Forms.TextBox();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.progressBarWorking = new System.Windows.Forms.ProgressBar();
+            this.buttonSetImprove = new System.Windows.Forms.Button();
+            this.buttonImproved = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSearchAndTree
@@ -89,6 +91,7 @@
             this.textBoxOutput.Size = new System.Drawing.Size(565, 20);
             this.textBoxOutput.TabIndex = 5;
             this.textBoxOutput.Text = "C:\\ShizoImprove\\";
+            this.textBoxOutput.TextChanged += new System.EventHandler(this.textBoxOutput_TextChanged);
             // 
             // progressBarWorking
             // 
@@ -97,11 +100,34 @@
             this.progressBarWorking.Size = new System.Drawing.Size(656, 23);
             this.progressBarWorking.TabIndex = 6;
             // 
+            // buttonSetImprove
+            // 
+            this.buttonSetImprove.Location = new System.Drawing.Point(675, 70);
+            this.buttonSetImprove.Name = "buttonSetImprove";
+            this.buttonSetImprove.Size = new System.Drawing.Size(113, 23);
+            this.buttonSetImprove.TabIndex = 7;
+            this.buttonSetImprove.Text = "SetImprove";
+            this.buttonSetImprove.UseVisualStyleBackColor = true;
+            this.buttonSetImprove.Click += new System.EventHandler(this.buttonSetImprove_Click);
+            // 
+            // buttonImproved
+            // 
+            this.buttonImproved.Enabled = false;
+            this.buttonImproved.Location = new System.Drawing.Point(676, 100);
+            this.buttonImproved.Name = "buttonImproved";
+            this.buttonImproved.Size = new System.Drawing.Size(112, 23);
+            this.buttonImproved.TabIndex = 8;
+            this.buttonImproved.Text = "Improved";
+            this.buttonImproved.UseVisualStyleBackColor = true;
+            this.buttonImproved.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormShizoImprove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonImproved);
+            this.Controls.Add(this.buttonSetImprove);
             this.Controls.Add(this.progressBarWorking);
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.textBoxInput);
@@ -126,5 +152,7 @@
         private System.Windows.Forms.TextBox textBoxInput;
         private System.Windows.Forms.TextBox textBoxOutput;
         private System.Windows.Forms.ProgressBar progressBarWorking;
+        private System.Windows.Forms.Button buttonSetImprove;
+        private System.Windows.Forms.Button buttonImproved;
     }
 }
