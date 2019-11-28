@@ -28,5 +28,13 @@ namespace ShizoImprove
         {
 
         }
+
+        private void buttonImproveCollection_Click(object sender, EventArgs e)
+        {
+            if (ShizoImprove.AllFiles.Count == 0)
+                t = new ShizoImprove(path);
+            t.FormShizoImprove(textBoxWorkingProject.Text);
+
+        }
     }
 }

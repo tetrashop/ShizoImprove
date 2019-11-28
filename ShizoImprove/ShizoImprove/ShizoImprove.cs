@@ -11,12 +11,12 @@ namespace ShizoImprove
     public class ShizoImprove
     {
         //Initiate All Files var
-        static List<string> AllFiles = new List<string>();
+        public static List<string> AllFiles = new List<string>();
         //Al File Information
         FileInfo fi = null;
         DateTime created;
         DateTime lastmodified;
-        //for evry statistic files create info
+         //for evry statistic files create info
         List<ShizoImprove> All = new List<ShizoImprove>();
         //retrive files and directories Constructor
         public ShizoImprove(String Root)
@@ -66,6 +66,55 @@ namespace ShizoImprove
             }
             catch (Exception t) { return false; }
             return true;
+        }
+        bool IsFile(String Des)
+        {
+            if (Des.Contains("."))
+            {
+                int A = Des.IndexOf(".");
+                if (A < Des.Length)
+                {
+                    string D = Des.Substring(A, Des.Length - A);
+                    if (D.Length > 0)
+                        return true;
+                }
+            }
+            return false;
+
+        }
+        public bool FormShizoImprove(String Pro)
+        {
+            try
+            {
+                for (int i = 0; i < AllFiles.Count; i++)
+                {
+                    if (AllFiles[i].Contains(Pro))
+                    {
+                        String Des = AllFiles[i].Substring(AllFiles[i].IndexOf(Pro));
+                        Des = "C:\\" + Pro + "\\" + All[i].lastmodified.ToLongDateString() + "\\" + Des;
+                        if (!IsFile(Des))
+                        {
+                            if (!Directory.Exists(Des))
+                                Directory.CreateDirectory(Des);
+                        }
+                        else
+                        {
+                            try
+                            {
+                                File.Copy(AllFiles[i], Des);
+                            }
+                            catch (Exception t) { }
+                        }
+                    }
+
+
+                }
+
+            } catch (Exception y) { return false; }
+            return true;
+
+
+
         }
     }
 }

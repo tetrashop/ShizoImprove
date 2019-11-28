@@ -30,6 +30,8 @@
         {
             this.buttonSearchAndTree = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.textBoxWorkingProject = new System.Windows.Forms.TextBox();
+            this.buttonImproveCollection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSearchAndTree
@@ -49,17 +51,38 @@
             this.treeView1.Size = new System.Drawing.Size(657, 588);
             this.treeView1.TabIndex = 1;
             // 
+            // textBoxWorkingProject
+            // 
+            this.textBoxWorkingProject.Location = new System.Drawing.Point(675, 82);
+            this.textBoxWorkingProject.Name = "textBoxWorkingProject";
+            this.textBoxWorkingProject.Size = new System.Drawing.Size(113, 20);
+            this.textBoxWorkingProject.TabIndex = 2;
+            this.textBoxWorkingProject.Text = "ExcellManagement";
+            // 
+            // buttonImproveCollection
+            // 
+            this.buttonImproveCollection.Location = new System.Drawing.Point(675, 41);
+            this.buttonImproveCollection.Name = "buttonImproveCollection";
+            this.buttonImproveCollection.Size = new System.Drawing.Size(113, 23);
+            this.buttonImproveCollection.TabIndex = 3;
+            this.buttonImproveCollection.Text = "ImproveCollection";
+            this.buttonImproveCollection.UseVisualStyleBackColor = true;
+            this.buttonImproveCollection.Click += new System.EventHandler(this.buttonImproveCollection_Click);
+            // 
             // FormShizoImprove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonImproveCollection);
+            this.Controls.Add(this.textBoxWorkingProject);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.buttonSearchAndTree);
             this.Name = "FormShizoImprove";
             this.Text = "FormShizoImprove";
             this.Load += new System.EventHandler(this.FormShizoImprove_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -67,5 +90,7 @@
 
         private System.Windows.Forms.Button buttonSearchAndTree;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TextBox textBoxWorkingProject;
+        private System.Windows.Forms.Button buttonImproveCollection;
     }
 }
