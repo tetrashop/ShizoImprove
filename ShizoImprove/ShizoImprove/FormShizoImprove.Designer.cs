@@ -37,6 +37,10 @@
             this.progressBarWorking = new System.Windows.Forms.ProgressBar();
             this.buttonSetImprove = new System.Windows.Forms.Button();
             this.buttonImproved = new System.Windows.Forms.Button();
+            this.menuStripShizoImprove = new System.Windows.Forms.MenuStrip();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStripShizoImprove.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearchAndTree
@@ -121,6 +125,31 @@
             this.buttonImproved.UseVisualStyleBackColor = true;
             this.buttonImproved.Click += new System.EventHandler(this.button1_Click);
             // 
+            // menuStripShizoImprove
+            // 
+            this.menuStripShizoImprove.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem});
+            this.menuStripShizoImprove.Location = new System.Drawing.Point(0, 0);
+            this.menuStripShizoImprove.Name = "menuStripShizoImprove";
+            this.menuStripShizoImprove.Size = new System.Drawing.Size(800, 24);
+            this.menuStripShizoImprove.TabIndex = 9;
+            this.menuStripShizoImprove.Text = "menuStripShizoImprove";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // FormShizoImprove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,9 +164,13 @@
             this.Controls.Add(this.textBoxWorkingProject);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.buttonSearchAndTree);
+            this.Controls.Add(this.menuStripShizoImprove);
+            this.MainMenuStrip = this.menuStripShizoImprove;
             this.Name = "FormShizoImprove";
             this.Text = "FormShizoImprove";
             this.Load += new System.EventHandler(this.FormShizoImprove_Load);
+            this.menuStripShizoImprove.ResumeLayout(false);
+            this.menuStripShizoImprove.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +187,8 @@
         private System.Windows.Forms.ProgressBar progressBarWorking;
         private System.Windows.Forms.Button buttonSetImprove;
         private System.Windows.Forms.Button buttonImproved;
+        private System.Windows.Forms.MenuStrip menuStripShizoImprove;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

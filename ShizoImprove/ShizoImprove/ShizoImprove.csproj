@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBoxShizoImprove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxShizoImprove.Designer.cs">
+      <DependentUpon>AboutBoxShizoImprove.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormShizoImprove.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBoxShizoImprove.resx">
+      <DependentUpon>AboutBoxShizoImprove.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormShizoImprove.resx">
       <DependentUpon>FormShizoImprove.cs</DependentUpon>
     </EmbeddedResource>

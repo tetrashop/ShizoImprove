@@ -1,4 +1,8 @@
-﻿using System;
+﻿/**************************************************************************
+ * CopyRight Ramin Edjlal 28 nov 2019 Tetra E-Commerce*********************
+ * TetraShop.ir************************************************************
+ * ************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,7 +47,7 @@ namespace ShizoImprove
         {
             path = textBoxInput.Text;
         }
-
+        //dates created and set parameters
         private void buttonSetImprove_Click(object sender, EventArgs e)
         {
             textBoxInput.Text = "C:\\ShizoImprove\\" + textBoxWorkingProject.Text + "\\";
@@ -56,9 +60,10 @@ namespace ShizoImprove
         {
 
         }
-
+        //improved events
         private void button1_Click(object sender, EventArgs e)
         {
+
             if (ShizoImprove.AllFiles.Count > 0)
             {
                 ShizoImprove.AllFiles.Clear();
@@ -76,6 +81,11 @@ namespace ShizoImprove
                 progressBarWorking.Minimum = 0;
                 t.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
             }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new AboutBoxShizoImprove()).Show();
         }
     }
 }

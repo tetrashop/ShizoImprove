@@ -1,4 +1,8 @@
-﻿using System;
+﻿/**************************************************************************
+ * CopyRight Ramin Edjlal 28 nov 2019 Tetra E-Commerce*********************
+ * TetraShop.ir************************************************************
+ * ************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,14 +71,20 @@ namespace ShizoImprove
             catch (Exception t) { return false; }
             return true;
         }
+        //When path is file return true
         bool IsFile(String Des)
         {
+            //when contains
             if (Des.Contains("."))
             {
+                //index
                 int A = Des.IndexOf(".");
+                //when exstence of remained
                 if (A < Des.Length)
                 {
+                    //substring remained
                     string D = Des.Substring(A, Des.Length - A);
+                    //when existence
                     if (D.Length > 0)
                         return true;
                 }
@@ -82,19 +92,27 @@ namespace ShizoImprove
             return false;
 
         }
+        //Imrove all date into one folder
         public bool FormShizoImprove(String Pro, ref System.Windows.Forms.ProgressBar progressBarWorking)
         {
             try
             {
+                //for all path
                 for (int i = 0; i < AllFiles.Count; i++)
                 {
+                    //indicatore
                     progressBarWorking.Value = i;
+                    //when contains project
                     if (AllFiles[i].Contains(Pro))
                     {
+                        //index of to substring
                         String Des = AllFiles[i].Substring(AllFiles[i].IndexOf(Pro));
+                        //create correct path
                         Des = "C:\\ShizoImprove\\" + Pro + "\\" + All[i].lastmodified.ToLongDateString() + "\\" + Des;
+                        //when
                         if (!IsFile(Des))
                         {
+                            //create directory exitence condition
                             if (!Directory.Exists(Des))
                                 Directory.CreateDirectory(Des);
                         }
@@ -102,6 +120,7 @@ namespace ShizoImprove
                         {
                             try
                             {
+                                //copy file
                                 if (!File.Exists(Des))
                                     File.Copy(AllFiles[i], Des);
                             }
@@ -125,27 +144,38 @@ namespace ShizoImprove
 
 
         }
+        //move date last modified of set improved into improved folder
         public bool FormImprove(String Pro, ref System.Windows.Forms.ProgressBar progressBarWorking)
         {
             try
             {
+                //for all same same project path
                 for (int i = 0; i < AllFiles.Count; i++)
                 {
+                    //indicator
                     progressBarWorking.Value = i;
+                    //when contains project
                     if (AllFiles[i].Contains(Pro))
                     {
+                        //index of to substring
                         String Des = AllFiles[i].Substring(AllFiles[i].IndexOf(Pro));
+                        //index of last modified path and substring
                         for (int j = 1990; j <= DateTime.Now.Year; j++)
                         {
+                            //when contains date
                             if (Des.Contains(j.ToString()))
                             {
+                                //substring
                                 int A = Des.IndexOf(j.ToString()) + 4;
                                 Des = Des.Substring(A, Des.Length - A);
                             }
                         }
+                        //create correcte path
                         Des = "C:\\ShizoImprove\\Improved\\" + Pro + "\\" + Des;
-                         if (!IsFile(Des))
+                        //when
+                        if (!IsFile(Des))
                         {
+                            //create directory exitence condition
                             if (!Directory.Exists(Des))
                                 Directory.CreateDirectory(Des);
                         }
@@ -153,9 +183,10 @@ namespace ShizoImprove
                         {
                             try
                             {
+                                //copy file when unexistence
                                 if (!File.Exists(Des))
                                     File.Copy(AllFiles[i], Des);
-                                else
+                                else  //copy file on condition of last modified
                                 {
                                     if ((new FileInfo(AllFiles[i])).LastWriteTime < (new FileInfo(Des)).LastWriteTime)
                                     {
