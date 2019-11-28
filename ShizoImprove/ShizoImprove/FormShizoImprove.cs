@@ -33,7 +33,9 @@ namespace ShizoImprove
         {
             if (ShizoImprove.AllFiles.Count == 0)
                 t = new ShizoImprove(path);
-            t.FormShizoImprove(textBoxWorkingProject.Text);
+            progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+            progressBarWorking.Minimum = 0;
+            t.FormShizoImprove(textBoxWorkingProject.Text, ref progressBarWorking);
 
         }
 

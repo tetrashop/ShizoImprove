@@ -82,12 +82,13 @@ namespace ShizoImprove
             return false;
 
         }
-        public bool FormShizoImprove(String Pro)
+        public bool FormShizoImprove(String Pro,ref System.Windows.Forms.ProgressBar progressBarWorking)
         {
             try
             {
                 for (int i = 0; i < AllFiles.Count; i++)
                 {
+                    progressBarWorking.Value = i;
                     if (AllFiles[i].Contains(Pro))
                     {
                         String Des = AllFiles[i].Substring(AllFiles[i].IndexOf(Pro));
