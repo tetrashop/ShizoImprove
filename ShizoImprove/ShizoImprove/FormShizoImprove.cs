@@ -36,5 +36,10 @@ namespace ShizoImprove
             t.FormShizoImprove(textBoxWorkingProject.Text);
 
         }
+
+        private void textBoxInput_TextChanged(object sender, EventArgs e)
+        {
+            path = textBoxInput.Text;
+        }
     }
 }

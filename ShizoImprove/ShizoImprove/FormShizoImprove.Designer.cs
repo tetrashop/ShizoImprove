@@ -32,6 +32,8 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.textBoxWorkingProject = new System.Windows.Forms.TextBox();
             this.buttonImproveCollection = new System.Windows.Forms.Button();
+            this.textBoxInput = new System.Windows.Forms.TextBox();
+            this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonSearchAndTree
@@ -46,16 +48,16 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(12, 12);
+            this.treeView1.Location = new System.Drawing.Point(12, 121);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(657, 588);
+            this.treeView1.Size = new System.Drawing.Size(657, 479);
             this.treeView1.TabIndex = 1;
             // 
             // textBoxWorkingProject
             // 
-            this.textBoxWorkingProject.Location = new System.Drawing.Point(675, 82);
+            this.textBoxWorkingProject.Location = new System.Drawing.Point(104, 69);
             this.textBoxWorkingProject.Name = "textBoxWorkingProject";
-            this.textBoxWorkingProject.Size = new System.Drawing.Size(113, 20);
+            this.textBoxWorkingProject.Size = new System.Drawing.Size(321, 20);
             this.textBoxWorkingProject.TabIndex = 2;
             this.textBoxWorkingProject.Text = "ExcellManagement";
             // 
@@ -69,11 +71,31 @@
             this.buttonImproveCollection.UseVisualStyleBackColor = true;
             this.buttonImproveCollection.Click += new System.EventHandler(this.buttonImproveCollection_Click);
             // 
+            // textBoxInput
+            // 
+            this.textBoxInput.Location = new System.Drawing.Point(104, 14);
+            this.textBoxInput.Name = "textBoxInput";
+            this.textBoxInput.Size = new System.Drawing.Size(565, 20);
+            this.textBoxInput.TabIndex = 4;
+            this.textBoxInput.Text = "D:\\";
+            this.textBoxInput.TextChanged += new System.EventHandler(this.textBoxInput_TextChanged);
+            // 
+            // textBoxOutput
+            // 
+            this.textBoxOutput.Enabled = false;
+            this.textBoxOutput.Location = new System.Drawing.Point(104, 43);
+            this.textBoxOutput.Name = "textBoxOutput";
+            this.textBoxOutput.Size = new System.Drawing.Size(565, 20);
+            this.textBoxOutput.TabIndex = 5;
+            this.textBoxOutput.Text = "C:\\ShizoImprove\\";
+            // 
             // FormShizoImprove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxOutput);
+            this.Controls.Add(this.textBoxInput);
             this.Controls.Add(this.buttonImproveCollection);
             this.Controls.Add(this.textBoxWorkingProject);
             this.Controls.Add(this.treeView1);
@@ -92,5 +114,7 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TextBox textBoxWorkingProject;
         private System.Windows.Forms.Button buttonImproveCollection;
+        private System.Windows.Forms.TextBox textBoxInput;
+        private System.Windows.Forms.TextBox textBoxOutput;
     }
 }
