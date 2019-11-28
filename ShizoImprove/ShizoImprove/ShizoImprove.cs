@@ -21,7 +21,9 @@ namespace ShizoImprove
         //retrive files and directories Constructor
         public ShizoImprove(String Root)
         {
-            bool Do = ParsePath(Root);
+            bool Do = false;
+            if (AllFiles.Count == 0)
+                Do = ParsePath(Root);
             if (Do && AllFiles.Count > 0)
             {
                 for (int i = 0; i < AllFiles.Count; i++)
@@ -38,9 +40,7 @@ namespace ShizoImprove
         {
             try
             {
-                //when list is empty
-                if (AllFiles.Count == 0)
-                {
+               
                     //all subdirectories
                     string[] SubDirs = Directory.GetDirectories(path);
                     AllFiles.AddRange(SubDirs);
@@ -50,7 +50,7 @@ namespace ShizoImprove
                     foreach (string subdir in SubDirs)
                         ParsePath(subdir);
                     return true;
-                }
+                
             }
             catch (Exception t) { return false; }
             return true;

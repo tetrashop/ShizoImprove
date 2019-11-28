@@ -12,13 +12,19 @@ namespace ShizoImprove
 {
     public partial class FormShizoImprove : Form
     {
-        String path = "";
+        public String path = "D:\'DVD'\\";
+        ShizoImprove t = null;
         public FormShizoImprove()
         {
             InitializeComponent();
         }
    
         private void buttonSearchAndTree_Click(object sender, EventArgs e)
+        {
+            t = new ShizoImprove(path);
+        }
+
+        private void FormShizoImprove_Load(object sender, EventArgs e)
         {
 
         }

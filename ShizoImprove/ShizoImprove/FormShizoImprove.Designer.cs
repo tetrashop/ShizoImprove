@@ -58,6 +58,7 @@
             this.Controls.Add(this.buttonSearchAndTree);
             this.Name = "FormShizoImprove";
             this.Text = "FormShizoImprove";
+            this.Load += new System.EventHandler(this.FormShizoImprove_Load);
             this.ResumeLayout(false);
 
         }
