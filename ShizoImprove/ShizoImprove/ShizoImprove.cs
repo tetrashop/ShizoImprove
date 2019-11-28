@@ -91,7 +91,7 @@ namespace ShizoImprove
                     if (AllFiles[i].Contains(Pro))
                     {
                         String Des = AllFiles[i].Substring(AllFiles[i].IndexOf(Pro));
-                        Des = "C:\\" + Pro + "\\" + All[i].lastmodified.ToLongDateString() + "\\" + Des;
+                        Des = "C:\\ShizoImprove\\" + Pro + "\\" + All[i].lastmodified.ToLongDateString() + "\\" + Des;
                         if (!IsFile(Des))
                         {
                             if (!Directory.Exists(Des))
@@ -100,17 +100,21 @@ namespace ShizoImprove
                         else
                         {
                             try
-                            {
-                                File.Copy(AllFiles[i], Des);
+                            {if (!File.Exists(Des))
+                                    File.Copy(AllFiles[i], Des);
                             }
-                            catch (Exception t) { }
+                            catch (Exception t) {
+                                return false;
+                            }
                         }
                     }
 
 
                 }
 
-            } catch (Exception y) { return false; }
+            } catch (Exception y) {
+                return false;
+            }
             return true;
 
 

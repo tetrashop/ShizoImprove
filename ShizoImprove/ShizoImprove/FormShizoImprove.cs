@@ -12,7 +12,7 @@ namespace ShizoImprove
 {
     public partial class FormShizoImprove : Form
     {
-        public String path = "D:\'DVD'\\";
+        public String path = "D:\\";//'DVD'\\";
         ShizoImprove t = null;
         public FormShizoImprove()
         {
