@@ -1,6 +1,7 @@
 ﻿/**************************************************************************
  * CopyRight Ramin Edjlal 28 nov 2019 Tetra E-Commerce*********************
  * TetraShop.ir************************************************************
+ * https://stackoverflow.com/questions/1701457/directory-delete-doesnt-work-access-denied-error-but-under-windows-explorer-it
  * ************************************************************************/
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,11 @@ namespace ShizoImprove
         //for evry statistic files create info
         List<ShizoImprove> All = new List<ShizoImprove>();
         //retrive files and directories Constructor
-        public ShizoImprove(String Root)
+        public ShizoImprove(String Root,bool Imp=false)
         {
             bool Do = false;
             if (AllFiles.Count == 0)
-                Do = ParsePath(Root);
+                Do = ParsePath(Root,Imp);
             if (Do && AllFiles.Count > 0)
             {
                 for (int i = 0; i < AllFiles.Count; i++)
@@ -40,7 +41,7 @@ namespace ShizoImprove
             }
         }
         //retrive all files and sub directories in a list
-        static bool ParsePath(string path)
+        static bool ParsePath(string path,bool Imp)
         {
             try
             {
@@ -48,11 +49,27 @@ namespace ShizoImprove
                 //all subdirectories
                 string[] SubDirs = Directory.GetDirectories(path);
                 AllFiles.AddRange(SubDirs);
+
+                if (Imp)
+                {
+                    for (int i = 0; i < AllFiles.Count; i++)
+                    {
+                        if (AllFiles[i].Contains("\\Improved"))
+                        {
+                            AllFiles.RemoveAt(i);
+                        }
+                    }
+                }
+            
                 //Allfiles in path
                 AllFiles.AddRange(Directory.GetFiles(path));
                 //for each sub directory parse sub of subdirectories(recursive)
                 foreach (string subdir in SubDirs)
-                    ParsePath(subdir);
+                {
+                    if (Imp && subdir.Contains("\\Improved"))                     
+                        continue;
+                    ParsePath(subdir, Imp);
+                }
                 return true;
 
             }
@@ -133,6 +150,73 @@ namespace ShizoImprove
                         }
 
 
+                    }
+                    catch (Exception t) { }
+                }
+
+            }
+            catch (Exception y)
+            {
+                return false;
+            }
+            return true;
+
+
+
+        }
+        void setAttributesNormal(DirectoryInfo dir)
+        {
+            foreach (var subDir in dir.GetDirectories())
+                setAttributesNormal(subDir);
+            foreach (var file in dir.GetFiles())
+            {
+                file.Attributes = FileAttributes.Normal;
+            }
+        }
+        public bool FormShizoImproveClearCach(String Pro, ref System.Windows.Forms.ProgressBar progressBarWorking)
+        {
+            try
+            {
+                //for all path
+                for (int i = 0; i < AllFiles.Count; i++)
+                {
+                    try
+                    {   //indicatore
+                        progressBarWorking.Value = i;
+
+                        if (!AllFiles[i].Contains("\\Improved"))
+                        {
+                            //when
+                            if (!IsFile(AllFiles[i]))
+                            {
+                                //create directory exitence condition
+                                try
+                                {
+                                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(AllFiles[i]);
+
+                                    if (dir.Exists)
+                                    {
+                                        setAttributesNormal(dir);
+                                        dir.Delete(true);
+                                    }
+                                      
+                                }
+                                catch (Exception t) { }
+                                }
+                            else
+                            {
+                                try
+                                {
+                                    //copy file
+                                    if (File.Exists(AllFiles[i]))
+                                        File.Delete(AllFiles[i]);
+                                }
+                                catch (Exception t)
+                                {
+                                    // return false;
+                                }
+                            }
+                        }
                     }
                     catch (Exception t) { }
                 }

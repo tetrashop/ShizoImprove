@@ -40,6 +40,7 @@
             this.menuStripShizoImprove = new System.Windows.Forms.MenuStrip();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonClearCach = new System.Windows.Forms.Button();
             this.menuStripShizoImprove.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,15 +147,26 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // buttonClearCach
+            // 
+            this.buttonClearCach.Location = new System.Drawing.Point(676, 130);
+            this.buttonClearCach.Name = "buttonClearCach";
+            this.buttonClearCach.Size = new System.Drawing.Size(112, 23);
+            this.buttonClearCach.TabIndex = 10;
+            this.buttonClearCach.Text = "ClearCach";
+            this.buttonClearCach.UseVisualStyleBackColor = true;
+            this.buttonClearCach.Click += new System.EventHandler(this.buttonClearCach_Click);
             // 
             // FormShizoImprove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonClearCach);
             this.Controls.Add(this.buttonImproved);
             this.Controls.Add(this.buttonSetImprove);
             this.Controls.Add(this.progressBarWorking);
@@ -190,5 +202,6 @@
         private System.Windows.Forms.MenuStrip menuStripShizoImprove;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button buttonClearCach;
     }
 }

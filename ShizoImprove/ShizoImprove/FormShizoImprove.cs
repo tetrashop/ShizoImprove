@@ -22,7 +22,7 @@ namespace ShizoImprove
         {
             InitializeComponent();
         }
-   
+
         private void buttonSearchAndTree_Click(object sender, EventArgs e)
         {
             t = new ShizoImprove(path);
@@ -86,6 +86,24 @@ namespace ShizoImprove
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new AboutBoxShizoImprove()).Show();
+        }
+
+        private void buttonClearCach_Click(object sender, EventArgs e)
+        {
+            textBoxInput.Text = "C:\\ShizoImprove\\";
+            textBoxOutput.Text = "";
+            path = textBoxInput.Text;
+            buttonImproved.Enabled = true;
+
+
+
+            ShizoImprove.AllFiles.Clear();
+            t = new ShizoImprove(path, true);
+
+            progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+            progressBarWorking.Minimum = 0;
+            t.FormShizoImproveClearCach(textBoxInput.Text, ref progressBarWorking);
+
         }
     }
 }

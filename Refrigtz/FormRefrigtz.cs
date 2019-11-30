@@ -3280,7 +3280,7 @@ namespace Refrigtz
             }
 
 
-        }
+       }
         //Error Handling.
         static void Log(Exception ex)
         {
@@ -17747,7 +17747,7 @@ namespace Refrigtz
                     AllOp();
                     if (EndOfGame)
                         return;
-                    //System.Threading.Thread.Sleep(10);
+                     //System.Threading.Thread.Sleep(10);
                     // AllOperate.Start();
                 }
                 catch (Exception t) { Log(t); }
@@ -18150,6 +18150,11 @@ namespace Refrigtz
                 Deeperthandeeper = true;
             else
                 Deeperthandeeper = false;
+
+        }
+
+        private void PictureBoxRefrigtz_Click_1(object sender, EventArgs e)
+        {
 
         }
 
