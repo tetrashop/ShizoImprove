@@ -276,7 +276,7 @@ namespace ShizoImprove
                                         File.Copy(AllFiles[i], Des);
                                     else  //copy file on condition of last modified
                                     {
-                                        if ((new FileInfo(AllFiles[i])).LastWriteTime < (new FileInfo(Des)).LastWriteTime)
+                                        if ((new FileInfo(AllFiles[i])).LastWriteTime > (new FileInfo(Des)).LastWriteTime)
                                         {
                                             File.Delete(Des);
                                             File.Copy(AllFiles[i], Des);
