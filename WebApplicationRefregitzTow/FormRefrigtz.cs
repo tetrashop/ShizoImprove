@@ -1365,7 +1365,7 @@ namespace RefrigtzW
             //GC.WaitForPendingFinalizers();
             LoadPlaceHolder = true;
             // ttt.LoadPlaceHolder(); 
-            //System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(3000);
             do
             {
                 AllDraw.Root = Root;

@@ -1364,7 +1364,7 @@ namespace Refrigtz
                     treeViewRefregitzDraw.Nodes.Clear();
                     CreateTree(D);
                     treeViewRefregitzDraw.Update();
-                    //System.Threading.Thread.Sleep(2000);
+                    System.Threading.Thread.Sleep(2000);
                 }
             } while (true);
         }
