@@ -201,6 +201,8 @@ namespace Editors
         }
         public void DrawNumberAndVaribale(String A)
         {
+            if (A == null)
+                return;
             if (X + 32 * A.Length > this.pictureBoxInOut.Image.Width - 40)
             {
                 X = 10;

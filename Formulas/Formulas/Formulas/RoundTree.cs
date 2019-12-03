@@ -23,7 +23,7 @@ namespace Formulas
                 return A;
             if (IS.IsNumber(T.SampleAccess) && T.SampleAccess.IndexOf(".") != -1)
             {
-                String S = T.SampleAccess.Substring(T.SampleAccess.IndexOf("."), T.SampleAccess.Length);
+                String S = T.SampleAccess.Substring(T.SampleAccess.IndexOf("."), T.SampleAccess.Length- T.SampleAccess.IndexOf("."));
                 if (A < S.Length)
                     A = S.Length;
             }

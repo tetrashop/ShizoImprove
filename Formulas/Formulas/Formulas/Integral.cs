@@ -1540,9 +1540,9 @@ namespace Formulas
                         return Dummy;
                         }
                         else
-                            if (Node.SampleAccess == "^")
+                            if (Node.SampleAccess == "^" )
                             {
-                                UIS.SetLableValue(UIS.label17, "Integral F(X)^G(X).");
+                UIS.SetLableValue(UIS.label17, "Integral F(X)^G(X).");
                                 INCREASE = INCREASE / 6;
 
                                 FMulAtG.ADDToTree(Node.CopyNewTree(Node));
@@ -1602,8 +1602,8 @@ namespace Formulas
                                 int HOLDE = UIS.progressBar2.Value;
 
                                 Queficient = (float)1.0;
-
-                                INTNODEPERFONE = Integral.IntegralCalculator(INTNODEPERFONE.CopyNewTree(INTNODEPERFONE),ref UIS);
+                if (!IS.IsNumberNegative(Node.RightSideAccess.SampleAccess))
+                    INTNODEPERFONE = Integral.IntegralCalculator(INTNODEPERFONE.CopyNewTree(INTNODEPERFONE), ref UIS);
 
                                 UIS.SetLableValue(UIS.label17, "Integral F(X)^G(X).");
 
@@ -1682,7 +1682,8 @@ namespace Formulas
                                     {
                                         MULTOW = ChangeFunction.ChangeFunctionFx(MULTOW, ref UIS);
 
-                                        MULTOW = Integral.IntegralCalculator(MULTOW.CopyNewTree(MULTOW), ref UIS);
+                        if (!IS.IsNumberNegative(MULTOW.RightSideAccess.SampleAccess))
+                            MULTOW = Integral.IntegralCalculator(MULTOW.CopyNewTree(MULTOW), ref UIS);
 
                                         UIS.SetLableValue(UIS.label17, "Integral F(X)^G(X).");
 

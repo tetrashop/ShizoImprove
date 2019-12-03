@@ -318,6 +318,21 @@ namespace Formulas
             }
             return IsNumber;
         }
+        static public bool IsNumberNegative(String Sample)
+        {
+            bool NumberNegative = false;
+            if (Sample != null)
+            {
+                //ERRORCORECTION89764567 :The condition of being parantez added
+                if ((!IS.IsFunction(Sample)) && (!IS.IsOperator(Sample)) && (!IS.ISindependenceVaribale(Sample)) && (!IS.IsParantez(Sample)) && (!IS.IsEqualWithThreadConsiderationCommonlySample(Sample)) && (Sample.ToLower() != "c"))
+                    NumberNegative = true;
+                if (NumberNegative && System.Convert.ToDouble(Sample) < 0)
+                    NumberNegative = true;
+                else if (NumberNegative && System.Convert.ToDouble(Sample) >= 0)
+                    NumberNegative = false;
+            }
+            return NumberNegative;
+        }
         static public bool IsParantez(String Sample)
         {
             //ERRORCORECTION896709487 : it is like a number ERROR73425362.The problem solved.

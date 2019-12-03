@@ -2533,7 +2533,7 @@ while((Dummy.SampleAccess != "/")&(Dummy!=null))
                                             RECURSIVE = true;
                                             Dummy.RightSideAccess.SetLefTandRightCommonlySide(null, null);
                                             Dummy.RightSideAccess.SampleAccess = "1";
-                                            int Num = System.Convert.ToInt32(Dummy.LeftSideAccess.RightSideAccess.RightSideAccess.SampleAccess);
+                                            double Num = System.Convert.ToDouble(Dummy.LeftSideAccess.RightSideAccess.RightSideAccess.SampleAccess);
                                             Num = Num - 1;
                                             Dummy.LeftSideAccess.RightSideAccess.RightSideAccess.SampleAccess = Num.ToString();
                                         }
