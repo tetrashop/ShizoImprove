@@ -1591,21 +1591,40 @@ namespace Formulas
                 if (Node.RightSideAccess != null)
                 {
 
-                    if (System.Convert.ToDouble(Node.RightSideAccess.SampleAccess) < 1 && System.Convert.ToDouble(Node.RightSideAccess.SampleAccess) > 0)
+                    if (IS.IsNumber(Node.RightSideAccess.SampleAccess))
                     {
-                        INTNODEPERFONE = new AddToTree.Tree("*", false);
-                        INTNODEPERTOW = new AddToTree.Tree("*", false);
-                        INTNODEPERFONE.SetLefTandRightCommonlySide(FGONE, FONETX);
-                        INTNODEPERFONE.LeftSideAccess.ThreadAccess = INTNODEPERFONE;
-                        INTNODEPERFONE.RightSideAccess.ThreadAccess = INTNODEPERFONE;
-                        FRact = true;
+                        if (System.Convert.ToDouble(Node.RightSideAccess.SampleAccess) < 1 && System.Convert.ToDouble(Node.RightSideAccess.SampleAccess) > 0)
+                        {
+                            INTNODEPERFONE = new AddToTree.Tree("*", false);
+                            INTNODEPERTOW = new AddToTree.Tree("*", false);
+                            INTNODEPERFONE.SetLefTandRightCommonlySide(FGONE, FONETX);
+                            INTNODEPERFONE.LeftSideAccess.ThreadAccess = INTNODEPERFONE;
+                            INTNODEPERFONE.RightSideAccess.ThreadAccess = INTNODEPERFONE;
+                            FRact = true;
 
+                        }
                     }
+                }
+                if (Node.RightSideAccess != null)
+                {
+                    if (IS.IsNumber(Node.RightSideAccess.SampleAccess))
+                    {
+                        if (//System.Convert.ToDouble(Node.RightSideAccess.SampleAccess) > -1 && 
+                            System.Convert.ToDouble(Node.RightSideAccess.SampleAccess) < 0)
+                        {
+                            INTNODEPERFONE = new AddToTree.Tree("*", false);
+                            INTNODEPERTOW = new AddToTree.Tree("*", false);
+                            INTNODEPERFONE.SetLefTandRightCommonlySide(FGONE, FONETX);
+                            INTNODEPERFONE.LeftSideAccess.ThreadAccess = INTNODEPERFONE;
+                            INTNODEPERFONE.RightSideAccess.ThreadAccess = INTNODEPERFONE;
+                            FRact = true;
 
+                        }
+                    }
                 }    //ERROR279872387  :refer to page 218.
 
 
-                            UIS.SetProgressValue(UIS.progressBar2, UIS.progressBar2.Value + INCREASE); 
+                UIS.SetProgressValue(UIS.progressBar2, UIS.progressBar2.Value + INCREASE); 
 
                       //          INTNODEPERFONE = Simplifier.SimplifierFx(INTNODEPERFONE,ref UIS);
 
