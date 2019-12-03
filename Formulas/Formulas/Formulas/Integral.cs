@@ -1564,9 +1564,19 @@ namespace Formulas
                                 //AddToTree.Tree FGTOW = Node.CopyNewTree(Node);
                                 AddToTree.Tree FGTOW = Node.CopyNewTree(Node);
 
-                                AddToTree.Tree INTNODEPERFONE = new AddToTree.Tree("/", false);
-                                AddToTree.Tree INTNODEPERTOW = new AddToTree.Tree("/", false);
+                AddToTree.Tree INTNODEPERFONE = new AddToTree.Tree("/", false);
+                AddToTree.Tree INTNODEPERTOW = new AddToTree.Tree("/", false);
+                if (Node.RightSideAccess != null)
+                {
+                    if (IS.IsNumberNegative(Node.RightSideAccess.SampleAccess))
+                    {
 
+                        INTNODEPERFONE = new AddToTree.Tree("*", false);
+                        INTNODEPERTOW = new AddToTree.Tree("*", false);
+
+
+                    }
+                }
                                 AddToTree.Tree MULONE = new AddToTree.Tree("*", false);
                                 AddToTree.Tree MULTOW = new AddToTree.Tree("*", false);
                                 AddToTree.Tree MULTHREE = new AddToTree.Tree("*", false);
@@ -1574,13 +1584,28 @@ namespace Formulas
                                 AddToTree.Tree DIVONE = new AddToTree.Tree("/", false);
                                 AddToTree.Tree DIVTOW = new AddToTree.Tree("/", false);
 
-                                INTNODEPERFONE.SetLefTandRightCommonlySide(FGONE,FONETX);
-                                INTNODEPERFONE.LeftSideAccess.ThreadAccess = INTNODEPERFONE;
-                                INTNODEPERFONE.RightSideAccess.ThreadAccess = INTNODEPERFONE;
-                                //ERROR279872387  :refer to page 218.
-                                
+                INTNODEPERFONE.SetLefTandRightCommonlySide(FGONE, FONETX);
+                INTNODEPERFONE.LeftSideAccess.ThreadAccess = INTNODEPERFONE;
+                INTNODEPERFONE.RightSideAccess.ThreadAccess = INTNODEPERFONE;
+                bool FRact = false;
+                if (Node.RightSideAccess != null)
+                {
 
-                                UIS.SetProgressValue(UIS.progressBar2, UIS.progressBar2.Value + INCREASE); 
+                    if (System.Convert.ToDouble(Node.RightSideAccess.SampleAccess) < 1 && System.Convert.ToDouble(Node.RightSideAccess.SampleAccess) > 0)
+                    {
+                        INTNODEPERFONE = new AddToTree.Tree("*", false);
+                        INTNODEPERTOW = new AddToTree.Tree("*", false);
+                        INTNODEPERFONE.SetLefTandRightCommonlySide(FGONE, FONETX);
+                        INTNODEPERFONE.LeftSideAccess.ThreadAccess = INTNODEPERFONE;
+                        INTNODEPERFONE.RightSideAccess.ThreadAccess = INTNODEPERFONE;
+                        FRact = true;
+
+                    }
+
+                }    //ERROR279872387  :refer to page 218.
+
+
+                            UIS.SetProgressValue(UIS.progressBar2, UIS.progressBar2.Value + INCREASE); 
 
                       //          INTNODEPERFONE = Simplifier.SimplifierFx(INTNODEPERFONE,ref UIS);
 
@@ -1602,7 +1627,8 @@ namespace Formulas
                                 int HOLDE = UIS.progressBar2.Value;
 
                                 Queficient = (float)1.0;
-                if (!IS.IsNumberNegative(Node.RightSideAccess.SampleAccess))
+                //if (!IS.IsNumberNegative(Node.RightSideAccess.SampleAccess))
+                if (!FRact)
                     INTNODEPERFONE = Integral.IntegralCalculator(INTNODEPERFONE.CopyNewTree(INTNODEPERFONE), ref UIS);
 
                                 UIS.SetLableValue(UIS.label17, "Integral F(X)^G(X).");
@@ -1618,15 +1644,23 @@ namespace Formulas
 
                                 //ERRORCORECTION09119824 :The error may occured from here.
                                 INTNODEPERTOW = INTNODEPERFONE.CopyNewTree(INTNODEPERFONE);
+                if (!FRact)
+                {
+                    MULONE.SetLefTandRightCommonlySide(FONETX, INTNODEPERFONE);
+                    MULONE.LeftSideAccess.ThreadAccess = MULONE;
+                    MULONE.RightSideAccess.ThreadAccess = MULONE;
+                }
+                else
+                {
+                    MULONE.SetLefTandRightCommonlySide(FPRIN, INTNODEPERFONE);
+                    MULONE.LeftSideAccess.ThreadAccess = MULONE;
+                    MULONE.RightSideAccess.ThreadAccess = MULONE;
+                }
 
-                                MULONE.SetLefTandRightCommonlySide(FONETX,INTNODEPERFONE);
-                                MULONE.LeftSideAccess.ThreadAccess = MULONE;
-                                MULONE.RightSideAccess.ThreadAccess = MULONE;
-
-                                MULTOW.SetLefTandRightCommonlySide(FPRIN,INTNODEPERTOW);
-                                MULTOW.LeftSideAccess.ThreadAccess = MULTOW;
-                                MULTOW.RightSideAccess.ThreadAccess = MULTOW;
-                                //ERRORCORECTION0921849823 :The number soud mul to minuse one.refer to page 221.
+                MULTOW.SetLefTandRightCommonlySide(FPRIN, INTNODEPERTOW);
+                    MULTOW.LeftSideAccess.ThreadAccess = MULTOW;
+                    MULTOW.RightSideAccess.ThreadAccess = MULTOW;
+               //ERRORCORECTION0921849823 :The number soud mul to minuse one.refer to page 221.
                                 /*AddToTree.Tree MIN = new AddToTree.Tree("1",false);
                                 MULTOW.SetLefTandRightCommonlySide(MULTOW.CopyNewTree(MULTOW),MIN);
                                 MULTOW.SampleAccess="-";
@@ -1639,64 +1673,71 @@ namespace Formulas
                                 UIS.SetProgressValue(UIS.progressBar2, UIS.progressBar2.Value + INCREASE); 
 
                                 HOLDE = UIS.progressBar2.Value;
-                                //MULTOW = Simplifier.SimplifierFx(MULTOW, ref UIS);
-                                if (IntegralRecursiveMulatFG.IntegralRecursiveMulatFPowerGFx(Node, MULTOW, ref UIS, ref Queficient))
-                                {
-                                    MULTOW.SetLefTandRightCommonlySide(null, null);
+                //MULTOW = Simplifier.SimplifierFx(MULTOW, ref UIS);
+                if (FRact || IntegralRecursiveMulatFG.IntegralRecursiveMulatFPowerGFx(Node, MULTOW, ref UIS, ref Queficient))
+                {
+                    if (!FRact)
+                    {
+                        MULTOW.SetLefTandRightCommonlySide(null, null);
 
-                                    double QDerivasionF = 0, BG = 0;
-                                    if (FPRIN.SampleAccess == "*")
-                                    {
-                                        if (IS.IsNumber(FPRIN.LeftSideAccess.SampleAccess))
-                                            QDerivasionF = System.Convert.ToDouble(FPRIN.LeftSideAccess.SampleAccess);
-                                        else
-                                            if (IS.IsNumber(FPRIN.RightSideAccess.SampleAccess))
-                                                QDerivasionF = System.Convert.ToDouble(FPRIN.RightSideAccess.SampleAccess);
-                                            else
-                                                QDerivasionF = 1.0;
+                        double QDerivasionF = 0, BG = 0;
+                        if (FPRIN.SampleAccess == "*")
+                        {
+                            if (IS.IsNumber(FPRIN.LeftSideAccess.SampleAccess))
+                                QDerivasionF = System.Convert.ToDouble(FPRIN.LeftSideAccess.SampleAccess);
+                            else
+                                if (IS.IsNumber(FPRIN.RightSideAccess.SampleAccess))
+                                QDerivasionF = System.Convert.ToDouble(FPRIN.RightSideAccess.SampleAccess);
+                            else
+                                QDerivasionF = 1.0;
 
-                                    }
-                                    else
-                                        if (IS.IsNumber(FPRIN.SampleAccess))
-                                            QDerivasionF = System.Convert.ToDouble(FPRIN.SampleAccess);
-                                        else
-                                            QDerivasionF = 1.0;
-                                    
-                                    MULTOW.SetLefTandRightCommonlySide(null, null);
-                                    if(IntegralSignPositive)
-                                        MULTOW.SampleAccess = (1 / (1 - QDerivasionF)).ToString();
-                                    else
-                                        MULTOW.SampleAccess = (1 / (1 + QDerivasionF)).ToString();
+                        }
+                        else
+                            if (IS.IsNumber(FPRIN.SampleAccess))
+                            QDerivasionF = System.Convert.ToDouble(FPRIN.SampleAccess);
+                        else
+                            QDerivasionF = 1.0;
 
+                        MULTOW.SetLefTandRightCommonlySide(null, null);
 
-                                    Dummy.SetLefTandRightCommonlySide(MULTOW, MULONE);
-                                    Dummy.LeftSideAccess.ThreadAccess = Dummy;
-                                    Dummy.RightSideAccess.ThreadAccess = Dummy;
-                                    Dummy.SampleAccess = "*";
-                                    Dummy = Simplifier.SimplifierFx(Dummy, ref UIS);
-                                    return Dummy;
-                                }
-                                else
-                                {
-                                    if (MULTOW != null)
-                                    {
-                                        MULTOW = ChangeFunction.ChangeFunctionFx(MULTOW, ref UIS);
+                        if (IntegralSignPositive)
+                            MULTOW.SampleAccess = (1 / (1 - QDerivasionF)).ToString();
+                        else
+                            MULTOW.SampleAccess = (1 / (1 + QDerivasionF)).ToString();
 
-                        if (!IS.IsNumberNegative(MULTOW.RightSideAccess.SampleAccess))
-                            MULTOW = Integral.IntegralCalculator(MULTOW.CopyNewTree(MULTOW), ref UIS);
+                    }
+                    else
+                    {
+                        MULTOW.SampleAccess = (1 / System.Convert.ToDouble(INTNODEPERFONE.RightSideAccess.SampleAccess)).ToString();
+                    }
+                    Dummy.SetLefTandRightCommonlySide(MULTOW, MULONE);
+                    Dummy.LeftSideAccess.ThreadAccess = Dummy;
+                    Dummy.RightSideAccess.ThreadAccess = Dummy;
+                    Dummy.SampleAccess = "*";
+                    Dummy = Simplifier.SimplifierFx(Dummy, ref UIS);
+                    return Dummy;
+                }
+                else
+                {
+                    if (MULTOW != null && (!FRact))
+                    {
+                        MULTOW = ChangeFunction.ChangeFunctionFx(MULTOW, ref UIS);
 
-                                        UIS.SetLableValue(UIS.label17, "Integral F(X)^G(X).");
+                        //if (!IS.IsNumberNegative(MULTOW.RightSideAccess.SampleAccess))
+                        MULTOW = Integral.IntegralCalculator(MULTOW.CopyNewTree(MULTOW), ref UIS);
 
-                                    }
-                                    if (MULTOW == null)
-                                        return MULONE;
-                                    Dummy.SampleAccess = "-";
-                                    Dummy.SetLefTandRightCommonlySide(MULONE, MULTOW);
-                                    Dummy.LeftSideAccess.ThreadAccess = Dummy;
-                                    Dummy.RightSideAccess.ThreadAccess = Dummy;
-                                    Dummy = Simplifier.SimplifierFx(Dummy, ref UIS);
-                                    return Dummy;
-                                }
+                        UIS.SetLableValue(UIS.label17, "Integral F(X)^G(X).");
+
+                    }
+                    if (MULTOW == null)
+                        return MULONE;
+                    Dummy.SampleAccess = "-";
+                    Dummy.SetLefTandRightCommonlySide(MULONE, MULTOW);
+                    Dummy.LeftSideAccess.ThreadAccess = Dummy;
+                    Dummy.RightSideAccess.ThreadAccess = Dummy;
+                    Dummy = Simplifier.SimplifierFx(Dummy, ref UIS);
+                    return Dummy;
+                }
                                 UIS.SetProgressValue(UIS.progressBar2,HOLDE);
 
                                 UIS.SetProgressValue(UIS.progressBar2, 2147483647);

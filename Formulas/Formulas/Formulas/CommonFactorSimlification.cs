@@ -11,7 +11,8 @@ namespace Formulas
     static class CommonFactorSimlification
     {
         static public AddToTree.Tree CommonFactorSimlificationFx(AddToTree.Tree Dummy,ref UknownIntegralSolver UIS)
-        {
+        {if (Dummy == null)
+                return null;
             bool CONTINUE=false;
             do
             {
