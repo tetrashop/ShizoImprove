@@ -156,13 +156,12 @@ namespace RefrigtzDLL
 {
 
     [Serializable]
-
     public class AllDraw
     {   //Initiate Variables.  
         bool[] ThinkingAllowed = { false, false, false, false, false, false, false, false, false, false, false, false };
 
-        List<Task> tH = new List<Task>();
-        List<Task> TH = new List<Task>();
+        [NonSerialized] List<Task> tH = new List<Task>();
+        [NonSerialized] List<Task> TH = new List<Task>();
 
         public static bool Deeperthandeeper = false;
         public static bool FirstTraversalTree = true;
@@ -343,7 +342,7 @@ namespace RefrigtzDLL
         const int MaxCastlesFounded = 14;
         const int MaxMinisterFounded = 18;
         const int MaxKingFounded = 22;
-        [NonSerialized()] public Task ob;
+       // [NonSerialized()] public Task ob;
         //Making String datastructure to root variable
         public AllDraw AStarGreedyString = null;
 
@@ -20472,6 +20471,7 @@ if (Kind == 5)
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SemaphoreExxedTime:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+
         //Main Initiate Thinking Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
