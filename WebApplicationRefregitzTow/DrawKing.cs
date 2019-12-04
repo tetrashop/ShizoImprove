@@ -63,11 +63,11 @@ namespace RefrigtzW
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
-        public double ReturnHuristic()
+        public int ReturnHuristic()
         {
             int HaveKilled = 0;
             //long Time = TimeElapced.TimeNow();Spaces++;
-            double a = 0;
+            int a = 0;
             for (var ii = 0; ii < AllDraw.KingMovments; ii++)
 
                 a += KingThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
@@ -79,7 +79,7 @@ namespace RefrigtzW
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
-            double a = ReturnHuristic();
+            int a = ReturnHuristic();
             if (MaxHuristicxK < a)
             {
                 Object O2 = new Object();

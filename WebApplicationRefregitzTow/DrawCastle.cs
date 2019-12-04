@@ -65,7 +65,7 @@ namespace RefrigtzW
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
-            double a = ReturnHuristic();
+            int a = ReturnHuristic();
             if (MaxHuristicxB < a)
             {
                 MaxNotFound = false;
@@ -84,11 +84,11 @@ namespace RefrigtzW
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
-        public double ReturnHuristic()
+        public int ReturnHuristic()
         {
             int HaveKilled = 0;
             //long Time = TimeElapced.TimeNow();Spaces++;
-            double a = 0;
+            int a = 0;
             for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
 
                 a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
