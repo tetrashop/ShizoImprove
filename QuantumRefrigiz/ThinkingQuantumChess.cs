@@ -9720,6 +9720,7 @@ namespace QuantumRefrigiz
                 int HKingSafe = new int();
                 int HKingDangour = new int();
                 int HFromCenter = 0;
+                var output = Task.Factory.StartNew(() =>
                 Parallel.Invoke(() =>
                 {
                     Object O = new Object();
@@ -9778,7 +9779,8 @@ namespace QuantumRefrigiz
                         HFromCenter = HuristicSoldierFromCenter(TableSS, color, Order, RowS, ColS, RowD, ColD);
                     }
                 }
-                );
+                ));
+                output.Wait();
                 Object O1 = new Object();
                 lock (O1)
                 {
