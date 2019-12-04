@@ -4825,60 +4825,98 @@ namespace RefrigtzDLL
                     {
                         ////Parallel.For(0, 8, ColS =>
                         {
-                            Object O1 = new Object();
-                            lock (O1)
-                            {
-                                int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
-                                int[,] Table1 = CloneATable(Table);
-                                int Ord1 = Ord;
-                                Color aa1 = aa;
-                                int HAA1 = HuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
-                                if (HAA1 != 0)
-                                    Huristic[0] += HAA1;
+                            var output = Task.Factory.StartNew(() =>
+                   Parallel.Invoke(() =>
+                   {
+                       Object O1 = new Object();
+                       lock (O1)
+                       {
+                           int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
+                           int[,] Table1 = CloneATable(Table);
+                           int Ord1 = Ord;
+                           Color aa1 = aa;
+                           int HAA1 = HuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
+                           if (HAA1 != 0)
+                               Huristic[0] += HAA1;
+                       }
+                   }
 
-                                int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
-                                int[,] Table2 = CloneATable(Table);
-                                int Ord2 = Ord;
-                                Color aa2 = aa;
-                                int Killed1 = Killed;
-                                int HAA2 = HuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
-                                if (HAA2 != 0)
-                                    Huristic[1] += HAA2;
+                   , () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
+                            int[,] Table2 = CloneATable(Table);
+                            int Ord2 = Ord;
+                            Color aa2 = aa;
+                            int Killed1 = Killed;
+                            int HAA2 = HuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
+                            if (HAA2 != 0)
+                                Huristic[1] += HAA2;
+                        }
+                    }
+                    , () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
+                            int[,] Table3 = CloneATable(Table);
+                            int Ord3 = Ord;
+                            Color aa3 = aa;
+                            int HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
+                            if (HAA3 != 0)
+                                Huristic[2] += HAA3;
+                        }
+                    },
+                    () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
+                            int[,] Table4 = CloneATable(Table);
+                            int Ord4 = Ord;
+                            Color aa4 = aa;
+                            int HAA4 = HuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
+                            if (HAA4 != 0)
+                                Huristic[3] += HAA4;
+                        }
 
-                                int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
-                                int[,] Table3 = CloneATable(Table);
-                                int Ord3 = Ord;
-                                Color aa3 = aa;
-                                int HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
-                                if (HAA3 != 0)
-                                    Huristic[2] += HAA3;
-
-                                int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
-                                int[,] Table4 = CloneATable(Table);
-                                int Ord4 = Ord;
-                                Color aa4 = aa;
-                                int HAA4 = HuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
-                                if (HAA4 != 0)
-                                    Huristic[3] += HAA4;
-
-                                int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
-                                int[,] Table5 = CloneATable(Table);
-                                int Ord5 = Ord;
-                                Color aa5 = aa;
-                                int HAA5 = HuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
+                    },
+                    () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
+                            int[,] Table5 = CloneATable(Table);
+                            int Ord5 = Ord;
+                            Color aa5 = aa;
+                            int HAA5 = HuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
+                                );
+                            if (HAA5 != 0)
+                                Huristic[4] += HAA5;
+                        }
+                    },
+                    () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
+                            int[,] Table6 = CloneATable(Table);
+                            int Ord6 = Ord;
+                            Color aa6 = aa;
+                            int HAA6 = HuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
                                     );
-                                if (HAA5 != 0)
-                                    Huristic[4] += HAA5;
-
-                                int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
-                                int[,] Table6 = CloneATable(Table);
-                                int Ord6 = Ord;
-                                Color aa6 = aa;
-                                int HAA6 = HuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
-                                    );
-                                if (HAA6 != 0)
-                                    Huristic[5] += HAA6;
-                            }
+                            if (HAA6 != 0)
+                                Huristic[5] += HAA6;
+                        }
+                    }
+                   ));
+                            output.Wait();
 
                         }//);
                     }//);
@@ -4896,59 +4934,70 @@ namespace RefrigtzDLL
                                 ////Parallel.For(0, 8, jj =>
                                 for (var jj = 0; jj < 8; jj++)
                                 {
-                                    Object O1 = new Object();
-                                    lock (O1)
-                                    {
-                                        int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
-                                        int[,] Table1 = CloneATable(Table);
-                                        int Ord1 = Ord;
-                                        Color aa1 = aa;
-                                        int HAA1 = HuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
-                                        Huristic[0] += HAA1;
-
-                                        int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
-                                        int[,] Table2 = CloneATable(Table);
-                                        int Ord2 = Ord;
-                                        Color aa2 = aa;
-                                        int Killed1 = Killed;
-                                        int HAA2 = HuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
-                                        Huristic[1] += HAA2;
-
-                                        int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
-                                        int[,] Table3 = CloneATable(Table);
-                                        int Ord3 = Ord;
-                                        Color aa3 = aa;
-                                        int HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
-                                        Huristic[2] += HAA3;
-
-                                        int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
-                                        int[,] Table4 = CloneATable(Table);
-                                        int Ord4 = Ord;
-                                        Color aa4 = aa;
-                                        int HAA4 = HuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
-                                        Huristic[3] += HAA4;
-
-                                        int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
-                                        int[,] Table5 = CloneATable(Table);
-                                        int Ord5 = Ord;
-                                        Color aa5 = aa;
-                                        int HAA5 = HuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
-                                            );
-                                        Huristic[4] += HAA5;
-
-                                        int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
-                                        int[,] Table6 = CloneATable(Table);
-                                        int Ord6 = Ord;
-                                        Color aa6 = aa;
-                                        int HAA6 = HuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
-                                            );
-                                        Huristic[5] += HAA6;
-                                    }
-                                }//);
+                                    var output = Task.Factory.StartNew(() =>
+                   Parallel.Invoke(() =>
+                   {
+                       Object O1 = new Object();
+                       lock (O1)
+                       {
+                           int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
+                           int[,] Table1 = CloneATable(Table);
+                           int Ord1 = Ord;
+                           Color aa1 = aa;
+                           int HAA1 = HuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
+                           Huristic[0] += HAA1;
+                       }
+                   }, () =>
+                    {
+                        int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
+                        int[,] Table2 = CloneATable(Table);
+                        int Ord2 = Ord;
+                        Color aa2 = aa;
+                        int Killed1 = Killed;
+                        int HAA2 = HuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
+                        Huristic[1] += HAA2;
+                    }, () =>
+                    {
+                        int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
+                        int[,] Table3 = CloneATable(Table);
+                        int Ord3 = Ord;
+                        Color aa3 = aa;
+                        int HAA3 = HuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
+                        Huristic[2] += HAA3;
+                    }, () =>
+                    {
+                        int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
+                        int[,] Table4 = CloneATable(Table);
+                        int Ord4 = Ord;
+                        Color aa4 = aa;
+                        int HAA4 = HuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
+                        Huristic[3] += HAA4;
+                    }, () =>
+                    {
+                        int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
+                        int[,] Table5 = CloneATable(Table);
+                        int Ord5 = Ord;
+                        Color aa5 = aa;
+                        int HAA5 = HuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
+                            );
+                        Huristic[4] += HAA5;
+                    }, () =>
+                    {
+                        int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
+                        int[,] Table6 = CloneATable(Table);
+                        int Ord6 = Ord;
+                        Color aa6 = aa;
+                        int HAA6 = HuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
+                           );
+                        Huristic[5] += HAA6;
+                    }));
+                                    output.Wait();
+                                }
                             }//);
                         }//);
                     }//);
-                }
+                }//);
+
 
 
                 //Reassignments of Begin Call Global Orders.
