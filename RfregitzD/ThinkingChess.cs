@@ -6855,10 +6855,9 @@ namespace RefrigtzDLL
                 return Value;
             }
         }
-        int[] HuMethod(int HuristicAttackValue, int HuristicMovementValue, int HuristicSelfSupportedValue, int HuristicObjectDangourCheckMateValue, int HuristicKillerValue, int HuristicReducedAttackValue, int HeuristicDistabceOfCurrentMoveFromEnemyKingValue, int HeuristicKingSafe, int HeuristicFromCenter, int HeuristicKingDangour)
+        void HuMethod(ref int[] Hu,int HuristicAttackValue, int HuristicMovementValue, int HuristicSelfSupportedValue, int HuristicObjectDangourCheckMateValue, int HuristicKillerValue, int HuristicReducedAttackValue, int HeuristicDistabceOfCurrentMoveFromEnemyKingValue, int HeuristicKingSafe, int HeuristicFromCenter, int HeuristicKingDangour)
         {
-            int[] Hu = new int[10];
-
+           
             Hu[0] += HuristicAttackValue;
             Hu[1] += HuristicMovementValue;
             Hu[2] += HuristicSelfSupportedValue;
@@ -6869,7 +6868,7 @@ namespace RefrigtzDLL
             Hu[7] += HeuristicKingSafe;
             Hu[8] += HeuristicFromCenter;
             Hu[9] += HeuristicKingDangour;
-            return Hu;
+            return;
         }
         void HuMethodSup(int HuristicAttackValue, int HuristicMovementValue, int HuristicSelfSupportedValue, int HuristicObjectDangourCheckMateValue, int HuristicKillerValue, int HuristicReducedAttackValue, int HeuristicDistabceOfCurrentMoveFromEnemyKingValue, int HeuristicKingSafe, int HeuristicFromCenter, int HeuristicKingDangour)
         {
@@ -6884,10 +6883,9 @@ namespace RefrigtzDLL
             HeuristicFromCenterSup += HeuristicFromCenter;
             HeuristicKingDangourSup += HeuristicKingDangour;
         }
-        int[] HuMethodSup()
+        void HuMethodSup(ref int[] Hu)
         {
-            int[] Hu = new int[10];
-            Hu[0] = HuristicAttackValueSup;
+             Hu[0] = HuristicAttackValueSup;
             //HuristicAttackValueSup = 0;
             Hu[1] = HuristicMovementValueSup;
             //HuristicMovementValueSup = 0;
@@ -6906,7 +6904,7 @@ namespace RefrigtzDLL
             Hu[8] = HeuristicFromCenterSup;
             //HeuristicFromCenterSup = 0;
             Hu[9] = HeuristicKingDangourSup;
-            return Hu;
+            return;
         }
         //specific determination for thinking main method
         void KingThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
@@ -6936,7 +6934,8 @@ namespace RefrigtzDLL
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup);
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup));
+                    newTask1.Wait();
 
 
                     if (!Sup)
@@ -6955,14 +6954,17 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                        newTask1.Wait();
                     }
                     Object A1 = new object();
                     lock (A1)
                     {
                         if (!Sup) { NumbersOfAllNode++; }
                     }
-                    int Killed = KilledMethod(Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS);
+                    int Killed = 0;
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS));
+                    newTask1.Wait();
 
 
 
@@ -6974,19 +6976,29 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 6, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = false;
+                            int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
+                            newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
+                            newTask1.Wait();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
-                    ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS);
+                    newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
+                    newTask1.Wait();
+
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup)
+                        {
+                            newTask1 = Task.Factory.StartNew(() => CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                            newTask1.Wait();
+
+                        }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -7002,8 +7014,12 @@ namespace RefrigtzDLL
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
                                     HuristicObjectDangourCheckMateValue = 0;
-                                Hu = HuMethod(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                                newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                                newTask1.Wait();
+
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
+
                                 HuristicListKing.Add(Hu);
                             }
                             /*else
@@ -7051,13 +7067,19 @@ namespace RefrigtzDLL
                     }
                     else
                     {
-                        HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                        newTask1.Wait();
+
                         int[] Hu = new int[10];
-                        Hu = HuMethodSup();
+
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
+                        newTask1.Wait();
+                        
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
-                        HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu);
+                        newTask1 = Task.Factory.StartNew(() => HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1.Wait();
 
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
@@ -7132,8 +7154,8 @@ namespace RefrigtzDLL
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-
-                    SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup);
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup));
+                    newTask1.Wait();
 
                     if (!Sup)
                     {
@@ -7151,14 +7173,17 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                        newTask1.Wait();
                     }
                     Object A1 = new object();
                     lock (A1)
                     {
                         if (!Sup) { NumbersOfAllNode++; }
                     }
-                    int Killed = KilledMethod(Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS);
+                    int Killed = 0;
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS));
+                    newTask1.Wait();
 
 
 
@@ -7168,19 +7193,29 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 5, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = false;
+                            int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
+                            newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
+                            newTask1.Wait();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
-                    ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS);
+                    newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
+                    newTask1.Wait();
+
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup)
+                        {
+                            newTask1 = Task.Factory.StartNew(() => CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                            newTask1.Wait();
+
+                        }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -7196,7 +7231,10 @@ namespace RefrigtzDLL
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
                                     HuristicObjectDangourCheckMateValue = 0;
-                                Hu = HuMethod(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                                newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                                newTask1.Wait();
+
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HuristicListMinister.Add(Hu);
                             }
@@ -7245,15 +7283,23 @@ namespace RefrigtzDLL
                     }
                     else
                     {
-                        HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                        newTask1.Wait();
+
                         int[] Hu = new int[10];
-                        Hu = HuMethodSup();
+
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
+                        newTask1.Wait();
+                        
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
 
-                        HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu);               /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
-                            if (Order == 1)
+                        newTask1 = Task.Factory.StartNew(() => HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1.Wait();
+                        /*
+                        if (Order == 1)
                                 AllDraw.OutPut.Append("\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut.Append("\r\nThinking Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
@@ -7670,8 +7716,8 @@ namespace RefrigtzDLL
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-
-                    SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup);
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup));
+                    newTask1.Wait();
 
 
                     if (!Sup)
@@ -7690,14 +7736,18 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                        newTask1.Wait();
                     }
                     Object A1 = new object();
                     lock (A1)
                     {
                         if (!Sup) { NumbersOfAllNode++; }
                     }
-                    int Killed = KilledMethod(Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS);
+
+                    int Killed = 0;
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS));
+                    newTask1.Wait();
 
 
 
@@ -7708,19 +7758,29 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 4, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = false;
+                            int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
+                            newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
+                            newTask1.Wait();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
-                    ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS);
+                    newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
+                    newTask1.Wait();
+
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup)
+                        {
+                            newTask1 = Task.Factory.StartNew(() => CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                            newTask1.Wait();
+
+                        }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -7736,7 +7796,9 @@ namespace RefrigtzDLL
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
                                     HuristicObjectDangourCheckMateValue = 0;
-                                Hu = HuMethod(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                                newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                                newTask1.Wait();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HuristicListCastle.Add(Hu);
@@ -7788,12 +7850,19 @@ namespace RefrigtzDLL
                     }
                     else
                     {
-                        HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                        newTask1.Wait();
+
                         int[] Hu = new int[10];
-                        Hu = HuMethodSup();
+
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
+                        newTask1.Wait();
+
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                        HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu);
+
+                        newTask1 = Task.Factory.StartNew(() => HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1.Wait();
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                  if (Order == 1)
@@ -7838,8 +7907,8 @@ namespace RefrigtzDLL
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-
-                    SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup);
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup));
+                    newTask1.Wait();
 
                     if (!Sup)
                     {
@@ -7857,14 +7926,18 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                        newTask1.Wait();
                     }
                     Object A1 = new object();
                     lock (A1)
                     {
                         if (!Sup) { NumbersOfAllNode++; }
                     }
-                    int Killed = KilledMethod(Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS);
+
+                    int Killed = 0;
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS));
+                    newTask1.Wait();
 
 
 
@@ -7874,19 +7947,29 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 3, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = false;
+                            int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
+                            newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
+                            newTask1.Wait();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
-                    ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS);
+                    newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
+                    newTask1.Wait();
+
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup)
+                        {
+                            newTask1 = Task.Factory.StartNew(() => CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                            newTask1.Wait();
+
+                        }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -7902,7 +7985,9 @@ namespace RefrigtzDLL
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
                                     HuristicObjectDangourCheckMateValue = 0;
-                                Hu = HuMethod(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                                newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                                newTask1.Wait();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HuristicListHourse.Add(Hu);
@@ -7954,14 +8039,21 @@ namespace RefrigtzDLL
                     }
                     else
                     {
-                        HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                        newTask1.Wait();
+
                         int[] Hu = new int[10];
-                        Hu = HuMethodSup();
+
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
+                        newTask1.Wait();
+
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
-                        HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu);        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
-                            if (Order == 1)
+                        newTask1 = Task.Factory.StartNew(() => HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1.Wait();
+                        /*
+                        if (Order == 1)
                                 AllDraw.OutPut.Append("\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
                             else
                                 AllDraw.OutPut.Append("\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
@@ -8002,8 +8094,8 @@ namespace RefrigtzDLL
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-
-                    SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup);
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup));
+                    newTask1.Wait();
 
                     if (!Sup)
                     {
@@ -8021,14 +8113,17 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                        newTask1.Wait();
                     }
                     Object A1 = new object();
                     lock (A1)
                     {
                         if (!Sup) { NumbersOfAllNode++; }
                     }
-                    int Killed = KilledMethod(Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS);
+                    int Killed = 0;
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS));
+                    newTask1.Wait();
 
 
 
@@ -8038,20 +8133,29 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 2, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = false;
+                            int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
+                            newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
+                            newTask1.Wait();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
-                    ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS);
+                    newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
+                    newTask1.Wait();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup)
+                        {
+                            newTask1 = Task.Factory.StartNew(() => CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                            newTask1.Wait();
+
+                        }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -8067,7 +8171,9 @@ namespace RefrigtzDLL
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
                                     HuristicObjectDangourCheckMateValue = 0;
-                                Hu = HuMethod(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                                newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                                newTask1.Wait();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HuristicListElefant.Add(Hu);
@@ -8119,12 +8225,19 @@ namespace RefrigtzDLL
                     }
                     else
                     {
-                        HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                        newTask1.Wait();
+
                         int[] Hu = new int[10];
-                        Hu = HuMethodSup();
+
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
+                        newTask1.Wait();
+                        
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                        HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu);
+
+                        newTask1 = Task.Factory.StartNew(() => HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1.Wait();
 
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
@@ -8274,13 +8387,13 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("RemoveAtList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //learning autamata maib method
-        bool PenaltyMechanisam(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
+        void PenaltyMechanisam(ref bool RETURN,ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
             lock (OO)
             {
-                bool RETURN = false;
+                RETURN = false;
                 Object O3 = new Object();
                 ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
                 Object O = new Object();
@@ -8310,7 +8423,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
                                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return true;
+                                RETURN = true; return;
                             }
 
 
@@ -8330,7 +8443,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
                                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return true;
+                                RETURN = true; return;
                             }
                         }
                         if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown)|| 
@@ -8348,7 +8461,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
                                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return true;
+                                RETURN = true; return;
                             }
 
 
@@ -8368,7 +8481,7 @@ namespace RefrigtzDLL
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
                                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return true;
+                                RETURN = true; return;
                             }
                         }
                         if (Order == 1 && AA.CheckMateBrown)
@@ -8376,28 +8489,28 @@ namespace RefrigtzDLL
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
-                            //return true;
+                            //RETURN = true; return;
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
-                            //return true;
+                            //RETURN = true; return;
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
-                            //return true;
+                            //RETURN = true; return;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
 
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
-                            //return true;
+                            //RETURN = true; return;
                         }
 
                         if (Order == 1 && AA.CheckGray)
@@ -8409,7 +8522,7 @@ namespace RefrigtzDLL
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //return true;
+                            //RETURN = true; return;
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -8422,7 +8535,7 @@ namespace RefrigtzDLL
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //return true;
+                            //RETURN = true; return;
                         }
                         if (Order == 1 && AA.CheckBrown)
                         {
@@ -8433,7 +8546,7 @@ namespace RefrigtzDLL
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //return true;
+                            //RETURN = true; return;
                         }
                         else
                            if (Order == -1 && AA.CheckGray)
@@ -8446,7 +8559,7 @@ namespace RefrigtzDLL
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //return true;
+                            //RETURN = true; return;
                         }
 
                         //if (FoundFirstSelfMating > 0)
@@ -8460,7 +8573,7 @@ namespace RefrigtzDLL
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                //return true;
+                                //RETURN = true; return;
                             }*/
                         }
 
@@ -8470,7 +8583,7 @@ namespace RefrigtzDLL
                              EnemyCheckMateActionsString= true;
                              CheckedM = -2;
                              ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             return true;
+                             RETURN = true; return;
                          }
                          if (Order == -1 && AA.CheckMateGray)
                          {
@@ -8478,7 +8591,7 @@ namespace RefrigtzDLL
                              EnemyCheckMateActionsString= true;
                              CheckedM = -2;
                              ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             return true;
+                             RETURN = true; return;
                          }
                          if (Order == 1 && AA.CheckMateGray)
                          {
@@ -8486,7 +8599,7 @@ namespace RefrigtzDLL
                              EnemyCheckMateActionsString = false;
                              CheckedM = -2;
                              ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             return true;
+                             RETURN = true; return;
                          }
                          if (Order == -1 && AA.CheckMateBrown)
                          {
@@ -8494,7 +8607,7 @@ namespace RefrigtzDLL
                              EnemyCheckMateActionsString= false;
                              CheckedM = -2;
                              ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             return true;
+                             RETURN = true; return;
                          }
 
                          if (Order == 1 && AA.CheckGray)
@@ -8507,7 +8620,7 @@ namespace RefrigtzDLL
                              }
                              CheckedM = -1;
                              ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             return true;
+                             RETURN = true; return;
                          }
                          else
                              if (Order == -1 && AA.CheckBrown)
@@ -8520,11 +8633,11 @@ namespace RefrigtzDLL
                              }
                              CheckedM = -1;
                              ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             return true;
+                             RETURN = true; return;
                          }*/
                     }
                     if (RETURN)
-                        return false;
+                        return;
                 }
 
                 //Initiate Local Variables.
@@ -8929,7 +9042,7 @@ namespace RefrigtzDLL
                     }
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return false;
+                return;
             }
         }
         void SoldierConversion(ref ThingsConverter t, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination, int[,] TableS)
@@ -9000,9 +9113,9 @@ namespace RefrigtzDLL
                 Sup = false;
             }
         }
-        int KilledMethod(bool Sup, int RowDestination, int ColumnDestination, int RowSource, int ColumnSource, int[,] TableS, ThingsConverter t = null)
+        void KilledMethod(ref int Killed,bool Sup, int RowDestination, int ColumnDestination, int RowSource, int ColumnSource, int[,] TableS, ThingsConverter t = null)
         {
-            int Killed = 0;
+            Killed = 0;
             if (!Sup)
             {
                 if (t != null)
@@ -9034,7 +9147,7 @@ namespace RefrigtzDLL
                 }
                 KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
             }
-            return Killed;
+            return;
         }
         void ObjectIndexes(int Kind, bool Sup, int RowDestination, int ColumnDestination, int[,] TableS)
         {
@@ -9285,12 +9398,14 @@ namespace RefrigtzDLL
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
                     bool Sup = false;
-                    SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup);
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup));
+                    newTask1.Wait();
 
 
                     if (!Sup)
                     {
-                        SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS);
+                        newTask1 = Task.Factory.StartNew(() => SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                        newTask1.Wait();
                         ///Add Table to List of Private.
                         HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
 
@@ -9304,7 +9419,8 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                        newTask1.Wait();
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -9313,8 +9429,9 @@ namespace RefrigtzDLL
                     }
 
 
-                    int Killed = KilledMethod(Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS, t);
-
+                    int Killed = 0;
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowDestination, ColumnDestination, RowSource, ColumnSource, TableS, t));
+                    newTask1.Wait();
 
 
 
@@ -9323,20 +9440,29 @@ namespace RefrigtzDLL
                         Object A3 = new object();
                         lock (A3)
                         {
-                            PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                            PenaltyVCar = false;
+                            int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
+                            newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
+                            newTask1.Wait();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
-                    ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS);
+                    newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
+                    newTask1.Wait();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
                     lock (A5)
                     {
                         //Caused this for Stachostic results.
-                        if (!Sup) { CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour); }
+                        if (!Sup)
+                        {
+                            newTask1 = Task.Factory.StartNew(() => CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                            newTask1.Wait();
+
+                        }
                     }
 
                     //Calculate Huristic and Add to List and Cal Syntax.
@@ -9352,7 +9478,9 @@ namespace RefrigtzDLL
                                 HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                                 if (IgnoreFromCheckandMateHuristic)
                                     HuristicObjectDangourCheckMateValue = 0;
-                                Hu = HuMethod(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                                newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                                newTask1.Wait();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HuristicListSolder.Add(Hu);
@@ -9402,14 +9530,19 @@ namespace RefrigtzDLL
                     }
                     else
                     {
-                        HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                        newTask1.Wait();
 
                         int[] Hu = new int[10];
-                        Hu = HuMethodSup();
+
+                        newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
+                        newTask1.Wait();
+
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
-                        HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu);
+                        newTask1 = Task.Factory.StartNew(() => HuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1.Wait();
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                                            if (Order == 1)
@@ -9477,7 +9610,8 @@ namespace RefrigtzDLL
                 {
                     ThinkingRun = true;
                 }
-                CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                var newTask1 = Task.Factory.StartNew(() => CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                newTask1.Wait();
                 Object A = new object();
                 lock (A)
                 {
@@ -9501,7 +9635,11 @@ namespace RefrigtzDLL
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+
+                PenaltyVCar = false;
+                int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
+                newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
+                newTask1.Wait();
 
                 //{ ThinkingAtRun = false; return; }
                 //Store Movments Items. 
@@ -9519,7 +9657,9 @@ namespace RefrigtzDLL
                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                     if (IgnoreFromCheckandMateHuristic)
                         HuristicObjectDangourCheckMateValue = 0;
-                    Hu = HuMethod(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                    newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                    newTask1.Wait();
 
                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                     HuristicListKing.Add(Hu);
@@ -9814,7 +9954,9 @@ namespace RefrigtzDLL
                     ThinkingRun = true;
                 }
 
-                CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                 var newTask1 = Task.Factory.StartNew(() => CalculateHuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                newTask1.Wait();
+
                 Object A = new object();
                 lock (A)
                 {
@@ -9859,7 +10001,10 @@ namespace RefrigtzDLL
                     //TableS[7, ColumnSource] = 0;
 
                 }
-                PenaltyVCar = PenaltyMechanisam(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ref CheckedM, Killed, false, 7, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle);
+                PenaltyVCar = false;
+                int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
+                newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, 1, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
+                newTask1.Wait();
 
                 //{ ThinkingAtRun = false; return; }
 
@@ -9872,8 +10017,11 @@ namespace RefrigtzDLL
                 IndexKing++;
                 //Calculate Movment Huristic After Movments.
                 //Caused this for Stachostic results.
-                CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
-                String H = "";
+
+                newTask1 = Task.Factory.StartNew(() => CalculateHuristics(false, Killed, CloneATable(TableS), RowDestination, ColumnDestination, RowSource, ColumnSource, color, ref HuristicAttackValue, ref HuristicMovementValue, ref HuristicSelfSupportedValue, ref HuristicObjectDangourCheckMateValue, ref HuristicKillerValue, ref HuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour));
+                newTask1.Wait();
+
+                 String H = "";
                 int[] Hu = new int[10];
                 Object A6 = new Object();
                 lock (A6)
@@ -9881,7 +10029,9 @@ namespace RefrigtzDLL
                     HuristicPenaltyValuePerform(Current, Order, ref HuristicAttackValue);
                     if (IgnoreFromCheckandMateHuristic)
                         HuristicObjectDangourCheckMateValue = 0;
-                    Hu = HuMethod(HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour);
+
+                    newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HuristicAttackValue, HuristicMovementValue, HuristicSelfSupportedValue, HuristicObjectDangourCheckMateValue, HuristicKillerValue, HuristicReducedAttackValue, HeuristicDistabceOfCurrentMoveFromEnemyKingValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour));
+                    newTask1.Wait();
 
 
                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
