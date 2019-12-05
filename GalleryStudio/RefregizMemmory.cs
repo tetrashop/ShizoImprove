@@ -119,12 +119,15 @@ namespace GalleryStudio
             lock (o)
             {
 
-                
 
-                    if (Current != null)
+
+                if (Current != null)
+                {
+                    while (DummyFileStream.Position < DummyFileStream.Length)
                     {
                         //Current.Clone(AllDrawCurrentAccess);
                         Formatters.Serialize(DummyFileStream, this);
+                    }
                         //Kind = Kind;
                         /*     if (Order == 1)
                              {
