@@ -6985,7 +6985,7 @@ namespace RefrigtzDLL
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup));
                     newTask1.Wait();
-
+                    
 
                     if (!Sup)
                     {

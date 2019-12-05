@@ -10210,7 +10210,7 @@ namespace QuantumRefrigiz
                     int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => SolderThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
                     //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                    //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                    //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                     //oSerialiser.Serialize(oStream, newTask);   
                     newTask.Wait();
                     //oStream.Close();
@@ -10249,7 +10249,7 @@ namespace QuantumRefrigiz
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldierBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                                 //oSerialiser.Serialize(oStream, newTask);
                                 newTask.Wait();
                                 //oStream.Close();
@@ -10291,7 +10291,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ElephantThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -10326,7 +10326,7 @@ namespace QuantumRefrigiz
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumElephantBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                                 //oSerialiser.Serialize(oStream, newTask);
                                 newTask.Wait();
                                 //oStream.Close();
@@ -10381,7 +10381,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -10416,7 +10416,7 @@ namespace QuantumRefrigiz
                     int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj - 1, Castle));
                     //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                    //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                    //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                     //oSerialiser.Serialize(oStream, newTask);
                     newTask.Wait();
                     //oStream.Close();
@@ -10453,7 +10453,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -10487,7 +10487,7 @@ namespace QuantumRefrigiz
                     int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle));
                     //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                    //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                    //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                     //oSerialiser.Serialize(oStream, newTask);
                     newTask.Wait();
                     //oStream.Close();
@@ -10524,7 +10524,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj + 2, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -10562,7 +10562,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -10601,7 +10601,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -10638,7 +10638,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -10661,7 +10661,7 @@ namespace QuantumRefrigiz
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseOne(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
@@ -10674,7 +10674,7 @@ namespace QuantumRefrigiz
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseTwo(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
@@ -10687,7 +10687,7 @@ namespace QuantumRefrigiz
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseThree(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
@@ -10700,7 +10700,7 @@ namespace QuantumRefrigiz
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseFour(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
@@ -10713,7 +10713,7 @@ namespace QuantumRefrigiz
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseFive(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
@@ -10726,7 +10726,7 @@ namespace QuantumRefrigiz
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseSix(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
@@ -10739,7 +10739,7 @@ namespace QuantumRefrigiz
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseSeven(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
@@ -10752,7 +10752,7 @@ namespace QuantumRefrigiz
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseEight(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
@@ -10794,7 +10794,7 @@ namespace QuantumRefrigiz
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
                             //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                            //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                            //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             //oSerialiser.Serialize(oStream, newTask);
                             newTask.Wait();
                             //oStream.Close();
@@ -10892,7 +10892,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => MinisterThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -10928,7 +10928,7 @@ namespace QuantumRefrigiz
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => ThinkingQuantumMinisterBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                             //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                            //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                            //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             //oSerialiser.Serialize(oStream, newTask);
                             newTask.Wait();
                             //oStream.Close();
@@ -10968,7 +10968,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => CastleThinkingQuantumBrown(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -11005,7 +11005,7 @@ namespace QuantumRefrigiz
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => CastleThinkingQuantumGray(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -11054,7 +11054,7 @@ namespace QuantumRefrigiz
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => KingThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                                //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                                 //oSerialiser.Serialize(oStream, newTask);
                                 newTask.Wait();
                                 //oStream.Close();
@@ -11435,7 +11435,7 @@ namespace QuantumRefrigiz
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleBrown(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);   
                         newTask.Wait();
                         //oStream.Close();
@@ -11448,7 +11448,7 @@ namespace QuantumRefrigiz
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -11460,7 +11460,7 @@ namespace QuantumRefrigiz
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldier(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -11473,7 +11473,7 @@ namespace QuantumRefrigiz
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ThinkingQuantumElephant(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -11486,7 +11486,7 @@ namespace QuantumRefrigiz
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourse(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -11499,7 +11499,7 @@ namespace QuantumRefrigiz
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ThinkingQuantumCastle(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -11512,7 +11512,7 @@ namespace QuantumRefrigiz
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ThinkingQuantumMinister(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
@@ -11525,7 +11525,7 @@ namespace QuantumRefrigiz
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ThinkingQuantumKing(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
