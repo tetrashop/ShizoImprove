@@ -12,7 +12,7 @@ namespace Ellipse
         {
             //Initiate Ellipse Paramenters.
 
-            double e = (double)System.Math.Sqrt(1 - Math.Pow(b / a, 2));
+            double e = (double)System.Math.Sqrt(Math.Pow(a, 2) - Math.Pow(b, 2)) / a;
             double p = 2 * Math.PI * a;
 
             double dx = 0;
