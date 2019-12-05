@@ -28,12 +28,17 @@ namespace Ellipse
 
             //Found of Diferentiation of Ellipse.
             EllipseDifferentialAroundCalculating AEDAC = new EllipseDifferentialAroundCalculating(a, b, c);
+            //Found of Stmuluse of Ellipse.
+            EllipseDifferentialAroundCalculating AEDACP = new EllipseDifferentialAroundCalculating(a, b);
             //Found of paper menthod new startegy.
             EllipsAroundFormula AEAF = new EllipsAroundFormula(a, b, c);
             //I/O Paramenters of output.
             Console.WriteLine("The Differential is :");
             //Should be of minuse to zero boundry
-            Console.WriteLine(AEDAC.aroundAccess-AEAF.aroundAccess);
+            Console.WriteLine(AEDAC.aroundAccess - AEAF.aroundAccess);
+            Console.WriteLine("The Differential is :");
+            //Should be of minuse to zero boundry
+            Console.WriteLine(AEDACP.aroundAccess - AEAF.aroundAccess);
             //Wait.
             Console.ReadLine();
 
