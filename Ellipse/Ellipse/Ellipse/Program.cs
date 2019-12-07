@@ -22,9 +22,9 @@ namespace Ellipse
                 a = d;
             }
             //Intiate Ellipse Three Paramenters.
-            double e = (double)System.Math.Sqrt(1 - Math.Pow(b / a, 2));
-            double p = a * (1 - Math.Pow(e, 2));
-            c = e * a;//Math.Sqrt(Math.Pow(a, 2) - Math.Pow(b, 2));
+            double p = Math.Pow(b, 2) / a;
+            double e = (double)System.Math.Sqrt(1 - Math.Pow(p / a, 2));
+            c = e * a;
 
             //Found of Diferentiation of Ellipse.
             EllipseDifferentialAroundCalculating AEDAC = new EllipseDifferentialAroundCalculating(a, b, c);
