@@ -152,31 +152,70 @@ namespace Formulas
 
             INTEGRALS.ADDToTree(Node);
 
-            
-            
+
+
 
             if (IS.ISindependenceVaribaleOrNumber(Node.SampleAccess))
             {
                 UIS.SetLableValue(UIS.label17, "Integral Independence or Variable Finder.");
                 Dummy = Integral.ConsTantFuctionIntegral(Node);
                 return Dummy;
-            }else
-            if ((IS.IsFunction(Node.SampleAccess))&&(IS.ISindependenceVaribale(Node.LeftSideAccess.SampleAccess)))                
+            } else
+            if ((IS.IsFunction(Node.SampleAccess)) && (IS.ISindependenceVaribale(Node.LeftSideAccess.SampleAccess)))
             {
                 UIS.SetLableValue(UIS.label17, "Integral Function Finder.");
                 Dummy = Integral.ConsTantFuctionIntegral(Node.CopyNewTree(Node));
                 return Dummy;
             }
-                else
+            else
                     if (Node.LeftSideAccess != null)
-                        if (Node.LeftSideAccess.LeftSideAccess == null)
-                            if (Node.LeftSideAccess.RightSideAccess == null)
-                                if ((IS.IsFunction(Node.SampleAccess)) || (IS.ISindependenceVaribaleOrNumber(Node.SampleAccess)))
-                                {
-                                    UIS.SetLableValue(UIS.label17, "Integral Function Finder.");
-                                    Dummy = Integral.ConsTantFuctionIntegral(Node.CopyNewTree(Node));
-                                    return Dummy;
-                                }
+                if (Node.LeftSideAccess.LeftSideAccess == null)
+                    if (Node.LeftSideAccess.RightSideAccess == null)
+                        if ((IS.IsFunction(Node.SampleAccess)) || (IS.ISindependenceVaribaleOrNumber(Node.SampleAccess)))
+                        {
+                            UIS.SetLableValue(UIS.label17, "Integral Function Finder.");
+                            Dummy = Integral.ConsTantFuctionIntegral(Node.CopyNewTree(Node));
+                            return Dummy;
+                        }
+                        else
+                    if (Node.LeftSideAccess != null)
+                            if (Node.LeftSideAccess.LeftSideAccess == null)
+                                if (Node.LeftSideAccess.RightSideAccess == null)
+                                    if (Node.RightSideAccess != null)
+                                        if (Node.RightSideAccess.LeftSideAccess == null)
+                                            if (Node.LeftSideAccess.RightSideAccess == null)
+                                                if (IS.IsPower(Node.SampleAccess) && IS.ISindependenceVaribaleOrNumber(Node.RightSideAccess.SampleAccess) && IS.IsNumber(Node.LeftSideAccess.SampleAccess))
+                                                {
+                                                    UIS.SetLableValue(UIS.label17, "Integral exponential.");
+                                                    AddToTree.Tree DummyONE = new AddToTree.Tree("1", false);
+                                                    AddToTree.Tree DummyONEDivide = new AddToTree.Tree("/", false);
+                                                    AddToTree.Tree DummyDivide = new AddToTree.Tree("/", false);
+                                                    AddToTree.Tree DummyLn = new AddToTree.Tree("Ln", false);
+                                                    AddToTree.Tree DummyNumber = new AddToTree.Tree(Node.LeftSideAccess.SampleAccess, false);
+                                                    AddToTree.Tree DummyInde = Node.CopyNewTree(Node);
+
+                                                    DummyONE.LeftSideAccess = null;
+                                                    DummyONE.RightSideAccess = null;
+
+                                                  
+                                                    DummyNumber.LeftSideAccess = null;
+                                                    DummyNumber.RightSideAccess = null;
+                                                  
+                                                    DummyLn.SetLefTandRightCommonlySide(DummyNumber, null);
+                                                    DummyLn.LeftSideAccess.ThreadAccess = DummyLn;
+                                                    DummyLn.RightSideAccess = null;
+                                                   
+                                                    DummyDivide.SetLefTandRightCommonlySide(DummyONE, DummyLn);
+                                                    DummyDivide.LeftSideAccess.ThreadAccess = DummyDivide;
+                                                    DummyDivide.RightSideAccess.ThreadAccess = DummyDivide;
+                                                   
+                                                  
+                                                    Dummy = new AddToTree.Tree("*", false);
+                                                    Dummy.SetLefTandRightCommonlySide(DummyDivide, DummyInde);
+                                                    Dummy.LeftSideAccess.ThreadAccess = Dummy;
+                                                    Dummy.RightSideAccess.ThreadAccess = Dummy;
+                                                    return Dummy;
+                                                }
             if (KnownIntegralFormulla.KnownIntegralFormullaFx(Node) != null)
             {
                 UIS.SetLableValue(UIS.label17, "Integral UnownIntegral Finder.");
