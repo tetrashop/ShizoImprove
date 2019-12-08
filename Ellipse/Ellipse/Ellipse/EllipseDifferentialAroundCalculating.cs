@@ -18,7 +18,7 @@ namespace Ellipse
 
             double dx = 0;
 
-            //double dx =System.Math.Abs(double.MinValue);
+            //double dx =System.(double.MinValue);
             double aa = 30;
             //Found
             for (int i = 1; i < aa; i++)
