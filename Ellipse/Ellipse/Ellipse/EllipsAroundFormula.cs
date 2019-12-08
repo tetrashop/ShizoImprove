@@ -16,11 +16,12 @@ namespace Ellipse
         double Laround1 = 0;
         public EllipsAroundFormula(double a,double b,double c)
         {
+            Params rr = new Params(a, b);
             //Initiate Parameters of Ellipse.
-            double p = Math.Pow(b, 2) / a;
-            double e = (double)System.Math.Sqrt(1 - (p / a));
-            c = e * a;
-            double u = Math.PI - Math.Atan((b / c)* (Math.PI / 180 )//b / c)// * (Math.PI / 180)
+            double p = rr.pp; //Math.Pow(b, 2) / a;
+            double e = rr.ee;// (double)System.Math.Sqrt(1 - (p / a));
+            c = rr.cc;// e * a;
+            double u = Math.PI - Math.Atan((b / c) * (Math.PI / 180)//b / c)// * (Math.PI / 180)
                 );
             double teta = u;// * (180 / Math.PI);
             double r = (p) / (1 + e * Math.Cos(u));
