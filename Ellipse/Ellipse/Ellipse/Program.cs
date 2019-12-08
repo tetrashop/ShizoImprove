@@ -23,7 +23,7 @@ namespace Ellipse
             }
             //Intiate Ellipse Three Paramenters.
             double p = Math.Pow(b, 2) / a;
-            double e = (double)System.Math.Sqrt(1 - Math.Pow(p / a, 2));
+            double e = (double)System.Math.Sqrt(1 - (p / a));
             c = e * a;
 
             //Found of Diferentiation of Ellipse.
