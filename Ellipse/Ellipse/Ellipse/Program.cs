@@ -45,6 +45,20 @@ namespace Ellipse
             Console.WriteLine("The Differential is :");
             //Should be of minuse to zero boundry
             Console.WriteLine(AEDACP.aroundAccess - AEAF.aroundP2Access);
+
+
+            Console.WriteLine("The Actual First is :");
+            //Should be of minuse to zero boundry
+            Console.WriteLine(AEAF.aroundAccess);
+            Console.WriteLine("The Actual Second is :");
+            //Should be of minuse to zero boundry
+            Console.WriteLine(AEAF.aroundP2Access);
+            Console.WriteLine("The Apoximate First is :");
+            //Should be of minuse to zero boundry
+            Console.WriteLine(AEDAC.aroundAccess);
+            Console.WriteLine("The Apoximate Second is :");
+            //Should be of minuse to zero boundry
+            Console.WriteLine(AEDACP.aroundAccess);
             //Wait.
             Console.ReadLine();
 
