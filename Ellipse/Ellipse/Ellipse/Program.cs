@@ -39,6 +39,12 @@ namespace Ellipse
             Console.WriteLine("The Differential is :");
             //Should be of minuse to zero boundry
             Console.WriteLine(AEDACP.aroundAccess - AEAF.aroundAccess);
+            Console.WriteLine("The Differential is :");
+            //Should be of minuse to zero boundry
+            Console.WriteLine(AEDAC.aroundAccess - AEAF.aroundP2Access);
+            Console.WriteLine("The Differential is :");
+            //Should be of minuse to zero boundry
+            Console.WriteLine(AEDACP.aroundAccess - AEAF.aroundP2Access);
             //Wait.
             Console.ReadLine();
 

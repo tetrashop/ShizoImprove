@@ -61,15 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="c.cs" />
-    <Compile Include="d.cs" />
-    <Compile Include="e.cs" />
     <Compile Include="EllipsAroundFormula.cs" />
     <Compile Include="EllipseDifferentialAroundCalculating.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="p.cs" />
-    <Compile Include="Params.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
