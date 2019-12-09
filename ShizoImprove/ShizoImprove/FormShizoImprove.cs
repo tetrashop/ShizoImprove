@@ -105,5 +105,26 @@ namespace ShizoImprove
             t.FormShizoImproveClearCach(textBoxInput.Text, ref progressBarWorking);
 
         }
+
+        private void buttonActOnFileHistory_Click(object sender, EventArgs e)
+        {
+            if (ShizoImprove.AllFiles.Count > 0)
+            {
+                ShizoImprove.AllFiles.Clear();
+                t = new ShizoImprove(path);
+
+                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                progressBarWorking.Minimum = 0;
+                t.FormShizoImproveActOnFileHistory(textBoxWorkingProject.Text, ref progressBarWorking);
+            }
+            else
+            {
+                t = new ShizoImprove(path);
+
+                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                progressBarWorking.Minimum = 0;
+                t.FormShizoImproveActOnFileHistory(textBoxWorkingProject.Text, ref progressBarWorking);
+            }
+        }
     }
 }

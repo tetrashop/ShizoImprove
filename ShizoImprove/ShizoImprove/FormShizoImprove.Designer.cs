@@ -41,6 +41,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonClearCach = new System.Windows.Forms.Button();
+            this.buttonActOnFileHistory = new System.Windows.Forms.Button();
             this.menuStripShizoImprove.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,7 +154,7 @@
             // 
             // buttonClearCach
             // 
-            this.buttonClearCach.Location = new System.Drawing.Point(676, 130);
+            this.buttonClearCach.Location = new System.Drawing.Point(675, 158);
             this.buttonClearCach.Name = "buttonClearCach";
             this.buttonClearCach.Size = new System.Drawing.Size(112, 23);
             this.buttonClearCach.TabIndex = 10;
@@ -161,11 +162,22 @@
             this.buttonClearCach.UseVisualStyleBackColor = true;
             this.buttonClearCach.Click += new System.EventHandler(this.buttonClearCach_Click);
             // 
+            // buttonActOnFileHistory
+            // 
+            this.buttonActOnFileHistory.Location = new System.Drawing.Point(676, 129);
+            this.buttonActOnFileHistory.Name = "buttonActOnFileHistory";
+            this.buttonActOnFileHistory.Size = new System.Drawing.Size(111, 23);
+            this.buttonActOnFileHistory.TabIndex = 11;
+            this.buttonActOnFileHistory.Text = "ActOnFileHistory";
+            this.buttonActOnFileHistory.UseVisualStyleBackColor = true;
+            this.buttonActOnFileHistory.Click += new System.EventHandler(this.buttonActOnFileHistory_Click);
+            // 
             // FormShizoImprove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonActOnFileHistory);
             this.Controls.Add(this.buttonClearCach);
             this.Controls.Add(this.buttonImproved);
             this.Controls.Add(this.buttonSetImprove);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button buttonClearCach;
+        private System.Windows.Forms.Button buttonActOnFileHistory;
     }
 }

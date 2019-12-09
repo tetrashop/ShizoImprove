@@ -139,8 +139,83 @@ namespace ShizoImprove
                                 try
                                 {
                                     //copy file
-                                    if (!File.Exists(Des))
+                                    //copy file when unexistence
+                                    if (!File.Exists(AllFiles[i]))
                                         File.Copy(AllFiles[i], Des);
+                                    else  //copy file on condition of last modified
+                                    {
+                                        if ((new FileInfo(AllFiles[i])).LastWriteTime > (new FileInfo(Des)).LastWriteTime)
+                                        {
+                                            File.Delete(Des);
+                                            File.Copy(AllFiles[i], Des);
+                                            
+                                        }
+
+                                    }
+                                }
+                                catch (Exception t)
+                                {
+                                    // return false;
+                                }
+                            }
+                        }
+
+
+                    }
+                    catch (Exception t) { }
+                }
+
+            }
+            catch (Exception y)
+            {
+                return false;
+            }
+            return true;
+
+
+
+        }
+        public bool FormShizoImproveActOnFileHistory(String Pro, ref System.Windows.Forms.ProgressBar progressBarWorking)
+        {
+            try
+            {
+                //for all path
+                for (int i = 0; i < AllFiles.Count; i++)
+                {
+                    try
+                    {   //indicatore
+                        progressBarWorking.Value = i;
+                        //when contains project
+                        if (AllFiles[i].Contains("("))
+                        {
+                            //index of to substring
+                            String Des = AllFiles[i].Substring(0,AllFiles[i].IndexOf("("));
+                            //create correct path
+                            Des = "C:\\ShizoImprove\\" + Pro + "\\" + All[i].lastmodified.ToLongDateString() + "\\" + Des;
+                            //when
+                            if (!IsFile(Des))
+                            {
+                                //create directory exitence condition
+                                if (!Directory.Exists(Des))
+                                    Directory.CreateDirectory(Des);
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    //copy file when unexistence
+                                    if (!File.Exists(AllFiles[i]))
+                                        File.Copy(AllFiles[i], Des);
+                                    else  //copy file on condition of last modified
+                                    {
+                                        if ((new FileInfo(AllFiles[i])).LastWriteTime > (new FileInfo(Des)).LastWriteTime)
+                                        {
+                                            File.Delete(Des);
+                                            File.Copy(AllFiles[i], Des);
+                                            File.Delete(AllFiles[i]);
+                                        }
+
+                                    }
                                 }
                                 catch (Exception t)
                                 {
