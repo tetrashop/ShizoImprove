@@ -4466,6 +4466,26 @@ namespace Refrigtz
                             }
                             else
                             {
+                                if (!Quantum)
+                                {
+                                    Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                    Draw.TableList.Clear();
+                                    Draw.TableList.Add(CloneATable(Table));
+                                    Draw.SetRowColumn(0);
+                                    RefrigtzDLL.AllDraw.DepthIterative = 0;
+                                    y.t = Draw;
+                                }
+
+                                else
+                                {
+
+                                    DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                    DrawQ.TableList.Clear();
+                                    DrawQ.TableList.Add(Table);
+                                    DrawQ.SetRowColumn(0);
+                                    QuantumRefrigiz.AllDraw.DepthIterative = 0;
+                                    y.tt = DrawQ;
+                                }
                                 y.Save(Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
 
                                 if (!Quantum)

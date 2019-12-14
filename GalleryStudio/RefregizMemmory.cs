@@ -204,12 +204,12 @@ namespace GalleryStudio
                     //RefregizMemmory t = p;
 
                     FileInfo DummyFileInfo = new FileInfo(SAllDraw);
-                    DummyFileInfo.Delete();
+                    //DummyFileInfo.Delete();
                     DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
                     BinaryFormatter Formatters = new BinaryFormatter();
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
 
-                    //Formatters.Serialize(DummyFileStream, t);
+                    Formatters.Serialize(DummyFileStream, this);
                     RewriteAllDrawRec(Formatters, DummyFileStream, Order);
 
 
@@ -236,7 +236,7 @@ namespace GalleryStudio
                     BinaryFormatter Formatters = new BinaryFormatter();
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
 
-                    //Formatters.Serialize(DummyFileStream, t);
+                    Formatters.Serialize(DummyFileStream, this);
                     RewriteAllDrawRecQ(Formatters, DummyFileStream, Order);
 
 
