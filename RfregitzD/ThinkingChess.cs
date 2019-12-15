@@ -11247,7 +11247,7 @@ namespace RefrigtzDLL
 
         public void Thinking(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
-            if (AStarGreedy == null)
+        /*    if (AStarGreedy == null)
                 AStarGreedy = new List<AllDraw>();
             if (Kind == 1)
             {
@@ -11334,7 +11334,7 @@ namespace RefrigtzDLL
                 }
 
             }
-
+            */
             //long Time = TimeElapced.TimeNow();Spaces++;
 
             int ord = Order;

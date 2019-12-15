@@ -11251,7 +11251,7 @@ namespace RefrigtzW
                 AStarGreedy = new List<AllDraw>();
 
 
-            if (AStarGreedy == null)
+    /*        if (AStarGreedy == null)
                 AStarGreedy = new List<AllDraw>();
             if (Kind == 1)
             {
@@ -11339,7 +11339,7 @@ namespace RefrigtzW
 
             }
 
-
+*/
 
 
             int ord = Order;
