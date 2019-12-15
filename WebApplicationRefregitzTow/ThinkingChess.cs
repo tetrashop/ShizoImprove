@@ -11247,100 +11247,64 @@ namespace RefrigtzW
         public void Thinking(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            if (AStarGreedy == null)
-                AStarGreedy = new List<AllDraw>();
-
-
-            if (AStarGreedy == null)
-                AStarGreedy = new List<AllDraw>();
-            if (Kind == 1)
+            if (AStarGreedy.Count == 0)
             {
-                if (AStarGreedy.Count != TableListSolder.Count)
 
+                if (Kind == 1)
                 {
-                    AStarGreedy.Clear();
                     IndexSoldier = 0;
                     RowColumnSoldier.Clear();
                     TableListSolder.Clear();
                     HuristicListSolder.Clear();
                     HitNumberSoldier.Clear();
-                    ThinkingAtRun = false;
                 }
-            }
-            else
-                  if (Kind == 2)
-            {
-                if (AStarGreedy.Count != TableListElefant.Count)
+                else
+                if (Kind == 2)
                 {
-                    AStarGreedy.Clear();
                     IndexElefant = 0;
                     RowColumnElefant.Clear();
                     TableListElefant.Clear();
                     HuristicListElefant.Clear();
                     HitNumberElefant.Clear();
-                    ThinkingAtRun = false;
                 }
-            }
-            else
-              if (Kind == 3)
-            {
-                if (AStarGreedy.Count != TableListHourse.Count)
+                else
+                if (Kind == 3)
                 {
-                    AStarGreedy.Clear();
                     IndexHourse = 0;
                     RowColumnHourse.Clear();
                     TableListHourse.Clear();
                     HuristicListHourse.Clear();
                     HitNumberHourse.Clear();
-                    ThinkingAtRun = false;
                 }
-            }
-
-            else
+                else
                 if (Kind == 4)
-            {
-                if (AStarGreedy.Count != TableListCastle.Count)
                 {
-                    AStarGreedy.Clear();
                     IndexCastle = 0;
                     RowColumnCastle.Clear();
                     TableListCastle.Clear();
                     HuristicListCastle.Clear();
                     HitNumberCastle.Clear();
-                    ThinkingAtRun = false;
                 }
-            }
-            else
-              if (Kind == 5)
-            {
-                if (AStarGreedy.Count != TableListMinister.Count)
+                else
+                if (Kind == 5)
                 {
-                    AStarGreedy.Clear();
                     IndexMinister = 0;
                     RowColumnMinister.Clear();
                     TableListMinister.Clear();
                     HuristicListMinister.Clear();
                     HitNumberMinister.Clear();
-                    ThinkingAtRun = false;
                 }
-            }
-            if (Kind == 6)
-            {
-                if (AStarGreedy.Count != TableListKing.Count)
+                if (Kind == 6)
                 {
-                    AStarGreedy.Clear();
                     IndexKing = 0;
                     RowColumnKing.Clear();
                     TableListKing.Clear();
                     HuristicListKing.Clear();
                     HitNumberKing.Clear();
-                    ThinkingAtRun = false;
                 }
 
+
             }
-
-
-
 
             int ord = Order;
             Object O = new Object();
