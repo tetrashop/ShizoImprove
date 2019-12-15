@@ -11247,64 +11247,6 @@ namespace RefrigtzW
         public void Thinking(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            if (AStarGreedy.Count == 0)
-            {
-
-                if (Kind == 1)
-                {
-                    IndexSoldier = 0;
-                    RowColumnSoldier.Clear();
-                    TableListSolder.Clear();
-                    HuristicListSolder.Clear();
-                    HitNumberSoldier.Clear();
-                }
-                else
-                if (Kind == 2)
-                {
-                    IndexElefant = 0;
-                    RowColumnElefant.Clear();
-                    TableListElefant.Clear();
-                    HuristicListElefant.Clear();
-                    HitNumberElefant.Clear();
-                }
-                else
-                if (Kind == 3)
-                {
-                    IndexHourse = 0;
-                    RowColumnHourse.Clear();
-                    TableListHourse.Clear();
-                    HuristicListHourse.Clear();
-                    HitNumberHourse.Clear();
-                }
-                else
-                if (Kind == 4)
-                {
-                    IndexCastle = 0;
-                    RowColumnCastle.Clear();
-                    TableListCastle.Clear();
-                    HuristicListCastle.Clear();
-                    HitNumberCastle.Clear();
-                }
-                else
-                if (Kind == 5)
-                {
-                    IndexMinister = 0;
-                    RowColumnMinister.Clear();
-                    TableListMinister.Clear();
-                    HuristicListMinister.Clear();
-                    HitNumberMinister.Clear();
-                }
-                if (Kind == 6)
-                {
-                    IndexKing = 0;
-                    RowColumnKing.Clear();
-                    TableListKing.Clear();
-                    HuristicListKing.Clear();
-                    HitNumberKing.Clear();
-                }
-
-
-            }
 
             int ord = Order;
             Object O = new Object();
