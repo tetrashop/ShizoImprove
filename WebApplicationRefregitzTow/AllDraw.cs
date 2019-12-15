@@ -162,8 +162,9 @@ namespace RefrigtzW
     {   //Initiate Variables. 
         bool[] ThinkingAllowed = { false, false, false, false, false, false, false, false, false, false, false, false };
 
-        List<Task> tH = new List<Task>();
-        List<Task> TH = new List<Task>();
+        [field: NonSerialized] List<Task> tH = new List<Task>();
+        [field: NonSerialized] List<Task> TH = new List<Task>();
+
         public static bool Deeperthandeeper = false;
 
         public static bool FirstTraversalTree = true;
@@ -14927,7 +14928,7 @@ namespace RefrigtzW
                 DummyOrder = Order;
                 int DummyCurrentOrder = new int();
                 DummyCurrentOrder = ChessRules.CurrentOrder;
-                List<Task> ThB = new List<Task>();
+               // List<Task> ThB = new List<Task>();
 
                 int i = 0, ik = 0;
                 int[,] TablInit = new int[8, 8];

@@ -161,8 +161,11 @@ namespace QuantumRefrigiz
     {   //Initiate Variables. 
         bool[] ThinkingAllowed = { false, false, false, false, false, false, false, false, false, false, false, false };
 
-        List<Task> tH = new List<Task>();
-        List<Task> TH = new List<Task>();
+
+
+        [field: NonSerialized] List<Task> tH = new List<Task>();
+        [field: NonSerialized] List<Task> TH = new List<Task>();
+
         public static bool Deeperthandeeper = false;
 
         public static bool FirstTraversalTree = true;
