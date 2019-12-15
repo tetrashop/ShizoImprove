@@ -12946,17 +12946,11 @@ namespace Refrigtz
                     else
                     {
                         if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 1))
-                        {
                             Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
-                            Ord = OrderPlate;
 
-                            SetBoxText("\r\nDraw Found By First Node");
-                            RefreshBoxText();
-                            return;
-                        }
-                        }
+                    }
 
-                        if (FOUND)
+                    if (FOUND)
                     {
 
                         Draw = THIS;
@@ -12966,7 +12960,7 @@ namespace Refrigtz
                         FOUND = false;
                         Ord = OrderPlate;
 
-                        Draw.ClearAllTablesHuristicsAndMore(Ord);
+                       // Draw.ClearAllTablesHuristicsAndMore(Ord);
                         bool Store = Deeperthandeeper;
                         Deeperthandeeper = false;
                         Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
@@ -13133,14 +13127,7 @@ namespace Refrigtz
                     else
                     {
                         if ((QuantumRefrigiz.AllDraw.TableListAction.Count >= 1))
-                        {
                             DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
-                            Ord = OrderPlate;
-
-                            SetBoxText("\r\nDraw Found By Firs Node");
-                            RefreshBoxText();
-                            return;
-                        }
                     }
                     if (FOUND)
                     {
@@ -13152,7 +13139,7 @@ namespace Refrigtz
                         RefreshBoxText();
                         FOUND = false;
 
-                        DrawQ.ClearAllTablesHuristicsAndMore(Ord);
+                        //DrawQ.ClearAllTablesHuristicsAndMore(Ord);
                         bool Store = Deeperthandeeper;
                         Deeperthandeeper = false;
 
