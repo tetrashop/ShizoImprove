@@ -11246,64 +11246,96 @@ namespace QuantumRefrigiz
 
         public void ThinkingQuantum(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
-            if (AStarGreedy.Count == 0)
-            {
 
-                if (Kind == 1)
+            if (AStarGreedy == null)
+                AStarGreedy = new List<AllDraw>();
+            if (Kind == 1)
                 {
+                    if (AStarGreedy.Count != TableListSolder.Count)
+
+                    {
+                    AStarGreedy.Clear();
                     IndexSoldier = 0;
-                    RowColumnSoldier.Clear();
-                    TableListSolder.Clear();
-                    HuristicListSolder.Clear();
-                    HitNumberSoldier.Clear();
+                        RowColumnSoldier.Clear();
+                        TableListSolder.Clear();
+                        HuristicListSolder.Clear();
+                        HitNumberSoldier.Clear();
+                    ThinkingQuantumAtRun = false;
                 }
+            }
                 else
-                if (Kind == 2)
+                  if (Kind == 2)
                 {
+                    if (AStarGreedy.Count != TableListElefant.Count)
+                    {
+                    AStarGreedy.Clear();
                     IndexElefant = 0;
-                    RowColumnElefant.Clear();
-                    TableListElefant.Clear();
-                    HuristicListElefant.Clear();
-                    HitNumberElefant.Clear();
+                        RowColumnElefant.Clear();
+                        TableListElefant.Clear();
+                        HuristicListElefant.Clear();
+                        HitNumberElefant.Clear();
+                    ThinkingQuantumAtRun = false;
                 }
+            }
                 else
-                if (Kind == 3)
+              if (Kind == 3)
                 {
+                    if (AStarGreedy.Count != TableListHourse.Count)
+                    {
+                    AStarGreedy.Clear();
                     IndexHourse = 0;
-                    RowColumnHourse.Clear();
-                    TableListHourse.Clear();
-                    HuristicListHourse.Clear();
-                    HitNumberHourse.Clear();
+                        RowColumnHourse.Clear();
+                        TableListHourse.Clear();
+                        HuristicListHourse.Clear();
+                        HitNumberHourse.Clear();
+                    ThinkingQuantumAtRun = false;
                 }
+            }
+
                 else
                 if (Kind == 4)
                 {
+                    if (AStarGreedy.Count != TableListCastle.Count)
+                    {
+                    AStarGreedy.Clear();
                     IndexCastle = 0;
-                    RowColumnCastle.Clear();
-                    TableListCastle.Clear();
-                    HuristicListCastle.Clear();
-                    HitNumberCastle.Clear();
+                        RowColumnCastle.Clear();
+                        TableListCastle.Clear();
+                        HuristicListCastle.Clear();
+                        HitNumberCastle.Clear();
+                    ThinkingQuantumAtRun = false;
                 }
+            }
                 else
-                if (Kind == 5)
+              if (Kind == 5)
                 {
+                    if (AStarGreedy.Count != TableListMinister.Count)
+                    {
+                    AStarGreedy.Clear();
                     IndexMinister = 0;
-                    RowColumnMinister.Clear();
-                    TableListMinister.Clear();
-                    HuristicListMinister.Clear();
-                    HitNumberMinister.Clear();
+                        RowColumnMinister.Clear();
+                        TableListMinister.Clear();
+                        HuristicListMinister.Clear();
+                        HitNumberMinister.Clear();
+                    ThinkingQuantumAtRun = false;
                 }
-                if (Kind == 6)
+            }
+            if (Kind == 6)
+            {
+                if (AStarGreedy.Count != TableListKing.Count)
                 {
+                    AStarGreedy.Clear();
                     IndexKing = 0;
                     RowColumnKing.Clear();
                     TableListKing.Clear();
                     HuristicListKing.Clear();
                     HitNumberKing.Clear();
+                    ThinkingQuantumAtRun = false;
                 }
 
-
             }
+            
+
 
             //long Time = TimeElapced.TimeNow();Spaces++;
 
