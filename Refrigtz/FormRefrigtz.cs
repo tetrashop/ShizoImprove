@@ -7337,7 +7337,7 @@ namespace Refrigtz
                                                 }
 
 
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
                                                     RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
@@ -7504,7 +7504,7 @@ namespace Refrigtz
                                                         Table[i, j] = TableCon[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
                                                     RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
@@ -7596,7 +7596,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
                                                     RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
@@ -7687,7 +7687,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -7782,7 +7782,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -7878,7 +7878,7 @@ namespace Refrigtz
                                                     }
                                                 }
 
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -7972,7 +7972,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -8162,7 +8162,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
                                                     RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
@@ -8322,7 +8322,7 @@ namespace Refrigtz
                                                         Table[i, j] = TableCon[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -8413,7 +8413,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -8506,7 +8506,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -8599,7 +8599,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -8692,7 +8692,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -8791,7 +8791,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                RefrigtzDLL.AllDraw.TableListAction.Add(TableCon);
+                                                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -9045,7 +9045,7 @@ namespace Refrigtz
                                                 }
 
 
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
                                                     QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
@@ -9215,7 +9215,7 @@ namespace Refrigtz
                                                         Table[i, j] = TableCon[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
                                                     QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
@@ -9311,7 +9311,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
                                                     QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
@@ -9405,7 +9405,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -9505,7 +9505,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -9604,7 +9604,7 @@ namespace Refrigtz
                                                     }
                                                 }
 
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -9701,7 +9701,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -9896,7 +9896,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
                                                     QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
@@ -10058,7 +10058,7 @@ namespace Refrigtz
                                                         Table[i, j] = TableCon[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -10152,7 +10152,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -10249,7 +10249,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -10345,7 +10345,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -10441,7 +10441,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -10543,7 +10543,7 @@ namespace Refrigtz
                                                         TableCon[i, j] = Table[i, j];
                                                     }
                                                 }
-                                                QuantumRefrigiz.AllDraw.TableListAction.Add(TableCon);
+                                                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(TableCon));
                                                 Person = false;
                                                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                                                 {
@@ -12127,7 +12127,7 @@ namespace Refrigtz
                 }
                 DrawQ = THIS;
                 //OrderPlate = DrawQ.OrderP;
-                QuantumRefrigiz.AllDraw.TableListAction.Add(Tab);
+                QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(Tab));
                 Person = false;
                 if (QuantumRefrigiz.AllDraw.AStarGreadyFirstSearch && QuantumRefrigiz.AllDraw.StoreADraw.Count > 0)
                 {
@@ -12223,7 +12223,7 @@ namespace Refrigtz
                 }
                 Draw = THIS;
                 ///OrderPlate = Draw.OrderP;
-                RefrigtzDLL.AllDraw.TableListAction.Add(Tab);
+                RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Tab));
                 Person = false;
                 if (RefrigtzDLL.AllDraw.AStarGreadyFirstSearch && RefrigtzDLL.AllDraw.StoreADraw.Count > 0)
                 {
@@ -12934,11 +12934,14 @@ namespace Refrigtz
                     while (Draw.AStarGreedyString != null)
                         Draw = Draw.AStarGreedyString;
 
-                    Ord = OrderPlate * -1;
                     if (LoadO)
                     {
                         if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 2))
+                        {
+                            Ord = OrderPlate * -1;
+
                             Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
+                        }
                     }
                     else
                     {
@@ -12957,7 +12960,7 @@ namespace Refrigtz
                         FOUND = false;
                         Ord = OrderPlate;
 
-                        Draw.ClearAllTablesHuristicsAndMore(Ord);
+                       // Draw.ClearAllTablesHuristicsAndMore(Ord);
                         bool Store = Deeperthandeeper;
                         Deeperthandeeper = false;
                         Draw.InitiateAStarGreedytCreationThinking(0, 0, 0, a, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
@@ -13112,11 +13115,14 @@ namespace Refrigtz
                     while (DrawQ.AStarGreedyString != null)
                         DrawQ = DrawQ.AStarGreedyString;
 
-                    Ord = OrderPlate * -1;
-                    if (LoadO)
+                     if (LoadO)
                     {
                         if ((QuantumRefrigiz.AllDraw.TableListAction.Count >= 2))
+                        {
+                            Ord = OrderPlate * -1;
+
                             DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
+                        }
                     }
                     else
                     {
@@ -13133,7 +13139,7 @@ namespace Refrigtz
                         RefreshBoxText();
                         FOUND = false;
 
-                        DrawQ.ClearAllTablesHuristicsAndMore(Ord);
+                        //DrawQ.ClearAllTablesHuristicsAndMore(Ord);
                         bool Store = Deeperthandeeper;
                         Deeperthandeeper = false;
 
