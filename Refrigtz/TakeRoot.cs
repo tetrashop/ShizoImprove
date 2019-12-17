@@ -10,6 +10,9 @@ namespace Refrigtz
     [Serializable]
     public class TakeRoot
     {
+        String path3 = @"temp";
+        String AllDrawReplacement = "";
+
         public static int AllDrawKind = 0;//0,1,2,3,4,5,6
         public static String AllDrawKindString = "";
 
@@ -45,21 +48,71 @@ namespace Refrigtz
 
 
         }
-
-        public bool Load(bool Quantum,FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
+        void SetAllDrawKind(bool UsePenaltyRegardMechnisam,bool AStarGreedyHuristic)
         {
             if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                 AllDrawKind = 4;
             else
-                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+          if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
                 AllDrawKind = 3;
             if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
                 AllDrawKind = 2;
             if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
                 AllDrawKind = 1;
+        }
+
+        bool DrawManagement(bool FOUND,bool UsePenaltyRegardMechnisam, bool AStarGreedyHuristic)
+        {
+            SetAllDrawKind(UsePenaltyRegardMechnisam,AStarGreedyHuristic);
+
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
             SetAllDrawKindString();
+
+            bool Found = false;
+            String P = Path.GetFullPath(path3);
+            AllDrawReplacement = Path.Combine(P, AllDrawKindString);
+            if (File.Exists(AllDrawKindString))
+            {
+
+                if (File.Exists(AllDrawReplacement))
+                {
+                    if ((!FOUND) && ((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                    {
+                        File.Delete(AllDrawKindString);
+                        File.Copy(AllDrawReplacement, AllDrawKindString);
+                        Found = true;
+                    }
+                    else if (FOUND && ((new System.IO.FileInfo(AllDrawKindString).Length) > (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                    {
+                        if (File.Exists(AllDrawReplacement))
+                            File.Delete(AllDrawReplacement);
+                        File.Copy(AllDrawKindString, AllDrawReplacement);
+                        Found = true;
+                    }
+                }
+                else
+                {
+                    if (!Directory.Exists(Path.GetFullPath(path3)))
+                        Directory.CreateDirectory(Path.GetFullPath(path3));
+                    File.Copy(AllDrawKindString, AllDrawReplacement);
+                    Found = true;
+
+                }
+                FOUND = true;
+            }
+            else if (File.Exists(AllDrawReplacement))
+            {
+                File.Copy(AllDrawReplacement, AllDrawKindString);
+                Found = true;
+            }
+
+            return Found;
+        }
+
+        public bool Load(bool FOUND,bool Quantum,FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
+        {
+            DrawManagement(FOUND, UsePenaltyRegardMechnisam,  AStarGreedyHuristic);
 
             bool DrawDrawen = false;
             //Load Middle Targets.
@@ -139,7 +192,7 @@ namespace Refrigtz
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
             SetAllDrawKindString();
-
+            
             try
             {
                 if (!File.Exists(AllDrawKindString))

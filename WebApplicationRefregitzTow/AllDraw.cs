@@ -3035,26 +3035,75 @@ namespace RefrigtzW
             return THIS;
         }
 
-        //when current alldraw is equal of table state return node and set true
-        public AllDraw FoundOfCurrentTableNode(int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
+        public AllDraw FoundOfCurrentTableNodeCreateAstardGreedy(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
+        {
+            //soldier
+            if (BondryObjectNumber(i, 1, Order) && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
+            {
+                //for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                {
+                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
+                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+                }
+            }
+            //elephant
+            if (BondryObjectNumber(i, 2, Order) && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null)
+            {
+                //for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                {
+                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null)
+                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+                }
+            }
+            //hourse
+            if (BondryObjectNumber(i, 3, Order) && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null)
+            {
+                //for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                {
+                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null)
+                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+                }
+            }
+            //castle
+            if (BondryObjectNumber(i, 4, Order) && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null)
+            {
+                //for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                {
+                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null)
+                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+                }
+            }
+            //minster
+            if (BondryObjectNumber(i, 5, Order) && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null)
+            {
+                //for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                {
+                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null)
+                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+                }
+            }
+            //king
+            if (BondryObjectNumber(i, 6, Order) && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count && KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && KingOnTable[i].KingThinking[0].AStarGreedy != null)
+
+                if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && KingOnTable[i].KingThinking[0].AStarGreedy != null)
+                {
+
+                    //for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                    {
+                        KingOnTable[i].KingThinking[0].AStarGreedy[j].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
+                    }
+                }
+            return THIS;
+        }
+        public AllDraw FoundOfCurrentTableNodeCreateAStarGreedy(int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
             lock (a)
             {
-                //when current stisgied
-                if ((TableList.Count > 0 && ThinkingChess.TableEqual(TableList[0], Tab)) || FoundOfCurrentTableNodeFirstLevel(Tab, Order, ref THIS, ref Found))
-                {
-                    if (!Found)
-                    {
-                        THIS = this;
-                        Found = true;
-                    }
-                    //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                    return THIS;
-                }
 
-                else//else gray
+
+                //else gray
                 if (Order == 1)
                 {
                     //soldier
@@ -3337,6 +3386,320 @@ namespace RefrigtzW
                 return THIS;
             }
         }
+
+        //when current alldraw is equal of table state return node and set true
+        public AllDraw FoundOfCurrentTableNode(int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object a = new Object();
+            lock (a)
+            {
+                //when current stisgied
+                if ((TableList.Count > 0 && ThinkingChess.TableEqual(TableList[0], Tab)) || FoundOfCurrentTableNodeFirstLevel(Tab, Order, ref THIS, ref Found))
+                {
+                    if (!Found)
+                    {
+                        THIS = this;
+                        Found = true;
+                    }
+                    //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    return THIS;
+                }
+
+                else//else gray
+                if (Order == 1)
+                {
+                    //soldier
+                    for (var i = 0; i < SodierMidle; i++)
+                    {
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        {
+
+
+                            if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeSolderIJ(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+                            else
+                            {
+                                for (int k = 0; SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; k++)
+                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+
+
+                            }
+                        }
+                    }
+                    //elephant
+                    for (var i = 0; i < ElefantMidle; i++)
+                    {
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        {
+
+
+                            if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeElephantIJ(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+
+                            }
+                            else
+                            {
+
+
+                                for (int k = 0; ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; k++)
+                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+                        }
+                    }
+                    //hourse
+                    for (var i = 0; i < HourseMidle; i++)
+                    {
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        {
+
+                            if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+
+                            }
+                            else
+                            {
+
+                                for (int k = 0; HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && k < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; k++)
+                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+
+                                if (Found)
+                                    return THIS;
+                            }
+
+                        }
+                    }
+                    //castle
+                    for (var i = 0; i < CastleMidle; i++)
+                    {
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        {
+
+                            if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeCastleIJ(i, j, Tab, Order, ref THIS, ref Found);
+
+                                if (Found)
+                                    return THIS;
+                            }
+                            else
+                            {
+
+                                for (int k = 0; CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && k < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; k++)
+                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+                        }
+                    }
+                    //minster
+                    for (var i = 0; i < MinisterMidle; i++)
+                    {
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        {
+
+                            if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
+
+                                if (Found)
+                                    return THIS;
+                            }
+                            else
+                            {
+
+                                for (int k = 0; MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; k++)
+                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+
+                        }
+                    }
+                    //king
+                    for (var i = 0; i < KingMidle; i++)
+                    {
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        {
+
+                            if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeKingIJ(i, j, Tab, Order, ref THIS, ref Found);
+
+                                if (Found)
+                                    return THIS;
+                            }
+                            else
+                            {
+
+                                for (int k = 0; KingOnTable[i].KingThinking[0].AStarGreedy != null && k < KingOnTable[i].KingThinking[0].AStarGreedy.Count; k++)
+                                    KingOnTable[i].KingThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+
+                        }
+                    }
+                }//brown
+                else
+                {
+                    //soldier
+                    for (var i = SodierMidle; i < SodierHigh; i++)
+                    {
+                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                        {
+
+
+                            if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeSolderIJ(i, j, Tab, Order, ref THIS, ref Found);
+
+                                if (Found)
+                                    return THIS;
+                            }
+                            else
+                            {
+                                for (int k = 0; SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; k++)
+                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+                        }
+                    }
+                    //elephant
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
+                    {
+                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                        {
+
+
+                            if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeElephantIJ(i, j, Tab, Order, ref THIS, ref Found);
+
+                                if (Found)
+                                    return THIS;
+                            }
+                            else
+                            {
+                                for (int k = 0; ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; k++)
+                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+
+                        }
+                    }
+                    //hourse
+                    for (var i = HourseMidle; i < HourseHight; i++)
+                    {
+                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                        {
+
+
+                            if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
+
+                                if (Found)
+                                    return THIS;
+                            }
+                            else
+                            {
+                                for (int k = 0; HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && k < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; k++)
+                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+
+                        }
+                    }
+                    //castle
+                    for (var i = CastleMidle; i < CastleHigh; i++)
+                    {
+                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                        {
+
+
+                            if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeCastleIJ(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+
+                            }
+                            else
+                            {
+                                for (int k = 0; CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && k < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; k++)
+                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+
+                        }
+                    }
+                    //minister 
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
+                    {
+                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                        {
+
+                            if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+
+                            }
+                            else
+                            {
+                                for (int k = 0; MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; k++)
+                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+                        }
+                    }
+                    //king
+                    for (var i = KingMidle; i < KingHigh; i++)
+                    {
+                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                        {
+
+                            if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
+                            {
+                                FoundOfCurrentTableNodeKingIJ(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+
+                            }
+                            else
+                            {
+                                for (int k = 0; KingOnTable[i].KingThinking[0].AStarGreedy != null && k < KingOnTable[i].KingThinking[0].AStarGreedy.Count; k++)
+                                    KingOnTable[i].KingThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                if (Found)
+                                    return THIS;
+                            }
+                        }
+                    }
+                }
+                return THIS;
+            }
+        }
         //when current level founf of node
         public bool FoundOfCurrentTableNodeFirstLevel(int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
@@ -3517,7 +3880,7 @@ namespace RefrigtzW
                                 SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Clear();
                                 SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Clear();
                                 SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3537,7 +3900,7 @@ namespace RefrigtzW
                                 ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Clear();
                                 ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Clear();
                                 ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3558,7 +3921,7 @@ namespace RefrigtzW
                                 HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Clear();
                                 HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Clear();
                                 HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3578,7 +3941,7 @@ namespace RefrigtzW
                                 CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Clear();
                                 CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Clear();
                                 CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3598,7 +3961,7 @@ namespace RefrigtzW
                                 MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Clear();
                                 MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Clear();
                                 MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3618,7 +3981,7 @@ namespace RefrigtzW
                                 KingOnTable[i].KingThinking[0].HuristicListKing.Clear();
                                 KingOnTable[i].KingThinking[0].RowColumnKing.Clear();
                                 KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Clear();
-                                KingOnTable[i].KingThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                KingOnTable[i].KingThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3643,7 +4006,7 @@ namespace RefrigtzW
                                 SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Clear();
                                 SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Clear();
                                 SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3663,7 +4026,7 @@ namespace RefrigtzW
                                 ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Clear();
                                 ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Clear();
                                 ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3684,7 +4047,7 @@ namespace RefrigtzW
                                 HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Clear();
                                 HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Clear();
                                 HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3704,7 +4067,7 @@ namespace RefrigtzW
                                 CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Clear();
                                 CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Clear();
                                 CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3724,7 +4087,7 @@ namespace RefrigtzW
                                 MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Clear();
                                 MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Clear();
                                 MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
@@ -3744,7 +4107,7 @@ namespace RefrigtzW
                                 KingOnTable[i].KingThinking[0].HuristicListKing.Clear();
                                 KingOnTable[i].KingThinking[0].RowColumnKing.Clear();
                                 KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Clear();
-                                KingOnTable[i].KingThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                                KingOnTable[i].KingThinking[0].AStarGreedy.Clear();//[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
                             }
                         }
                     }
