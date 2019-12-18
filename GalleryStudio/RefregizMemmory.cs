@@ -151,7 +151,7 @@ namespace GalleryStudio
                 BinaryFormatter Formatters = new BinaryFormatter();
                 DummyFileStream.Seek(0, SeekOrigin.Begin);
 
-                Formatters.Serialize(DummyFileStream, this);
+                Formatters.Serialize(DummyFileStream, Current);
                 Current.RewriteAllDrawRec(Formatters, DummyFileStream, Order);
 
 
@@ -178,7 +178,7 @@ namespace GalleryStudio
                 BinaryFormatter Formatters = new BinaryFormatter();
                 DummyFileStream.Seek(0, SeekOrigin.Begin);
 
-                Formatters.Serialize(DummyFileStream, this);
+                Formatters.Serialize(DummyFileStream, CurrentQ);
                 CurrentQ.RewriteAllDrawRec(Formatters, DummyFileStream, Order);
 
 

@@ -12877,8 +12877,8 @@ namespace Refrigtz
                     //UpdateConfigurationTableVal = true;                             
                     SetAllDrawKindString();
 
-                    //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                    //DrawManagement();
+                    (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    DrawManagement();
 
                     Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
@@ -12907,7 +12907,7 @@ namespace Refrigtz
                 {
 
                     Draw = THIS;
-                    Draw.AStarGreedyString = THISB;
+                    //Draw.AStarGreedyString = THISB;
 
                     /*  if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                           AllDrawKind = 4;
@@ -12920,8 +12920,8 @@ namespace Refrigtz
                           AllDrawKind = 1;
 
                       SetAllDrawKindString();*/
-                    //DrawManagement();
-                    //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    DrawManagement();
+                    (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                   
                     Draw.IsCurrentDraw = true;
                     SetBoxText("\r\nDraw Found");
@@ -12966,7 +12966,7 @@ namespace Refrigtz
                         RefreshBoxText();
                         FOUND = false;
                         Ord = OrderPlate;
-                        Draw.ClearAllTablesHuristicsAndMore(Ord);
+                        //Draw.ClearAllTablesHuristicsAndMore(Ord);
                         bool Store = Deeperthandeeper;
                         Deeperthandeeper = false;
 
@@ -12983,13 +12983,13 @@ namespace Refrigtz
                         if (FOUND)
                         {
                             Draw = THIS;
-                            Draw.TableList.Clear();
-                            Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
-                            Draw.SetRowColumn(0);
-                            Draw.AStarGreedyString = THISB;
+                            //Draw.TableList.Clear();
+                           // Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
+                           // Draw.SetRowColumn(0);
+                           // Draw.AStarGreedyString = THISB;
 
-                            //DrawManagement();
-                            //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            DrawManagement();
+                            (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                                         
 
                             SetBoxText("\r\nRecurved Draw Constructed and Found!");
@@ -13000,8 +13000,8 @@ namespace Refrigtz
                         {
                             Ord = Dummy;
 
-                            //DrawManagement();
-                            //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            DrawManagement();
+                            (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             //Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             Draw.TableList.Clear();
                             Draw.TableList.Add(CloneATable(Table));
@@ -13018,8 +13018,8 @@ namespace Refrigtz
                     {
                         OrderPlate = Dummy;
 
-                        //DrawManagement();
-                        //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                        DrawManagement();
+                        (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
 
                         Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         Draw.TableList.Clear();
@@ -13063,9 +13063,9 @@ namespace Refrigtz
                 if (FOUND)
                 {
                     DrawQ = THIS;
-                    DrawQ.AStarGreedyString = THISB;
-                    //DrawManagement();
-                    //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    //DrawQ.AStarGreedyString = THISB;
+                    DrawManagement();
+                    (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     DrawQ = THIS;
 
                     DrawQ.IsCurrentDraw = true;
@@ -13113,7 +13113,7 @@ namespace Refrigtz
 
                         Ord = OrderPlate;
 
-                        DrawQ.ClearAllTablesHuristicsAndMore(Ord);
+                        //DrawQ.ClearAllTablesHuristicsAndMore(Ord);
                         bool Store = Deeperthandeeper;
                         Deeperthandeeper = false;
 
@@ -13132,14 +13132,14 @@ namespace Refrigtz
                         if (FOUND)
                         {
                             DrawQ = THIS;
-                            DrawQ.TableList.Clear();
-                            DrawQ.TableList.Add(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]));
-                            DrawQ.SetRowColumn(0);
-                            DrawQ.AStarGreedyString = THISB;
+                           // DrawQ.TableList.Clear();
+                            //DrawQ.TableList.Add(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]));
+                            //DrawQ.SetRowColumn(0);
+                            //DrawQ.AStarGreedyString = THISB;
 
-                            //DrawManagement();
+                            DrawManagement();
 
-                            //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                            
                             SetBoxText("\r\nRecurved Draw Constructed and Found!");
                             RefreshBoxText();
@@ -13151,9 +13151,9 @@ namespace Refrigtz
                             DrawQ = THIS;
                             DrawQ.AStarGreedyString = THISB;
 
-                            //DrawManagement();
+                            DrawManagement();
 
-                            //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                            (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                            
                             ///DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                             DrawQ.TableList.Clear();
@@ -13176,10 +13176,10 @@ namespace Refrigtz
                     {
                         OrderPlate = Dummy;
 
-                        //DrawManagement();
+                        DrawManagement();
                         //Set Configuration To True for some unknown reason!.
                        
-                        ////(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                        //(new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                     
                         //DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         DrawQ.TableList.Clear();
