@@ -152,6 +152,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace RefrigtzDLL
 {
 
@@ -21488,6 +21489,277 @@ if (Kind == 5)
                 return R;
             }
         }
+        public void RewriteAllDrawRec(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
+        {
+            Object o = new Object();
+            lock (o)
+            {
+
+
+                AllDraw Node = this;
+
+
+                while (DummyFileStream.Position < DummyFileStream.Length)
+                {
+                    
+                        Formatters.Serialize(DummyFileStream, Node);
+
+                        for (int i = 0; i < Node.SodierHigh; i++)
+                        {
+                            if (Node.SolderesOnTable == null)
+                                continue;
+                            if (Node.SolderesOnTable[i] == null)
+                                continue;
+                            if (Node.SolderesOnTable[i].SoldierThinking == null)
+                                continue;
+                            if (Node.SolderesOnTable[i].SoldierThinking[0] == null)
+                                continue;
+                            if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
+                                continue;
+
+                            for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                            {
+                                Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                                
+                                    Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                              }
+                        }
+                        for (int i = 0; i < Node.ElefantHigh; i++)
+                        {
+                            if (Node.ElephantOnTable == null)
+                                continue;
+                            if (Node.ElephantOnTable[i] == null)
+                                continue;
+                            if (Node.ElephantOnTable[i].ElefantThinking == null)
+                                continue;
+                            if (Node.ElephantOnTable[i].ElefantThinking[0] == null)
+                                continue;
+                            if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
+                                continue;
+                            for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                            {
+                                Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                                Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+
+                            }
+                        }
+                        for (int i = 0; i < Node.HourseHight; i++)
+                        {
+                            if (Node.HoursesOnTable == null)
+                                continue;
+                            if (Node.HoursesOnTable[i] == null)
+                                continue;
+                            if (Node.HoursesOnTable[i].HourseThinking == null)
+                                continue;
+                            if (Node.HoursesOnTable[i].HourseThinking[0] == null)
+                                continue;
+                            if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
+                                continue;
+                            for (int j = 0; j < Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                            {
+                                Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+                                Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            }
+
+                        }
+                        for (int i = 0; i < Node.CastleHigh; i++)
+                        {
+                            if (Node.CastlesOnTable == null)
+                                continue;
+                            if (Node.CastlesOnTable[i] == null)
+                                continue;
+                            if (Node.CastlesOnTable[i].CastleThinking == null)
+                                continue;
+                            if (Node.CastlesOnTable[i].CastleThinking[0] == null)
+                                continue;
+                            if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
+                                continue;
+                            for (int j = 0; j < Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                            {
+                                Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                                Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            }
+                        }
+
+                        for (int i = 0; i < Node.MinisterHigh; i++)
+                        {
+                            if (Node.MinisterOnTable == null)
+                                continue;
+                            if (Node.MinisterOnTable[i] == null)
+                                continue;
+                            if (Node.MinisterOnTable[i].MinisterThinking == null)
+                                continue;
+                            if (Node.MinisterOnTable[i].MinisterThinking[0] == null)
+                                continue;
+                            if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
+                                continue;
+                            for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                            {
+                                Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+                                Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            }
+
+                        }
+                        for (int i = 0; i < Node.KingHigh; i++)
+                        {
+                            if (Node.KingOnTable == null)
+                                continue;
+                            if (Node.KingOnTable[i] == null)
+                                continue;
+                            if (Node.KingOnTable[i].KingThinking == null)
+                                continue;
+                            if (Node.KingOnTable[i].KingThinking[0] == null)
+                                continue;
+                            if (Node.KingOnTable[i].KingThinking[0] == null)
+                                continue;
+                            if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
+                                continue;
+                            for (int j = 0; j < Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                            {
+                                Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+                                Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            }
+                        }                    
+                }
+            }
+        }
+        public AllDraw LoadrEC(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
+        {
+            AllDraw Node = null;
+            Object o = new Object();
+            lock (o)
+            {              
+
+
+           
+                while (DummyFileStream.Position < DummyFileStream.Length)
+                {                  
+
+                    for (int i = 0; i < Node.SodierHigh; i++)
+                    {
+                        if (Node.SolderesOnTable == null)
+                            continue;
+                        if (Node.SolderesOnTable[i] == null)
+                            continue;
+                        if (Node.SolderesOnTable[i].SoldierThinking == null)
+                            continue;
+                        if (Node.SolderesOnTable[i].SoldierThinking[0] == null)
+                            continue;
+                        if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
+                            continue;
+
+                        for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                        {
+                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
+                        }
+                    }
+                    for (int i = 0; i < Node.ElefantHigh; i++)
+                    {
+                        if (Node.ElephantOnTable == null)
+                            continue;
+                        if (Node.ElephantOnTable[i] == null)
+                            continue;
+                        if (Node.ElephantOnTable[i].ElefantThinking == null)
+                            continue;
+                        if (Node.ElephantOnTable[i].ElefantThinking[0] == null)
+                            continue;
+                        if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
+                            continue;
+                        for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                        {
+                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
+
+                        }
+                    }
+                    for (int i = 0; i < Node.HourseHight; i++)
+                    {
+                        if (Node.HoursesOnTable == null)
+                            continue;
+                        if (Node.HoursesOnTable[i] == null)
+                            continue;
+                        if (Node.HoursesOnTable[i].HourseThinking == null)
+                            continue;
+                        if (Node.HoursesOnTable[i].HourseThinking[0] == null)
+                            continue;
+                        if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
+                            continue;
+                        for (int j = 0; j < Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                        {
+                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
+                        }
+
+                    }
+                    for (int i = 0; i < Node.CastleHigh; i++)
+                    {
+                        if (Node.CastlesOnTable == null)
+                            continue;
+                        if (Node.CastlesOnTable[i] == null)
+                            continue;
+                        if (Node.CastlesOnTable[i].CastleThinking == null)
+                            continue;
+                        if (Node.CastlesOnTable[i].CastleThinking[0] == null)
+                            continue;
+                        if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
+                            continue;
+                        for (int j = 0; j < Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                        {
+                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
+                        }
+                    }
+
+                    for (int i = 0; i < Node.MinisterHigh; i++)
+                    {
+                        if (Node.MinisterOnTable == null)
+                            continue;
+                        if (Node.MinisterOnTable[i] == null)
+                            continue;
+                        if (Node.MinisterOnTable[i].MinisterThinking == null)
+                            continue;
+                        if (Node.MinisterOnTable[i].MinisterThinking[0] == null)
+                            continue;
+                        if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
+                            continue;
+                        for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                        {
+                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
+                        }
+
+                    }
+                    for (int i = 0; i < Node.KingHigh; i++)
+                    {
+                        if (Node.KingOnTable == null)
+                            continue;
+                        if (Node.KingOnTable[i] == null)
+                            continue;
+                        if (Node.KingOnTable[i].KingThinking == null)
+                            continue;
+                        if (Node.KingOnTable[i].KingThinking[0] == null)
+                            continue;
+                        if (Node.KingOnTable[i].KingThinking[0] == null)
+                            continue;
+                        if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
+                            continue;
+                        for (int j = 0; j < Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                        {
+                            Node.KingOnTable[i].KingThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
+                        }
+                    }
+                    Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
+                }
+
+
+                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
+                return Node;
+                //return Node.al;
+            }
+        }
+
     }
 }
 //End of Documentation.
