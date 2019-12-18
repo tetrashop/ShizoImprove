@@ -961,7 +961,854 @@ namespace RefrigtzDLL
         }
 
         //Rearrange AllDraw Object Content.
-        public void SetRowColumn(int index)
+        public void SetRowColumn(int index,bool Verify=false)
+        {
+            if (Verify)
+            {
+                if (SetRowColumn())
+                    return;
+                int Dummy = OrderP;
+                AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
+                //long Time = TimeElapced.TimeNow(); Spaces++;
+                Object a1 = new Object();
+                lock (a1)
+                {
+
+                    SetObjectNumbers(TableList[0]);
+
+                    int So1 = 0;
+                    int So2 = SodierMidle;
+                    int El1 = 0;
+                    int El2 = ElefantMidle;
+                    int Ho1 = 0;
+                    int Ho2 = HourseMidle;
+                    int Br1 = 0;
+                    int Br2 = CastleMidle;
+                    int Mi1 = 0;
+                    int Mi2 = MinisterMidle;
+                    int Ki1 = 0;
+                    int Ki2 = KingMidle;
+
+
+                    SetRowColumnFinished = false;
+
+                    Move = 0;
+                    //Intiate Dummy Variables.
+                    //When Conversion Occured.
+                
+                    //When Table Exist.
+                    if (TableList.Count > 0)
+                    {
+                        //For Every Table Things.
+                        for (int Column = 0; Column < 8; Column++)
+                            for (int Row = 0; Row < 8; Row++)
+                            {
+                                /* if (!TableZero(Tabl))
+                                 {
+
+                                     if (TableEqual(CloneATable(TableList[index]), Tabl))
+                                         return;
+                                 }*/
+                                if (CloneATable(TableList[index])[Row, Column] == 0)
+                                    continue;
+                                //When Things are Soldiers.
+                                if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 1)
+                                {
+                                    //Determine int
+                                    Color a;
+
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }     //When int is Gray. 
+                                    if (a == Color.Gray)
+                                    {
+
+                                        //Construct Soder Gray.
+                                        SolderesOnTable[So1].Row = Row;
+                                        SolderesOnTable[So1].Column = Column;
+
+                                        //Increase So1.
+                                        So1++;
+                                        if (So1 > SodierMidle)
+                                        {
+                                            SodierMidle++;
+                                            SodierHigh++;
+                                        }
+
+
+
+                                    }
+                                    //When int is Brown
+                                    else
+                                    {
+
+                                        //Construct Soldeir Brown.
+                                        SolderesOnTable[So2].Row = Row;
+                                        SolderesOnTable[So2].Column = Column;
+
+                                        //Increase So2.
+                                        So2++;
+                                        if (So2 > SodierHigh)
+                                            SodierHigh++;
+
+
+                                    }
+                                }
+                                else //For Elephant Objects.
+                                    if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 2)
+                                {
+                                    //Initiate Local Variables.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }    //If Gray Elepahnt
+                                    if (a == Color.Gray)
+                                    {
+
+
+                                        //Construction of Draw Object.
+                                        ElephantOnTable[El1].Row = Row;
+                                        ElephantOnTable[El1].Column = Column;
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2);
+                                        //Increament of Gray Index.
+                                        El1++;
+                                        //If New Object Increament Gray Objects.
+                                        if (El1 > ElefantMidle)
+                                        {
+                                            ElefantMidle++;
+                                            ElefantHigh++;
+                                        }
+
+                                    }
+                                    else//For Brown Elephant .Objects
+                                    {
+
+
+                                        //Construction of Draw Brown Elephant Object. 
+                                        ElephantOnTable[El2].Row = Row;
+                                        ElephantOnTable[El2].Column = Column;
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2);
+                                        //Increament of Index.
+                                        El2++;
+                                        //When New Brown Elephant Object Increament of Index.
+                                        if (El2 > ElefantHigh)
+                                            ElefantHigh++;
+
+
+                                    }
+                                }
+                                else//For Hourse Objects.
+                                        if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 3)
+                                {
+                                    //Initiate Local Varibale and int.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }                //If Gray Hourse.
+                                    if (a == Color.Gray)
+                                    {
+
+
+
+                                        //Construction of Draw Brown Hourse.
+                                        HoursesOnTable[Ho1].Row = Row;
+                                        HoursesOnTable[Ho1].Column = Column;
+
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3);
+                                        //Increament of Index.
+                                        Ho1++;
+                                        //when There is New Gray Hourse Increase.
+                                        if (Ho1 > HourseMidle)
+                                        {
+                                            HourseMidle++;
+                                            HourseHight++;
+                                        }
+
+                                    }//For Brown Hourses.
+                                    else
+                                    {
+
+
+                                        //Construction of Draw Brown Hourse.
+                                        HoursesOnTable[Ho2].Row = Row;
+                                        HoursesOnTable[Ho2].Column = Column;
+
+                                         //Increament of Index.
+                                        Ho2++;
+                                        //When New Brown Hourse Exist Exist Index.
+                                        if (Ho2 > HourseHight)
+                                            HourseHight++;
+
+                                    }
+                                }
+                                else//For Castles Objects.
+                                            if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 4)
+                                {
+                                    //Initiate of Local Variables.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }         //For Gray int.
+                                    if (a == Color.Gray)
+                                    {
+
+
+
+                                        //Construction of New Draw Gray Castles.
+                                        CastlesOnTable[Br1].Row = Row;
+                                        CastlesOnTable[Br1].Column = Column;
+                                        //Increamnt of Index.
+                                        Br1++;
+                                        //When New Gray Briges Increamnt Max Index.
+                                        if (Br1 > CastleMidle)
+                                        {
+                                            CastleMidle++;
+                                            CastleHigh++;
+                                        }
+
+                                    }//For Brown Castles.
+                                    else
+                                    {
+
+
+                                        //Construction Draw of New Brown Castles.
+                                        CastlesOnTable[Br2].Row = Row;
+                                        CastlesOnTable[Br2].Column = Column;
+                                      
+                                        //Increament of Index.
+                                        Br2++;
+                                        //wehn Brown New Castles Detected Increament Max Index.
+                                        if (Br2 > CastleHigh)
+                                            CastleHigh++;
+
+                                    }
+                                }
+                                else//For Minister Objects.
+                                                if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 5)
+                                {
+                                    //Initiate Local int Varibales.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }     //For Gray ints.
+                                    if (a == Color.Gray)
+                                    {
+
+
+
+
+                                        //construction of new draw Gray Minster.
+                                        MinisterOnTable[Mi1].Row = Row;
+                                        MinisterOnTable[Mi1].Column = Column;
+
+                                        //Increament of Index.
+                                        Mi1++;
+                                        //Wehn New Gray Minster Detected Increament Max Indexes.
+                                        if (Mi1 > MinisterMidle)
+                                        {
+                                            MinisterMidle++;
+                                            MinisterHigh++;
+                                        }
+
+
+                                    }//For Brown  ints.
+                                    else
+                                    {
+
+
+                                        //Construction of New Draw Brown Minster.
+                                        MinisterOnTable[Mi2].Row = Row;
+                                        MinisterOnTable[Mi2].Column = Column;
+
+                                        //Increament Index.
+                                        Mi2++;
+                                        //When New Brown Minister Detected Increament Max Index.
+                                        if (Mi2 > MinisterHigh)
+                                            MinisterHigh++;
+
+                                    }
+                                }
+                                else//for King Objects.        
+                                if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 6)
+                                {
+                                    //Initiate Of int.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }     //int consideration.
+                                    if (a == Color.Gray)
+                                    {
+
+
+
+                                        //Construction of New Draw Gray King.
+                                        KingOnTable[Ki1].Row = Row;
+                                        KingOnTable[Ki1].Column = Column;
+
+                                        //Increament of Index.
+                                        Ki1++;
+                                        //when New Draw  Object Detected Increament Max Index.
+                                        if (Ki1 > KingMidle)
+                                        {
+                                            KingMidle++;
+                                            KingHigh++;
+
+                                        }
+
+                                    }//For Brown King int
+                                    else
+                                    {
+
+
+                                        //Construction of New Draw King Brown Object.
+                                        KingOnTable[Ki2].Row = Row;
+                                        KingOnTable[Ki2].Column = Column;
+
+                                        //Increament of Index.
+                                        Ki2++;
+                                        //When New Object Detected Increament Of Brown King Max Index.
+                                        if (Ki2 > KingHigh)
+                                            KingHigh++;
+
+                                    }
+
+                                }
+                            }
+
+                        //Make Empty Remaining.
+
+
+                    }
+
+
+
+                    SetObjectNumbers(TableList[0]);
+                    for (var i = So1; i < SodierMidle; i++)
+                        SolderesOnTable[i] = null;
+
+                    for (var i = So2; i < SodierHigh; i++)
+                        SolderesOnTable[i] = null;
+
+                    for (var i = El1; i < ElefantMidle; i++)
+                        ElephantOnTable[i] = null;
+
+                    for (var i = El2; i < ElefantHigh; i++)
+                        ElephantOnTable[i] = null;
+
+                    for (var i = Ho1; i < HourseMidle; i++)
+                        HoursesOnTable[i] = null;
+
+                    for (var i = Ho2; i < HourseHight; i++)
+                        HoursesOnTable[i] = null;
+
+                    for (var i = Br1; i < CastleMidle; i++)
+                        CastlesOnTable[i] = null;
+
+                    for (var i = Br2; i < CastleHigh; i++)
+                        CastlesOnTable[i] = null;
+
+                    for (var i = Mi1; i < MinisterMidle; i++)
+                        MinisterOnTable[i] = null;
+
+                    for (var i = Mi2; i < MinisterHigh; i++)
+                        MinisterOnTable[i] = null;
+
+                    for (var i = Ki1; i < KingMidle; i++)
+                        KingOnTable[i] = null;
+
+                    for (var i = Ki2; i < KingHigh; i++)
+                        KingOnTable[i] = null;
+                    if (TableList.Count > 0)
+                    {
+                        for (var i = 0; i < 8; i++)
+                            for (var j = 0; j < 8; j++)
+                                Tabl[i, j] = TableList[0][i, j];
+                    }
+                    SetRowColumnFinished = true;
+                }
+                //{ AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space); AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
+                Spaces--;
+                this.AStarGreedyString = thisAStarGreedyString;
+                OrderP = Dummy;
+            }
+            else
+            {
+                int Dummy = OrderP;
+                AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
+                //long Time = TimeElapced.TimeNow(); Spaces++;
+                Object a1 = new Object();
+                lock (a1)
+                {
+
+                    SetObjectNumbers(TableList[0]);
+
+                    int So1 = 0;
+                    int So2 = SodierMidle;
+                    int El1 = 0;
+                    int El2 = ElefantMidle;
+                    int Ho1 = 0;
+                    int Ho2 = HourseMidle;
+                    int Br1 = 0;
+                    int Br2 = CastleMidle;
+                    int Mi1 = 0;
+                    int Mi2 = MinisterMidle;
+                    int Ki1 = 0;
+                    int Ki2 = KingMidle;
+
+
+                    SetRowColumnFinished = false;
+
+                    Move = 0;
+                    //Intiate Dummy Variables.
+                    //When Conversion Occured.
+                    SolderesOnTable = new DrawSoldier[SodierHigh];
+                    ElephantOnTable = new DrawElefant[ElefantHigh];
+                    HoursesOnTable = new DrawHourse[HourseHight];
+                    CastlesOnTable = new DrawCastle[CastleHigh];
+                    MinisterOnTable = new DrawMinister[MinisterHigh];
+                    KingOnTable = new DrawKing[KingHigh];
+                    AllDraw.SodierConversionOcuured = false;
+
+                    //When Table Exist.
+                    if (TableList.Count > 0)
+                    {
+                        //For Every Table Things.
+                        for (int Column = 0; Column < 8; Column++)
+                            for (int Row = 0; Row < 8; Row++)
+                            {
+                                /* if (!TableZero(Tabl))
+                                 {
+
+                                     if (TableEqual(CloneATable(TableList[index]), Tabl))
+                                         return;
+                                 }*/
+                                if (CloneATable(TableList[index])[Row, Column] == 0)
+                                    continue;
+                                //When Things are Soldiers.
+                                if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 1)
+                                {
+                                    //Determine int
+                                    Color a;
+
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }     //When int is Gray. 
+                                    if (a == Color.Gray)
+                                    {
+
+                                        //Construct Soder Gray.
+                                        SolderesOnTable[So1] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, So1);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(So1, OrderP, 1);
+
+                                        //Increase So1.
+                                        So1++;
+                                        if (So1 > SodierMidle)
+                                        {
+                                            SodierMidle++;
+                                            SodierHigh++;
+                                        }
+
+
+
+                                    }
+                                    //When int is Brown
+                                    else
+                                    {
+
+                                        //Construct Soldeir Brown.
+                                        SolderesOnTable[So2] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, So2);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(So2, OrderP, 1);
+                                        //Increase So2.
+                                        So2++;
+                                        if (So2 > SodierHigh)
+                                            SodierHigh++;
+
+
+                                    }
+                                }
+                                else //For Elephant Objects.
+                                    if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 2)
+                                {
+                                    //Initiate Local Variables.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }    //If Gray Elepahnt
+                                    if (a == Color.Gray)
+                                    {
+
+
+                                        //Construction of Draw Object.
+                                        ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, El1);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2);
+                                        //Increament of Gray Index.
+                                        El1++;
+                                        //If New Object Increament Gray Objects.
+                                        if (El1 > ElefantMidle)
+                                        {
+                                            ElefantMidle++;
+                                            ElefantHigh++;
+                                        }
+
+                                    }
+                                    else//For Brown Elephant .Objects
+                                    {
+
+
+                                        //Construction of Draw Brown Elephant Object. 
+                                        ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, El2);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2);
+                                        //Increament of Index.
+                                        El2++;
+                                        //When New Brown Elephant Object Increament of Index.
+                                        if (El2 > ElefantHigh)
+                                            ElefantHigh++;
+
+
+                                    }
+                                }
+                                else//For Hourse Objects.
+                                        if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 3)
+                                {
+                                    //Initiate Local Varibale and int.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }                //If Gray Hourse.
+                                    if (a == Color.Gray)
+                                    {
+
+
+
+                                        //Construction of Draw Brown Hourse.
+                                        HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ho1);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3);
+                                        //Increament of Index.
+                                        Ho1++;
+                                        //when There is New Gray Hourse Increase.
+                                        if (Ho1 > HourseMidle)
+                                        {
+                                            HourseMidle++;
+                                            HourseHight++;
+                                        }
+
+                                    }//For Brown Hourses.
+                                    else
+                                    {
+
+
+                                        //Construction of Draw Brown Hourse.
+                                        HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ho2);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Ho2, OrderP, 3);
+                                        //Increament of Index.
+                                        Ho2++;
+                                        //When New Brown Hourse Exist Exist Index.
+                                        if (Ho2 > HourseHight)
+                                            HourseHight++;
+
+                                    }
+                                }
+                                else//For Castles Objects.
+                                            if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 4)
+                                {
+                                    //Initiate of Local Variables.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }         //For Gray int.
+                                    if (a == Color.Gray)
+                                    {
+
+
+
+                                        //Construction of New Draw Gray Castles.
+                                        CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Br1);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Br1, OrderP, 4);
+                                        //Increamnt of Index.
+                                        Br1++;
+                                        //When New Gray Briges Increamnt Max Index.
+                                        if (Br1 > CastleMidle)
+                                        {
+                                            CastleMidle++;
+                                            CastleHigh++;
+                                        }
+
+                                    }//For Brown Castles.
+                                    else
+                                    {
+
+
+                                        //Construction Draw of New Brown Castles.
+                                        CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Br2);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Br2, OrderP, 4);
+                                        //Increament of Index.
+                                        Br2++;
+                                        //wehn Brown New Castles Detected Increament Max Index.
+                                        if (Br2 > CastleHigh)
+                                            CastleHigh++;
+
+                                    }
+                                }
+                                else//For Minister Objects.
+                                                if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 5)
+                                {
+                                    //Initiate Local int Varibales.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }     //For Gray ints.
+                                    if (a == Color.Gray)
+                                    {
+
+
+
+
+                                        //construction of new draw Gray Minster.
+                                        MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Mi1);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Mi1, OrderP, 5);
+                                        //Increament of Index.
+                                        Mi1++;
+                                        //Wehn New Gray Minster Detected Increament Max Indexes.
+                                        if (Mi1 > MinisterMidle)
+                                        {
+                                            MinisterMidle++;
+                                            MinisterHigh++;
+                                        }
+
+
+                                    }//For Brown  ints.
+                                    else
+                                    {
+
+
+                                        //Construction of New Draw Brown Minster.
+                                        MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Mi2);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Mi2, OrderP, 5);
+                                        //Increament Index.
+                                        Mi2++;
+                                        //When New Brown Minister Detected Increament Max Index.
+                                        if (Mi2 > MinisterHigh)
+                                            MinisterHigh++;
+
+                                    }
+                                }
+                                else//for King Objects.        
+                                if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 6)
+                                {
+                                    //Initiate Of int.
+                                    Color a;
+                                    if (CloneATable(TableList[index])[Row, Column] > 0)
+                                    {
+                                        OrderP = 1;
+                                        a = Color.Gray;
+                                    }
+                                    else
+                                    {
+                                        OrderP = -1;
+                                        a = Color.Brown;
+                                    }     //int consideration.
+                                    if (a == Color.Gray)
+                                    {
+
+
+
+                                        //Construction of New Draw Gray King.
+                                        KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ki1);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Ki1, OrderP, 6);
+                                        //Increament of Index.
+                                        Ki1++;
+                                        //when New Draw  Object Detected Increament Max Index.
+                                        if (Ki1 > KingMidle)
+                                        {
+                                            KingMidle++;
+                                            KingHigh++;
+
+                                        }
+
+                                    }//For Brown King int
+                                    else
+                                    {
+
+
+                                        //Construction of New Draw King Brown Object.
+                                        KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ki2);
+
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(Ki2, OrderP, 6);
+                                        //Increament of Index.
+                                        Ki2++;
+                                        //When New Object Detected Increament Of Brown King Max Index.
+                                        if (Ki2 > KingHigh)
+                                            KingHigh++;
+
+                                    }
+
+                                }
+                            }
+
+                        //Make Empty Remaining.
+
+
+                    }
+
+
+
+                    SetObjectNumbers(TableList[0]);
+                    for (var i = So1; i < SodierMidle; i++)
+                        SolderesOnTable[i] = null;
+
+                    for (var i = So2; i < SodierHigh; i++)
+                        SolderesOnTable[i] = null;
+
+                    for (var i = El1; i < ElefantMidle; i++)
+                        ElephantOnTable[i] = null;
+
+                    for (var i = El2; i < ElefantHigh; i++)
+                        ElephantOnTable[i] = null;
+
+                    for (var i = Ho1; i < HourseMidle; i++)
+                        HoursesOnTable[i] = null;
+
+                    for (var i = Ho2; i < HourseHight; i++)
+                        HoursesOnTable[i] = null;
+
+                    for (var i = Br1; i < CastleMidle; i++)
+                        CastlesOnTable[i] = null;
+
+                    for (var i = Br2; i < CastleHigh; i++)
+                        CastlesOnTable[i] = null;
+
+                    for (var i = Mi1; i < MinisterMidle; i++)
+                        MinisterOnTable[i] = null;
+
+                    for (var i = Mi2; i < MinisterHigh; i++)
+                        MinisterOnTable[i] = null;
+
+                    for (var i = Ki1; i < KingMidle; i++)
+                        KingOnTable[i] = null;
+
+                    for (var i = Ki2; i < KingHigh; i++)
+                        KingOnTable[i] = null;
+                    if (TableList.Count > 0)
+                    {
+                        for (var i = 0; i < 8; i++)
+                            for (var j = 0; j < 8; j++)
+                                Tabl[i, j] = TableList[0][i, j];
+                    }
+                    SetRowColumnFinished = true;
+                }
+                //{ AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space); AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
+                Spaces--;
+                this.AStarGreedyString = thisAStarGreedyString;
+                OrderP = Dummy;
+            }
+        }
+        public bool SetRowColumn()
         {
             int Dummy = OrderP;
             AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
@@ -989,16 +1836,7 @@ namespace RefrigtzDLL
                 SetRowColumnFinished = false;
 
                 Move = 0;
-                //Intiate Dummy Variables.
-                //When Conversion Occured.
-                SolderesOnTable = new DrawSoldier[SodierHigh];
-                ElephantOnTable = new DrawElefant[ElefantHigh];
-                HoursesOnTable = new DrawHourse[HourseHight];
-                CastlesOnTable = new DrawCastle[CastleHigh];
-                MinisterOnTable = new DrawMinister[MinisterHigh];
-                KingOnTable = new DrawKing[KingHigh];
-                AllDraw.SodierConversionOcuured = false;
-
+        
                 //When Table Exist.
                 if (TableList.Count > 0)
                 {
@@ -1009,18 +1847,18 @@ namespace RefrigtzDLL
                             /* if (!TableZero(Tabl))
                              {
 
-                                 if (TableEqual(CloneATable(TableList[index]), Tabl))
+                                 if (TableEqual(CloneATable(TableList[0]), Tabl))
                                      return;
                              }*/
-                            if (CloneATable(TableList[index])[Row, Column] == 0)
+                            if (CloneATable(TableList[0])[Row, Column] == 0)
                                 continue;
                             //When Things are Soldiers.
-                            if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 1)
+                            if (System.Math.Abs(CloneATable(TableList[0])[Row, Column]) == 1)
                             {
                                 //Determine int
                                 Color a;
 
-                                if (CloneATable(TableList[index])[Row, Column] > 0)
+                                if (CloneATable(TableList[0])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1032,12 +1870,8 @@ namespace RefrigtzDLL
                                 }     //When int is Gray. 
                                 if (a == Color.Gray)
                                 {
-
-                                    //Construct Soder Gray.
-                                    SolderesOnTable[So1] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, So1);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(So1, OrderP, 1);
+                                    if (TableList[0][(int)SolderesOnTable[So1].Row, (int)SolderesOnTable[So1].Column] != 1)
+                                        return false;
 
                                     //Increase So1.
                                     So1++;
@@ -1054,11 +1888,8 @@ namespace RefrigtzDLL
                                 else
                                 {
 
-                                    //Construct Soldeir Brown.
-                                    SolderesOnTable[So2] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, So2);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(So2, OrderP, 1);
+                                    if (TableList[0][(int)SolderesOnTable[So2].Row, (int)SolderesOnTable[So2].Column] != -1)
+                                        return false;
                                     //Increase So2.
                                     So2++;
                                     if (So2 > SodierHigh)
@@ -1068,11 +1899,11 @@ namespace RefrigtzDLL
                                 }
                             }
                             else //For Elephant Objects.
-                                if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 2)
+                                if (System.Math.Abs(CloneATable(TableList[0])[Row, Column]) == 2)
                             {
                                 //Initiate Local Variables.
                                 Color a;
-                                if (CloneATable(TableList[index])[Row, Column] > 0)
+                                if (CloneATable(TableList[0])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1086,12 +1917,9 @@ namespace RefrigtzDLL
                                 {
 
 
-                                    //Construction of Draw Object.
-                                    ElephantOnTable[El1] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, El1);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(El1, OrderP, 2);
-                                    //Increament of Gray Index.
+                                    if (TableList[0][(int)ElephantOnTable[El1].Row, (int)ElephantOnTable[El1].Column] != 2)
+                                        return false;
+                                    //Increament of Gray 0.
                                     El1++;
                                     //If New Object Increament Gray Objects.
                                     if (El1 > ElefantMidle)
@@ -1105,14 +1933,11 @@ namespace RefrigtzDLL
                                 {
 
 
-                                    //Construction of Draw Brown Elephant Object. 
-                                    ElephantOnTable[El2] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, El2);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(El2, OrderP, 2);
-                                    //Increament of Index.
+                                    if (TableList[0][(int)ElephantOnTable[El2].Row, (int)ElephantOnTable[El2].Column] != -2)
+                                        return false;
+                                    //Increament of 0.
                                     El2++;
-                                    //When New Brown Elephant Object Increament of Index.
+                                    //When New Brown Elephant Object Increament of 0.
                                     if (El2 > ElefantHigh)
                                         ElefantHigh++;
 
@@ -1120,11 +1945,11 @@ namespace RefrigtzDLL
                                 }
                             }
                             else//For Hourse Objects.
-                                    if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 3)
+                                    if (System.Math.Abs(CloneATable(TableList[0])[Row, Column]) == 3)
                             {
                                 //Initiate Local Varibale and int.
                                 Color a;
-                                if (CloneATable(TableList[index])[Row, Column] > 0)
+                                if (CloneATable(TableList[0])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1139,12 +1964,9 @@ namespace RefrigtzDLL
 
 
 
-                                    //Construction of Draw Brown Hourse.
-                                    HoursesOnTable[Ho1] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ho1);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(Ho1, OrderP, 3);
-                                    //Increament of Index.
+                                    if (TableList[0][(int)HoursesOnTable[Ho1].Row, (int)HoursesOnTable[Ho1].Column] != 3)
+                                        return false;
+                                    //Increament of 0.
                                     Ho1++;
                                     //when There is New Gray Hourse Increase.
                                     if (Ho1 > HourseMidle)
@@ -1158,25 +1980,22 @@ namespace RefrigtzDLL
                                 {
 
 
-                                    //Construction of Draw Brown Hourse.
-                                    HoursesOnTable[Ho2] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ho2);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(Ho2, OrderP, 3);
-                                    //Increament of Index.
+                                    if (TableList[0][(int)HoursesOnTable[Ho2].Row, (int)HoursesOnTable[Ho2].Column] != -3)
+                                        return false;
+                                    //Increament of 0.
                                     Ho2++;
-                                    //When New Brown Hourse Exist Exist Index.
+                                    //When New Brown Hourse Exist Exist 0.
                                     if (Ho2 > HourseHight)
                                         HourseHight++;
 
                                 }
                             }
                             else//For Castles Objects.
-                                        if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 4)
+                                        if (System.Math.Abs(CloneATable(TableList[0])[Row, Column]) == 4)
                             {
                                 //Initiate of Local Variables.
                                 Color a;
-                                if (CloneATable(TableList[index])[Row, Column] > 0)
+                                if (CloneATable(TableList[0])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1191,14 +2010,11 @@ namespace RefrigtzDLL
 
 
 
-                                    //Construction of New Draw Gray Castles.
-                                    CastlesOnTable[Br1] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Br1);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(Br1, OrderP, 4);
-                                    //Increamnt of Index.
+                                    if (TableList[0][(int)CastlesOnTable[Br1].Row, (int)CastlesOnTable[Br1].Column] != 4)
+                                        return false;
+                                    //Increamnt of 0.
                                     Br1++;
-                                    //When New Gray Briges Increamnt Max Index.
+                                    //When New Gray Briges Increamnt Max 0.
                                     if (Br1 > CastleMidle)
                                     {
                                         CastleMidle++;
@@ -1210,25 +2026,22 @@ namespace RefrigtzDLL
                                 {
 
 
-                                    //Construction Draw of New Brown Castles.
-                                    CastlesOnTable[Br2] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Br2);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(Br2, OrderP, 4);
-                                    //Increament of Index.
+                                    if (TableList[0][(int)CastlesOnTable[Br2].Row, (int)CastlesOnTable[Br2].Column] != -4)
+                                        return false;
+                                    //Increament of 0.
                                     Br2++;
-                                    //wehn Brown New Castles Detected Increament Max Index.
+                                    //wehn Brown New Castles Detected Increament Max 0.
                                     if (Br2 > CastleHigh)
                                         CastleHigh++;
 
                                 }
                             }
                             else//For Minister Objects.
-                                            if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 5)
+                                            if (System.Math.Abs(CloneATable(TableList[0])[Row, Column]) == 5)
                             {
                                 //Initiate Local int Varibales.
                                 Color a;
-                                if (CloneATable(TableList[index])[Row, Column] > 0)
+                                if (CloneATable(TableList[0])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1244,14 +2057,11 @@ namespace RefrigtzDLL
 
 
 
-                                    //construction of new draw Gray Minster.
-                                    MinisterOnTable[Mi1] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Mi1);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(Mi1, OrderP, 5);
-                                    //Increament of Index.
+                                    if (TableList[0][(int)MinisterOnTable[Mi1].Row, (int)MinisterOnTable[Mi1].Column] != 5)
+                                        return false;
+                                    //Increament of 0.
                                     Mi1++;
-                                    //Wehn New Gray Minster Detected Increament Max Indexes.
+                                    //Wehn New Gray Minster Detected Increament Max 0es.
                                     if (Mi1 > MinisterMidle)
                                     {
                                         MinisterMidle++;
@@ -1264,25 +2074,22 @@ namespace RefrigtzDLL
                                 {
 
 
-                                    //Construction of New Draw Brown Minster.
-                                    MinisterOnTable[Mi2] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Mi2);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(Mi2, OrderP, 5);
-                                    //Increament Index.
+                                    if (TableList[0][(int)MinisterOnTable[Mi2].Row, (int)MinisterOnTable[Mi2].Column] != -5)
+                                        return false;
+                                    //Increament 0.
                                     Mi2++;
-                                    //When New Brown Minister Detected Increament Max Index.
+                                    //When New Brown Minister Detected Increament Max 0.
                                     if (Mi2 > MinisterHigh)
                                         MinisterHigh++;
 
                                 }
                             }
                             else//for King Objects.        
-                            if (System.Math.Abs(CloneATable(TableList[index])[Row, Column]) == 6)
+                            if (System.Math.Abs(CloneATable(TableList[0])[Row, Column]) == 6)
                             {
                                 //Initiate Of int.
                                 Color a;
-                                if (CloneATable(TableList[index])[Row, Column] > 0)
+                                if (CloneATable(TableList[0])[Row, Column] > 0)
                                 {
                                     OrderP = 1;
                                     a = Color.Gray;
@@ -1297,14 +2104,11 @@ namespace RefrigtzDLL
 
 
 
-                                    //Construction of New Draw Gray King.
-                                    KingOnTable[Ki1] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ki1);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(Ki1, OrderP, 6);
-                                    //Increament of Index.
+                                    if (TableList[0][(int)KingOnTable[Ki1].Row, (int)KingOnTable[Ki1].Column] != 6)
+                                        return false;
+                                    //Increament of 0.
                                     Ki1++;
-                                    //when New Draw  Object Detected Increament Max Index.
+                                    //when New Draw  Object Detected Increament Max 0.
                                     if (Ki1 > KingMidle)
                                     {
                                         KingMidle++;
@@ -1317,14 +2121,11 @@ namespace RefrigtzDLL
                                 {
 
 
-                                    //Construction of New Draw King Brown Object.
-                                    KingOnTable[Ki2] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ki2);
-
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(Ki2, OrderP, 6);
-                                    //Increament of Index.
+                                    if (TableList[0][(int)KingOnTable[Ki2].Row, (int)KingOnTable[Ki2].Column] != -6)
+                                        return false;
+                                    //Increament of 0.
                                     Ki2++;
-                                    //When New Object Detected Increament Of Brown King Max Index.
+                                    //When New Object Detected Increament Of Brown King Max 0.
                                     if (Ki2 > KingHigh)
                                         KingHigh++;
 
@@ -1388,7 +2189,9 @@ namespace RefrigtzDLL
             Spaces--;
             this.AStarGreedyString = thisAStarGreedyString;
             OrderP = Dummy;
+            return true;
         }
+
         //Waite semaphore
         void SetRowColumnFinishedWait()
         {

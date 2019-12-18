@@ -375,39 +375,10 @@ namespace Refrigtz
         {
             while (!LoadedTable || (!MenueSelecte)) { Thread.Sleep(1000); }
 
-            //if (RefrigtzDLL.AllDraw.THISDummy != null)
-            // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
+             // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
             if (!Quantum)
             {
-                if (MovmentsNumber == 1)
-                {
 
-                    /*   if (Stockfish)
-                       {
-                           GrayTimer.Sign = 1;
-                           BrownTimer.Sign = 1;
-                           if (OrderPlate == 1)
-                           {
-                               GrayTimer.StartTime("GrayTimer");
-                               BrownTimer.StopTime();
-                               BobSection = true;
-                               AliceSection = false;
-                               GrayTimer.StartTime("GrayTimer");
-                           }
-                           else
-                           {
-                               BrownTimer.StartTime("BrownTimer");
-                               GrayTimer.StopTime();
-                               BobSection = false;
-                               AliceSection = true;
-                               BrownTimer.StartTime("BrownTimer");
-                           }
-
-
-
-
-                       }*/
-                }
 
                 RefrigtzDLL.AllDraw.SyntaxToWrite = "";
                 try
@@ -432,7 +403,7 @@ namespace Refrigtz
                             //if (!UsePenaltyRegardMechnisam)
                             if (AA.CheckMate(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], OrderPlate))
                             {
-                                /*if (OrderPlate == 1 && AA.CheckMateGray)
+                                if (OrderPlate == 1 && AA.CheckMateGray)
                                 {
                                     EndOfGame = true;
                                     return;
@@ -442,7 +413,7 @@ namespace Refrigtz
                                 {
                                     EndOfGame = true;
                                     return;
-                                }*/
+                                }
                                 if (AA.CheckMateGray || AA.CheckMateBrown)
                                 {
                                     EndOfGame = true;
@@ -6043,6 +6014,9 @@ namespace Refrigtz
         {
             if (Draw == null)
                 return;
+
+           
+
             for (int i = 0; i < Draw.SodierHigh; i++)
             {
                 Object O1 = new Object();
@@ -6209,6 +6183,7 @@ namespace Refrigtz
         {
             if (DrawQ == null)
                 return;
+           
             for (int i = 0; i < DrawQ.SodierHigh; i++)
             {
                 Object O1 = new Object();
@@ -7183,9 +7158,12 @@ namespace Refrigtz
                                 TabStor[i, j] = Table[i, j];
                             }
                         }
+                        Draw.SetRowColumn(0, true);
+
                         //For Iterative Movewmnt
                         if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
                             continue;
+                        
                         if (RowClickP == -1 && ColumnClickP == -1)
                             continue;
                         try
@@ -8883,6 +8861,7 @@ namespace Refrigtz
                                 TabStor[i, j] = Table[i, j];
                             }
                         }
+                        DrawQ.SetRowColumn(0, true);
                         //For Iterative Movewmnt
                         if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
                             continue;
@@ -10553,6 +10532,7 @@ namespace Refrigtz
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
                                                     QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
+                                                    
                                                 }
                                                 QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
 
