@@ -239,14 +239,14 @@ namespace Refrigtz
             this.ToolStripMenuItemRandomGeneticGames,
             this.ExitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(19, 20);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.ToolStripMenuItem1.Text = "File";
             this.ToolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
             // ToolStripMenuItemNewGame
             // 
             this.ToolStripMenuItemNewGame.Name = "ToolStripMenuItemNewGame";
-            this.ToolStripMenuItemNewGame.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemNewGame.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItemNewGame.Text = "New Game";
             this.ToolStripMenuItemNewGame.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
             // 
@@ -254,7 +254,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItem11.Enabled = false;
             this.ToolStripMenuItem11.Name = "ToolStripMenuItem11";
-            this.ToolStripMenuItem11.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem11.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem11.Text = "Blitz Witout PR";
             this.ToolStripMenuItem11.Visible = false;
             this.ToolStripMenuItem11.Click += new System.EventHandler(this.ToolStripMenuItem11_Click);
@@ -262,42 +262,42 @@ namespace Refrigtz
             // ToolStripMenuItem14
             // 
             this.ToolStripMenuItem14.Name = "ToolStripMenuItem14";
-            this.ToolStripMenuItem14.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem14.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem14.Text = "Full Game";
             this.ToolStripMenuItem14.Click += new System.EventHandler(this.ToolStripMenuItem14_Click);
             // 
             // ToolStripMenuItem13
             // 
             this.ToolStripMenuItem13.Name = "ToolStripMenuItem13";
-            this.ToolStripMenuItem13.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem13.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem13.Text = "Full Game NO PR";
             this.ToolStripMenuItem13.Click += new System.EventHandler(this.ToolStripMenuItem13_Click);
             // 
             // ToolStripMenuItem12
             // 
             this.ToolStripMenuItem12.Name = "ToolStripMenuItem12";
-            this.ToolStripMenuItem12.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem12.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem12.Text = "Blitz No PR";
             this.ToolStripMenuItem12.Click += new System.EventHandler(this.ToolStripMenuItem12_Click);
             // 
             // ToolStripMenuItem15
             // 
             this.ToolStripMenuItem15.Name = "ToolStripMenuItem15";
-            this.ToolStripMenuItem15.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem15.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem15.Text = "Computer By Computer Full Game";
             this.ToolStripMenuItem15.Click += new System.EventHandler(this.ToolStripMenuItem15_Click);
             // 
             // ToolStripMenuItem21
             // 
             this.ToolStripMenuItem21.Name = "ToolStripMenuItem21";
-            this.ToolStripMenuItem21.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem21.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem21.Text = "Blitz Quantum";
             this.ToolStripMenuItem21.Click += new System.EventHandler(this.ToolStripMenuItem21_Click);
             // 
             // ToolStripMenuItem6
             // 
             this.ToolStripMenuItem6.Name = "ToolStripMenuItem6";
-            this.ToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem6.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem6.Text = "Blitz";
             this.ToolStripMenuItem6.Click += new System.EventHandler(this.ToolStripMenuItem6_Click);
             // 
@@ -305,7 +305,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItem7.Enabled = false;
             this.ToolStripMenuItem7.Name = "ToolStripMenuItem7";
-            this.ToolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem7.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem7.Text = "Computer By Person Increamental";
             this.ToolStripMenuItem7.Visible = false;
             this.ToolStripMenuItem7.Click += new System.EventHandler(this.ToolStripMenuItem7_Click_1);
@@ -314,7 +314,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItem8.Enabled = false;
             this.ToolStripMenuItem8.Name = "ToolStripMenuItem8";
-            this.ToolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem8.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem8.Text = "Common Increamental Computer By Computer";
             this.ToolStripMenuItem8.Visible = false;
             this.ToolStripMenuItem8.Click += new System.EventHandler(this.ToolStripMenuItem8_Click);
@@ -323,7 +323,7 @@ namespace Refrigtz
             // 
             this.ComputerWithComputerToolStripMenuItem.Enabled = false;
             this.ComputerWithComputerToolStripMenuItem.Name = "ComputerWithComputerToolStripMenuItem";
-            this.ComputerWithComputerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ComputerWithComputerToolStripMenuItem.Size = new System.Drawing.Size(327, 22);
             this.ComputerWithComputerToolStripMenuItem.Text = "Computer With Computer";
             this.ComputerWithComputerToolStripMenuItem.Visible = false;
             this.ComputerWithComputerToolStripMenuItem.Click += new System.EventHandler(this.ComputerWithComputerToolStripMenuItem_Click);
@@ -332,7 +332,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItem9.Enabled = false;
             this.ToolStripMenuItem9.Name = "ToolStripMenuItem9";
-            this.ToolStripMenuItem9.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem9.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem9.Text = "Perofesional With Computer";
             this.ToolStripMenuItem9.Visible = false;
             this.ToolStripMenuItem9.Click += new System.EventHandler(this.ToolStripMenuItem9_Click);
@@ -340,7 +340,7 @@ namespace Refrigtz
             // ComputerWithComputerToolStripMenuItem1
             // 
             this.ComputerWithComputerToolStripMenuItem1.Name = "ComputerWithComputerToolStripMenuItem1";
-            this.ComputerWithComputerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ComputerWithComputerToolStripMenuItem1.Size = new System.Drawing.Size(327, 22);
             this.ComputerWithComputerToolStripMenuItem1.Text = "Computer With Person";
             this.ComputerWithComputerToolStripMenuItem1.Visible = false;
             this.ComputerWithComputerToolStripMenuItem1.Click += new System.EventHandler(this.ComputerWithComputerToolStripMenuItem1_Click);
@@ -349,7 +349,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItem16.Enabled = false;
             this.ToolStripMenuItem16.Name = "ToolStripMenuItem16";
-            this.ToolStripMenuItem16.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem16.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem16.Text = "Refregitz With Stockfish Blitz";
             this.ToolStripMenuItem16.Visible = false;
             this.ToolStripMenuItem16.Click += new System.EventHandler(this.ToolStripMenuItem16_Click);
@@ -357,14 +357,14 @@ namespace Refrigtz
             // ToolStripMenuItem22
             // 
             this.ToolStripMenuItem22.Name = "ToolStripMenuItem22";
-            this.ToolStripMenuItem22.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem22.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem22.Text = "Blitz Game With SugR";
             this.ToolStripMenuItem22.Click += new System.EventHandler(this.ToolStripMenuItem22_Click);
             // 
             // ToolStripMenuItem19
             // 
             this.ToolStripMenuItem19.Name = "ToolStripMenuItem19";
-            this.ToolStripMenuItem19.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem19.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem19.Text = "Blitz Game With Stockfish 8";
             this.ToolStripMenuItem19.Click += new System.EventHandler(this.ToolStripMenuItem19_Click);
             // 
@@ -372,7 +372,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItem20.Enabled = false;
             this.ToolStripMenuItem20.Name = "ToolStripMenuItem20";
-            this.ToolStripMenuItem20.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem20.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem20.Text = "Blitz Game With stockfish 8 with No PR";
             this.ToolStripMenuItem20.Visible = false;
             this.ToolStripMenuItem20.Click += new System.EventHandler(this.ToolStripMenuItem20_Click);
@@ -380,14 +380,14 @@ namespace Refrigtz
             // ToolStripMenuItem23
             // 
             this.ToolStripMenuItem23.Name = "ToolStripMenuItem23";
-            this.ToolStripMenuItem23.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem23.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem23.Text = "Refregitz With SugR Full Game";
             this.ToolStripMenuItem23.Click += new System.EventHandler(this.ToolStripMenuItem23_Click);
             // 
             // ToolStripMenuItem10
             // 
             this.ToolStripMenuItem10.Name = "ToolStripMenuItem10";
-            this.ToolStripMenuItem10.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem10.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem10.Text = "Refregitz With Stockfish8 Full Game";
             this.ToolStripMenuItem10.Click += new System.EventHandler(this.ToolStripMenuItem10_Click);
             // 
@@ -395,7 +395,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItem18.Enabled = false;
             this.ToolStripMenuItem18.Name = "ToolStripMenuItem18";
-            this.ToolStripMenuItem18.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem18.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem18.Text = "Refregitz With Stockfish8 Full Game witout PR";
             this.ToolStripMenuItem18.Visible = false;
             this.ToolStripMenuItem18.Click += new System.EventHandler(this.ToolStripMenuItem18_Click);
@@ -404,7 +404,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItem17.Enabled = false;
             this.ToolStripMenuItem17.Name = "ToolStripMenuItem17";
-            this.ToolStripMenuItem17.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem17.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem17.Text = "Person with stockfish 8";
             this.ToolStripMenuItem17.Visible = false;
             this.ToolStripMenuItem17.Click += new System.EventHandler(this.ToolStripMenuItem17_Click);
@@ -413,7 +413,7 @@ namespace Refrigtz
             // 
             this.ToolStripMenuItemRandomGeneticGames.Enabled = false;
             this.ToolStripMenuItemRandomGeneticGames.Name = "ToolStripMenuItemRandomGeneticGames";
-            this.ToolStripMenuItemRandomGeneticGames.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemRandomGeneticGames.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItemRandomGeneticGames.Text = "Random Genetic Games";
             this.ToolStripMenuItemRandomGeneticGames.Visible = false;
             this.ToolStripMenuItemRandomGeneticGames.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
@@ -421,7 +421,7 @@ namespace Refrigtz
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(327, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -433,14 +433,14 @@ namespace Refrigtz
             this.RepairToolStripMenuItem,
             this.opneToolStripMenuItem});
             this.ToolStripMenuItem4.Name = "ToolStripMenuItem4";
-            this.ToolStripMenuItem4.Size = new System.Drawing.Size(19, 20);
+            this.ToolStripMenuItem4.Size = new System.Drawing.Size(39, 20);
             this.ToolStripMenuItem4.Text = "Edit";
             this.ToolStripMenuItem4.Visible = false;
             // 
             // VerifyToolStripMenuItem
             // 
             this.VerifyToolStripMenuItem.Name = "VerifyToolStripMenuItem";
-            this.VerifyToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.VerifyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.VerifyToolStripMenuItem.Text = "Verify";
             this.VerifyToolStripMenuItem.Visible = false;
             this.VerifyToolStripMenuItem.Click += new System.EventHandler(this.VerifyToolStripMenuItem_Click);
@@ -448,7 +448,7 @@ namespace Refrigtz
             // ClearToolStripMenuItem
             // 
             this.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem";
-            this.ClearToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.ClearToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.ClearToolStripMenuItem.Text = "Clear";
             this.ClearToolStripMenuItem.Visible = false;
             this.ClearToolStripMenuItem.Click += new System.EventHandler(this.ClearToolStripMenuItem_Click);
@@ -456,7 +456,7 @@ namespace Refrigtz
             // RepairToolStripMenuItem
             // 
             this.RepairToolStripMenuItem.Name = "RepairToolStripMenuItem";
-            this.RepairToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.RepairToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.RepairToolStripMenuItem.Text = "Repair";
             this.RepairToolStripMenuItem.Visible = false;
             this.RepairToolStripMenuItem.Click += new System.EventHandler(this.RepairToolStripMenuItem_Click);
@@ -464,7 +464,7 @@ namespace Refrigtz
             // opneToolStripMenuItem
             // 
             this.opneToolStripMenuItem.Name = "opneToolStripMenuItem";
-            this.opneToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.opneToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             // 
             // ToolStripMenuItem5
             // 
@@ -478,7 +478,7 @@ namespace Refrigtz
             // ContinueAGameToolStripMenuItem
             // 
             this.ContinueAGameToolStripMenuItem.Name = "ContinueAGameToolStripMenuItem";
-            this.ContinueAGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ContinueAGameToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.ContinueAGameToolStripMenuItem.Text = "Continue a Game";
             this.ContinueAGameToolStripMenuItem.Click += new System.EventHandler(this.ContinueAGameToolStripMenuItem_Click);
             // 
@@ -496,21 +496,21 @@ namespace Refrigtz
             // HardestToolStripMenuItem
             // 
             this.HardestToolStripMenuItem.Name = "HardestToolStripMenuItem";
-            this.HardestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.HardestToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.HardestToolStripMenuItem.Text = "Hardest";
             this.HardestToolStripMenuItem.Click += new System.EventHandler(this.HardestToolStripMenuItem_Click);
             // 
             // MedumToolStripMenuItem
             // 
             this.MedumToolStripMenuItem.Name = "MedumToolStripMenuItem";
-            this.MedumToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.MedumToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.MedumToolStripMenuItem.Text = "Medum";
             this.MedumToolStripMenuItem.Click += new System.EventHandler(this.MedumToolStripMenuItem_Click);
             // 
             // EasestToolStripMenuItem
             // 
             this.EasestToolStripMenuItem.Name = "EasestToolStripMenuItem";
-            this.EasestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.EasestToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.EasestToolStripMenuItem.Text = "Easest";
             this.EasestToolStripMenuItem.Click += new System.EventHandler(this.EasestToolStripMenuItem_Click);
             // 
@@ -520,20 +520,20 @@ namespace Refrigtz
             this.ToolStripMenuItem3,
             this.AboutToolStripMenuItem1});
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(19, 20);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.AboutToolStripMenuItem.Text = "About";
             // 
             // ToolStripMenuItem3
             // 
             this.ToolStripMenuItem3.Name = "ToolStripMenuItem3";
-            this.ToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
             this.ToolStripMenuItem3.Text = "Help";
             this.ToolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click_1);
             // 
             // AboutToolStripMenuItem1
             // 
             this.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1";
-            this.AboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.AboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.AboutToolStripMenuItem1.Text = "About";
             this.AboutToolStripMenuItem1.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
             // 
@@ -1461,7 +1461,7 @@ namespace Refrigtz
             this.PictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
             this.PictureBoxRefrigtz.TabIndex = 0;
             this.PictureBoxRefrigtz.TabStop = false;
-            this.PictureBoxRefrigtz.Click += new System.EventHandler(this.PictureBoxRefrigtz_Click_1);
+            this.PictureBoxRefrigtz.Click += new System.EventHandler(this.PictureBoxRefrigtz_Click);
             this.PictureBoxRefrigtz.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxRefrigtz_Paint);
             this.PictureBoxRefrigtz.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PictureBoxRefrigtz_MouseClick);
             this.PictureBoxRefrigtz.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PictureBoxRefrigtz_MouseDoubleClick);

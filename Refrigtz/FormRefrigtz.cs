@@ -7158,7 +7158,8 @@ namespace Refrigtz
                                 TabStor[i, j] = Table[i, j];
                             }
                         }
-                        Draw.SetRowColumn(0, true);
+                        if (RefrigtzDLL.AllDraw.MouseClick == 0)
+                            Draw.SetRowColumn(0, true);
 
                         //For Iterative Movewmnt
                         if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
@@ -8861,7 +8862,8 @@ namespace Refrigtz
                                 TabStor[i, j] = Table[i, j];
                             }
                         }
-                        DrawQ.SetRowColumn(0, true);
+                        if (QuantumRefrigiz.AllDraw.MouseClick == 0)
+                            DrawQ.SetRowColumn(0, true);
                         //For Iterative Movewmnt
                         if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
                             continue;
@@ -18108,11 +18110,6 @@ namespace Refrigtz
                 Deeperthandeeper = true;
             else
                 Deeperthandeeper = false;
-
-        }
-
-        private void PictureBoxRefrigtz_Click_1(object sender, EventArgs e)
-        {
 
         }
 
