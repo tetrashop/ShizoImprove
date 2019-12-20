@@ -4819,11 +4819,11 @@ namespace Refrigtz
 #pragma warning restore CS0219 // The variable 'OneIncreament' is assigned but its value is never used
             int[,] Tab = Table;
             int Move = 0;
-            /*if (!Quantum)
+            if (!Quantum)
                 RefrigtzDLL.AllDraw.TableListAction.Clear();
             else
                 QuantumRefrigiz.AllDraw.TableListAction.Clear();
-*/
+
             do
             {
                 oleDbCmd = new OleDbCommand();
@@ -13886,26 +13886,34 @@ namespace Refrigtz
                             bool Convert = false;
                             if (OrderPlate == 1)
                             {
-                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1 && (R.CromosomRow != -1 && R.CromosomColumn != -1))
+                                if (R.CromosomRow != -1 && R.CromosomColumn != -1)
                                 {
-                                    if (R.CromosomColumn == 7)
-                                        Convert = true;
+                                    if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1)
+                                    {
+                                        if (R.CromosomColumn == 7)
+                                            Convert = true;
+                                    }
                                 }
                                 if ((RefrigtzDLL.ChessRules.SmallKingCastleGray || RefrigtzDLL.ChessRules.BigKingCastleGray) && (!RefrigtzDLL.ChessRules.CastleActGray))
                                     RefrigtzDLL.ChessRules.CastleActGray = true;
-                                RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
+                                if (R.CromosomRowFirst != -1 && R.CromosomColumnFirst != -1 && R.CromosomRow != -1 && R.CromosomColumn != -1)
+                                    RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActGray, Convert);
                             }
                             else
                             {
-                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1 && (R.CromosomRow != -1 && R.CromosomColumn != -1))
+                                if (R.CromosomRow != -1 && R.CromosomColumn != -1)
                                 {
-                                    if (R.CromosomColumn == 0)
-                                        Convert = true;
+                                    if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == -1)
+                                    {
+                                        if (R.CromosomColumn == 0)
+                                            Convert = true;
+                                    }
                                 }
                                 if ((RefrigtzDLL.ChessRules.SmallKingCastleBrown || RefrigtzDLL.ChessRules.BigKingCastleBrown) && (!RefrigtzDLL.ChessRules.CastleActBrown))
                                     RefrigtzDLL.ChessRules.CastleActBrown = true;
 
-                                RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
+                                if (R.CromosomRowFirst != -1 && R.CromosomColumnFirst != -1 && R.CromosomRow != -1 && R.CromosomColumn != -1)
+                                    RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
                             }
                             SetBoxStatistic(RefrigtzDLL.AllDraw.SyntaxToWrite);
                             RefreshBoxStatistic();
@@ -13924,20 +13932,21 @@ namespace Refrigtz
                             bool HitVal = false;
                             int Hit = 0;
                             if (R.Hit)
-                                Hit = RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
+                                Hit = QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRow, R.CromosomColumn];
                             if (Hit != 0)
                                 HitVal = true;
                             bool Convert = false;
                             if (OrderPlate == 1)
                             {
-                                if (RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1 && (R.CromosomRow != -1 && R.CromosomColumn != -1))
+                                if (QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn] == 1 && (R.CromosomRow != -1 && R.CromosomColumn != -1))
                                 {
                                     if (R.CromosomColumn == 7)
                                         Convert = true;
                                 }
                                 if ((QuantumRefrigiz.ChessRules.SmallKingCastleGray || QuantumRefrigiz.ChessRules.BigKingCastleGray) && (!QuantumRefrigiz.ChessRules.CastleActGray))
                                     QuantumRefrigiz.ChessRules.CastleActGray = true;
-                                QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
+                                if (R.CromosomRowFirst != -1 && R.CromosomColumnFirst != -1 && R.CromosomRow != -1 && R.CromosomColumn != -1)
+                                    QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActGray, Convert);
                             }
                             else
                             {
@@ -13949,7 +13958,8 @@ namespace Refrigtz
                                 if ((QuantumRefrigiz.ChessRules.SmallKingCastleBrown || QuantumRefrigiz.ChessRules.BigKingCastleBrown) && (!QuantumRefrigiz.ChessRules.CastleActBrown))
                                     QuantumRefrigiz.ChessRules.CastleActBrown = true;
 
-                                QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
+                                if (R.CromosomRowFirst != -1 && R.CromosomColumnFirst != -1 && R.CromosomRow != -1 && R.CromosomColumn != -1)
+                                    QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2][R.CromosomRowFirst, R.CromosomColumnFirst], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
                             }
                             SetBoxStatistic(QuantumRefrigiz.AllDraw.SyntaxToWrite);
                             RefreshBoxStatistic();
