@@ -4737,12 +4737,12 @@ namespace Refrigtz
                     if (QuantumRefrigiz.AllDraw.TableListAction.Count == 0)
                         QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(Table));
                 }
-                if (!Quantum)
+               /* if (!Quantum)
                     Draw.SetRowColumn(0, true);
                 else
                     DrawQ.SetRowColumn(0, true);
 
-
+*/
 
 
                 DrawImageOfMain();
@@ -6375,15 +6375,9 @@ namespace Refrigtz
                 {
                     if (RefrigtzDLL.AllDraw.DrawTable)
                     {
-                        System.Threading.Thread.Sleep(2);
                         if (GameStarted && MovmentsNumber == 1)
                             ButtonChangeArrangment.Visible = false;
-                        System.Threading.Thread.Sleep(8);
-
-                        //if (RefrigtzDLL.AllDraw.TableListAction.Count > 3)
-                        //ToolStripMenuItemRandomGeneticGames.Enabled = true;
-                        //else
-                        //  ToolStripMenuItemRandomGeneticGames.Enabled = false;
+                   
 
                         if (GrayTimer.EndTime)
                             BrownWiner = true;
@@ -6404,9 +6398,9 @@ namespace Refrigtz
 
                             return;
                         }
+
                         try
                         {
-                            RefrigtzDLL.AllDraw.DrawTable = false;
                             //ReconstructTable();
                             PictureBoxRefrigtz.Image = (Image)new Bitmap(PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height);
                             ChessTable = (Image)new Bitmap(PictureBoxRefrigtz.Image.Width, PictureBoxRefrigtz.Image.Height);
@@ -6453,13 +6447,8 @@ namespace Refrigtz
                                         catch (Exception t) { Log(t); }
                                     }
                             }
-                            //System.Threading.Tasks.Parallel.Invoke(() =>
-                            //{
-                            //for(int i = 0;i< Draw.SodierHigh;i++)
-                            if (!Quantum)
-                                DrawObjects();
-                            else
-                                DrawObjectsQ();
+
+                            DrawObjects();
 
                             PictureBoxRefrigtz.Image = ChessTable;
                             g.Dispose();
@@ -6472,267 +6461,104 @@ namespace Refrigtz
                             //RunInFront();
                         }
                     }
-                    //LoadedTable = true;
-                    //UpadatTimer();
 
-                    /*while (PaintedPaused && DrawNumber > 50)
-                    {
-                        System.Threading.Thread.Sleep(10);
-                    }
-
-                    DrawNumber++;
-                    if (DrawNumber >= 50)
-                        DrawNumber = 0;
-
-                     */
                     AllDrawLoad = true;
-                    //PictureBoxTimerGray.Update();
-                    //PictureBoxTimerGray.Invalidate();
 
-                    //return;
-                    System.Threading.Thread.Sleep(2);
+                    RefrigtzDLL.AllDraw.DrawTable = false;
                 }
-                //PictureBoxRefrigtz.Invalidate();
-                //PictureBoxRefrigtz.Update();
-
                 else
                 {
-                    if (!Quantum)
+                    if (QuantumRefrigiz.AllDraw.DrawTable)
                     {
-                        if (RefrigtzDLL.AllDraw.DrawTable)
+                        if (GameStarted && MovmentsNumber == 1)
+                            ButtonChangeArrangment.Visible = false;
+                   
+
+                        if (GrayTimer.EndTime)
+                            BrownWiner = true;
+                        if (BrownTimer.EndTime)
+                            GrayWinner = true;
+                        if (GrayWinner || BrownWiner)
                         {
-                            System.Threading.Thread.Sleep(100);
-                            if (GameStarted && MovmentsNumber == 1)
-                                ButtonChangeArrangment.Visible = false;
-                            System.Threading.Thread.Sleep(8);
+                            if (t1 != null)
+                                t1.Abort();
+                            if (t2 != null)
+                                t2.Abort();
+                            if (t3 != null)
+                                t3.Abort();
+                            if (GrayWinner)
+                                SetBoxText("\r\nGray Winees!");
+                            if (BrownWiner)
+                                SetBoxText("\r\nBrown Winees!");
 
-                            //if (QuantumRefrigiz.AllDraw.TableListAction.Count > 3)
-                            //ToolStripMenuItemRandomGeneticGames.Enabled = true;
-                            //else
-                            //  ToolStripMenuItemRandomGeneticGames.Enabled = false;
+                            return;
+                        }
 
-                            if (GrayTimer.EndTime)
-                                BrownWiner = true;
-                            if (BrownTimer.EndTime)
-                                GrayWinner = true;
-                            if (GrayWinner || BrownWiner)
+                        try
+                        {
+                            PictureBoxRefrigtz.Image = (Image)new Bitmap(PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height);
+                            ChessTable = (Image)new Bitmap(PictureBoxRefrigtz.Image.Width, PictureBoxRefrigtz.Image.Height);
+                            g = Graphics.FromImage(ChessTable);
+                            g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height));
+
+                            if (Draw != null && Draw.TableList != null && Draw.TableList.Count > 0)
+                                Draw.SetObjectNumbers(Draw.TableList[0]);
+
+                            for (int i = 0; i < PictureBoxRefrigtz.Image.Width; i += PictureBoxRefrigtz.Image.Width / 8)
+                                for (int j = 0; j < PictureBoxRefrigtz.Image.Height; j += PictureBoxRefrigtz.Image.Height / 8)
+                                {
+                                    try
+                                    {
+                                        if ((i + j) % 2 == 0)
+                                            g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
+                                        else
+                                            g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
+
+                                    }
+                                    catch (Exception t) { Log(t); }
+                                }
+                            if (RowClickP != -1 && ColumnClickP != -1)
                             {
-                                if (t1 != null)
-                                    t1.Abort();
-                                if (t2 != null)
-                                    t2.Abort();
-                                if (t3 != null)
-                                    t3.Abort();
-                                if (GrayWinner)
-                                    SetBoxText("\r\nGray Winees!");
-                                if (BrownWiner)
-                                    SetBoxText("\r\nBrown Winees!");
-
-                                return;
-                            }
-                            try
-                            {
-                                RefrigtzDLL.AllDraw.DrawTable = false;
-                                //ReconstructTable();
-                                PictureBoxRefrigtz.Image = (Image)new Bitmap(PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height);
-                                ChessTable = (Image)new Bitmap(PictureBoxRefrigtz.Image.Width, PictureBoxRefrigtz.Image.Height);
-                                g = Graphics.FromImage(ChessTable);
-                                g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height));
-                                if (Draw.TableList != null && Draw.TableList.Count > 0)
-                                    Draw.SetObjectNumbers(Draw.TableList[0]);
-
+                                Color a = Color.Gray;
+                                if (OrderPlate == -1)
+                                    a = Color.Brown;
+                                bool[,] Tab = null;
+                                Tab = VeryFye(CloneATable(Table), OrderPlate, a);
                                 for (int i = 0; i < PictureBoxRefrigtz.Image.Width; i += PictureBoxRefrigtz.Image.Width / 8)
                                     for (int j = 0; j < PictureBoxRefrigtz.Image.Height; j += PictureBoxRefrigtz.Image.Height / 8)
                                     {
                                         try
                                         {
-                                            if ((i + j) % 2 == 0)
-                                                g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
-                                            else
-                                                g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
+                                            if (Tab != null)
+                                            {
+                                                if (Tab[i / (PictureBoxRefrigtz.Image.Width / 8), j / (PictureBoxRefrigtz.Image.Height / 8)])
+                                                {
+                                                    g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
+                                                }
+                                            }
 
                                         }
                                         catch (Exception t) { Log(t); }
                                     }
-                                if (RowClickP != -1 && ColumnClickP != -1)
-                                {
-                                    Color a = Color.Gray;
-                                    if (OrderPlate == -1)
-                                        a = Color.Brown;
-                                    bool[,] Tab = null;
-                                    Tab = VeryFye(CloneATable(Table), OrderPlate, a);
-                                    for (int i = 0; i < PictureBoxRefrigtz.Image.Width; i += PictureBoxRefrigtz.Image.Width / 8)
-                                        for (int j = 0; j < PictureBoxRefrigtz.Image.Height; j += PictureBoxRefrigtz.Image.Height / 8)
-                                        {
-                                            try
-                                            {
-                                                if (Tab != null)
-                                                {
-                                                    if (Tab[i / (PictureBoxRefrigtz.Image.Width / 8), j / (PictureBoxRefrigtz.Image.Height / 8)])
-                                                    {
-                                                        g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
-                                                    }
-                                                }
-
-                                            }
-                                            catch (Exception t) { Log(t); }
-                                        }
-                                }
-                                //System.Threading.Tasks.Parallel.Invoke(() =>
-                                //{
-                                //for(int i = 0;i< Draw.SodierHigh;i++)
-                                DrawObjects();
-
-                                PictureBoxRefrigtz.Image = ChessTable;
-                                g.Dispose();
                             }
-                            catch (Exception t)
-                            {
-                                Log(t);
+                             DrawObjectsQ();
 
-
-                                //RunInFront();
-                            }
+                            PictureBoxRefrigtz.Image = ChessTable;
+                            g.Dispose();
                         }
-                        //LoadedTable = true;
-                        //UpadatTimer();
-
-                        /*while (PaintedPaused && DrawNumber > 50)
+                        catch (Exception t)
                         {
-                            System.Threading.Thread.Sleep(10);
+                            Log(t);
+
+
+                            //RunInFront();
                         }
-
-                        DrawNumber++;
-                        if (DrawNumber >= 50)
-                            DrawNumber = 0;
-
-                         */
-                        AllDrawLoad = true;
-                        //PictureBoxTimerGray.Update();
-                        //PictureBoxTimerGray.Invalidate();
-
-                        //return;
-                        System.Threading.Thread.Sleep(20);
-                    }
-                    else
-                    {
-                        if (QuantumRefrigiz.AllDraw.DrawTable)
-                        {
-                            System.Threading.Thread.Sleep(100);
-                            if (GameStarted && MovmentsNumber == 1)
-                                ButtonChangeArrangment.Visible = false;
-                            System.Threading.Thread.Sleep(8);
-
-                            //if (QuantumRefrigiz.AllDraw.TableListAction.Count > 3)
-                            //ToolStripMenuItemRandomGeneticGames.Enabled = true;
-                            //else
-                            //  ToolStripMenuItemRandomGeneticGames.Enabled = false;
-
-                            if (GrayTimer.EndTime)
-                                BrownWiner = true;
-                            if (BrownTimer.EndTime)
-                                GrayWinner = true;
-                            if (GrayWinner || BrownWiner)
-                            {
-                                if (t1 != null)
-                                    t1.Abort();
-                                if (t2 != null)
-                                    t2.Abort();
-                                if (t3 != null)
-                                    t3.Abort();
-                                if (GrayWinner)
-                                    SetBoxText("\r\nGray Winees!");
-                                if (BrownWiner)
-                                    SetBoxText("\r\nBrown Winees!");
-
-                                return;
-                            }
-                            try
-                            {
-                                QuantumRefrigiz.AllDraw.DrawTable = false;
-                                //ReconstructTable();
-                                PictureBoxRefrigtz.Image = (Image)new Bitmap(PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height);
-                                ChessTable = (Image)new Bitmap(PictureBoxRefrigtz.Image.Width, PictureBoxRefrigtz.Image.Height);
-                                g = Graphics.FromImage(ChessTable);
-                                g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height));
-                                if (DrawQ.TableList != null && DrawQ.TableList.Count > 0)
-                                    DrawQ.SetObjectNumbers(DrawQ.TableList[0]);
-
-                                for (int i = 0; i < PictureBoxRefrigtz.Image.Width; i += PictureBoxRefrigtz.Image.Width / 8)
-                                    for (int j = 0; j < PictureBoxRefrigtz.Image.Height; j += PictureBoxRefrigtz.Image.Height / 8)
-                                    {
-                                        try
-                                        {
-                                            if ((i + j) % 2 == 0)
-                                                g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\Black.jpg"), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
-                                            else
-                                                g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
-
-                                        }
-                                        catch (Exception t) { Log(t); }
-                                    }
-                                if (RowClickP != -1 && ColumnClickP != -1)
-                                {
-                                    Color a = Color.Gray;
-                                    if (OrderPlate == -1)
-                                        a = Color.Brown;
-                                    bool[,] Tab = null;
-                                    Tab = VeryFye(CloneATable(Table), OrderPlate, a);
-                                    for (int i = 0; i < PictureBoxRefrigtz.Image.Width; i += PictureBoxRefrigtz.Image.Width / 8)
-                                        for (int j = 0; j < PictureBoxRefrigtz.Image.Height; j += PictureBoxRefrigtz.Image.Height / 8)
-                                        {
-                                            try
-                                            {
-                                                if (Tab != null)
-                                                {
-                                                    if (Tab[i / (PictureBoxRefrigtz.Image.Width / 8), j / (PictureBoxRefrigtz.Image.Height / 8)])
-                                                    {
-                                                        g.DrawString("*", new Font("Times New Roman", 50), new SolidBrush(Color.Red), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
-                                                    }
-                                                }
-
-                                            }
-                                            catch (Exception t) { Log(t); }
-                                        }
-                                }
-                                //System.Threading.Tasks.Parallel.Invoke(() =>
-                                //{
-                                //for(int i = 0;i< Draw.SodierHigh;i++)
-                                DrawObjectsQ();
-
-                                PictureBoxRefrigtz.Image = ChessTable;
-                                g.Dispose();
-                            }
-                            catch (Exception t)
-                            {
-                                Log(t);
-
-
-                                //RunInFront();
-                            }
-                        }
-                        //LoadedTable = true;
-                        //UpadatTimer();
-
-                        /*while (PaintedPaused && DrawNumber > 50)
-                        {
-                            System.Threading.Thread.Sleep(10);
-                        }
-
-                        DrawNumber++;
-                        if (DrawNumber >= 50)
-                            DrawNumber = 0;
-
-                         */
-                        AllDrawLoad = true;
-                        //PictureBoxTimerGray.Update();
-                        //PictureBoxTimerGray.Invalidate();
-
-                        //return;
-
                     }
 
-                }
+                    AllDrawLoad = true;
+
+                    QuantumRefrigiz.AllDraw.DrawTable = false;
+                }                
             }
             PictureBoxTimerGray.Invalidate();
             PictureBoxTimerGray.Update();
@@ -7182,11 +7008,16 @@ namespace Refrigtz
                                 TabStor[i, j] = Table[i, j];
                             }
                         }
-                        if (RefrigtzDLL.AllDraw.MouseClick == 0)
-                            Draw.SetRowColumn(0, true);
-                        if (RefrigtzDLL.AllDraw.MouseClick == 2)
-                            DrawImageOfMain();
-                        //For Iterative Movewmnt
+                        if (StateCP && Person)
+                        {
+                            if (RefrigtzDLL.AllDraw.DrawTable)
+                            {
+                                if (RefrigtzDLL.AllDraw.MouseClick == 0)
+                                    Draw.SetRowColumn(0, true);
+                            }
+                        }
+
+                         //For Iterative Movewmnt
                         if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
                             continue;
                         
@@ -8890,8 +8721,14 @@ namespace Refrigtz
                                 TabStor[i, j] = Table[i, j];
                             }
                         }
-                        if (QuantumRefrigiz.AllDraw.MouseClick == 0)
-                            DrawQ.SetRowColumn(0, true);
+                        if (StateCP && Person)
+                        {
+                            if (QuantumRefrigiz.AllDraw.DrawTable)
+                            {
+                                if (QuantumRefrigiz.AllDraw.MouseClick == 0)
+                                    DrawQ.SetRowColumn(0, true);
+                            }
+                        }
                         //For Iterative Movewmnt
                         if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
                             continue;
@@ -14104,7 +13941,7 @@ namespace Refrigtz
                 else
                 {
                     QuantumRefrigiz.AllDraw.DrawTable = true;
-                    //DrawObjectsQ();
+                   // DrawObjectsQ();
                 }
                 SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
                 SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
