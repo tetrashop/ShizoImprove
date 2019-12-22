@@ -6473,8 +6473,8 @@ namespace Refrigtz
                     QuantumRefrigiz.AllDraw.DrawTable = false;
                 }
             }
-            SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
-            SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
+            SetPrictureBoxRefregitzInvalidate(PictureBoxTimerGray);
+            SetPrictureBoxRefregitzUpdate(PictureBoxTimerGray);
 
         }
 
@@ -6920,7 +6920,7 @@ namespace Refrigtz
                                 TabStor[i, j] = Table[i, j];
                             }
                         }
-                        if (StateCP && Person)
+                        /*if (StateCP && Person)
                         {
                             if (RefrigtzDLL.AllDraw.DrawTable)
                             {
@@ -6928,7 +6928,7 @@ namespace Refrigtz
                                     Draw.SetRowColumn(0, true);
                             }
                         }
-
+                        */
                         //For Iterative Movewmnt
                         if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
                             continue;
@@ -8633,14 +8633,14 @@ namespace Refrigtz
                                 TabStor[i, j] = Table[i, j];
                             }
                         }
-                        if (StateCP && Person)
+                        /*if (StateCP && Person)
                         {
                             if (QuantumRefrigiz.AllDraw.DrawTable)
                             {
                                 if (QuantumRefrigiz.AllDraw.MouseClick == 0)
                                     DrawQ.SetRowColumn(0, true);
                             }
-                        }
+                        }*/
                         //For Iterative Movewmnt
                         if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
                             continue;
