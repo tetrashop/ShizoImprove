@@ -675,7 +675,7 @@ namespace RefrigtzW
                     {
                         if (Order == 1)
                         {
-                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] > 0)
+                            if (Cromosom2[j, i] <= 0 && Cromosom1[j, i] > 0)
                             {
                                 CromosomRowFirst = j;
                                 CromosomColumnFirst = i;
@@ -696,7 +696,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] < 0)
+                            if (Cromosom2[j, i] >= 0 && Cromosom1[j, i] < 0)
                             {
                                 CromosomRowFirst = j;
                                 CromosomColumnFirst = i;
@@ -719,7 +719,7 @@ namespace RefrigtzW
 
                 }
             }
-            Hit = HitSet(Cromosom1, Cromosom2);
+            Hit = HitSet(Order, Cromosom1, Cromosom2);
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FindGenToModified:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //If Gen Foundatjon js Valjd. 
             if (((FindNumber >= 1) && Find) || Brj || AllDraw.SodierConversionOcuured)
@@ -727,17 +727,23 @@ namespace RefrigtzW
             //Gen Not Found.
             return false;
         }
-        bool HitSet(int[,] Cromosom1, int[,] Cromosom2)
+        bool HitSet(int Order, int[,] Cromosom1, int[,] Cromosom2)
         {
             bool Hit = false;
             try
             {
                 if (CromosomRowFirst != -1 && CromosomColumnFirst != -1 && CromosomRow != -1 && CromosomColumn != -1)
                 {
-                    if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] > 0 && Cromosom2[CromosomRow, CromosomColumn] < 0)
-                        Hit = true;
-                    if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] < 0 && Cromosom2[CromosomRow, CromosomColumn] > 0)
-                        Hit = true;
+                    if (Order == 1)
+                    {
+                        if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] > 0 && Cromosom1[CromosomRow, CromosomColumn] < 0)
+                            Hit = true;
+                    }
+                    else
+                    {
+                        if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] < 0 && Cromosom1[CromosomRow, CromosomColumn] > 0)
+                            Hit = true;
+                    }
                 }
             }
             catch (Exception t) { Log(t); }

@@ -6279,6 +6279,7 @@ namespace Refrigtz
         //Painting of Form Refregitz PictureBox and Tow Refrigtz.Timer Pictue Box on Time.
         private void PictureBoxRefrigtz_Paint(object sender, PaintEventArgs e)
         {
+            Thread.Sleep(20);
             Object o = new Object();
             lock (o)
             {
@@ -6332,7 +6333,8 @@ namespace Refrigtz
                                             g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
 
                                     }
-                                    catch (Exception t) {
+                                    catch (Exception t)
+                                    {
                                         Log(t);
                                     }
                                 }
@@ -6373,11 +6375,11 @@ namespace Refrigtz
 
                             //RunInFront();
                         }
+                        RefrigtzDLL.AllDraw.DrawTable = false;
                     }
 
                     AllDrawLoad = true;
 
-                    RefrigtzDLL.AllDraw.DrawTable = false;
                 }
                 else
                 {
@@ -6466,11 +6468,11 @@ namespace Refrigtz
 
                             //RunInFront();
                         }
+                        QuantumRefrigiz.AllDraw.DrawTable = false;
                     }
 
                     AllDrawLoad = true;
 
-                    QuantumRefrigiz.AllDraw.DrawTable = false;
                 }
             }
             SetPrictureBoxRefregitzInvalidate(PictureBoxTimerGray);
@@ -12301,7 +12303,7 @@ namespace Refrigtz
             ColumnClickP = -1;
             RowRealesed = -1;
             ColumnRealeased = -1;
-            /*  if (tM != null)
+             if (tM != null)
               {
                   try
                   {
@@ -12314,7 +12316,7 @@ namespace Refrigtz
                       Log(t);
                   }
               }
-              */
+              
 
             if (OrderPlate == 1)
             {
@@ -12668,7 +12670,7 @@ namespace Refrigtz
                         Color aa = Color.Gray;
                         if (Ord == -1)
                             aa = Color.Brown;
-                        Draw.InitiateAStarGreedyt(0, 0, 0, aa, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa,CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, false, 0);
                         Deeperthandeeper = Store;
                         Ord = OrderPlate;
 
@@ -12816,7 +12818,7 @@ namespace Refrigtz
                         Color aa = Color.Gray;
                         if (Ord == -1)
                             aa = Color.Brown;
-                        DrawQ.InitiateAStarGreedyt(0, 0, 0, aa, QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], Ord, false, false, 0);
+                        DrawQ.InitiateAStarGreedyt(QuantumRefrigiz.AllDraw.MaxAStarGreedy, 0, 0, aa,CloneATable(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, false, 0);
                         Deeperthandeeper = Store;
                         Ord = OrderPlate;
 
@@ -12878,7 +12880,7 @@ namespace Refrigtz
 
                         //DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
                         DrawQ.TableList.Clear();
-                        DrawQ.TableList.Add(Table);
+                        DrawQ.TableList.Add(CloneATable(Table));
                         DrawQ.SetRowColumn(0);
                         DrawQ.IsCurrentDraw = true;
                         DrawQ.AStarGreedyString = THISB;
@@ -13992,15 +13994,13 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw THIS = null;
                 QuantumRefrigiz.AllDraw THISQ = null;
 
-                //SetDrawFounding(ref FOUND, ref THIS, true);
-
+              
                 int LeafAStarGrteedy = 0;
                 if (!Quantum)
                     Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
                 else
                     Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
 
-                //LoadConvertedTable = true;
                 StateCC = StoreStateCC;
                 StateCP = StoreStateCP;
                 StateGe = StoreStateGe;
@@ -14009,15 +14009,7 @@ namespace Refrigtz
 
                 try
                 {
-                    ////Table = Draw.TableList[0];
-                    for (int i = 0; i < 8; i++)
-                    {
-                        for (int j = 0; j < 8; j++)
-                        {
-                            TableC[i, j] = Table[i, j];
-                        }
-                    }
-                    if (TableZero(Table))
+                    if (TableZero(CloneATable(Table)))
                         OpTableZero(true);
 
 

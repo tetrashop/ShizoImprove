@@ -632,13 +632,9 @@ namespace RefrigtzW
                 IndexCastle = 0;
                 IndexMinister = 0;
                 IndexKing = 0;
-                TableConst = new int[8, 8];
-                for (var ii = 0; ii < 8; ii++)
-                    for (var jj = 0; jj < 8; jj++)
-                    {
-                        TableConst[ii, jj] = Tab[ii, jj];
-                    }
+                TableConst = CloneATable(Tab);
                 Order = Ord;
+
                 ThinkingBegin = ThinkingBeg;
                 //AStarGreedy = new List<AllDraw>();
                 /*Object o = new Object();
@@ -6961,7 +6957,7 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-
+                TableS = CloneATable(TableConst);
                 int HuristicAttackValue = new int();
                 int HuristicMovementValue = new int();
                 int HuristicSelfSupportedValue = new int();
@@ -7181,7 +7177,7 @@ namespace RefrigtzW
             Object O11 = new Object();
             lock (O11)
             {
-
+                TableS = CloneATable(TableConst);
                 int HuristicAttackValue = new int();
                 int HuristicMovementValue = new int();
                 int HuristicSelfSupportedValue = new int();
@@ -7742,6 +7738,7 @@ namespace RefrigtzW
             Object O22 = new Object();
             lock (O22)
             {
+                TableS = CloneATable(TableConst);
 
                 int HuristicAttackValue = new int();
                 int HuristicMovementValue = new int();
@@ -7933,6 +7930,7 @@ namespace RefrigtzW
             Object OO = new Object();
             lock (OO)
             {
+                TableS = CloneATable(TableConst);
 
                 int HuristicAttackValue = new int();
                 int HuristicMovementValue = new int();
@@ -8122,6 +8120,7 @@ namespace RefrigtzW
             Object OO = new Object();
             lock (OO)
             {
+                TableS = CloneATable(TableConst);
                 int HuristicAttackValue = new int();
                 int HuristicMovementValue = new int();
                 int HuristicSelfSupportedValue = new int();
@@ -9095,80 +9094,109 @@ namespace RefrigtzW
         }
         void SoldierConversion(ref ThingsConverter t, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination, int[,] TableS)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object O = new Object();
+            lock (O)
+            {  //long Time = TimeElapced.TimeNow();Spaces++;
 
-            t.ConvertOperation((int)RowSource, (int)ColumnSource, color, CloneATable(TableS), Order, false, 0);
+                t.ConvertOperation((int)RowSource, (int)ColumnSource, color, CloneATable(TableS), Order, false, 0);
 
-            int[,] TableCon = new int[8, 8];
+                int[,] TableCon = new int[8, 8];
 
-            if (t.Convert)
-            {
-
-                TableS[RowSource, ColumnSource] = 0;
-                if (t.ConvertedToMinister)
-                    TableS[RowDestination, ColumnDestination] = 5;
-                else if (t.ConvertedToCastle)
-                    TableS[RowDestination, ColumnDestination] = 4;
-                else if (t.ConvertedToHourse)
-                    TableS[RowDestination, ColumnDestination] = 3;
-                else if (t.ConvertedToElefant)
-                    TableS[RowDestination, ColumnDestination] = 2;
-
-                if (Order == -1)
-                    TableS[RowDestination, ColumnDestination] *= -1;
-
-                /*for (int ik = 0; ik < 8; ik++)
+                if (t.Convert)
                 {
-                    for (int jk = 0; jk < 8; jk++)
+
+                    TableS[RowSource, ColumnSource] = 0;
+                    if (t.ConvertedToMinister)
+                        TableS[RowDestination, ColumnDestination] = 5;
+                    else if (t.ConvertedToCastle)
+                        TableS[RowDestination, ColumnDestination] = 4;
+                    else if (t.ConvertedToHourse)
+                        TableS[RowDestination, ColumnDestination] = 3;
+                    else if (t.ConvertedToElefant)
+                        TableS[RowDestination, ColumnDestination] = 2;
+
+                    if (Order == -1)
+                        TableS[RowDestination, ColumnDestination] *= -1;
+
+                    /*for (int ik = 0; ik < 8; ik++)
                     {
-                        TableCon[ik, jk] = TableS[ik, jk];
-                    }
-                }*/
+                        for (int jk = 0; jk < 8; jk++)
+                        {
+                            TableCon[ik, jk] = TableS[ik, jk];
+                        }
+                    }*/
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SoldierConversion:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SoldierConversion:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         int KilledBool(int row1, int col1, int row2, int col2, int[,] tab)
         {
-            if (tab[row1, col1] != 0 && tab[row2, col2] != 0)
+            Object O = new Object();
+            lock (O)
             {
-                if (tab[row2, col2] > 0)
-                    return 1;
-                if (tab[row2, col2] < 0)
-                    return -1;
+                if (tab[row1, col1] != 0 && tab[row2, col2] != 0)
+                {
+                    if (tab[row2, col2] > 0)
+                        return 1;
+                    if (tab[row2, col2] < 0)
+                        return -1;
+                }
+                return 0;
             }
-            return 0;
         }
         //specific determination for thinking main method
         void SupMethod(int[,] TableS, int RowDestination, int ColumnDestination, int RowSource, int ColumnSource, ref bool Sup)
         {
-            if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+            Object O = new Object();
+            lock (O)
             {
-                IsSup.Add(true);
-                IsSupHu.Add(true);
-                Sup = true;
-            }
-            else
+                if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
+                {
+                    IsSup.Add(true);
+                    IsSupHu.Add(true);
+                    Sup = true;
+                }
+                else
                   if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
-            {
-                IsSup.Add(true);
-                IsSupHu.Add(true);
-                Sup = true;
-            }
-            else
-            {
-                IsSup.Add(false);
-                IsSupHu.Add(false);
-                Sup = false;
+                {
+                    IsSup.Add(true);
+                    IsSupHu.Add(true);
+                    Sup = true;
+                }
+                else
+                {
+                    IsSup.Add(false);
+                    IsSupHu.Add(false);
+                    Sup = false;
+                }
             }
         }
         void KilledMethod(ref int Killed, bool Sup, int RowDestination, int ColumnDestination, int RowSource, int ColumnSource, int[,] TableS, ThingsConverter t = null)
         {
-            Killed = 0;
-            if (!Sup)
+            Object O = new Object();
+            lock (O)
             {
-                if (t != null)
+                Killed = 0;
+                if (!Sup)
                 {
-                    if ((!t.Convert))
+                    if (t != null)
+                    {
+                        if ((!t.Convert))
+                        {
+                            Object A2 = new object();
+                            lock (A2)
+                            {
+                                Killed = TableConst[RowDestination, ColumnDestination];
+                                TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
+                                TableS[RowSource, ColumnSource] = 0;
+                            }
+                        }
+                        else
+                        {
+                            Killed = TableConst[RowDestination, ColumnDestination];
+                        }
+                    }
+                    else
                     {
                         Object A2 = new object();
                         lock (A2)
@@ -9178,127 +9206,117 @@ namespace RefrigtzW
                             TableS[RowSource, ColumnSource] = 0;
                         }
                     }
-                    else
-                    {
-                        Killed = TableConst[RowDestination, ColumnDestination];
-                    }
+                    KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                 }
-                else
-                {
-                    Object A2 = new object();
-                    lock (A2)
-                    {
-                        Killed = TableConst[RowDestination, ColumnDestination];
-                        TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
-                        TableS[RowSource, ColumnSource] = 0;
-                    }
-                }
-                KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                return;
             }
-            return;
         }
         void ObjectIndexes(int Kind, bool Sup, int RowDestination, int ColumnDestination, int[,] TableS)
         {
-            if (!Sup)
+            Object O = new Object();
+            lock (O)
             {
-                if (Kind == 1)
+                if (!Sup)
                 {
-                    Object A4 = new object();
-                    lock (A4)
+                    if (Kind == 1)
                     {
-                        int[] AS = new int[2];
-                        AS[0] = RowDestination;
-                        AS[1] = ColumnDestination;
-                        RowColumnSoldier.Add(AS);
-                        //RowColumn[Index, 0] = RowDestination;
-                        //RowColumn[Index, 1] = ColumnDestination;
-                        //Index+=1;
-                        TableListSolder.Add(CloneATable(TableS));
-                        IndexSoldier++;
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnSoldier.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListSolder.Add(CloneATable(TableS));
+                            IndexSoldier++;
+                        }
                     }
-                }
-                else
-                if (Kind == 2)
-                {
-                    Object A4 = new object();
-                    lock (A4)
+                    else
+                    if (Kind == 2)
                     {
-                        int[] AS = new int[2];
-                        AS[0] = RowDestination;
-                        AS[1] = ColumnDestination;
-                        RowColumnElefant.Add(AS);
-                        //RowColumn[Index, 0] = RowDestination;
-                        //RowColumn[Index, 1] = ColumnDestination;
-                        //Index+=1;
-                        TableListElefant.Add(CloneATable(TableS));
-                        IndexElefant++;
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnElefant.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListElefant.Add(CloneATable(TableS));
+                            IndexElefant++;
+                        }
                     }
-                }
-                else
-                if (Kind == 3)
-                {
-                    Object A4 = new object();
-                    lock (A4)
+                    else
+                    if (Kind == 3)
                     {
-                        int[] AS = new int[2];
-                        AS[0] = RowDestination;
-                        AS[1] = ColumnDestination;
-                        RowColumnHourse.Add(AS);
-                        //RowColumn[Index, 0] = RowDestination;
-                        //RowColumn[Index, 1] = ColumnDestination;
-                        //Index+=1;
-                        TableListHourse.Add(CloneATable(TableS));
-                        IndexHourse++;
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnHourse.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListHourse.Add(CloneATable(TableS));
+                            IndexHourse++;
+                        }
                     }
-                }
-                else
-                if (Kind == 4)
-                {
-                    Object A4 = new object();
-                    lock (A4)
+                    else
+                    if (Kind == 4)
                     {
-                        int[] AS = new int[2];
-                        AS[0] = RowDestination;
-                        AS[1] = ColumnDestination;
-                        RowColumnCastle.Add(AS);
-                        //RowColumn[Index, 0] = RowDestination;
-                        //RowColumn[Index, 1] = ColumnDestination;
-                        //Index+=1;
-                        TableListCastle.Add(CloneATable(TableS));
-                        IndexCastle++;
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnCastle.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListCastle.Add(CloneATable(TableS));
+                            IndexCastle++;
+                        }
                     }
-                }
-                if (Kind == 5)
-                {
-                    Object A4 = new object();
-                    lock (A4)
+                    if (Kind == 5)
                     {
-                        int[] AS = new int[2];
-                        AS[0] = RowDestination;
-                        AS[1] = ColumnDestination;
-                        RowColumnMinister.Add(AS);
-                        //RowColumn[Index, 0] = RowDestination;
-                        //RowColumn[Index, 1] = ColumnDestination;
-                        //Index+=1;
-                        TableListMinister.Add(CloneATable(TableS));
-                        IndexMinister++;
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnMinister.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListMinister.Add(CloneATable(TableS));
+                            IndexMinister++;
+                        }
                     }
-                }
-                else
-                if (Kind == 6)
-                {
-                    Object A4 = new object();
-                    lock (A4)
+                    else
+                    if (Kind == 6)
                     {
-                        int[] AS = new int[2];
-                        AS[0] = RowDestination;
-                        AS[1] = ColumnDestination;
-                        RowColumnKing.Add(AS);
-                        //RowColumn[Index, 0] = RowDestination;
-                        //RowColumn[Index, 1] = ColumnDestination;
-                        //Index+=1;
-                        TableListKing.Add(CloneATable(TableS));
-                        IndexKing++;
+                        Object A4 = new object();
+                        lock (A4)
+                        {
+                            int[] AS = new int[2];
+                            AS[0] = RowDestination;
+                            AS[1] = ColumnDestination;
+                            RowColumnKing.Add(AS);
+                            //RowColumn[Index, 0] = RowDestination;
+                            //RowColumn[Index, 1] = ColumnDestination;
+                            //Index+=1;
+                            TableListKing.Add(CloneATable(TableS));
+                            IndexKing++;
+                        }
                     }
                 }
             }
@@ -9425,6 +9443,7 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
+                TableS = CloneATable(TableConst);
                 int HuristicAttackValue = new int();
                 int HuristicMovementValue = new int();
                 int HuristicSelfSupportedValue = new int();
@@ -9614,6 +9633,7 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
+                TableS = CloneATable(TableConst);
 
                 int HuristicAttackValue = new int();
                 int HuristicMovementValue = new int();
@@ -9981,6 +10001,7 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
+                TableS = CloneATable(TableConst);
 
                 int HuristicAttackValue = new int();
                 int HuristicMovementValue = new int();
