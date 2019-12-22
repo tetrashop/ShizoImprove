@@ -11267,7 +11267,7 @@ namespace QuantumRefrigiz
         public void ThinkingQuantum(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
 
-          /*  if (AStarGreedy == null)
+          /* if (AStarGreedy == null)
                 AStarGreedy = new List<AllDraw>();
             if (Kind == 1)
                 {

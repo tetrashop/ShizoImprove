@@ -64,9 +64,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AboutBoxShizoImprove.resx">
-      <DependentUpon>AboutBoxShizoImprove.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormShizoImprove.resx">
       <DependentUpon>FormShizoImprove.cs</DependentUpon>
     </EmbeddedResource>

@@ -11268,11 +11268,11 @@ namespace RefrigtzW
         public void Thinking(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            if (AStarGreedy == null)
+         /*   if (AStarGreedy == null)
                 AStarGreedy = new List<AllDraw>();
 
 
-    /*        if (AStarGreedy == null)
+            if (AStarGreedy == null)
                 AStarGreedy = new List<AllDraw>();
             if (Kind == 1)
             {

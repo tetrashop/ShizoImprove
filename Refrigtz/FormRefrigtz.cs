@@ -12658,6 +12658,8 @@ namespace Refrigtz
                     {
 
                         Draw = THIS;
+                        THISB = Draw;
+
                         Draw.IsCurrentDraw = true;
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
@@ -12683,7 +12685,7 @@ namespace Refrigtz
                             //Draw.TableList.Clear();
                             // Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
                             // Draw.SetRowColumn(0);
-                            // Draw.AStarGreedyString = THISB;
+                            Draw.AStarGreedyString = THISB;
 
                             DrawManagement();
                             (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -12802,6 +12804,8 @@ namespace Refrigtz
                         Ord = OrderPlate;
 
                         DrawQ = THIS;
+                        THISB = DrawQ;
+
                         Ord = OrderPlate;
 
                         SetBoxText("\r\nDraw Found By Recurve");
@@ -12832,7 +12836,7 @@ namespace Refrigtz
                             // DrawQ.TableList.Clear();
                             //DrawQ.TableList.Add(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]));
                             //DrawQ.SetRowColumn(0);
-                            //DrawQ.AStarGreedyString = THISB;
+                            DrawQ.AStarGreedyString = THISB;
 
                             DrawManagement();
 

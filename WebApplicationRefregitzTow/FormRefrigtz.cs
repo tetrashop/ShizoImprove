@@ -181,7 +181,7 @@ namespace RefrigtzW
 #pragma warning disable CS0414 // The field 'FormRefrigtz.ChessTable' is assigned but its value is never used
         Image ChessTable = null;
 #pragma warning restore CS0414 // The field 'FormRefrigtz.ChessTable' is assigned but its value is never used
-        public static int LastRow = -1;
+        public static int LastRowQ = -1;
         public static int LastColumn = -1;
         Thread t1 = null;
 #pragma warning disable CS0414 // The field 'FormRefrigtz.t2' is assigned but its value is never used
