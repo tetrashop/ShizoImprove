@@ -675,26 +675,48 @@ namespace QuantumRefrigiz
                     //When To Same Locatjon Tbles are Different jn Gen.
                     if (Cromosom1[j, i] != Cromosom2[j, i])
                     {
-
-                        if (Cromosom2[j, i] == 0 && Cromosom1[j, i] != 0)
+                        if (Order == 1)
                         {
-                            CromosomRowFirst = j;
-                            CromosomColumnFirst = i;
-                            Find = true;
-                            FindNumber++;
-                            //Hit = true;
-                        }
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] > 0)
+                            {
+                                CromosomRowFirst = j;
+                                CromosomColumnFirst = i;
+                                Find = true;
+                                FindNumber++;
+                                //Hit = true;
+                            }
 
+                            else
+                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] == 0)
+                            {
+                                CromosomRow = j;
+                                CromosomColumn = i;
+                                Find = true;
+                                FindNumber++;
+                                //Hit = true;
+                            }
+                        }
                         else
-                        if (Cromosom2[j, i] != 0 && Cromosom1[j, i] == 0)
                         {
-                            CromosomRow = j;
-                            CromosomColumn = i;
-                            Find = true;
-                            FindNumber++;
-                            //Hit = true;
-                        }
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] < 0)
+                            {
+                                CromosomRowFirst = j;
+                                CromosomColumnFirst = i;
+                                Find = true;
+                                FindNumber++;
+                                //Hit = true;
+                            }
 
+                            else
+                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] == 0)
+                            {
+                                CromosomRow = j;
+                                CromosomColumn = i;
+                                Find = true;
+                                FindNumber++;
+                                //Hit = true;
+                            }
+                        }
                     }
 
                     //Store Locatjon of Gen and Calculate Gen Numbers.

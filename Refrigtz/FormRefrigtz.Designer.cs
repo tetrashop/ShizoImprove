@@ -754,7 +754,7 @@ namespace Refrigtz
             // 
             // ProgressBarVerify
             // 
-            this.ProgressBarVerify.Location = new System.Drawing.Point(26, 579);
+            this.ProgressBarVerify.Location = new System.Drawing.Point(32, 624);
             this.ProgressBarVerify.Name = "ProgressBarVerify";
             this.ProgressBarVerify.Size = new System.Drawing.Size(551, 23);
             this.ProgressBarVerify.TabIndex = 24;
@@ -765,7 +765,7 @@ namespace Refrigtz
             // labelTimesRemaining
             // 
             this.labelTimesRemaining.AutoSize = true;
-            this.labelTimesRemaining.Location = new System.Drawing.Point(577, 538);
+            this.labelTimesRemaining.Location = new System.Drawing.Point(577, 650);
             this.labelTimesRemaining.Name = "labelTimesRemaining";
             this.labelTimesRemaining.Size = new System.Drawing.Size(0, 13);
             this.labelTimesRemaining.TabIndex = 25;
@@ -1097,7 +1097,7 @@ namespace Refrigtz
             // labelNodesCount
             // 
             this.labelNodesCount.AutoSize = true;
-            this.labelNodesCount.Location = new System.Drawing.Point(99, 560);
+            this.labelNodesCount.Location = new System.Drawing.Point(99, 650);
             this.labelNodesCount.Name = "labelNodesCount";
             this.labelNodesCount.Size = new System.Drawing.Size(0, 13);
             this.labelNodesCount.TabIndex = 81;
@@ -1105,7 +1105,7 @@ namespace Refrigtz
             // labelNodesCountText
             // 
             this.labelNodesCountText.AutoSize = true;
-            this.labelNodesCountText.Location = new System.Drawing.Point(16, 560);
+            this.labelNodesCountText.Location = new System.Drawing.Point(12, 650);
             this.labelNodesCountText.Name = "labelNodesCountText";
             this.labelNodesCountText.Size = new System.Drawing.Size(77, 13);
             this.labelNodesCountText.TabIndex = 82;
@@ -1456,9 +1456,12 @@ namespace Refrigtz
             // 
             // PictureBoxRefrigtz
             // 
-            this.PictureBoxRefrigtz.Location = new System.Drawing.Point(3, 38);
+            this.PictureBoxRefrigtz.BackgroundImage = global::Refrigtz.Properties.Resources.White;
+            this.PictureBoxRefrigtz.ErrorImage = global::Refrigtz.Properties.Resources.White;
+            this.PictureBoxRefrigtz.Image = global::Refrigtz.Properties.Resources.White;
+            this.PictureBoxRefrigtz.Location = new System.Drawing.Point(15, 49);
             this.PictureBoxRefrigtz.Name = "PictureBoxRefrigtz";
-            this.PictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
+            this.PictureBoxRefrigtz.Size = new System.Drawing.Size(552, 552);
             this.PictureBoxRefrigtz.TabIndex = 0;
             this.PictureBoxRefrigtz.TabStop = false;
             this.PictureBoxRefrigtz.Click += new System.EventHandler(this.PictureBoxRefrigtz_Click);
@@ -1525,7 +1528,7 @@ namespace Refrigtz
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.ButtonStop;
-            this.ClientSize = new System.Drawing.Size(1005, 653);
+            this.ClientSize = new System.Drawing.Size(1005, 672);
             this.ControlBox = false;
             this.Controls.Add(this.checkBoxDeeperthandeeper);
             this.Controls.Add(this.buttonViewTree);

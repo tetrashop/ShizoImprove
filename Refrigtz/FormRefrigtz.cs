@@ -6332,7 +6332,9 @@ namespace Refrigtz
                                             g.DrawImage(Image.FromFile(Root + "\\Images\\Program\\White.jpg"), new Rectangle(i, j, this.PictureBoxRefrigtz.Width / 8, this.PictureBoxRefrigtz.Height / 8));
 
                                     }
-                                    catch (Exception t) { Log(t); }
+                                    catch (Exception t) {
+                                        Log(t);
+                                    }
                                 }
                             if (RowClickP != -1 && ColumnClickP != -1)
                             {
@@ -6412,8 +6414,8 @@ namespace Refrigtz
                             g = Graphics.FromImage(ChessTable);
                             g.FillRectangle(new SolidBrush(Color.Yellow), new Rectangle(0, 0, PictureBoxRefrigtz.Width, PictureBoxRefrigtz.Height));
 
-                            if (Draw != null && Draw.TableList != null && Draw.TableList.Count > 0)
-                                Draw.SetObjectNumbers(Draw.TableList[0]);
+                            if (DrawQ != null && DrawQ.TableList != null && DrawQ.TableList.Count > 0)
+                                DrawQ.SetObjectNumbers(DrawQ.TableList[0]);
 
                             for (int i = 0; i < PictureBoxRefrigtz.Image.Width; i += PictureBoxRefrigtz.Image.Width / 8)
                                 for (int j = 0; j < PictureBoxRefrigtz.Image.Height; j += PictureBoxRefrigtz.Image.Height / 8)
@@ -8598,8 +8600,8 @@ namespace Refrigtz
                             //StateCP = true;
                             continue;
                         }
-                        if (RefrigtzDLL.AllDraw.MouseClick == 2)
-                            DrawImageOfMain();
+                        //if (RefrigtzDLL.AllDraw.MouseClick == 2)
+                            //DrawImageOfMain();
 
                         RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
 
@@ -12142,11 +12144,11 @@ namespace Refrigtz
                         if (FOUND)
                         {
                             //Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                            DrawImageOfMain();
+                            //DrawImageOfMain();
                             return true;
                         }
                         //Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                        DrawImageOfMain();
+                        //DrawImageOfMain();
                         return false;
 
                     }
@@ -12266,11 +12268,11 @@ namespace Refrigtz
                         if (FOUND)
                         {
                             // DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                            DrawImageOfMain();
+                            //DrawImageOfMain();
                             return true;
                         }
                         //DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                        DrawImageOfMain();
+                        //DrawImageOfMain();
                         return false;
                     }
                     else
@@ -13786,7 +13788,7 @@ namespace Refrigtz
                 else
                 {
                     QuantumRefrigiz.AllDraw.DrawTable = true;
-                    // DrawObjectsQ();
+                    //DrawObjectsQ();
                 }
                 SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
                 SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);

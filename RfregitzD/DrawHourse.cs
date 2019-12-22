@@ -208,6 +208,8 @@ namespace RefrigtzDLL
         //Draw a Instatnt Hourse on the Table Method.
         public void DrawHourseOnTable(ref Graphics g, int CellW, int CellH)
         {
+            if (g == null)
+                return;
             //long Time = TimeElapced.TimeNow();Spaces++;
             try
             {

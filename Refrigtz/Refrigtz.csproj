@@ -339,6 +339,8 @@
     <None Include="bin\Debug\Images\Fit\Small\KG.png" />
     <None Include="bin\Debug\Images\Fit\Small\SB.png" />
     <None Include="bin\Debug\Images\Fit\Small\SG.png" />
+    <None Include="bin\Debug\Images\Program\Black.jpg" />
+    <None Include="bin\Debug\Images\Program\White.jpg" />
     <Content Include="clicknrun.ico" />
     <None Include="Resources\KB.png" />
     <None Include="Resources\KG.png" />

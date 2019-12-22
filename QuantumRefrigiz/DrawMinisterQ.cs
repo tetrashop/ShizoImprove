@@ -215,6 +215,8 @@ namespace QuantumRefrigiz
         //Draw an Mnister on the Table.
         public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
+            if (g == null)
+                return;
             //long Time = TimeElapced.TimeNow();Spaces++;
             object balancelockS = new object();
 

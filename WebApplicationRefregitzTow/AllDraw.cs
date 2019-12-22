@@ -16097,7 +16097,7 @@ namespace RefrigtzW
                         //Parallel.Invoke(() =>
                         {
                             var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
-                            //array1.Wait();
+                            tH.Add(array1);
                             Parallel.ForEach(tH, items => Task.WaitAll(items));
                             /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
                             tFullGameThinkingTree.Start();
@@ -20558,7 +20558,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     });
                 });
 
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
+                //Parallel.ForEach(TH, items => Task.WaitAll(items));
                 output.Wait();
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
@@ -20711,7 +20711,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     });
                 });
 
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
+                //Parallel.ForEach(TH, items => Task.WaitAll(items));
                 output.Wait();
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
