@@ -6175,8 +6175,8 @@ namespace RefrigtzW
 
             }
             //when is 2 consider determinstic results about contanied
-            //if (Is == 2)
-            // IsThereCalculatedAStarGreedyNode(i);
+            if (Is == 2)
+            IsThereCalculatedAStarGreedyNode(i);
             return Is;
         }
         //when current side of alldraw is not contained and semi computated 

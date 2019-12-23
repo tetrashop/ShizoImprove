@@ -4895,7 +4895,7 @@ namespace Refrigtz
                     bookConn.Close();
                     oleDbCmd.Clone();
                     bookConn.Dispose();
-
+                    /*
                     oleDbCmd = new OleDbCommand();
                     bookConn = new OleDbConnection(connParam);
                     bookConn.Open();
@@ -4976,9 +4976,9 @@ namespace Refrigtz
 
                         Log(tt);
                         break;
-                    }
+                    }               
+                */
                 }
-
             } while (!Do);
             MovmentsNumberMax = MoveNumber;
 
