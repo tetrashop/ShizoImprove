@@ -6557,7 +6557,7 @@ namespace QuantumRefrigiz
                         }
                         FullGameFound = true;
                         //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        //CearAllTablesHuristicsAndMore(Order);
+                        ClearAllTablesHuristicsAndMore(Order);
 
                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
@@ -6600,7 +6600,7 @@ namespace QuantumRefrigiz
                                 SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
 
                         }
-                        else if (Is == 3)//when is suitable for deeper
+                        else if (Is == 3)//when deeper is suitable and  computational not
                         {
                             Object OOOO = new Object();
                             lock (OOOO)
@@ -6618,7 +6618,7 @@ namespace QuantumRefrigiz
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
 
-                                //CearAllTablesHuristicsAndMore(Order);
+                                ClearAllTablesHuristicsAndMore(Order);
 
                                 InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
@@ -6721,7 +6721,7 @@ namespace QuantumRefrigiz
                         }
                         FullGameFound = true;
                         //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        //CearAllTablesHuristicsAndMore(Order);
+                        ClearAllTablesHuristicsAndMore(Order);
 
                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
@@ -6779,7 +6779,7 @@ namespace QuantumRefrigiz
                             lock (O1)
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
-                                //CearAllTablesHuristicsAndMore(Order);
+                                ClearAllTablesHuristicsAndMore(Order);
 
                                 InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
@@ -6865,7 +6865,7 @@ namespace QuantumRefrigiz
                         }
                         FullGameFound = true;
                         //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        //CearAllTablesHuristicsAndMore(Order);
+                        ClearAllTablesHuristicsAndMore(Order);
 
                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
@@ -6924,7 +6924,7 @@ namespace QuantumRefrigiz
                             lock (O1)
                             {
 
-                                //CearAllTablesHuristicsAndMore(Order);
+                                ClearAllTablesHuristicsAndMore(Order);
 
                                 InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
@@ -7013,7 +7013,7 @@ namespace QuantumRefrigiz
                         }
                         FullGameFound = true;
                         //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        //CearAllTablesHuristicsAndMore(Order);
+                        ClearAllTablesHuristicsAndMore(Order);
 
                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
@@ -7073,7 +7073,7 @@ namespace QuantumRefrigiz
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                //CearAllTablesHuristicsAndMore(Order);
+                                ClearAllTablesHuristicsAndMore(Order);
 
                                 InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
@@ -7163,7 +7163,7 @@ namespace QuantumRefrigiz
                         }
                         FullGameFound = true;
                         //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        //CearAllTablesHuristicsAndMore(Order);
+                        ClearAllTablesHuristicsAndMore(Order);
 
                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
@@ -7218,7 +7218,7 @@ namespace QuantumRefrigiz
                             }
                             //OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                            //CearAllTablesHuristicsAndMore(Order);
+                            ClearAllTablesHuristicsAndMore(Order);
 
                             InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
@@ -7307,7 +7307,7 @@ namespace QuantumRefrigiz
                         }
                         FullGameFound = true;
                         //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        //CearAllTablesHuristicsAndMore(Order);
+                        ClearAllTablesHuristicsAndMore(Order);
 
                         InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
@@ -7368,7 +7368,7 @@ namespace QuantumRefrigiz
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
 
-                                //CearAllTablesHuristicsAndMore(Order);
+                                ClearAllTablesHuristicsAndMore(Order);
 
                                 InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
@@ -16140,7 +16140,7 @@ namespace QuantumRefrigiz
                         //Parallel.Invoke(() =>
                         {
                             var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
-                            tH.Add(array1);
+                            //tH.Add(array1);
                             //array1.Wait();
                             Parallel.ForEach(tH, items => Task.WaitAll(items));
                             /*tFullGameThinkingQuantumTree = new Task(new Action(() => Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
@@ -20602,7 +20602,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     });
                 });
 
-                //Parallel.ForEach(TH, items => Task.WaitAll(items));
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
                 output.Wait();
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
@@ -20755,7 +20755,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     });
                 });
 
-                //Parallel.ForEach(TH, items => Task.WaitAll(items));
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
                 output.Wait();
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingQuantumTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;

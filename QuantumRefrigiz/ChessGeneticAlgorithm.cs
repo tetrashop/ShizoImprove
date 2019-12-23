@@ -217,6 +217,7 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ChessGeneticAlgorithm
     {
+        
         //
         public bool Hit = false;
 

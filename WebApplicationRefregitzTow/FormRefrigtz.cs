@@ -1117,6 +1117,7 @@ namespace RefrigtzW
         //Creatiopn of Configuration Table
         public void CreateConfigurationTable()
         {
+            Begin12:
             if (bookConn == null)
             {
                 
@@ -1127,10 +1128,9 @@ namespace RefrigtzW
 
             if (!AllDrawLoad)
             {
-            Begin12:
                 try
                 {
-
+                   
                     oleDbCmd.CommandText = "Create Table Configuration (ArrangmentsChanged Number NOT NULL,GrayTimer Number NOT NULL,BrownTimer Number NOT NULL,BobSection Number NOT NULL,AliceSection Number NOT NULL,StateCP Number NOT NULL,StateCC Number NOT NULL,StateGe Number NOT NULL,Blitz Number NOT NULL,Person Number NOT NULL,SettingPRFALSE Number NOT NULL)";
                     int temp = 0;
                     temp = oleDbCmd.ExecuteNonQuery();
@@ -1142,10 +1142,9 @@ namespace RefrigtzW
                 }
                 catch (Exception t)
                 {
-                    Log(t);
-                    oleDbCmd.CommandText = "Drop Table Configuration";
-                    int temp = 0;
-                    temp = oleDbCmd.ExecuteNonQuery();
+                    bookConn.Close();
+                    oleDbCmd.Dispose();
+                    bookConn.Dispose();
                     goto Begin12;
 
                 }

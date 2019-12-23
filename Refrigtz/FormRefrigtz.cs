@@ -5528,7 +5528,7 @@ namespace Refrigtz
 
                         bookConn.Close();
                         oleDbCmd.Clone();
-                        //oleDbCmd.Dispose();
+                        oleDbCmd.Dispose();
                         bookConn.Dispose();
                         goto Begin12;
                     }
@@ -5921,7 +5921,7 @@ namespace Refrigtz
   */
                 oleDbCmd.CommandText = @"insert into " + TableName + "(a,b,c,d,e,f,g,h)  values (" + Tab[0, i].ToString() + "," + Tab[1, i].ToString() + "," + Tab[2, i].ToString() + "," + Tab[3, i].ToString() + "," + Tab[4, i].ToString() + "," + Tab[5, i].ToString() + "," + Tab[6, i].ToString() + "," + Tab[7, i].ToString() + ")";
 
-                oleDbCmd.Parameters.AddWithValue("@a", System.Convert.ToInt32(Tab[0, i]));
+               /* oleDbCmd.Parameters.AddWithValue("@a", System.Convert.ToInt32(Tab[0, i]));
                 oleDbCmd.Parameters.AddWithValue("@b", System.Convert.ToInt32(Tab[1, i]));
                 oleDbCmd.Parameters.AddWithValue("@c", System.Convert.ToInt32(Tab[2, i]));
                 oleDbCmd.Parameters.AddWithValue("@d", System.Convert.ToInt32(Tab[3, i]));
@@ -5929,7 +5929,7 @@ namespace Refrigtz
                 oleDbCmd.Parameters.AddWithValue("@f", System.Convert.ToInt32(Tab[5, i]));
                 oleDbCmd.Parameters.AddWithValue("@g", System.Convert.ToInt32(Tab[6, i]));
                 oleDbCmd.Parameters.AddWithValue("@h", System.Convert.ToInt32(Tab[7, i]));
-
+*/
                 int temp = 0;
                 temp = oleDbCmd.ExecuteNonQuery();
 
@@ -12664,15 +12664,15 @@ namespace Refrigtz
                         SetBoxText("\r\nDraw Found By Recurve");
                         RefreshBoxText();
                         FOUND = false;
-                        Ord = OrderPlate;
-                        //Draw.ClearAllTablesHuristicsAndMore(Ord);
+                        Ord = OrderPlate * -1;
+                        Draw.ClearAllTablesHuristicsAndMore(Ord);
                         bool Store = Deeperthandeeper;
                         Deeperthandeeper = false;
 
                         Color aa = Color.Gray;
                         if (Ord == -1)
                             aa = Color.Brown;
-                        Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa,CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, false, 0);
+                        Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa,CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, false, 0);
                         Deeperthandeeper = Store;
                         Ord = OrderPlate;
 
@@ -12683,9 +12683,9 @@ namespace Refrigtz
                         {
                             Draw = THIS;
                             //Draw.TableList.Clear();
-                            // Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
-                            // Draw.SetRowColumn(0);
-                            Draw.AStarGreedyString = THISB;
+                            //Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
+                            //Draw.SetRowColumn(0);
+                            //Draw.AStarGreedyString = THISB;
 
                             DrawManagement();
                             (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
@@ -12812,9 +12812,9 @@ namespace Refrigtz
                         RefreshBoxText();
                         FOUND = false;
 
-                        Ord = OrderPlate;
+                        Ord = OrderPlate * -1;
 
-                        //DrawQ.ClearAllTablesHuristicsAndMore(Ord);
+                        DrawQ.ClearAllTablesHuristicsAndMore(Ord);
                         bool Store = Deeperthandeeper;
                         Deeperthandeeper = false;
 
@@ -12822,7 +12822,7 @@ namespace Refrigtz
                         Color aa = Color.Gray;
                         if (Ord == -1)
                             aa = Color.Brown;
-                        DrawQ.InitiateAStarGreedyt(QuantumRefrigiz.AllDraw.MaxAStarGreedy, 0, 0, aa,CloneATable(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, false, 0);
+                        DrawQ.InitiateAStarGreedyt(QuantumRefrigiz.AllDraw.MaxAStarGreedy, 0, 0, aa,CloneATable(QuantumRefrigiz.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, false, 0);
                         Deeperthandeeper = Store;
                         Ord = OrderPlate;
 
@@ -12833,10 +12833,10 @@ namespace Refrigtz
                         if (FOUND)
                         {
                             DrawQ = THIS;
-                            // DrawQ.TableList.Clear();
+                            //DrawQ.TableList.Clear();
                             //DrawQ.TableList.Add(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]));
                             //DrawQ.SetRowColumn(0);
-                            DrawQ.AStarGreedyString = THISB;
+                            //DrawQ.AStarGreedyString = THISB;
 
                             DrawManagement();
 
