@@ -570,11 +570,24 @@ namespace Refrigtz
                                         Clicked = true;
                                         GrayTimer.StartTime("GrayTimer");
                                         BrownTimer.StopTime();
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                //Wait();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
-                                            tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -623,7 +636,7 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-                                        //Thread.Sleep(1500);
+                                        Thread.Sleep(1500);
                                         BobSection = false;
 
                                         GrayTimer.StopTime();
@@ -660,12 +673,25 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                //Wait();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
 
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
-                                            tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -746,11 +772,24 @@ namespace Refrigtz
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
 
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                //Wait();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
-                                            tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -953,11 +992,24 @@ namespace Refrigtz
                                         Clicked = true;
                                         GrayTimer.StartTime("GrayTimer");
                                         BrownTimer.StopTime();
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                //Wait();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
-                                            tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -1002,7 +1054,7 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-                                        //Thread.Sleep(1500);
+                                        Thread.Sleep(1500);
                                         BobSection = false;
 
                                         GrayTimer.StopTime();
@@ -1032,12 +1084,24 @@ namespace Refrigtz
                                     ColumnClickP = -1;
                                     RowRealesed = -1;
                                     ColumnRealeased = -1;
-
+                                    if (tM != null)
+                                    {
+                                        try
+                                        {
+                                            tM.Abort();
+                                            //Wait();
+                                            tM = null;
+                                        }
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
+                                    }
                                     if (tM == null)
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive)
                                     {
-                                        tM.Start(); tM.Join();
+                                        Person = true; tM.Start(); tM.Join();
                                     }
                                     //Wait();
                                     //Clicked = false; BobSection = false;
@@ -1108,11 +1172,24 @@ namespace Refrigtz
                                     RowRealesed = -1;
                                     ColumnRealeased = -1;
 
+                                    if (tM != null)
+                                    {
+                                        try
+                                        {
+                                            tM.Abort();
+                                            //Wait();
+                                            tM = null;
+                                        }
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
+                                    }
                                     if (tM == null)
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive)
                                     {
-                                        tM.Start(); tM.Join();
+                                        Person = true; tM.Start(); tM.Join();
                                     }
                                     //Wait();
                                     //Clicked = false; BobSection = false;
@@ -1240,7 +1317,7 @@ namespace Refrigtz
                                              tM = new Thread(new ThreadStart(Movements));
                                          if (!tM.IsAlive)
                                          {
-                                             tM.Start(); tM.Join();
+                                             Person = true; tM.Start(); tM.Join();
                                          }
                                          //Wait();
                                          Clicked = false; BobSection = false;
@@ -1305,7 +1382,7 @@ namespace Refrigtz
                                              tM = new Thread(new ThreadStart(Movements));
                                          if (!tM.IsAlive)
                                          {
-                                             tM.Start(); tM.Join();
+                                             Person = true; tM.Start(); tM.Join();
                                          }
                                          //Wait();
                                          Clicked = false; BobSection = false;
@@ -1350,7 +1427,7 @@ namespace Refrigtz
                                          ColumnClickP = -1;
                                          RowRealesed = -1;
                                          ColumnRealeased = -1;
-                                         //Thread.Sleep(1500);
+                                         Thread.Sleep(1500);
                                          BobSection = false;
                                          
                                          GrayTimer.StopTime();
@@ -1399,7 +1476,7 @@ namespace Refrigtz
                                          tM = new Thread(new ThreadStart(Movements));
                                      if (!tM.IsAlive)
                                      {
-                                         tM.Start(); tM.Join();
+                                         Person = true; tM.Start(); tM.Join();
                                      }
                                      //Wait();
                                      Clicked = false; BobSection = false;
@@ -1550,7 +1627,7 @@ namespace Refrigtz
                                              ColumnClickP = -1;
                                              RowRealesed = -1;
                                              ColumnRealeased = -1;
-                                             //Thread.Sleep(1500);
+                                             Thread.Sleep(1500);
                                              BobSection = false;
                                              
                                              GrayTimer.StopTime();
@@ -1766,7 +1843,7 @@ namespace Refrigtz
                      */
 
                     //while ((!StateCP && !StateCC && !StateGe && !Blitz))
-                    //Thread.Sleep(1000);
+                    Thread.Sleep(1000);
 
                     {
 
@@ -2028,11 +2105,24 @@ namespace Refrigtz
                                         Clicked = true;
                                         GrayTimer.StartTime("GrayTimer");
                                         BrownTimer.StopTime();
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                //Wait();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
-                                            tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -2081,7 +2171,7 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-                                        //Thread.Sleep(1500);
+                                        Thread.Sleep(1500);
                                         BobSection = false;
 
                                         GrayTimer.StopTime();
@@ -2118,12 +2208,24 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                //Wait();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
-                                            tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -2200,12 +2302,24 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                //Wait();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
-                                            tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -2394,11 +2508,24 @@ namespace Refrigtz
                                         Clicked = true;
                                         GrayTimer.StartTime("GrayTimer");
                                         BrownTimer.StopTime();
+                                        if (tM != null)
+                                        {
+                                            try
+                                            {
+                                                tM.Abort();
+                                                //Wait();
+                                                tM = null;
+                                            }
+                                            catch (Exception t)
+                                            {
+                                                Log(t);
+                                            }
+                                        }
                                         if (tM == null)
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive)
                                         {
-                                            tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -2443,7 +2570,7 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-                                        //Thread.Sleep(1500);
+                                        Thread.Sleep(1500);
                                         BobSection = false;
 
                                         GrayTimer.StopTime();
@@ -2473,12 +2600,24 @@ namespace Refrigtz
                                     ColumnClickP = -1;
                                     RowRealesed = -1;
                                     ColumnRealeased = -1;
-
+                                    if (tM != null)
+                                    {
+                                        try
+                                        {
+                                            tM.Abort();
+                                            //Wait();
+                                            tM = null;
+                                        }
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
+                                    }
                                     if (tM == null)
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive)
                                     {
-                                        tM.Start(); tM.Join();
+                                        Person = true; tM.Start(); tM.Join();
                                     }
                                     //Wait();
                                     //Clicked = false; BobSection = false;
@@ -2545,12 +2684,24 @@ namespace Refrigtz
                                     ColumnClickP = -1;
                                     RowRealesed = -1;
                                     ColumnRealeased = -1;
-
+                                    if (tM != null)
+                                    {
+                                        try
+                                        {
+                                            tM.Abort();
+                                            //Wait();
+                                            tM = null;
+                                        }
+                                        catch (Exception t)
+                                        {
+                                            Log(t);
+                                        }
+                                    }
                                     if (tM == null)
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive)
                                     {
-                                        tM.Start(); tM.Join();
+                                        Person = true; tM.Start(); tM.Join();
                                     }
                                     //Wait();
                                     //Clicked = false; BobSection = false;
@@ -2678,7 +2829,7 @@ namespace Refrigtz
                                              tM = new Thread(new ThreadStart(Movements));
                                          if (!tM.IsAlive)
                                          {
-                                             tM.Start(); tM.Join();
+                                             Person = true; tM.Start(); tM.Join();
                                          }
                                          //Wait();
                                          Clicked = false; BobSection = false;
@@ -2743,7 +2894,7 @@ namespace Refrigtz
                                              tM = new Thread(new ThreadStart(Movements));
                                          if (!tM.IsAlive)
                                          {
-                                             tM.Start(); tM.Join();
+                                             Person = true; tM.Start(); tM.Join();
                                          }
                                          //Wait();
                                          Clicked = false; BobSection = false;
@@ -2788,12 +2939,12 @@ namespace Refrigtz
                                          ColumnClickP = -1;
                                          RowRealesed = -1;
                                          ColumnRealeased = -1;
-                                         //Thread.Sleep(1500);
+                                         Thread.Sleep(1500);
                                          BobSection = false;
                                          
                                          GrayTimer.StopTime();
                                          BrownTimer.StartTime("BrownTimer");
-
+                                         y
 
 
 
@@ -2837,7 +2988,7 @@ namespace Refrigtz
                                          tM = new Thread(new ThreadStart(Movements));
                                      if (!tM.IsAlive)
                                      {
-                                         tM.Start(); tM.Join();
+                                         Person = true; tM.Start(); tM.Join();
                                      }
                                      //Wait();
                                      Clicked = false; BobSection = false;
@@ -2988,7 +3139,7 @@ namespace Refrigtz
                                              ColumnClickP = -1;
                                              RowRealesed = -1;
                                              ColumnRealeased = -1;
-                                             //Thread.Sleep(1500);
+                                             Thread.Sleep(1500);
                                              BobSection = false;
                                              
                                              GrayTimer.StopTime();
@@ -3204,7 +3355,7 @@ namespace Refrigtz
                      */
 
                     //while ((!StateCP && !StateCC && !StateGe && !Blitz))
-                    //Thread.Sleep(1000);
+                    Thread.Sleep(1000);
 
                     {
 
@@ -3332,7 +3483,7 @@ namespace Refrigtz
                 SetTimer = true;
                 do
                 {
-                    //Thread.Sleep(2);
+                    Thread.Sleep(2);
                     Object O = new Object();
                     lock (O)
                     {
@@ -3953,7 +4104,7 @@ namespace Refrigtz
                                              (!StateCC) &&
                                                  (!StateCP))
                             {
-                                //Thread.Sleep(2);
+                                Thread.Sleep(2);
 
                             }*/
                             if (RefrigtzDLL.ChessRules.ObjectHittedRow != -1 && RefrigtzDLL.ChessRules.ObjectHittedColumn != -1)
@@ -6595,9 +6746,9 @@ namespace Refrigtz
 
                 }
             }
-           
+
             //SetPrictureBoxRefregitzInvalidate(PictureBoxTimerGray);
-           // SetPrictureBoxRefregitzUpdate(PictureBoxTimerGray);
+            // SetPrictureBoxRefregitzUpdate(PictureBoxTimerGray);
 
         }
 
@@ -6690,7 +6841,7 @@ namespace Refrigtz
             Object OOOO = new Object();
             lock (OOOO)
             {
-                DrawImageOfMain();
+                //DrawImageOfMain();
                 g = Graphics.FromImage(ChessTable);
                 if (!Quantum)
                 {
@@ -6876,7 +7027,7 @@ namespace Refrigtz
                         DrawQ.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
                     }
                 }
-                //PictureBoxRefrigtz.Image = ChessTable;
+                PictureBoxRefrigtz.Image = ChessTable;
                 g.Dispose();
                 return;
             }
@@ -7235,7 +7386,8 @@ namespace Refrigtz
             }
         }
         void MovementSoldierGray(RefrigtzDLL.ChessRules AA)
-        { Object O = new Object();
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 1, CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 1))
@@ -7289,7 +7441,7 @@ namespace Refrigtz
                     {
                         int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
 
-                   
+
                         Draw.SolderesOnTable[Soldier] = new RefrigtzDLL.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowRealesed, ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate, false, Soldier);
                         Table[(int)RowClickP, (int)ColumnClickP] = 0;
                         Table[(int)RowRealesed, (int)ColumnRealeased] = 1;
@@ -7362,7 +7514,8 @@ namespace Refrigtz
             }
         }
         void MovementElephantGray(RefrigtzDLL.ChessRules AA)
-        { Object O = new Object();
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 2, CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 2))
@@ -7439,7 +7592,9 @@ namespace Refrigtz
                 }
             }
         }
-        void MovmentHourseGray(RefrigtzDLL.ChessRules AA) { Object O = new Object();
+        void MovmentHourseGray(RefrigtzDLL.ChessRules AA)
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 3, CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 3))
@@ -7518,7 +7673,9 @@ namespace Refrigtz
                 }
             }
         }
-        void MovmentCastleGray(RefrigtzDLL.ChessRules AA) { Object O = new Object();
+        void MovmentCastleGray(RefrigtzDLL.ChessRules AA)
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 4, CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 4))
@@ -7596,7 +7753,9 @@ namespace Refrigtz
                 }
             }
         }
-        void MovmentMinisterGray(RefrigtzDLL.ChessRules AA) { Object o = new Object();
+        void MovmentMinisterGray(RefrigtzDLL.ChessRules AA)
+        {
+            Object o = new Object();
             lock (o)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 5, CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 5))
@@ -7676,7 +7835,8 @@ namespace Refrigtz
             }
         }
         void MovmentKingGray(RefrigtzDLL.ChessRules AA)
-        { Object O=new Object();
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, 6, CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, 6))
@@ -7755,7 +7915,8 @@ namespace Refrigtz
             }
         }
         void MovmentCastleKingBrown(RefrigtzDLL.ChessRules AA)
-        { Object O = new Object();
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -7, CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -7))
@@ -8076,7 +8237,9 @@ namespace Refrigtz
             }
         }
 
-        void MovementElephantBrown(RefrigtzDLL.ChessRules AA) { Object O = new Object();
+        void MovementElephantBrown(RefrigtzDLL.ChessRules AA)
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -2, CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -2))
@@ -8154,7 +8317,9 @@ namespace Refrigtz
                 }
             }
         }
-        void MovmentHourseBrown(RefrigtzDLL.ChessRules AA) { Object O = new Object();
+        void MovmentHourseBrown(RefrigtzDLL.ChessRules AA)
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -3, CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -3))
@@ -8232,7 +8397,8 @@ namespace Refrigtz
                 }
             }
         }
-        void MovmentCastleBrown(RefrigtzDLL.ChessRules AA) {
+        void MovmentCastleBrown(RefrigtzDLL.ChessRules AA)
+        {
             Object O = new Object();
             lock (O)
             {
@@ -8312,7 +8478,8 @@ namespace Refrigtz
             }
         }
         void MovmentMinisterBrown(RefrigtzDLL.ChessRules AA)
-        { Object O = new Object();
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -5, CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -5))
@@ -8393,7 +8560,8 @@ namespace Refrigtz
             }
         }
         void MovmentKingBrown(RefrigtzDLL.ChessRules AA)
-        { Object O = new Object();
+        {
+            Object O = new Object();
             lock (O)
             {
                 if ((new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -6, CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP)).Rules((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, -6))
@@ -10714,7 +10882,7 @@ namespace Refrigtz
                 //while (Do);
                 return Do;
             }
-         }
+        }
         void Movements()
         {
             Object OO = new Object();
@@ -10728,6 +10896,7 @@ namespace Refrigtz
                     {
                         if (!backgroundWorkerMoveGray.IsBusy)
                         {
+                            Person = true;
                             Thread t = new Thread(new ThreadStart(backgroundWorkerMoveGray.RunWorkerAsync));
                             t.Start();
                             t.Join();
@@ -10737,7 +10906,7 @@ namespace Refrigtz
                             else
                                 QuantumRefrigiz.AllDraw.DrawTable = true;
                         }
-                        
+
                         if (backgroundWorkerMoveGray.WorkerSupportsCancellation)
                             backgroundWorkerMoveGray.CancelAsync();
                     }
@@ -10745,6 +10914,7 @@ namespace Refrigtz
                     {
                         if (!backgroundWorkerMoveBrown.IsBusy)
                         {
+                            Person = true;
                             Thread t = new Thread(new ThreadStart(backgroundWorkerMoveBrown.RunWorkerAsync));
                             t.Start();
                             t.Join();
@@ -12958,7 +13128,7 @@ namespace Refrigtz
                 ColumnClickP = -1;
                 RowRealesed = -1;
                 ColumnRealeased = -1;
-                //Thread.Sleep(1500);
+                Thread.Sleep(1500);
                 BobSection = false;
 
                 GrayTimer.StopTime();
@@ -14467,7 +14637,7 @@ namespace Refrigtz
                 RefrigtzDLL.AllDraw THIS = null;
                 QuantumRefrigiz.AllDraw THISQ = null;
 
-              
+
                 int LeafAStarGrteedy = 0;
                 if (!Quantum)
                     Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
@@ -17655,7 +17825,7 @@ namespace Refrigtz
                         PictureBoxTimerGray.Image = TimerImageGray;
                         g1.Dispose();
 
-                        //Thread.Sleep(20);
+                        Thread.Sleep(20);
                     }
                     catch (Exception t)
                     {
@@ -17673,7 +17843,7 @@ namespace Refrigtz
                 //PictureBoxRefrigtz.Invalidate();
                 //PictureBoxRefrigtz.Update();
 
-                //Thread.Sleep(5);
+                Thread.Sleep(5);
             }
         }
         void UpadatTimer()
@@ -17681,8 +17851,9 @@ namespace Refrigtz
 
             Object O = new Object();
             lock (O)
-            {      //Thread.Sleep(1000);
-                   //while (DisableTemporarlyTimerUpdate) ;
+            {
+                Thread.Sleep(1000);
+                //while (DisableTemporarlyTimerUpdate) ;
                 {
                     try
                     {
@@ -17717,7 +17888,7 @@ namespace Refrigtz
                         PictureBoxTimerBrown.Image = TimerImageBrown;
                         g2.Dispose();
 
-                        //Thread.Sleep(20);
+                        Thread.Sleep(20);
                     }
                     catch (Exception t)
                     {
@@ -18611,7 +18782,8 @@ namespace Refrigtz
         private void backgroundWorkerMoveBrown_DoWork(object sender, DoWorkEventArgs e)
         {
             bool Do = true;
-            do {
+            do
+            {
                 MovementQuantum();
 
             } while (Do);

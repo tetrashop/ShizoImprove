@@ -214,15 +214,16 @@ namespace RefrigtzW
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            try
-            {
-                object balancelockS = new object();
+            object balancelockS = new object();
 
-                lock (balancelockS)
+            lock (balancelockS)
+            {
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
+                try
                 {
+
                     if (S[0] == null || S[1] == null)
                     {
                         S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
@@ -356,13 +357,14 @@ namespace RefrigtzW
 
                         }
                     }
+
                 }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

@@ -214,15 +214,16 @@ namespace RefrigtzDLL
         //Draw an Instatnt Elephant On the Table.
         public void DrawElefantOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            try
-            {
-                object balancelockS = new object();
+            object balancelockS = new object();
 
-                lock (balancelockS)
+            lock (balancelockS)
+            {
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
+                try
                 {
+
                     if (E[0] == null || E[1] == null)
                     {
                         E[0] = Image.FromFile(AllDraw.ImagesSubRoot + "EG.png");
@@ -251,13 +252,14 @@ namespace RefrigtzDLL
                             }
                         }
                     }
+
                 }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawElefantOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawElefantOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

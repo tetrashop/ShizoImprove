@@ -9,7 +9,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawKing
     {
-        
+
         StringBuilder Space = new StringBuilder("&nbsp;");
 #pragma warning disable CS0414 // The field 'DrawKing.Spaces' is assigned but its value is never used
         int Spaces = 0;
@@ -70,7 +70,7 @@ namespace RefrigtzDLL
             int a = 0;
             for (var ii = 0; ii < AllDraw.KingMovments; ii++)
 
-                a += KingThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
+                a += KingThinking[ii].ReturnHuristic(-1, -1, Order, false, ref HaveKilled);
 
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
@@ -137,7 +137,7 @@ namespace RefrigtzDLL
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.KingMovments; ii++)
-                    KingThinking[ii] = new ThinkingChess(ii,6,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
+                    KingThinking[ii] = new ThinkingChess(ii, 6, CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
 
                 Row = i;
                 Column = j;
@@ -183,7 +183,7 @@ namespace RefrigtzDLL
             }
 
         }
-      
+
         //Clone a Copy.
         public void Clone(ref DrawKing AA//, ref AllDraw. THIS
             )
@@ -199,7 +199,7 @@ namespace RefrigtzDLL
             for (var i = 0; i < AllDraw.KingMovments; i++)
             {
 
-                AA.KingThinking[i] = new ThinkingChess(i,6,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                AA.KingThinking[i] = new ThinkingChess(i, 6, CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                 this.KingThinking[i].Clone(ref AA.KingThinking[i]);
 
             }
@@ -217,16 +217,17 @@ namespace RefrigtzDLL
         //Draw an Instatnt King on the Table Method.
         public void DrawKingOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            object balancelockS = new object();
 
-            try
+            lock (balancelockS)
             {
-                object balancelockS = new object();
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
 
-                lock (balancelockS)
+                try
                 {
+
                     if (K[0] == null || K[1] == null)
                     {
                         K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
@@ -256,14 +257,15 @@ namespace RefrigtzDLL
                             }
                         }
                     }
-                }
 
+
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Drawif (KingOnTable==null||KingOnTable[i] == null):" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Drawif (KingOnTable==null||KingOnTable[i] == null):" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

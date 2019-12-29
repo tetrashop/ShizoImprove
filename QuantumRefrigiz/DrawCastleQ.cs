@@ -6,7 +6,7 @@ using System.Drawing;
 using System.IO;
 namespace QuantumRefrigiz
 {
-    
+
     [Serializable]
     public class DrawCastleQ
     {
@@ -19,13 +19,13 @@ namespace QuantumRefrigiz
         public bool IsQuntumMove = false;
         //Pieces have rings around them, filled in with colour. These rings show the probability that the piece is in that square.
         public bool RingHalf = false;
-        public int WinOcuuredatChiled = 0;public int LoseOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
         public static Image[] C = new Image[2];
         //Iniatite Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
-      
+
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
@@ -45,14 +45,14 @@ namespace QuantumRefrigiz
 
         static void Log(Exception ex)
         {
-            
-                Object a = new Object();
-                lock (a)
-                {
-                    string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
-                }
-           
+
+            Object a = new Object();
+            lock (a)
+            {
+                string stackTrace = ex.ToString();
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+            }
+
         }
         public void Dispose()
         {
@@ -66,20 +66,20 @@ namespace QuantumRefrigiz
             //long Time = TimeElapced.TimeNow();Spaces++;
 
             int a = ReturnHuristic();
-                if (MaxHuristicxB < a)
+            if (MaxHuristicxB < a)
+            {
+                MaxNotFound = false;
+                Object O = new Object();
+                lock (O)
                 {
-                    MaxNotFound = false;
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxB)
-                            ThinkingQuantumChess.MaxHuristicx = a;
-                        MaxHuristicxB = a;
-                    }
+                    if (ThinkingQuantumChess.MaxHuristicx < MaxHuristicxB)
+                        ThinkingQuantumChess.MaxHuristicx = a;
+                    MaxHuristicxB = a;
+                }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
-                }
-           
+            }
+
             MaxNotFound = true;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
@@ -90,8 +90,8 @@ namespace QuantumRefrigiz
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
-                
-                    a += CastleThinkingQuantum[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
+
+                a += CastleThinkingQuantum[ii].ReturnHuristic(-1, -1, Order, false, ref HaveKilled);
 
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
@@ -99,18 +99,18 @@ namespace QuantumRefrigiz
 
 
         //Constructor 1.
-      /*  public DrawCastleQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-        {
-            CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
-            ArrangmentsChanged = Arrangments;
-        }*/
+        /*  public DrawCastleQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+          {
+              CurrentAStarGredyMax = CurrentAStarGredy;
+              MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+              IgnoreSelfObjectsT = IgnoreSelfObject;
+              UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
+              BestMovmentsT = BestMovment;
+              PredictHuristicT = PredictHurist;
+              OnlySelfT = OnlySel;
+              AStarGreedyHuristicT = AStarGreedyHuris;
+              ArrangmentsChanged = Arrangments;
+          }*/
         //constructor 2.
         public DrawCastleQ(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
@@ -120,7 +120,7 @@ namespace QuantumRefrigiz
 
             lock (balancelock)
             {
-                
+
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
@@ -137,7 +137,7 @@ namespace QuantumRefrigiz
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
-                    CastleThinkingQuantum[ii] = new ThinkingQuantumChess(ii,4,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
+                    CastleThinkingQuantum[ii] = new ThinkingQuantumChess(ii, 4, CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
 
                 Row = i;
                 Column = j;
@@ -161,10 +161,10 @@ namespace QuantumRefrigiz
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.CastleMovments; i++)
             {
-                
-                    AA.CastleThinkingQuantum[i] = new ThinkingQuantumChess(i,4,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
-                    this.CastleThinkingQuantum[i].Clone(ref AA.CastleThinkingQuantum[i]);
-               
+
+                AA.CastleThinkingQuantum[i] = new ThinkingQuantumChess(i, 4, CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                this.CastleThinkingQuantum[i].Clone(ref AA.CastleThinkingQuantum[i]);
+
             }
             AA.Table = new int[8, 8];
             for (var ii = 0; ii < 8; ii++)
@@ -216,14 +216,17 @@ namespace QuantumRefrigiz
         //Draw An Instatnt Brideges Images On the Table Method.
         public void DrawCastleOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
             object balancelockS = new object();
-            
+
+            lock (balancelockS)
+            {
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
+
                 int LastRow = -1, LastColumn = -1;
 
-                if (AllDraw.LastRowQ != Row && AllDraw.LastColumnQ != Column && AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1 && AllDraw.NextRowQ == Row && AllDraw.NextColumnQ ==Column)
+                if (AllDraw.LastRowQ != Row && AllDraw.LastColumnQ != Column && AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1 && AllDraw.NextRowQ == Row && AllDraw.NextColumnQ == Column)
                 {
                     if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
                     {
@@ -246,7 +249,7 @@ namespace QuantumRefrigiz
                     AllDraw.NextColumnQ = -1;
 
                 }
-            
+
 
                 if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[1, (int)Row, (int)Column] != -1)
                 {
@@ -331,8 +334,8 @@ namespace QuantumRefrigiz
                                         g.DrawArc(new Pen(new SolidBrush(Color.Red)), new Rectangle((int)((LastRow * CellW)), (int)(LastColumn * (float)CellH), CellW, CellH), -45, (int)Prob);
                                         AllDraw.QuntumTable[0, (int)Row, (int)Column] = LastRow;
                                         AllDraw.QuntumTable[1, (int)Row, (int)Column] = LastColumn;
-                                          AllDraw.QuntumTable[0, LastRow, LastColumn] = -1;
-                                         AllDraw.QuntumTable[1, LastRow, LastColumn] = -1;
+                                        AllDraw.QuntumTable[0, LastRow, LastColumn] = -1;
+                                        AllDraw.QuntumTable[1, LastRow, LastColumn] = -1;
                                     }
                                     else
                                     if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[1, (int)Row, (int)Column] != -1)
@@ -349,7 +352,8 @@ namespace QuantumRefrigiz
                         }
                     }
                 }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawCastleOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawCastleOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            }
         }
     }
 }

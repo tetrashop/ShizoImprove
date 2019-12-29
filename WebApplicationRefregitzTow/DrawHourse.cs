@@ -208,15 +208,16 @@ namespace RefrigtzW
         //Draw a Instatnt Hourse on the Table Method.
         public void DrawHourseOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            try
-            {
-                object balancelockS = new object();
+            object balancelockS = new object();
 
-                lock (balancelockS)
+            lock (balancelockS)
+            {
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
+                try
                 {
+
                     if (H[0] == null || H[1] == null)
                     {
                         H[0] = Image.FromFile(AllDraw.ImagesSubRoot + "HG.png");
@@ -243,14 +244,15 @@ namespace RefrigtzW
                             }
                         }
                     }
-                }
 
+
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourseOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourseOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

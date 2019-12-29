@@ -216,16 +216,17 @@ namespace RefrigtzW
         //Draw an Instatnt King on the Table Method.
         public void DrawKingOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            object balancelockS = new object();
 
-            try
+            lock (balancelockS)
             {
-                object balancelockS = new object();
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
 
-                lock (balancelockS)
+                try
                 {
+
                     if (K[0] == null || K[1] == null)
                     {
                         K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
@@ -255,14 +256,15 @@ namespace RefrigtzW
                             }
                         }
                     }
-                }
 
+
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Drawif (KingOnTable==null||KingOnTable[i] == null):" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Drawif (KingOnTable==null||KingOnTable[i] == null):" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

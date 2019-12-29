@@ -212,15 +212,16 @@ namespace RefrigtzDLL
         //Draw an Mnister on the Table.
         public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            try
-            {
-                object balancelockS = new object();
+            object balancelockS = new object();
 
-                lock (balancelockS)
+            lock (balancelockS)
+            {
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
+                try
                 {
+
                     if (M[0] == null || M[1] == null)
                     {
                         M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
@@ -248,13 +249,14 @@ namespace RefrigtzDLL
                             }
                         }
                     }
+
                 }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawMinisterOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawMinisterOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

@@ -215,38 +215,41 @@ namespace QuantumRefrigiz
         //Draw an Mnister on the Table.
         public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
             object balancelockS = new object();
 
-            int LastRowQ = -1, LastColumn = -1;
-            
+            lock (balancelockS)
+            {
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
 
-                if (AllDraw.LastRowQ != Row && AllDraw.LastColumnQ != Column&&AllDraw.LastRowQ!=-1&&AllDraw.LastColumnQ!=-1)
-                    
+                int LastRowQ = -1, LastColumn = -1;
+
+
+                if (AllDraw.LastRowQ != Row && AllDraw.LastColumnQ != Column && AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
+
+                {
+                    if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
                     {
-                        if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1)
-                        {
-                            LastRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
+                        LastRowQ = AllDraw.QuntumTable[0, (int)Row, (int)Column];
                         LastColumn = AllDraw.QuntumTable[1, (int)Row, (int)Column];
                         IsQuntumMove = true;
                     }
-                        else
-                        if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
-                        {
-                            LastRowQ = AllDraw.LastRowQ;
-                            LastColumn = AllDraw.LastColumnQ;
-                            AllDraw.LastRowQ = -1;
+                    else
+                    if (AllDraw.LastRowQ != -1 && AllDraw.LastColumnQ != -1)
+                    {
+                        LastRowQ = AllDraw.LastRowQ;
+                        LastColumn = AllDraw.LastColumnQ;
+                        AllDraw.LastRowQ = -1;
                         AllDraw.LastColumnQ = -1;
                         IsQuntumMove = true;
                     }
-                        AllDraw.LastRowQ = -1;
-                        AllDraw.LastColumnQ = -1;
-                        AllDraw.NextRowQ = -1;
-                        AllDraw.NextColumnQ = -1;
-                        
-                    }
+                    AllDraw.LastRowQ = -1;
+                    AllDraw.LastColumnQ = -1;
+                    AllDraw.NextRowQ = -1;
+                    AllDraw.NextColumnQ = -1;
+
+                }
 
                 if (AllDraw.QuntumTable[0, (int)Row, (int)Column] != -1 && AllDraw.QuntumTable[1, (int)Row, (int)Column] != -1)
                 {
@@ -351,7 +354,8 @@ namespace QuantumRefrigiz
                         }
                     }
                 }
-     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawMinisterOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawMinisterOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            }
         }
     }
 }
