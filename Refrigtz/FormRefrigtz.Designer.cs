@@ -159,6 +159,8 @@ namespace Refrigtz
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonViewTree = new System.Windows.Forms.Button();
             this.checkBoxDeeperthandeeper = new System.Windows.Forms.CheckBox();
+            this.backgroundWorkerMoveGray = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerMoveBrown = new System.ComponentModel.BackgroundWorker();
             this.MenuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox32)).BeginInit();
@@ -754,7 +756,7 @@ namespace Refrigtz
             // 
             // ProgressBarVerify
             // 
-            this.ProgressBarVerify.Location = new System.Drawing.Point(26, 579);
+            this.ProgressBarVerify.Location = new System.Drawing.Point(32, 624);
             this.ProgressBarVerify.Name = "ProgressBarVerify";
             this.ProgressBarVerify.Size = new System.Drawing.Size(551, 23);
             this.ProgressBarVerify.TabIndex = 24;
@@ -765,7 +767,7 @@ namespace Refrigtz
             // labelTimesRemaining
             // 
             this.labelTimesRemaining.AutoSize = true;
-            this.labelTimesRemaining.Location = new System.Drawing.Point(577, 538);
+            this.labelTimesRemaining.Location = new System.Drawing.Point(577, 650);
             this.labelTimesRemaining.Name = "labelTimesRemaining";
             this.labelTimesRemaining.Size = new System.Drawing.Size(0, 13);
             this.labelTimesRemaining.TabIndex = 25;
@@ -1097,7 +1099,7 @@ namespace Refrigtz
             // labelNodesCount
             // 
             this.labelNodesCount.AutoSize = true;
-            this.labelNodesCount.Location = new System.Drawing.Point(99, 560);
+            this.labelNodesCount.Location = new System.Drawing.Point(99, 650);
             this.labelNodesCount.Name = "labelNodesCount";
             this.labelNodesCount.Size = new System.Drawing.Size(0, 13);
             this.labelNodesCount.TabIndex = 81;
@@ -1105,7 +1107,7 @@ namespace Refrigtz
             // labelNodesCountText
             // 
             this.labelNodesCountText.AutoSize = true;
-            this.labelNodesCountText.Location = new System.Drawing.Point(16, 560);
+            this.labelNodesCountText.Location = new System.Drawing.Point(12, 650);
             this.labelNodesCountText.Name = "labelNodesCountText";
             this.labelNodesCountText.Size = new System.Drawing.Size(77, 13);
             this.labelNodesCountText.TabIndex = 82;
@@ -1456,12 +1458,15 @@ namespace Refrigtz
             // 
             // PictureBoxRefrigtz
             // 
-            this.PictureBoxRefrigtz.Location = new System.Drawing.Point(3, 38);
+            this.PictureBoxRefrigtz.BackgroundImage = global::Refrigtz.Properties.Resources.White;
+            this.PictureBoxRefrigtz.ErrorImage = global::Refrigtz.Properties.Resources.White;
+            this.PictureBoxRefrigtz.Image = global::Refrigtz.Properties.Resources.White;
+            this.PictureBoxRefrigtz.Location = new System.Drawing.Point(15, 49);
             this.PictureBoxRefrigtz.Name = "PictureBoxRefrigtz";
-            this.PictureBoxRefrigtz.Size = new System.Drawing.Size(574, 508);
+            this.PictureBoxRefrigtz.Size = new System.Drawing.Size(552, 552);
             this.PictureBoxRefrigtz.TabIndex = 0;
             this.PictureBoxRefrigtz.TabStop = false;
-            this.PictureBoxRefrigtz.Click += new System.EventHandler(this.PictureBoxRefrigtz_Click_1);
+            this.PictureBoxRefrigtz.Click += new System.EventHandler(this.PictureBoxRefrigtz_Click);
             this.PictureBoxRefrigtz.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxRefrigtz_Paint);
             this.PictureBoxRefrigtz.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PictureBoxRefrigtz_MouseClick);
             this.PictureBoxRefrigtz.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PictureBoxRefrigtz_MouseDoubleClick);
@@ -1520,12 +1525,20 @@ namespace Refrigtz
             this.checkBoxDeeperthandeeper.UseVisualStyleBackColor = true;
             this.checkBoxDeeperthandeeper.CheckedChanged += new System.EventHandler(this.checkBoxDeeperthandeeper_CheckedChanged);
             // 
+            // backgroundWorkerMoveGray
+            // 
+            this.backgroundWorkerMoveGray.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMoveGray_DoWork);
+            // 
+            // backgroundWorkerMoveBrown
+            // 
+            this.backgroundWorkerMoveBrown.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMoveBrown_DoWork);
+            // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.ButtonStop;
-            this.ClientSize = new System.Drawing.Size(1005, 653);
+            this.ClientSize = new System.Drawing.Size(1005, 672);
             this.ControlBox = false;
             this.Controls.Add(this.checkBoxDeeperthandeeper);
             this.Controls.Add(this.buttonViewTree);
@@ -1901,6 +1914,8 @@ namespace Refrigtz
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonViewTree;
         private System.Windows.Forms.CheckBox checkBoxDeeperthandeeper;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerMoveGray;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerMoveBrown;
     }
 }
 

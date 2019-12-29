@@ -62,9 +62,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBoxTryCatchDisable.resx">
-      <DependentUpon>AboutBoxTryCatchDisable.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormTryCatchDisable.resx">
       <DependentUpon>FormTryCatchDisable.cs</DependentUpon>
     </EmbeddedResource>

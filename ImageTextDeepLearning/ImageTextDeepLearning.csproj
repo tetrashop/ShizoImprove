@@ -91,9 +91,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AllKeyboardOfWorld.cs" />
-    <EmbeddedResource Include="AboutBoxImageTextDeepLearning.resx">
-      <DependentUpon>AboutBoxImageTextDeepLearning.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormImageTextDeepLearning.resx">
       <DependentUpon>FormImageTextDeepLearning.cs</DependentUpon>
     </EmbeddedResource>

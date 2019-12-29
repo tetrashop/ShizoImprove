@@ -217,6 +217,8 @@ namespace RefrigtzDLL
         //Draw an Instatnt King on the Table Method.
         public void DrawKingOnTable(ref Graphics g, int CellW, int CellH)
         {
+            if (g == null)
+                return;
             //long Time = TimeElapced.TimeNow();Spaces++;
 
             try

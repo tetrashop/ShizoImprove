@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 namespace QuantumRefrigiz
 {
+    
     [Serializable]
     public class DrawCastleQ
     {
@@ -215,6 +216,8 @@ namespace QuantumRefrigiz
         //Draw An Instatnt Brideges Images On the Table Method.
         public void DrawCastleOnTable(ref Graphics g, int CellW, int CellH)
         {
+            if (g == null)
+                return;
             //long Time = TimeElapced.TimeNow();Spaces++;
             object balancelockS = new object();
             

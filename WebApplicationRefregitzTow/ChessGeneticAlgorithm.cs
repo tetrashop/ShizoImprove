@@ -675,85 +675,79 @@ namespace RefrigtzW
                     {
                         if (Order == 1)
                         {
-                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] < 0)
+                            if (Cromosom2[j, i] <= 0 && Cromosom1[j, i] > 0)
                             {
-                                CromosomRow = j;
-                                CromosomColumn = i;
+                                CromosomRowFirst = j;
+                                CromosomColumnFirst = i;
                                 Find = true;
                                 FindNumber++;
-                                Hit = true;
+                                //Hit = true;
                             }
-                        }
-                        else
-                        {
-                            if (Cromosom2[j, i] < 0 && Cromosom1[j, i] > 0)
-                            {
-                                CromosomRow = j;
-                                CromosomColumn = i;
-                                Find = true;
-                                FindNumber++;
-                                Hit = true;
-                            }
-                        }
-                        if (Order == 1)
-                        {
-                            //When Cromosom 2 js Empty.
+
+                            else
                             if (Cromosom2[j, i] > 0 && Cromosom1[j, i] == 0)
                             {
-                                //Injtjate Locatjon of Table.
                                 CromosomRow = j;
                                 CromosomColumn = i;
                                 Find = true;
                                 FindNumber++;
-                                //Ki = List[Index][CromosomRow, CromosomColumn];
-                            }
-                            else
-                            {
-                                if (Cromosom2[j, i] == 0 && Cromosom1[j, i] > 0)
-                                {
-                                    //Injtjate Locatjon of Gen.
-                                    CromosomRowFirst = j;
-                                    CromosomColumnFirst = i;
-                                    Find = true;
-                                    FindNumber++;
-                                }
+                                //Hit = true;
                             }
                         }
                         else
                         {
-                            if (Cromosom2[j, i] < 0 && Cromosom1[j, i] == 0)
+                            if (Cromosom2[j, i] >= 0 && Cromosom1[j, i] < 0)
                             {
-                                //Injtjate Locatjon of Table.
+                                CromosomRowFirst = j;
+                                CromosomColumnFirst = i;
+                                Find = true;
+                                FindNumber++;
+                                //Hit = true;
+                            }
+
+                            else
+                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] == 0)
+                            {
                                 CromosomRow = j;
                                 CromosomColumn = i;
                                 Find = true;
                                 FindNumber++;
-                                //Ki = List[Index][CromosomRow, CromosomColumn];
-                            }
-                            else
-                            {
-                                if (Cromosom2[j, i] == 0 && Cromosom1[j, i] < 0)
-                                {
-                                    //When Cromosom1 Current Locatjon js Empty.
-
-                                    //Injtjate Locatjon of Gen.
-                                    CromosomRowFirst = j;
-                                    CromosomColumnFirst = i;
-                                    Find = true;
-                                    FindNumber++;
-
-                                }
+                                //Hit = true;
                             }
                         }
                     }
 
                 }
             }
+            Hit = HitSet(Order, Cromosom1, Cromosom2);
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FindGenToModified:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //If Gen Foundatjon js Valjd. 
             if (((FindNumber >= 1) && Find) || Brj || AllDraw.SodierConversionOcuured)
                 return Find;
             //Gen Not Found.
             return false;
+        }
+        bool HitSet(int Order, int[,] Cromosom1, int[,] Cromosom2)
+        {
+            bool Hit = false;
+            try
+            {
+                if (CromosomRowFirst != -1 && CromosomColumnFirst != -1 && CromosomRow != -1 && CromosomColumn != -1)
+                {
+                    if (Order == 1)
+                    {
+                        if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] > 0 && Cromosom1[CromosomRow, CromosomColumn] < 0)
+                            Hit = true;
+                    }
+                    else
+                    {
+                        if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] < 0 && Cromosom1[CromosomRow, CromosomColumn] > 0)
+                            Hit = true;
+                    }
+                }
+            }
+            catch (Exception t) { Log(t); }
+            return Hit;
         }
         int[,] CloneATable(int[,] Tab)
         {

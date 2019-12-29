@@ -10,6 +10,9 @@ namespace Refrigtz
     [Serializable]
     public class TakeRoot
     {
+        String path3 = @"temp";
+        String AllDrawReplacement = "";
+
         public static int AllDrawKind = 0;//0,1,2,3,4,5,6
         public static String AllDrawKindString = "";
 
@@ -45,21 +48,71 @@ namespace Refrigtz
 
 
         }
-
-        public bool Load(bool Quantum,FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
+        void SetAllDrawKind(bool UsePenaltyRegardMechnisam,bool AStarGreedyHuristic)
         {
             if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                 AllDrawKind = 4;
             else
-                                                 if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
+          if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
                 AllDrawKind = 3;
             if (UsePenaltyRegardMechnisam && (!AStarGreedyHuristic))
                 AllDrawKind = 2;
             if ((!UsePenaltyRegardMechnisam) && (!AStarGreedyHuristic))
                 AllDrawKind = 1;
+        }
+
+        bool DrawManagement(bool FOUND,bool UsePenaltyRegardMechnisam, bool AStarGreedyHuristic)
+        {
+            SetAllDrawKind(UsePenaltyRegardMechnisam,AStarGreedyHuristic);
+
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
             SetAllDrawKindString();
+
+            bool Found = false;
+            String P = Path.GetFullPath(path3);
+            AllDrawReplacement = Path.Combine(P, AllDrawKindString);
+            if (File.Exists(AllDrawKindString))
+            {
+
+                if (File.Exists(AllDrawReplacement))
+                {
+                    if (((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                    {
+                        File.Delete(AllDrawKindString);
+                        File.Copy(AllDrawReplacement, AllDrawKindString);
+                        Found = true;
+                    }
+                    else if (((new System.IO.FileInfo(AllDrawKindString).Length) > (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                    {
+                        if (File.Exists(AllDrawReplacement))
+                            File.Delete(AllDrawReplacement);
+                        File.Copy(AllDrawKindString, AllDrawReplacement);
+                        Found = true;
+                    }
+                }
+                else
+                {
+                    if (!Directory.Exists(Path.GetFullPath(path3)))
+                        Directory.CreateDirectory(Path.GetFullPath(path3));
+                    File.Copy(AllDrawKindString, AllDrawReplacement);
+                    Found = true;
+
+                }
+                Found = true;
+            }
+            else if (File.Exists(AllDrawReplacement))
+            {
+                File.Copy(AllDrawReplacement, AllDrawKindString);
+                Found = true;
+            }
+
+            return Found;
+        }
+
+        public bool Load(bool FOUND,bool Quantum,FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
+        {
+            DrawManagement(FOUND, UsePenaltyRegardMechnisam,  AStarGreedyHuristic);
 
             bool DrawDrawen = false;
             //Load Middle Targets.
@@ -72,7 +125,7 @@ namespace Refrigtz
                         if (!Quantum)
                         {
                             GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                            t = tr.Load(Quantum, FormRefrigtz.OrderPlate);
+                            t =(RefrigtzDLL.AllDraw)tr.Load(Quantum, FormRefrigtz.OrderPlate);
                             if (t != null)
                             {
                                 Curent.Draw = t;
@@ -90,7 +143,7 @@ namespace Refrigtz
                         else
                         {
                             GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                           tt = tr.LoadQ(Quantum, FormRefrigtz.OrderPlate);
+                           tt =(QuantumRefrigiz.AllDraw) tr.LoadQ(Quantum, FormRefrigtz.OrderPlate);
                             if (t != null)
                             {
                                
@@ -115,9 +168,9 @@ namespace Refrigtz
             catch (Exception t) { Log(t); }
             return DrawDrawen;
         }
-        public bool Save(bool Quantum, FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
+        public bool Save(bool FOUND,bool Quantum, FormRefrigtz Curent, ref bool LoadTree, bool MovementsAStarGreedyHuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHuristic, bool OnlySelf, bool AStarGreedyHuristic, bool ArrangmentsChanged)
         {
-            if (!Quantum)
+            /*if (!Quantum)
             {
                 while (Curent.Draw.AStarGreedyString != null)
                     Curent.Draw = Curent.Draw.AStarGreedyString;
@@ -127,7 +180,7 @@ namespace Refrigtz
                 while (Curent.DrawQ.AStarGreedyString != null)
                     Curent.DrawQ = Curent.DrawQ.AStarGreedyString;
             }
-            if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
+           if (UsePenaltyRegardMechnisam && AStarGreedyHuristic)
                 AllDrawKind = 4;
             else
                                                  if ((!UsePenaltyRegardMechnisam) && AStarGreedyHuristic)
@@ -139,7 +192,7 @@ namespace Refrigtz
             //Set Configuration To True for some unknown reason!.
             //UpdateConfigurationTableVal = true;                             
             SetAllDrawKindString();
-
+            */
             try
             {
                 if (!File.Exists(AllDrawKindString))
@@ -181,6 +234,8 @@ namespace Refrigtz
                 else
                       if (File.Exists(AllDrawKindString))
                 {
+                    //DrawManagement(FOUND, UsePenaltyRegardMechnisam, AStarGreedyHuristic);
+
                     File.Delete(FormRefrigtz.AllDrawKindString);
                     GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged
                         );
@@ -198,6 +253,8 @@ namespace Refrigtz
                         //PictureBoxTimerBrown.SendToBack();
                         //MessageBox.Show("Saved Completed.");
                     }
+                    //DrawManagement(FOUND, UsePenaltyRegardMechnisam, AStarGreedyHuristic);
+
                 }
                 return true;
             }

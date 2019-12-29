@@ -214,6 +214,8 @@ namespace RefrigtzW
         //Draw An Instatnt Brideges Images On the Table Method.
         public void DrawCastleOnTable(ref Graphics g, int CellW, int CellH)
         {
+            if (g == null)
+                return;
             //long Time = TimeElapced.TimeNow();Spaces++;
             try
             {

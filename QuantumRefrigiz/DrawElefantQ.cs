@@ -216,6 +216,8 @@ namespace QuantumRefrigiz
         //Draw an Instatnt Elephant On the Table.
         public void DrawElefantOnTable(ref Graphics g, int CellW, int CellH)
         {
+            if (g == null)
+                return;
             //long Time = TimeElapced.TimeNow();Spaces++;
             object balancelockS = new object();
 
