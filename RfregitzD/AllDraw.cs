@@ -961,7 +961,7 @@ namespace RefrigtzDLL
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-
+        
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index, bool Verify = false)
         {

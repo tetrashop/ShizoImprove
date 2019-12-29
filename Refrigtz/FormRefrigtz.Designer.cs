@@ -159,6 +159,8 @@ namespace Refrigtz
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonViewTree = new System.Windows.Forms.Button();
             this.checkBoxDeeperthandeeper = new System.Windows.Forms.CheckBox();
+            this.backgroundWorkerMoveGray = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerMoveBrown = new System.ComponentModel.BackgroundWorker();
             this.MenuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox32)).BeginInit();
@@ -1523,6 +1525,14 @@ namespace Refrigtz
             this.checkBoxDeeperthandeeper.UseVisualStyleBackColor = true;
             this.checkBoxDeeperthandeeper.CheckedChanged += new System.EventHandler(this.checkBoxDeeperthandeeper_CheckedChanged);
             // 
+            // backgroundWorkerMoveGray
+            // 
+            this.backgroundWorkerMoveGray.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMoveGray_DoWork);
+            // 
+            // backgroundWorkerMoveBrown
+            // 
+            this.backgroundWorkerMoveBrown.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMoveBrown_DoWork);
+            // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1904,6 +1914,8 @@ namespace Refrigtz
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonViewTree;
         private System.Windows.Forms.CheckBox checkBoxDeeperthandeeper;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerMoveGray;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerMoveBrown;
     }
 }
 
