@@ -6638,7 +6638,7 @@ namespace Refrigtz
                             DrawObjects();
 
                             PictureBoxRefrigtz.Image = ChessTable;
-                            //g.Dispose();
+                            g.Dispose();
                         }
                         catch (Exception t)
                         {
@@ -6731,7 +6731,7 @@ namespace Refrigtz
                             DrawObjectsQ();
 
                             PictureBoxRefrigtz.Image = ChessTable;
-                            //g.Dispose();
+                            g.Dispose();
                         }
                         catch (Exception t)
                         {
@@ -6746,11 +6746,10 @@ namespace Refrigtz
                     AllDrawLoad = true;
 
                 }
+                SetPrictureBoxRefregitzInvalidate(PictureBoxTimerGray);
+                SetPrictureBoxRefregitzUpdate(PictureBoxTimerGray);
+                Thread.Sleep(10);
             }
-
-            //SetPrictureBoxRefregitzInvalidate(PictureBoxTimerGray);
-            // SetPrictureBoxRefregitzUpdate(PictureBoxTimerGray);
-
         }
 
         int CalculateMoveMentHueuristicUser(int Kind, int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
@@ -6842,7 +6841,7 @@ namespace Refrigtz
             Object OOOO = new Object();
             lock (OOOO)
             {
-                //DrawImageOfMain();
+                DrawImageOfMain();
                 g = Graphics.FromImage(ChessTable);
                 if (!Quantum)
                 {
@@ -7185,7 +7184,7 @@ namespace Refrigtz
                 }
             }
         }
-        void MovementCastleKingGray(RefrigtzDLL.ChessRules AA)
+        void MovementCastleKingGray(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             object O = new object();
             lock (O)
@@ -7360,33 +7359,35 @@ namespace Refrigtz
                     //TakeRoot.CalculateRootGray(Draw);
 
                 }
-
                 else
-                {
-                    if (!ArrangmentsChanged)
-                    {
-                        if (ColumnClickP == 0)
-                            Table[(int)RowClickP, (int)ColumnClickP] = 6;
-                        else
-                            if (ColumnClickP == 7)
-                            Table[(int)RowClickP, (int)ColumnClickP] = -6;
-                    }
-                    else
-                    {
-                        if (ColumnClickP == 7)
-                            Table[(int)RowClickP, (int)ColumnClickP] = 6;
-                        else
-                            if (ColumnClickP == 0)
-                            Table[(int)RowClickP, (int)ColumnClickP] = -6;
-                    }
-                    Draw.KingOnTable[King] = new RefrigtzDLL.DrawKing(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, King);
-                    Draw.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                    Do = false;
+
+                /*      else
+                      {
+                          if (!ArrangmentsChanged)
+                          {
+                              if (ColumnClickP == 0)
+                                  Table[(int)RowClickP, (int)ColumnClickP] = 6;
+                              else
+                                  if (ColumnClickP == 7)
+                                  Table[(int)RowClickP, (int)ColumnClickP] = -6;
+                          }
+                          else
+                          {
+                              if (ColumnClickP == 7)
+                                  Table[(int)RowClickP, (int)ColumnClickP] = 6;
+                              else
+                                  if (ColumnClickP == 0)
+                                  Table[(int)RowClickP, (int)ColumnClickP] = -6;
+                          }
+                          Draw.KingOnTable[King] = new RefrigtzDLL.DrawKing(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, King);
+                          Draw.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                          Clicked = false; BobSection = false;
+                      }*/
 
             }
         }
-        void MovementSoldierGray(RefrigtzDLL.ChessRules AA)
+        void MovementSoldierGray(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -7505,16 +7506,18 @@ namespace Refrigtz
                     return;
                 }
                 else
-                {
+                    Do = false;
+                /*else
+                              {
 
-                    Draw.SolderesOnTable[Soldier] = new RefrigtzDLL.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, Soldier);
-                    Table[(int)RowClickP, (int)ColumnClickP] = 1;
-                    Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                                  Draw.SolderesOnTable[Soldier] = new RefrigtzDLL.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, Soldier);
+                                  Table[(int)RowClickP, (int)ColumnClickP] = 1;
+                                  Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                                  Clicked = false; BobSection = false;
+                              }*/
             }
         }
-        void MovementElephantGray(RefrigtzDLL.ChessRules AA)
+        void MovementElephantGray(RefrigtzDLL.ChessRules AA, ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -7584,16 +7587,18 @@ namespace Refrigtz
                     return;
                 }
                 else
-                {
+                    Do = false;
+                /* else
+                 {
 
-                    Table[(int)RowClickP, (int)ColumnClickP] = 2;
-                    Draw.ElephantOnTable[Elefant] = new RefrigtzDLL.DrawElefant(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, Elefant);
-                    Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                     Table[(int)RowClickP, (int)ColumnClickP] = 2;
+                     Draw.ElephantOnTable[Elefant] = new RefrigtzDLL.DrawElefant(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, Elefant);
+                     Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                     Clicked = false; BobSection = false;
+                 }*/
             }
         }
-        void MovmentHourseGray(RefrigtzDLL.ChessRules AA)
+        void MovmentHourseGray(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -7664,6 +7669,8 @@ namespace Refrigtz
                     return;
                 }
                 else
+                    Do = false;
+                /*   else
                 {
 
                     Table[(int)RowClickP, (int)ColumnClickP] = 3;
@@ -7672,9 +7679,10 @@ namespace Refrigtz
                     Clicked = false; BobSection = false;
 
                 }
+                */
             }
         }
-        void MovmentCastleGray(RefrigtzDLL.ChessRules AA)
+        void MovmentCastleGray(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -7745,16 +7753,18 @@ namespace Refrigtz
                     return;
                 }
                 else
+                    Do = false;
+                /*        else
                 {
 
                     Table[(int)RowClickP, (int)ColumnClickP] = 4;
                     Draw.CastlesOnTable[Castle] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, Castle);
                     Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
                     Clicked = false; BobSection = false;
-                }
+                }*/
             }
         }
-        void MovmentMinisterGray(RefrigtzDLL.ChessRules AA)
+        void MovmentMinisterGray(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object o = new Object();
             lock (o)
@@ -7826,16 +7836,18 @@ namespace Refrigtz
                     return;
                 }
                 else
-                {
+                    Do = false;
+                /*       else
+              {
 
-                    Table[(int)RowClickP, (int)ColumnClickP] = 5;
-                    Draw.MinisterOnTable[Minister] = new RefrigtzDLL.DrawMinister(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, Minister);
-                    Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                  Table[(int)RowClickP, (int)ColumnClickP] = 5;
+                  Draw.MinisterOnTable[Minister] = new RefrigtzDLL.DrawMinister(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, Minister);
+                  Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                  Clicked = false; BobSection = false;
+              }*/
             }
         }
-        void MovmentKingGray(RefrigtzDLL.ChessRules AA)
+        void MovmentKingGray(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -7904,18 +7916,20 @@ namespace Refrigtz
                     Clicked = false; BobSection = false;
                     return;
                 }
-
                 else
-                {
+                    Do = false;
 
-                    Table[(int)RowClickP, (int)ColumnClickP] = 6;
-                    Draw.KingOnTable[King] = new RefrigtzDLL.DrawKing(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, King);
-                    Draw.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                /* else
+                 {
+
+                     Table[(int)RowClickP, (int)ColumnClickP] = 6;
+                     Draw.KingOnTable[King] = new RefrigtzDLL.DrawKing(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, King);
+                     Draw.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                     Clicked = false; BobSection = false;
+                 }*/
             }
         }
-        void MovmentCastleKingBrown(RefrigtzDLL.ChessRules AA)
+        void MovmentCastleKingBrown(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -8088,30 +8102,32 @@ namespace Refrigtz
                 }
 
                 else
-                {
-                    if (!ArrangmentsChanged)
-                    {
-                        if (ColumnClickP == 0)
-                            Table[(int)RowClickP, (int)ColumnClickP] = 6;
-                        else
-                            if (ColumnClickP == 7)
-                            Table[(int)RowClickP, (int)ColumnClickP] = -6;
-                    }
-                    else
-                    {
-                        if (ColumnClickP == 7)
-                            Table[(int)RowClickP, (int)ColumnClickP] = 6;
-                        else
-                            if (ColumnClickP == 0)
-                            Table[(int)RowClickP, (int)ColumnClickP] = -6;
-                    }
-                    Draw.KingOnTable[King] = new RefrigtzDLL.DrawKing(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, King);
-                    Draw.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                    Do = false;
+                /*    else
+                 {
+                     if (!ArrangmentsChanged)
+                     {
+                         if (ColumnClickP == 0)
+                             Table[(int)RowClickP, (int)ColumnClickP] = 6;
+                         else
+                             if (ColumnClickP == 7)
+                             Table[(int)RowClickP, (int)ColumnClickP] = -6;
+                     }
+                     else
+                     {
+                         if (ColumnClickP == 7)
+                             Table[(int)RowClickP, (int)ColumnClickP] = 6;
+                         else
+                             if (ColumnClickP == 0)
+                             Table[(int)RowClickP, (int)ColumnClickP] = -6;
+                     }
+                     Draw.KingOnTable[King] = new RefrigtzDLL.DrawKing(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Gray, CloneATable(Table), OrderPlate, false, King);
+                     Draw.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                     Clicked = false; BobSection = false;
+                 }*/
             }
         }
-        void MovmentSoldierBrown(RefrigtzDLL.ChessRules AA)
+        void MovmentSoldierBrown(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -8228,17 +8244,19 @@ namespace Refrigtz
 
                 }
                 else
-                {
+                    Do = false;
+                /*   else
+               {
 
-                    Table[(int)RowClickP, (int)ColumnClickP] = -1;
-                    Draw.SolderesOnTable[Soldier] = new RefrigtzDLL.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Soldier);
-                    Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                   Table[(int)RowClickP, (int)ColumnClickP] = -1;
+                   Draw.SolderesOnTable[Soldier] = new RefrigtzDLL.DrawSoldier(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Soldier);
+                   Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                   Clicked = false; BobSection = false;
+               }*/
             }
         }
 
-        void MovementElephantBrown(RefrigtzDLL.ChessRules AA)
+        void MovementElephantBrown(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -8309,16 +8327,18 @@ namespace Refrigtz
                     return;
                 }
                 else
-                {
+                    Do = false;
+                /* else
+                  {
 
-                    Table[(int)RowClickP, (int)ColumnClickP] = -2;
-                    Draw.ElephantOnTable[Elefant] = new RefrigtzDLL.DrawElefant(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Elefant);
-                    Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                      Table[(int)RowClickP, (int)ColumnClickP] = -2;
+                      Draw.ElephantOnTable[Elefant] = new RefrigtzDLL.DrawElefant(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Elefant);
+                      Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                      Clicked = false; BobSection = false;
+                  }*/
             }
         }
-        void MovmentHourseBrown(RefrigtzDLL.ChessRules AA)
+        void MovmentHourseBrown(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -8388,17 +8408,19 @@ namespace Refrigtz
                     Clicked = false; BobSection = false;
                     return;
                 }
-                else
+              else
+                    Do= false;
+              /*   else
                 {
 
                     Table[(int)RowClickP, (int)ColumnClickP] = -3;
                     Draw.HoursesOnTable[Hourse] = new RefrigtzDLL.DrawHourse(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Hourse);
                     Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
                     Clicked = false; BobSection = false;
-                }
+                }*/
             }
         }
-        void MovmentCastleBrown(RefrigtzDLL.ChessRules AA)
+        void MovmentCastleBrown(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -8469,16 +8491,18 @@ namespace Refrigtz
                     return;
                 }
                 else
-                {
+                    Do = false;
+                /*      else
+                              {
 
-                    Table[(int)RowClickP, (int)ColumnClickP] = -4;
-                    Draw.CastlesOnTable[Castle] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Castle);
-                    Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                                  Table[(int)RowClickP, (int)ColumnClickP] = -4;
+                                  Draw.CastlesOnTable[Castle] = new RefrigtzDLL.DrawCastle(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Castle);
+                                  Draw.CastlesOnTable[Castle].DrawCastleOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                                  Clicked = false; BobSection = false;
+                              }*/
             }
         }
-        void MovmentMinisterBrown(RefrigtzDLL.ChessRules AA)
+        void MovmentMinisterBrown(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -8551,16 +8575,18 @@ namespace Refrigtz
                     return;
                 }
                 else
-                {
-                    Table[(int)RowClickP, (int)ColumnClickP] = -5;
-                    Draw.MinisterOnTable[Minister] = new RefrigtzDLL.DrawMinister(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Minister);
+                    Do = false;
+                /*  else
+                              {
+                                  Table[(int)RowClickP, (int)ColumnClickP] = -5;
+                                  Draw.MinisterOnTable[Minister] = new RefrigtzDLL.DrawMinister(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, Minister);
 
-                    Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                    Clicked = false; BobSection = false;
-                }
+                                  Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
+                                  Clicked = false; BobSection = false;
+                              }*/
             }
         }
-        void MovmentKingBrown(RefrigtzDLL.ChessRules AA)
+        void MovmentKingBrown(RefrigtzDLL.ChessRules AA,ref bool Do)
         {
             Object O = new Object();
             lock (O)
@@ -8632,15 +8658,17 @@ namespace Refrigtz
                     Clicked = false; BobSection = false;
                     return;
                 }
+     else
+                    Do = false;
 
-                else
+             /*   else
                 {
 
                     Table[(int)RowClickP, (int)ColumnClickP] = -6;
                     Draw.KingOnTable[King] = new RefrigtzDLL.DrawKing(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, RowClickP, ColumnClickP, Color.Brown, CloneATable(Table), OrderPlate, false, King);
                     Draw.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
                     Clicked = false; BobSection = false;
-                }
+                }*/
             }
         }
         bool MovementRefrigitzDLL()
@@ -8657,7 +8685,7 @@ namespace Refrigtz
                 RefrigtzDLL.ChessRules AA = null;
                 //do
                 {
-                    Thread.Sleep(250);
+                    Thread.Sleep(10);
                     if (RefrigtzDLL.AllDraw.MouseClick == 1 //|| RefrigtzDLL.AllDraw.MouseClick == 2
                         )
                     {
@@ -8706,8 +8734,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovementCastleKingGray(AA);
-                                        Do = false;
+                                        MovementCastleKingGray(AA,ref Do);
+                                        //Do = false;
                                     }
                                 }
                                 else
@@ -8721,8 +8749,8 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
 
-                                        MovementSoldierGray(AA);
-                                        Do = false;
+                                        MovementSoldierGray(AA,ref Do);
+                                        //Do = false;
 
                                     }
                                     //SetRefregitzBicture();
@@ -8738,8 +8766,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovementElephantGray(AA);
-                                        Do = false;
+                                        MovementElephantGray(AA,ref Do);
+                                        //Do = false;
                                     }
 
                                     //SetRefregitzBicture();
@@ -8756,8 +8784,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentHourseGray(AA);
-                                        Do = false;
+                                        MovmentHourseGray(AA,ref Do);
+                                        //Do = false;
                                     }
                                     //SetRefregitzBicture();
 
@@ -8774,8 +8802,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentCastleGray(AA);
-                                        Do = false;
+                                        MovmentCastleGray(AA,ref Do);
+                                        //Do = false;
                                     }
 
                                     //SetRefregitzBicture();
@@ -8795,8 +8823,8 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
 
-                                        MovmentMinisterGray(AA);
-                                        Do = false;
+                                        MovmentMinisterGray(AA,ref Do);
+                                        //Do = false;
                                     }
 
                                     //SetRefregitzBicture();
@@ -8813,8 +8841,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentKingGray(AA);
-                                        Do = false;
+                                        MovmentKingGray(AA,ref Do);
+                                        //Do = false;
                                     }
                                     //SetRefregitzBicture();
 
@@ -8835,8 +8863,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentCastleKingBrown(AA);
-                                        Do = false;
+                                        MovmentCastleKingBrown(AA,ref Do);
+                                        //Do = false;
 
                                         //SetRefregitzBicture();
 
@@ -8853,8 +8881,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentSoldierBrown(AA);
-                                        Do = false;
+                                        MovmentSoldierBrown(AA,ref Do);
+                                        //Do = false;
                                     }
                                     //SetRefregitzBicture();
 
@@ -8869,8 +8897,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovementElephantBrown(AA);
-                                        Do = false;
+                                        MovementElephantBrown(AA,ref Do);
+                                        //Do = false;
                                     }
                                     //SetRefregitzBicture();
 
@@ -8887,8 +8915,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentHourseBrown(AA);
-                                        Do = false;
+                                        MovmentHourseBrown(AA,ref Do);
+                                        //Do = false;
                                     }
 
                                     //SetRefregitzBicture();
@@ -8905,9 +8933,9 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentCastleBrown(AA);
-                                        Do = false;
-                                    }
+                                        MovmentCastleBrown(AA, ref Do);
+                                    //Do = false;
+                                }
 
                                     //SetRefregitzBicture();
                                 }
@@ -8923,7 +8951,7 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentMinisterBrown(AA);
+                                        MovmentMinisterBrown(AA,ref Do);
 
                                     }
                                     //SetRefregitzBicture();
@@ -8943,8 +8971,8 @@ namespace Refrigtz
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentKingBrown(AA);
-                                        Do = false;
+                                        MovmentKingBrown(AA,ref Do);
+                                        //Do = false;
 
                                     }
 
@@ -8969,7 +8997,7 @@ namespace Refrigtz
                         return false;
                     }
                     //if (RefrigtzDLL.AllDraw.MouseClick == 2)
-                    //DrawImageOfMain();
+                    DrawImageOfMain();
 
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
 
@@ -10907,6 +10935,8 @@ namespace Refrigtz
                                 RefrigtzDLL.AllDraw.DrawTable = true;
                             else
                                 QuantumRefrigiz.AllDraw.DrawTable = true;
+                            SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
+                            SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
                         }
 
                         if (backgroundWorkerMoveGray.WorkerSupportsCancellation)
@@ -10932,6 +10962,8 @@ namespace Refrigtz
                                 RefrigtzDLL.AllDraw.DrawTable = true;
                             else
                                 QuantumRefrigiz.AllDraw.DrawTable = true;
+                            SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
+                            SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
                         }
                         if (backgroundWorkerMoveBrown.WorkerSupportsCancellation)
                         {
@@ -12763,11 +12795,11 @@ namespace Refrigtz
                             if (FOUND)
                             {
                                 //Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                                //DrawImageOfMain();
+                                DrawImageOfMain();
                                 return true;
                             }
                             //Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                            //DrawImageOfMain();
+                            DrawImageOfMain();
                             return false;
 
                         }
@@ -12887,11 +12919,11 @@ namespace Refrigtz
                             if (FOUND)
                             {
                                 // DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                                //DrawImageOfMain();
+                                DrawImageOfMain();
                                 return true;
                             }
                             //DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                            //DrawImageOfMain();
+                            DrawImageOfMain();
                             return false;
                         }
                         else
@@ -14437,12 +14469,12 @@ namespace Refrigtz
                 if (!Quantum)
                 {
                     RefrigtzDLL.AllDraw.DrawTable = true;
-                    //DrawObjects();
+                    DrawObjects();
                 }
                 else
                 {
                     QuantumRefrigiz.AllDraw.DrawTable = true;
-                    //DrawObjectsQ();
+                    DrawObjectsQ();
                 }
                 SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
                 SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
@@ -15503,7 +15535,7 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                //System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(10);
                 MouseClicked = true;
                 for (int i = 0; i < 8; i++)
                 {
@@ -15994,6 +16026,7 @@ namespace Refrigtz
                 {
                     Log(t);
                 }
+                Thread.Sleep(10);
             }
         }
         //Computer By Computer tool Strip Menu Item Event Handlimng.
