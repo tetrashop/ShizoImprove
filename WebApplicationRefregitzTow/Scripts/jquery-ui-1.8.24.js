@@ -3154,8 +3154,8 @@ $.widget("ui.sortable", $.ui.mouse, {
 		this.position = this._generatePosition(event);
 		this.positionAbs = this._convertPositionTo("absolute");
 
-		if (!this.lastPositionAbs) {
-			this.lastPositionAbs = this.positionAbs;
+		if (!this.LastPositionAbs) {
+			this.LastPositionAbs = this.positionAbs;
 		}
 
 		//Do scrolling
@@ -3243,7 +3243,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		//Call callbacks
 		this._trigger('sort', event, this._uiHash());
 
-		this.lastPositionAbs = this.positionAbs;
+		this.LastPositionAbs = this.positionAbs;
 		return false;
 
 	},
@@ -3417,12 +3417,12 @@ $.widget("ui.sortable", $.ui.mouse, {
 	},
 
 	_getDragVerticalDirection: function() {
-		var delta = this.positionAbs.top - this.lastPositionAbs.top;
+		var delta = this.positionAbs.top - this.LastPositionAbs.top;
 		return delta != 0 && (delta > 0 ? "down" : "up");
 	},
 
 	_getDragHorizontalDirection: function() {
-		var delta = this.positionAbs.left - this.lastPositionAbs.left;
+		var delta = this.positionAbs.left - this.LastPositionAbs.left;
 		return delta != 0 && (delta > 0 ? "right" : "left");
 	},
 
@@ -3888,7 +3888,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 		// 1. we create a setTimeout, that calls refreshPositions
 		// 2. on the instance, we have a counter variable, that get's higher after every append
 		// 3. on the local scope, we copy the counter variable, and check in the timeout, if it's still the same
-		// 4. this lets only the last addition to the timeout stack through
+		// 4. this lets only the Last addition to the timeout stack through
 		this.counter = this.counter ? ++this.counter : 1;
 		var self = this, counter = this.counter;
 
@@ -4576,7 +4576,7 @@ $.extend( baseEasings, {
 	Circ: function ( p ) {
 		return 1 - Math.sqrt( 1 - p * p );
 	},
-	Elastic: function( p ) {
+	ELastic: function( p ) {
 		return p === 0 || p === 1 ? p :
 			-Math.pow( 2, 8 * (p - 1) ) * Math.sin( ( (p - 1) * 80 - 7.5 ) * Math.PI / 15 );
 	},
@@ -6290,7 +6290,7 @@ $.widget( "ui.autocomplete", {
 			return;
 		}
 		if ( this.menu.first() && /^previous/.test(direction) ||
-				this.menu.last() && /^next/.test(direction) ) {
+				this.menu.Last() && /^next/.test(direction) ) {
 			this.element.val( this.term );
 			this.menu.deactivate();
 			return;
@@ -6419,14 +6419,14 @@ $.widget("ui.menu", {
 	},
 
 	previous: function(event) {
-		this.move("prev", ".ui-menu-item:last", event);
+		this.move("prev", ".ui-menu-item:Last", event);
 	},
 
 	first: function() {
 		return this.active && !this.active.prevAll(".ui-menu-item").length;
 	},
 
-	last: function() {
+	Last: function() {
 		return this.active && !this.active.nextAll(".ui-menu-item").length;
 	},
 
@@ -6447,7 +6447,7 @@ $.widget("ui.menu", {
 	nextPage: function(event) {
 		if (this.hasScroll()) {
 			// TODO merge with no-scroll-else
-			if (!this.active || this.last()) {
+			if (!this.active || this.Last()) {
 				this.activate(event, this.element.children(".ui-menu-item:first"));
 				return;
 			}
@@ -6459,14 +6459,14 @@ $.widget("ui.menu", {
 					return close < 10 && close > -10;
 				});
 
-			// TODO try to catch this earlier when scrollTop indicates the last page anyway
+			// TODO try to catch this earlier when scrollTop indicates the Last page anyway
 			if (!result.length) {
-				result = this.element.children(".ui-menu-item:last");
+				result = this.element.children(".ui-menu-item:Last");
 			}
 			this.activate(event, result);
 		} else {
 			this.activate(event, this.element.children(".ui-menu-item")
-				.filter(!this.active || this.last() ? ":first" : ":last"));
+				.filter(!this.active || this.Last() ? ":first" : ":Last"));
 		}
 	},
 
@@ -6475,7 +6475,7 @@ $.widget("ui.menu", {
 		if (this.hasScroll()) {
 			// TODO merge with no-scroll-else
 			if (!this.active || this.first()) {
-				this.activate(event, this.element.children(".ui-menu-item:last"));
+				this.activate(event, this.element.children(".ui-menu-item:Last"));
 				return;
 			}
 
@@ -6487,14 +6487,14 @@ $.widget("ui.menu", {
 					return close < 10 && close > -10;
 				});
 
-			// TODO try to catch this earlier when scrollTop indicates the last page anyway
+			// TODO try to catch this earlier when scrollTop indicates the Last page anyway
 			if (!result.length) {
 				result = this.element.children(".ui-menu-item:first");
 			}
 			this.activate(event, result);
 		} else {
 			this.activate(event, this.element.children(".ui-menu-item")
-				.filter(!this.active || this.first() ? ":last" : ":first"));
+				.filter(!this.active || this.first() ? ":Last" : ":first"));
 		}
 	},
 
@@ -6511,7 +6511,7 @@ $.widget("ui.menu", {
 
 (function( $, undefined ) {
 
-var lastActive, startXPos, startYPos, clickDragged,
+var LastActive, startXPos, startYPos, clickDragged,
 	baseClasses = "ui-button ui-widget ui-state-default ui-corner-all",
 	stateClasses = "ui-state-hover ui-state-active ",
 	typeClasses = "ui-button-icons-only ui-button-icon-only ui-button-text-icons ui-button-text-icon-primary ui-button-text-icon-secondary ui-button-text-only",
@@ -6580,7 +6580,7 @@ $.widget( "ui.button", {
 					return;
 				}
 				$( this ).addClass( "ui-state-hover" );
-				if ( this === lastActive ) {
+				if ( this === LastActive ) {
 					$( this ).addClass( "ui-state-active" );
 				}
 			})
@@ -6667,9 +6667,9 @@ $.widget( "ui.button", {
 						return false;
 					}
 					$( this ).addClass( "ui-state-active" );
-					lastActive = this;
+					LastActive = this;
 					$( document ).one( "mouseup", function() {
-						lastActive = null;
+						LastActive = null;
 					});
 				})
 				.bind( "mouseup.button", function() {
@@ -6722,7 +6722,7 @@ $.widget( "ui.button", {
 		if ( this.type === "CheckBox" || this.type === "radio" ) {
 			// we don't search against the document in case the element
 			// is disconnected from the DOM
-			var ancestor = this.element.parents().filter(":last"),
+			var ancestor = this.element.parents().filter(":Last"),
 				labelSelector = "label[for='" + this.element.attr("id") + "']";
 			this.buttonElement = ancestor.find( labelSelector );
 			if ( !this.buttonElement.length ) {
@@ -6889,7 +6889,7 @@ $.widget( "ui.buttonset", {
 				.filter( ":first" )
 					.addClass( rtl ? "ui-corner-right" : "ui-corner-left" )
 				.end()
-				.filter( ":last" )
+				.filter( ":Last" )
 					.addClass( rtl ? "ui-corner-left" : "ui-corner-right" )
 				.end()
 			.end();
@@ -6927,7 +6927,7 @@ var instActive;
 function Datepicker() {
 	this.debug = false; // Change this to true to start debugging
 	this._curInst = null; // The current instance in use
-	this._keyEvent = false; // If the last event was a key event
+	this._keyEvent = false; // If the Last event was a key event
 	this._disabledInputs = []; // List of date picker inputs that have been disabled
 	this._datepickerShowing = false; // True if the popup picker is showing , false if not
 	this._inDialog = false; // True if showing within a "dialog", false if not
@@ -7132,9 +7132,9 @@ $.extend(Datepicker.prototype, {
 					{ src:buttonImage, alt:buttonText, title:buttonText })));
 			input[isRTL ? 'before' : 'after'](inst.trigger);
 			inst.trigger.click(function() {
-				if ($.datepicker._datepickerShowing && $.datepicker._lastInput == input[0])
+				if ($.datepicker._datepickerShowing && $.datepicker._LastInput == input[0])
 					$.datepicker._hideDatepicker();
-				else if ($.datepicker._datepickerShowing && $.datepicker._lastInput != input[0]) {
+				else if ($.datepicker._datepickerShowing && $.datepicker._LastInput != input[0]) {
 					$.datepicker._hideDatepicker(); 
 					$.datepicker._showDatepicker(input[0]);
 				} else
@@ -7510,7 +7510,7 @@ $.extend(Datepicker.prototype, {
 	/* Synchronise manual entry and field/alternate field. */
 	_doKeyUp: function(event) {
 		var inst = $.datepicker._getInst(event.target);
-		if (inst.input.val() != inst.lastVal) {
+		if (inst.input.val() != inst.LastVal) {
 			try {
 				var date = $.datepicker.parseDate($.datepicker._get(inst, 'dateFormat'),
 					(inst.input ? inst.input.val() : null),
@@ -7536,7 +7536,7 @@ $.extend(Datepicker.prototype, {
 		input = input.target || input;
 		if (input.nodeName.toLowerCase() != 'input') // find from button/image trigger
 			input = $('input', input.parentNode)[0];
-		if ($.datepicker._isDisabledDatepicker(input) || $.datepicker._lastInput == input) // already here
+		if ($.datepicker._isDisabledDatepicker(input) || $.datepicker._LastInput == input) // already here
 			return;
 		var inst = $.datepicker._getInst(input);
 		if ($.datepicker._curInst && $.datepicker._curInst != inst) {
@@ -7552,8 +7552,8 @@ $.extend(Datepicker.prototype, {
 			return;
 		}
 		extendRemove(inst.settings, beforeShowSettings);
-		inst.lastVal = null;
-		$.datepicker._lastInput = input;
+		inst.LastVal = null;
+		$.datepicker._LastInput = input;
 		$.datepicker._setDateFromField(inst);
 		if ($.datepicker._inDialog) // hide cursor
 			input.value = '';
@@ -7717,7 +7717,7 @@ $.extend(Datepicker.prototype, {
 			if (onClose)
 				onClose.apply((inst.input ? inst.input[0] : null),
 					[(inst.input ? inst.input.val() : ''), inst]);
-			this._lastInput = null;
+			this._LastInput = null;
 			if (this._inDialog) {
 				this._dialogInput.css({ position: 'absolute', left: '0', top: '-100px' });
 				if ($.blockUI) {
@@ -7832,10 +7832,10 @@ $.extend(Datepicker.prototype, {
 			this._updateDatepicker(inst);
 		else {
 			this._hideDatepicker();
-			this._lastInput = inst.input[0];
+			this._LastInput = inst.input[0];
 			if (typeof(inst.input[0]) != 'object')
 				inst.input.focus(); // restore focus
-			this._lastInput = null;
+			this._LastInput = null;
 		}
 	},
 
@@ -8185,11 +8185,11 @@ $.extend(Datepicker.prototype, {
 
 	/* Parse existing date and initialise date picker. */
 	_setDateFromField: function(inst, noDefault) {
-		if (inst.input.val() == inst.lastVal) {
+		if (inst.input.val() == inst.LastVal) {
 			return;
 		}
 		var dateFormat = this._get(inst, 'dateFormat');
-		var dates = inst.lastVal = inst.input ? inst.input.val() : null;
+		var dates = inst.LastVal = inst.input ? inst.input.val() : null;
 		var date, defaultDate;
 		date = defaultDate = this._getDefaultDate(inst);
 		var settings = this._getFormatConfig(inst);
@@ -8430,7 +8430,7 @@ $.extend(Datepicker.prototype, {
 						switch (col) {
 							case 0: calender += ' ui-datepicker-group-first';
 								cornerClass = ' ui-corner-' + (isRTL ? 'right' : 'left'); break;
-							case numMonths[1]-1: calender += ' ui-datepicker-group-last';
+							case numMonths[1]-1: calender += ' ui-datepicker-group-Last';
 								cornerClass = ' ui-corner-' + (isRTL ? 'left' : 'right'); break;
 							default: calender += ' ui-datepicker-group-middle'; cornerClass = ''; break;
 						}
@@ -9063,13 +9063,13 @@ $.widget("ui.dialog", {
 
 				var tabbables = $(':tabbable', this),
 					first = tabbables.filter(':first'),
-					last  = tabbables.filter(':last');
+					Last  = tabbables.filter(':Last');
 
-				if (event.target === last[0] && !event.shiftKey) {
+				if (event.target === Last[0] && !event.shiftKey) {
 					first.focus(1);
 					return false;
 				} else if (event.target === first[0] && event.shiftKey) {
-					last.focus(1);
+					Last.focus(1);
 					return false;
 				}
 			});
@@ -10587,7 +10587,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 			animate = ( !this._animateOff ) ? o.animate : false,
 			valPercent,
 			_set = {},
-			lastValPercent,
+			LastValPercent,
 			value,
 			valueMin,
 			valueMax;
@@ -10603,18 +10603,18 @@ $.widget( "ui.slider", $.ui.mouse, {
 							self.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { left: valPercent + "%" }, o.animate );
 						}
 						if ( i === 1 ) {
-							self.range[ animate ? "animate" : "css" ]( { width: ( valPercent - lastValPercent ) + "%" }, { queue: false, duration: o.animate } );
+							self.range[ animate ? "animate" : "css" ]( { width: ( valPercent - LastValPercent ) + "%" }, { queue: false, duration: o.animate } );
 						}
 					} else {
 						if ( i === 0 ) {
 							self.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { bottom: ( valPercent ) + "%" }, o.animate );
 						}
 						if ( i === 1 ) {
-							self.range[ animate ? "animate" : "css" ]( { height: ( valPercent - lastValPercent ) + "%" }, { queue: false, duration: o.animate } );
+							self.range[ animate ? "animate" : "css" ]( { height: ( valPercent - LastValPercent ) + "%" }, { queue: false, duration: o.animate } );
 						}
 					}
 				}
-				lastValPercent = valPercent;
+				LastValPercent = valPercent;
 			});
 		} else {
 			value = this.value();
@@ -10979,7 +10979,7 @@ $.widget( "ui.tabs", {
 
 			// If tab is already selected and not collapsible or tab disabled or
 			// or is already loading or click callback returns false stop here.
-			// Check if click handler returns false last so that it is not executed
+			// Check if click handler returns false Last so that it is not executed
 			// for a disabled or loading tab!
 			if ( ( $li.hasClass( "ui-tabs-selected" ) && !o.collapsible) ||
 				$li.hasClass( "ui-state-disabled" ) ||
@@ -11178,7 +11178,7 @@ $.widget( "ui.tabs", {
 			$panel = this.panels.eq( index ).remove();
 
 		// If selected tab was removed focus tab to the right or
-		// in case the last tab was removed the tab to the left.
+		// in case the Last tab was removed the tab to the left.
 		if ( $li.hasClass( "ui-tabs-selected" ) && this.anchors.length > 1) {
 			this.select( index + ( index + 1 < this.anchors.length ? 1 : -1 ) );
 		}
@@ -11299,7 +11299,7 @@ $.widget( "ui.tabs", {
 			}
 		} ) );
 
-		// last, so that load event is fired before show...
+		// Last, so that load event is fired before show...
 		self.element.dequeue( "tabs" );
 
 		return this;

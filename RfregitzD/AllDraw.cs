@@ -3369,7 +3369,7 @@ namespace RefrigtzDLL
 
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    //for castle gray
+                    //for Castle gray
                     for (var i = 0; i < CastleMidle; i++)
                         for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
@@ -3562,7 +3562,7 @@ namespace RefrigtzDLL
 
 
                         }
-                    //for castle gray
+                    //for Castle gray
                     for (var i = 0; i < CastleMidle; i++)
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
@@ -3649,7 +3649,7 @@ namespace RefrigtzDLL
 
 
                         }
-                    //for brown castle
+                    //for brown Castle
                     for (var i = CastleMidle; i < CastleHigh; i++)
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
@@ -3809,7 +3809,7 @@ namespace RefrigtzDLL
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].FoundOfCurrentTableNode(Tab, Order * -1, ref THIS, ref Found);
                 }
             }
-            //castle
+            //Castle
             if (BondryObjectNumber(i, 4, Order) && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null)
             {
                 //for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
@@ -3937,7 +3937,7 @@ namespace RefrigtzDLL
 
                         }
                     }
-                    //castle
+                    //Castle
                     for (var i = 0; i < CastleMidle; i++)
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
@@ -4082,7 +4082,7 @@ namespace RefrigtzDLL
 
                         }
                     }
-                    //castle
+                    //Castle
                     for (var i = CastleMidle; i < CastleHigh; i++)
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
@@ -4237,7 +4237,7 @@ namespace RefrigtzDLL
 
                         }
                     }
-                    //castle
+                    //Castle
                     for (var i = 0; i < CastleMidle; i++)
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
@@ -4376,7 +4376,7 @@ namespace RefrigtzDLL
 
                         }
                     }
-                    //castle
+                    //Castle
                     for (var i = CastleMidle; i < CastleHigh; i++)
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
@@ -4671,7 +4671,7 @@ namespace RefrigtzDLL
                         }
                     }
                 }
-                //castle
+                //Castle
                 for (int i = 0; CastlesOnTable != null && i < CastleMidle; i++)
                 {
                     if (CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > 0)
@@ -4797,7 +4797,7 @@ namespace RefrigtzDLL
                         }
                     }
                 }
-                //castle
+                //Castle
                 for (int i = CastleMidle; CastlesOnTable != null && i < CastleHigh; i++)
                 {
                     if (CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > 0)
@@ -4895,7 +4895,7 @@ namespace RefrigtzDLL
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy.RemoveAt(h);
                     }
                 }
-                else//castle
+                else//Castle
                     if (Kind == 4)
                 {
                     //remove extra
@@ -4951,7 +4951,7 @@ namespace RefrigtzDLL
                     if (HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], HoursesOnTable[i].HourseThinking[0].TableListHourse[j])))
                         Is = true;
                 }
-                else//castle
+                else//Castle
                                     if (Kind == 4)
                 {
                     //when current alldraw lists is collision of stored lists tables state return true
@@ -5968,7 +5968,7 @@ namespace RefrigtzDLL
 
 
                         }
-                    //castle
+                    //Castle
                     for (var i = 0; i < CastleMidle; i++)
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
@@ -6081,7 +6081,7 @@ namespace RefrigtzDLL
                                     HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsFoundOfLeafDepenOfKindhaveVictory(Kind, ref Found, Order * -1);
 
                         }
-                    //castle
+                    //Castle
                     for (var i = CastleMidle; i < CastleHigh; i++)
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
@@ -6398,7 +6398,7 @@ namespace RefrigtzDLL
                     }
                 }
             }
-            else if (Kind == 4)//castle
+            else if (Kind == 4)//Castle
             {
 
                 if (CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > 0)
@@ -7487,7 +7487,7 @@ namespace RefrigtzDLL
                                 }
                             }, () =>
                             {
-                                //castle
+                                //Castle
                                 for (var i = 0; i < CastleMidle; i++)
                                 {
                                     Object OOOO = new Object();
@@ -7618,7 +7618,7 @@ namespace RefrigtzDLL
                                 }
                             }, () =>
                             {
-                                //castle
+                                //Castle
                                 for (var i = CastleMidle; i < CastleHigh; i++)
                                 {
                                     Object OOOO = new Object();
@@ -7768,7 +7768,7 @@ namespace RefrigtzDLL
 
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    //castle
+                    //Castle
                     for (var i = 0; i < CastleMidle; i++)
                         for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
@@ -7870,7 +7870,7 @@ namespace RefrigtzDLL
 
                             Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
-                    //castle
+                    //Castle
                     for (var i = CastleMidle; i < CastleHigh; i++)
                         for (var j = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && j < A.CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
@@ -8679,7 +8679,7 @@ namespace RefrigtzDLL
 
 
                 }
-                //castle
+                //Castle
                 for (i = 0; i < CastleMidle; i++)
                 {
                     for (int k = 0; k < AllDraw.CastleMovments; k++)
@@ -9396,7 +9396,7 @@ namespace RefrigtzDLL
             {
                 Less = HoursesOnTable[i].HourseThinking[k].ReturnHuristic(i, j, Order, AA, ref HaveKilled);
             }
-            else//castle
+            else//Castle
         if (Kind == 4)
             {
                 Less = CastlesOnTable[i].CastleThinking[k].ReturnHuristic(i, j, Order, AA, ref HaveKilled);
@@ -9432,7 +9432,7 @@ namespace RefrigtzDLL
             {
                 TableHuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
             }
-            else//castle
+            else//Castle
                 if (Kind == 4)
             {
                 TableHuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
@@ -9449,7 +9449,7 @@ namespace RefrigtzDLL
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SaveTableHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        //same of befor verified existence of begin move and end move location saved in unique results of last best movments
+        //same of befor verified existence of begin move and end move location saved in unique results of Last best movments
         void SaveBeginEndLocation(int i, int j, int k, int Kind)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -9477,7 +9477,7 @@ namespace RefrigtzDLL
                 AllDraw.NextRow = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][0];
                 AllDraw.NextColumn = HoursesOnTable[i].HourseThinking[k].RowColumnHourse[j][1];
             }
-            else//castle
+            else//Castle
                  if (Kind == 4)
             {
                 AllDraw.LastRow = CastlesOnTable[i].CastleThinking[k].Row;
@@ -9609,7 +9609,7 @@ namespace RefrigtzDLL
                 }
 
             }
-            else//castle
+            else//Castle
             if (Kind == 4)
             {
                 if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
@@ -9728,7 +9728,7 @@ namespace RefrigtzDLL
                 CL3 = k;
                 Ki3 = j;
             }
-            else//castle
+            else//Castle
                 if (Kind == 4)
             {
                 RW4 = i;
@@ -10704,7 +10704,7 @@ namespace RefrigtzDLL
                 return TableHuristic;
             }
         }
-        //gray section of castle huristic
+        //gray section of Castle huristic
         int[,] HuristicAStarGreadySearchCastleGray(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -10723,7 +10723,7 @@ namespace RefrigtzDLL
                 return TableHuristic;
             }
         }
-        //main brown section of castle huristic
+        //main brown section of Castle huristic
         int[,] HuristicAStarGreadySearchCastleBrown(ref int[,] TableHuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -10744,7 +10744,7 @@ namespace RefrigtzDLL
                 return TableHuristic;
             }
         }
-        //main section of castle huristic
+        //main section of Castle huristic
         int[,] HuristicAStarGreadySearchCastle(ref int[,] TableHuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHuristic, ref bool Act)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -13986,7 +13986,7 @@ namespace RefrigtzDLL
                         continue;
                     ServeISSup(Order, 3, i);
                 }
-                //castle
+                //Castle
                 for (var i = 0; i < CastleMidle; i++)
                 {
                     if (CastlesOnTable == null || CastlesOnTable[i] == null)
@@ -14031,7 +14031,7 @@ namespace RefrigtzDLL
                         continue;
                     ServeISSup(Order, 3, i);
                 }
-                //castle
+                //Castle
                 for (var i = CastleMidle; i < CastleHigh; i++)
                 {
                     if (CastlesOnTable == null || CastlesOnTable[i] == null)
@@ -14321,7 +14321,7 @@ namespace RefrigtzDLL
                 }
 
             }
-            else if (Kind == 4)//castle
+            else if (Kind == 4)//Castle
             {
                 if (Order == 1)//gray
                 {
@@ -14784,7 +14784,7 @@ namespace RefrigtzDLL
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
-        //main initiation of castle gray
+        //main initiation of Castle gray
         AllDraw InitiateAStarGreedythCastleGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
@@ -15179,7 +15179,7 @@ namespace RefrigtzDLL
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
-        //main initiation of castle brown
+        //main initiation of Castle brown
         AllDraw InitiateAStarGreedythCastleBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
@@ -15422,7 +15422,7 @@ namespace RefrigtzDLL
                         IS = true;
                     }
                 }
-                //castle
+                //Castle
                 for (int ikk = 0; ikk < CastleMidle; ikk++)
                 {
                     if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
@@ -15498,7 +15498,7 @@ namespace RefrigtzDLL
                         IS = true;
                     }
                 }
-                //castle
+                //Castle
                 for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
                 {
                     if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
@@ -16305,7 +16305,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else//hourse
                 if (Kind == 3 && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > 0)
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();
-            else//castle
+            else//Castle
                 if (Kind == 4 && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > 0)
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();
             else//minister
@@ -16374,7 +16374,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             if (!Is)
             {
-                //castle
+                //Castle
                 for (int i = 0; i < CastleHigh; i++)
                 {
                     if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null)
@@ -16482,7 +16482,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             if (!Is)
             {
-                //castle
+                //Castle
                 if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null)
                 {
                     if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > 0)
@@ -16565,7 +16565,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 }
             }
-            else//castle
+            else//Castle
                 if (Kind == 4)
             {
                 if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null)
@@ -16620,7 +16620,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Is = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsThereCalculatedAStarGreedyNode();
 
                 }
-                else//castle
+                else//Castle
                     if (Kind == 4)
                 {
                     if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j)
@@ -18115,7 +18115,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (HoursesOnTable[ik].HourseThinking[0].ThinkingBegin && (!HoursesOnTable[ik].HourseThinking[0].ThinkingFinished))
                     return true;
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 if (CastlesOnTable[ik].CastleThinking[0].ThinkingBegin && (!CastlesOnTable[ik].CastleThinking[0].ThinkingFinished))
                     return true;
@@ -18158,7 +18158,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     if (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
                         return true;
                 }
-                else if (kind == 4)//castle
+                else if (kind == 4)//Castle
                 {
                     if (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 || (!UsePenaltyRegardMechnisamT))
                         return true;
@@ -18193,7 +18193,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     if (HoursesOnTable[ik].HourseThinking[0].PenaltyRegardListHourse[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
                         return true;
                 }
-                else if (kind == 4)//castle
+                else if (kind == 4)//Castle
                 {
                     if (CastlesOnTable[ik].CastleThinking[0].PenaltyRegardListCastle[j].IsRewardAction() != 1 || (!UsePenaltyRegardMechnisamT))
                         return true;
@@ -18251,7 +18251,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 }
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
@@ -18323,7 +18323,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 }
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
@@ -18396,7 +18396,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 }
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
@@ -18481,7 +18481,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 }
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 //when valid do create of deeper node and string making
                 if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
@@ -18609,7 +18609,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
 
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 //when verfied is not valied return
                 if (!IsNotAStarGreedyConanaied(ik, j, 4))

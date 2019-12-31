@@ -2371,7 +2371,7 @@ namespace RefrigtzDLL
                 }
                 Order = Ord;
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InAttackSelfThatNotSupportedCalculateValuableAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                //When There is at last tow SelfNotSupporeted Object.
+                //When There is at Last tow SelfNotSupporeted Object.
                 if (ValuableSelfSupported.Count > 1)
                     return true;
                 return false;
@@ -3558,7 +3558,7 @@ namespace RefrigtzDLL
         }
 
         //When Next Movements is Checked.QC_OK.
-        int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte, int OrderPalteMulMinuse, int Depth, bool KindCheckedSelf)
+        int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte, int OrderPalteMulMinuse, int Depth, bool KindCheckedSelf)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -3675,14 +3675,14 @@ namespace RefrigtzDLL
                         {
                             IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(Tab, Ord, a, Depth1, OrderP, OrderM, KindCheckedSelf1);
                         }
-                        if (IS[0] == 1) Is[0] = 1;
+                        if (Is[0] == 1) Is[0] = 1;
                         if (IS[2] == 1) Is[2] = 1;
 
-                        Is[1] = IS[1];
+                        Is[1] = Is[1];
                         Is[3] = IS[3];
                     }
                 }
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Is;
             }
         }
@@ -3835,9 +3835,9 @@ namespace RefrigtzDLL
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
                                         }
 
                                     }
@@ -3870,9 +3870,9 @@ namespace RefrigtzDLL
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = Is[1]; Is[3] = IS[3];
                                     }
 
                                 }//);
@@ -3899,9 +3899,9 @@ namespace RefrigtzDLL
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = Is[1]; Is[3] = IS[3];
                                     }
                                 }//);
                             }
@@ -3931,9 +3931,9 @@ namespace RefrigtzDLL
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
                                         }
                                     }//));
                             }
@@ -3963,9 +3963,9 @@ namespace RefrigtzDLL
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = Is[1]; Is[3] = IS[3];
                                     }
                                 }//);
                                  //For Current Home
@@ -3991,9 +3991,9 @@ namespace RefrigtzDLL
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = Is[1]; Is[3] = IS[3];
                                     }
                                 }//);
                             }
@@ -4025,9 +4025,9 @@ namespace RefrigtzDLL
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
                                         }
                                     }//));
                             }
@@ -4059,9 +4059,9 @@ namespace RefrigtzDLL
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
                                         }
                                     }//));
                             }
@@ -6246,7 +6246,7 @@ namespace RefrigtzDLL
 
 
                 }
-                //when is castle
+                //when is Castle
                 for (j = 0; HuristicListCastle != null && j < HuristicListCastle.Count; j++)
                 {
 
@@ -10206,7 +10206,7 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicPenaltyValuePerform:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for thinking main method
-        public void ThinkingSoldierBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingSoldierbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -10235,7 +10235,7 @@ namespace RefrigtzDLL
                     //oStream.Close();
    }
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingSoldierBase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingSoldierbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void ThinkWait() { do { System.Threading.Thread.Sleep(2); } while (ThinkingAtRun); }
         //specific determination for thinking main method
@@ -10266,7 +10266,7 @@ namespace RefrigtzDLL
                                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                                     }
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                                var newTask = Task.Factory.StartNew(() => ThinkingSoldierBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                                var newTask = Task.Factory.StartNew(() => ThinkingSoldierbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                                 //oSerialiser.Serialize(oStream, newTask);
@@ -10283,7 +10283,7 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for thinking main method
-        public void ThinkingElephantBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingElephantbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O1 = new Object();
@@ -10317,7 +10317,7 @@ namespace RefrigtzDLL
                     }
                 }
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingElephantBase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingElephantbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         //specific determination for thinking main method
@@ -10343,7 +10343,7 @@ namespace RefrigtzDLL
                             if (Scop(ii, jj, i, j, 2))
                             {
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                                var newTask = Task.Factory.StartNew(() => ThinkingElephantBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                                var newTask = Task.Factory.StartNew(() => ThinkingElephantbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                                 //oSerialiser.Serialize(oStream, newTask);
@@ -10365,7 +10365,7 @@ namespace RefrigtzDLL
                             var j = i * -1 + ii + jj;
                             if (Scop(ii, jj, i, j, 2))
                             {
-                                ThinkingElephantBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                                ThinkingElephantbase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                                 //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
 
@@ -10883,7 +10883,7 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for thinking main method
-        public void ThinkingMinisterBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingMinisterbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O1 = new Object();
@@ -10921,7 +10921,7 @@ namespace RefrigtzDLL
 
                 }
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingMinisterBase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingMinisterbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for thinking main method
         public void ThinkingMinister(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
@@ -10946,7 +10946,7 @@ namespace RefrigtzDLL
                         lock (O)
                         {
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                            var newTask = Task.Factory.StartNew(() => ThinkingMinisterBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            var newTask = Task.Factory.StartNew(() => ThinkingMinisterbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                             //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                             //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                             //oSerialiser.Serialize(oStream, newTask);
@@ -11146,7 +11146,7 @@ namespace RefrigtzDLL
                     AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
                 }
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 //when valid do create of deeper node and string making
                 if (TableListCastle.Count > AStarGreedy.Count)

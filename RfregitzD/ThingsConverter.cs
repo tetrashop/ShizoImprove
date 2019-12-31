@@ -167,7 +167,7 @@ namespace RefrigtzDLL
                             }
                             else
                                 Rand = (new Random()).Next(0, 4);
-                            //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                            //If Rand is Equaled the Operation will cuased automaticcally base on Color..
                             if (Rand == 0)
                             {
                                 if (Order == 1)
@@ -275,7 +275,7 @@ namespace RefrigtzDLL
                                 }
                                 else
                                     Rand = (new Random()).Next(0, 4);
-                                //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                                //If Rand is Equaled the Operation will cuased automaticcally base on Color..
                                 if (Rand == 0)
                                 {
                                     if (Order == 1)
@@ -386,7 +386,7 @@ namespace RefrigtzDLL
                                 }
                                 else
                                     Rand = (new Random()).Next(0, 4);
-                                //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                                //If Rand is Equaled the Operation will cuased automaticcally base on Color..
                                 if (Rand == 0)
                                 {
                                     if (Order == 1)

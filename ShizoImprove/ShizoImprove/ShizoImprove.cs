@@ -20,7 +20,7 @@ namespace ShizoImprove
         //Al File Information
         FileInfo fi = null;
         DateTime created;
-        DateTime lastmodified;
+        DateTime Lastmodified;
         //for evry statistic files create info
         List<ShizoImprove> All = new List<ShizoImprove>();
         //retrive files and directories Constructor
@@ -83,7 +83,7 @@ namespace ShizoImprove
             {
                 fi = new FileInfo(path);
                 created = fi.CreationTime;
-                lastmodified = fi.LastWriteTime;
+                Lastmodified = fi.LastWriteTime;
             }
             catch (Exception t) { return false; }
             return true;
@@ -126,7 +126,7 @@ namespace ShizoImprove
                             //index of to substring
                             String Des = AllFiles[i].Substring(AllFiles[i].IndexOf(Pro));
                             //create correct path
-                            Des = "C:\\ShizoImprove\\" + Pro + "\\" + All[i].lastmodified.ToLongDateString() + "\\" + Des;
+                            Des = "C:\\ShizoImprove\\" + Pro + "\\" + All[i].Lastmodified.ToLongDateString() + "\\" + Des;
                             //when
                             if (!IsFile(Des))
                             {
@@ -142,7 +142,7 @@ namespace ShizoImprove
                                     //copy file when unexistence
                                     if (!File.Exists(AllFiles[i]))
                                         File.Copy(AllFiles[i], Des);
-                                    else  //copy file on condition of last modified
+                                    else  //copy file on condition of Last modified
                                     {
                                         if ((new FileInfo(AllFiles[i])).LastWriteTime > (new FileInfo(Des)).LastWriteTime)
                                         {
@@ -191,7 +191,7 @@ namespace ShizoImprove
                             //index of to substring
                             String Des = AllFiles[i].Substring(0,AllFiles[i].IndexOf("("));
                             //create correct path
-                            Des = "C:\\ShizoImprove\\" + Pro + "\\" + All[i].lastmodified.ToLongDateString() + "\\" + Des;
+                            Des = "C:\\ShizoImprove\\" + Pro + "\\" + All[i].Lastmodified.ToLongDateString() + "\\" + Des;
                             //when
                             if (!IsFile(Des))
                             {
@@ -206,7 +206,7 @@ namespace ShizoImprove
                                     //copy file when unexistence
                                     if (!File.Exists(AllFiles[i]))
                                         File.Copy(AllFiles[i], Des);
-                                    else  //copy file on condition of last modified
+                                    else  //copy file on condition of Last modified
                                     {
                                         if ((new FileInfo(AllFiles[i])).LastWriteTime > (new FileInfo(Des)).LastWriteTime)
                                         {
@@ -306,7 +306,7 @@ namespace ShizoImprove
 
 
         }
-        //move date last modified of set improved into improved folder
+        //move date Last modified of set improved into improved folder
         public bool FormImprove(String Pro, ref System.Windows.Forms.ProgressBar progressBarWorking)
         {
             try
@@ -322,7 +322,7 @@ namespace ShizoImprove
                         {
                             //index of to substring
                             String Des = AllFiles[i].Substring(AllFiles[i].IndexOf(Pro));
-                            //index of last modified path and substring
+                            //index of Last modified path and substring
                             for (int j = 1990; j <= DateTime.Now.Year; j++)
                             {
                                 //when contains date
@@ -349,7 +349,7 @@ namespace ShizoImprove
                                     //copy file when unexistence
                                     if (!File.Exists(Des))
                                         File.Copy(AllFiles[i], Des);
-                                    else  //copy file on condition of last modified
+                                    else  //copy file on condition of Last modified
                                     {
                                         if ((new FileInfo(AllFiles[i])).LastWriteTime > (new FileInfo(Des)).LastWriteTime)
                                         {

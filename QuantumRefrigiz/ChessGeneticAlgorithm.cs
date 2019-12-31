@@ -22,8 +22,8 @@
  * Genetic Algorithm Rules MalFunction.********************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Malfunction of Brown Order (Alice).No Chess Rules Identification By Genetic Algorithm*******************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Genetic Algorithm MalFunction.**************************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * No Logical Reason For Malfunction of NonRulements of Genetic Algorithm.*********************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * No Logical Reason for Malfunction of Bob Soldier Attack Movements to go non enemy.**********************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * No Logical ReASon For Malfunction of NonRulements of Genetic Algorithm.*********************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * No Logical ReASon for Malfunction of Bob Soldier Attack Movements to go non enemy.**********************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 1395/1/3************************************************************************************************RS*****0.12**4**Managements and Cuation Programing**(+:Sum(22))
  * Metric After Retrieve to Customer.*********************************************************************************************************
  * 530 Error To Attempt Convert Chess rules and ThinkingQuantum Chess to dll.************************************************************************
@@ -766,7 +766,7 @@ namespace QuantumRefrigiz
             {
                 //Create and new an Object.
                 int[,] Table = new int[8, 8];
-                //Assigne Parameter To New Objects.
+                //ASsigne Parameter To New Objects.
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
@@ -784,7 +784,7 @@ namespace QuantumRefrigiz
             {
                 //Create and new an Object.
                 bool[,] Table = new bool[8, 8];
-                //Assigne Parameter To New Objects.
+                //ASsigne Parameter To New Objects.
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];

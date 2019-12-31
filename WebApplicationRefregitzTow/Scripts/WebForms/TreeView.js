@@ -54,7 +54,7 @@ function TreeView_PopulateNode(data, index, node, selectNode, selectImageNode, l
             }
         }
     }
-    var param = index + "|" + data.lastIndex + "|" + databound + context.isChecked + parentIsLast + "|" +
+    var param = index + "|" + data.LastIndex + "|" + databound + context.isChecked + parentIsLast + "|" +
         text.length + "|" + text + datapath.length + "|" + datapath + path;
     TreeView_PopulateNodeDoCallBack(context, param);
 }
@@ -62,9 +62,9 @@ function TreeView_ProcessNodeData(result, context) {
     var treeNode = context.node;
     if (result.length > 0) {
         var ci =  result.indexOf("|", 0);
-        context.data.lastIndex = result.substring(0, ci);
+        context.data.LastIndex = result.substring(0, ci);
         ci = result.indexOf("|", ci + 1);
-        var newExpandState = result.substring(context.data.lastIndex.length + 1, ci);
+        var newExpandState = result.substring(context.data.LastIndex.length + 1, ci);
         context.data.expandState.value += newExpandState;
         var chunk = result.substr(ci + 1);
         var newChildren, table;

@@ -247,7 +247,7 @@ namespace WebApplicationRefregitzTow
             //*****************************************
             //               TODO:
             //Now add a procedure to do the validation of the move
-            //The logic example castling or see if valid move, etc
+            //The logic example Castling or see if valid move, etc
             //
             //*****************************************
             //   PROCEDUREVALIDATEMOVE(MoveFrom,MoveTo)
@@ -986,7 +986,7 @@ namespace WebApplicationRefregitzTow
 
                 }
 
-                //Do a check for castle
+                //Do a check for Castle
                 ChessImage = ChessImage.ToLower();
                 if (ChessImage == "Images/wking.gif")
                 {
@@ -998,7 +998,7 @@ namespace WebApplicationRefregitzTow
                         MoveTo = 62;
                         goto BeginSection;
                     }
-                    //Do a check to look for long castle
+                    //Do a check to look for long Castle
                     if (MoveFrom == 61 & MoveTo == 59)
                     {
                         //Castle to long side
@@ -1008,7 +1008,7 @@ namespace WebApplicationRefregitzTow
                     }
                 }
 
-                //Do same check for black king castle
+                //Do same check for black king Castle
                 if (ChessImage == "Images/bking.gif")
                 {
                     //Do a check to see if king move from (e1)
@@ -1019,7 +1019,7 @@ namespace WebApplicationRefregitzTow
                         MoveTo = 6;
                         goto BeginSection;
                     }
-                    //Do a check to look for long castle
+                    //Do a check to look for long Castle
                     if (MoveFrom == 5 & MoveTo == 3)
                     {
                         //Castle to long side

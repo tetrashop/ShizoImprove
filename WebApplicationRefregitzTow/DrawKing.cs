@@ -22,7 +22,7 @@ namespace RefrigtzW
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        Image[] K = new Image[2];
+        public static Image[] K = new Image[2];
         //Initiate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
@@ -216,17 +216,16 @@ namespace RefrigtzW
         //Draw an Instatnt King on the Table Method.
         public void DrawKingOnTable(ref Graphics g, int CellW, int CellH)
         {
-            object balancelockS = new object();
+            if (g == null)
+                return;
+            //long Time = TimeElapced.TimeNow();Spaces++;
 
-            lock (balancelockS)
+            try
             {
-                if (g == null)
-                    return;
-                //long Time = TimeElapced.TimeNow();Spaces++;
+                object balancelockS = new object();
 
-                try
+                lock (balancelockS)
                 {
-
                     if (K[0] == null || K[1] == null)
                     {
                         K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
@@ -256,15 +255,14 @@ namespace RefrigtzW
                             }
                         }
                     }
-
-
                 }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Drawif (KingOnTable==null||KingOnTable[i] == null):" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+
             }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Drawif (KingOnTable==null||KingOnTable[i] == null):" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

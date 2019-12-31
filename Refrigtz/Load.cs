@@ -136,7 +136,7 @@ namespace Refrigtz
         {
             //Initaie Global Variables.
             InitializeComponent();
-            tt = new Thread(new ThreadStart(BaseThread));
+            tt = new Thread(new ThreadStart(baseThread));
             tt.Start();
             t = new Thread(new ThreadStart(LoadThread));
             t.Start();
@@ -227,8 +227,8 @@ namespace Refrigtz
                 SetLoadVisible();
             }
         }
-        //Base Task Load.
-        void BaseThread()
+        //base Task Load.
+        void baseThread()
         {
             //Initiate Task.
             ttt = new FormRefrigtz(false);

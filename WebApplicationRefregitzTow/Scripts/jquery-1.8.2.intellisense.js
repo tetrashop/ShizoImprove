@@ -628,7 +628,7 @@ intellisense.annotate(jQuery.Event.prototype, {
     /// <returns type="Element" />
   },
   'result': function() {
-    /// <summary>The last value returned by an event handler that was triggered by this event, unless the value was undefined.</summary>
+    /// <summary>The Last value returned by an event handler that was triggered by this event, unless the value was undefined.</summary>
     /// <returns type="object" />
   },
   'stopImmediatePropagation': function() {
@@ -1182,7 +1182,7 @@ intellisense.annotate(jQuery.fn, {
     /// </signature>
     /// <signature>
     ///   <summary>Reduce the set of matched elements to the one at the specified index.</summary>
-    ///   <param name="-index" type="Number">An integer indicating the position of the element, counting backwards  from the last element in the set.</param>
+    ///   <param name="-index" type="Number">An integer indicating the position of the element, counting backwards  from the Last element in the set.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },
@@ -1569,11 +1569,11 @@ intellisense.annotate(jQuery.fn, {
     ///   <returns type="jQuery" />
     /// </signature>
   },
-  'last': function() {
-    /// <summary>Selects the last matched element.</summary>
+  'Last': function() {
+    /// <summary>Selects the Last matched element.</summary>
   },
-  'last-child': function() {
-    /// <summary>Selects all elements that are the last child of their parent.</summary>
+  'Last-child': function() {
+    /// <summary>Selects all elements that are the Last child of their parent.</summary>
   },
   'length': function() {
     /// <summary>The number of elements in the jQuery object.</summary>

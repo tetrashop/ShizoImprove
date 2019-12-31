@@ -8,7 +8,7 @@
  * Minister Rules Hardly*********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * King Rules Hardly*************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Castles Rules Hardly**********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Restricted has been solved****************************************************--**(-)
+ * Restricted hAS been solved****************************************************--**(-)
  * No movements greater than one. Some Abnormal Movements************************RS*****0.12**4**Managements and Cuation Programing**(++)
  * Abnormal Movements Correction*************************************************--**(-)
  * Clear Dirty Part**************************************************************--**(-)
@@ -17,9 +17,9 @@
  * Chess Rules Elephant Normally*************************************************--**(-)
  * Abnormally Recursive Method***************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Chess Rule Check CheckMate Doesn’t Work*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Clicking 'Table' Content Has been Abnormally**********************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Clicking 'Table' Content HAS been Abnormally**********************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * The Mechanism of Check Declared and Act 'Not' Logically************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * The Mechanism of Table Assignments and the Virtualization Misleading**********RS*****0.12**4**Managements and Cuation Programing**(+)
+ * The Mechanism of Table ASsignments and the Virtualization Misleading**********RS*****0.12**4**Managements and Cuation Programing**(+)
  * The Movements of horse Brown 'Alice' Left Side Cause to Mislead***************RS*****0.12**4**Managements and Cuation Programing**(+)
  * ExistInDestinationEnemy Thinking Misleading Operations************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Null Thinking Exception Handling Should be Configured*************************RS*****0.12**4**Managements and Cuation Programing**(+)
@@ -29,7 +29,7 @@
  * 'Check' Recognized From 'Hard' Game. CheckMate Have Not Been Identified.************RSPB(+*)
  * Chess Rules MalFunctional*****************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Unsatisfied CheckMate By 'Bob' With 'Alice'****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Removable 'Check' by 'Bob' Was Not done by 'Alice' ****************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Removable 'Check' by 'Bob' WAS Not done by 'Alice' ****************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Unknown 'CheckRemovable' and Unknown 'Check' Mechanism**************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Table Content at 'Bob' 'Check' of 'Alice', Malfunction with 'horse'************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Can Hit 'King'****************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
@@ -49,16 +49,16 @@
  * Movements of 'Alice' Soldier to Backward.*************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * BrigdeKing Movements in Large Castle King Misleading**************************RS*****0.12**4**Managements and Cuation Programing**(_)
  * Syntax Statements Failed By Halting.******************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Check Of Bob Misleading no reason.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Check Of Bob Misleading no reASon.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Syntax Error At Genetic Algorithm By Bob.*************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 1394/12/20********************************************************************RS*****0.12**4**Managements and Cuation Programing**(+:Sum(48)) (_ :Sum(1)) (-:Sum(5)) (*:Sum(2))
  * Chess Syntax MalFunction.*****************************************************RS*****0.12**4**Managements and Cuation Programing**[+]
  * Chess Rules Non Soldier Colud Not been Detected. For AStarGreedy Fist Algorithm.*****RS*****0.12**4**Managements and Cuation Programing**{+}
- * 'Check' Released isolatly.'Check' of Brown (Alice) No Matched Realesed.*********RS*****0.12**4**Managements and Cuation Programing**<+>
+ * 'Check' ReleASed isolatly.'Check' of Brown (Alice) No Matched Realesed.*********RS*****0.12**4**Managements and Cuation Programing**<+>
  * 'Check' Not Detected By Bob.***************************************************RS*****0.12**4**Managements and Cuation Programing**<+>
  * Bob Cloud not Remove 'Check'.**************************************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Bob Colud not Move.No Check asnd CheckMate.*****************************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Kings Have been Realeased Attacked.By Alice and Bob.**************************RS*****0.12**4**Managements and Cuation Programing**<+>
+ * Bob Colud not Move.No Check ASnd CheckMate.*****************************************RS*****0.12**4**Managements and Cuation Programing**<+>
+ * Kings Have been RealeASed Attacked.By Alice and Bob.**************************RS*****0.12**4**Managements and Cuation Programing**<+>
  * ObjectDanger kings Not work!********************************************************CU*****0.88**1**Risk Control************************<*>QC-OK.
  * Chess Rules of Movments AStarGreedy First caused to Databse MalFunction.*************CU*****0.88**1**Risk Control************************(*)QC-OK.
  * Mal Function of Table.Table zero.!********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
@@ -67,13 +67,13 @@
  * Reveal From CheckMate By Alice MalFunction.****************************************RS*****0.12**4**Managements and Cuation Programing**{+}
  * CheckMate Not Work On Statistic and More By Alice.*********************************RS*****0.12**4**Managements and Cuation Programing**{+}
  * CheckMate Operation By Alice is MalFunction.***************************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * 'Minister' Alice Have been Check unreasonably.*********************************CU*****0.88**1**Risk Control************************(*)QC-OK.
+ * 'Minister' Alice Have been Check unreASonably.*********************************CU*****0.88**1**Risk Control************************(*)QC-OK.
  * 'Alice' Supposed Wrongly CheckObjectDangour Means Check.*******************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * Illegal King Foundation in Rules Function No Reasonaly.***********************RS*****0.12**4**Managements and Cuation Programing**<+>
+ * Illegal King Foundation in Rules Function No ReASonaly.***********************RS*****0.12**4**Managements and Cuation Programing**<+>
  * Brown (Alice) King Dosn't exist.**********************************************RS*****0.12**4**Managements and Cuation Programing**<+>
  * Mal Function of Castles King User Determination.******************************CU*****0.88**1**Risk Control************************{*}QC-OK
  * Mal Function of Check int Detection at ObjectDangouring.****************************CU*****0.88**1**Risk Control************************<*>QC_OK
- * Assignment of Check State at ObjectDangourCheckRemove Method Not Occured.**************CU*****0.88**1**Risk Control************************<*>QC_OK.
+ * ASsignment of Check State at ObjectDangourCheckRemove Method Not Occured.**************CU*****0.88**1**Risk Control************************<*>QC_OK.
  * Table Incredible Content Leads to Undisirable Result in Check and ....*********RS**0.12**4**Managements and Cuation Programing*****(+)
  * CheckedMate Complexity Over Numbers Of Cores Compexity.************************CU*****0.88**1**Risk Control************************{*}QC-OK.
  * Alice Castles King Statistic is misleading.************************************.CU*****0.88**1**Risk Control************************{*}Qc_OK
@@ -94,9 +94,9 @@ namespace QuantumRefrigiz
     public class ChessRules
     {
         StringBuilder Space = new StringBuilder("&nbsp;");
-#pragma warning disable CS0414 // The field 'ChessRules.Spaces' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'ChessRules.Spaces' is ASsigned but its value is never used
         int Spaces = 0;
-#pragma warning restore CS0414 // The field 'ChessRules.Spaces' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'ChessRules.Spaces' is ASsigned but its value is never used
 
         public bool IgnoreSelfObject = false;
         public static int ObjectHittedRow = -1;
@@ -1939,7 +1939,7 @@ namespace QuantumRefrigiz
             {
                 //Create and new an Object.
                 int[,] Table = new int[8, 8];
-                //Assigne Parameter To New Objects.
+                //ASsigne Parameter To New Objects.
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
@@ -1957,7 +1957,7 @@ namespace QuantumRefrigiz
             {
                 //Create and new an Object.
                 bool[,] Table = new bool[8, 8];
-                //Assigne Parameter To New Objects.
+                //ASsigne Parameter To New Objects.
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
@@ -2205,7 +2205,7 @@ namespace QuantumRefrigiz
         public bool Check(int[,] Table, int Ord)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            //A player is not required to move their king out of check and the game concludes when there is a 100 % probability that one of the kings has been taken. As a result there is no checkmate.
+            //A player is not required to move their king out of check and the game concludes when there is a 100 % probability that one of the kings hAS been taken. AS a result there is no checkmate.
             if (DrawKingQ.KingGrayNotCheckedByQuantumMove && Ord == 1)
                 return false;
             else
@@ -2659,7 +2659,7 @@ namespace QuantumRefrigiz
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool Move = false;
-            //When Miniaster Rule is Valid.
+            //When MiniASter Rule is Valid.
             if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki) && (System.Math.Abs(RowFirst - RowSecond) <= 1) && (System.Math.Abs(ColumnFirst - ColumnSecond) <= 1))
             {
                 //Initiate Local Variable.
@@ -2998,13 +2998,13 @@ namespace QuantumRefrigiz
                         //Condition Determination.
                         if (j != ColumnSecond)
                         {
-                            //Existing of Self Home At Root Cuased to Not validity.
+                            //Existing of Self Home At Root CuASed to Not validity.
                             if ((Table[RowFirst, j] < 0 || Table[RowFirst, j] > 0) && Table[RowFirst, ColumnFirst] > 0)
                             {
                                 Act = true;
                                 Move = false;
                             }
-                            //Existing of Self Home At Root Cuased to Not validity.
+                            //Existing of Self Home At Root CuASed to Not validity.
                             if ((Table[RowFirst, j] > 0 || Table[RowFirst, j] < 0) && Table[RowFirst, ColumnFirst] < 0)
                             {
                                 Act = true;

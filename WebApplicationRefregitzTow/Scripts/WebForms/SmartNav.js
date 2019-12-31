@@ -238,7 +238,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
         if (sft.length != 0 && sft.indexOf("__hifSmartNav") != 0) return false;
         var sfc = snfm.action.split("?")[0];
         var url = window.location.href.split("?")[0];
-        if (url.charAt(url.length-1) != '/' && url.lastIndexOf(sfc) + sfc.length != url.length) return false;
+        if (url.charAt(url.length-1) != '/' && url.LastIndexOf(sfc) + sfc.length != url.length) return false;
         if (snfm.__formAttached == true) return true;
         snfm.__formAttached = true;
         snfm.attachEvent("onsubmit", window.__smartNav.init);

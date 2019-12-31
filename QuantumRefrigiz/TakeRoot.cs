@@ -10,7 +10,7 @@ namespace QuantumRefrigiz
     public static class TakeRoot
     {
         //static AllDraw Node = null;
-        //  POINTER IS THE MEMMERY LOCATION OF LAST MOVMENTS.
+        //  POINTER IS THE MEMMERY LOCATION OF Last MOVMENTS.
         public static AllDraw Pointer=null;
         
         public static void CalculateRootGray(AllDraw Curent)

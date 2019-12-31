@@ -22,7 +22,7 @@ namespace RefrigtzDLL
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        Image[] K = new Image[2];
+        
         //Initiate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
@@ -59,8 +59,7 @@ namespace RefrigtzDLL
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
-            K = null;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         public int ReturnHuristic()
@@ -228,11 +227,7 @@ namespace RefrigtzDLL
                 try
                 {
 
-                    if (K[0] == null || K[1] == null)
-                    {
-                        K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
-                        K[1] = Image.FromFile(AllDraw.ImagesSubRoot + "KB.png");
-                    }
+                    
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Order.
                         if (Order == 1)
@@ -241,7 +236,7 @@ namespace RefrigtzDLL
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray King Image On the Table.
-                                g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "KG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
 
                             }
 
@@ -252,7 +247,7 @@ namespace RefrigtzDLL
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Brown King Image On the Table.
-                                g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "KB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
 
                             }
                         }

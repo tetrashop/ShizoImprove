@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  **/
 namespace QuantumRefrigiz
 {
-    class CodeClass
+    class Codeclass
     {
 
         public static void SaveByCode(int Code, int LineCode, String File)

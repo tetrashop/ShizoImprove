@@ -120,22 +120,22 @@ function Menu_FindParentItem(item) {
 function Menu_FindPrevious(item) {
     var a = WebForm_GetElementByTagName(item, "A");
     var parent = Menu_FindParentContainer(item);
-    var last = null;
+    var Last = null;
     if (parent) {
         var links = WebForm_GetElementsByTagName(parent, "A");
         for (var i = 0; i < links.length; i++) {
             var link = links[i];
             if (Menu_IsSelectable(link)) {
-                if (link == a && last) {
-                    return last;
+                if (link == a && Last) {
+                    return Last;
                 }
                 if (Menu_FindParentContainer(link) == parent) {
-                    last = link;
+                    Last = link;
                 }
             }
         }
     }
-    return last;
+    return Last;
 }
 function Menu_FindSubMenu(item) {
     var tr = item.parentNode.parentNode.parentNode.parentNode.parentNode;

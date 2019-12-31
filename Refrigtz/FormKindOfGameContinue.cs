@@ -33,7 +33,7 @@ namespace Refrigtz
 
         }
 
-        private void ComboBoxDataBase_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxDatabase_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

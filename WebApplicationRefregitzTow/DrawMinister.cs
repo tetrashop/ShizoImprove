@@ -21,7 +21,7 @@ namespace RefrigtzW
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        Image[] M = new Image[2];
+        public static Image[] M = new Image[2];
         //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
@@ -212,16 +212,15 @@ namespace RefrigtzW
         //Draw an Mnister on the Table.
         public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
-            object balancelockS = new object();
-
-            lock (balancelockS)
+            if (g == null)
+                return;
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            try
             {
-                if (g == null)
-                    return;
-                //long Time = TimeElapced.TimeNow();Spaces++;
-                try
-                {
+                object balancelockS = new object();
 
+                lock (balancelockS)
+                {
                     if (M[0] == null || M[1] == null)
                     {
                         M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
@@ -249,14 +248,13 @@ namespace RefrigtzW
                             }
                         }
                     }
-
                 }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawMinisterOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawMinisterOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

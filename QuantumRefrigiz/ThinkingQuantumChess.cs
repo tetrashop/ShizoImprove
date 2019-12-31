@@ -1,11 +1,11 @@
 /****************************************************************************
  * ThinkingQuantum Operation class.*************************************************
  * Ramin Edjlal**************************************************************
- * Drived Classess of Autamata Cellular  ThinkingQuantum Kernel**************
+ * Drived classess of Autamata Cellular  ThinkingQuantum Kernel**************
  * 1394/12/19****************************************************************
- * Crashed with Stack Overflow Exception***************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
+ * CrAShed with Stack Overflow Exception***************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Drives Caused Memory lack***************************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * New Version Cased Stack Overflow********************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
+ * New Version CASed Stack Overflow********************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Scanning Four Dimension Homes of Thing Existences Taking A lot Of Time******RS**0.12**4**Managements and Cuation Programing**********************(+)
  * All Data in This Scope From AllDraw Become Clear When Scope Changes*********RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Work but the Movements And Attack Method Doesn’t work*************RS**0.12**4**Managements and Cuation Programing**********************(+)
@@ -19,7 +19,7 @@
  * Check ThinkingQuantum 'Alice' Malfunction*******************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
  * 'CheckMate' By 'Bob' Have Not Been Recognized.***********************************RS**0.12**4**Managements and Cuation Programing*****************(+)
  * 'Check' By 'Bob' Not Recognized.*********************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * 'Check' 'Alice' Detected. No ActionsString Was Done.********************************RS**0.12**4**Managements and Cuation Programing*********************(+)
+ * 'Check' 'Alice' Detected. No ActionsString WAS Done.********************************RS**0.12**4**Managements and Cuation Programing*********************(+)
  * 'Check' Mechanism Failure.***************************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
  * Strategy By 'Alice' Changed. 'Check' Not Recognized By 'Alice'.**************RS**0.12**4**Managements and Cuation Programing*********************(+)
  * Heuristic Loop**************************************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
@@ -27,12 +27,12 @@
  * Things Location Failure. Row and Column of this Objects class Malfunction***RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Malfunction Of Operating Lists in this class.*******************************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * Some Movements of All Possible Movements is not Identified******************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Malfunction Clone Data To be Copied. List Will be erased********************RS**0.12**4**Managements and Cuation Programing**********************(+)
+ * Malfunction Clone Data To be Copied. List Will be erASed********************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * King Cannot Hit UnSelfSupported Enemy Things at Check.***********************RS**0.12**4**Managements and Cuation Programing**********************(+)
  * ThinkingQuantum Time Taking al lot of time.****************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * There is No Reason For Mal Function of ThinkingQuantum.****************************RS**0.12**4**Managements and Cuation Programing**********************[+]
+ * There is No ReASon For Mal Function of ThinkingQuantum.****************************RS**0.12**4**Managements and Cuation Programing**********************[+]
  * Huristic SelfSupported at horse huristic cal at table content malfunction.**RS**0.12**4**Managements and Cuation Programing**********************[+]
- * No Reason for malfunctioning of table content at huristic SelfSupported.****RS**0.12**4**Managements and Cuation Programing**********************[+]
+ * No ReASon for malfunctioning of table content at huristic SelfSupported.****RS**0.12**4**Managements and Cuation Programing**********************[+]
  * ThinkingQuantum Finished Misleading.bool Variable of Think Finished Not Work on.***RS**0.12**4**Managements and Cuation Programing**********************(+) 
  * A non Identified King Table List Alice is in List and Unhabitly ignored.****RS**0.12**4**Managements and Cuation Programing**********************(+)
  * The Location of Penalty Regard Mechansim is Misleading.*********************RS**0.12**4**Managements and Cuation Programing**********************(+)
@@ -50,21 +50,21 @@
  * The Self Supporter in Attacker somthime goes to misleading act.********************.RC**0.88**1**Risk Control************************************(*)QC-Ok.
  * Enemy Attacker Not Supported act Misleading.***************************************.RC**0.88**1**Risk Control************************************(*)QC_OK.
  * Heuristic proccesing dosne't haave any aim.****************************************.RC**0.88**1**Risk Control************************************(*).
- * Rating of Alice as Computer Game is very weak as compatitor of users.**************.RC**0.88**1**Risk Control************************************<*>QC_BAD.
+ * Rating of Alice AS Computer Game is very weak AS compatitor of users.**************.RC**0.88**1**Risk Control************************************<*>QC_BAD.
  * ThinkingQuantum gone to take some part of stones.*****************************************.RC**0.88**1**Risk Control************************************<*>QC_BAD.
- * ThinkingQuantum failed becuase of all possible movment penalties of first level**.********.RC**0.88**1**Risk Control************************************<*>QC_OK.
+ * ThinkingQuantum failed becuASe of all possible movment penalties of first level**.********.RC**0.88**1**Risk Control************************************<*>QC_OK.
  * Object Dangour and Check is aditive of HeuristicCheckedand checked mated.**********.RC**0.88**1**Risk Control************************************<*>QC_OK.
  * Heuristics take some part of stone.************************************************.RC**0.88**1**Risk Control************************************<*>QC_OK.
  * Branch Dept at ThinkingQuantum Tree is low becuse of harware constraints and speed.*******.RC**0.88**1**Risk Control************************************<*>QC_BAD.
- * ThinkingQuantum falied becuase of All Possible of Penalties movments.*********************.RC**0.88**1**Risk Control************************************<*>QC_OK.
+ * ThinkingQuantum falied becuASe of All Possible of Penalties movments.*********************.RC**0.88**1**Risk Control************************************<*>QC_OK.
  * Tow Confliction Misleading in Self Attacked and King Dangoure Separatedly.*********.RC**0.88**1**Risk Control************************************<*>QC_OK.
  * Conflict in Restoring UsePenaltyRegardMechanisam value during User false.**********.RC**0.88**1**Risk Control************************************<*>QC_OK.
  * Self Objects Movments Comes to Dangrous Location.**********************************.RC**0.88**1**Risk Control************************************(*).QC_OK
- * ThinkingQuantum Tree Construction was not Complition and have empty with no reason.********RC**0.88**1**Risk Control************************************{*}QC_OK
+ * ThinkingQuantum Tree Construction wAS not Complition and have empty with no reASon.********RC**0.88**1**Risk Control************************************{*}QC_OK
  * Heuristic of 'Attack';'Movment';'Support';'CheckMate...' Undisiarable.**************RC**0.88**1**Risk Control************************************<*>QC _BAD
  * Huristic and Learning regime work in worth state.***********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
  * Mal Function in Boundray Conditions founding in Leaf Creation Tree.*****************RC**0.88**1**Risk Control************************************(*)QC_BAD
- * Index was out of range in same grope of ThinkingQuantum objects by hitting.****************RC**0.88**1**Risk Control************************************(*)QC_BAD
+ * Index wAS out of range in same grope of ThinkingQuantum objects by hitting.****************RC**0.88**1**Risk Control************************************(*)QC_BAD
  * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
  * **************************************************************************
  */
@@ -85,13 +85,13 @@ namespace QuantumRefrigiz
     {
         public static bool FullGameAllow = false;
         int iIndex = -1;
-        public static bool IsAtLeastOneKillerAtDraw = false;
+        public static bool IsAtLeAStOneKillerAtDraw = false;
         public bool KishSelf = false;
         public bool KishEnemy = false;
         StringBuilder Space = new StringBuilder("&nbsp;");
-#pragma warning disable CS0414 // The field 'ThinkingQuantumChess.Spaces' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'ThinkingQuantumChess.Spaces' is ASsigned but its value is never used
         int Spaces = 0;
-#pragma warning restore CS0414 // The field 'ThinkingQuantumChess.Spaces' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'ThinkingQuantumChess.Spaces' is ASsigned but its value is never used
 
         public int HuristicAttackValueSup = new int();
         public int HuristicMovementValueSup = new int();
@@ -668,7 +668,7 @@ namespace QuantumRefrigiz
             {
                 //Create and new an Object.
                 int[,] Table = new int[8, 8];
-                //Assigne Parameter To New Objects.
+                //ASsigne Parameter To New Objects.
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
@@ -687,7 +687,7 @@ namespace QuantumRefrigiz
             {
                 //Initiate new Objects.
                 int[] Table = new int[Count];
-                //Asigne to new Objects.
+                //ASigne to new Objects.
                 for (var i = 0; i < Count; i++)
                     Table[i] = Tab[i];
                 //Retrun new Object.
@@ -703,7 +703,7 @@ namespace QuantumRefrigiz
             {
                 //Initiate New Object.
                 int[] Table = new int[Count];
-                //Assigne to new Object.,
+                //ASsigne to new Object.,
                 for (var i = 0; i < Count; i++)
                     Table[i] = Tab[i];
                 //Return New Object.
@@ -729,7 +729,7 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                //Assignment Content to New Content Object.
+                //ASsignment Content to New Content Object.
                 //Initaite New Object.
                 if (AA == null)
                     AA = new ThinkingQuantumChess(iIndex, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Row, Column//, Kind
@@ -774,7 +774,7 @@ namespace QuantumRefrigiz
                 for (var j = 0; j < RowColumnMinister.Count; j++)
                     //Add a Clone To Minister New index List.
                     AA.RowColumnMinister.Add(CloneAList(RowColumnMinister[j], 2));
-                //Assgine thread.
+                //ASsgine thread.
                 //AA.t = t;
                 //Create and Initiate new Table Object.
                 AA.TableT = new int[8, 8];
@@ -785,14 +785,14 @@ namespace QuantumRefrigiz
                     //For All Items in Table Object.
                     for (var i = 0; i < 8; i++)
                         for (var j = 0; j < 8; j++)
-                            //Assgine Table items in New Table Object.
+                            //ASsgine Table items in New Table Object.
                             AA.TableT[i, j] = TableT[i, j];
                 //If Table is Not Null.
                 if (TableConst != null)
                     //For All Items in Table Object.
                     for (var i = 0; i < 8; i++)
                         for (var j = 0; j < 8; j++)
-                            //Assignm Items in New Table Object.
+                            //ASsignm Items in New Table Object.
                             AA.TableConst[i, j] = TableConst[i, j];
                 //For All Table State Movements in Castles Objects.
                 for (var i = 0; i < TableListCastle.Count; i++)
@@ -989,7 +989,7 @@ namespace QuantumRefrigiz
                 int DumOrder = Order;
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                ///When AStarGreedy Huristic is Not Assigned.
+                ///When AStarGreedy Huristic is Not ASsigned.
 
                 //When Huristic is not Greedy.
                 if (!AStarGreedyHuristicT)
@@ -1049,7 +1049,7 @@ namespace QuantumRefrigiz
                                         if (Order == -1 && Table[g, h] <= 0)
                                             continue;
                                         Color aaa = new Color();
-                                        //Assgin Enemy ints.
+                                        //ASsgin Enemy ints.
                                         aaa = Color.Gray;
                                         if (Order * -1 == -1)
                                             aaa = Color.Brown;
@@ -1067,13 +1067,13 @@ namespace QuantumRefrigiz
                                         //When Enemy is Supported.
                                         if (B)
                                         {
-                                            //Assgine variable.
+                                            //ASsgine variable.
                                             SupportedS++;
 
                                         }
                                         if (A)
                                         {
-                                            //Assgine variable.
+                                            //ASsgine variable.
                                             Supported++;
                                             continue;
 
@@ -1156,7 +1156,7 @@ namespace QuantumRefrigiz
                                         if (Order == -1 && Table[g, h] <= 0)
                                             continue;
                                         Color aaa = new Color();
-                                        //Assgin Enemy ints.
+                                        //ASsgin Enemy ints.
                                         aaa = Color.Gray;
                                         if (Order * -1 == -1)
                                             aaa = Color.Brown;
@@ -1174,13 +1174,13 @@ namespace QuantumRefrigiz
                                         //When Enemy is Supported.
                                         if (B)
                                         {
-                                            //Assgine variable.
+                                            //ASsgine variable.
                                             SupportedS++;
 
                                         }
                                         if (A)
                                         {
-                                            //Assgine variable.
+                                            //ASsgine variable.
                                             Supported++;
                                             continue;
 
@@ -1221,7 +1221,7 @@ namespace QuantumRefrigiz
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 int Sign = 1;
-                ///When AStarGreedy Huristic is Not Assigned.
+                ///When AStarGreedy Huristic is Not ASsigned.
 
 
                 if (!AStarGreedyHuristicT)
@@ -1285,9 +1285,9 @@ namespace QuantumRefrigiz
 
                                         HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS))));
                                         /*int Reduced = new int();
-                                        int Increased = new int();
+                                        int IncreASed = new int();
                                         Reduced = 0;
-                                        Increased = 0;
+                                        IncreASed = 0;
 
                                         ////Parallel.For(0, 8, g =>
                                         for (int g = 0; g < 8; g++)
@@ -1302,7 +1302,7 @@ namespace QuantumRefrigiz
                                                 if (Order == -1 && Table[g, h] == 0)
                                                     continue;
                                                 Color aaa = new Color();
-                                                //Assgin Enemy ints.
+                                                //ASsgin Enemy ints.
                                                 if (Order * -1 == -1)
                                                     aaa = Color.Brown;
                                                 else
@@ -1319,13 +1319,13 @@ namespace QuantumRefrigiz
                                                 //When Enemy is Supported.
                                                 if (B)
                                                 {
-                                                    //Assgine variable.
-                                                    Increased++;
+                                                    //ASsgine variable.
+                                                    IncreASed++;
 
                                                 }
                                                 if (A)
                                                 {
-                                                    //Assgine variable.
+                                                    //ASsgine variable.
                                                     Reduced++;
                                                     continue;
                                                 }
@@ -1335,8 +1335,8 @@ namespace QuantumRefrigiz
 
                                         if (Reduced != 0)
                                             HA *= (-1 * System.Math.Pow(2, Reduced));
-                                        if (Increased != 0)
-                                            HA *= System.Math.Pow(2, Increased);
+                                        if (IncreASed != 0)
+                                            HA *= System.Math.Pow(2, IncreASed);
 
                                     */
 
@@ -1398,9 +1398,9 @@ namespace QuantumRefrigiz
 
                                                     HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS))));
                                                     /*int Reduced = new int();
-                                                    int Increased = new int();
+                                                    int IncreASed = new int();
                                                     Reduced = 0;
-                                                    Increased = 0;
+                                                    IncreASed = 0;
                                                     //For All Self Obejcts.                                             
                                                     ////Parallel.For(0, 8, g =>
                                                     ////Parallel.For(0, 8, g =>
@@ -1416,7 +1416,7 @@ namespace QuantumRefrigiz
                                                             if (Order == -1 && Table[g, h] == 0)
                                                                 continue;
                                                             Color aaa = new Color();
-                                                            //Assgin Enemy ints.
+                                                            //ASsgin Enemy ints.
                                                             if (Order * -1 == -1)
                                                                 aaa = Color.Brown;
                                                             else
@@ -1433,13 +1433,13 @@ namespace QuantumRefrigiz
                                                             //When Enemy is Supported.
                                                             if (B)
                                                             {
-                                                                //Assgine variable.
-                                                                Increased++;
+                                                                //ASsgine variable.
+                                                                IncreASed++;
 
                                                             }
                                                             if (A)
                                                             {
-                                                                //Assgine variable.
+                                                                //ASsgine variable.
                                                                 Reduced++;
                                                                 continue;
                                                             }
@@ -1449,8 +1449,8 @@ namespace QuantumRefrigiz
 
                                                     if (Reduced != 0)
                                                         HA *= (-1 * System.Math.Pow(2, Reduced));
-                                                    if (Increased != 0)
-                                                        HA *= System.Math.Pow(2, Increased);
+                                                    if (IncreASed != 0)
+                                                        HA *= System.Math.Pow(2, IncreASed);
                                                 */
                                                 }
                                             }
@@ -1584,7 +1584,7 @@ namespace QuantumRefrigiz
                 //Initiate Orders to Call Begining.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                //Assignments of Global Huristic with Local One.
+                //ASsignments of Global Huristic with Local One.
                 //return Local Huristic.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicObjectDangour:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return HA * 1;
@@ -1756,7 +1756,7 @@ namespace QuantumRefrigiz
                 return false;
             }
         }
-        //When at least one Attacked Self Object return true.
+        //When at leASt one Attacked Self Object return true.
         bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int[,] Table, int Order, Color a, int ij, int ji, int iij, int jji, ref List<int[]> ValuableEnemyNotSupported)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -2132,7 +2132,7 @@ namespace QuantumRefrigiz
                 }
             }
         }
-        //When there is at least on self object that is not safty.
+        //When there is at leASt on self object that is not safty.
         bool InAttackSelfThatNotSupportedAll(int[,] TableS, int Order, Color a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -2372,7 +2372,7 @@ namespace QuantumRefrigiz
                 }
                 Order = Ord;
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InAttackSelfThatNotSupportedCalculateValuableAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                //When There is at last tow SelfNotSupporeted Object.
+                //When There is at Last tow SelfNotSupporeted Object.
                 if (ValuableSelfSupported.Count > 1)
                     return true;
                 return false;
@@ -2868,7 +2868,7 @@ namespace QuantumRefrigiz
                                                  continue;
 
                                              Color aaa = new Color();
-                                             //Assgin Enemy ints.
+                                             //ASsgin Enemy ints.
                                              aaa = Color.Gray;
                                              aa = Color.Gray;
 
@@ -2888,14 +2888,14 @@ namespace QuantumRefrigiz
                                              //When Enemy is Supported.
                                              if (A)
                                              {
-                                                 //Assgine variable.
+                                                 //ASsgine variable.
                                                  Supported++;
                                                  //return;
 
                                              }
                                              if (B)
                                              {
-                                                 //Assgine variable.
+                                                 //ASsgine variable.
                                                  SupportedE++;
                                                  //return;
 
@@ -3007,7 +3007,7 @@ namespace QuantumRefrigiz
                                                                continue;
 
                                                            Color aaa = new Color();
-                                                           //Assgin Enemy ints.
+                                                           //ASsgin Enemy ints.
                                                            aaa = Color.Gray;
                                                            aa = Color.Gray;
 
@@ -3027,14 +3027,14 @@ namespace QuantumRefrigiz
                                                            //When Enemy is Supported.
                                                            if (A)
                                                            {
-                                                               //Assgine variable.
+                                                               //ASsgine variable.
                                                                Supported++;
                                                                //return;
 
                                                            }
                                                            if (B)
                                                            {
-                                                               //Assgine variable.
+                                                               //ASsgine variable.
                                                                SupportedE++;
                                                                //return;
 
@@ -3066,7 +3066,7 @@ namespace QuantumRefrigiz
                     }
                 }
 
-                //Reassignments of Global Orders with Local Begining One.
+                //ReASsignments of Global Orders with Local Begining One.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
@@ -3167,21 +3167,21 @@ namespace QuantumRefrigiz
                     //Initiate Movments.
                     Table[ii, jj] = Table[i, j];
                     Table[i, j] = 0;
-                    //Default Order Assignments.
+                    //Default Order ASsignments.
                     int Ord = 1;
                     //Brown Order Consideration.
                     if (Table[ii, jj] < 0)
                         Ord = -1;
-                    //Store of Local Order Assignments in Global Assignments.
+                    //Store of Local Order ASsignments in Global ASsignments.
                     int DummyOrder = Order;
                     int DummyCurrentOrder = ChessRules.CurrentOrder;
                     //Consider Global Check Variables.
                     ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Ord, ii, jj);
                     AA.Check(CloneATable(Table), Ord);
-                    //Reaasignment of Premitive Variables.
+                    //ReaASignment of Premitive Variables.
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
-                    //Reassignments of Table Content and Consider CheckMate Specific Order.
+                    //ReASsignments of Table Content and Consider CheckMate Specific Order.
                     Table[i, j] = Table[ii, jj];
                     //When Gray.
                     if (Table[i, j] > 0)
@@ -3559,7 +3559,7 @@ namespace QuantumRefrigiz
         }
 
         //When Next Movements is Checked.QC_OK.
-        int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte, int OrderPalteMulMinuse, int Depth, bool KindCheckedSelf)
+        int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte, int OrderPalteMulMinuse, int Depth, bool KindCheckedSelf)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -3676,14 +3676,14 @@ namespace QuantumRefrigiz
                         {
                             IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(Tab, Ord, a, Depth1, OrderP, OrderM, KindCheckedSelf1);
                         }
-                        if (IS[0] == 1) Is[0] = 1;
+                        if (Is[0] == 1) Is[0] = 1;
                         if (IS[2] == 1) Is[2] = 1;
 
-                        Is[1] = IS[1];
+                        Is[1] = Is[1];
                         Is[3] = IS[3];
                     }
                 }
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Is;
             }
         }
@@ -3836,9 +3836,9 @@ namespace QuantumRefrigiz
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
                                         }
 
                                     }
@@ -3871,9 +3871,9 @@ namespace QuantumRefrigiz
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = Is[1]; Is[3] = IS[3];
                                     }
 
                                 }//);
@@ -3900,9 +3900,9 @@ namespace QuantumRefrigiz
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = Is[1]; Is[3] = IS[3];
                                     }
                                 }//);
                             }
@@ -3932,9 +3932,9 @@ namespace QuantumRefrigiz
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
                                         }
                                     }//));
                             }
@@ -3964,9 +3964,9 @@ namespace QuantumRefrigiz
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = Is[1]; Is[3] = IS[3];
                                     }
                                 }//);
                                  //For Current Home
@@ -3992,9 +3992,9 @@ namespace QuantumRefrigiz
                                     Object O1 = new Object();
                                     lock (O1)
                                     {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = IS[1]; Is[3] = IS[3];
+                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                        Is[1] = Is[1]; Is[3] = IS[3];
                                     }
                                 }//);
                             }
@@ -4026,9 +4026,9 @@ namespace QuantumRefrigiz
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
                                         }
                                     }//));
                             }
@@ -4060,9 +4060,9 @@ namespace QuantumRefrigiz
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentBaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (IS[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = IS[1]; Is[3] = IS[3];
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
                                         }
                                     }//));
                             }
@@ -4812,7 +4812,7 @@ namespace QuantumRefrigiz
                 //var RowS = RowD, ColS = ColS;
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                ///When AStarGreedy Huristic is Not Assigned.
+                ///When AStarGreedy Huristic is Not ASsigned.
 
                 if (!AStarGreedyHuristicT)
                 {
@@ -4996,7 +4996,7 @@ namespace QuantumRefrigiz
 
 
 
-                //Reassignments of Begin Call Global Orders.
+                //ReASsignments of Begin Call Global Orders.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Store Local Huristic in Global One.
@@ -5023,7 +5023,7 @@ namespace QuantumRefrigiz
                 int HA = 0;
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                ///When AStarGreedy Huristic is Not Assigned.
+                ///When AStarGreedy Huristic is Not ASsigned.
 
                 if (!AStarGreedyHuristicT)
                 {
@@ -5088,7 +5088,7 @@ namespace QuantumRefrigiz
                                          if (Order == -1 && Table[g, h] == 0)
                                              continue;
                                          Color aaa = new Color();
-                                         //Assgin Enemy ints.
+                                         //ASsgin Enemy ints.
                                          aaa = Color.Gray;
                                          if (Order * -1 == -1)
                                              aaa = Color.Brown;
@@ -5102,12 +5102,12 @@ namespace QuantumRefrigiz
                                          //When Enemy is Supported.
                                          if (B)
                                          {
-                                             //Assgine variable.
+                                             //ASsgine variable.
                                              Attacked++;
                                          }
                                          if (A)
                                          {
-                                             //Assgine variable.
+                                             //ASsgine variable.
                                              Supported++;
                                              continue;
                                          }
@@ -5193,7 +5193,7 @@ namespace QuantumRefrigiz
                                         if (Order == -1 && Table[g, h] == 0)
                                             continue;
                                         Color aaa = new Color();
-                                        //Assgin Enemy ints.
+                                        //ASsgin Enemy ints.
                                         aaa = Color.Gray;
                                         if (Order * -1 == -1)
                                             aaa = Color.Brown;
@@ -5207,12 +5207,12 @@ namespace QuantumRefrigiz
                                         //When Enemy is Supported.
                                         if (B)
                                         {
-                                            //Assgine variable.
+                                            //ASsgine variable.
                                             Attacked++;
                                         }
                                         if (A)
                                         {
-                                            //Assgine variable.
+                                            //ASsgine variable.
                                             Supported++;
                                             continue;
                                         }
@@ -5237,7 +5237,7 @@ namespace QuantumRefrigiz
                     }
                 }
 
-                //Reassignments of Begin Call Global Orders.
+                //ReASsignments of Begin Call Global Orders.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Store Local Huristic in Global One.
@@ -6100,7 +6100,7 @@ namespace QuantumRefrigiz
             }
         }
         //statstical html 
-        String Number(int ColumnRealeased)
+        String Number(int ColumnRealeASed)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -6108,35 +6108,35 @@ namespace QuantumRefrigiz
             {
 
                 String A = "";
-                if (ColumnRealeased == 7)
+                if (ColumnRealeASed == 7)
                     A = "0";
                 else
-                    if (ColumnRealeased == 6)
+                    if (ColumnRealeASed == 6)
                     A = "1";
                 else
-                        if (ColumnRealeased == 5)
+                        if (ColumnRealeASed == 5)
                     A = "2";
                 else
-                            if (ColumnRealeased == 4)
+                            if (ColumnRealeASed == 4)
                     A = "3";
                 else
-                                if (ColumnRealeased == 3)
+                                if (ColumnRealeASed == 3)
                     A = "4";
                 else
-                                    if (ColumnRealeased == 2)
+                                    if (ColumnRealeASed == 2)
                     A = "5";
                 else
-                                        if (ColumnRealeased == 1)
+                                        if (ColumnRealeASed == 1)
                     A = "6";
                 else
-                                            if (ColumnRealeased == 0)
+                                            if (ColumnRealeASed == 0)
                     A = "7";
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Number:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return A;
             }
         }
         //huristic help to kiling of enemy or gave point witout only lraearning autamata exclusive but act on.
-        public int ReturnHuristicCalculartorKiller(int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorKiller(int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
         {
 
             int Huristic = 0;
@@ -6146,14 +6146,14 @@ namespace QuantumRefrigiz
                 //when killer list exist and for victory
                 if (KillerAtThinkingQuantum[j] > 0)
                 {
-                    IsAtLeastOneKillerAtDraw = true;
-                    HaveKilled = iAstarGready;
+                    IsAtLeAStOneKillerAtDraw = true;
+                    HaveKilled = iAStarGready;
                 }
                 else//when kiler is for lose 
                 if (KillerAtThinkingQuantum[j] < 0)
                 {
-                    IsAtLeastOneKillerAtDraw = true;
-                    HaveKilled = (iAstarGready * -1);
+                    IsAtLeAStOneKillerAtDraw = true;
+                    HaveKilled = (iAStarGready * -1);
                 }
             }
             //when there is not served layer
@@ -6180,9 +6180,9 @@ namespace QuantumRefrigiz
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier[j][0]) + Number(RowColumnSoldier[j][1]);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHuristic Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                             else
-                                AllDraw.OutPut.Append("\r\nHuristic Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                         }
                     }
 
@@ -6209,9 +6209,9 @@ namespace QuantumRefrigiz
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant[j][0]) + Number(RowColumnElefant[j][1]);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHuristic Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                             else
-                                AllDraw.OutPut.Append("\r\nHuristic Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                         }
                     }
 
@@ -6238,16 +6238,16 @@ namespace QuantumRefrigiz
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse[j][0]) + Number(RowColumnHourse[j][1]);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHuristic Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                             else
-                                AllDraw.OutPut.Append("\r\nHuristic Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                         }
 
                     }
 
 
                 }
-                //when is castle
+                //when is Castle
                 for (j = 0; HuristicListCastle != null && j < HuristicListCastle.Count; j++)
                 {
 
@@ -6268,9 +6268,9 @@ namespace QuantumRefrigiz
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHuristic Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                             else
-                                AllDraw.OutPut.Append("\r\nHuristic Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                         }
                     }
 
@@ -6296,9 +6296,9 @@ namespace QuantumRefrigiz
                         {
                             ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHuristic Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                             else
-                                AllDraw.OutPut.Append("\r\nHuristic Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                AllDraw.OutPut.Append("\r\nHuristic Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                         }
                     }
 
@@ -6325,9 +6325,9 @@ namespace QuantumRefrigiz
                             {
                                 ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
                                 if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nHuristic King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                    AllDraw.OutPut.Append("\r\nHuristic King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                                 else
-                                    AllDraw.OutPut.Append("\r\nHuristic King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAstarGready.ToString() + " By Action String " + ActionsString);
+                                    AllDraw.OutPut.Append("\r\nHuristic King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
                             }
                         }
 
@@ -6343,7 +6343,7 @@ namespace QuantumRefrigiz
             return Huristic;
         }
         //deeper section to deep inside huristic calculation 
-        public int ReturnHuristicCalculartorDeeper(int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorDeeper(int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
 
         {
             int Huristic = 0;
@@ -6366,65 +6366,65 @@ namespace QuantumRefrigiz
                             for (int m = 0; m < AStarGreedy[k].SodierMidle; m++)
                             {
 
-                                Huristic += ReturnHuristicCalculartorDeeperSolider(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperSolider(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for Elephant.
                             for (int m = 0; m < AStarGreedy[k].ElefantMidle; m++)
                             {
 
-                                Huristic += ReturnHuristicCalculartorDeeperElephant(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperElephant(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for Hourse.
                             for (int m = 0; m < AStarGreedy[k].HourseMidle; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperHourse(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperHourse(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for Castles.
                             for (int m = 0; m < AStarGreedy[k].CastleMidle; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperCastle(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperCastle(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for Minstre.
                             for (int m = 0; m < AStarGreedy[k].MinisterMidle; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperMinister(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperMinister(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for King.
                             for (int m = 0; m < AStarGreedy[k].KingMidle; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperKing(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperKing(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                         }
                         else
                         {
                             for (int m = AStarGreedy[k].SodierMidle; m < AStarGreedy[k].SodierHigh; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperSolider(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperSolider(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for Elephant.
                             for (int m = AStarGreedy[k].ElefantMidle; m < AStarGreedy[k].ElefantHigh; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperElephant(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperElephant(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for Hourse.
                             for (int m = AStarGreedy[k].HourseMidle; m < AStarGreedy[k].HourseHight; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperHourse(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperHourse(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for Castles.
                             for (int m = AStarGreedy[k].CastleMidle; m < AStarGreedy[k].CastleHigh; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperCastle(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperCastle(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for Minstre.
                             for (int m = AStarGreedy[k].MinisterMidle; m < AStarGreedy[k].MinisterHigh; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperMinister(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperMinister(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                             //Repeate for King.
                             for (int m = AStarGreedy[k].KingMidle; m < AStarGreedy[k].KingHigh; m++)
                             {
-                                Huristic += ReturnHuristicCalculartorDeeperKing(k, m, iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                                Huristic += ReturnHuristicCalculartorDeeperKing(k, m, iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                             }
                         }
                     }
@@ -6436,7 +6436,7 @@ namespace QuantumRefrigiz
             return Huristic;
         }
         //deeper for specific object
-        public int ReturnHuristicCalculartorDeeperKing(int k, int m, int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorDeeperKing(int k, int m, int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
 
         {
             int Huristic = 0;
@@ -6446,17 +6446,17 @@ namespace QuantumRefrigiz
             /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
-                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
+                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                 else
-                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
+                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
             }*/
             for (var jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].TableListKing.Count; jj++)
-                Huristic += AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+                Huristic += AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].ReturnHuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
             return Huristic;
         }
         //deeper for specific object
-        public int ReturnHuristicCalculartorDeeperMinister(int k, int m, int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorDeeperMinister(int k, int m, int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
 
         {
             int Huristic = 0;
@@ -6466,17 +6466,17 @@ namespace QuantumRefrigiz
             /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
-                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
+                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                 else
-                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
+                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
             }*/
             for (var jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].TableListMinister.Count; jj++)
-                Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+                Huristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].ReturnHuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
             return Huristic;
         }
         //deeper for specific object
-        public int ReturnHuristicCalculartorDeeperCastle(int k, int m, int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorDeeperCastle(int k, int m, int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
 
         {
             int Huristic = 0;
@@ -6486,18 +6486,18 @@ namespace QuantumRefrigiz
             /* if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
              {
                  if (Order == 1)
-                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
+                     AllDraw.OutPut.Append("\r\nHuristic Deep Learning Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                  else
-                     AllDraw.OutPut.Append("\r\nHuristic Deap Learning Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
+                     AllDraw.OutPut.Append("\r\nHuristic Deap Learning Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
              }*/
             for (var jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].TableListCastle.Count; jj++)
-                Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+                Huristic += AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].ReturnHuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
             return Huristic;
         }
 
         //deeper for specific object
-        public int ReturnHuristicCalculartorDeeperHourse(int k, int m, int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorDeeperHourse(int k, int m, int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
 
         {
             int Huristic = 0;
@@ -6507,17 +6507,17 @@ namespace QuantumRefrigiz
             /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
-                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
+                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                 else
-                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
+                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
             }*/
             for (var jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].TableListHourse.Count; jj++)
-                Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+                Huristic += AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].ReturnHuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
             return Huristic;
         }
         //deeper for specific object
-        public int ReturnHuristicCalculartorDeeperElephant(int k, int m, int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorDeeperElephant(int k, int m, int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
 
         {
             int Huristic = 0;
@@ -6529,18 +6529,18 @@ namespace QuantumRefrigiz
             /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
             {
                 if (Order == 1)
-                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
+                    AllDraw.OutPut.Append("\r\nHuristic Deep Learning Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                 else
-                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
+                    AllDraw.OutPut.Append("\r\nHuristic Deap Learning Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
             }*/
             for (var jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].TableListElefant.Count; jj++)
-                Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+                Huristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].ReturnHuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
 
             return Huristic;
         }
         //deeper for specific object
-        public int ReturnHuristicCalculartorDeeperSolider(int k, int m, int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorDeeperSolider(int k, int m, int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
 
         {
             int Huristic = 0;
@@ -6552,17 +6552,17 @@ namespace QuantumRefrigiz
             /* if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
              {
                  if (Order == 1)
-                         AllDraw.OutPut.Append("\r\nHuristic Deep Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
+                         AllDraw.OutPut.Append("\r\nHuristic Deep Learning Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
                      else
-                         AllDraw.OutPut.Append("\r\nHuristic Deap Learning Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
+                         AllDraw.OutPut.Append("\r\nHuristic Deap Learning Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
                  }*/
             for (var jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].TableListSolder.Count; jj++)
-                Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].ReturnHuristicCalculartor(++iAstarGready, ii, jj, Order * -1, ref HaveKilled);
+                Huristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].ReturnHuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
 
             return Huristic;
         }
-        public int ReturnHuristicCalculartorSurface(int iAstarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
+        public int ReturnHuristicCalculartorSurface(int iAStarGready, int ii, int j, int Order, ref int HaveKilled, ref int BOUND)
 
         {
             int Huristic = 0;
@@ -6676,7 +6676,7 @@ namespace QuantumRefrigiz
             return Huristic;
         }
         //main insider method for manage huristic count
-        public int ReturnHuristicCalculartor(int iAstarGready, int ii, int j, int Order, ref int HaveKilled)
+        public int ReturnHuristicCalculartor(int iAStarGready, int ii, int j, int Order, ref int HaveKilled)
         {
             int BOUND = 0;
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -6686,7 +6686,7 @@ namespace QuantumRefrigiz
             {
                 int Huristic = 0;
                 //when deeper there is not or level exceed
-                if (AStarGreedy == null && iAstarGready != 0)
+                if (AStarGreedy == null && iAStarGready != 0)
                 {
                     ////{ AllDraw.OutPut.Append("\r\n");for (double l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return 0;
@@ -6697,16 +6697,16 @@ namespace QuantumRefrigiz
                 if (ii != -1)
                 {
                     //kiiler huristic determination//main deeper huristic
-                    Huristic += ReturnHuristicCalculartorKiller(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    Huristic += ReturnHuristicCalculartorKiller(iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
                     //main deeper huristic
-                    Huristic += ReturnHuristicCalculartorDeeper(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    Huristic += ReturnHuristicCalculartorDeeper(iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
 
 
                 }
                 else
                 {
                     //sufacive huristic
-                    Huristic += ReturnHuristicCalculartorSurface(iAstarGready, ii, j, Order, ref HaveKilled, ref BOUND);
+                    Huristic += ReturnHuristicCalculartorSurface(iAStarGready, ii, j, Order, ref HaveKilled, ref BOUND);
 
                 }
                 Order = DummyOrder;
@@ -7102,9 +7102,9 @@ namespace QuantumRefrigiz
                         {
                             /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             else
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             */
                             ThinkingQuantumLevel++;
                             ThinkingQuantumAtRun = false;
@@ -7129,9 +7129,9 @@ namespace QuantumRefrigiz
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             else
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum King AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             */
                         ThinkingQuantumAtRun = false;
                     }
@@ -7318,9 +7318,9 @@ namespace QuantumRefrigiz
                         {
                             /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             else
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             */
                             ThinkingQuantumLevel++;
                             ThinkingQuantumAtRun = false;
@@ -7345,9 +7345,9 @@ namespace QuantumRefrigiz
                         newTask1.Wait();
                         /*
                         if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             else
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Minster AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Minster AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             */
                         ThinkingQuantumAtRun = false;
                     }
@@ -7885,9 +7885,9 @@ namespace QuantumRefrigiz
                             {
                                 /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                                 if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                 */
                                 ThinkingQuantumLevel++;
                                 ThinkingQuantumAtRun = false;
@@ -7912,9 +7912,9 @@ namespace QuantumRefrigiz
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                  if (Order == 1)
-                     AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                     AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                  else
-                     AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                     AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
             */
                         ThinkingQuantumAtRun = false;
                     }
@@ -8075,9 +8075,9 @@ namespace QuantumRefrigiz
                             {
                                 /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                                 if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                 */
                                 ThinkingQuantumLevel++;
                                 ThinkingQuantumAtRun = false;
@@ -8101,9 +8101,9 @@ namespace QuantumRefrigiz
                         newTask1.Wait();
                         /*
                         if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             else
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                 */
                         ThinkingQuantumAtRun = false;
                     }
@@ -8262,9 +8262,9 @@ namespace QuantumRefrigiz
                             {
                                 /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                                 if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                 else
-                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                    AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                 */
                                 ThinkingQuantumLevel++;
                                 ThinkingQuantumAtRun = false;
@@ -8290,9 +8290,9 @@ namespace QuantumRefrigiz
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             else
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Elephant AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             */
                         ThinkingQuantumAtRun = false;
                     }
@@ -8978,9 +8978,9 @@ namespace QuantumRefrigiz
                         }
                         else
                         {
-#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
+#pragma warning disable CS0219 // The variable 'Added' is ASsigned but its value is never used
                             bool Added = false;
-#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
+#pragma warning restore CS0219 // The variable 'Added' is ASsigned but its value is never used
                             Object OO1 = new Object();
                             lock (OO1)
                             {
@@ -9588,9 +9588,9 @@ namespace QuantumRefrigiz
                         {
                             /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                             if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             else
-                                AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                             */
                             ThinkingQuantumLevel++;
                             ThinkingQuantumAtRun = false;
@@ -9614,9 +9614,9 @@ namespace QuantumRefrigiz
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Huristic " + H);
                                            if (Order == 1)
-                                               AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                               AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                            else
-                                               AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
+                                               AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
                                            */
                         ThinkingQuantumAtRun = false;
                     }
@@ -9741,17 +9741,17 @@ namespace QuantumRefrigiz
                     if (RowDestination < RowSource)
                     {
                         if (Order == 1)
-                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Huristic " + H);
+                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Huristic " + H);
                         //else
-                        AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Huristic " + H);
+                        AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Huristic " + H);
                         ThinkingQuantumLevel++;
                     }
                     else
                     {
                         if (Order == 1)
-                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Huristic " + H);
+                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Huristic " + H);
                         //else
-                        AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Huristic " + H);
+                        AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Huristic " + H);
                         ThinkingQuantumLevel++;
                     }
                     //HuristicListKing.Add(Hu);
@@ -9906,7 +9906,7 @@ namespace QuantumRefrigiz
                                         HuristicKillerValue = int.MinValue / 2;
                                     }
                                     else
-                                    //When Enemy has Attacked.
+                                    //When Enemy hAS Attacked.
                                     if (Killed < 0)
                                     {
                                         HuristicKillerValue = int.MaxValue / 2;
@@ -9920,7 +9920,7 @@ namespace QuantumRefrigiz
                                         HuristicKillerValue = int.MinValue / 2;
                                     }
                                     else
-                                    //When Enemy has Attacked.
+                                    //When Enemy hAS Attacked.
                                     if (Killed > 0)
                                     {
                                         HuristicKillerValue = int.MaxValue / 2;
@@ -9965,7 +9965,7 @@ namespace QuantumRefrigiz
                               HuristicKillerValue = int.MinValue / 2;
                           }
                           else
-                          //When Enemy has Attacked.
+                          //When Enemy hAS Attacked.
                           if (Killed < 0)
                           {
                               HuristicKillerValue = int.MaxValue / 2;
@@ -9980,7 +9980,7 @@ namespace QuantumRefrigiz
                               HuristicKillerValue = int.MinValue / 2;
                           }
                           else
-                          //When Enemy has on Attack.
+                          //When Enemy hAS on Attack.
                           if (Killed > 0)
                           {
                               HuristicKillerValue = int.MaxValue / 2;
@@ -10114,17 +10114,17 @@ namespace QuantumRefrigiz
                     if (RowDestination < RowSource)
                     {
                         if (Order == 1)
-                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Huristic " + H);
+                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Huristic " + H);
                         else
-                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Huristic " + H);
+                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Huristic " + H);
                         ThinkingQuantumLevel++;
                     }
                     else
                     {
                         if (Order == 1)
-                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Huristic " + H);
+                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Huristic " + H);
                         else
-                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Huristic " + H);
+                            AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Huristic " + H);
                         ThinkingQuantumLevel++;
                     }
                     HuristicListKing.Add(Hu);
@@ -10135,14 +10135,14 @@ namespace QuantumRefrigiz
             ThinkingQuantumAtRun = false;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CastleThinkingQuantumGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        public void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, ref int HuristicAttackValue, bool AllDrawClass = false)
+        public void HuristicPenaltyValuePerform(QuantumAtamata Current, int Order, ref int HuristicAttackValue, bool AllDrawclass = false)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
             Object O1 = new Object();
             lock (O1)
             {
-                if (LearningVarsObject.Count == 0 || AllDrawClass)
+                if (LearningVarsObject.Count == 0 || AllDrawclass)
                 {
                     if (AllDraw.OrderPlate == Order)
                     {
@@ -10207,7 +10207,7 @@ namespace QuantumRefrigiz
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HuristicPenaltyValuePerform:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for ThinkingQuantum main method
-        public void ThinkingQuantumSoldierBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumSoldierbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -10216,7 +10216,7 @@ namespace QuantumRefrigiz
                 int[,] TableS = new int[8, 8];
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 for (var RowS = 0; RowS < 8; RowS++)
                     for (var ColS = 0; ColS < 8; ColS++)
@@ -10236,7 +10236,7 @@ namespace QuantumRefrigiz
                     //oStream.Close();
                 }
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumSoldierBase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumSoldierbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void ThinkWait() { do { System.Threading.Thread.Sleep(2); } while (ThinkingQuantumAtRun); }
         //specific determination for ThinkingQuantum main method
@@ -10267,7 +10267,7 @@ namespace QuantumRefrigiz
                                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                                     }
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                                var newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldierBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                                var newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldierbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                                 //oSerialiser.Serialize(oStream, newTask);
@@ -10284,7 +10284,7 @@ namespace QuantumRefrigiz
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for ThinkingQuantum main method
-        public void ThinkingQuantumElephantBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumElephantbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O1 = new Object();
@@ -10294,7 +10294,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O = new Object();
                 lock (O)
@@ -10318,7 +10318,7 @@ namespace QuantumRefrigiz
                     }
                 }
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumElephantBase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumElephantbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         //specific determination for ThinkingQuantum main method
@@ -10344,7 +10344,7 @@ namespace QuantumRefrigiz
                             if (Scop(ii, jj, i, j, 2))
                             {
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                                var newTask = Task.Factory.StartNew(() => ThinkingQuantumElephantBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                                var newTask = Task.Factory.StartNew(() => ThinkingQuantumElephantbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                                 //oSerialiser.Serialize(oStream, newTask);
@@ -10366,7 +10366,7 @@ namespace QuantumRefrigiz
                             var j = i * -1 + ii + jj;
                             if (Scop(ii, jj, i, j, 2))
                             {
-                                ThinkingQuantumElephantBase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
+                                ThinkingQuantumElephantbase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
                                 //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
 
@@ -10390,7 +10390,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O = new Object();
                 lock (O)
@@ -10423,7 +10423,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 for (var RowS = 0; RowS < 8; RowS++)
                     for (var ColS = 0; ColS < 8; ColS++)
@@ -10457,7 +10457,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O = new Object();
                 lock (O)
@@ -10494,7 +10494,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 for (var RowS = 0; RowS < 8; RowS++)
                     for (var ColS = 0; ColS < 8; ColS++)
@@ -10528,7 +10528,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O = new Object();
                 lock (O)
@@ -10566,7 +10566,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O = new Object();
                 lock (O)
@@ -10605,7 +10605,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O111 = new Object();
                 lock (O111)
@@ -10642,7 +10642,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
 
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O = new Object();
                 lock (O)
@@ -10800,7 +10800,7 @@ namespace QuantumRefrigiz
 
                         ///Initiate a Local Variables.
                         int[,] TableS = new int[8, 8];
-                        ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                        ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         for (var RowS = 0; RowS < 8; RowS++)
                             for (var ColS = 0; ColS < 8; ColS++)
@@ -10844,7 +10844,7 @@ namespace QuantumRefrigiz
 
                         ///Initiate a Local Variables.
                         int[,] TableS = new int[8, 8];
-                        ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                        ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         for (var RowS = 0; RowS < 8; RowS++)
                             for (var ColS = 0; ColS < 8; ColS++)
@@ -10883,7 +10883,7 @@ namespace QuantumRefrigiz
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for ThinkingQuantum main method
-        public void ThinkingQuantumMinisterBase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingQuantumMinisterbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O1 = new Object();
@@ -10894,7 +10894,7 @@ namespace QuantumRefrigiz
 
                 ///Initiate a Local Variables.
                 int[,] TableS = new int[8, 8];
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O = new Object();
                 lock (O)
@@ -10921,7 +10921,7 @@ namespace QuantumRefrigiz
 
                 }
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumMinisterBase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumMinisterbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumMinister(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
@@ -10946,7 +10946,7 @@ namespace QuantumRefrigiz
                         lock (O)
                         {
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                            var newTask = Task.Factory.StartNew(() => ThinkingQuantumMinisterBase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            var newTask = Task.Factory.StartNew(() => ThinkingQuantumMinisterbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                             //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                             //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             //oSerialiser.Serialize(oStream, newTask);
@@ -10975,7 +10975,7 @@ namespace QuantumRefrigiz
 
                     ///Initiate a Local Variables.
                     int[,] TableS = new int[8, 8];
-                    ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                    ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     for (var RowS = 0; RowS < 8; RowS++)
                         for (var ColS = 0; ColS < 8; ColS++)
@@ -11013,7 +11013,7 @@ namespace QuantumRefrigiz
 
                     ///Initiate a Local Variables.
                     int[,] TableS = new int[8, 8];
-                    ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                    ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     for (var RowS = 0; RowS < 8; RowS++)
                         for (var ColS = 0; ColS < 8; ColS++)
@@ -11059,7 +11059,7 @@ namespace QuantumRefrigiz
                                 continue;
                             ///Initiate a Local Variables.
                             TableS = new int[8, 8];
-                            ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                            ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                             QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                             for (var RowS = 0; RowS < 8; RowS++)
                                 for (var ColS = 0; ColS < 8; ColS++)
@@ -11146,7 +11146,7 @@ namespace QuantumRefrigiz
                     AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
                 }
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 //when valid do create of deeper node and string making
                 if (TableListCastle.Count > AStarGreedy.Count)
@@ -11432,9 +11432,9 @@ namespace QuantumRefrigiz
                 IndexMinister = 0;
                 IndexKing = 0;
                 int[,] TableS = new int[8, 8];
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 ///Most Dot Net FrameWork Hot Path
-                ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object Tasble.
+                ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object TASble.
                /* for (var RowS = 0; RowS < 8; RowS++)
                     for (var ColS = 0; ColS < 8; ColS++)
                     {
@@ -11479,10 +11479,10 @@ namespace QuantumRefrigiz
                 IgnoreObjectDangour = -1;
                 ///Initiate a Local Variables.
                 TableS = new int[8, 8];
-                ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 ///Most Dot Net FrameWork Hot Path
-                ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object Tasble.
+                ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object TASble.
                 for (var RowS = 0; RowS < 8; RowS++)
                     for (var ColS = 0; ColS < 8; ColS++)
                     {

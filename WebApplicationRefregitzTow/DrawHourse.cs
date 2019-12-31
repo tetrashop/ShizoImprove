@@ -20,7 +20,7 @@ namespace RefrigtzW
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        Image[] H = new Image[2];
+        public static Image[] H = new Image[2];
         //Iniatite Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
@@ -208,16 +208,15 @@ namespace RefrigtzW
         //Draw a Instatnt Hourse on the Table Method.
         public void DrawHourseOnTable(ref Graphics g, int CellW, int CellH)
         {
-            object balancelockS = new object();
-
-            lock (balancelockS)
+            if (g == null)
+                return;
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            try
             {
-                if (g == null)
-                    return;
-                //long Time = TimeElapced.TimeNow();Spaces++;
-                try
-                {
+                object balancelockS = new object();
 
+                lock (balancelockS)
+                {
                     if (H[0] == null || H[1] == null)
                     {
                         H[0] = Image.FromFile(AllDraw.ImagesSubRoot + "HG.png");
@@ -244,15 +243,14 @@ namespace RefrigtzW
                             }
                         }
                     }
-
-
                 }
-                catch (Exception t)
-                {
-                    Log(t);
-                }
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourseOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+
             }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawHourseOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

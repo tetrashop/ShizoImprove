@@ -83,7 +83,7 @@ function ValidatorHookupEvent(control, eventType, functionPrefix) {
     var ev = control[eventType];
     if (typeof(ev) == "function") {
         ev = ev.toString();
-        ev = ev.substring(ev.indexOf("{") + 1, ev.lastIndexOf("}"));
+        ev = ev.substring(ev.indexOf("{") + 1, ev.LastIndexOf("}"));
     }
     else {
         ev = "";
@@ -237,9 +237,9 @@ function ValidatorSetFocus(val, event) {
         if ((ctrl.tagName.toLowerCase() == "table" && (typeof(__nonMSDOMBrowser) == "undefined" || __nonMSDOMBrowser)) ||
             (ctrl.tagName.toLowerCase() == "span")) {
             var inputElements = ctrl.getElementsByTagName("input");
-            var lastInputElement  = inputElements[inputElements.length -1];
-            if (lastInputElement != null) {
-                ctrl = lastInputElement;
+            var LastInputElement  = inputElements[inputElements.length -1];
+            if (LastInputElement != null) {
+                ctrl = LastInputElement;
             }
         }
         if (typeof(ctrl.focus) != "undefined" && ctrl.focus != null) {
@@ -533,20 +533,20 @@ function ValidationSummaryOnSubmit(validationGroup) {
                 if (typeof(summary.headertext) == "string") {
                     s += summary.headertext + "\r\n";
                 }
-                var lastValIndex = Page_Validators.length - 1;
-                for (i=0; i<=lastValIndex; i++) {
+                var LastValIndex = Page_Validators.length - 1;
+                for (i=0; i<=LastValIndex; i++) {
                     if (!Page_Validators[i].isvalid && typeof(Page_Validators[i].errormessage) == "string") {
                         switch (summary.displaymode) {
                             case "List":
                                 s += Page_Validators[i].errormessage;
-                                if (i < lastValIndex) {
+                                if (i < LastValIndex) {
                                     s += "\r\n";
                                 }
                                 break;
                             case "BulletList":
                             default:
                                 s += "- " + Page_Validators[i].errormessage;
-                                if (i < lastValIndex) {
+                                if (i < LastValIndex) {
                                     s += "\r\n";
                                 }
                                 break;

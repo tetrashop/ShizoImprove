@@ -21,7 +21,7 @@ namespace RefrigtzDLL
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        Image[] M = new Image[2];
+        
         //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
@@ -57,7 +57,6 @@ namespace RefrigtzDLL
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
-            M = null;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
@@ -222,11 +221,7 @@ namespace RefrigtzDLL
                 try
                 {
 
-                    if (M[0] == null || M[1] == null)
-                    {
-                        M[0] = Image.FromFile(AllDraw.ImagesSubRoot + "MG.png");
-                        M[1] = Image.FromFile(AllDraw.ImagesSubRoot + "MB.png");
-                    }     //Gray Color.
+                         //Gray Color.
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     {
                         //Gray Order.
@@ -236,7 +231,7 @@ namespace RefrigtzDLL
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Instatnt Minister Image on the Table.
-                                g.DrawImage(M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                         }
                         else
@@ -245,7 +240,7 @@ namespace RefrigtzDLL
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Brown Instatnt Minister Image on the Table.
-                                g.DrawImage(M[1], new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MB.png"), new Rectangle((int)(Row * CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                         }
                     }

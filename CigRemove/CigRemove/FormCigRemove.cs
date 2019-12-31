@@ -132,7 +132,7 @@ namespace CigRemove
             try
             {
 
-                CigReaderDataBase.CigDataBase Cig = new CigReaderDataBase.CigDataBase();
+                CigReaderDatabase.CigDatabase Cig = new CigReaderDatabase.CigDatabase();
                 Cig.CigInsert(DateTime.Now.ToString());
                 CigRead = new List<String>();
                 Cig.CigRead(ref dataGridViewCig, ref CigRead);
@@ -199,7 +199,7 @@ namespace CigRemove
 
         private void buttonChart_Click(object sender, EventArgs e)
         {
-            CigReaderDataBase.CigDataBase Cig = new CigReaderDataBase.CigDataBase();
+            CigReaderDatabase.CigDatabase Cig = new CigReaderDatabase.CigDatabase();
             CigRead = new List<String>();
             Cig.CigRead(ref dataGridViewCig, ref CigRead);
             PictureBox1_Paint(sender, new System.Windows.Forms.PaintEventArgs(g, new System.Drawing.Rectangle(0, 0, this.PictureBox1.Width, PictureBox1.Height)));
@@ -329,7 +329,7 @@ namespace CigRemove
         {
             try
             {
-                CigReaderDataBase.CigDataBase Cig = new CigReaderDataBase.CigDataBase();
+                CigReaderDatabase.CigDatabase Cig = new CigReaderDatabase.CigDatabase();
                 CigRead = new List<String>();
                 Cig.CigRead(ref dataGridViewCig, ref CigRead);
                 DateTime S = System.Convert.ToDateTime(CigRead[0]);
@@ -338,7 +338,7 @@ namespace CigRemove
                 {
                     Directory.CreateDirectory(S.Year.ToString() + S.Month.ToString() + S.Day.ToString());
                     File.Copy("CigRemove.accdb", S.Year.ToString() + S.Month.ToString() + S.Day.ToString() + "\\CigRemove.accdb");
-                    (new CigReaderDataBase.CigDataBase()).CigDelete();
+                    (new CigReaderDatabase.CigDatabase()).CigDelete();
                 }
                 CigRead.Clear();
                 CigRead = null;
@@ -369,7 +369,7 @@ namespace CigRemove
             {
                 openFileDialogBackup.Filter = "Acccess Datbase|*.accdb";
                 openFileDialogBackup.ShowDialog();
-                //CigReaderDataBase.CigDataBase Cig = new CigReaderDataBase.CigDataBase();
+                //CigReaderDatabase.CigDatabase Cig = new CigReaderDatabase.CigDatabase();
                // CigRead = new List<String>();
                // Cig.CigRead(ref dataGridViewCig, ref CigRead, openFileDialogBackup.FileName);
                // DateTime S = System.Convert.ToDateTime(CigRead[0]);
@@ -381,7 +381,7 @@ namespace CigRemove
                     if (File.Exists(saveFileDialogBackup.FileName))
                         File.Delete(saveFileDialogBackup.FileName);
                         File.Copy(openFileDialogBackup.FileName, saveFileDialogBackup.FileName);
-                    //(new CigReaderDataBase.CigDataBase()).CigDelete();
+                    //(new CigReaderDatabase.CigDatabase()).CigDelete();
                 }
                // CigRead.Clear();
               //  CigRead = null;
@@ -399,7 +399,7 @@ namespace CigRemove
             {
                 openFileDialogBackup.Filter = "Acccess Datbase|*.accdb";
                 openFileDialogBackup.ShowDialog();
-                //   CigReaderDataBase.CigDataBase Cig = new CigReaderDataBase.CigDataBase();
+                //   CigReaderDatabase.CigDatabase Cig = new CigReaderDatabase.CigDatabase();
                 //    CigRead = new List<String>();
                 //    Cig.CigRead(ref dataGridViewCig, ref CigRead,openFileDialogBackup.FileName);
                 //    DateTime S = System.Convert.ToDateTime(CigRead[0]);
@@ -410,7 +410,7 @@ namespace CigRemove
                         File.Delete("CigRemove.accdb");
                   
                     File.Copy(openFileDialogBackup.FileName, "CigRemove.accdb");
-                    //(new CigReaderDataBase.CigDataBase()).CigDelete();
+                    //(new CigReaderDatabase.CigDatabase()).CigDelete();
                 }
                // CigRead.Clear();
               //  CigRead = null;

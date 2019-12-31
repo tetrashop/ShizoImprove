@@ -7,9 +7,9 @@ using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace CigReaderDataBase
+namespace CigReaderDatabase
 {
-    class CigDataBase
+    class CigDatabase
     {
         OleDbConnection bookConnJs;
         OleDbCommand oleDbCmdJs = new OleDbCommand();
@@ -20,7 +20,7 @@ namespace CigReaderDataBase
         OleDbCommand oleDbCmdWo = new OleDbCommand();
         String connParamWo = "";
 
-        public CigDataBase()
+        public CigDatabase()
         {
             connParamJs = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) + "\\" + "CigRemove.accdb;Persist Security Info=true;Jet OLEDB:Database Password='HGBVBGF(HGDSACBNB!'";
             connParamJs = connParamJs.Replace("\\", "/");

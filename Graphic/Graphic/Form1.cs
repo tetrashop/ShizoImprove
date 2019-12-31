@@ -154,7 +154,7 @@ public partial class Form1 : Form
              code[i] =false;
         if (y > ymax) code[3] =true;
              else if (y < ymin) code[2] = true;
-        if (x > xmax) code[1]=true;
+        if (x > xmax) code[0]=true;
              else if (x < xmin) code[0] =true;
     }
     private void aRCToolStripMenuItem_Click_1(object sender, EventArgs e)

@@ -2371,7 +2371,7 @@ namespace RefrigtzW
                 }
                 Order = Ord;
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InAttackSelfThatNotSupportedCalculateValuableAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                //When There is at last tow SelfNotSupporeted Object.
+                //When There is at Last tow SelfNotSupporeted Object.
                 if (ValuableSelfSupported.Count > 1)
                     return true;
                 return false;
@@ -6246,7 +6246,7 @@ namespace RefrigtzW
 
 
                 }
-                //when is castle
+                //when is Castle
                 for (j = 0; HuristicListCastle != null && j < HuristicListCastle.Count; j++)
                 {
 
@@ -11147,7 +11147,7 @@ namespace RefrigtzW
                     AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
                 }
             }
-            else if (kind == 4)//castle
+            else if (kind == 4)//Castle
             {
                 //when valid do create of deeper node and string making
                 if (TableListCastle.Count > AStarGreedy.Count)

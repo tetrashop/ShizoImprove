@@ -122,8 +122,8 @@ namespace Refrigtz
         String ComboBoxMaxLevelText = "";
         bool RemoveUncomStock = false;
         const string PieceToChar = "kqrnbp PBNRQK";
-        int StockMoveBase = 0;
-        int FenCastling = -1;//0 for small castling 1 for big castling -1 for non castling.
+        int StockMovebase = 0;
+        int FenCastling = -1;//0 for small Castling 1 for big Castling -1 for non Castling.
         int StockMove = 1;
         //Initiate Global Variable.
         //public bool DisableTemporarlyTimerUpdate = false;
@@ -1818,7 +1818,7 @@ namespace Refrigtz
                                              Draw.TableList.Clear();
                                              Draw.TableList.Add(CloneATable(Table));
                                              Draw.SetRowColumn(0);
-                                             InsertTableAtDataBase(Table);
+                                             InsertTableAtDatabase(Table);
                                              GrayTimer.StartTime("GrayTimer");
                                              BrownTimer.StopTime();
 
@@ -3335,7 +3335,7 @@ namespace Refrigtz
                                              DrawQ.TableList.Clear();
                                              DrawQ.TableList.Add(Table);
                                              Draw.SetRowColumn(0);
-                                             InsertTableAtDataBase(Table);
+                                             InsertTableAtDatabase(Table);
                                              GrayTimer.StartTime("GrayTimer");
                                              BrownTimer.StopTime();
 
@@ -4545,12 +4545,12 @@ namespace Refrigtz
                         }
                     }
                     //When direcrories not exist.
-                    if (!Directory.Exists(Root + "\\DataBase"))
+                    if (!Directory.Exists(Root + "\\Database"))
                     {
-                        if (!Directory.Exists(Root + "\\DataBase\\MainBank"))
+                        if (!Directory.Exists(Root + "\\Database\\MainBank"))
                         {
-                            Directory.CreateDirectory(Root + "\\DataBase\\MainBank");
-                            File.Move(Root + "\\ChessBank.accdb", Root + "\\DataBase\\MainBank\\ChessBank.accdb");
+                            Directory.CreateDirectory(Root + "\\Database\\MainBank");
+                            File.Move(Root + "\\ChessBank.accdb", Root + "\\Database\\MainBank\\ChessBank.accdb");
                         }
                     }
                     if (!Directory.Exists(Root + "\\Images"))
@@ -4590,7 +4590,7 @@ namespace Refrigtz
 
                             }
 
-                            InsertTableAtDataBase(Table);
+                            InsertTableAtDatabase(Table);
                             CreateConfigurationTable();
                             SetAllDrawKind();
 
@@ -4748,7 +4748,7 @@ namespace Refrigtz
                                         bookConn = new OleDbConnection(connParam);
                                         oleDbCmd.Connection = bookConn;
                                         bookConn.Open();
-                                        InsertTableAtDataBase(Table);
+                                        InsertTableAtDatabase(Table);
                                         CreateConfigurationTable();
 
                                         SetAllDrawKind();
@@ -5822,7 +5822,7 @@ namespace Refrigtz
                     oleDbCmd.CommandText = @"Drop Table " + TableName;
                     int temp = 0;
                     temp = oleDbCmd.ExecuteNonQuery();
-                    InsertTableAtDataBase(Tabl);
+                    InsertTableAtDatabase(Tabl);
 
                 }
                 catch (Exception t)
@@ -6166,7 +6166,7 @@ namespace Refrigtz
             }
         }
         //Inserting of New Tabler at Database.
-        void InsertTableAtDataBase(int[,] Table)
+        void InsertTableAtDatabase(int[,] Table)
         {
             Object O = new Object();
             lock (O)
@@ -6228,7 +6228,7 @@ namespace Refrigtz
             Object OO = new Object();
             lock (OO)
             {
-                if (Draw == null)
+                if (Draw == null || g == null)
                     return;
 
 
@@ -6401,7 +6401,7 @@ namespace Refrigtz
             Object OO = new Object();
             lock (OO)
             {
-                if (DrawQ == null)
+                if (DrawQ == null || g == null)
                     return;
 
                 for (int i = 0; i < DrawQ.SodierHigh; i++)
@@ -7364,7 +7364,7 @@ namespace Refrigtz
 
                     GrayTimer.StopTime();
                     BrownTimer.StartTime("BrownTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     Clicked = false; BobSection = false;
                     RefrigtzDLL.ChessRules.CastleActGray = true;
 
@@ -7512,7 +7512,7 @@ namespace Refrigtz
 
                     GrayTimer.StopTime();
                     BrownTimer.StartTime("BrownTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Soldier, 1);
@@ -7593,7 +7593,7 @@ namespace Refrigtz
 
                     GrayTimer.StopTime();
                     BrownTimer.StartTime("BrownTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Elefant, 2);
@@ -7675,7 +7675,7 @@ namespace Refrigtz
 
                     GrayTimer.StopTime();
                     BrownTimer.StartTime("BrownTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Hourse, 3);
@@ -7759,7 +7759,7 @@ namespace Refrigtz
 
                     GrayTimer.StopTime();
                     BrownTimer.StartTime("BrownTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Castle, 4);
@@ -7842,7 +7842,7 @@ namespace Refrigtz
 
                     GrayTimer.StopTime();
                     BrownTimer.StartTime("BrownTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Minister, 5);
@@ -7923,7 +7923,7 @@ namespace Refrigtz
 
                     GrayTimer.StopTime();
                     BrownTimer.StartTime("BrownTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, King, 6);
@@ -8108,7 +8108,7 @@ namespace Refrigtz
 
                     GrayTimer.StopTime();
                     BrownTimer.StartTime("BrownTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     Clicked = false; BobSection = false;
                     //RefrigtzDLL.ChessRules.CastleActBrown = true;
                     //TakeRoot.CalculateRootGray(Draw);
@@ -8250,7 +8250,7 @@ namespace Refrigtz
 
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Soldier, -1);
@@ -8333,7 +8333,7 @@ namespace Refrigtz
 
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Elefant, -2);
@@ -8415,7 +8415,7 @@ namespace Refrigtz
 
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Hourse, -3);
@@ -8497,7 +8497,7 @@ namespace Refrigtz
 
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Castle, -4);
@@ -8580,7 +8580,7 @@ namespace Refrigtz
 
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Minister, -5);
@@ -8665,7 +8665,7 @@ namespace Refrigtz
 
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
@@ -9203,7 +9203,7 @@ namespace Refrigtz
 
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         Clicked = false; BobSection = false;
                         QuantumRefrigiz.ChessRules.CastleActGray = true;
 
@@ -9368,7 +9368,7 @@ namespace Refrigtz
 
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Soldier, 1);
@@ -9466,7 +9466,7 @@ namespace Refrigtz
 
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Elefant, 2);
@@ -9561,7 +9561,7 @@ namespace Refrigtz
 
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Hourse, 3);
@@ -9662,7 +9662,7 @@ namespace Refrigtz
 
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Castle, 4);
@@ -9761,7 +9761,7 @@ namespace Refrigtz
 
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Minister, 5);
@@ -9857,7 +9857,7 @@ namespace Refrigtz
 
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, King, 6);
@@ -10055,7 +10055,7 @@ namespace Refrigtz
 
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         Clicked = false; BobSection = false;
                         //QuantumRefrigiz.ChessRules.CastleActBrown = true;
                         //TakeRoot.CalculateRootGray(DrawQ);
@@ -10213,7 +10213,7 @@ namespace Refrigtz
 
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Soldier, -1);
@@ -10310,7 +10310,7 @@ namespace Refrigtz
 
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Elefant, -2);
@@ -10407,7 +10407,7 @@ namespace Refrigtz
 
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Hourse, -3);
@@ -10503,7 +10503,7 @@ namespace Refrigtz
 
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Castle, -4);
@@ -10600,7 +10600,7 @@ namespace Refrigtz
 
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Minister, -5);
@@ -10702,7 +10702,7 @@ namespace Refrigtz
 
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                         SetBoxText("\r\nWait...");
                         RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
@@ -11197,14 +11197,14 @@ namespace Refrigtz
                     S += "-";
                     S += " ";
                 }
-                StockMoveBase = MovmentsNumber / 2;
+                StockMovebase = MovmentsNumber / 2;
                 StockMove = MovmentsNumber % 2;
-                S += (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                S += (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
 
                 ss += S;
 
                 //if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                //   StockMoveBase++;
+                //   StockMovebase++;
                 //else
                 //    StockMove++;
 
@@ -11268,7 +11268,7 @@ namespace Refrigtz
                             fs = fs.Insert(Dum1 + Dum2 + Dum3 + Dum4, S);
                             fenS = new List<char>(fs);
 
-                            S = "w KQkq " + Alphabet() + Number() + " " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                            S = "w KQkq " + Alphabet() + Number() + " " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                             fs = ListToString(fenS);
 
                             Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11287,7 +11287,7 @@ namespace Refrigtz
                             fs = fs.Replace(fs.Substring(fs.IndexOf("b "), fs.size() - fs.IndexOf("b ")), S);
                             fenS = new List<char>(fs);
                             if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                StockMoveBase++;
+                                StockMovebase++;
                             else
                                 StockMove++;
                         }
@@ -11335,7 +11335,7 @@ namespace Refrigtz
                                 fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                S = "w KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                 fs = ListToString(fenS);
 
                                 Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11356,7 +11356,7 @@ namespace Refrigtz
 
 
                                 if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                    StockMoveBase++;
+                                    StockMovebase++;
                                 else
                                     StockMove++;
                             }
@@ -11404,7 +11404,7 @@ namespace Refrigtz
                                     fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                    S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                    S = "w KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                     fs = ListToString(fenS);
 
                                     Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11426,7 +11426,7 @@ namespace Refrigtz
 
 
                                     if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                        StockMoveBase++;
+                                        StockMovebase++;
                                     else
                                         StockMove++;
                                 }
@@ -11474,7 +11474,7 @@ namespace Refrigtz
                                         fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                        S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                        S = "w KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                         fs = ListToString(fenS);
 
                                         Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11496,7 +11496,7 @@ namespace Refrigtz
 
 
                                         if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                            StockMoveBase++;
+                                            StockMovebase++;
                                         else
                                             StockMove++;
                                     }
@@ -11544,7 +11544,7 @@ namespace Refrigtz
                                             fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                            S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                            S = "w KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                             fs = ListToString(fenS);
 
                                             Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11567,7 +11567,7 @@ namespace Refrigtz
 
 
                                             if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                                StockMoveBase++;
+                                                StockMovebase++;
                                             else
                                                 StockMove++;
                                         }
@@ -11615,7 +11615,7 @@ namespace Refrigtz
                                                 fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                                S = "w KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                                S = "w KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                                 fs = ListToString(fenS);
 
                                                 Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11636,7 +11636,7 @@ namespace Refrigtz
 
 
                                                 if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                                    StockMoveBase++;
+                                                    StockMovebase++;
                                                 else
                                                     StockMove++;
                                             }
@@ -11647,7 +11647,7 @@ namespace Refrigtz
                             String fs = ListToString(fenS);
                             int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
 
-                            String S = "w K-kq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                            String S = "w K-kq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                             fs = ListToString(fenS);
 
                             Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11668,7 +11668,7 @@ namespace Refrigtz
 
 
                             if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                StockMoveBase++;
+                                StockMovebase++;
                             else
                                 StockMove++;
 
@@ -11679,7 +11679,7 @@ namespace Refrigtz
                                 String fs = ListToString(fenS);
                                 int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
 
-                                String S = "w -Qkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                String S = "w -Qkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                 fs = ListToString(fenS);
 
                                 Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11700,7 +11700,7 @@ namespace Refrigtz
 
 
                                 if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                    StockMoveBase++;
+                                    StockMovebase++;
                                 else
                                     StockMove++;
 
@@ -11772,7 +11772,7 @@ namespace Refrigtz
 
                             fs = ListToString(fenS); fenS = new List<char>(fs);
 
-                            S = "b KQkq " + Alphabet() + Number() + " " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                            S = "b KQkq " + Alphabet() + Number() + " " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                             fs = ListToString(fenS);
 
                             Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11791,7 +11791,7 @@ namespace Refrigtz
                             fs = fs.Replace(fs.Substring(fs.IndexOf("w "), fs.size() - fs.IndexOf("w ") - 1), S);
                             fenS = new List<char>(fs);
                             if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                StockMoveBase++;
+                                StockMovebase++;
                             else
                                 StockMove++;
                         }
@@ -11853,7 +11853,7 @@ namespace Refrigtz
                                 fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                S = "b KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                 fs = ListToString(fenS);
 
                                 Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11873,7 +11873,7 @@ namespace Refrigtz
                                 fenS = new List<char>(fs);
 
                                 if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                    StockMoveBase++;
+                                    StockMovebase++;
                                 else
                                     StockMove++;
                             }
@@ -11935,7 +11935,7 @@ namespace Refrigtz
                                     fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                    S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                    S = "b KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                     fs = ListToString(fenS);
 
                                     Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -11955,7 +11955,7 @@ namespace Refrigtz
                                     fenS = new List<char>(fs);
 
                                     if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                        StockMoveBase++;
+                                        StockMovebase++;
                                     else
                                         StockMove++;
                                 }
@@ -12017,7 +12017,7 @@ namespace Refrigtz
                                         fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                        S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                        S = "b KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                         fs = ListToString(fenS);
 
                                         Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -12037,7 +12037,7 @@ namespace Refrigtz
                                         fenS = new List<char>(fs);
 
                                         if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                            StockMoveBase++;
+                                            StockMovebase++;
                                         else
                                             StockMove++;
                                     }
@@ -12100,7 +12100,7 @@ namespace Refrigtz
                                             fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                            S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                            S = "b KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                             fs = ListToString(fenS);
 
                                             Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -12120,7 +12120,7 @@ namespace Refrigtz
                                             fenS = new List<char>(fs);
 
                                             if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                                StockMoveBase++;
+                                                StockMovebase++;
                                             else
                                                 StockMove++;
                                         }
@@ -12182,7 +12182,7 @@ namespace Refrigtz
                                                 fs = fs.Substring(Dum6, fs.size() - Dum6);
 
 
-                                                S = "b KQkq - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                                S = "b KQkq - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                                 fs = ListToString(fenS);
 
                                                 Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -12202,7 +12202,7 @@ namespace Refrigtz
                                                 fenS = new List<char>(fs);
 
                                                 if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                                    StockMoveBase++;
+                                                    StockMovebase++;
                                                 else
                                                     StockMove++;
                                             }
@@ -12213,7 +12213,7 @@ namespace Refrigtz
                             String fs = ListToString(fenS);
                             int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
 
-                            String S = "b KQk- - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                            String S = "b KQk- - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                             fs = ListToString(fenS);
 
                             Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -12234,7 +12234,7 @@ namespace Refrigtz
 
 
                             if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                StockMoveBase++;
+                                StockMovebase++;
                             else
                                 StockMove++;
 
@@ -12245,7 +12245,7 @@ namespace Refrigtz
                                 String fs = ListToString(fenS);
                                 int Dum1 = 0, Dum2 = 0, Dum3 = 0, Dum4 = 0, Dum5 = 0, Dum6 = 0;
 
-                                String S = "b KQ-q - " + (StockMoveBase).ToString() + " " + ((int)StockMove).ToString() + "\n";
+                                String S = "b KQ-q - " + (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
                                 fs = ListToString(fenS);
 
                                 Dum1 = fs.Substring(0, fs.IndexOf("/")).size() + 1;
@@ -12266,7 +12266,7 @@ namespace Refrigtz
 
 
                                 if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
-                                    StockMoveBase++;
+                                    StockMovebase++;
                                 else
                                     StockMove++;
 
@@ -12631,7 +12631,7 @@ namespace Refrigtz
 
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
@@ -12733,7 +12733,7 @@ namespace Refrigtz
 
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     SetBoxText("\r\nWait...");
                     RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
@@ -13688,7 +13688,7 @@ namespace Refrigtz
                         SetAllDrawKindString();
 
                         (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
-                        MessageBox.Show("No Konwledgs to begin with stockfish! Please delete one node of last table and continue");
+                        MessageBox.Show("No Konwledgs to begin with stockfish! Please delete one node of Last table and continue");
                         Application.ExitThread();
                         Application.Exit();
                     }
@@ -14390,7 +14390,7 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                InsertTableAtDataBase(Table);
+                InsertTableAtDatabase(Table);
 
                 StateCC = StoreStateCC;
                 StateCP = StoreStateCP;
@@ -14638,7 +14638,7 @@ namespace Refrigtz
                     }
 
                     StateGe = true;
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     RefrigtzDLL.ThinkingChess.ThinkingRun = false;
                 }
                 else
@@ -14700,7 +14700,7 @@ namespace Refrigtz
                     }
 
                     StateGe = true;
-                    InsertTableAtDataBase(Table);
+                    InsertTableAtDatabase(Table);
                     QuantumRefrigiz.ThinkingQuantumChess.ThinkingQuantumRun = false;
                 }
                 if (t4.IsAlive)
@@ -16362,8 +16362,8 @@ namespace Refrigtz
                                 {
                                     Log(t);
                                 }
-                                if (!Directory.Exists(Root + "\\DataBase\\Games"))
-                                    Directory.CreateDirectory(Root + "\\DataBase\\Games");
+                                if (!Directory.Exists(Root + "\\Database\\Games"))
+                                    Directory.CreateDirectory(Root + "\\Database\\Games");
                                 int i = 0;
                                 do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                                 System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
@@ -16437,8 +16437,8 @@ namespace Refrigtz
                                 {
                                     Log(t);
                                 }
-                                if (!Directory.Exists(Root + "\\DataBase\\Games"))
-                                    Directory.CreateDirectory(Root + "\\DataBase\\Games");
+                                if (!Directory.Exists(Root + "\\Database\\Games"))
+                                    Directory.CreateDirectory(Root + "\\Database\\Games");
                                 int i = 0;
                                 do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                                 System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
@@ -16571,8 +16571,8 @@ namespace Refrigtz
                                 {
                                     Log(t);
                                 }
-                                if (!Directory.Exists(Root + "\\DataBase\\Games"))
-                                    Directory.CreateDirectory(Root + "\\DataBase\\Games");
+                                if (!Directory.Exists(Root + "\\Database\\Games"))
+                                    Directory.CreateDirectory(Root + "\\Database\\Games");
                                 int i = 0;
                                 do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                                 System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
@@ -16646,8 +16646,8 @@ namespace Refrigtz
                                 {
                                     Log(t);
                                 }
-                                if (!Directory.Exists(Root + "\\DataBase\\Games"))
-                                    Directory.CreateDirectory(Root + "\\DataBase\\Games");
+                                if (!Directory.Exists(Root + "\\Database\\Games"))
+                                    Directory.CreateDirectory(Root + "\\Database\\Games");
                                 int i = 0;
                                 do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
                                 System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
@@ -17084,7 +17084,7 @@ namespace Refrigtz
                     R.ShowDialog();
                     try
                     {
-                        File.Delete(Root + "\\DataBase\\CurrentBank.accdb");
+                        File.Delete(Root + "\\Database\\CurrentBank.accdb");
                     }
                     catch (Exception tt)
                     {
@@ -17093,7 +17093,7 @@ namespace Refrigtz
                     File.Copy(Root + "\\Database\\Games\\" + R.ComboBoxDatabase.Text, Root + "\\Database\\CurrentBank.accdb");
                     try
                     {
-                        File.Delete(Root + "\\DataBase\\Games\\" + R.ComboBoxDatabase.Text);
+                        File.Delete(Root + "\\Database\\Games\\" + R.ComboBoxDatabase.Text);
                     }
                     catch (Exception ttt)
                     {
@@ -17891,7 +17891,7 @@ namespace Refrigtz
                     catch (Exception t)
                     {
                         Log(t);
-                        InsertTableAtDataBase(Table);
+                        InsertTableAtDatabase(Table);
                     }
                 }
 
