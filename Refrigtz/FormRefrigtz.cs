@@ -10931,6 +10931,7 @@ namespace Refrigtz
                             t.Start();
                             t.Join();
                             Person = false;
+                            BobSection = false;
                             if (!Quantum)
                                 RefrigtzDLL.AllDraw.DrawTable = true;
                             else
@@ -10958,6 +10959,7 @@ namespace Refrigtz
                             t.Start();
                             t.Join();
                             Person = false;
+                            BobSection = false;
                             if (!Quantum)
                                 RefrigtzDLL.AllDraw.DrawTable = true;
                             else
@@ -18833,6 +18835,16 @@ namespace Refrigtz
                 MovementQuantum();
 
             } while (Do);
+        }
+
+        private void PictureBoxRefrigitz_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBox14_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void ToolStripMenuItem14_Click(object sender, EventArgs e)

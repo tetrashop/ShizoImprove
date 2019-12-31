@@ -82,7 +82,7 @@ namespace ImageTextDeepLearning
                 //create constructor image
                 t = new SmallImageing(PictureBoxImageTextDeepLearning.BackgroundImage);
                 //Do splitation
-                bool Do = t.Splitation(pictureBoxTest);
+                bool Do = t.Splitation(PictureBoxTest);
                 //wen successfull
                 if (Do)
                 {
@@ -95,7 +95,7 @@ namespace ImageTextDeepLearning
 if (buttonSplitationConjunction.Text == "Conjunction")
             {
                 //Do conjunction
-                bool Do = t.Conjunction(pictureBoxTest, PictureBoxImageTextDeepLearning);
+                bool Do = t.Conjunction(PictureBoxTest, PictureBoxImageTextDeepLearning);
                 //when successfull
                 if (Do)
                 {
@@ -385,7 +385,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             {
                 t = new SmallImageing(PictureBoxImageTextDeepLearning.BackgroundImage);
 
-                bool Do = t.Splitation(pictureBoxTest);
+                bool Do = t.Splitation(PictureBoxTest);
 
                 if (Do)
                 {
@@ -396,7 +396,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             else
 if (buttonSplitationConjunction.Text == "Conjunction")
             {
-                bool Do = t.Conjunction(pictureBoxTest, PictureBoxImageTextDeepLearning);
+                bool Do = t.Conjunction(PictureBoxTest, PictureBoxImageTextDeepLearning);
                 if (Do)
                 {
                     PictureBoxImageTextDeepLearning.BackgroundImage = t.RootConjuction;
@@ -416,10 +416,10 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                 {
                     try
                     {
-                        pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
-                        pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                        pictureBoxTest.Refresh();
-                        pictureBoxTest.Update();
+                        PictureBoxTest.BackgroundImage = On.tt.AllImage[i];
+                        PictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                        PictureBoxTest.Refresh();
+                        PictureBoxTest.Update();
                         System.Threading.Thread.Sleep(1000);
                     }
                     catch (System.Exception t) { }
@@ -443,10 +443,10 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             }
             /* for (int i = 0; i < On.t.KeyboardAllImage.Count; i++)
              {
-                 pictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
-                 pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                 pictureBoxTest.Refresh();
-                 pictureBoxTest.Update();
+                 PictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
+                 PictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                 PictureBoxTest.Refresh();
+                 PictureBoxTest.Update();
                  System.Threading.Thread.Sleep(1000);
              }*/
         }
@@ -478,10 +478,10 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             t.Join();
             for (int i = 0; i < On.tt.AllImage.Count; i++)
             {
-                pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
-                pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                pictureBoxTest.Refresh();
-                pictureBoxTest.Update();
+                PictureBoxTest.BackgroundImage = On.tt.AllImage[i];
+                PictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                PictureBoxTest.Refresh();
+                PictureBoxTest.Update();
                 System.Threading.Thread.Sleep(1000);
             }
             for (int i = 0; i < On.Detected.Count; i++)
@@ -491,10 +491,10 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             }
            /* for (int i = 0; i < On.t.KeyboardAllImage.Count; i++)
             {
-                pictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
-                pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                pictureBoxTest.Refresh();
-                pictureBoxTest.Update();
+                PictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
+                PictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                PictureBoxTest.Refresh();
+                PictureBoxTest.Update();
                 System.Threading.Thread.Sleep(1000);
             }*/
         }

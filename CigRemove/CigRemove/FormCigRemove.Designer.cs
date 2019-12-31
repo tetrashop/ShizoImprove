@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCigRemove));
             this.button1CigIndicator = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonChart = new System.Windows.Forms.Button();
             this.dataGridViewCig = new System.Windows.Forms.DataGridView();
             this.labelRemaining = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.textBoxSelectiveTime = new System.Windows.Forms.TextBox();
             this.openFileDialogBackup = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogBackup = new System.Windows.Forms.SaveFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCig)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,14 +60,14 @@
             this.button1CigIndicator.UseVisualStyleBackColor = true;
             this.button1CigIndicator.Click += new System.EventHandler(this.button1CigIndicator_Click);
             // 
-            // pictureBox1
+            // PictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(385, 264);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.PictureBox1.Location = new System.Drawing.Point(12, 52);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(385, 264);
+            this.PictureBox1.TabIndex = 1;
+            this.PictureBox1.TabStop = false;
+            this.PictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
             // 
             // buttonChart
             // 
@@ -172,7 +172,7 @@
             this.Controls.Add(this.labelRemaining);
             this.Controls.Add(this.dataGridViewCig);
             this.Controls.Add(this.buttonChart);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PictureBox1);
             this.Controls.Add(this.button1CigIndicator);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -180,7 +180,7 @@
             this.Name = "FormCigRemove";
             this.Text = "FormCigRemove";
             this.Load += new System.EventHandler(this.FormCigRemove_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCig)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -191,7 +191,7 @@
 
         #endregion
         private System.Windows.Forms.Button button1CigIndicator;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PictureBox1;
         private System.Windows.Forms.Button buttonChart;
         public System.Windows.Forms.DataGridView dataGridViewCig;
         private System.Windows.Forms.Label labelRemaining;

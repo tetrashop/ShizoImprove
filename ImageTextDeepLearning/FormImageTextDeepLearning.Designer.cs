@@ -33,7 +33,7 @@
             this.buttonOpen = new System.Windows.Forms.Button();
             this.openFileDialogImageTextDeepLearning = new System.Windows.Forms.OpenFileDialog();
             this.buttonSplitationConjunction = new System.Windows.Forms.Button();
-            this.pictureBoxTest = new System.Windows.Forms.PictureBox();
+            this.PictureBoxTest = new System.Windows.Forms.PictureBox();
             this.progressBarCompleted = new System.Windows.Forms.ProgressBar();
             this.buttonTxtDetect = new System.Windows.Forms.Button();
             this.panelImageTextDeepLearning = new System.Windows.Forms.Panel();
@@ -50,7 +50,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonTxtTemplates = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTest)).BeginInit();
             this.panelImageTextDeepLearning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -89,13 +89,13 @@
             this.buttonSplitationConjunction.UseVisualStyleBackColor = true;
             this.buttonSplitationConjunction.Click += new System.EventHandler(this.buttonSplitationConjunction_Click);
             // 
-            // pictureBoxTest
+            // PictureBoxTest
             // 
-            this.pictureBoxTest.Location = new System.Drawing.Point(294, 407);
-            this.pictureBoxTest.Name = "pictureBoxTest";
-            this.pictureBoxTest.Size = new System.Drawing.Size(30, 30);
-            this.pictureBoxTest.TabIndex = 4;
-            this.pictureBoxTest.TabStop = false;
+            this.PictureBoxTest.Location = new System.Drawing.Point(294, 407);
+            this.PictureBoxTest.Name = "PictureBoxTest";
+            this.PictureBoxTest.Size = new System.Drawing.Size(30, 30);
+            this.PictureBoxTest.TabIndex = 4;
+            this.PictureBoxTest.TabStop = false;
             // 
             // progressBarCompleted
             // 
@@ -254,7 +254,7 @@
             this.Controls.Add(this.panelImageTextDeepLearning);
             this.Controls.Add(this.buttonTxtDetect);
             this.Controls.Add(this.progressBarCompleted);
-            this.Controls.Add(this.pictureBoxTest);
+            this.Controls.Add(this.PictureBoxTest);
             this.Controls.Add(this.buttonSplitationConjunction);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.textBoxImageTextDeepLearning);
@@ -263,7 +263,7 @@
             this.Name = "FormImageTextDeepLearning";
             this.Text = "FormImageTextDeepLearning";
             this.Load += new System.EventHandler(this.FormImageTextDeepLearning_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTest)).EndInit();
             this.panelImageTextDeepLearning.ResumeLayout(false);
             this.panelImageTextDeepLearning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxImageTextDeepLearning)).EndInit();
@@ -279,7 +279,7 @@
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialogImageTextDeepLearning;
         private System.Windows.Forms.Button buttonSplitationConjunction;
-        private System.Windows.Forms.PictureBox pictureBoxTest;
+        private System.Windows.Forms.PictureBox PictureBoxTest;
         private System.Windows.Forms.ProgressBar progressBarCompleted;
         private System.Windows.Forms.Button buttonTxtDetect;
         private System.Windows.Forms.Panel panelImageTextDeepLearning;

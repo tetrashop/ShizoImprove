@@ -1306,100 +1306,100 @@ public partial class Form1 : Form
        
     }
 
-    private void pictureBox9_Click(object sender, EventArgs e)
+    private void PictureBox9_Click(object sender, EventArgs e)
     {
         ColorBox = 0;
-        this.pictureBox23.BackColor = Color.White;    
+        this.PictureBox23.BackColor = Color.White;    
     }
 
-    private void pictureBox5_Click(object sender, EventArgs e)
+    private void PictureBox5_Click(object sender, EventArgs e)
     {
         ColorBox = 1;
-        this.pictureBox23.BackColor = Color.Black;    
+        this.PictureBox23.BackColor = Color.Black;    
 
     }
 
-    private void pictureBox10_Click(object sender, EventArgs e)
+    private void PictureBox10_Click(object sender, EventArgs e)
     {
         ColorBox = 2;
-        this.pictureBox23.BackColor = Color.Brown;    
+        this.PictureBox23.BackColor = Color.Brown;    
     }
 
-    private void pictureBox8_Click(object sender, EventArgs e)
+    private void PictureBox8_Click(object sender, EventArgs e)
     {
         ColorBox = 3;
-        this.pictureBox23.BackColor = Color.Silver;    
+        this.PictureBox23.BackColor = Color.Silver;    
     }
 
-    private void pictureBox11_Click(object sender, EventArgs e)
+    private void PictureBox11_Click(object sender, EventArgs e)
     {
         ColorBox = 4;
-        this.pictureBox23.BackColor = Color.LightCoral;    
+        this.PictureBox23.BackColor = Color.LightCoral;    
     }
 
-    private void pictureBox12_Click(object sender, EventArgs e)
+    private void PictureBox12_Click(object sender, EventArgs e)
     {
         ColorBox = 5;
-        this.pictureBox23.BackColor = Color.Red;    
+        this.PictureBox23.BackColor = Color.Red;    
     }
 
-    private void pictureBox13_Click(object sender, EventArgs e)
+    private void PictureBox13_Click(object sender, EventArgs e)
     {
         ColorBox = 6;
-        this.pictureBox23.BackColor = Color.OrangeRed;    
+        this.PictureBox23.BackColor = Color.OrangeRed;    
     }
 
-    private void pictureBox14_Click(object sender, EventArgs e)
+    private void PictureBox14_Click(object sender, EventArgs e)
     {
         ColorBox = 7;
-        this.pictureBox23.BackColor = Color.Bisque;    
+        this.PictureBox23.BackColor = Color.Bisque;    
     }
 
-    private void pictureBox18_Click(object sender, EventArgs e)
+    private void PictureBox18_Click(object sender, EventArgs e)
     {
         ColorBox = 8;
-        this.pictureBox23.BackColor = Color.Gold;    
+        this.PictureBox23.BackColor = Color.Gold;    
     }
 
-    private void pictureBox17_Click(object sender, EventArgs e)
+    private void PictureBox17_Click(object sender, EventArgs e)
     {
         ColorBox = 9;
-        this.pictureBox23.BackColor = Color.Yellow;    
+        this.PictureBox23.BackColor = Color.Yellow;    
     }
 
-    private void pictureBox21_Click(object sender, EventArgs e)
+    private void PictureBox21_Click(object sender, EventArgs e)
     {
         ColorBox = 10;
-        this.pictureBox23.BackColor = Color.LawnGreen;    
+        this.PictureBox23.BackColor = Color.LawnGreen;    
     }
 
-    private void pictureBox22_Click(object sender, EventArgs e)
+    private void PictureBox22_Click(object sender, EventArgs e)
     {
         ColorBox = 11;
-        this.pictureBox23.BackColor = Color.Aquamarine;    
+        this.PictureBox23.BackColor = Color.Aquamarine;    
     }
 
-    private void pictureBox19_Click(object sender, EventArgs e)
+    private void PictureBox19_Click(object sender, EventArgs e)
     {
         ColorBox = 12;
-        this.pictureBox23.BackColor = Color.Blue;    
+        this.PictureBox23.BackColor = Color.Blue;    
     }
 
-    private void pictureBox20_Click(object sender, EventArgs e)
+    private void PictureBox20_Click(object sender, EventArgs e)
     {
         ColorBox = 13;
-        this.pictureBox23.BackColor = Color.Fuchsia;    
+        this.PictureBox23.BackColor = Color.Fuchsia;    
     }
-    private void pictureBox15_Click(object sender, EventArgs e)
+    private void PictureBox15_Click(object sender, EventArgs e)
     {
         ColorBox = 14;
-        this.pictureBox23.BackColor = Color.Pink;    
+        this.PictureBox23.BackColor = Color.Pink;    
     }
 
-    private void pictureBox16_Click(object sender, EventArgs e)
+    private void PictureBox16_Click(object sender, EventArgs e)
     {
         ColorBox = 15;
-        this.pictureBox23.BackColor = Color.LightPink;    
+        this.PictureBox23.BackColor = Color.LightPink;    
     }
     private Pen DetermineColor(object sender)
     {

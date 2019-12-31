@@ -120,7 +120,7 @@ namespace CigRemove
         public FormCigRemove()
         {
             InitializeComponent();
-            Map = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Map = new Bitmap(PictureBox1.Width, PictureBox1.Height);
             g = Graphics.FromImage(Map);
         }
         private void Bump()
@@ -202,7 +202,7 @@ namespace CigRemove
             CigReaderDataBase.CigDataBase Cig = new CigReaderDataBase.CigDataBase();
             CigRead = new List<String>();
             Cig.CigRead(ref dataGridViewCig, ref CigRead);
-            pictureBox1_Paint(sender, new System.Windows.Forms.PaintEventArgs(g, new System.Drawing.Rectangle(0, 0, this.pictureBox1.Width, pictureBox1.Height)));
+            PictureBox1_Paint(sender, new System.Windows.Forms.PaintEventArgs(g, new System.Drawing.Rectangle(0, 0, this.PictureBox1.Width, PictureBox1.Height)));
         }
         static void Log(Exception ex)
         {
@@ -240,8 +240,8 @@ namespace CigRemove
                         if (CigL > (AA - SS))
                             CigL = (int)(AA - SS);
                     }
-                    g.DrawLine(new System.Drawing.Pen(new SolidBrush(Color.Black)), new Point(10, this.pictureBox1.Height - 10), new Point(this.pictureBox1.Width - 10, this.pictureBox1.Height - 10));
-                    g.DrawLine(new System.Drawing.Pen(new SolidBrush(Color.Black)), new Point(10, this.pictureBox1.Height - 10), new Point(10, 10));
+                    g.DrawLine(new System.Drawing.Pen(new SolidBrush(Color.Black)), new Point(10, this.PictureBox1.Height - 10), new Point(this.PictureBox1.Width - 10, this.PictureBox1.Height - 10));
+                    g.DrawLine(new System.Drawing.Pen(new SolidBrush(Color.Black)), new Point(10, this.PictureBox1.Height - 10), new Point(10, 10));
                     List<Double> SL = new List<Double>();
                     if (CigRead != null)
                         for (int i = 0; i < CigRead.Count; i++)
@@ -257,15 +257,15 @@ namespace CigRemove
                     if (CigRead != null)
                         for (int i = 1; i < SL.Count - 1; i++)
                         {
-                            g.DrawLine(new System.Drawing.Pen(new SolidBrush(Color.Red)), new Point((i - 1) * 5 + 10, this.pictureBox1.Height - (int)(((SL[i] - SL[i - 1] - CigL) / CigReadL) * this.pictureBox1.Height) - 10), new Point(i * 5 + 10, this.pictureBox1.Height - (int)(((SL[i + 1] - SL[i] - CigL) / CigReadL) * this.pictureBox1.Height) - 10));
+                            g.DrawLine(new System.Drawing.Pen(new SolidBrush(Color.Red)), new Point((i - 1) * 5 + 10, this.PictureBox1.Height - (int)(((SL[i] - SL[i - 1] - CigL) / CigReadL) * this.PictureBox1.Height) - 10), new Point(i * 5 + 10, this.PictureBox1.Height - (int)(((SL[i + 1] - SL[i] - CigL) / CigReadL) * this.PictureBox1.Height) - 10));
                         }
-                    g.DrawString(CigRead[iL].ToString(), new System.Drawing.Font("Times New Roman", 10), new SolidBrush(Color.Green), new Point(this.pictureBox1.Width - 100, this.pictureBox1.Height - 20));
+                    g.DrawString(CigRead[iL].ToString(), new System.Drawing.Font("Times New Roman", 10), new SolidBrush(Color.Green), new Point(this.PictureBox1.Width - 100, this.PictureBox1.Height - 20));
                     g.DrawString("مقدار بیشتر، کاهش مصرف بیشتر نسبت به قبلی ", new System.Drawing.Font("B Nazanin", 14), new SolidBrush(Color.Green), new Point(20, 20));
 
 
 
 
-                    this.pictureBox1.Image = Map;
+                    this.PictureBox1.Image = Map;
 
                     int SA = SL.Count - 1;
                     /*if (SA > 0)
@@ -319,7 +319,7 @@ namespace CigRemove
             }
 
         }
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
             System.Threading.Thread t = new Thread(new ThreadStart(Draw));
             t.Start();
