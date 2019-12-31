@@ -589,7 +589,7 @@ namespace Refrigtz
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive && PersonTmCall)
                                         {
-                                            Person = true; tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join(); tM.Abort();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -660,6 +660,8 @@ namespace Refrigtz
                                 {
                                     if (BobSection && OrderPlate == 1)
                                     {
+                                        BrownTimer.StopTime();
+                                        GrayTimer.StartTime("BrownTimer");
 
 
                                         bool SCC = StateCC;
@@ -693,7 +695,7 @@ namespace Refrigtz
                                             tM = new Thread(new ThreadStart(Movements));if (!PersonTmCall) return;
                                         if (!tM.IsAlive && PersonTmCall)
                                         {
-                                            Person = true; tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join(); tM.Abort();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -750,7 +752,7 @@ namespace Refrigtz
                                         Person = true;
 
                                         AliceWithPerson();
-
+                                        PersonTmCall = true;
                                         BobSection = true;
 
                                         AllDo = false;
@@ -762,6 +764,9 @@ namespace Refrigtz
                                     if (BobSection && OrderPlate == 1)
                                     {
 
+
+                                        BrownTimer.StopTime();
+                                        GrayTimer.StartTime("BrownTimer");
 
 
                                         if (!PersonTmCall) return; RefrigtzDLL.AllDraw.FoundATable = false;
@@ -791,7 +796,7 @@ namespace Refrigtz
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive && PersonTmCall)
                                         {
-                                            Person = true; tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join(); tM.Abort();;
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -839,6 +844,7 @@ namespace Refrigtz
                                         Person = true;
 
                                         AliceWithPerson();
+                                        PersonTmCall = true;
 
                                         BobSection = true;
 
@@ -1011,7 +1017,7 @@ namespace Refrigtz
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive && PersonTmCall)
                                         {
-                                            Person = true; tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join(); tM.Abort();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -1103,7 +1109,7 @@ namespace Refrigtz
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive && PersonTmCall)
                                     {
-                                        Person = true; tM.Start(); tM.Join();
+                                        Person = true; tM.Start(); tM.Join(); tM.Abort();
                                     }
                                     //Wait();
                                     //Clicked = false; BobSection = false;
@@ -1191,7 +1197,7 @@ namespace Refrigtz
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive && PersonTmCall)
                                     {
-                                        Person = true; tM.Start(); tM.Join();
+                                        Person = true; tM.Start(); tM.Join(); tM.Abort();
                                     }
                                     //Wait();
                                     //Clicked = false; BobSection = false;
@@ -1238,6 +1244,8 @@ namespace Refrigtz
                                     Person = true;
 
                                     AliceWithPerson();
+
+                                    PersonTmCall = true;
 
                                     BobSection = false;
 
@@ -1319,7 +1327,7 @@ namespace Refrigtz
                                              tM = new Thread(new ThreadStart(Movements));
                                          if (!tM.IsAlive && PersonTmCall)
                                          {
-                                             Person = true; tM.Start(); tM.Join();
+                                             Person = true; tM.Start(); tM.Join(); tM.Abort();
                                          }
                                          //Wait();
                                          Clicked = false; BobSection = false;
@@ -1384,7 +1392,7 @@ namespace Refrigtz
                                              tM = new Thread(new ThreadStart(Movements));
                                          if (!tM.IsAlive && PersonTmCall)
                                          {
-                                             Person = true; tM.Start(); tM.Join();
+                                             Person = true; tM.Start(); tM.Join(); tM.Abort();
                                          }
                                          //Wait();
                                          Clicked = false; BobSection = false;
@@ -1478,7 +1486,7 @@ namespace Refrigtz
                                          tM = new Thread(new ThreadStart(Movements));
                                      if (!tM.IsAlive && PersonTmCall)
                                      {
-                                         Person = true; tM.Start(); tM.Join();
+                                         Person = true; tM.Start(); tM.Join(); tM.Abort();
                                      }
                                      //Wait();
                                      Clicked = false; BobSection = false;
@@ -2124,7 +2132,7 @@ namespace Refrigtz
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive && PersonTmCall)
                                         {
-                                            Person = true; tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join(); tM.Abort();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -2227,7 +2235,7 @@ namespace Refrigtz
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive && PersonTmCall)
                                         {
-                                            Person = true; tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join(); tM.Abort();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -2281,6 +2289,7 @@ namespace Refrigtz
                                         Person = true;
 
                                         AliceWithPerson();
+                                        PersonTmCall = true;
 
                                         BobSection = true;
 
@@ -2321,7 +2330,7 @@ namespace Refrigtz
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive && PersonTmCall)
                                         {
-                                            Person = true; tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join(); tM.Abort();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -2366,6 +2375,8 @@ namespace Refrigtz
                                         Person = true;
 
                                         AliceWithPerson();
+
+                                        PersonTmCall = true;
 
                                         BobSection = true;
 
@@ -2527,7 +2538,7 @@ namespace Refrigtz
                                             tM = new Thread(new ThreadStart(Movements));
                                         if (!tM.IsAlive && PersonTmCall)
                                         {
-                                            Person = true; tM.Start(); tM.Join();
+                                            Person = true; tM.Start(); tM.Join(); tM.Abort();
                                         }
                                         //Wait();
                                         //Clicked = false; BobSection = false;
@@ -2619,7 +2630,7 @@ namespace Refrigtz
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive && PersonTmCall)
                                     {
-                                        Person = true; tM.Start(); tM.Join();
+                                        Person = true; tM.Start(); tM.Join(); tM.Abort();
                                     }
                                     //Wait();
                                     //Clicked = false; BobSection = false;
@@ -2703,7 +2714,7 @@ namespace Refrigtz
                                         tM = new Thread(new ThreadStart(Movements));
                                     if (!tM.IsAlive && PersonTmCall)
                                     {
-                                        Person = true; tM.Start(); tM.Join();
+                                        Person = true; tM.Start(); tM.Join(); tM.Abort();
                                     }
                                     //Wait();
                                     //Clicked = false; BobSection = false;
@@ -2750,6 +2761,8 @@ namespace Refrigtz
                                     Person = true;
 
                                     AliceWithPerson();
+
+                                    PersonTmCall = true;
 
                                     BobSection = false;
 
@@ -2831,7 +2844,7 @@ namespace Refrigtz
                                              tM = new Thread(new ThreadStart(Movements));
                                          if (!tM.IsAlive && PersonTmCall)
                                          {
-                                             Person = true; tM.Start(); tM.Join();
+                                             Person = true; tM.Start(); tM.Join(); tM.Abort();
                                          }
                                          //Wait();
                                          Clicked = false; BobSection = false;
@@ -2896,7 +2909,7 @@ namespace Refrigtz
                                              tM = new Thread(new ThreadStart(Movements));
                                          if (!tM.IsAlive && PersonTmCall)
                                          {
-                                             Person = true; tM.Start(); tM.Join();
+                                             Person = true; tM.Start(); tM.Join(); tM.Abort();
                                          }
                                          //Wait();
                                          Clicked = false; BobSection = false;
@@ -2990,7 +3003,7 @@ namespace Refrigtz
                                          tM = new Thread(new ThreadStart(Movements));
                                      if (!tM.IsAlive && PersonTmCall)
                                      {
-                                         Person = true; tM.Start(); tM.Join();
+                                         Person = true; tM.Start(); tM.Join(); tM.Abort();
                                      }
                                      //Wait();
                                      Clicked = false; BobSection = false;
