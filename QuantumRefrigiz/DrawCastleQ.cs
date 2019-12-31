@@ -22,7 +22,7 @@ namespace QuantumRefrigiz
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        [filed:NonSerialized]  public Image[] C = new Image[2];
+        Image[] C = new Image[2];
         //Iniatite Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 

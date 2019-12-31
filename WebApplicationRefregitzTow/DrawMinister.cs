@@ -21,7 +21,7 @@ namespace RefrigtzW
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        [filed:NonSerialized]  public Image[] M = new Image[2];
+        Image[] M = new Image[2];
         //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 

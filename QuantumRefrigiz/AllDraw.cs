@@ -2160,7 +2160,7 @@ namespace QuantumRefrigiz
 
 
                 SetObjectNumbers(TableList[0]);
-                for (var i = So1; i < SodierMidle; i++)
+               /* for (var i = So1; i < SodierMidle; i++)
                     SolderesOnTable[i] = null;
 
                 for (var i = So2; i < SodierHigh; i++)
@@ -2192,7 +2192,7 @@ namespace QuantumRefrigiz
 
                 for (var i = Ki1; i < KingMidle; i++)
                     KingOnTable[i] = null;
-
+*/
                 for (var i = Ki2; i < KingHigh; i++)
                     KingOnTable[i] = null;
                 if (TableList.Count > 0)

@@ -2150,7 +2150,7 @@ namespace RefrigtzDLL
                 for (var i = So2; i < SodierHigh; i++)
                     SolderesOnTable[i] = null;
 
-                for (var i = El1; i < ElefantMidle; i++)
+              /*  for (var i = El1; i < ElefantMidle; i++)
                     ElephantOnTable[i] = null;
 
                 for (var i = El2; i < ElefantHigh; i++)
@@ -2179,7 +2179,7 @@ namespace RefrigtzDLL
 
                 for (var i = Ki2; i < KingHigh; i++)
                     KingOnTable[i] = null;
-                if (TableList.Count > 0)
+             */   if (TableList.Count > 0)
                 {
                     for (var i = 0; i < 8; i++)
                         for (var j = 0; j < 8; j++)

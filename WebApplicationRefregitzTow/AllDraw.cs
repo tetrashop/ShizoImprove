@@ -1333,7 +1333,7 @@ namespace RefrigtzW
 
 
                     SetObjectNumbers(TableList[0]);
-                    for (var i = So1; i < SodierMidle; i++)
+                   /*for (var i = So1; i < SodierMidle; i++)
                         SolderesOnTable[i] = null;
 
                     for (var i = So2; i < SodierHigh; i++)
@@ -1368,7 +1368,7 @@ namespace RefrigtzW
 
                     for (var i = Ki2; i < KingHigh; i++)
                         KingOnTable[i] = null;
-                    if (TableList.Count > 0)
+                   */ if (TableList.Count > 0)
                     {
                         for (var i = 0; i < 8; i++)
                             for (var j = 0; j < 8; j++)

@@ -89,6 +89,7 @@ namespace Refrigtz
     //Constructor
     public partial class FormRefrigtz : Form
     {
+        int[,] TabStor = null;
         bool PersonTmCall = true;
         int Move = 0;
         bool Deeperthandeeper = false;
@@ -3504,7 +3505,7 @@ namespace Refrigtz
                             Refrigtz.Timer.StoreAllDrawCount = QuantumRefrigiz.AllDraw.StoreADraw.Count;
                         }
                     }
-                    //System.Threading.Thread.Sleep(2);
+                    System.Threading.Thread.Sleep(2);
                 }
                 while (true);
                 //SetTimer = false;
@@ -4058,7 +4059,7 @@ namespace Refrigtz
                             else
                                 SetlableRefregitzMaxValue(labelNodesCount, QuantumRefrigiz.ThinkingQuantumChess.NumbersOfAllNode.ToString() + " at time " + ((int)(Store)).ToString() + "N/s and by Elapsed time " + ((int)((EndTime - TimeElapsed) / 1000)).ToString() + " s" + " By CheckMate Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstMating.ToString() + " By CheckMate SELF Count " + QuantumRefrigiz.ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " For Order  " + QuantumRefrigiz.AllDraw.OrderPlate.ToString());
                         }
-                        //System.Threading.Thread.Sleep(1);
+                        System.Threading.Thread.Sleep(1);
 
                     }
                 } //while (true);
@@ -4088,7 +4089,7 @@ namespace Refrigtz
         */
 
                             RefrigtzDLL.AllDraw.Deeperthandeeper = Deeperthandeeper;
-                            //System.Threading.Thread.Sleep(10);
+                            System.Threading.Thread.Sleep(10);
                             RefrigtzDLL.AllDraw.Root = Root;
                             RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
                             RefrigtzDLL.AllDraw.Blitz = Blitz;
@@ -4185,7 +4186,7 @@ namespace Refrigtz
                                     NextColumn = RefrigtzDLL.AllDraw.NextRow;
                                 }
                             }
-                            //System.Threading.Thread.Sleep(2);
+                            System.Threading.Thread.Sleep(2);
 
                         }
                         else
@@ -4198,7 +4199,7 @@ namespace Refrigtz
                                  Move = MovmentsNumber;
      */
                             QuantumRefrigiz.AllDraw.Deeperthandeeper = Deeperthandeeper;
-                            //System.Threading.Thread.Sleep(10);
+                            System.Threading.Thread.Sleep(10);
                             QuantumRefrigiz.AllDraw.Root = Root;
                             QuantumRefrigiz.AllDraw.OrderPlate = OrderPlate;
                             QuantumRefrigiz.AllDraw.Blitz = Blitz;
@@ -4295,7 +4296,7 @@ namespace Refrigtz
 
                                 }
                             }
-                            //System.Threading.Thread.Sleep(1);
+                            System.Threading.Thread.Sleep(1);
                         }
 
                     }
@@ -5464,7 +5465,7 @@ namespace Refrigtz
                                 return false;
                             }
 #pragma warning disable CS0162 // Unreachable code detected
-                            //System.Threading.Thread.Sleep(2);
+                            System.Threading.Thread.Sleep(2);
 #pragma warning restore CS0162 // Unreachable code detected
                         } while (true);
                     }
@@ -5485,7 +5486,7 @@ namespace Refrigtz
                         }
                     }
 
-                    //System.Threading.Thread.Sleep(2);
+                    System.Threading.Thread.Sleep(2);
                 } while (Move <= MovmentsNumberMax);
 
                 return true;
@@ -7299,13 +7300,13 @@ namespace Refrigtz
                         if (AA.CheckGray && OrderPlate == 1)
                         {
                             // Table = TabStor;
-                            // return;
+                            return;
                         }
 
                         else
                             if (AA.CheckBrown && OrderPlate == -1)
                         {
-                            //  Table = TabStor;
+                            Table =CloneATable(TabStor);
                             //  return;
                         }
                     }
@@ -7541,14 +7542,14 @@ namespace Refrigtz
                         if (AA.CheckGray && OrderPlate == 1)
                         {
                             //Table = TabStor;
-                            // return;
+                            return;
                         }
 
                         else
                             if (AA.CheckBrown && OrderPlate == -1)
                         {
                             //Table = TabStor;
-                            // return;
+                            return;
                         }
                     }
                     Draw.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -8206,7 +8207,7 @@ namespace Refrigtz
                             if (AA.CheckBrown && OrderPlate == -1)
                         {
                             /// Table = TabStor;
-                            // return;
+                            return;
                         }
                     }
                     Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -8370,7 +8371,7 @@ namespace Refrigtz
                             if (AA.CheckBrown && OrderPlate == -1)
                         {
                             // Table = TabStor;
-                            // return;
+                            return;
                         }
                     }
                     Draw.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -8445,7 +8446,7 @@ namespace Refrigtz
                         if (AA.CheckGray && OrderPlate == 1)
                         {
                             // Table = TabStor;
-                            // return;
+                            return;
                         }
 
                         else
@@ -8527,14 +8528,14 @@ namespace Refrigtz
                         if (AA.CheckGray && OrderPlate == 1)
                         {
                             //Table = TabStor;
-                            // return;
+                            return;
                         }
 
                         else
                             if (AA.CheckBrown && OrderPlate == -1)
                         {
                             // Table = TabStor;
-                            // return;
+                            return;
                         }
                     }
                     Draw.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -8610,15 +8611,15 @@ namespace Refrigtz
                     {
                         if (AA.CheckGray && OrderPlate == 1)
                         {
-                            //  Table = TabStor;
-                            // return;
+                            Table =CloneATable(TabStor);
+                            return;
                         }
 
                         else
                             if (AA.CheckBrown && OrderPlate == -1)
                         {
                             //Table = TabStor;
-                            // return;
+                            return;
                         }
                     }
                     Draw.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -8680,7 +8681,7 @@ namespace Refrigtz
                 if (!RefrigtzDLL.AllDraw.DrawTable)
                     RefrigtzDLL.AllDraw.DrawTable = true;
 
-                //System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1000);
 
                 RefrigtzDLL.ChessRules AA = null;
                 //do
@@ -8690,11 +8691,11 @@ namespace Refrigtz
                         )
                     {
                         //SetRefregitzBicture();
-                        ////System.Threading.Thread.Sleep(50);
+                        //System.Threading.Thread.Sleep(50);
 
                     }
                     //else
-                    ////System.Threading.Thread.Sleep(10);
+                    //System.Threading.Thread.Sleep(10);
 
                     int[,] TabStor = new int[8, 8];
                     for (int i = 0; i < 8; i++)
@@ -8735,7 +8736,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovementCastleKingGray(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
                                 }
                                 else
@@ -8750,7 +8751,7 @@ namespace Refrigtz
                                     {
 
                                         MovementSoldierGray(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
 
                                     }
                                     //SetRefregitzBicture();
@@ -8767,7 +8768,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovementElephantGray(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
 
                                     //SetRefregitzBicture();
@@ -8785,7 +8786,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovmentHourseGray(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
                                     //SetRefregitzBicture();
 
@@ -8803,7 +8804,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovmentCastleGray(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
 
                                     //SetRefregitzBicture();
@@ -8824,7 +8825,7 @@ namespace Refrigtz
                                     {
 
                                         MovmentMinisterGray(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
 
                                     //SetRefregitzBicture();
@@ -8842,7 +8843,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovmentKingGray(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
                                     //SetRefregitzBicture();
 
@@ -8864,7 +8865,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovmentCastleKingBrown(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
 
                                         //SetRefregitzBicture();
 
@@ -8882,7 +8883,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovmentSoldierBrown(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
                                     //SetRefregitzBicture();
 
@@ -8898,7 +8899,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovementElephantBrown(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
                                     //SetRefregitzBicture();
 
@@ -8916,7 +8917,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovmentHourseBrown(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
                                     }
 
                                     //SetRefregitzBicture();
@@ -8934,7 +8935,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovmentCastleBrown(AA, ref Do);
-                                    //Do = false;
+                                    Do = false;
                                 }
 
                                     //SetRefregitzBicture();
@@ -8972,7 +8973,7 @@ namespace Refrigtz
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
                                         MovmentKingBrown(AA,ref Do);
-                                        //Do = false;
+                                        Do = false;
 
                                     }
 
@@ -9001,7 +9002,7 @@ namespace Refrigtz
 
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
 
-                    ////System.Threading.Thread.Sleep(10);
+                    //System.Threading.Thread.Sleep(10);
                 }
 
                 //while (Do);
@@ -9134,13 +9135,13 @@ namespace Refrigtz
                             if (AA.CheckGray && OrderPlate == 1)
                             {
                                 // Table = TabStor;
-                                // return;
+                                return;
                             }
 
                             else
                                 if (AA.CheckBrown && OrderPlate == -1)
                             {
-                                //  Table = TabStor;
+                                Table =CloneATable(TabStor);
                                 //  return;
                             }
                         }
@@ -9414,14 +9415,14 @@ namespace Refrigtz
                             if (AA.CheckGray && OrderPlate == 1)
                             {
                                 //Table = TabStor;
-                                // return;
+                                return;
                             }
 
                             else
                                 if (AA.CheckBrown && OrderPlate == -1)
                             {
                                 //Table = TabStor;
-                                // return;
+                                return;
                             }
                         }
                         DrawQ.ElephantOnTable[Elefant].DrawElefantOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -10169,7 +10170,7 @@ namespace Refrigtz
                                 if (AA.CheckBrown && OrderPlate == -1)
                             {
                                 /// Table = TabStor;
-                                // return;
+                                return;
                             }
                         }
                         DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -10362,7 +10363,7 @@ namespace Refrigtz
                                 if (AA.CheckBrown && OrderPlate == -1)
                             {
                                 // Table = TabStor;
-                                // return;
+                                return;
                             }
                         }
                         DrawQ.HoursesOnTable[Hourse].DrawHourseOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -10451,7 +10452,7 @@ namespace Refrigtz
                             if (AA.CheckGray && OrderPlate == 1)
                             {
                                 // Table = TabStor;
-                                // return;
+                                return;
                             }
 
                             else
@@ -10547,14 +10548,14 @@ namespace Refrigtz
                             if (AA.CheckGray && OrderPlate == 1)
                             {
                                 //Table = TabStor;
-                                // return;
+                                return;
                             }
 
                             else
                                 if (AA.CheckBrown && OrderPlate == -1)
                             {
                                 // Table = TabStor;
-                                // return;
+                                return;
                             }
                         }
                         DrawQ.MinisterOnTable[Minister].DrawMinisterOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -10646,15 +10647,15 @@ namespace Refrigtz
                         {
                             if (AA.CheckGray && OrderPlate == 1)
                             {
-                                //  Table = TabStor;
-                                // return;
+                                Table =CloneATable(TabStor);
+                                return;
                             }
 
                             else
                                 if (AA.CheckBrown && OrderPlate == -1)
                             {
                                 //Table = TabStor;
-                                // return;
+                                return;
                             }
                         }
                         DrawQ.KingOnTable[King].DrawKingOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
@@ -10718,7 +10719,7 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.DrawTable)
                     QuantumRefrigiz.AllDraw.DrawTable = true;
-                //System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1000);
 
                 bool Do = true;
                 QuantumRefrigiz.ChessRules AA = null;
@@ -10728,11 +10729,11 @@ namespace Refrigtz
                         )
                     {
                         //SetRefregitzBicture();
-                        ////System.Threading.Thread.Sleep(50);
+                        //System.Threading.Thread.Sleep(50);
 
                     }
                     //else
-                    ////System.Threading.Thread.Sleep(10);
+                    //System.Threading.Thread.Sleep(10);
 
                     int[,] TabStor = new int[8, 8];
                     for (int i = 0; i < 8; i++)
@@ -10752,7 +10753,7 @@ namespace Refrigtz
                     }*/
                     //For Iterative Movewmnt
                     if (SetMovement((int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased))
-                        return true;
+                        return Do;
                     if (RowClickP == -1 && ColumnClickP == -1)
                         return Do;
                     try
@@ -10905,11 +10906,22 @@ namespace Refrigtz
                     }
                     QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
 
-                    ////System.Threading.Thread.Sleep(100);
+                    //System.Threading.Thread.Sleep(100);
 
                 }
                 //while (Do);
                 return Do;
+            }
+        }
+        void WaitBackGround(BackgroundWorker t)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                do
+                {
+                    System.Threading.Thread.Sleep(10);
+                } while (t.IsBusy);
             }
         }
         void Movements()
@@ -10921,15 +10933,18 @@ namespace Refrigtz
                 Object O = new Object();
                 lock (O)
                 {
+                    TabStor = CloneATable(Table);
                     if (!Quantum)
                     {
                         if (!backgroundWorkerMoveGray.IsBusy)
                         {
                             PersonTmCall = false;
                             Person = true;
-                            Thread t = new Thread(new ThreadStart(backgroundWorkerMoveGray.RunWorkerAsync));
-                            t.Start();
-                            t.Join();
+                            /* Thread t = new Thread(new ThreadStart(backgroundWorkerMoveGray.RunWorkerAsync));
+                             t.Start();
+                             t.Join();*/
+                            backgroundWorkerMoveGray.RunWorkerAsync();
+                            WaitBackGround(backgroundWorkerMoveGray);
                             Person = false;
                             BobSection = false;
                             if (!Quantum)
@@ -10955,9 +10970,11 @@ namespace Refrigtz
                             PersonTmCall = false;
 
                             Person = true;
-                            Thread t = new Thread(new ThreadStart(backgroundWorkerMoveBrown.RunWorkerAsync));
+                            /*Thread t = new Thread(new ThreadStart(backgroundWorkerMoveBrown.RunWorkerAsync));
                             t.Start();
-                            t.Join();
+                            t.Join();*/
+                            backgroundWorkerMoveBrown.RunWorkerAsync();
+                            WaitBackGround(backgroundWorkerMoveBrown);
                             Person = false;
                             BobSection = false;
                             if (!Quantum)
@@ -14010,10 +14027,18 @@ namespace Refrigtz
 
                     SetBoxTextWrite(Out);
 
+                    BobSection = true;
 
-                    DrawImageOfMain();
+                    if (!Quantum)
+                        RefrigtzDLL.AllDraw.DrawTable = true;
+                    else
+                        QuantumRefrigiz.AllDraw.DrawTable = true;
+                  
+                    //DrawImageOfMain();
 
 
+                    SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
+                    SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
 
                 }
                 catch (Exception t)
@@ -14093,8 +14118,18 @@ namespace Refrigtz
                     SetBoxTextWrite(Out);
 
 
-                    DrawImageOfMain();
+                    BobSection = false;
 
+                    if (!Quantum)
+                        RefrigtzDLL.AllDraw.DrawTable = true;
+                    else
+                        QuantumRefrigiz.AllDraw.DrawTable = true;
+
+                    //DrawImageOfMain();
+
+
+                    SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
+                    SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
 
                 }
                 catch (Exception t)
@@ -16926,7 +16961,7 @@ namespace Refrigtz
 
 
 
-            //System.Threading.Thread.Sleep(10);
+            System.Threading.Thread.Sleep(10);
 
             if (t1.IsBackground)
                 new Syncronization(t1, 3);
@@ -17511,7 +17546,7 @@ namespace Refrigtz
                 do
                 {
 
-                    //System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(10);
                     if (System.IO.File.Exists(FormRefrigtz.Root + "\\Database\\Games\\CurrentBank" + Max.ToString() + ".accdb"))
                         Max++;
 
@@ -17883,7 +17918,7 @@ namespace Refrigtz
                         Log(t);
                     }
                 }
-                //System.Threading.Thread.Sleep(5);
+                System.Threading.Thread.Sleep(5);
 
                 PictureBoxTimerBrown.Invalidate();
                 PictureBoxTimerBrown.Update();
@@ -17946,7 +17981,7 @@ namespace Refrigtz
                         //RunInFront();
                     }
                 }
-                //System.Threading.Thread.Sleep(5);
+                System.Threading.Thread.Sleep(5);
                 //PictureBoxTimerGray.Invalidate();
                 //PictureBoxTimerGray.Update();
 
@@ -18359,7 +18394,7 @@ namespace Refrigtz
                 {
                     try
                     {
-                        //System.Threading.Thread.Sleep(2);
+                        System.Threading.Thread.Sleep(2);
                         //tttt.Start();
                         //ttt.Start();
                         if (!AllDo)
@@ -18367,7 +18402,7 @@ namespace Refrigtz
                         AllOp();
                         if (EndOfGame)
                             return;
-                        //System.Threading.Thread.Sleep(10);
+                        System.Threading.Thread.Sleep(10);
                         // AllOperate.Start();
                     }
                     catch (Exception t) { Log(t); }
@@ -18382,7 +18417,7 @@ namespace Refrigtz
             {
                 try
                 {
-                    //System.Threading.Thread.Sleep(2);
+                    System.Threading.Thread.Sleep(2);
                     //tttt.Start();
                     //ttt.Start();
                     SetRefregitzDLL();
@@ -18420,11 +18455,11 @@ namespace Refrigtz
                 {
                     try
                     {
-                        //System.Threading.Thread.Sleep(2);
+                        System.Threading.Thread.Sleep(2);
                         //tttt.Start();
                         //ttt.Start();
                         SetNodesCount();
-                        //System.Threading.Thread.Sleep(10);
+                        System.Threading.Thread.Sleep(10);
                         // AllOperate.Start();
                     }
                     catch (Exception t) { Log(t); }
@@ -18444,7 +18479,7 @@ namespace Refrigtz
                         Object OOO = new Object();
                         lock (OOO)
                         {
-                            //System.Threading.Thread.Sleep(2);
+                            System.Threading.Thread.Sleep(2);
 
                             //tttt.Start();
                             //ttt.Start();
@@ -18452,7 +18487,7 @@ namespace Refrigtz
                             //t.Start();
                             //t.Join();
                             SetRefregitzDLL();
-                            //System.Threading.Thread.Sleep(1);
+                            System.Threading.Thread.Sleep(1);
                             // AllOperate.Start();
                         }
                     }
@@ -18819,21 +18854,63 @@ namespace Refrigtz
 
         private void backgroundWorkerMoveGray_DoWork(object sender, DoWorkEventArgs e)
         {
+            int i = 0;
             bool Do = true;
             do
             {
-                Do = MovementRefrigitzDLL();
-
+                    if (Quantum)
+                    Do = MovementQuantum();
+                else
+                    Do = MovementRefrigitzDLL();
+                if (!Quantum)
+                {
+                    if (RefrigtzDLL.AllDraw.MouseClick == 2)
+                        i = 1;
+                    if (i == 1)
+                        if (RefrigtzDLL.AllDraw.MouseClick == 0)
+                            Do = false;
+                    if (RefrigtzDLL.AllDraw.MouseClick == 2 && (!Clicked))
+                        RefrigtzDLL.AllDraw.MouseClick = 0;
+                }
+                else
+                {
+                    if (QuantumRefrigiz.AllDraw.MouseClick == 2)
+                        i = 1;
+                    if (i == 1)
+                        if (QuantumRefrigiz.AllDraw.MouseClick == 0)
+                            Do = false;
+                    if (QuantumRefrigiz.AllDraw.MouseClick == 2 && (!Clicked))
+                        QuantumRefrigiz.AllDraw.MouseClick = 0;
+                }
             } while (Do);
         }
 
         private void backgroundWorkerMoveBrown_DoWork(object sender, DoWorkEventArgs e)
         {
+            int i = 0;
             bool Do = true;
             do
             {
-                MovementQuantum();
-
+                if (Quantum)
+                    Do = MovementQuantum();
+                else
+                    Do = MovementRefrigitzDLL();
+                if (!Quantum)
+                {
+                    if (RefrigtzDLL.AllDraw.MouseClick == 2)
+                        i = 1;
+                    if (i == 1)
+                        if (RefrigtzDLL.AllDraw.MouseClick == 0)
+                            Do = false;
+                }
+                else
+                {
+                    if (QuantumRefrigiz.AllDraw.MouseClick == 2)
+                        i = 1;
+                    if (i == 1)
+                        if (QuantumRefrigiz.AllDraw.MouseClick == 0)
+                            Do = false;
+                }
             } while (Do);
         }
 

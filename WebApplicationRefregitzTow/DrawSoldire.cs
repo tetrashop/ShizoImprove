@@ -23,12 +23,12 @@ namespace RefrigtzW
         //private readonly object balancelockS = new object();
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
-        [filed:NonSerialized]  public Image[] S = new Image[2];
-        [filed:NonSerialized]  public Image[] E = new Image[2];
-        [filed:NonSerialized]  public Image[] H = new Image[2];
-        [filed:NonSerialized]  public Image[] C = new Image[2];
-        [filed:NonSerialized]  public Image[] M = new Image[2];
-        [filed:NonSerialized]  public Image[] K = new Image[2];
+        Image[] S = new Image[2];
+        Image[] E = new Image[2];
+        Image[] H = new Image[2];
+        Image[] C = new Image[2];
+        Image[] M = new Image[2];
+        Image[] K = new Image[2];
         public bool MovementsAStarGreedyHuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
