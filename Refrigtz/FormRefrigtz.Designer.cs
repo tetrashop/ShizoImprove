@@ -72,8 +72,6 @@ namespace Refrigtz
             this.AboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ErrorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MonitorOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ButtonNext = new System.Windows.Forms.Button();
-            this.ButtonPrevious = new System.Windows.Forms.Button();
             this.CheckBoxOnlySelf = new System.Windows.Forms.CheckBox();
             this.CheckBoxPredictHuristci = new System.Windows.Forms.CheckBox();
             this.CheckBoxBestMovments = new System.Windows.Forms.CheckBox();
@@ -105,8 +103,6 @@ namespace Refrigtz
             this.ComboBoxAttack = new System.Windows.Forms.ComboBox();
             this.folderBrowserDialogBackup = new System.Windows.Forms.FolderBrowserDialog();
             this.ButtonChangeArrangment = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.BackgroundWorkerAllOp = new System.ComponentModel.BackgroundWorker();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.TimerAllOperation = new System.Windows.Forms.Timer(this.components);
@@ -161,6 +157,10 @@ namespace Refrigtz
             this.labelMaxTree = new System.Windows.Forms.Label();
             this.TextBoxStatistic = new System.Windows.Forms.TextBox();
             this.TextBoxText = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ButtonPrevious = new System.Windows.Forms.Button();
+            this.ButtonNext = new System.Windows.Forms.Button();
             this.MenuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxRefrigtz)).BeginInit();
@@ -554,26 +554,6 @@ namespace Refrigtz
             this.MonitorOpenToolStripMenuItem.Text = "Monitor Open";
             this.MonitorOpenToolStripMenuItem.Click += new System.EventHandler(this.MonitorOpenToolStripMenuItem_Click);
             // 
-            // ButtonNext
-            // 
-            this.ButtonNext.Location = new System.Drawing.Point(691, 606);
-            this.ButtonNext.Name = "ButtonNext";
-            this.ButtonNext.Size = new System.Drawing.Size(75, 23);
-            this.ButtonNext.TabIndex = 2;
-            this.ButtonNext.Text = "Next";
-            this.ButtonNext.UseVisualStyleBackColor = true;
-            this.ButtonNext.Click += new System.EventHandler(this.ButtonNext_Click);
-            // 
-            // ButtonPrevious
-            // 
-            this.ButtonPrevious.Location = new System.Drawing.Point(607, 606);
-            this.ButtonPrevious.Name = "ButtonPrevious";
-            this.ButtonPrevious.Size = new System.Drawing.Size(75, 23);
-            this.ButtonPrevious.TabIndex = 3;
-            this.ButtonPrevious.Text = "Previous";
-            this.ButtonPrevious.UseVisualStyleBackColor = true;
-            this.ButtonPrevious.Click += new System.EventHandler(this.ButtonPrevious_Click);
-            // 
             // CheckBoxOnlySelf
             // 
             this.CheckBoxOnlySelf.AutoSize = true;
@@ -965,22 +945,6 @@ namespace Refrigtz
             this.ButtonChangeArrangment.UseVisualStyleBackColor = true;
             this.ButtonChangeArrangment.Visible = false;
             this.ButtonChangeArrangment.Click += new System.EventHandler(this.ButtonChangeArrangment_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(613, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 79;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(783, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 80;
             // 
             // BackgroundWorkerAllOp
             // 
@@ -1437,6 +1401,42 @@ namespace Refrigtz
             this.TextBoxText.TabIndex = 132;
             this.TextBoxText.TextChanged += new System.EventHandler(this.TextBoxText_TextChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(580, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 133;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(794, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 134;
+            // 
+            // ButtonPrevious
+            // 
+            this.ButtonPrevious.Location = new System.Drawing.Point(607, 606);
+            this.ButtonPrevious.Name = "ButtonPrevious";
+            this.ButtonPrevious.Size = new System.Drawing.Size(75, 23);
+            this.ButtonPrevious.TabIndex = 135;
+            this.ButtonPrevious.Text = "Previous";
+            this.ButtonPrevious.UseVisualStyleBackColor = true;
+            this.ButtonPrevious.Click += new System.EventHandler(this.ButtonPrevious_Click);
+            // 
+            // ButtonNext
+            // 
+            this.ButtonNext.Location = new System.Drawing.Point(691, 606);
+            this.ButtonNext.Name = "ButtonNext";
+            this.ButtonNext.Size = new System.Drawing.Size(75, 23);
+            this.ButtonNext.TabIndex = 136;
+            this.ButtonNext.Text = "Next";
+            this.ButtonNext.UseVisualStyleBackColor = true;
+            this.ButtonNext.Click += new System.EventHandler(this.ButtonNext_Click);
+            // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1444,6 +1444,10 @@ namespace Refrigtz
             this.CancelButton = this.ButtonStop;
             this.ClientSize = new System.Drawing.Size(1005, 672);
             this.ControlBox = false;
+            this.Controls.Add(this.ButtonNext);
+            this.Controls.Add(this.ButtonPrevious);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.TextBoxText);
             this.Controls.Add(this.TextBoxStatistic);
             this.Controls.Add(this.labelMaxTree);
@@ -1491,8 +1495,6 @@ namespace Refrigtz
             this.Controls.Add(this.PictureBoxTimerBrown);
             this.Controls.Add(this.PictureBoxTimerGray);
             this.Controls.Add(this.PictureBoxRefrigtz);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonChangeArrangment);
             this.Controls.Add(this.groupBoxGroupOfPowerity);
             this.Controls.Add(this.CheckBoxIgnoreSelf);
@@ -1510,8 +1512,6 @@ namespace Refrigtz
             this.Controls.Add(this.CheckBoxBestMovments);
             this.Controls.Add(this.CheckBoxPredictHuristci);
             this.Controls.Add(this.CheckBoxOnlySelf);
-            this.Controls.Add(this.ButtonPrevious);
-            this.Controls.Add(this.ButtonNext);
             this.Controls.Add(this.MenuStripChessRefrigitz);
             this.MainMenuStrip = this.MenuStripChessRefrigitz;
             this.Name = "FormRefrigtz";
@@ -1571,10 +1571,6 @@ namespace Refrigtz
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
         [field: NonSerialized]
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem1;
-        [field: NonSerialized]
-        private System.Windows.Forms.Button ButtonNext;
-        [field: NonSerialized]
-        private System.Windows.Forms.Button ButtonPrevious;
         [field: NonSerialized]
         private System.Windows.Forms.CheckBox CheckBoxOnlySelf;
         [field: NonSerialized]
@@ -1665,10 +1661,6 @@ namespace Refrigtz
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogBackup;
         [field: NonSerialized]
         private System.Windows.Forms.Button ButtonChangeArrangment;
-        [field: NonSerialized]
-        private System.Windows.Forms.Label label1;
-        [field: NonSerialized]
-        private System.Windows.Forms.Label label2;
         [field: NonSerialized]
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem1;
         [field: NonSerialized]
@@ -1776,6 +1768,10 @@ namespace Refrigtz
         private System.Windows.Forms.Label labelMaxTree;
         public System.Windows.Forms.TextBox TextBoxStatistic;
         public System.Windows.Forms.TextBox TextBoxText;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button ButtonPrevious;
+        private System.Windows.Forms.Button ButtonNext;
     }
 }
 

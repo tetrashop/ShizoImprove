@@ -15537,7 +15537,6 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                System.Threading.Thread.Sleep(10);
                 MouseClicked = true;
                 for (int i = 0; i < 8; i++)
                 {
@@ -15547,7 +15546,7 @@ namespace Refrigtz
                         {
                             if (!Quantum)
                             {
-                                if (System.Math.Abs(e.X - i * (PictureBoxRefrigtz.Image.Width / 8)) < PictureBoxRefrigtz.Image.Width / 8 && System.Math.Abs(e.Y - j * (PictureBoxRefrigtz.Image.Height / 8)) < PictureBoxRefrigtz.Image.Height / 8)
+                                if ((System.Math.Abs(e.X - i * (PictureBoxRefrigtz.Image.Width / 8)) < PictureBoxRefrigtz.Image.Width / 8) && (System.Math.Abs(e.Y - j * (PictureBoxRefrigtz.Image.Height / 8)) < PictureBoxRefrigtz.Image.Height / 8))
                                 {
 
                                     //if (!RefrigtzDLL.ThingsConverter.ClickOcurred)
@@ -15872,6 +15871,7 @@ namespace Refrigtz
 
 
                 }
+                System.Threading.Thread.Sleep(10);
             }
         }
 
