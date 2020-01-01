@@ -639,7 +639,7 @@ namespace RefrigtzW
                 MaxLess6 = 0;
                 LoopHuristicIndex = 0;
                 Move = 0;
-                MouseClick = 0;
+                //MouseClick = 0;
                 AStarGreedyIndex = new int[20];
                 AStarGreedy = 0;
                 SolderesOnTable = null;
@@ -889,7 +889,7 @@ namespace RefrigtzW
                 MaxLess6 = 0;
                 LoopHuristicIndex = 0;
                 Move = 0;
-                MouseClick = 0;
+                //MouseClick = 0;
                 AStarGreedyIndex = new int[20];
                 AStarGreedy = 0;
                 /*SolderesOnTable = null;

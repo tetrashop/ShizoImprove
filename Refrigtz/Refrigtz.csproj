@@ -79,9 +79,7 @@
     </Win32Resource>
   </PropertyGroup>
   <PropertyGroup />
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <StartupObject>Refrigtz.Program</StartupObject>
   </PropertyGroup>
@@ -127,6 +125,9 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>Refrigtz.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="All, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -182,6 +183,7 @@
     <Compile Include="AboutBoxChessRefregitz.Designer.cs">
       <DependentUpon>AboutBoxChessRefregitz.cs</DependentUpon>
     </Compile>
+    <None Include="app.manifest" />
     <None Include="App.xaml.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -285,9 +287,6 @@
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

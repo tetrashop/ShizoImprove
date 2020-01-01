@@ -295,7 +295,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Create on the Inststant of Gray Castles Images.
-                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "CG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
                             else
@@ -304,7 +304,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Creat of an Instant of Brown Image Castles.
-                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "CB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
 

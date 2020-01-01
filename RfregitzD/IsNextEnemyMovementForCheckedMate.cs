@@ -177,10 +177,10 @@ namespace RefrigtzDLL
              AllDraw.Less = A24;
              AllDraw.LoopHuristicIndex = A25;
              AllDraw.MaxAStarGreedy = A26;
-             AllDraw.MaxAStarGreedyHuristicProgress = A27;
+             AllDraw.MaxAStarGreedyHuristicProgress = A27;//AllDraw.MouseClick = A30;
              AllDraw.MinisterMovments = A28;
              AllDraw.MinThinkingTreeDepth = A29;
-             AllDraw.MouseClick = A30;
+             //AllDraw.MouseClick = A30;
              AllDraw.MovmentsNumber = A31;
              AllDraw.NextColumn = A32;
              AllDraw.NextRow = A33;

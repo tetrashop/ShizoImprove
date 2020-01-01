@@ -639,7 +639,7 @@ namespace RefrigtzDLL
                 MaxLess6 = 0;
                 LoopHuristicIndex = 0;
                 Move = 0;
-                MouseClick = 0;
+                ////MouseClick = 0;
                 AStarGreedyIndex = new int[20];
                 AStarGreedy = 0;
                 SolderesOnTable = null;
@@ -889,7 +889,7 @@ namespace RefrigtzDLL
                 MaxLess6 = 0;
                 LoopHuristicIndex = 0;
                 Move = 0;
-                MouseClick = 0;
+                ////MouseClick = 0;
                 AStarGreedyIndex = new int[20];
                 AStarGreedy = 0;
                 /*SolderesOnTable = null;
@@ -2150,41 +2150,41 @@ namespace RefrigtzDLL
                 for (var i = So2; i < SodierHigh; i++)
                     SolderesOnTable[i] = null;
 
-              /*  for (var i = El1; i < ElefantMidle; i++)
-                    ElephantOnTable[i] = null;
+                /*  for (var i = El1; i < ElefantMidle; i++)
+                      ElephantOnTable[i] = null;
 
-                for (var i = El2; i < ElefantHigh; i++)
-                    ElephantOnTable[i] = null;
+                  for (var i = El2; i < ElefantHigh; i++)
+                      ElephantOnTable[i] = null;
 
-                for (var i = Ho1; i < HourseMidle; i++)
-                    HoursesOnTable[i] = null;
+                  for (var i = Ho1; i < HourseMidle; i++)
+                      HoursesOnTable[i] = null;
 
-                for (var i = Ho2; i < HourseHight; i++)
-                    HoursesOnTable[i] = null;
+                  for (var i = Ho2; i < HourseHight; i++)
+                      HoursesOnTable[i] = null;
 
-                for (var i = Br1; i < CastleMidle; i++)
-                    CastlesOnTable[i] = null;
+                  for (var i = Br1; i < CastleMidle; i++)
+                      CastlesOnTable[i] = null;
 
-                for (var i = Br2; i < CastleHigh; i++)
-                    CastlesOnTable[i] = null;
+                  for (var i = Br2; i < CastleHigh; i++)
+                      CastlesOnTable[i] = null;
 
-                for (var i = Mi1; i < MinisterMidle; i++)
-                    MinisterOnTable[i] = null;
+                  for (var i = Mi1; i < MinisterMidle; i++)
+                      MinisterOnTable[i] = null;
 
-                for (var i = Mi2; i < MinisterHigh; i++)
-                    MinisterOnTable[i] = null;
+                  for (var i = Mi2; i < MinisterHigh; i++)
+                      MinisterOnTable[i] = null;
 
-                for (var i = Ki1; i < KingMidle; i++)
-                    KingOnTable[i] = null;
+                  for (var i = Ki1; i < KingMidle; i++)
+                      KingOnTable[i] = null;
 
-                for (var i = Ki2; i < KingHigh; i++)
-                    KingOnTable[i] = null;
-             */   if (TableList.Count > 0)
-                {
-                    for (var i = 0; i < 8; i++)
-                        for (var j = 0; j < 8; j++)
-                            Tabl[i, j] = TableList[0][i, j];
-                }
+                  for (var i = Ki2; i < KingHigh; i++)
+                      KingOnTable[i] = null;
+                  if (TableList.Count > 0)
+                  {
+                      for (var i = 0; i < 8; i++)
+                          for (var j = 0; j < 8; j++)
+                              Tabl[i, j] = TableList[0][i, j];
+                  }*/
                 SetRowColumnFinished = true;
             }
             //{ AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space); AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
