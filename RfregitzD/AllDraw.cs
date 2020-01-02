@@ -4605,12 +4605,11 @@ namespace RefrigtzDLL
 
         }
         //clear all non nessaraly nodes of current
-        public void ClearAllTablesHuristicsAndMore(int Order)
+        public void ClearAllTablesHuristicsAndMoreGray(int Order)
         {
-            //gray
-            if (Order == 1)
-            {
-                //soldier
+            Object O = new Object();
+            lock (O)
+            {      //soldier
                 for (int i = 0; SolderesOnTable != null && i < SodierMidle; i++)
                 {
                     if (SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
@@ -4618,15 +4617,7 @@ namespace RefrigtzDLL
                         for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(1, Order, i, j))
-                            {
-                                //clear all lists
-                                SolderesOnTable[i].SoldierThinking[0].TableListSolder.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreSoldier(Order, i, j);
                         }
                     }
                 }
@@ -4638,19 +4629,10 @@ namespace RefrigtzDLL
                         for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(2, Order, i, j))
-                            {
-                                //clear all lists
-                                ElephantOnTable[i].ElefantThinking[0].TableListElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreElephant(Order, i, j);
                         }
                     }
                 }
-
                 //hourse
                 for (int i = 0; HoursesOnTable != null && i < HourseMidle; i++)
                 {
@@ -4659,15 +4641,7 @@ namespace RefrigtzDLL
                         for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(3, Order, i, j))
-                            {
-                                //clear all lists
-                                HoursesOnTable[i].HourseThinking[0].TableListHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreHourse(Order, i, j);
                         }
                     }
                 }
@@ -4679,15 +4653,7 @@ namespace RefrigtzDLL
                         for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(4, Order, i, j))
-                            {
-                                //clear all lists
-                                CastlesOnTable[i].CastleThinking[0].TableListCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreCastle(Order, i, j);
                         }
                     }
                 }
@@ -4699,15 +4665,7 @@ namespace RefrigtzDLL
                         for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(5, Order, i, j))
-                            {
-                                //clear all lists
-                                MinisterOnTable[i].MinisterThinking[0].TableListMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreMinister(Order, i, j);
                         }
                     }
                 }
@@ -4719,24 +4677,17 @@ namespace RefrigtzDLL
                         for (int j = 0; j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(6, Order, i, j))
-                            {
-                                //clear all lists
-                                KingOnTable[i].KingThinking[0].TableListKing.Clear();
-                                KingOnTable[i].KingThinking[0].HuristicListKing.Clear();
-                                KingOnTable[i].KingThinking[0].RowColumnKing.Clear();
-                                KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Clear();
-                                KingOnTable[i].KingThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreKing(Order, i, j);
                         }
                     }
                 }
-
-
             }
-            else//brown
-            {
-                //soldier
+        }
+        public void ClearAllTablesHuristicsAndMoreBrown(int Order)
+        {
+            Object O = new Object();
+            lock (O)
+            {          //soldier
                 for (int i = SodierMidle; SolderesOnTable != null && i < SodierHigh; i++)
                 {
                     if (SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
@@ -4744,15 +4695,7 @@ namespace RefrigtzDLL
                         for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(1, Order, i, j))
-                            {
-                                //clear all lists
-                                SolderesOnTable[i].SoldierThinking[0].TableListSolder.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Clear();
-                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreSoldier(Order, i, j);
                         }
                     }
                 }
@@ -4764,19 +4707,10 @@ namespace RefrigtzDLL
                         for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(2, Order, i, j))
-                            {
-                                //clear all lists
-                                ElephantOnTable[i].ElefantThinking[0].TableListElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Clear();
-                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreElephant(Order, i, j);
                         }
                     }
                 }
-
                 //hourse
                 for (int i = HourseMidle; HoursesOnTable != null && i < HourseHight; i++)
                 {
@@ -4785,15 +4719,7 @@ namespace RefrigtzDLL
                         for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(3, Order, i, j))
-                            {
-                                //clear all lists
-                                HoursesOnTable[i].HourseThinking[0].TableListHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Clear();
-                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreHourse(Order, i, j);
                         }
                     }
                 }
@@ -4805,15 +4731,7 @@ namespace RefrigtzDLL
                         for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(4, Order, i, j))
-                            {
-                                //clear all lists
-                                CastlesOnTable[i].CastleThinking[0].TableListCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Clear();
-                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreCastle(Order, i, j);
                         }
                     }
                 }
@@ -4825,15 +4743,7 @@ namespace RefrigtzDLL
                         for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(5, Order, i, j))
-                            {
-                                //clear all lists
-                                MinisterOnTable[i].MinisterThinking[0].TableListMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Clear();
-                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreMinister(Order, i, j);
                         }
                     }
                 }
@@ -4845,20 +4755,131 @@ namespace RefrigtzDLL
                         for (int j = 0; j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
                             //when is not validity
-                            if (IsNonValidityAllTablesHuristicsAndMore(6, Order, i, j))
-                            {
-                                //clear all lists
-                                KingOnTable[i].KingThinking[0].TableListKing.Clear();
-                                KingOnTable[i].KingThinking[0].HuristicListKing.Clear();
-                                KingOnTable[i].KingThinking[0].RowColumnKing.Clear();
-                                KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Clear();
-                                KingOnTable[i].KingThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
-                            }
+                            ClearAllTablesHuristicsAndMoreKing(Order, i, j);
                         }
                     }
                 }
+            }
+        }
+        //clear all non nessaraly nodes of current
+        public void ClearAllTablesHuristicsAndMore(int Order)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                //gray
+                if (Order == 1)
+                {
+                    ClearAllTablesHuristicsAndMoreGray(Order);
+                }
+                else//brown
+                {
+                    ClearAllTablesHuristicsAndMoreBrown(Order);
 
 
+                }
+            }
+        }
+        public void ClearAllTablesHuristicsAndMoreSoldier(int Order, int i, int j)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                if (IsNonValidityAllTablesHuristicsAndMore(1, Order, i, j))
+                {
+                    //clear all lists
+                    SolderesOnTable[i].SoldierThinking[0].TableListSolder.Clear();
+                    SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Clear();
+                    SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Clear();
+                    SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Clear();
+                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count>j)
+                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                }
+            }
+        }
+        public void ClearAllTablesHuristicsAndMoreElephant(int Order, int i, int j)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                if (IsNonValidityAllTablesHuristicsAndMore(2, Order, i, j))
+                {
+                    //clear all lists
+                    ElephantOnTable[i].ElefantThinking[0].TableListElefant.Clear();
+                    ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Clear();
+                    ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Clear();
+                    ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Clear();
+                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j)
+                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                }
+            }
+        }
+        public void ClearAllTablesHuristicsAndMoreHourse(int Order, int i, int j)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                if (IsNonValidityAllTablesHuristicsAndMore(3, Order, i, j))
+                {
+                    //clear all lists
+                    HoursesOnTable[i].HourseThinking[0].TableListHourse.Clear();
+                    HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Clear();
+                    HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Clear();
+                    HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Clear();
+                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j)
+                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                }
+            }
+        }
+        public void ClearAllTablesHuristicsAndMoreCastle(int Order, int i, int j)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                if (IsNonValidityAllTablesHuristicsAndMore(4, Order, i, j))
+                {
+                    //clear all lists
+                    CastlesOnTable[i].CastleThinking[0].TableListCastle.Clear();
+                    CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Clear();
+                    CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Clear();
+                    CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Clear();
+                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j)
+                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                }
+            }
+        }
+        public void ClearAllTablesHuristicsAndMoreMinister(int Order, int i, int j)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                if (IsNonValidityAllTablesHuristicsAndMore(5, Order, i, j))
+                {
+                    //clear all lists
+                    MinisterOnTable[i].MinisterThinking[0].TableListMinister.Clear();
+                    MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Clear();
+                    MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Clear();
+                    MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Clear();
+                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j)
+                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                }
+            }
+        }
+        public void ClearAllTablesHuristicsAndMoreKing(int Order, int i, int j)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                if (IsNonValidityAllTablesHuristicsAndMore(6, Order, i, j))
+                {
+                    //clear all lists
+                    KingOnTable[i].KingThinking[0].TableListKing.Clear();
+                    KingOnTable[i].KingThinking[0].HuristicListKing.Clear();
+                    KingOnTable[i].KingThinking[0].RowColumnKing.Clear();
+                    KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Clear();
+                    if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count > j)
+                        KingOnTable[i].KingThinking[0].AStarGreedy[j] = new AllDraw(Order * -1, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged);
+                }
             }
         }
         //when there is a colision in lists of current return true and remove extra lists
@@ -4991,7 +5012,7 @@ namespace RefrigtzDLL
                     int c = SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Count;
                     int d = SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Count;
                     int e = 0;
-                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null)
+                                        if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count>j)
                         e = -1;
                     else
                         e = SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count;
@@ -5014,7 +5035,7 @@ namespace RefrigtzDLL
                     int c = ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Count;
                     int d = ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Count;
                     int e = 0;
-                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null)
+                     if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count>j)
                         e = -1;
                     else
                         e = ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count;
@@ -5035,7 +5056,7 @@ namespace RefrigtzDLL
                     int c = HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Count;
                     int d = HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Count;
                     int e = 0;
-                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null)
+                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count>j)
                         e = -1;
                     else
                         e = HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count;
@@ -5056,7 +5077,7 @@ namespace RefrigtzDLL
                     int c = CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Count;
                     int d = CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Count;
                     int e = 0;
-                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null)
+                      if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count>j)
                         e = -1;
                     else
                         e = CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count;
@@ -5077,7 +5098,7 @@ namespace RefrigtzDLL
                     int c = MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Count;
                     int d = MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Count;
                     int e = 0;
-                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null)
+                       if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count>j)
                         e = -1;
                     else
                         e = MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count;
@@ -5098,7 +5119,7 @@ namespace RefrigtzDLL
                     int c = KingOnTable[i].KingThinking[0].RowColumnKing.Count;
                     int d = KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Count;
                     int e = 0;
-                    if (KingOnTable[i].KingThinking[0].AStarGreedy != null)
+                              if (KingOnTable[i].KingThinking[0].AStarGreedy != null&& KingOnTable[i].KingThinking[0].AStarGreedy.Count>j)
                         e = -1;
                     else
                         e = KingOnTable[i].KingThinking[0].AStarGreedy.Count;

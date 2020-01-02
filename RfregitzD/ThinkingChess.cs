@@ -2471,147 +2471,28 @@ namespace RefrigtzDLL
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            /*Object O = new Object();
-            lock (O)
+        
+            Object ol = new Object();
+            lock (ol)
             {
-                int HeuristicKingSafe = 0;
+                int[,] Tabl = CloneATable(Tab);
                 int HA = 0;
+                ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tabl[RowD, ColD], CloneATable(Tabl), Order * -1, RowD, ColD);
+                A.ObjectDangourKingMove(Order, Tabl);
+                Tabl = CloneATable(Tab);
+                //When Before Move such situation is observed calculate huristic count.
+                if (Order == 1 && A.CheckGrayObjectDangour)
+                    HA += (AllDraw.SignKingSafe *
+                        (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
+                else
+                if (Order == -1 && A.CheckBrownObjectDangour)
+                    HA += (AllDraw.SignKingSafe *
+                        (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
 
-                //For Enemies.
-
-                ////Parallel.For(0, 8, RowS =>
-                //for (var RowS = 0; RowS < 8; RowS++)
-                {
-                    ////Parallel.For(0, 8, ColS =>
-                    //for (var ColS = 0; ColS < 8; ColS++)
-                    {
-                        if (Order == 1 && Tab[RowS, ColS] >= 0)
-                            return 0;
-                        if (Order == -1 && Tab[RowS, ColS] <= 0)
-                            return 0;
-                        ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order * -1, RowS, ColS);
-                        //For Current and Empty
-                        ////Parallel.For(0, 8, RowD =>
-                        //for (int RowD = 0; RowD < 8; RowD++)
-                        {
-                            ////Parallel.For(0, 8, ColD =>
-                            //for (int ColD = 0; ColD < 8; ColD++)
-                            {
-                                //Ignore of Enemy.
-                                if (Order == 1 && Tab[RowD, ColD] < 0)
-                                    return 0;
-                                if (Order == -1 && Tab[RowD, ColD] > 0)
-                                    return 0;
-                                int[,] Table = new int[8, 8];
-                                //Clone a Copy.
-                                for (int ij = 0; ij < 8; ij++)
-                                {
-                                    for (int ji = 0; ji < 8; ji++)
-                                    {
-                                        Object O2 = new Object();
-                                        lock (O2)
-                                        {
-                                            Table[ij, ji] = Tab[ij, ji];
-                                        }
-                                    }
-                                }
-                                Color AA = Color.Gray;
-                                if (Order * -1 == -1)
-                                    AA = Color.Brown;
-                                //When Enemy can Move
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (A.Rules(RowS, ColS, RowD, ColD, AA, Table[RowS, ColS]))
-                                    {
-                                        //Take Movment.
-                                        Table[RowD, ColD] = Table[RowS, ColS];
-                                        Table[RowS, ColS] = 0;
-                                        //Is Dangrous for King.
-                                        A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Table), Order * -1, RowD, ColD);
-                                        //if (A.ObjectDangourKingMove(Order, CloneATable(Table), false))
-                                        A.ObjectDangourKingMove(Order, CloneATable(Table), false);
-                                        {
-                                           for (int ij = 0; ij < 8; ij++)
-                                            {
-                                                for (int ji = 0; ji < 8; ji++)
-                                                {
-                                                    Object O2 = new Object();
-                                                    lock (O2)
-                                                    {
-                                                        Table[ij, ji] = Tab[ij, ji];
-                                                    }
-                                                }
-                                            }
-                                            Object ol = new Object();
-                                            lock (ol)
-                                            {
-                                                //When Before Move such situation is observed calculate huristic count.
-                                                if (Order == 1 && A.CheckGrayObjectDangour)
-                                                    HA +=// AllDraw.SignKingSafe * 
-                                                        (ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD));
-                                                else
-                                                if (Order == -1 && A.CheckBrownObjectDangour)
-                                                    HA += //AllDraw.SignKingSafe * 
-                                                        (ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD));
-
-                                            }               
-                                        }
-                                    }
-                                }
-                            }//);
-                        }//);
-                    }//);
-                }//);
-                //For Enemy and Self Sign.
-                HeuristicKingSafe += (HA * 1);
-                return HeuristicKingSafe;
-            }*/
-            int[,] Table = new int[8, 8];
-
-            for (int ij = 0; ij < 8; ij++)
-            {
-                for (int ji = 0; ji < 8; ji++)
-                {
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        Table[ij, ji] = Tab[ij, ji];
-                    }
-                }
+                return HA;
             }
-            int HA = 0;
-            ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Table), Order * -1, RowD, ColD);
-            //if (A.ObjectDangourKingMove(Order, CloneATable(Table), false))
-            A.ObjectDangourKingMove(Order, Table);
-            {
-                for (int ij = 0; ij < 8; ij++)
-                {
-                    for (int ji = 0; ji < 8; ji++)
-                    {
-                        Object O2 = new Object();
-                        lock (O2)
-                        {
-                            Table[ij, ji] = Tab[ij, ji];
-                        }
-                    }
-                }
-                Object ol = new Object();
-                lock (ol)
-                {
-                    //When Before Move such situation is observed calculate huristic count.
-                    if (Order == 1 && A.CheckGrayObjectDangour)
-                        HA += (AllDraw.SignKingSafe *
-                            (ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD)));
-                    else
-                    if (Order == -1 && A.CheckBrownObjectDangour)
-                        HA += (AllDraw.SignKingSafe *
-                            (ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD)));
 
-                }
-            }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingSafety:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            return HA;
         }
         int HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
             )
@@ -9765,6 +9646,85 @@ namespace RefrigtzDLL
         }
 
 
+        public int[] CalculateHuristicsParallel(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
+)
+        {
+            Object OO = new Object();
+            lock (OO)
+            {
+                int[] Huriistic = null;
+                int[] HuriisticRemain = new int[5];
+
+                var output = Task.Factory.StartNew(() =>
+             Parallel.Invoke(() =>
+             {
+                 Object O = new Object();
+                 lock (O)
+                 {
+                     int[,] TableSS = CloneATable(TableS);
+                     Huriistic = HuristicAll(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
+                 }
+             }
+             , () =>
+             {
+                 Object O = new Object();
+                 lock (O)
+                 {
+                     int[,] TableSS = CloneATable(TableS);
+                     HuriisticRemain[0] = HuristicCheckAndCheckMate(TableSS, color//, ref HuristicObjectDangourCheckMateValue
+                         );
+                 }
+             }
+             , () =>
+             {
+                 Object O = new Object();
+                 lock (O)
+                 {
+                     int[,] TableSS = CloneATable(TableS);
+                     HuriisticRemain[1] = HeuristicDistabceOfCurrentMoveFromEnemyKing(TableSS, Order, RowS, ColS//, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue
+                          );
+                 }
+             }
+             , () =>
+             {
+                 Object O = new Object();
+                 lock (O)
+                 {
+                     int[,] TableSS = CloneATable(TableS);
+                     HuriisticRemain[2] = HeuristicKingSafety(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
+                          , CurrentAStarGredyMax);
+                 }
+             }
+             , () =>
+             {
+                 Object O = new Object();
+                 lock (O)
+                 {
+                     int[,] TableSS = CloneATable(TableS);
+                     HuriisticRemain[3] = HeuristicKingDangourous(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
+                     , CurrentAStarGredyMax);
+                 }
+             }
+             , () =>
+             {
+                 Object O = new Object();
+                 lock (O)
+                 {
+                     int[,] TableSS = CloneATable(TableS);
+                     HuriisticRemain[4] = HuristicSoldierFromCenter(TableSS, color, Order, RowS, ColS, RowD, ColD);
+                 }
+             }
+             ));
+                output.Wait();
+                int[] hu = new int[11];
+                for (int i = 0; i < 6; i++)
+                    hu[i] = Huriistic[i];
+                for (int i = 6; i < 11; i++)
+                    hu[i] = HuriisticRemain[i - 6];
+                return hu;
+            }
+        }
+
         public void CalculateHuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
             , ref int HuristicAttackValue
                 , ref int HuristicMovementValue
@@ -9782,111 +9742,32 @@ namespace RefrigtzDLL
             lock (OO)
             {
 
-                int[] Huriistic = null;
+                int[] Huriistic = new int[6];
                 int HCheck = new int();
                 int HDistance = new int();
                 int HKingSafe = new int();
                 int HKingDangour = new int();
                 int HFromCenter = 0;
-                var output = Task.Factory.StartNew(() =>
-                Parallel.Invoke(() =>
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        int[,] TableSS = CloneATable(TableS);
-                        Huriistic = HuristicAll(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
-                    }
-                }
-                , () =>
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        int[,] TableSS = CloneATable(TableS);
-                        HCheck = HuristicCheckAndCheckMate(TableSS, color//, ref HuristicObjectDangourCheckMateValue
-                            );
-                    }
-                }
-                , () =>
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        int[,] TableSS = CloneATable(TableS);
-                        HDistance = HeuristicDistabceOfCurrentMoveFromEnemyKing(TableSS, Order, RowS, ColS//, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue
-                             );
-                    }
-                }
-                , () =>
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        int[,] TableSS = CloneATable(TableS);
-                        HKingSafe = HeuristicKingSafety(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
-                             , CurrentAStarGredyMax);
-                    }
-                }
-                , () =>
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        int[,] TableSS = CloneATable(TableS);
-                        HKingDangour = HeuristicKingDangourous(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
-                        , CurrentAStarGredyMax);
-                    }
-                }
-                , () =>
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        int[,] TableSS = CloneATable(TableS);
-                        HFromCenter = HuristicSoldierFromCenter(TableSS, color, Order, RowS, ColS, RowD, ColD);
-                    }
-                }
-                ));
-                output.Wait();
+                int[] Hu = CalculateHuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
+                for (int i = 0; i < 6; i++)
+                    Huriistic[i] = Hu[i];
+                HCheck = Hu[6];
+                HDistance = Hu[7];
+                HKingSafe = Hu[8];
+                HKingDangour = Hu[9];
+                HFromCenter = Hu[10];
+
+
                 Object O1 = new Object();
                 lock (O1)
                 {
-
-
-                    /*HuristicAttackValue = Huriistic[0] * SignOrderToPlate(Order);
-                    HuristicKillerValue = Huriistic[1] * SignOrderToPlate(Order);
-                    HuristicMovementValue = Huriistic[2] * SignOrderToPlate(Order);
-                    HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck) * SignOrderToPlate(Order);
-                    HuristicReducedAttackValue = Huriistic[4] * SignOrderToPlate(Order);
-                    HuristicSelfSupportedValue = Huriistic[5] * SignOrderToPlate(Order);
-                    HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance * SignOrderToPlate(Order);
-                    HeuristicKingSafe = HKingSafe * SignOrderToPlate(Order);
-                    HeuristicFromCenter = HFromCenter * SignOrderToPlate(Order);
-                    HeuristicKingDangour = HKingDangour * SignOrderToPlate(Order);
-                    */
                     HDistance /= 10;
-                    //HKingSafe /= 10;
                     HFromCenter /= 10;
-                    //HKingDangour /= 10;
                     if (Before)
                     {
-                        /*HuristicAttackValue = Huriistic[0];
-                        HuristicKillerValue = Huriistic[1];
-                        HuristicMovementValue = Huriistic[2];
-                        HuristicObjectDangourCheckMateValue = (Huriistic[3] + HCheck);
-                        HuristicReducedAttackValue = Huriistic[4];
-                        HuristicSelfSupportedValue = Huriistic[5];
-                        HeuristicDistabceOfCurrentMoveFromEnemyKingValue = HDistance;
-                        HeuristicKingSafe = HKingSafe;
-                        HeuristicFromCenter = HFromCenter;
-                        HeuristicKingDangour = HKingDangour;
-                        */
-
                         HuristicAttackValue = (Huriistic[0] * SignOrderToPlate(Order));
                         HuristicKillerValue = (Huriistic[1] * SignOrderToPlate(Order));
                         HuristicMovementValue = (Huriistic[2] * SignOrderToPlate(Order));
-                        //HuristicObjectDangourCheckMateValue = ((Huriistic[3] + HCheck) * SignOrderToPlate(Order));
                         HuristicObjectDangourCheckMateValue = ((Huriistic[3]) * SignOrderToPlate(Order));
                         HuristicObjectDangourCheckMateValue += ((HCheck));
                         HuristicReducedAttackValue = (Huriistic[4] * SignOrderToPlate(Order));
@@ -9895,53 +9776,10 @@ namespace RefrigtzDLL
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
-                        /*if (Killed != 0)
-                            {
-                                if (Order == 1)
-                                {
-                                    //When Current Order is on Attack
-                                    if (Killed > 0)
-                                    {
-                                        HuristicKillerValue = int.MinValue / 2;
-                                    }
-                                    else
-                                    //When Enemy has Attacked.
-                                    if (Killed < 0)
-                                    {
-                                        HuristicKillerValue = int.MaxValue / 2;
 
-                                    }
-                                }
-                                else
-                                {
-                                    if (Killed < 0)
-                                    {
-                                        HuristicKillerValue = int.MinValue / 2;
-                                    }
-                                    else
-                                    //When Enemy has Attacked.
-                                    if (Killed > 0)
-                                    {
-                                        HuristicKillerValue = int.MaxValue / 2;
-
-                                    }
-                                }
-
-                            }*/
                     }
                     else
-                    {/*
-                        HuristicAttackValue += Huriistic[0];
-                        HuristicKillerValue += Huriistic[1];
-                        HuristicMovementValue += Huriistic[2];
-                        HuristicObjectDangourCheckMateValue += (Huriistic[3] + HCheck);
-                        HuristicReducedAttackValue += Huriistic[4];
-                        HuristicSelfSupportedValue += Huriistic[5];
-                        HeuristicDistabceOfCurrentMoveFromEnemyKingValue += HDistance;
-                        HeuristicKingSafe += HKingSafe;
-                        HeuristicFromCenter += HFromCenter;
-                        HeuristicKingDangour += HKingDangour;
-                        */
+                    {
 
                         HuristicAttackValue += (Huriistic[0] * SignOrderToPlate(Order));
                         HuristicKillerValue += (Huriistic[1] * SignOrderToPlate(Order));
@@ -9954,39 +9792,7 @@ namespace RefrigtzDLL
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
-                        /*if (Killed != 0)
-                  {
-                      if (Order == 1)
-                      {
-                          //When Current Order is on Attack
-                          if (Killed > 0)
-                          {
-                              HuristicKillerValue = int.MinValue / 2;
-                          }
-                          else
-                          //When Enemy has Attacked.
-                          if (Killed < 0)
-                          {
-                              HuristicKillerValue = int.MaxValue / 2;
 
-                          }
-                      }
-                      else
-                      {
-                          //When Self is On attach
-                          if (Killed < 0)
-                          {
-                              HuristicKillerValue = int.MinValue / 2;
-                          }
-                          else
-                          //When Enemy has on Attack.
-                          if (Killed > 0)
-                          {
-                              HuristicKillerValue = int.MaxValue / 2;
-
-                          }
-                      }
-                  }*/
 
                     }
                 }
