@@ -48,8 +48,8 @@
             if (processor.samples.Count > 0)
             {
                 processor.samples.Sort((t1, t2) => -t1.sourceArea.CompareTo(t2.sourceArea));
-                processor.sampleImage.FromFile(AllDraw.ImagesSubRoot + "SG.png").name = name;
-                processor.templates.Add(processor.sampleImage.FromFile(AllDraw.ImagesSubRoot + "SG.png"));
+                processor.samples[0].name = name;
+                processor.templates.Add(processor.samples[0]);
             }
         }
     }

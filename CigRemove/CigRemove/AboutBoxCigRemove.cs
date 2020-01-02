@@ -30,13 +30,13 @@ namespace CigRemove
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
                 if (attributes.Length > 0)
                 {
-                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributeImage.FromFile(AllDraw.ImagesSubRoot + "SG.png");
+                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
                     if (titleAttribute.Title != "")
                     {
                         return titleAttribute.Title;
                     }
                 }
-                return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().Codebase);
+                return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
             }
         }
 
@@ -57,7 +57,7 @@ namespace CigRemove
                 {
                     return "";
                 }
-                return ((AssemblyDescriptionAttribute)attributeImage.FromFile(AllDraw.ImagesSubRoot + "SG.png")).Description;
+                return ((AssemblyDescriptionAttribute)attributes[0]).Description;
             }
         }
 
@@ -70,7 +70,7 @@ namespace CigRemove
                 {
                     return "";
                 }
-                return ((AssemblyProductAttribute)attributeImage.FromFile(AllDraw.ImagesSubRoot + "SG.png")).Product;
+                return ((AssemblyProductAttribute)attributes[0]).Product;
             }
         }
 
@@ -83,7 +83,7 @@ namespace CigRemove
                 {
                     return "";
                 }
-                return ((AssemblyCopyrightAttribute)attributeImage.FromFile(AllDraw.ImagesSubRoot + "SG.png")).Copyright;
+                return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
             }
         }
 
@@ -96,7 +96,7 @@ namespace CigRemove
                 {
                     return "";
                 }
-                return ((AssemblyCompanyAttribute)attributeImage.FromFile(AllDraw.ImagesSubRoot + "SG.png")).Company;
+                return ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
         }
         #endregion

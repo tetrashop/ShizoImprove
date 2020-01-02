@@ -85,7 +85,7 @@
                 {
                     if (this.noiseFilter)
                     {
-                        Point point = iteImage.FromFile(AllDraw.ImagesSubRoot + "MG.png");
+                        Point point = item[0];
                         Point point2 = item[(item.Total / 2) % item.Total];
                         Gray gray = cannyFrame[point];
                         if ((gray.Intensity <= double.Epsilon) && ((gray = cannyFrame[point2]).Intensity <= double.Epsilon))
