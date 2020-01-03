@@ -337,12 +337,12 @@ namespace Refrigtz
                                 });
                                 childNode = t;
                             }
-                            TreeNode HuristicSoldier = new TreeNode();
-                            for (int j = 0; Draw.SolderesOnTable[i].SoldierThinking != null && Draw.SolderesOnTable[i].SoldierThinking[0] != null && Draw.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder != null && j < Draw.SolderesOnTable[i].SoldierThinking[0].HuristicListSolder.Count; j++)
+                            TreeNode HeuristicSoldier = new TreeNode();
+                            for (int j = 0; Draw.SolderesOnTable[i].SoldierThinking != null && Draw.SolderesOnTable[i].SoldierThinking[0] != null && Draw.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder != null && j < Draw.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
-                                tt.Name = "HuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
+                                tt.Text = "HeuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
+                                tt.Name = "HeuristicSoldier" + j.ToString() + "_CountHurSo:" + ReturnbCal(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString() + "_MoveString:" + MoveS(Draw.SolderesOnTable[i].SoldierThinking[0], 1, j).ToString();
                                 tt.Tag = j;
                                 if (childNode == null)
                                 {
@@ -350,7 +350,7 @@ namespace Refrigtz
                                     {
                                         treeViewRefregitzDraw.Nodes.Add(tt);
                                     });
-                                    HuristicSoldier = tt;
+                                    HeuristicSoldier = tt;
                                 }
                                 else
                                 {
@@ -358,7 +358,7 @@ namespace Refrigtz
                                     {
                                         childNode.Nodes.Add(tt);
                                     });
-                                    HuristicSoldier = tt;
+                                    HeuristicSoldier = tt;
                                 }
                             }
                             TreeNode AstarGreedy = new TreeNode();
@@ -507,12 +507,12 @@ namespace Refrigtz
                                 });
                                 childNode = t;
                             }
-                            TreeNode HuristicElephant = new TreeNode();
-                            for (int j = 0; Draw.ElephantOnTable[i].ElefantThinking != null && Draw.ElephantOnTable[i].ElefantThinking[0] != null && Draw.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant != null && j < Draw.ElephantOnTable[i].ElefantThinking[0].HuristicListElefant.Count; j++)
+                            TreeNode HeuristicElephant = new TreeNode();
+                            for (int j = 0; Draw.ElephantOnTable[i].ElefantThinking != null && Draw.ElephantOnTable[i].ElefantThinking[0] != null && Draw.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant != null && j < Draw.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
-                                tt.Name = "HuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
+                                tt.Text = "HeuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
+                                tt.Name = "HeuristicElephant" + j.ToString() + "_CountHurEl:" + ReturnbCal(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString() + "_MoveString:" + MoveS(Draw.ElephantOnTable[i].ElefantThinking[0], 2, j).ToString();
                                 tt.Tag = j;
                                 if (childNode == null)
                                 {
@@ -520,7 +520,7 @@ namespace Refrigtz
                                     {
                                         treeViewRefregitzDraw.Nodes.Add(tt);
                                     });
-                                    HuristicElephant = tt;
+                                    HeuristicElephant = tt;
                                 }
                                 else
                                 {
@@ -528,7 +528,7 @@ namespace Refrigtz
                                     {
                                         childNode.Nodes.Add(tt);
                                     });
-                                    HuristicElephant = tt;
+                                    HeuristicElephant = tt;
                                 }
                             }
                             TreeNode AstarGreedy = new TreeNode();
@@ -677,12 +677,12 @@ namespace Refrigtz
                                 });
                                 childNode = t;
                             }
-                            TreeNode HuristicHourse = new TreeNode();
-                            for (int j = 0; Draw.HoursesOnTable[i].HourseThinking != null && Draw.HoursesOnTable[i].HourseThinking[0] != null && Draw.HoursesOnTable[i].HourseThinking[0].HuristicListHourse != null && j < Draw.HoursesOnTable[i].HourseThinking[0].HuristicListHourse.Count; j++)
+                            TreeNode HeuristicHourse = new TreeNode();
+                            for (int j = 0; Draw.HoursesOnTable[i].HourseThinking != null && Draw.HoursesOnTable[i].HourseThinking[0] != null && Draw.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse != null && j < Draw.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
-                                tt.Name = "HuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
+                                tt.Text = "HeuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
+                                tt.Name = "HeuristicHourse" + j.ToString() + "_CountHurHo:" + ReturnbCal(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString() + "_MoveString:" + MoveS(Draw.HoursesOnTable[i].HourseThinking[0], 3, j).ToString();
                                 tt.Tag = j;
 
                                 if (childNode == null)
@@ -691,7 +691,7 @@ namespace Refrigtz
                                     {
                                         treeViewRefregitzDraw.Nodes.Add(tt);
                                     });
-                                    HuristicHourse = tt;
+                                    HeuristicHourse = tt;
                                 }
                                 else
                                 {
@@ -699,7 +699,7 @@ namespace Refrigtz
                                     {
                                         childNode.Nodes.Add(tt);
                                     });
-                                    HuristicHourse = tt;
+                                    HeuristicHourse = tt;
                                 }
                             }
                             TreeNode AstarGreedy = new TreeNode();
@@ -848,12 +848,12 @@ namespace Refrigtz
                                 });
                                 childNode = t;
                             }
-                            TreeNode HuristicCastle = new TreeNode();
-                            for (int j = 0; Draw.CastlesOnTable[i].CastleThinking != null && Draw.CastlesOnTable[i].CastleThinking[0] != null && Draw.CastlesOnTable[i].CastleThinking[0].HuristicListCastle != null && j < Draw.CastlesOnTable[i].CastleThinking[0].HuristicListCastle.Count; j++)
+                            TreeNode HeuristicCastle = new TreeNode();
+                            for (int j = 0; Draw.CastlesOnTable[i].CastleThinking != null && Draw.CastlesOnTable[i].CastleThinking[0] != null && Draw.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle != null && j < Draw.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
-                                tt.Name = "HuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
+                                tt.Text = "HeuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
+                                tt.Name = "HeuristicCastle" + j.ToString() + "_CountHurCa:" + ReturnbCal(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString() + "_MoveString:" + MoveS(Draw.CastlesOnTable[i].CastleThinking[0], 4, j).ToString();
                                 tt.Tag = j;
 
                                 if (childNode == null)
@@ -862,7 +862,7 @@ namespace Refrigtz
                                     {
                                         treeViewRefregitzDraw.Nodes.Add(tt);
                                     });
-                                    HuristicCastle = tt;
+                                    HeuristicCastle = tt;
                                 }
                                 else
                                 {
@@ -870,7 +870,7 @@ namespace Refrigtz
                                     {
                                         childNode.Nodes.Add(tt);
                                     });
-                                    HuristicCastle = tt;
+                                    HeuristicCastle = tt;
                                 }
                             }
                             TreeNode AstarGreedy = new TreeNode();
@@ -921,84 +921,84 @@ namespace Refrigtz
                 if (Kind == 1)
                 {
                     return
-                                    t.HuristicListSolder[j][0] +
-                                        t.HuristicListSolder[j][1] +
-                                        t.HuristicListSolder[j][2] +
-                                        t.HuristicListSolder[j][3] +
-                                        t.HuristicListSolder[j][4] +
-                                        t.HuristicListSolder[j][5] +
-                                        t.HuristicListSolder[j][6] +
-                                    t.HuristicListSolder[j][7] +
-                                    t.HuristicListSolder[j][8] +
-                                    t.HuristicListSolder[j][9];
+                                    t.HeuristicListSolder[j][0] +
+                                        t.HeuristicListSolder[j][1] +
+                                        t.HeuristicListSolder[j][2] +
+                                        t.HeuristicListSolder[j][3] +
+                                        t.HeuristicListSolder[j][4] +
+                                        t.HeuristicListSolder[j][5] +
+                                        t.HeuristicListSolder[j][6] +
+                                    t.HeuristicListSolder[j][7] +
+                                    t.HeuristicListSolder[j][8] +
+                                    t.HeuristicListSolder[j][9];
                 }
 
                 else
                 if (Kind == 2)
                 {
-                    return t.HuristicListElefant[j][0] +
-                    t.HuristicListElefant[j][1] +
-                    t.HuristicListElefant[j][2] +
-                    t.HuristicListElefant[j][3] +
-                    t.HuristicListElefant[j][4] +
-                    t.HuristicListElefant[j][5] +
-                    t.HuristicListElefant[j][6] +
-                    t.HuristicListElefant[j][7] +
-                    t.HuristicListElefant[j][8] +
-                    t.HuristicListElefant[j][9];
+                    return t.HeuristicListElefant[j][0] +
+                    t.HeuristicListElefant[j][1] +
+                    t.HeuristicListElefant[j][2] +
+                    t.HeuristicListElefant[j][3] +
+                    t.HeuristicListElefant[j][4] +
+                    t.HeuristicListElefant[j][5] +
+                    t.HeuristicListElefant[j][6] +
+                    t.HeuristicListElefant[j][7] +
+                    t.HeuristicListElefant[j][8] +
+                    t.HeuristicListElefant[j][9];
                 }
                 else if (Kind == 3)
                 {
-                    return t.HuristicListHourse[j][0] +
-                                   t.HuristicListHourse[j][1] +
-                                   t.HuristicListHourse[j][2] +
-                                   t.HuristicListHourse[j][3] +
-                                   t.HuristicListHourse[j][4] +
-                                   t.HuristicListHourse[j][5] +
-                                   t.HuristicListHourse[j][6] +
-                                   t.HuristicListHourse[j][7] +
-                                   t.HuristicListHourse[j][8] +
-                                   t.HuristicListHourse[j][9];
+                    return t.HeuristicListHourse[j][0] +
+                                   t.HeuristicListHourse[j][1] +
+                                   t.HeuristicListHourse[j][2] +
+                                   t.HeuristicListHourse[j][3] +
+                                   t.HeuristicListHourse[j][4] +
+                                   t.HeuristicListHourse[j][5] +
+                                   t.HeuristicListHourse[j][6] +
+                                   t.HeuristicListHourse[j][7] +
+                                   t.HeuristicListHourse[j][8] +
+                                   t.HeuristicListHourse[j][9];
                 }
                 else if (Kind == 4)
                 {
-                    return t.HuristicListCastle[j][0] +
-          t.HuristicListCastle[j][1] +
-          t.HuristicListCastle[j][2] +
-          t.HuristicListCastle[j][3] +
-          t.HuristicListCastle[j][4] +
-          t.HuristicListCastle[j][5] +
-          t.HuristicListCastle[j][6] +
-          t.HuristicListCastle[j][7] +
-          t.HuristicListCastle[j][8] +
-          t.HuristicListCastle[j][9];
+                    return t.HeuristicListCastle[j][0] +
+          t.HeuristicListCastle[j][1] +
+          t.HeuristicListCastle[j][2] +
+          t.HeuristicListCastle[j][3] +
+          t.HeuristicListCastle[j][4] +
+          t.HeuristicListCastle[j][5] +
+          t.HeuristicListCastle[j][6] +
+          t.HeuristicListCastle[j][7] +
+          t.HeuristicListCastle[j][8] +
+          t.HeuristicListCastle[j][9];
                 }
                 else if (Kind == 5)
                 {
-                    return t.HuristicListMinister[j][0] +
-       t.HuristicListMinister[j][1] +
-       t.HuristicListMinister[j][2] +
-       t.HuristicListMinister[j][3] +
-       t.HuristicListMinister[j][4] +
-       t.HuristicListMinister[j][5] +
-       t.HuristicListMinister[j][6] +
-       t.HuristicListMinister[j][7] +
-       t.HuristicListMinister[j][8] +
-       t.HuristicListMinister[j][9];
+                    return t.HeuristicListMinister[j][0] +
+       t.HeuristicListMinister[j][1] +
+       t.HeuristicListMinister[j][2] +
+       t.HeuristicListMinister[j][3] +
+       t.HeuristicListMinister[j][4] +
+       t.HeuristicListMinister[j][5] +
+       t.HeuristicListMinister[j][6] +
+       t.HeuristicListMinister[j][7] +
+       t.HeuristicListMinister[j][8] +
+       t.HeuristicListMinister[j][9];
                 }
                 else
                     if (Kind == 6)
                 {
-                    return t.HuristicListKing[j][0] +
-        t.HuristicListKing[j][1] +
-        t.HuristicListKing[j][2] +
-        t.HuristicListKing[j][3] +
-        t.HuristicListKing[j][4] +
-        t.HuristicListKing[j][5] +
-        t.HuristicListKing[j][6] +
-        t.HuristicListKing[j][7] +
-        t.HuristicListKing[j][8] +
-        t.HuristicListKing[j][9];
+                    return t.HeuristicListKing[j][0] +
+        t.HeuristicListKing[j][1] +
+        t.HeuristicListKing[j][2] +
+        t.HeuristicListKing[j][3] +
+        t.HeuristicListKing[j][4] +
+        t.HeuristicListKing[j][5] +
+        t.HeuristicListKing[j][6] +
+        t.HeuristicListKing[j][7] +
+        t.HeuristicListKing[j][8] +
+        t.HeuristicListKing[j][9];
                 }
                 return int.MinValue;
             }
@@ -1110,12 +1110,12 @@ namespace Refrigtz
                                 });
                                 childNode = t;
                             }
-                            TreeNode HuristicMinister = new TreeNode();
-                            for (int j = 0; Draw.MinisterOnTable[i].MinisterThinking != null && Draw.MinisterOnTable[i].MinisterThinking[0] != null && Draw.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister != null && j < Draw.MinisterOnTable[i].MinisterThinking[0].HuristicListMinister.Count; j++)
+                            TreeNode HeuristicMinister = new TreeNode();
+                            for (int j = 0; Draw.MinisterOnTable[i].MinisterThinking != null && Draw.MinisterOnTable[i].MinisterThinking[0] != null && Draw.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister != null && j < Draw.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
-                                tt.Name = "HuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
+                                tt.Text = "HeuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
+                                tt.Name = "HeuristicMinister" + j.ToString() + "_CountHurMi:" + ReturnbCal(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString() + "_MoveString:" + MoveS(Draw.MinisterOnTable[i].MinisterThinking[0], 5, j).ToString();
                                 tt.Tag = j;
 
                                 if (childNode == null)
@@ -1124,7 +1124,7 @@ namespace Refrigtz
                                     {
                                         treeViewRefregitzDraw.Nodes.Add(tt);
                                     });
-                                    HuristicMinister = tt;
+                                    HeuristicMinister = tt;
                                 }
                                 else
                                 {
@@ -1132,7 +1132,7 @@ namespace Refrigtz
                                     {
                                         childNode.Nodes.Add(tt);
                                     });
-                                    HuristicMinister = tt;
+                                    HeuristicMinister = tt;
                                 }
                             }
                             TreeNode AstarGreedy = new TreeNode();
@@ -1282,12 +1282,12 @@ namespace Refrigtz
 
                                 childNode = t;
                             }
-                            TreeNode HuristicKing = new TreeNode();
-                            for (int j = 0; Draw.KingOnTable[i].KingThinking != null && Draw.KingOnTable[i].KingThinking[0] != null && Draw.KingOnTable[i].KingThinking[0].HuristicListKing != null && j < Draw.KingOnTable[i].KingThinking[0].HuristicListKing.Count; j++)
+                            TreeNode HeuristicKing = new TreeNode();
+                            for (int j = 0; Draw.KingOnTable[i].KingThinking != null && Draw.KingOnTable[i].KingThinking[0] != null && Draw.KingOnTable[i].KingThinking[0].HeuristicListKing != null && j < Draw.KingOnTable[i].KingThinking[0].HeuristicListKing.Count; j++)
                             {
                                 TreeNode tt = new TreeNode();
-                                tt.Text = "HuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
-                                tt.Name = "HuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
+                                tt.Text = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
+                                tt.Name = "HeuristicKing" + j.ToString() + "_CountHurKi:" + ReturnbCal(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString() + "_MoveString:" + MoveS(Draw.KingOnTable[i].KingThinking[0], 6, j).ToString();
                                 tt.Tag = j;
 
 
@@ -1297,7 +1297,7 @@ namespace Refrigtz
                                     {
                                         treeViewRefregitzDraw.Nodes.Add(tt);
                                     });
-                                    HuristicKing = tt;
+                                    HeuristicKing = tt;
                                 }
                                 else
                                 {
@@ -1305,7 +1305,7 @@ namespace Refrigtz
                                     {
                                         childNode.Nodes.Add(tt);
                                     });
-                                    HuristicKing = tt;
+                                    HeuristicKing = tt;
                                 }
                             }
                             TreeNode AstarGreedy = new TreeNode();

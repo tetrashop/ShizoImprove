@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /*****************************************************************************
- * "1" Boundry Huristic Founding.
- * "2" Search in Thinking Tree to found Max or Min Huristic.
+ * "1" Boundry Heuristic Founding.
+ * "2" Search in Thinking Tree to found Max or Min Heuristic.
  **/
 namespace RefrigtzW
 {

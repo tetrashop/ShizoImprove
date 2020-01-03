@@ -145,7 +145,7 @@ namespace Refrigtz
             this.PictureBox30 = new System.Windows.Forms.PictureBox();
             this.PictureBox31 = new System.Windows.Forms.PictureBox();
             this.PictureBox32 = new System.Windows.Forms.PictureBox();
-            this.CheckBoxAStarGreedyHuristic = new System.Windows.Forms.CheckBox();
+            this.CheckBoxAStarGreedyHeuristic = new System.Windows.Forms.CheckBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonViewTree = new System.Windows.Forms.Button();
             this.checkBoxDeeperthandeeper = new System.Windows.Forms.CheckBox();
@@ -574,7 +574,7 @@ namespace Refrigtz
             this.CheckBoxPredictHuristci.Name = "CheckBoxPredictHuristci";
             this.CheckBoxPredictHuristci.Size = new System.Drawing.Size(97, 17);
             this.CheckBoxPredictHuristci.TabIndex = 12;
-            this.CheckBoxPredictHuristci.Text = "Predict Huristic";
+            this.CheckBoxPredictHuristci.Text = "Predict Heuristic";
             this.CheckBoxPredictHuristci.UseVisualStyleBackColor = true;
             this.CheckBoxPredictHuristci.Visible = false;
             this.CheckBoxPredictHuristci.CheckedChanged += new System.EventHandler(this.CheckBoxPredictHuristci_CheckedChanged);
@@ -1264,17 +1264,17 @@ namespace Refrigtz
             this.PictureBox32.TabIndex = 120;
             this.PictureBox32.TabStop = false;
             // 
-            // CheckBoxAStarGreedyHuristic
+            // CheckBoxAStarGreedyHeuristic
             // 
-            this.CheckBoxAStarGreedyHuristic.AutoSize = true;
-            this.CheckBoxAStarGreedyHuristic.Location = new System.Drawing.Point(877, 190);
-            this.CheckBoxAStarGreedyHuristic.Name = "CheckBoxAStarGreedyHuristic";
-            this.CheckBoxAStarGreedyHuristic.Size = new System.Drawing.Size(124, 17);
-            this.CheckBoxAStarGreedyHuristic.TabIndex = 121;
-            this.CheckBoxAStarGreedyHuristic.Text = "AStarGreedy Huristic";
-            this.CheckBoxAStarGreedyHuristic.UseVisualStyleBackColor = true;
-            this.CheckBoxAStarGreedyHuristic.CheckedChanged += new System.EventHandler(this.CheckBoxAStarGreedyHuristic_CheckedChanged);
-            this.CheckBoxAStarGreedyHuristic.CheckStateChanged += new System.EventHandler(this.CheckBoxAStarGreedyHuristic_CheckStateChanged);
+            this.CheckBoxAStarGreedyHeuristic.AutoSize = true;
+            this.CheckBoxAStarGreedyHeuristic.Location = new System.Drawing.Point(877, 190);
+            this.CheckBoxAStarGreedyHeuristic.Name = "CheckBoxAStarGreedyHeuristic";
+            this.CheckBoxAStarGreedyHeuristic.Size = new System.Drawing.Size(124, 17);
+            this.CheckBoxAStarGreedyHeuristic.TabIndex = 121;
+            this.CheckBoxAStarGreedyHeuristic.Text = "AStarGreedy Heuristic";
+            this.CheckBoxAStarGreedyHeuristic.UseVisualStyleBackColor = true;
+            this.CheckBoxAStarGreedyHeuristic.CheckedChanged += new System.EventHandler(this.CheckBoxAStarGreedyHeuristic_CheckedChanged);
+            this.CheckBoxAStarGreedyHeuristic.CheckStateChanged += new System.EventHandler(this.CheckBoxAStarGreedyHeuristic_CheckStateChanged);
             // 
             // buttonClear
             // 
@@ -1459,7 +1459,7 @@ namespace Refrigtz
             this.Controls.Add(this.checkBoxDeeperthandeeper);
             this.Controls.Add(this.buttonViewTree);
             this.Controls.Add(this.buttonClear);
-            this.Controls.Add(this.CheckBoxAStarGreedyHuristic);
+            this.Controls.Add(this.CheckBoxAStarGreedyHeuristic);
             this.Controls.Add(this.PictureBox32);
             this.Controls.Add(this.PictureBox31);
             this.Controls.Add(this.PictureBox30);
@@ -1756,7 +1756,7 @@ namespace Refrigtz
         private System.Windows.Forms.PictureBox PictureBox30;
         private System.Windows.Forms.PictureBox PictureBox31;
         private System.Windows.Forms.PictureBox PictureBox32;
-        private System.Windows.Forms.CheckBox CheckBoxAStarGreedyHuristic;
+        private System.Windows.Forms.CheckBox CheckBoxAStarGreedyHeuristic;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonViewTree;
         private System.Windows.Forms.CheckBox checkBoxDeeperthandeeper;
