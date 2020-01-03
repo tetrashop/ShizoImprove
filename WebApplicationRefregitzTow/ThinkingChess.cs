@@ -4866,18 +4866,23 @@ namespace RefrigtzW
                 return Dis;
             }
         }
-        bool IsPawnAtAColumn(int RowS,int ColS,int RowD, int ColD, int[,] Table,int Order)
+        bool IsPawnAtAColumn(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
         {
             bool Is = false;
             if (Order == 1)
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    if (k == RowS || k == RowD)
+                    if (k == ColS || k == ColD)
                         continue;
                     if (Table[RowS, ColS] == 1)
                     {
-                        if (Table[k, ColD] == 1)
+                        if (Table[RowS, k] == 1)
+                            Is = true;
+                    }
+                    if (Table[RowD, ColD] == 1)
+                    {
+                        if (Table[RowD, k] == 1)
                             Is = true;
                     }
 
@@ -4888,17 +4893,22 @@ namespace RefrigtzW
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    if (k == RowS || k == RowD)
+                    if (k == ColS || k == ColD)
                         continue;
                     if (Table[RowS, ColS] == -1)
                     {
-                        if (Table[k, ColD] == -1)
+                        if (Table[RowS, k] == -1)
+                            Is = true;
+                    }
+                    if (Table[RowD, ColD] == -1)
+                    {
+                        if (Table[RowD, k] == -1)
                             Is = true;
                     }
                 }
             }
             return Is;
-        
+
         }
         public int HeuristicObjectAtCenter(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
         {

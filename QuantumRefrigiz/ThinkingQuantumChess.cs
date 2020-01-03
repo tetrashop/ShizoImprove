@@ -4985,6 +4985,7 @@ namespace QuantumRefrigiz
                 return Dis;
             }
         }
+
         bool IsPawnAtAColumn(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
         {
             bool Is = false;
@@ -4992,9 +4993,14 @@ namespace QuantumRefrigiz
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    if (k == RowS || k == RowD)
+                    if (k == ColS || k == ColD)
                         continue;
                     if (Table[RowS, ColS] == 1)
+                    {
+                        if (Table[k, ColS] == 1)
+                            Is = true;
+                    }
+                    if (Table[RowD, ColD] == 1)
                     {
                         if (Table[k, ColD] == 1)
                             Is = true;
@@ -5007,9 +5013,14 @@ namespace QuantumRefrigiz
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    if (k == RowS || k == RowD)
+                    if (k == ColS || k == ColD)
                         continue;
                     if (Table[RowS, ColS] == -1)
+                    {
+                        if (Table[k, ColS] == -1)
+                            Is = true;
+                    }
+                    if (Table[RowD, ColD] == -1)
                     {
                         if (Table[k, ColD] == -1)
                             Is = true;

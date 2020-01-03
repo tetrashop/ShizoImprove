@@ -4988,11 +4988,16 @@ namespace RefrigtzDLL
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    if (k == RowS || k == RowD)
+                    if (k == ColS || k == ColD)
                         continue;
                     if (Table[RowS, ColS] == 1)
                     {
-                        if (Table[k, ColD] == 1)
+                        if (Table[RowS, k] == 1)
+                            Is = true;
+                    }
+                    if (Table[RowD, ColD] == 1)
+                    {
+                        if (Table[RowD, k] == 1)
                             Is = true;
                     }
 
@@ -5003,11 +5008,16 @@ namespace RefrigtzDLL
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    if (k == RowS || k == RowD)
+                    if (k == ColS || k == ColD)
                         continue;
                     if (Table[RowS, ColS] == -1)
                     {
-                        if (Table[k, ColD] == -1)
+                        if (Table[RowS, k] == -1)
+                            Is = true;
+                    }
+                    if (Table[RowD, ColD] == -1)
+                    {
+                        if (Table[RowD, k] == -1)
                             Is = true;
                     }
                 }
