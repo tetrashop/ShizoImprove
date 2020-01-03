@@ -89,9 +89,14 @@ namespace Refrigtz
     //Constructor
     public partial class FormRefrigtz : Form
     {
+        bool NotFoundBegin = false;
         int[,] TabStor = null;
         bool PersonTmCall = true;
+#pragma warning disable CS0414 // The field 'FormRefrigtz.Move' is assigned but its value is never used
+#pragma warning disable CS0108 // 'FormRefrigtz.Move' hides inherited member 'Control.Move'. Use the new keyword if hiding was intended.
         int Move = 0;
+#pragma warning restore CS0108 // 'FormRefrigtz.Move' hides inherited member 'Control.Move'. Use the new keyword if hiding was intended.
+#pragma warning restore CS0414 // The field 'FormRefrigtz.Move' is assigned but its value is never used
         bool Deeperthandeeper = false;
 
         bool FOUND = false;
@@ -216,7 +221,7 @@ namespace Refrigtz
         public static bool Person = false;
         static int CurrentKind = 0;
         public static bool StateCC = false;//Computer With Computer
-        public static bool StateCP = true;//Person With Computer
+        public static bool StateCP = false;//Person With Computer
         public static bool StateGe = false;//For Genetic Games.
         public RefrigtzDLL.AllDraw Draw;
         public static int OrderPlate = 1;
@@ -374,6 +379,241 @@ namespace Refrigtz
 
           }
       */
+        void NewGame()
+        {
+            do { System.Threading.Thread.Sleep(100); } while (!EndOfGame);
+            Object O = new Object();
+            lock (O)
+            {
+
+                try
+                {
+                    if (AllOperate != null)
+                        AllOperate.Abort();
+                    if (BackgroundWorkerSetRefD.WorkerSupportsCancellation)
+                        BackgroundWorkerSetRefD.CancelAsync();
+                    if (BackgroundWorkerSetNode.WorkerSupportsCancellation)
+                        BackgroundWorkerSetNode.CancelAsync();
+                    if (BackgroundWorkerAllOp.WorkerSupportsCancellation)
+                        BackgroundWorkerAllOp.CancelAsync();
+                    if (backgroundWorkerMoveGray.WorkerSupportsCancellation)
+                        backgroundWorkerMoveGray.CancelAsync();
+                    if (backgroundWorkerMoveBrown.WorkerSupportsCancellation)
+                        backgroundWorkerMoveBrown.CancelAsync();
+                    GrayTimer.StopTime();
+                    BrownTimer.StopTime();
+
+                    PictureBoxTimerBrown.CancelAsync();
+                    PictureBoxTimerGray.CancelAsync();
+                 
+                    ////UpdateConfigurationTableVal = true;
+
+                    UpdateConfigurationTable();
+                    bool Disposingbook = false;
+                    bool Disposingole = false;
+                    if (bookConn != null)
+                    {
+                        bookConn.Close();
+                        Disposingbook = true;
+                    }
+                    if (oleDbCmd != null)
+                    {
+                        oleDbCmd.Clone();
+                        Disposingole = true;
+                    }
+                    if (Disposingbook)
+                        //oleDbCmd.Dispose();
+                        if (Disposingole)
+                            bookConn.Dispose();
+                    if (!Quantum)
+                    {
+                        RefrigtzDLL.ChessRules A = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -1, CloneATable(Table), OrderPlate, -1, -1);
+                        RefrigtzDLL.ChessRules AA = new RefrigtzDLL.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -1, CloneATable(Table), OrderPlate, -1, -1);
+                        Color a = Color.Gray;
+                        if (OrderPlate == -1)
+                            a = Color.Brown;
+                        if (OrderPlate == 1)
+                            A.CheckMate(CloneATable(Table), OrderPlate);
+                        else
+                            A.CheckMate(CloneATable(Table), OrderPlate);
+                        AA.Pat(CloneATable(Table), OrderPlate, a);
+                        bool Exitting = false;
+                        if (OrderPlate == 1 && (A.CheckMateGray || AA.PatBrown))
+                            Exitting = true;
+                        else
+                            if (OrderPlate == -1 && (A.CheckMateBrown || AA.PatkGray))
+                            Exitting = true;
+                        if (Exitting || RemoveUncomStock)
+                        {
+                            try
+                            {
+                                File.Delete("Run.txt");
+                            }
+                            catch (Exception t) { Log(t); }
+                            {
+                                //UpdateConfigurationTableVal = true;
+                                //UpdateConfigurationTable();
+                                try
+                                {
+                                    if (AllOperate != null)
+                                        AllOperate.Abort();
+                                    if (t1 != null)
+                                        t1.Abort();
+                                    if (t2 != null)
+                                        t2.Abort();
+                                    if (t3 != null)
+                                        t3.Abort();
+                                    if (t4 != null)
+                                        t4.Abort();
+                                    //if (AllOperate != null)
+                                    //    AllOperate.Abort();
+                                    //if (tttt != null)
+                                    //    tttt.Abort();
+                                    // if (ttt != null)
+                                    //     ttt.Abort();
+                                    GrayTimer.StopTime();
+                                    BrownTimer.StopTime();
+                                    TimerText.StopTime();
+
+                                    StateCC = false;
+                                    StateCP = false;
+                                    StateGe = false;
+                                    Person = false;
+                                }
+                                catch (Exception t)
+                                {
+                                    Log(t);
+                                }
+                                if (!Directory.Exists(Root + "\\Database\\Games"))
+                                    Directory.CreateDirectory(Root + "\\Database\\Games");
+                                int i = 0;
+                                do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
+                                System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
+                                System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                                SetAllDrawKind();
+                                //Set Configuration To True for some unknown reason!.
+                                //UpdateConfigurationTableVal = true;                             
+                                SetAllDrawKindString();
+                                (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                
+                            }
+                        }
+                    }
+                    else
+                    {
+                        QuantumRefrigiz.ChessRules A = new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -1, CloneATable(Table), OrderPlate, -1, -1);
+                        QuantumRefrigiz.ChessRules AA = new QuantumRefrigiz.ChessRules(0, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged, -1, CloneATable(Table), OrderPlate, -1, -1);
+                        Color a = Color.Gray;
+                        if (OrderPlate == -1)
+                            a = Color.Brown;
+                        if (OrderPlate == 1)
+                            A.CheckMate(CloneATable(Table), OrderPlate);
+                        else
+                            A.CheckMate(CloneATable(Table), OrderPlate);
+                        AA.Pat(CloneATable(Table), OrderPlate, a);
+                        bool Exitting = false;
+                        if (OrderPlate == 1 && (A.CheckMateGray || AA.PatBrown))
+                            Exitting = true;
+                        else
+                            if (OrderPlate == -1 && (A.CheckMateBrown || AA.PatkGray))
+                            Exitting = true;
+                        if (Exitting || RemoveUncomStock)
+                        {
+                            try
+                            {
+                                File.Delete("Run.txt");
+                            }
+                            catch (Exception t) { Log(t); }
+                            {
+                                //UpdateConfigurationTableVal = true;
+                                //UpdateConfigurationTable();
+                                try
+                                {
+                                    if (AllOperate != null)
+                                        AllOperate.Abort();
+                                    if (t1 != null)
+                                        t1.Abort();
+                                    if (t2 != null)
+                                        t2.Abort();
+                                    if (t3 != null)
+                                        t3.Abort();
+                                    if (t4 != null)
+                                        t4.Abort();
+                                    //if (AllOperate != null)
+                                    //    AllOperate.Abort();
+                                    //if (tttt != null)
+                                    //    tttt.Abort();
+                                    //if (ttt != null)
+                                    //    ttt.Abort();
+                                    GrayTimer.StopTime();
+                                    BrownTimer.StopTime();
+                                    TimerText.StopTime();
+
+                                    StateCC = false;
+                                    StateCP = false;
+                                    StateGe = false;
+                                    Person = false;
+                                }
+                                catch (Exception t)
+                                {
+                                    Log(t);
+                                }
+                                if (!Directory.Exists(Root + "\\Database\\Games"))
+                                    Directory.CreateDirectory(Root + "\\Database\\Games");
+                                int i = 0;
+                                do { i++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb"));
+                                System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + i.ToString() + ".accdb");
+                                System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                                SetAllDrawKind();
+                                //Set Configuration To True for some unknown reason!.
+                                //UpdateConfigurationTableVal = true;                             
+                                SetAllDrawKindString();
+                                (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                                 
+                            }
+                        }
+                    }
+                    if (Quantum)
+                    {
+                        String SFile = "QBN.aqs";
+                        if (File.Exists(SFile))
+                            File.Delete(SFile);
+                        for (int i = 0; i < 2; i++)
+                            for (int jj = 0; jj < 8; jj++)
+                                for (int kk = 0; kk < 8; kk++)
+                                {
+                                    System.IO.File.AppendAllText(SFile, QuantumRefrigiz.AllDraw.QuntumTable[i, jj, kk].ToString() + ",");
+                                }
+                    }
+                    SetAllDrawKind();
+                    //Set Configuration To True for some unknown reason!.
+                    //UpdateConfigurationTableVal = true;                             
+                    SetAllDrawKindString();
+
+                    bool A1 = (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHuristic, OnlySelf, AStarGreedyHuristic, ArrangmentsChanged);
+                    while (!A1) { }
+                    ExitM = true;
+                    Object OO = new Object();
+                    lock (OO)
+                    {
+                        NewTable = true;
+                        this.Hide();
+                        StateCC = false;
+                        BobSection = false;
+                        AliceSection = false;
+                        StateCP = false;
+                        Person = false;
+                        FormRefrigtz New = new FormRefrigtz(false);
+                        New.ShowDialog();
+                        New.Dispose();
+                    }
+                }
+                catch (Exception t) { Log(t); }
+            }
+
+
+
+        }
         void AllOp()
         {
             while (!LoadedTable || (!MenueSelecte)) { Thread.Sleep(1000); }
@@ -4345,41 +4585,51 @@ namespace Refrigtz
                 bool Found = false;
                 String P = Path.GetFullPath(path3);
                 AllDrawReplacement = Path.Combine(P, AllDrawKindString);
-                if (File.Exists(AllDrawKindString))
+                if (!NotFoundBegin)
                 {
-
-                    if (File.Exists(AllDrawReplacement))
+                    if (File.Exists(AllDrawKindString))
                     {
-                        if ((!FOUND) && ((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
+
+                        if (File.Exists(AllDrawReplacement))
                         {
-                            File.Delete(AllDrawKindString);
-                            File.Copy(AllDrawReplacement, AllDrawKindString);
-                            Found = true;
+                            if ((!FOUND) && ((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                            {
+                                File.Delete(AllDrawKindString);
+                                File.Copy(AllDrawReplacement, AllDrawKindString);
+                                Found = true;
+                            }
+                            else if (FOUND && ((new System.IO.FileInfo(AllDrawKindString).Length) > (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                            {
+                                if (File.Exists(AllDrawReplacement))
+                                    File.Delete(AllDrawReplacement);
+                                File.Copy(AllDrawKindString, AllDrawReplacement);
+                                Found = true;
+                            }
                         }
-                        else if (FOUND && ((new System.IO.FileInfo(AllDrawKindString).Length) > (new System.IO.FileInfo(AllDrawReplacement)).Length))
+                        else
                         {
-                            if (File.Exists(AllDrawReplacement))
-                                File.Delete(AllDrawReplacement);
+                            if (!Directory.Exists(Path.GetFullPath(path3)))
+                                Directory.CreateDirectory(Path.GetFullPath(path3));
                             File.Copy(AllDrawKindString, AllDrawReplacement);
                             Found = true;
+
                         }
-                    }
-                    else
-                    {
-                        if (!Directory.Exists(Path.GetFullPath(path3)))
-                            Directory.CreateDirectory(Path.GetFullPath(path3));
-                        File.Copy(AllDrawKindString, AllDrawReplacement);
                         Found = true;
-
                     }
-                    Found = true;
+                    else if (File.Exists(AllDrawReplacement))
+                    {
+                        File.Copy(AllDrawReplacement, AllDrawKindString);
+                        Found = true;
+                    }
                 }
-                else if (File.Exists(AllDrawReplacement))
+                else
                 {
-                    File.Copy(AllDrawReplacement, AllDrawKindString);
-                    Found = true;
+                    if (File.Exists(AllDrawKindString))
+                        File.Delete(AllDrawKindString);
+                    if (File.Exists(AllDrawReplacement))
+                        File.Delete(AllDrawReplacement);
+                    NotFoundBegin = false;
                 }
-
                 return Found;
             }
         }
@@ -5025,6 +5275,10 @@ namespace Refrigtz
                 CheckBoxUsePenaltyRegradMechnisam.Update();
                 CheckBoxUsePenaltyRegradMechnisam.Invalidate();
                 LoadO = true;
+
+                Thread tNewGame = new Thread(new ThreadStart(NewGame));
+                tNewGame.Start();
+
                 SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
                 SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
 
@@ -5798,7 +6052,9 @@ namespace Refrigtz
                     }
 
                 }
+#pragma warning disable CS0168 // The variable 't' is declared but never used
                 catch (Exception t)
+#pragma warning restore CS0168 // The variable 't' is declared but never used
                 {
                 }
                 bookConn.Close();
@@ -7576,7 +7832,9 @@ namespace Refrigtz
 
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -7667,7 +7925,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -7757,7 +8017,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -7849,7 +8111,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -7940,7 +8204,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -8030,7 +8296,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -8215,7 +8483,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8373,7 +8643,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8464,7 +8736,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -8555,7 +8829,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8645,7 +8921,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8737,7 +9015,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8829,7 +9109,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
+#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
+#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -12575,8 +12857,10 @@ namespace Refrigtz
                     else
                                                 if (A[0] == 'h')
                         RowClickP = 7;
-                    ColumnClickP = 7 - ((System.Convert.ToInt32(A[1]) - 48) - 1);
-                    ;
+                       /* if(!Sugar)
+                        ColumnClickP = 7 - ((System.Convert.ToInt32(A[1]) - 48) - 1);
+                    else*/
+                        ColumnClickP = ((System.Convert.ToInt32(A[1]) - 48) - 1);
                     if (A[2] == 'a')
                         RowRealesed = 0;
                     else
@@ -12600,7 +12884,11 @@ namespace Refrigtz
                     else
                                                 if (A[2] == 'h')
                         RowRealesed = 7;
-                    ColumnRealeased = 7 - ((System.Convert.ToInt32(A[3]) - 48) - 1);
+                  /*if (!Sugar)
+                        ColumnRealeased = 7 - ((System.Convert.ToInt32(A[3]) - 48) - 1);
+                    else*/
+                        ColumnRealeased = ((System.Convert.ToInt32(A[3]) - 48) - 1);
+
                     if (A.Length == 5)
                     {
                         if (A[4] == 'p')
@@ -13307,13 +13595,13 @@ namespace Refrigtz
 
                 } while (WaitOn);
 
-                if (wr == "e8c8")
+                if (wr == "e8c8"|| wr == "e1c1")
                 {
                     FenCastling = 1;
                     RefrigtzDLL.ChessRules.BigKingCastleBrown = true;
                 }
                 else
-                    if (wr == "e8g8")
+                    if (wr == "e8g8"|| wr == "e1g1")
                 {
                     RefrigtzDLL.ChessRules.SmallKingCastleBrown = true;
                     FenCastling = 0;
@@ -13655,6 +13943,8 @@ namespace Refrigtz
                                 }
                                 else
                                 {
+                                    if (MovmentsNumber == 1)
+                                        NotFoundBegin = true;
                                     Ord = Dummy;
 
                                     DrawManagement();
@@ -13673,6 +13963,8 @@ namespace Refrigtz
                             }
                             else
                             {
+                                if (MovmentsNumber == 1)
+                                    NotFoundBegin = true;
                                 OrderPlate = Dummy;
 
                                 DrawManagement();
@@ -13692,6 +13984,8 @@ namespace Refrigtz
                         }
                         else
                         {
+                            if (MovmentsNumber == 1)
+                                NotFoundBegin = true;
                             OrderPlate = Dummy;
 
                             DrawManagement();
@@ -13830,6 +14124,8 @@ namespace Refrigtz
                             else
                             {
 
+                                if (MovmentsNumber == 1)
+                                    NotFoundBegin = true;
                                 DrawQ = THIS;
                                 DrawQ.AStarGreedyString = THISB;
 
@@ -13856,6 +14152,10 @@ namespace Refrigtz
 
                         else
                         {
+
+                            if (MovmentsNumber == 1)
+                                NotFoundBegin = true;
+
                             OrderPlate = Dummy;
 
                             DrawManagement();
@@ -13873,12 +14173,14 @@ namespace Refrigtz
                             QuantumRefrigiz.AllDraw.DepthIterative = 0;
                             SetBoxText("\r\nDraw Not Found");
                             RefreshBoxText();
-
-
+                         
                         }
                     }
                     else
                     {
+                        if (MovmentsNumber == 1)
+                            NotFoundBegin = true;
+
                         OrderPlate = Dummy;
 
                         DrawManagement();
@@ -14686,7 +14988,7 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                InsertTableAtDatabase(Table);
+                InsertTableAtDatabase(CloneATable(Table));
 
                 StateCC = StoreStateCC;
                 StateCP = StoreStateCP;
@@ -18351,6 +18653,10 @@ namespace Refrigtz
                     BrownTimer = new Refrigtz.Timer(true);
                     GrayTimer.TimerInitiate("GrayTimer");
                     BrownTimer.TimerInitiate("BrownTimer");
+                    if (Sec.RadioButtonGrayOrder.Checked)
+                        OrderPlate = 1;
+                    else
+                        OrderPlate = -1;
                 }//AStarGreedyHuristic = false;
                 if (OrderPlate == 1)
                 {
@@ -18892,7 +19198,10 @@ namespace Refrigtz
                     BrownTimer = new Refrigtz.Timer(true);
                     GrayTimer.TimerInitiate("GrayTimer");
                     BrownTimer.TimerInitiate("BrownTimer");
-
+                    if (Sec.RadioButtonGrayOrder.Checked)
+                        OrderPlate = 1;
+                    else
+                        OrderPlate = -1;
                 }
                 PredictHuristic = false;
                 //TimerIniataite = true;
@@ -18961,6 +19270,10 @@ namespace Refrigtz
                     BrownTimer = new Refrigtz.Timer(true);
                     GrayTimer.TimerInitiate("GrayTimer");
                     BrownTimer.TimerInitiate("BrownTimer");
+                    if (Sec.RadioButtonGrayOrder.Checked)
+                        OrderPlate = 1;
+                    else
+                        OrderPlate = -1;
                 }//AStarGreedyHuristic = false;
                 if (OrderPlate == 1)
                 {
@@ -19496,6 +19809,10 @@ namespace Refrigtz
                     GrayTimer.TimerInitiate("GrayTimer");
                     BrownTimer.TimerInitiate("BrownTimer");
 
+                    if (Sec.RadioButtonGrayOrder.Checked)
+                        OrderPlate = 1;
+                    else
+                        OrderPlate = -1;
                 }
                 PredictHuristic = false;
                 //TimerIniataite = true;
