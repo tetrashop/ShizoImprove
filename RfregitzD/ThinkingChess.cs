@@ -4170,6 +4170,8 @@ namespace RefrigtzDLL
         }
         bool CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(int RowK, int ColK, int[,] Table)
         {
+            if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
+                return false;
             bool Is = false;
             int IsN = 0;
             int Sign = (System.Math.Abs(Table[RowK, ColK]) / Table[RowK, ColK]) * -1;
@@ -4233,6 +4235,8 @@ namespace RefrigtzDLL
         }
         bool ThereIsOneSideToRanAwayByEnemyKing(int RowK, int ColK, int[,] Table)
         {
+            if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
+                return false;
             bool Is = false;
             if ((ColK == 7) && (ColK - 1 >=0) && (RowK - 1 >=0) && (RowK + 1 < 8))
             {
@@ -4290,6 +4294,8 @@ namespace RefrigtzDLL
         }
         bool IsObjectrSelfAttackEnemyKing(int Rowk, int ColK, int[,] Table, int Order)
         {
+            if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
+                return false;
             bool Is = false;
             const int MinisteGrayObj = 5, CastleGrayObj = 4, ElepahantGrayObj = 2, PawnGrayObj = 1;
             const int MinisteBrownObj = 5, CastleBrownObj = 4, ElephantBrownObj = 2, PawnBrownObj = 1;
@@ -4370,7 +4376,7 @@ namespace RefrigtzDLL
         }
         public int SimpleMate_One(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
         {
-            int HA = 0;
+             int HA = 0;
             if (Order == 1)
             {
                 int RowK = -1, ColK = -1;
