@@ -4172,349 +4172,387 @@ namespace QuantumRefrigiz
 
         bool CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(int RowK, int ColK, int[,] Table)
         {
-            if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
-                return false;
-            bool Is = false;
-            int IsN = 0;
-            int Sign = (System.Math.Abs(Table[RowK, ColK]) / Table[RowK, ColK]) * -1;
-            int Obj1 = Sign * 4;
-            int Obj2 = Sign * 5;
-
-            for (int k = 0; k < 8; k++)
+            Object O = new Object();
+            lock (O)
             {
+                if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
+                    return false;
+                bool Is = false;
+                int IsN = 0;
+                int Sign = (System.Math.Abs(Table[RowK, ColK]) / Table[RowK, ColK]) * -1;
+                int Obj1 = Sign * 4;
+                int Obj2 = Sign * 5;
 
-                if (RowK == k)
-                    continue;
-                if (Table[k, ColK] == Obj1 || Table[k, ColK] == Obj2)
+                for (int k = 0; k < 8; k++)
                 {
-                    IsN++;
-                }
-                for (int p = 0; p < 8; p++)
-                {
-                    if (p == ColK)
+
+                    if (RowK == k)
                         continue;
-                    if (Table[k, p] == Obj1 || Table[k, p] == Obj2)
+                    if (Table[k, ColK] == Obj1 || Table[k, ColK] == Obj2)
                     {
                         IsN++;
                     }
+                    for (int p = 0; p < 8; p++)
+                    {
+                        if (p == ColK)
+                            continue;
+                        if (Table[k, p] == Obj1 || Table[k, p] == Obj2)
+                        {
+                            IsN++;
+                        }
+                    }
                 }
-            }
 
-            if (IsN >= 2)
-                return true;
+                if (IsN >= 2)
+                    return true;
 
-            IsN = 0;
+                IsN = 0;
 
-            for (int k = 0; k < 8; k++)
-            {
-                if (ColK == k)
-                    continue;
-                if (Table[RowK, k] == Obj1 || Table[RowK, k] == Obj2)
+                for (int k = 0; k < 8; k++)
                 {
-                    IsN++;
-                }
-                for (int p = 0; p < 8; p++)
-                {
-                    if (p == RowK)
+                    if (ColK == k)
                         continue;
-                    if (Table[p, k] == Obj1 || Table[p, k] == Obj2)
+                    if (Table[RowK, k] == Obj1 || Table[RowK, k] == Obj2)
                     {
                         IsN++;
                     }
+                    for (int p = 0; p < 8; p++)
+                    {
+                        if (p == RowK)
+                            continue;
+                        if (Table[p, k] == Obj1 || Table[p, k] == Obj2)
+                        {
+                            IsN++;
+                        }
+                    }
                 }
-            }
 
-            if (IsN >= 2)
-                Is = true;
-            return Is;
+                if (IsN >= 2)
+                    Is = true;
+                return Is;
+            }
         }
         bool SameSign(int Obj1, int Obj2)
         {
-            bool Is = false;
-            if ((System.Math.Abs(Obj1) / Obj1) == (System.Math.Abs(Obj2) / Obj2))
-                Is = true;
-            return Is;
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+                if ((System.Math.Abs(Obj1) / Obj1) == (System.Math.Abs(Obj2) / Obj2))
+                    Is = true;
+                return Is;
+            }
         }
         bool ThereIsOneSideToRanAwayByEnemyKing(int RowK, int ColK, int[,] Table)
         {
-            if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
-                return false;
-            bool Is = false;
-            if ((ColK == 7) && (ColK - 1 >=0) && (RowK - 1 >=0) && (RowK + 1 < 8))
+            Object O = new Object();
+            lock (O)
             {
-                if (SameSign(Table[RowK, ColK], Table[RowK - 1, ColK - 1]) && SameSign(Table[RowK, ColK], Table[RowK + 1, ColK - 1]) && SameSign(Table[RowK, ColK], Table[RowK, ColK - 1]))
-                    Is = true;
+                if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
+                    return false;
+                bool Is = false;
+                if ((ColK == 7) && (ColK - 1 >= 0) && (RowK - 1 >= 0) && (RowK + 1 < 8))
+                {
+                    if (SameSign(Table[RowK, ColK], Table[RowK - 1, ColK - 1]) && SameSign(Table[RowK, ColK], Table[RowK + 1, ColK - 1]) && SameSign(Table[RowK, ColK], Table[RowK, ColK - 1]))
+                        Is = true;
+                }
+                if ((ColK == 0) && (ColK + 1 < 8) && (RowK - 1 >= 0) && (RowK + 1 < 8))
+                {
+                    if (SameSign(Table[RowK, ColK], Table[RowK - 1, ColK + 1]) && SameSign(Table[RowK, ColK], Table[RowK + 1, ColK + 1]) && SameSign(Table[RowK, ColK], Table[RowK, ColK + 1]))
+                        Is = true;
+                }
+                return Is;
             }
-            if ((ColK == 0) && (ColK + 1 <8) && (RowK - 1 >=0) && (RowK + 1 < 8))
-            {
-                if (SameSign(Table[RowK, ColK], Table[RowK - 1, ColK + 1]) && SameSign(Table[RowK, ColK], Table[RowK + 1, ColK + 1]) && SameSign(Table[RowK, ColK], Table[RowK, ColK + 1]))
-                    Is = true;
-            }
-            return Is;
         }
         bool CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(int RowK, int ColK, int[,] Table)
         {
-            if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
-                return false;
-            bool Is = false;
-            if (ThereIsOneSideToRanAwayByEnemyKing(RowK, ColK, CloneATable(Table)))
+            Object O = new Object();
+            lock (O)
             {
-                for (int k = 0; k < 8; k++)
+                bool Is = false;
+                if (ThereIsOneSideToRanAwayByEnemyKing(RowK, ColK, CloneATable(Table)))
                 {
-                    if (k == ColK)
-                        continue;
-
-
-
-                    if (!SameSign(Table[RowK, ColK], Table[RowK, k]))
+                    for (int k = 0; k < 8; k++)
                     {
-                        int Obj = System.Math.Abs(Table[RowK, k]) / Table[RowK, k];
-                        int Obj1 = Obj * 4;
-                        int Obj2 = Obj * 5;
-                        if (Table[RowK, k] == Obj1)
-                            return true;
-                        if (Table[RowK, k] == Obj2)
-                            return true;
-                    }
+                        if (k == ColK)
+                            continue;
 
-                }
-                for (int k = 0; k < 8; k++)
-                {
-                    if (k == RowK)
-                        continue;
-                    if (!SameSign(Table[RowK, ColK], Table[k, ColK]))
+                        for (int p = 0; p < 8; p++)
+                        {
+                            if (!SameSign(Table[RowK, ColK], Table[p, k]))
+                            {
+                                int Obj = System.Math.Abs(Table[p, k]) / Table[p, k];
+                                int Obj1 = Obj * 4;
+                                int Obj2 = Obj * 5;
+                                if (Table[p, k] == Obj1)
+                                    return true;
+                                if (Table[p, k] == Obj2)
+                                    return true;
+                            }
+                        }
+                    }
+                    for (int k = 0; k < 8; k++)
                     {
-                        int Obj = System.Math.Abs(Table[k, ColK]) / Table[k, ColK];
-                        int Obj1 = Obj * 4;
-                        int Obj2 = Obj * 5;
-                        if (Table[k, ColK] == Obj1)
-                            return true;
-                        if (Table[k, ColK] == Obj2)
-                            return true;
+                        if (k == RowK)
+                            continue;
+                        for (int p = 0; p < 8; p++)
+                        {
+                            if (!SameSign(Table[RowK, ColK], Table[k, p]))
+                            {
+                                int Obj = System.Math.Abs(Table[k, p]) / Table[k, p];
+                                int Obj1 = Obj * 4;
+                                int Obj2 = Obj * 5;
+                                if (Table[k, p] == Obj1)
+                                    return true;
+                                if (Table[k, p] == Obj2)
+                                    return true;
+                            }
+                        }
                     }
                 }
+                return Is;
             }
-            return Is;
         }
         bool IsObjectrSelfAttackEnemyKing(int Rowk, int ColK, int[,] Table, int Order)
         {
-            if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
-                return false;
-            bool Is = false;
-            const int MinisteGrayObj = 5, CastleGrayObj = 4, ElepahantGrayObj = 2, PawnGrayObj = 1;
-            const int MinisteBrownObj = 5, CastleBrownObj = 4, ElephantBrownObj = 2, PawnBrownObj = 1;
-            if (Order == 1)
+            Object O = new Object();
+            lock (O)
             {
-                if (ColK - 1 == 0)
+                if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table)))
+                    return false;
+                bool Is = false;
+                const int MinisteGrayObj = 5, CastleGrayObj = 4, ElepahantGrayObj = 2, PawnGrayObj = 1;
+                const int MinisteBrownObj = 5, CastleBrownObj = 4, ElephantBrownObj = 2, PawnBrownObj = 1;
+                if (Order == 1)
                 {
-                    if (Table[Rowk, ColK - 1] == ElepahantGrayObj)
+                    if (ColK == 0)
                     {
-                        if (Table[Rowk, ColK + 2] == CastleGrayObj)
+                        if (Table[Rowk, ColK - 1] == ElepahantGrayObj)
                         {
-                            if ((Table[Rowk - 1, ColK + 1] == PawnGrayObj) || (Table[Rowk + 1, ColK + 1] == PawnGrayObj))
+                            if (Table[Rowk, ColK - 2] == CastleGrayObj)
                             {
-                                Is = true;
+                                if ((Table[Rowk - 1, ColK - 1] == PawnGrayObj) || (Table[Rowk + 1, ColK - 1] == PawnGrayObj))
+                                {
+                                    Is = true;
+                                }
+                            }
+                            if (Table[Rowk + 1, ColK + 2] == CastleGrayObj)
+                            {
+                                if ((Table[Rowk - 1, ColK + 1] == MinisteGrayObj) || (Table[Rowk + 1, ColK + 1] == MinisteGrayObj))
+                                {
+                                    Is = true;
+                                }
                             }
                         }
-                        if (Table[Rowk + 1, ColK + 2] == CastleGrayObj)
-                        {
-                            if ((Table[Rowk - 1, ColK + 1] == MinisteGrayObj) || (Table[Rowk + 1, ColK + 1] == MinisteGrayObj))
-                            {
-                                Is = true;
-                            }
-                        }
-                    }
 
-                    if (Table[Rowk, ColK - 1] == PawnGrayObj)
-                    {
-                        if (Table[Rowk - 1, ColK - 2] == MinisteGrayObj)
+                        if (Table[Rowk, ColK - 1] == PawnGrayObj)
                         {
-                            if (Table[Rowk + 1, ColK - 2] == PawnGrayObj)
-                                Is = true;
-                        }
-                        if (Table[Rowk + 1, ColK - 2] == MinisteGrayObj)
-                        {
-                            if (Table[Rowk - 1, ColK - 2] == PawnGrayObj)
-                                Is = true;
+                            if (Table[Rowk - 1, ColK - 2] == MinisteGrayObj)
+                            {
+                                if (Table[Rowk + 1, ColK - 2] == PawnGrayObj)
+                                    Is = true;
+                            }
+                            if (Table[Rowk + 1, ColK - 2] == MinisteGrayObj)
+                            {
+                                if (Table[Rowk - 1, ColK - 2] == PawnGrayObj)
+                                    Is = true;
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                if (ColK + 1 == 7)
+                else
                 {
-                    if (Table[Rowk, ColK + 1] == ElephantBrownObj)
+                    if (ColK == 7)
                     {
-                        if (Table[Rowk, ColK - 2] == CastleBrownObj)
+                        if (Table[Rowk, ColK + 1] == ElepahantGrayObj)
                         {
-                            if ((Table[Rowk - 1, ColK - 1] == PawnBrownObj) || (Table[Rowk + 1, ColK - 1] == PawnBrownObj))
+                            if (Table[Rowk, ColK + 2] == CastleBrownObj)
                             {
-                                Is = true;
+                                if ((Table[Rowk - 1, ColK + 1] == PawnBrownObj) || (Table[Rowk + 1, ColK + 1] == PawnBrownObj))
+                                {
+                                    Is = true;
+                                }
+                            }
+                            if (Table[Rowk + 1, ColK + 2] == CastleBrownObj)
+                            {
+                                if ((Table[Rowk - 1, ColK + 1] == MinisteBrownObj) || (Table[Rowk + 1, ColK + 1] == MinisteBrownObj))
+                                {
+                                    Is = true;
+                                }
                             }
                         }
-                        if (Table[Rowk + 1, ColK - 2] == CastleBrownObj)
+
+                        if (Table[Rowk, ColK - 1] == PawnBrownObj)
                         {
-                            if ((Table[Rowk - 1, ColK - 1] == MinisteBrownObj) || (Table[Rowk + 1, ColK - 1] == MinisteBrownObj))
+                            if (Table[Rowk - 1, ColK - 2] == MinisteBrownObj)
                             {
-                                Is = true;
+                                if (Table[Rowk + 1, ColK - 2] == PawnBrownObj)
+                                    Is = true;
                             }
-                        }
-                    }
-                    if (Table[Rowk, ColK + 1] == PawnBrownObj)
-                    {
-                        if (Table[Rowk - 1, ColK + 2] == MinisteBrownObj)
-                        {
-                            if (Table[Rowk + 1, ColK + 2] == PawnBrownObj)
-                                Is = true;
-                        }
-                        if (Table[Rowk + 1, ColK + 2] == MinisteBrownObj)
-                        {
-                            if (Table[Rowk - 1, ColK + 2] == PawnBrownObj)
-                                Is = true;
+                            if (Table[Rowk + 1, ColK - 2] == MinisteBrownObj)
+                            {
+                                if (Table[Rowk - 1, ColK - 2] == PawnBrownObj)
+                                    Is = true;
+                            }
                         }
                     }
                 }
+                return Is;
             }
-            return Is;
         }
         public int SimpleMate_One(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
         {
-            int HA = 0;
-            if (Order == 1)
+            Object O = new Object();
+            lock (O)
             {
-                int RowK = -1, ColK = -1;
-                ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
-                G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
+                int HA = 0;
+                if (Order == 1)
+                {
+                    int RowK = -1, ColK = -1;
+                    ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
+                    G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
-                if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
-                    HA += RatiionalRegard;
-                else
-                if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
-                    HA += RatiionalRegard;
-                else
-                if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
-                    HA += RatiionalRegard;
+                    if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
+                        HA += RatiionalRegard;
+                    else
+                    if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
+                        HA += RatiionalRegard;
+                    else
+                    if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
+                        HA += RatiionalRegard;
 
+                }
+                else
+                {
+                    int RowK = -1, ColK = -1;
+                    ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
+                    G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
+
+                    if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
+                        HA += RatiionalRegard;
+                    else
+                    if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
+                        HA += RatiionalRegard;
+                    else
+                    if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
+                        HA += RatiionalRegard;
+
+                }
+
+                return HA;
             }
-            else
-            {
-                int RowK = -1, ColK = -1;
-                ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
-                G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
-
-                if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
-                    HA += RatiionalRegard;
-                else
-                if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
-                    HA += RatiionalRegard;
-                else
-                if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
-                    HA += RatiionalRegard;
-
-            }
-
-            return HA;
         }
         public int SimpleMate_Tow(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
         {
-             int HA = 0;
-            if (Order == 1)
+            Object O = new Object();
+            lock (O)
             {
-                int RowK = -1, ColK = -1;
-                ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
-                G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
+                int HA = 0;
+                if (Order == 1)
+                {
+                    int RowK = -1, ColK = -1;
+                    ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
+                    G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
-                if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
-                    HA += RatiionalRegard;
-            }
-            else
-            {
-                int RowK = -1, ColK = -1;
-                ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
-                G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
+                    if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
+                        HA += RatiionalRegard;
+                }
+                else
+                {
+                    int RowK = -1, ColK = -1;
+                    ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
+                    G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
-                if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
-                    HA += RatiionalRegard;
+                    if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
+                        HA += RatiionalRegard;
+                }
+                return HA;
             }
-            return HA;
         }
         public int EnemyKingHaveAtMostOneEmptyItem(int Rowk, int ColK, int[,] Table, int Order, ref List<int> EmptyR, ref List<int> EmptyC)
         {
-            int NIs = 0;
+            Object O = new Object();
+            lock (O)
+            {
+                int NIs = 0;
 
-            if ((ColK - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk, ColK - 1]))
-            {
-                EmptyR.Add(Rowk);
-                EmptyC.Add(ColK - 1);
-                NIs++;
-            }
-            if ((ColK + 1 < 8) && !SameSign(Table[Rowk, ColK], Table[Rowk, ColK + 1]))
-            {
-                EmptyR.Add(Rowk);
-                EmptyC.Add(ColK + 1);
-                NIs++;
-            }
-            if ((Rowk - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk - 1, ColK]))
-            {
-                EmptyR.Add(Rowk - 1);
-                EmptyC.Add(ColK);
-                NIs++;
-            }
-            if ((Row + 1 < 8) && !SameSign(Table[Rowk, ColK], Table[Rowk + 1, ColK]))
-            {
-                EmptyR.Add(Rowk + 1);
-                EmptyC.Add(ColK);
-                NIs++;
-            }
-            if ((ColK - 1 >= 0) && (Rowk - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk - 1, ColK - 1]))
-            {
-                EmptyR.Add(Rowk - 1);
-                EmptyC.Add(ColK - 1);
-                NIs++;
-            }
-            if ((ColK - 1 >= 0) && (Rowk + 1 < 8) && !SameSign(Table[Rowk, ColK], Table[Rowk + 1, ColK - 1]))
-            {
-                EmptyR.Add(Rowk + 1);
-                EmptyC.Add(ColK - 1);
-                NIs++;
-            }
-            if ((ColK + 1 < 8) && (Rowk + 1 < 8) && !SameSign(Table[Rowk, ColK], Table[Rowk + 1, ColK + 1]))
-            {
-                EmptyR.Add(Rowk + 1);
-                EmptyC.Add(ColK + 1);
-                NIs++;
-            }
-            if ((ColK + 1 < 8) && (Rowk - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk - 1, ColK + 1]))
-            {
-                EmptyR.Add(Rowk - 1);
-                EmptyC.Add(ColK + 1);
-                NIs++;
-            }
-            if ((ColK + 1 < 8) && (Rowk - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk - 1, ColK + 1]))
-            {
-                EmptyR.Add(Rowk - 1);
-                EmptyC.Add(ColK + 1);
-                NIs++;
-            }
-            return NIs;
+                if ((ColK - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk, ColK - 1]))
+                {
+                    EmptyR.Add(Rowk);
+                    EmptyC.Add(ColK - 1);
+                    NIs++;
+                }
+                if ((ColK + 1 < 8) && !SameSign(Table[Rowk, ColK], Table[Rowk, ColK + 1]))
+                {
+                    EmptyR.Add(Rowk);
+                    EmptyC.Add(ColK + 1);
+                    NIs++;
+                }
+                if ((Rowk - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk - 1, ColK]))
+                {
+                    EmptyR.Add(Rowk - 1);
+                    EmptyC.Add(ColK);
+                    NIs++;
+                }
+                if ((Row + 1 < 8) && !SameSign(Table[Rowk, ColK], Table[Rowk + 1, ColK]))
+                {
+                    EmptyR.Add(Rowk + 1);
+                    EmptyC.Add(ColK);
+                    NIs++;
+                }
+                if ((ColK - 1 >= 0) && (Rowk - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk - 1, ColK - 1]))
+                {
+                    EmptyR.Add(Rowk - 1);
+                    EmptyC.Add(ColK - 1);
+                    NIs++;
+                }
+                if ((ColK - 1 >= 0) && (Rowk + 1 < 8) && !SameSign(Table[Rowk, ColK], Table[Rowk + 1, ColK - 1]))
+                {
+                    EmptyR.Add(Rowk + 1);
+                    EmptyC.Add(ColK - 1);
+                    NIs++;
+                }
+                if ((ColK + 1 < 8) && (Rowk + 1 < 8) && !SameSign(Table[Rowk, ColK], Table[Rowk + 1, ColK + 1]))
+                {
+                    EmptyR.Add(Rowk + 1);
+                    EmptyC.Add(ColK + 1);
+                    NIs++;
+                }
+                if ((ColK + 1 < 8) && (Rowk - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk - 1, ColK + 1]))
+                {
+                    EmptyR.Add(Rowk - 1);
+                    EmptyC.Add(ColK + 1);
+                    NIs++;
+                }
+                if ((ColK + 1 < 8) && (Rowk - 1 >= 0) && !SameSign(Table[Rowk, ColK], Table[Rowk - 1, ColK + 1]))
+                {
+                    EmptyR.Add(Rowk - 1);
+                    EmptyC.Add(ColK + 1);
+                    NIs++;
+                }
+                return NIs;
 
+            }
         }
         bool IsNumberOfObjecttIsLessThanThreashold(int[,] Tab, int Threashold = 32)
         {
-            int ObjN = 0;
-            for (int i = 0; i < 8; i++)
+            Object O = new Object();
+            lock (O)
             {
-                for (int j = 0; j < 8; j++)
+                int ObjN = 0;
+                for (int i = 0; i < 8; i++)
                 {
-                    if (Tab[i, j] != 0)
-                        ObjN++;
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (Tab[i, j] != 0)
+                            ObjN++;
 
+                    }
                 }
+                if (ObjN < Threashold)
+                    return true;
+                return false;
             }
-            if (ObjN < Threashold)
-                return true;
-            return false;
         }
         public bool EnemyKingCanMateByCloseHome(int RowK, int ColK, int[,] Table, int Order)
         {
@@ -4525,63 +4563,7 @@ namespace QuantumRefrigiz
             List<int> EmptyR = new List<int>(), EmptyC = new List<int>();
             int NIs = EnemyKingHaveAtMostOneEmptyItem(RowK, ColK, CloneATable(Table), Order, ref EmptyR, ref EmptyC);
             //King Have One HomeAtlist movment
-            if (NIs <= 1)
-            {
-                if (NIs == 1)
-                {
-                    for (int k = 0; k < 8; k++)
-                    {
-                        for (int p = 0; p < 8; p++)
-                        {
-                            if (Order == 1 & Table[k, p] <= 0)
-                                continue;
-                            if (Order == -1 & Table[k, p] >= 0)
-                                continue;
-                            int[,] Tab = CloneATable(Table);
-                            for (int kk = 0; kk < 8; kk++)
-                            {
-                                for (int pp = 0; pp < 8; pp++)
-                                {
-                                    if (Order == 1 & Table[kk, p] <= 0)
-                                        continue;
-                                    if (Order == -1 & Table[kk, pp] >= 0)
-                                        continue;
-                                    //Self Have Support
-                                    if (Support(CloneATable(Tab), kk, pp, k, p, color, Order))
-                                    {
-                                        for (int kkk = 0; kkk < 8; kkk++)
-                                        {
-                                            for (int ppp = 0; ppp < 8; ppp++)
-                                            {
-                                                if (Order == 1 & Table[kkk, ppp] > 0)
-                                                    continue;
-                                                if (Order == -1 & Table[kkk, ppp] < 0)
-                                                    continue;
-                                                //Enemy King Attack
-                                                if (Attack(CloneATable(Tab), k, p, kkk, ppp, color, Order))
-                                                {
-                                                    int[,] Ta = CloneATable(Tab);
-                                                    Ta[kkk, ppp] = Ta[k, p];
-                                                    Ta[k, p] = 0;
-
-                                                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order, kkk, ppp);
-                                                    if (A.CheckMate(CloneATable(Ta), Order))
-                                                        return true;
-                                                }
-                                            }
-                                        }
-
-                                    }
-
-                                }
-                            }
-                        }
-
-                    }
-
-                }
-            }
-            if (NIs == 0)
+            if (NIs <= 2)
             {
                 for (int k = 0; k < 8; k++)
                 {
@@ -4618,37 +4600,13 @@ namespace QuantumRefrigiz
                                                 Ta[kkk, ppp] = Ta[k, p];
                                                 Ta[k, p] = 0;
 
-                                                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order, kkk, ppp);
-                                                if (A.CheckMate(CloneATable(Ta), Order))
+                                                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order * -1, kkk, ppp);
+                                                if (A.CheckMate(CloneATable(Ta), Order * 1))
                                                     return true;
                                             }
                                         }
                                     }
 
-                                }
-                                else
-                                {
-                                    for (int kkk = 0; kkk < 8; kkk++)
-                                    {
-                                        for (int ppp = 0; ppp < 8; ppp++)
-                                        {
-                                            if (Order == 1 & Table[kkk, ppp] > 0)
-                                                continue;
-                                            if (Order == -1 & Table[kkk, ppp] < 0)
-                                                continue;
-                                            //Enemy King Attack
-                                            if (Attack(CloneATable(Tab), k, p, kkk, ppp, color, Order))
-                                            {
-                                                int[,] Ta = CloneATable(Tab);
-                                                Ta[kkk, ppp] = Ta[k, p];
-                                                Ta[k, p] = 0;
-
-                                                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order, kkk, ppp);
-                                                if (A.CheckMate(CloneATable(Ta), Order))
-                                                    return true;
-                                            }
-                                        }
-                                    }
                                 }
 
                             }
@@ -4656,86 +4614,7 @@ namespace QuantumRefrigiz
                     }
 
                 }
-
             }
-            if (NIs == 2)
-            {
-                for (int k = 0; k < 8; k++)
-                {
-                    for (int p = 0; p < 8; p++)
-                    {
-                        if (Order == 1 & Table[k, p] <= 0)
-                            continue;
-                        if (Order == -1 & Table[k, p] >= 0)
-                            continue;
-                        int[,] Tab = CloneATable(Table);
-                        for (int kk = 0; kk < 8; kk++)
-                        {
-                            for (int pp = 0; pp < 8; pp++)
-                            {
-                                if (Order == 1 & Table[kk, p] <= 0)
-                                    continue;
-                                if (Order == -1 & Table[kk, pp] >= 0)
-                                    continue;
-                                //Self Have Support
-                                if (Support(CloneATable(Tab), kk, pp, k, p, color, Order))
-                                {
-                                    for (int kkk = 0; kkk < 8; kkk++)
-                                    {
-                                        for (int ppp = 0; ppp < 8; ppp++)
-                                        {
-                                            if (Order == 1 & Table[kkk, ppp] > 0)
-                                                continue;
-                                            if (Order == -1 & Table[kkk, ppp] < 0)
-                                                continue;
-                                            //Enemy King Attack
-                                            if (Attack(CloneATable(Tab), k, p, kkk, ppp, color, Order))
-                                            {
-                                                int[,] Ta = CloneATable(Tab);
-                                                Ta[kkk, ppp] = Ta[k, p];
-                                                Ta[k, p] = 0;
-
-                                                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order, kkk, ppp);
-                                                if (A.CheckMate(CloneATable(Ta), Order))
-                                                    return true;
-                                            }
-                                        }
-                                    }
-
-                                }
-                                else
-                                {
-                                    for (int kkk = 0; kkk < 8; kkk++)
-                                    {
-                                        for (int ppp = 0; ppp < 8; ppp++)
-                                        {
-                                            if (Order == 1 & Table[kkk, ppp] > 0)
-                                                continue;
-                                            if (Order == -1 & Table[kkk, ppp] < 0)
-                                                continue;
-                                            //Enemy King Attack
-                                            if (Attack(CloneATable(Tab), k, p, kkk, ppp, color, Order))
-                                            {
-                                                int[,] Ta = CloneATable(Tab);
-                                                Ta[kkk, ppp] = Ta[k, p];
-                                                Ta[k, p] = 0;
-
-                                                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order, kkk, ppp);
-                                                if (A.CheckMate(CloneATable(Ta), Order))
-                                                    return true;
-                                            }
-                                        }
-                                    }
-                                }
-
-                            }
-                        }
-                    }
-
-                }
-
-            }
-
             return Is;
         }
         ///Heuristic of Check and CheckMate.
