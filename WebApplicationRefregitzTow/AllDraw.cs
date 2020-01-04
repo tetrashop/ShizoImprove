@@ -14119,7 +14119,7 @@ namespace RefrigtzW
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKillerValueSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][5] += SolderesOnTable[ii].SoldierThinking[0].HeuristicReducedAttackValueSup;
-                            this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinking[0].HeuristicDistributionValueSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
@@ -14134,7 +14134,7 @@ namespace RefrigtzW
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicKillerValueSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicReducedAttackValueSup = 0;
-                    SolderesOnTable[ii].SoldierThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    SolderesOnTable[ii].SoldierThinking[0].HeuristicDistributionValueSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup = 0;
@@ -14161,7 +14161,7 @@ namespace RefrigtzW
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKillerValueSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][5] += SolderesOnTable[ii].SoldierThinking[0].HeuristicReducedAttackValueSup;
-                            this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinking[0].HeuristicDistributionValueSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][8] += SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup;
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
@@ -14176,7 +14176,7 @@ namespace RefrigtzW
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicKillerValueSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicReducedAttackValueSup = 0;
-                    SolderesOnTable[ii].SoldierThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    SolderesOnTable[ii].SoldierThinking[0].HeuristicDistributionValueSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicKingSafeSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicFromCenterSup = 0;
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup = 0;
@@ -14204,7 +14204,7 @@ namespace RefrigtzW
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKillerValueSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][5] += ElephantOnTable[ii].ElefantThinking[0].HeuristicReducedAttackValueSup;
-                            this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinking[0].HeuristicDistributionValueSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
@@ -14220,7 +14220,7 @@ namespace RefrigtzW
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicKillerValueSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicReducedAttackValueSup = 0;
-                    ElephantOnTable[ii].ElefantThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    ElephantOnTable[ii].ElefantThinking[0].HeuristicDistributionValueSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup = 0;
@@ -14247,7 +14247,7 @@ namespace RefrigtzW
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKillerValueSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][5] += ElephantOnTable[ii].ElefantThinking[0].HeuristicReducedAttackValueSup;
-                            this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinking[0].HeuristicDistributionValueSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][8] += ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup;
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
@@ -14263,7 +14263,7 @@ namespace RefrigtzW
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicKillerValueSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicReducedAttackValueSup = 0;
-                    ElephantOnTable[ii].ElefantThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    ElephantOnTable[ii].ElefantThinking[0].HeuristicDistributionValueSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicKingSafeSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicFromCenterSup = 0;
                     ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup = 0;
@@ -14291,7 +14291,7 @@ namespace RefrigtzW
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinking[0].HeuristicKillerValueSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][5] += HoursesOnTable[ii].HourseThinking[0].HeuristicReducedAttackValueSup;
-                            this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinking[0].HeuristicDistributionValueSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
@@ -14306,7 +14306,7 @@ namespace RefrigtzW
                     HoursesOnTable[ii].HourseThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicKillerValueSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicReducedAttackValueSup = 0;
-                    HoursesOnTable[ii].HourseThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    HoursesOnTable[ii].HourseThinking[0].HeuristicDistributionValueSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup = 0;
@@ -14332,7 +14332,7 @@ namespace RefrigtzW
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinking[0].HeuristicKillerValueSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][5] += HoursesOnTable[ii].HourseThinking[0].HeuristicReducedAttackValueSup;
-                            this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinking[0].HeuristicDistributionValueSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][8] += HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup;
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
@@ -14347,7 +14347,7 @@ namespace RefrigtzW
                     HoursesOnTable[ii].HourseThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicKillerValueSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicReducedAttackValueSup = 0;
-                    HoursesOnTable[ii].HourseThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    HoursesOnTable[ii].HourseThinking[0].HeuristicDistributionValueSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicKingSafeSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicFromCenterSup = 0;
                     HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup = 0;
@@ -14375,7 +14375,7 @@ namespace RefrigtzW
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinking[0].HeuristicKillerValueSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][5] += CastlesOnTable[ii].CastleThinking[0].HeuristicReducedAttackValueSup;
-                            this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinking[0].HeuristicDistributionValueSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
@@ -14390,7 +14390,7 @@ namespace RefrigtzW
                     CastlesOnTable[ii].CastleThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicKillerValueSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicReducedAttackValueSup = 0;
-                    CastlesOnTable[ii].CastleThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    CastlesOnTable[ii].CastleThinking[0].HeuristicDistributionValueSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup = 0;
@@ -14416,7 +14416,7 @@ namespace RefrigtzW
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinking[0].HeuristicKillerValueSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][5] += CastlesOnTable[ii].CastleThinking[0].HeuristicReducedAttackValueSup;
-                            this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinking[0].HeuristicDistributionValueSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][8] += CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup;
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
@@ -14431,7 +14431,7 @@ namespace RefrigtzW
                     CastlesOnTable[ii].CastleThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicKillerValueSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicReducedAttackValueSup = 0;
-                    CastlesOnTable[ii].CastleThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    CastlesOnTable[ii].CastleThinking[0].HeuristicDistributionValueSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicKingSafeSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicFromCenterSup = 0;
                     CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup = 0;
@@ -14459,7 +14459,7 @@ namespace RefrigtzW
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKillerValueSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][5] += MinisterOnTable[ii].MinisterThinking[0].HeuristicReducedAttackValueSup;
-                            this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinking[0].HeuristicDistributionValueSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
@@ -14475,7 +14475,7 @@ namespace RefrigtzW
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicKillerValueSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicReducedAttackValueSup = 0;
-                    MinisterOnTable[ii].MinisterThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    MinisterOnTable[ii].MinisterThinking[0].HeuristicDistributionValueSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup = 0;
@@ -14501,7 +14501,7 @@ namespace RefrigtzW
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKillerValueSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][5] += MinisterOnTable[ii].MinisterThinking[0].HeuristicReducedAttackValueSup;
-                            this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinking[0].HeuristicDistributionValueSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][8] += MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup;
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
@@ -14516,7 +14516,7 @@ namespace RefrigtzW
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicKillerValueSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicReducedAttackValueSup = 0;
-                    MinisterOnTable[ii].MinisterThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    MinisterOnTable[ii].MinisterThinking[0].HeuristicDistributionValueSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicKingSafeSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicFromCenterSup = 0;
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup = 0;
@@ -14544,7 +14544,7 @@ namespace RefrigtzW
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][3] += KingOnTable[ii].KingThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][4] += KingOnTable[ii].KingThinking[0].HeuristicKillerValueSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][5] += KingOnTable[ii].KingThinking[0].HeuristicReducedAttackValueSup;
-                            this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][6] += KingOnTable[ii].KingThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][6] += KingOnTable[ii].KingThinking[0].HeuristicDistributionValueSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][7] += KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
@@ -14560,7 +14560,7 @@ namespace RefrigtzW
                     KingOnTable[ii].KingThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicKillerValueSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicReducedAttackValueSup = 0;
-                    KingOnTable[ii].KingThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    KingOnTable[ii].KingThinking[0].HeuristicDistributionValueSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup = 0;
@@ -14587,7 +14587,7 @@ namespace RefrigtzW
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][3] += KingOnTable[ii].KingThinking[0].HeuristicObjectDangourCheckMateValueSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][4] += KingOnTable[ii].KingThinking[0].HeuristicKillerValueSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][5] += KingOnTable[ii].KingThinking[0].HeuristicReducedAttackValueSup;
-                            this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][6] += KingOnTable[ii].KingThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup;
+                            this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][6] += KingOnTable[ii].KingThinking[0].HeuristicDistributionValueSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][7] += KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][8] += KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup;
                             this.KingOnTable[i].KingThinking[0].HeuristicListKing[j][9] += KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup;
@@ -14603,7 +14603,7 @@ namespace RefrigtzW
                     KingOnTable[ii].KingThinking[0].HeuristicObjectDangourCheckMateValueSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicKillerValueSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicReducedAttackValueSup = 0;
-                    KingOnTable[ii].KingThinking[0].HeuristicDistabceOfCurrentMoveFromEnemyKingValueSup = 0;
+                    KingOnTable[ii].KingThinking[0].HeuristicDistributionValueSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicKingSafeSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicFromCenterSup = 0;
                     KingOnTable[ii].KingThinking[0].HeuristicKingDangourSup = 0;

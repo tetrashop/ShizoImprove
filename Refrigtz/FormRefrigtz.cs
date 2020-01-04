@@ -7064,17 +7064,17 @@ namespace Refrigtz
                 int HeuristicObjectDangourCheckMateValue = new int();
                 int HeuristicHittingValue = new int();
                 int HeuristicReducedAttackValue = new int();
-                int HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new int();
+                int HeuristicDistributionValue = new int();
                 int HeuristicKingSafe = new int();
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int();
-                th1.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicObjectDangourCheckMateValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                th1.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicObjectDangourCheckMateValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
 
 
                 return HeuristicAttackValue + HeuristicMovementValue +
               HeuristicSelfSupportedValue +
 
-              HeuristicObjectDangourCheckMateValue + HeuristicReducedAttackValue + HeuristicHittingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
+              HeuristicObjectDangourCheckMateValue + HeuristicReducedAttackValue + HeuristicHittingValue + HeuristicDistributionValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
             }
         }
         int CalculateMoveMentHueuristicUserRefrigitzDLL(int Kind, int[,] Table, int Order, int Row, int Column, int RowSource, int ColumnS, Color color)
@@ -7091,16 +7091,16 @@ namespace Refrigtz
                 int HeuristicObjectDangourCheckMateValue = new int();
                 int HeuristicHittingValue = new int();
                 int HeuristicReducedAttackValue = new int();
-                int HeuristicDistabceOfCurrentMoveFromEnemyKingValue = new int();
+                int HeuristicDistributionValue = new int();
                 int HeuristicKingSafe = new int();
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int();
-                th.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicObjectDangourCheckMateValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistabceOfCurrentMoveFromEnemyKingValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                th.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicObjectDangourCheckMateValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
 
                 return HeuristicAttackValue + HeuristicMovementValue +
               HeuristicSelfSupportedValue +
 
-              HeuristicObjectDangourCheckMateValue + HeuristicReducedAttackValue + HeuristicHittingValue + HeuristicDistabceOfCurrentMoveFromEnemyKingValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
+              HeuristicObjectDangourCheckMateValue + HeuristicReducedAttackValue + HeuristicHittingValue + HeuristicDistributionValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
             }
         }
         bool CheckMovment(int[,] Table, int i, int j, int ii, int jj, int Order)
