@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E472FF55-8392-4B29-8AFD-28CFDD110790}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>ImageTextDeepLearning</RootNamespace>
     <AssemblyName>ImageTextDeepLearning</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -34,6 +34,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Emgu.CV">
@@ -121,9 +124,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Refrigtz\bin\Debug\All\All\chtc.csproj">
+    <ProjectReference Include="..\Refrigtz\bin\Debug\All\All\All.csproj">
       <Project>{ac2b4cf6-3294-46d5-9af0-c58ee5b637d4}</Project>
-      <Name>chtc</Name>
+      <Name>All</Name>
     </ProjectReference>
     <ProjectReference Include="ContourAnalysisProcessing\ContourAnalysisProcessing.csproj">
       <Project>{e7bf3470-8f33-4917-9295-7782aae5c475}</Project>

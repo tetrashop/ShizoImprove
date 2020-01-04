@@ -71,7 +71,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+#pragma warning disable CS0246 // The type or namespace name 'LearningMachine' could not be found (are you missing a using directive or an assembly reference?)
 using LearningMachine;
+#pragma warning restore CS0246 // The type or namespace name 'LearningMachine' could not be found (are you missing a using directive or an assembly reference?)
 using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -83,7 +85,7 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ThinkingQuantumChess
     {
-        public static double Colleralation = 0;
+        public static double Colleralation = double.MinValue;
         public static int[,] TableInitiation ={
             { -4, -1, 0, 0, 0, 0, 1, 4 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
@@ -124,7 +126,9 @@ namespace QuantumRefrigiz
         //Initiate Global and Static Variables. 
         public bool IsThereMateOfEnemy = false;
         public bool IsThereMateOfSelf = false;
+#pragma warning disable CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
+#pragma warning restore CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
         bool ThinkingQuantumAtRun = false;
         public static String ActionsString = "";
         // String OutPutAction = "";
@@ -234,12 +238,24 @@ namespace QuantumRefrigiz
         public List<int[]> HeuristicListMinister = null;
         public List<int[]> HeuristicListKing = null;
         public List<int> KillerAtThinkingQuantum = null;
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListSolder = null;
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListElefant = null;
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListHourse = null;
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListCastle = null;
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListMinister = null;
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListKing = null;
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public int Max;
         public int Row, Column;
         public Color color;
@@ -4883,6 +4899,16 @@ namespace QuantumRefrigiz
                     if (Tab[RowS, ColS] == -3)
                         Dis = RatiionalRegard;
                 }
+                int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                if (Cor > Colleralation)
+                {
+                    Colleralation = Cor;
+                    Dis += RatiionalRegard;
+
+                }
+                else
+                    Dis += RatiionalPenalty;
+
                 /*     //Initiate.
                      int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
                      //Create ChessRules Objects.
@@ -8565,7 +8591,9 @@ namespace QuantumRefrigiz
             }
         }
         //healthy of lists in learning auatama
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         bool EqualitOne(QuantumAtamata Current, int kind)
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -8597,7 +8625,9 @@ namespace QuantumRefrigiz
             }
         }
         //add list 
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         void AddAtList(int kind, QuantumAtamata Current)
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -8668,7 +8698,9 @@ namespace QuantumRefrigiz
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("RemoveAtList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //learning autamata maib method
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         void PenaltyMechanisam(ref bool RETURN, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -10294,7 +10326,9 @@ namespace QuantumRefrigiz
             ThinkingQuantumAtRun = false;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CastleThinkingQuantumGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public void HeuristicPenaltyValuePerform(QuantumAtamata Current, int Order, ref int HeuristicAttackValue, bool AllDrawclass = false)
+#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 

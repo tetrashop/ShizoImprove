@@ -7,10 +7,30 @@ using System.Threading.Tasks;
 
 namespace ImageTextDeepLearning
 {
-    class Colleralation
+    public class Colleralation
     {
         static double Threshold = 0.2;
-        public static int GetCorrelationScore(bool[,] seriesA, bool[,] seriesB,int n)
+        public static int GetCorrelationScore(bool[,] seriesA, bool[,] seriesB, int n)
+        {
+            int correlationScore = 0;
+
+            for (var i = 0; i < //seriesA.Length
+                n; i++)
+            {
+                bool A = true;
+                for (var j = 0; j < n; j++)
+                {
+                    A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), Threshold
+                        );
+                    if (A)
+                        correlationScore++;
+                    else
+                        correlationScore--;
+                }
+            }
+            return correlationScore;
+        }
+        public static int GetCorrelationScore(int[,] seriesA, int[,] seriesB, int n)
         {
             int correlationScore = 0;
 

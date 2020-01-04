@@ -83,7 +83,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess
     {
-        public static double Colleralation = 0;
+        public static double Colleralation = double.MinValue;
         public static int[,] TableInitiation ={
             { -4, -1, 0, 0, 0, 0, 1, 4 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
@@ -4882,6 +4882,16 @@ namespace RefrigtzDLL
                     if (Tab[RowS, ColS] == -3)
                         Dis = RatiionalRegard;
                 }
+                int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                if (Cor > Colleralation)
+                {
+                    Colleralation = Cor;
+                    Dis += RatiionalRegard;
+
+                }
+                else
+                    Dis += RatiionalPenalty;
+
                 /*     //Initiate.
                      int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
                      //Create ChessRules Objects.
@@ -4984,6 +4994,7 @@ namespace RefrigtzDLL
                             Is = true;
                     }
 
+                  
                 }
 
             }

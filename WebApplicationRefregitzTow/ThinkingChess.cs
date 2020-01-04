@@ -82,7 +82,7 @@ namespace RefrigtzW
     [Serializable]
     public class ThinkingChess
     {
-        public static double Colleralation = 0;
+        public static double Colleralation = double.MinValue;
         public static int[,] TableInitiation ={
             { -4, -1, 0, 0, 0, 0, 1, 4 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },

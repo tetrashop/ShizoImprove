@@ -27,7 +27,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -42,7 +42,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Refrigtz\bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -50,6 +50,8 @@
     <UseVSHostingProcess>true</UseVSHostingProcess>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>default</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -118,12 +120,10 @@
     <Compile Include="RefregitzOperator.cs" />
     <Compile Include="RefregizMemmory.cs" />
     <None Include="App.config" />
-    <Fakes Include="Fakes\QuantumRefrigiz.fakes" />
     <None Include="packages.config" />
     <None Include="Resources\App.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Fakes Include="Fakes\All.fakes" />
     <None Include="GalleryStudio_1_TemporaryKey.pfx" />
     <None Include="GalleryStudio_TemporaryKey.pfx" />
   </ItemGroup>
@@ -139,6 +139,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fakes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuantumRefrigiz\QuantumRefrigiz.csproj">
