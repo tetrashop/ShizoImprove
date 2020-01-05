@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebApplicationRefregitzTow</RootNamespace>
     <AssemblyName>WebApplicationRefregitzTow</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
@@ -351,6 +351,7 @@
     <Compile Include="ChessGeneticAlgorithm.cs" />
     <Compile Include="ChessRules.cs" />
     <Compile Include="CodeClass.cs" />
+    <Compile Include="Colleralation.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
