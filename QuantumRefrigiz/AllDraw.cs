@@ -14645,8 +14645,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(1));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(1));
+                //arr.Wait();
 
                 //For Gray Soldeirs Objects. 
                 Parallel.For(0, SodierMidle, i =>
@@ -14710,8 +14710,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(2));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(2));
+                //arr.Wait();
 
                 Parallel.For(0, ElefantMidle, i =>
                 //for (var i = 0; i < ElefantMidle; i++)
@@ -14774,8 +14774,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(3));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(3));
+                //arr.Wait();
 
                 //For All Gray Hourse Objects.
                 Parallel.For(0, HourseMidle, i =>
@@ -14841,8 +14841,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(4));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(4));
+                //arr.Wait();
 
                 //For All Possible Gray Castles Objects.
                 Parallel.For(0, CastleMidle, i =>
@@ -14907,8 +14907,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(5));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(5));
+                //arr.Wait();
 
                 //For All Possible Gray Minister Movments.
                 Parallel.For(0, MinisterMidle, i =>
@@ -14972,8 +14972,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(6));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(6));
+                //arr.Wait();
 
                 //For All Possible Gray King Objects.
                 Parallel.For(0, KingMidle, i =>
@@ -15035,8 +15035,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(7));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(7));
+                //arr.Wait();
 
                 //For Each Objects of Brown Sodiers.
                 Parallel.For(SodierMidle, SodierHigh, i =>
@@ -15102,8 +15102,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(8));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(8));
+                //arr.Wait();
 
 
                 Parallel.For(ElefantMidle, ElefantHigh, i =>
@@ -15168,8 +15168,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(9));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(9));
+                //arr.Wait();
 
                 Parallel.For(HourseMidle, HourseHight, i =>
                 //for (var i = HourseMidle; i < HourseHight; i++)
@@ -15236,8 +15236,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(10));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(10));
+                //arr.Wait();
 
                 Parallel.For(CastleMidle, CastleHigh, i =>
                 //for (var i = CastleMidle; i < CastleHigh; i++)
@@ -15302,8 +15302,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(11));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(11));
+                //arr.Wait();
 
 
                 Parallel.For(MinisterMidle, MinisterHigh, i =>
@@ -15367,8 +15367,8 @@ namespace QuantumRefrigiz
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(12));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingQuantumAllowedSemaphore(12));
+                //arr.Wait();
 
 
                 Parallel.For(KingMidle, KingHigh, i =>

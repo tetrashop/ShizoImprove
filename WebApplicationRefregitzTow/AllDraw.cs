@@ -14629,8 +14629,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(1));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(1));
+                //arr.Wait();
 
                 //For Gray Soldeirs Objects. 
                 Parallel.For(0, SodierMidle, i =>
@@ -14694,8 +14694,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(2));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(2));
+                //arr.Wait();
 
                 Parallel.For(0, ElefantMidle, i =>
                 //for (var i = 0; i < ElefantMidle; i++)
@@ -14758,8 +14758,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(3));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(3));
+                //arr.Wait();
 
                 //For All Gray Hourse Objects.
                 Parallel.For(0, HourseMidle, i =>
@@ -14825,8 +14825,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(4));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(4));
+                //arr.Wait();
 
                 //For All Possible Gray Castles Objects.
                 Parallel.For(0, CastleMidle, i =>
@@ -14891,8 +14891,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(5));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(5));
+                //arr.Wait();
 
                 //For All Possible Gray Minister Movments.
                 Parallel.For(0, MinisterMidle, i =>
@@ -14956,8 +14956,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(6));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(6));
+                //arr.Wait();
 
                 //For All Possible Gray King Objects.
                 Parallel.For(0, KingMidle, i =>
@@ -15019,8 +15019,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(7));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(7));
+                //arr.Wait();
 
                 //For Each Objects of Brown Sodiers.
                 Parallel.For(SodierMidle, SodierHigh, i =>
@@ -15086,8 +15086,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(8));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(8));
+                //arr.Wait();
 
 
                 Parallel.For(ElefantMidle, ElefantHigh, i =>
@@ -15152,8 +15152,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(9));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(9));
+                //arr.Wait();
 
                 Parallel.For(HourseMidle, HourseHight, i =>
                 //for (var i = HourseMidle; i < HourseHight; i++)
@@ -15220,8 +15220,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(10));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(10));
+                //arr.Wait();
 
                 Parallel.For(CastleMidle, CastleHigh, i =>
                 //for (var i = CastleMidle; i < CastleHigh; i++)
@@ -15286,8 +15286,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(11));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(11));
+                //arr.Wait();
 
 
                 Parallel.For(MinisterMidle, MinisterHigh, i =>
@@ -15351,8 +15351,8 @@ namespace RefrigtzW
             Object oo = new Object();
             lock (oo)
             {
-                var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(12));
-                arr.Wait();
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(12));
+                //arr.Wait();
 
 
                 Parallel.For(KingMidle, KingHigh, i =>

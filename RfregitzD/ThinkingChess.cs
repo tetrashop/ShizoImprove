@@ -11383,66 +11383,70 @@ namespace RefrigtzDLL
         //Deeper than deeper
         void ThinkingFullGame(int iAStarGreedy, AllDraw THIS)
         {
-            if (AllDraw.Deeperthandeeper)
+            Object O = new Object();
+            lock (O)
             {
-                FullGameAllow = true;
+                if (AllDraw.Deeperthandeeper)
+                {
+                    FullGameAllow = true;
 
-                if (Kind == 1)
-                {
-                    Parallel.For(0, TableListSolder.Count, i =>
+                    if (Kind == 1)
                     {
-                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListSolder[i], Order * -1, false, false, 0);
-                    });
-                }
-                else
-                if (Kind == 2)
-                {
-                    Parallel.For(0, TableListElefant.Count, i =>
+                        Parallel.For(0, TableListSolder.Count, i =>
+                        {
+                            FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                            AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListSolder[i], Order * -1, false, false, 0);
+                        });
+                    }
+                    else
+                    if (Kind == 2)
                     {
-                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListElefant[i], Order * -1, false, false, 0);
-                    });
-                }
-                else
-                if (Kind == 3)
-                {
-                    Parallel.For(0, TableListHourse.Count, i =>
+                        Parallel.For(0, TableListElefant.Count, i =>
+                        {
+                            FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                            AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListElefant[i], Order * -1, false, false, 0);
+                        });
+                    }
+                    else
+                    if (Kind == 3)
                     {
-                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListHourse[i], Order * -1, false, false, 0);
-                    });
-                }
-                else
-                if (Kind == 4)
-                {
-                    Parallel.For(0, TableListCastle.Count, i =>
+                        Parallel.For(0, TableListHourse.Count, i =>
+                        {
+                            FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                            AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListHourse[i], Order * -1, false, false, 0);
+                        });
+                    }
+                    else
+                    if (Kind == 4)
                     {
-                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListCastle[i], Order * -1, false, false, 0);
-                    });
-                }
-                else
-                if (Kind == 5)
-                {
-                    Parallel.For(0, TableListMinister.Count, i =>
+                        Parallel.For(0, TableListCastle.Count, i =>
+                        {
+                            FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                            AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListCastle[i], Order * -1, false, false, 0);
+                        });
+                    }
+                    else
+                    if (Kind == 5)
                     {
-                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListMinister[i], Order * -1, false, false, 0);
-                    });
-                }
-                else
-                    if (Kind == 6)
-                {
-                    Parallel.For(0, TableListKing.Count, i =>
+                        Parallel.For(0, TableListMinister.Count, i =>
+                        {
+                            FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                            AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListMinister[i], Order * -1, false, false, 0);
+                        });
+                    }
+                    else
+                        if (Kind == 6)
                     {
-                        FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
-                        AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListKing[i], Order * -1, false, false, 0);
-                    });
-                }
+                        Parallel.For(0, TableListKing.Count, i =>
+                        {
+                            FullGameThinkingTreeInitialization(THIS, iIndex, i, Order, Kind);
+                            AStarGreedy[i].InitiateAStarGreedyt(iAStarGreedy, 0, 0, colorOpposite(color), TableListKing[i], Order * -1, false, false, 0);
+                        });
+                    }
 
-                FullGameAllow = false;
+                    FullGameAllow = false;
 
+                }
             }
 
         }
