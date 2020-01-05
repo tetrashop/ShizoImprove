@@ -716,13 +716,15 @@ namespace Refrigtz
                                     {
                                         if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
                                         {
-                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                         else
                                             if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
                                         {
-                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                     }
@@ -731,13 +733,15 @@ namespace Refrigtz
                                     {
                                         if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
                                         {
-                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                         else
                                             if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
                                         {
-                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                     }
@@ -1127,13 +1131,15 @@ namespace Refrigtz
                                     {
                                         if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
                                         {
-                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                         else
                                             if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
                                         {
-                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                     }
@@ -1144,7 +1150,8 @@ namespace Refrigtz
                                         {
 
 
-                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                         else
@@ -1152,7 +1159,8 @@ namespace Refrigtz
 
                                         {
 
-                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
 
@@ -2259,13 +2267,15 @@ namespace Refrigtz
                                     {
                                         if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
                                         {
-                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                         else
                                             if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
                                         {
-                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                     }
@@ -2274,13 +2284,15 @@ namespace Refrigtz
                                     {
                                         if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
                                         {
-                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                         else
                                             if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
                                         {
-                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                     }
@@ -2659,13 +2671,15 @@ namespace Refrigtz
                                     {
                                         if (BobSection && OrderPlate == 1)//Gray is Refregitz.                                        
                                         {
-                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                         else
                                             if (!BobSection && OrderPlate == -1)//Brow is Stockfish.                                            
                                         {
-                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                     }
@@ -2676,7 +2690,8 @@ namespace Refrigtz
                                         {
 
 
-                                            ComputerByComputerBobAsRefregitz(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
                                         else
@@ -2684,7 +2699,8 @@ namespace Refrigtz
 
                                         {
 
-                                            ComputerByComputerAliceAsStockFish(ref proc);
+                                            var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
+                                            array.Wait();
                                             AllDo = false;
                                         }
 
@@ -9218,12 +9234,14 @@ namespace Refrigtz
                                 {
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(7);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(7));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovementCastleKingGray(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovementCastleKingGray(AA, ref Do));
+                                        array.Wait();                                    
                                         Do = false;
                                     }
                                 }
@@ -9232,13 +9250,15 @@ namespace Refrigtz
                                 {
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(1);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(1));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
 
-                                        MovementSoldierGray(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovementSoldierGray(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
 
                                     }
@@ -9250,12 +9270,14 @@ namespace Refrigtz
                                 {
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(2);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(2));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovementElephantGray(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovementElephantGray(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
 
@@ -9268,12 +9290,14 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(3);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(3));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentHourseGray(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentHourseGray(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
                                     //SetRefregitzBicture();
@@ -9285,13 +9309,15 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(4);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(4));
+                                        array.Wait();
 
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentCastleGray(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentCastleGray(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
 
@@ -9305,14 +9331,15 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(5);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(5));
 
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
 
-                                        MovmentMinisterGray(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentMinisterGray(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
 
@@ -9325,12 +9352,14 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(6);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(6));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentKingGray(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentKingGray(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
                                     //SetRefregitzBicture();
@@ -9347,12 +9376,14 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-7);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(-7));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentCastleKingBrown(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentCastleKingBrown(AA, ref Do)); 
+                                        array.Wait();
                                         Do = false;
 
                                         //SetRefregitzBicture();
@@ -9365,12 +9396,14 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-1);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(-1));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentSoldierBrown(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentSoldierBrown(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
                                     //SetRefregitzBicture();
@@ -9381,12 +9414,14 @@ namespace Refrigtz
                                 {
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-2);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(-2));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovementElephantBrown(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovementElephantBrown(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
                                     //SetRefregitzBicture();
@@ -9399,12 +9434,14 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-3);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(-3));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentHourseBrown(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentHourseBrown(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
 
@@ -9417,12 +9454,14 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-4);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(-4));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentCastleBrown(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentCastleBrown(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
                                     }
 
@@ -9435,12 +9474,14 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-5);
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(-5));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentMinisterBrown(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentMinisterBrown(AA, ref Do));
+                                        array.Wait();
 
                                     }
                                     //SetRefregitzBicture();
@@ -9454,13 +9495,14 @@ namespace Refrigtz
 
                                     if (RefrigtzDLL.AllDraw.MouseClick == 1)
                                     {
-                                        MovmentneDraw(-6);
-
+                                        var array = Task.Factory.StartNew(() => MovmentneDraw(-6));
+                                        array.Wait();
                                     }
                                     else
                                         if (RefrigtzDLL.AllDraw.MouseClick == 2)
                                     {
-                                        MovmentKingBrown(AA, ref Do);
+                                        var array = Task.Factory.StartNew(() => MovmentKingBrown(AA, ref Do));
+                                        array.Wait();
                                         Do = false;
 
                                     }
@@ -9504,7 +9546,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(7);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(7));
+                    array.Wait();
                 }
                 else
                if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -9726,7 +9769,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(1);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(1));
+                    array.Wait();
                 }
                 else
                      if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -9878,7 +9922,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(2);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(2));
+                    array.Wait();
                 }
                 else
              if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -9979,7 +10024,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(3);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(3));
+                    array.Wait();
                 }
                 else
                       if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -10081,8 +10127,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(4);
-
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(4));
+                    array.Wait();
                 }
                 else
                            if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -10183,8 +10229,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(5);
-
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(5));
+                    array.Wait();
                 }
                 else
                     if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -10288,7 +10334,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(6);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(6));
+                    array.Wait();
                 }
                 else
                       if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -10390,7 +10437,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(-7);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(-7));
+                    array.Wait();
                 }
                 else
                  if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -10608,7 +10656,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(-1);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(-1));
+                    array.Wait();
                 }
                 else
             if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -10753,7 +10802,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(-2);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(-2));
+                    array.Wait();
                 }
                 else
                          if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -10853,7 +10903,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(-3);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(-3));
+                    array.Wait();
                 }
                 else
                          if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -10954,7 +11005,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(-4);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(-4));
+                    array.Wait();
                 }
                 else
              if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -11054,7 +11106,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(-5);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(-5));
+                    array.Wait();
                 }
                 else
                if (QuantumRefrigiz.AllDraw.MouseClick == 2)
@@ -11157,7 +11210,8 @@ namespace Refrigtz
             {
                 if (QuantumRefrigiz.AllDraw.MouseClick == 1)
                 {
-                    MovmentneDraw(-6);
+                    var array = Task.Factory.StartNew(() => MovmentneDraw(-6));
+                    array.Wait();
 
                 }
                 else
@@ -11301,21 +11355,24 @@ namespace Refrigtz
                             {
                                 if (ColumnClickP == ColumnRealeased && System.Math.Abs(RowClickP - RowRealesed) >= 2 && Table[(int)RowClickP, (int)ColumnClickP] == 6 && (QuantumRefrigiz.ChessRules.CastleKingAllowedGray))
                                 {
-                                    MovementCastleKingGrayQuantum(AA);
+
+                                    var array = Task.Factory.StartNew(() => MovementCastleKingGrayQuantum(AA));
+                                    array.Wait();
                                     Do = false;
                                 }
                                 else
                                     if (Table[(int)RowClickP, (int)ColumnClickP] == 1)
                                 {
-                                    MovementSoldierGrayQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovementSoldierGrayQuantum(AA));
+                                    array.Wait();
                                     Do = false;
-                                    //SetRefregitzBicture();
+                                    //SetRefregitzBicture();      array.Wait();
 
                                 }
                                 else
                                         if (Table[(int)RowClickP, (int)ColumnClickP] == 2)
                                 {
-                                    MovementElephantGrayQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovementElephantGrayQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
                                 }
@@ -11324,7 +11381,7 @@ namespace Refrigtz
                                 {
 
 
-                                    MovmentHourseGrayQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentHourseGrayQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
 
@@ -11333,7 +11390,7 @@ namespace Refrigtz
                                 {
 
 
-                                    MovmentCastleGrayQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentCastleGrayQuantum(AA)); array.Wait();
                                     Do = false;
 
                                     //SetRefregitzBicture();
@@ -11343,7 +11400,7 @@ namespace Refrigtz
                                     if (Table[(int)RowClickP, (int)ColumnClickP] == 5)
                                 {
 
-                                    MovmentMinisterGrayQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentMinisterGrayQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
                                 }
@@ -11352,7 +11409,7 @@ namespace Refrigtz
                                 {
 
 
-                                    MovmentKingGrayQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentKingGrayQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
 
@@ -11366,14 +11423,14 @@ namespace Refrigtz
                                 {
 
 
-                                    MovmentCastleKingBrownQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentCastleKingBrownQuantum(AA)); array.Wait();
                                     Do = false;
                                 }
                                 else
                                     if (Table[(int)RowClickP, (int)ColumnClickP] == -1)
                                 {
 
-                                    MovmentSoldierBrownQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentSoldierBrownQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
 
@@ -11381,7 +11438,7 @@ namespace Refrigtz
                                 else
                                         if (Table[(int)RowClickP, (int)ColumnClickP] == -2)
                                 {
-                                    MovementElephantBrownQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovementElephantBrownQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
 
@@ -11391,7 +11448,7 @@ namespace Refrigtz
                                             if (Table[(int)RowClickP, (int)ColumnClickP] == -3)
                                 {
 
-                                    MovmentHourseBrownQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentHourseBrownQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
                                 }
@@ -11400,7 +11457,7 @@ namespace Refrigtz
                                 {
 
 
-                                    MovmentCastleBrownQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentCastleBrownQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
                                 }
@@ -11409,7 +11466,7 @@ namespace Refrigtz
                                 {
 
 
-                                    MovmentMinisterBrownQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentMinisterBrownQuantum(AA)); array.Wait();
                                     Do = false;
                                     //SetRefregitzBicture();
 
@@ -11420,7 +11477,7 @@ namespace Refrigtz
                                 {
 
 
-                                    MovmentKingBrownQuantum(AA);
+                                    var array = Task.Factory.StartNew(() => MovmentKingBrownQuantum(AA)); array.Wait();
                                     Do = false;
 
                                 }
@@ -14627,12 +14684,10 @@ namespace Refrigtz
                     bool StoreStateCC = false, StoreStateCP = false, StoreStateGe = false;
                     OpBeforeThinking(ref a, ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
-                  
-                    int LeafAStarGrteedy = 0;
-                    if (!Quantum)
-                        Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
-                    else
-                        Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+
+                    var array = Task.Factory.StartNew(() => Initiate(a));
+                    array.Wait();
+              
                     //LoadConvertedTable = true;
                     //PaintedPaused = false;
                     this.SetBoxText("\r\nThinking Finished!");
@@ -14717,13 +14772,10 @@ namespace Refrigtz
                     Color a = Color.Gray;
                     bool StoreStateCC = false, StoreStateCP = false, StoreStateGe = false;
                     OpBeforeThinking(ref a, ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
-               
-               
-                    int LeafAStarGrteedy = 0;
-                    if (!Quantum)
-                        Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
-                    else
-                        Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+
+
+                    var array = Task.Factory.StartNew(() => Initiate(a));
+                    array.Wait();
 
 
                     try
@@ -15058,6 +15110,18 @@ namespace Refrigtz
                 return Tabl;
             }
         }
+        void Initiate(Color a)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                int LeafAStarGrteedy = 0;
+                if (!Quantum)
+                    Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                else
+                    Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+            }
+        }
         //Alice Section of Computer by Computer Thinking.
         void AliceAction()
         {
@@ -15085,13 +15149,10 @@ namespace Refrigtz
 
                 //SetDrawFounding(ref FOUND, ref THIS, true);
 
-                int LeafAStarGrteedy = 0;
-                if (!Quantum)
-                    Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
-                else
-                    Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
 
-                //LoadConvertedTable = true;
+                var array = Task.Factory.StartNew(() => Initiate(a));
+                array.Wait();
+               //LoadConvertedTable = true;
                 //StateCP = false;
                 try
                 {
@@ -15355,11 +15416,8 @@ namespace Refrigtz
                 QuantumRefrigiz.AllDraw THISQ = null;
 
 
-                int LeafAStarGrteedy = 0;
-                if (!Quantum)
-                    Table = Draw.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
-                else
-                    Table = DrawQ.Initiate(1, 4, a, CloneATable(Table), OrderPlate, false, FOUND, LeafAStarGrteedy);
+                var array = Task.Factory.StartNew(() => Initiate(a));
+                array.Wait();
 
                 StateCC = StoreStateCC;
                 StateCP = StoreStateCP;
@@ -19038,7 +19096,8 @@ namespace Refrigtz
                         //ttt.Start();
                         if (!AllDo)
                             AllDo = true;
-                        AllOp();
+                        var array = Task.Factory.StartNew(() => AllOp());
+                        array.Wait();
                         if (EndOfGame)
                             return;
                         System.Threading.Thread.Sleep(10);
@@ -19497,8 +19556,7 @@ namespace Refrigtz
 
             }
         }
-
-        private void backgroundWorkerMoveGray_DoWork(object sender, DoWorkEventArgs e)
+        void MoveGray()
         {
             int i = 0;
             bool Do = true;
@@ -19508,7 +19566,7 @@ namespace Refrigtz
                     Do = MovementQuantum();
                 else
                     Do = MovementRefrigitzDLL();
-     
+
                 if (!Quantum)
                 {
                     if (RefrigtzDLL.AllDraw.MouseClick == 2)
@@ -19540,6 +19598,11 @@ namespace Refrigtz
                     }
                 }
             } while (Do);
+        }
+        private void backgroundWorkerMoveGray_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var array = Task.Factory.StartNew(() => MoveGray());
+            array.Wait();
             OrderPlate *= -1;
             FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
@@ -19552,8 +19615,7 @@ namespace Refrigtz
 
 
         }
-
-        private void backgroundWorkerMoveBrown_DoWork(object sender, DoWorkEventArgs e)
+        void MoveBrown()
         {
             int i = 0;
             bool Do = true;
@@ -19585,6 +19647,11 @@ namespace Refrigtz
                     }
                 }
             } while (Do);
+        }
+        private void backgroundWorkerMoveBrown_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var array = Task.Factory.StartNew(() => MoveBrown());
+            array.Wait();
             OrderPlate *= -1;
             FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
