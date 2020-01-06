@@ -21799,6 +21799,8 @@ if (Kind == 5)
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
 
+            ThinkingQuantumChess.Colleralation = int.MinValue;
+
             if (FOUND && (!FirstTraversalTree))
                 NumberOfLeafComputation = ThinkingQuantumChess.NumbersOfAllNode;
             else

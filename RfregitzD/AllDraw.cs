@@ -21780,6 +21780,7 @@ if (Kind == 5)
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
 
+            ThinkingChess.Colleralation = int.MinValue;
             if (FOUND && (!FirstTraversalTree))
                 NumberOfLeafComputation = ThinkingChess.NumbersOfAllNode;
             else

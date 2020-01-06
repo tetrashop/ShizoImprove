@@ -96,6 +96,17 @@ namespace RefrigtzDLL
             { -4, -1, 0, 0, 0, 0, 1, 4 }
             };
 
+        public static int[,] TableInitiationPreventionOfMultipleMove ={
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 }
+            };
+
         int RatiionalRegard = 10000;
         int RatiionalPenalty = -10000;
 
@@ -4863,6 +4874,53 @@ namespace RefrigtzDLL
                 return Count;
             }
         }
+        void MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull()
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (TableInitiationPreventionOfMultipleMove[i, j] == 0)
+                            Is = true;
+
+                    }
+                }
+                if (!Is)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
+                        {
+                            TableInitiationPreventionOfMultipleMove[i, j] = 0;
+                        }
+                    }
+                }
+
+            }
+        }
+        bool IsTableRowColIsZero(int Row, int Col)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull();
+
+                bool Is = false;
+
+                if (TableInitiationPreventionOfMultipleMove[Row, Col] == 0)
+                {
+                    return true;
+
+                }
+
+                return Is;
+            }
+        }
+
         //Distribution of Objects
         public int HeuristicDistribution(int[,] Tab, int Order, int RowS, int ColS)
         {
@@ -4873,13 +4931,17 @@ namespace RefrigtzDLL
                 int Dis = 0;
                 const int ObjectGray = 0, ObjectBrown = 0;
 
-
-                if (Order == 1)
+                if (IsTableRowColIsZero(RowS, ColS))
+                    Dis = RatiionalRegard;
+                else
+                    Dis = RatiionalPenalty;
+               
+                    if (Order == 1)
                 {
                     if ((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == 3)
-                            Dis = RatiionalRegard;
+                            Dis += RatiionalRegard;
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -4896,7 +4958,7 @@ namespace RefrigtzDLL
                 {
 
                     if (Tab[RowS, ColS] == -3)
-                        Dis = RatiionalRegard;
+                        Dis += RatiionalRegard;
 
                     if ((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
@@ -9485,6 +9547,8 @@ namespace RefrigtzDLL
             {
                 if (!Sup)
                 {
+                    TableInitiationPreventionOfMultipleMove[RowDestination, ColumnDestination] ++;
+
                     if (Kind == 1)
                     {
                         Object A4 = new object();
@@ -12083,7 +12147,7 @@ namespace RefrigtzDLL
             //long Time = TimeElapced.TimeNow();Spaces++;
             int Val = 1;
 
-
+            
 
             if (System.Math.Abs(Table[RowS, ColS]) == 1)
             {
