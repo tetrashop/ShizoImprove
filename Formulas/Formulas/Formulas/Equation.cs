@@ -4037,7 +4037,7 @@ namespace Formulas
             Dummy = this.GetAddToTreeNode(Node.RightSideAccess, ref Dummy);
             return Dummy;
         }
-        //System.Threading.Thread XAndY=new System.Threading.Thread(new System.Threading.ThreadStart(this.TransmiteXAndYTraceAtNodes));
+        //Thread XAndY=new Thread(new ThreadStart(this.TransmiteXAndYTraceAtNodes));
         //Call from Equation.
         //ERROR192874984 :InSome Addition of node The Node is not added to current Node.refer to page 139.
         public EquationTrace(Equation THISE, Set SetS)

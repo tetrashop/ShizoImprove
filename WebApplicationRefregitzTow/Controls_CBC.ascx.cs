@@ -78,6 +78,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading;
 using RefrigtzW;
 namespace WebApplicationRefregitzTow
 {
@@ -104,7 +105,7 @@ namespace WebApplicationRefregitzTow
         public bool AStarGreedyHeuristic = false;
 
         bool ArrangmentsChanged = true;
-        System.Threading.Thread t;
+        Thread t;
         /// <summary>
         /// recursively finds a child control of the specified parent.
         /// </summary>
@@ -1142,7 +1143,7 @@ namespace WebApplicationRefregitzTow
                                                                             }
                             }
                         }
-                    //stem.Threading.Thread.Sleep(1000);
+                    //stem.Threading.
              //   }
             //  } while (true);
         }
@@ -1340,7 +1341,7 @@ namespace WebApplicationRefregitzTow
             Panel63.Visible = true;
             Image64.ImageUrl = "Images/WRook.gif";
             UserControlLoad();
-            //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(SetImages));
+            //Thread t = new Thread(new ThreadStart(SetImages));
             //t.Start();
 
         }
@@ -1608,7 +1609,7 @@ namespace WebApplicationRefregitzTow
             else
             {
 
-                t = new System.Threading.Thread(new System.Threading.ThreadStart(UserControlLoad));
+                t = new Thread(new ThreadStart(UserControlLoad));
                 t.Start();
             }
         }

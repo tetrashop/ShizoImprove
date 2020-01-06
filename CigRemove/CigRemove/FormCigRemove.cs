@@ -321,7 +321,7 @@ namespace CigRemove
         }
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            System.Threading.Thread t = new Thread(new ThreadStart(Draw));
+            Thread t = new Thread(new ThreadStart(Draw));
             t.Start();
         }
 

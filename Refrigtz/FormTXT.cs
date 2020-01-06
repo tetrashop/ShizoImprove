@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 namespace Refrigtz
 {
     [Serializable]
     public partial class FormTXT : Form
     {
         RefrigtzDLL.AllDraw D = null;
-        System.Threading.Thread t = null;
+        Thread t = null;
         public FormTXT(RefrigtzDLL.AllDraw TG)
         {
             InitializeComponent();
@@ -1364,7 +1365,7 @@ namespace Refrigtz
                     treeViewRefregitzDraw.Nodes.Clear();
                     CreateTree(D);
                     treeViewRefregitzDraw.Update();
-                    System.Threading.Thread.Sleep(2000);
+                    
                 }
             } while (true);
         }
@@ -1394,12 +1395,12 @@ namespace Refrigtz
             {
                 if (t == null)
                 {
-                    t = new System.Threading.Thread(new System.Threading.ThreadStart(Create));
+                    t = new Thread(new ThreadStart(Create));
                     t.Start();
                 }
                 if (t != null && (!t.IsAlive))
                 {
-                    t = new System.Threading.Thread(new System.Threading.ThreadStart(Create));
+                    t = new Thread(new ThreadStart(Create));
                     t.Start();
                 }
             }

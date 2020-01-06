@@ -102,7 +102,7 @@ namespace Refrigtz
                     //When timer stop sleep and checked for 500 ms.
                     while (Paused)
                     {
-                        System.Threading.Thread.Sleep(800);
+                        
                     };
                     //When timr begin store current time.
                     long t1 = DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000
@@ -111,7 +111,7 @@ namespace Refrigtz
 
                     do
                     {
-                        System.Threading.Thread.Sleep(800);
+                        
                     }
                     //Cal for every 1 second.
                     while (DateTime.Now.Hour * 3600000 + DateTime.Now.Minute * 60000

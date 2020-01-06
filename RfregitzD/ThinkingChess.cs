@@ -73,6 +73,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using LearningMachine;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text;
@@ -10427,7 +10428,7 @@ namespace RefrigtzDLL
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingSoldierbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        void ThinkWait() { do { System.Threading.Thread.Sleep(2); } while (ThinkingAtRun); }
+        void ThinkWait() { do {  } while (ThinkingAtRun); }
         //specific determination for thinking main method
         public void ThinkingSoldier(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -10462,7 +10463,7 @@ namespace RefrigtzDLL
                                 //oSerialiser.Serialize(oStream, newTask);
                                 newTask.Wait();
                                 //oStream.Close();
-                                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
 
                         }
@@ -10539,7 +10540,7 @@ namespace RefrigtzDLL
                                 //oSerialiser.Serialize(oStream, newTask);
                                 newTask.Wait();
                                 //oStream.Close();
-                                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
 
                         }
@@ -10556,7 +10557,7 @@ namespace RefrigtzDLL
                             if (Scop(ii, jj, i, j, 2))
                             {
                                 ThinkingElephantbase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
 
                             ThinkingAtRun = false;
@@ -10874,7 +10875,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
-                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
             Object O1 = new Object();
             lock (O1)
@@ -10887,7 +10888,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
-                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
             Object O2 = new Object();
             lock (O2)
@@ -10900,7 +10901,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
-                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
             Object O3 = new Object();
             lock (O3)
@@ -10913,7 +10914,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
-                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
             Object O4 = new Object();
             lock (O4)
@@ -10926,7 +10927,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
-                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
             Object O5 = new Object();
             lock (O5)
@@ -10939,7 +10940,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
-                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
             Object O6 = new Object();
             lock (O6)
@@ -10952,7 +10953,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
-                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
             Object O7 = new Object();
             lock (O7)
@@ -10965,7 +10966,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait();
                 //oStream.Close();
-                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
@@ -10998,7 +10999,7 @@ namespace RefrigtzDLL
                             }
                         if (Scop(ii, jj, i, j, 4) && System.Math.Abs(TableS[ii, jj]) == 4 && System.Math.Abs(Kind) == 4)
                         {
-                            //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                            //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             Order = ord;
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
@@ -11042,7 +11043,7 @@ namespace RefrigtzDLL
                             }
                         if (Scop(ii, jj, i, j, 4) && System.Math.Abs(TableS[ii, jj]) == 4 && System.Math.Abs(Kind) == 4)
                         {
-                            //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                            //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             Order = ord;
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
@@ -11089,7 +11090,7 @@ namespace RefrigtzDLL
                 Object O = new Object();
                 lock (O)
                 {
-                    //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                    //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                     for (var RowS = 0; RowS < 8; RowS++)
                         for (var ColS = 0; ColS < 8; ColS++)
                         {
@@ -11097,7 +11098,7 @@ namespace RefrigtzDLL
                         }
                     if (Scop(ii, jj, i, j, 5) && System.Math.Abs(TableS[ii, jj]) == 5 && System.Math.Abs(Kind) == 5)
                     {
-                        //System.Threading.Thread ss = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); ss.Start(); ss.Join();
+                        //Thread ss = new Thread(new ThreadStart(ThinkWait)); ss.Start(); ss.Join();
                         Order = ord;
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => MinisterThinkingChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
@@ -11159,7 +11160,7 @@ namespace RefrigtzDLL
             {
                 for (var i = ii - 2; i < ii + 2; i++)
                 {
-                    //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                    //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
 
 
 
@@ -11198,7 +11199,7 @@ namespace RefrigtzDLL
             {
                 for (var i = ii - 2; i < ii + 2; i++)
                 {
-                    //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                    //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
 
 
                     ///Initiate a Local Variables.
@@ -11258,7 +11259,7 @@ namespace RefrigtzDLL
                                 }
                             if (Scop(ii, jj, i, j, 6) && System.Math.Abs(TableS[ii, jj]) == 6 && System.Math.Abs(Kind) == 6)
                             {
-                                //System.Threading.Thread s = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkWait)); s.Start(); s.Join();
+                                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                                 Order = ord;
 
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
@@ -11285,7 +11286,7 @@ namespace RefrigtzDLL
             {
                 if (AllDraw.NumberOfLeafComputation != -1)
                     break;
-                System.Threading.Thread.Sleep(2);
+                
             }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
 
         }
@@ -11562,7 +11563,7 @@ namespace RefrigtzDLL
                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Thinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return;
                 }
-                System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThinkingWaite));
+                Thread t = new Thread(new ThreadStart(ThinkingWaite));
                 t.Start();
                 t.Join();
 
@@ -11573,7 +11574,7 @@ namespace RefrigtzDLL
                 // if (Order == AllDraw.OrderPlate)
                 //  PenRegStrore = false;
 
-                //Thread.Sleep(500);
+                
                 Object O1 = new Object();
                 lock (O1)
                 {

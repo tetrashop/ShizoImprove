@@ -26,6 +26,7 @@ using System.Web;
 using System.Web.UI;
 using System.Media;
 using System.Web.UI.WebControls;
+using System.Threading;
 
 namespace WebApplicationRefregitzTow
 {
@@ -91,7 +92,7 @@ namespace WebApplicationRefregitzTow
                     RefrigtzW.AllDraw.TableListAction.Clear();
                     RefrigtzW.AllDraw.TableListAction.Add(RefrigtzW.FormRefrigtz.Table);
                 }
-                System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(t.Load));
+                Thread tt = new Thread(new ThreadStart(t.Load));
                 tt.Start();
                 while (!RefrigtzW.FormRefrigtz.ReadF) ;
                 PlaceHolder1_Load(sender, e);
@@ -314,7 +315,7 @@ namespace WebApplicationRefregitzTow
           //      while (!RefrigtzW.FormRefrigtz.LoadPlaceHolder && !RefrigtzW.FormRefrigtz.ReadF) ;
             //else
             //{
-              //  System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(UserControlLoad));
+              //  Thread t = new Thread(new ThreadStart(UserControlLoad));
                // t.Start();
                 //while (!RefrigtzW.FormRefrigtz.LoadPlaceHolder) ;
            // }
@@ -341,7 +342,7 @@ namespace WebApplicationRefregitzTow
             if (RefrigtzW.FormRefrigtz.OrderPlate == 1)
                 Label2.Text = "Do Somthing.";
             else
-                Label2.Text = "Thinking...";            //System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(LoadPlaceHolder));
+                Label2.Text = "Thinking...";            //Thread ttt = new Thread(new ThreadStart(LoadPlaceHolder));
             //ttt.Start();
             LoadPlaceHolder();
 
@@ -349,7 +350,7 @@ namespace WebApplicationRefregitzTow
         public void PlaceHolder1_UnLoad(object sender, EventArgs e)
         {
 
-            //System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(LoadPlaceHolder));
+            //Thread ttt = new Thread(new ThreadStart(LoadPlaceHolder));
             //ttt.Start();
 
 

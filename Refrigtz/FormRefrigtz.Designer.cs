@@ -572,7 +572,7 @@ namespace Refrigtz
             this.CheckBoxPredictHuristci.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckBoxPredictHuristci.Location = new System.Drawing.Point(691, 192);
             this.CheckBoxPredictHuristci.Name = "CheckBoxPredictHuristci";
-            this.CheckBoxPredictHuristci.Size = new System.Drawing.Size(97, 17);
+            this.CheckBoxPredictHuristci.Size = new System.Drawing.Size(103, 17);
             this.CheckBoxPredictHuristci.TabIndex = 12;
             this.CheckBoxPredictHuristci.Text = "Predict Heuristic";
             this.CheckBoxPredictHuristci.UseVisualStyleBackColor = true;
@@ -1269,7 +1269,7 @@ namespace Refrigtz
             this.CheckBoxAStarGreedyHeuristic.AutoSize = true;
             this.CheckBoxAStarGreedyHeuristic.Location = new System.Drawing.Point(877, 190);
             this.CheckBoxAStarGreedyHeuristic.Name = "CheckBoxAStarGreedyHeuristic";
-            this.CheckBoxAStarGreedyHeuristic.Size = new System.Drawing.Size(124, 17);
+            this.CheckBoxAStarGreedyHeuristic.Size = new System.Drawing.Size(130, 17);
             this.CheckBoxAStarGreedyHeuristic.TabIndex = 121;
             this.CheckBoxAStarGreedyHeuristic.Text = "AStarGreedy Heuristic";
             this.CheckBoxAStarGreedyHeuristic.UseVisualStyleBackColor = true;

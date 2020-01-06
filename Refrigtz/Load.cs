@@ -113,7 +113,7 @@ namespace Refrigtz
         public FormRefrigtz ttt = null;
         bool Exit = false;
         //Intiate  Global Variables.
-        [field:NonSerialized]
+        [field: NonSerialized]
         Thread tt = null;
         [field: NonSerialized]
         Thread t = null;
@@ -133,28 +133,35 @@ namespace Refrigtz
         }
         //Constructor
         public Load()
-        {
-            //Initaie Global Variables.
+        {      //Initaie Global Variables.
             InitializeComponent();
-            tt = new Thread(new ThreadStart(baseThread));
-            tt.Start();
-            t = new Thread(new ThreadStart(LoadThread));
-            t.Start();
 
+            Object O = new Object();
+            lock (O)
+            {
+                tt = new Thread(new ThreadStart(baseThread));
+                tt.Start();
+                t = new Thread(new ThreadStart(LoadThread));
+                t.Start();
+            }
         }
 
         //Form Load Method Event Handling.
         private void Load_Load(object sender, EventArgs e)
         {
-            if (!Exit)
+            Object O = new Object();
+            lock (O)
             {
-                Exit = true;
-                THIS = this;
-                this.Location = this.PointToScreen(this.Location);
-            }
-            else
-            {
-                Application.Exit();
+                if (!Exit)
+                {
+                    Exit = true;
+                    THIS = this;
+                    this.Location = this.PointToScreen(this.Location);
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
         }
         //Delegate Of Form Close Visibility.
@@ -162,56 +169,61 @@ namespace Refrigtz
 
         public void SetLoadVisible()
         {
-            // InvokeRequired required compares the thread ID of the
-            // calling thread to the thread ID of the creating thread.
-            // If these threads are different, it continue;s true.
-            if (this.InvokeRequired)
-            {
-                try
+            Object O = new Object();
+            lock (O)
+            {   // InvokeRequired required compares the thread ID of the
+                // calling thread to the thread ID of the creating thread.
+                // If these threads are different, it continue;s true.
+                if (this.InvokeRequired)
                 {
+                    try
+                    {
 
-                    SetLoadVisibleCallback d = new SetLoadVisibleCallback(SetLoadVisible);
-                    this.Invoke(new Action(() => this.Hide()));
+                        SetLoadVisibleCallback d = new SetLoadVisibleCallback(SetLoadVisible);
+                        this.Invoke(new Action(() => this.Hide()));
+                    }
+                    catch (Exception t) { Log(t); }
                 }
-                catch (Exception t) { Log(t); }
-            }
-            else
-            {
-                try
+                else
                 {
-                    this.Hide();
+                    try
+                    {
+                        this.Hide();
+                    }
+                    catch (Exception t) { Log(t); }
                 }
-                catch (Exception t) { Log(t); }
-            }
 
+            }
         }
         //Delegate Of Form Close Visibility.
         delegate void SetCloseVisibleCallback();
 
         public void SetCloseVisible()
         {
-            // InvokeRequired required compares the thread ID of the
-            // calling thread to the thread ID of the creating thread.
-            // If these threads are different, it continue;s true.
-            if (this.InvokeRequired)
-            {
-                try
+            Object O = new Object();
+            lock (O)
+            {   // InvokeRequired required compares the thread ID of the
+                // calling thread to the thread ID of the creating thread.
+                // If these threads are different, it continue;s true.
+                if (this.InvokeRequired)
                 {
+                    try
+                    {
 
-                    SetCloseVisibleCallback d = new SetCloseVisibleCallback(SetCloseVisible);
-                    this.Invoke(new Action(() => this.Close()));
+                        SetCloseVisibleCallback d = new SetCloseVisibleCallback(SetCloseVisible);
+                        this.Invoke(new Action(() => this.Close()));
+                    }
+                    catch (Exception t) { Log(t); }
                 }
-                catch (Exception t) { Log(t); }
-            }
-            else
-            {
-                try
+                else
                 {
-                    this.Close();
+                    try
+                    {
+                        this.Close();
+                    }
+                    catch (Exception t) { Log(t); }
                 }
-                catch (Exception t) { Log(t); }
             }
-
         }
         //Task Load Loop On Waiting Load.
         void LoadThread()
@@ -221,7 +233,7 @@ namespace Refrigtz
             {
                 do
                 {
-                    System.Threading.Thread.Sleep(2);
+
                 } while (!FormRefrigtz.LoadedTable);
 
                 SetLoadVisible();
@@ -230,11 +242,15 @@ namespace Refrigtz
         //base Task Load.
         void baseThread()
         {
-            //Initiate Task.
-            ttt = new FormRefrigtz(false);
-            ttt.Sec.ShowDialog();
-            ttt.ShowDialog();
-            Process.GetCurrentProcess().Kill();
+            Object O = new Object();
+            lock (O)
+            {    //Initiate Task.
+                ttt = new FormRefrigtz(false);
+                ttt.Sec.ShowDialog();
+                ttt.ShowDialog();
+                Process.GetCurrentProcess().Kill();
+
+            }
         }
 
         private void ProgressBar1_Click(object sender, EventArgs e)

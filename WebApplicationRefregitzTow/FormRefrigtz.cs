@@ -399,7 +399,7 @@ namespace RefrigtzW
             do
             {
                 //while (!StateCC && !StateCP && !StateGe)
-                Thread.Sleep(50);
+                
                 Refrigtz.Timer.AStarGreadyFirstSearch = AllDraw.AStarGreadyFirstSearch;
                 Refrigtz.Timer.AStarGreedytiLevelMax = AllDraw.AStarGreedyiLevelMax;
                 Refrigtz.Timer.UseDoubleTime = AllDraw.UseDoubleTime;
@@ -1315,7 +1315,7 @@ namespace RefrigtzW
             do
             {
                 ArrangmentsChanged = true;
-                System.Threading.Thread.Sleep(30);
+                
             } while (true);
         }
         public void Load()
@@ -1365,7 +1365,7 @@ namespace RefrigtzW
             //GC.WaitForPendingFinalizers();
             LoadPlaceHolder = true;
             // ttt.LoadPlaceHolder(); 
-            System.Threading.Thread.Sleep(3000);
+            
             do
             {
                 AllDraw.Root = Root;
@@ -1465,7 +1465,7 @@ namespace RefrigtzW
                         //t1.Abort();
                         //  while (ThinkingA)
                         //{
-                        //  Thread.Sleep(1000);
+                        //  
                         //}
                         LoadPlaceHolder = true;
                         FormRefrigtz.ThinkingA = false;
@@ -1511,7 +1511,7 @@ namespace RefrigtzW
         {
             do
             {
-                Thread.Sleep(100);
+                
             } while (Clicked);
         }
         int[,] CloneATable(int[,] Tab)
