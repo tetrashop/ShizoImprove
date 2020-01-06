@@ -4803,134 +4803,62 @@ namespace Refrigtz
                         if (a.Count > 1)
                         {
 
-                            if (System.Windows.Forms.MessageBox.Show(null, "New Instant Of Refregitz!", "New Instant", MessageBoxButtons.YesNo) == DialogResult.No)
+                            Object OOooo = new Object();
+                            lock (OOooo)
                             {
-
-                                for (int i = 0; i < a.Count; i++)
+                                if (System.Windows.Forms.MessageBox.Show(null, "New Instant Of Refregitz!", "New Instant", MessageBoxButtons.YesNo) == DialogResult.No)
                                 {
-                                    try
-                                    {
 
-                                        a[i].Kill();
-                                        ExitToolStripMenuItem_Click(sender, e);
+                                    for (int i = 0; i < a.Count; i++)
+                                    {
+                                        try
+                                        {
+
+                                            a[i].Kill();
+                                            ExitToolStripMenuItem_Click(sender, e);
+                                        }
+                                        catch (Exception t) { Log(t); Application.ExitThread(); }
+
                                     }
-                                    catch (Exception t) { Log(t); Application.ExitThread(); }
 
                                 }
-
                             }
                         }
                     }
                     //When direcrories not exist.
-                    if (!Directory.Exists(Root + "\\Database"))
+                    Object ooo = new Object();
+                    lock (ooo)
                     {
-                        if (!Directory.Exists(Root + "\\Database\\MainBank"))
+                        if (!Directory.Exists(Root + "\\Database"))
                         {
-                            Directory.CreateDirectory(Root + "\\Database\\MainBank");
-                            File.Move(Root + "\\ChessBank.accdb", Root + "\\Database\\MainBank\\ChessBank.accdb");
+                            if (!Directory.Exists(Root + "\\Database\\MainBank"))
+                            {
+                                Directory.CreateDirectory(Root + "\\Database\\MainBank");
+                                File.Move(Root + "\\ChessBank.accdb", Root + "\\Database\\MainBank\\ChessBank.accdb");
+                            }
+                        }
+                        if (!Directory.Exists(Root + "\\Images"))
+                        {
+                            if (!Directory.Exists(Root + "\\Images\\Original"))
+                            {
+                                Directory.CreateDirectory(Root + "\\Images\\Original");
+                            }
                         }
                     }
-                    if (!Directory.Exists(Root + "\\Images"))
-                    {
-                        if (!Directory.Exists(Root + "\\Images\\Original"))
-                        {
-                            Directory.CreateDirectory(Root + "\\Images\\Original");
-                        }
-                    }
-
                     //When file dos't exist.
-                    if (!AllDrawLoad)
+                    Object ooooo = new Object();
+                    lock (ooooo)
                     {
-                        if (!System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                        if (!AllDrawLoad)
                         {
-                            System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
-                            if (!File.Exists(Root + "\\Database\\Monitor.html"))
-                                System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
-                            if (File.Exists("List.txt"))
-                                File.Delete("List.txt");
-
-                            try
+                            if (!System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
                             {
-                                if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
-                                {
-                                    if (bookConn != null)
-                                        bookConn.Close();
-                                    bookConn = new OleDbConnection(connParam);
-                                    oleDbCmd.Connection = bookConn;
-                                    bookConn.Open();
+                                System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
+                                if (!File.Exists(Root + "\\Database\\Monitor.html"))
+                                    System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
+                                if (File.Exists("List.txt"))
+                                    File.Delete("List.txt");
 
-                                }
-                            }
-                            catch (FileNotFoundException t)
-                            {
-                                Log(t);
-
-                            }
-
-                            InsertTableAtDatabase(Table);
-                            CreateConfigurationTable();
-                            SetAllDrawKind();
-
-                            //Set Configuration To True for some unknown reason!.
-                            //UpdateConfigurationTableVal = true;                             
-                            SetAllDrawKindString();
-                            if (FDrawMangement)
-                            {
-                                if (!Quantum)
-                                    RefrigtzDLL.AllDraw.FirstTraversalTree = false;
-                                else
-                                    QuantumRefrigiz.AllDraw.FirstTraversalTree = false;
-                            }
-                            if (DrawManagement())
-                            {
-                                //Load AllDraw.asd
-                                if (!Quantum)
-                                    DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                                else
-                                    DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-
-                            }
-                            else
-                            {
-                                if (!Quantum)
-                                {
-
-                                    Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                                    Draw.TableList.Clear();
-                                    Draw.TableList.Add(CloneATable(Table));
-                                    Draw.SetRowColumn(0);
-                                    RefrigtzDLL.AllDraw.DepthIterative = 0;
-                                    y.t = Draw;
-
-                                }
-                                else
-                                {
-
-                                    DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                                    DrawQ.TableList.Clear();
-                                    DrawQ.TableList.Add(Table);
-                                    DrawQ.SetRowColumn(0);
-                                    QuantumRefrigiz.AllDraw.DepthIterative = 0;
-                                    y.tt = DrawQ;
-                                }
-                                y.Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-
-                                DrawManagement();
-
-                                if (!Quantum)
-                                    DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                                else
-                                    DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-
-
-                            }
-
-                        }
-                        else
-                        {
-                            //When movments not occured.
-                            if (!NewTable)
-                            {
                                 try
                                 {
                                     if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
@@ -4947,23 +4875,22 @@ namespace Refrigtz
                                 {
                                     Log(t);
 
-                                } //UpdateConfigurationTableVal = false;
+                                }
 
-                                //When Configuration is Allowed Read Configuration.
-                                ReadConfigurationTable();
-
+                                InsertTableAtDatabase(Table);
+                                CreateConfigurationTable();
                                 SetAllDrawKind();
 
                                 //Set Configuration To True for some unknown reason!.
                                 //UpdateConfigurationTableVal = true;                             
                                 SetAllDrawKindString();
-
-
-                                //Read Last Table and Set MovementNumber 
-                                Table = ReadTable(0, ref MovmentsNumber);
-                                //OrderPlate *= -1;
-
-
+                                if (FDrawMangement)
+                                {
+                                    if (!Quantum)
+                                        RefrigtzDLL.AllDraw.FirstTraversalTree = false;
+                                    else
+                                        QuantumRefrigiz.AllDraw.FirstTraversalTree = false;
+                                }
                                 if (DrawManagement())
                                 {
                                     //Load AllDraw.asd
@@ -4977,14 +4904,15 @@ namespace Refrigtz
                                 {
                                     if (!Quantum)
                                     {
+
                                         Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                         Draw.TableList.Clear();
                                         Draw.TableList.Add(CloneATable(Table));
                                         Draw.SetRowColumn(0);
                                         RefrigtzDLL.AllDraw.DepthIterative = 0;
                                         y.t = Draw;
-                                    }
 
+                                    }
                                     else
                                     {
 
@@ -4997,6 +4925,8 @@ namespace Refrigtz
                                     }
                                     y.Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
 
+                                    DrawManagement();
+
                                     if (!Quantum)
                                         DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                     else
@@ -5004,100 +4934,184 @@ namespace Refrigtz
 
 
                                 }
+
                             }
                             else
                             {
-
-                                int iii = 0;
-                                do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
-                                System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
-                                System.IO.File.Copy(Root + "\\Database\\Monitor.html", Root + "\\Database\\Games\\Monitor" + iii.ToString() + ".html");
-                                System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
-                                System.IO.File.Delete(Root + "\\Database\\Monitor.html");
-                                System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
-                                System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
-                                try
+                                //When movments not occured.
+                                if (!NewTable)
                                 {
-                                    if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                                    try
                                     {
-                                        if (bookConn != null)
-                                            bookConn.Close();
-                                        bookConn = new OleDbConnection(connParam);
-                                        oleDbCmd.Connection = bookConn;
-                                        bookConn.Open();
-                                        InsertTableAtDatabase(Table);
-                                        CreateConfigurationTable();
+                                        if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                                        {
+                                            if (bookConn != null)
+                                                bookConn.Close();
+                                            bookConn = new OleDbConnection(connParam);
+                                            oleDbCmd.Connection = bookConn;
+                                            bookConn.Open();
 
-                                        SetAllDrawKind();
+                                        }
+                                    }
+                                    catch (FileNotFoundException t)
+                                    {
+                                        Log(t);
 
-                                        //Set Configuration To True for some unknown reason!.
-                                        //UpdateConfigurationTableVal = true;                             
-                                        SetAllDrawKindString();
+                                    } //UpdateConfigurationTableVal = false;
 
+                                    //When Configuration is Allowed Read Configuration.
+                                    ReadConfigurationTable();
+
+                                    SetAllDrawKind();
+
+                                    //Set Configuration To True for some unknown reason!.
+                                    //UpdateConfigurationTableVal = true;                             
+                                    SetAllDrawKindString();
+
+
+                                    //Read Last Table and Set MovementNumber 
+                                    Table = ReadTable(0, ref MovmentsNumber);
+                                    //OrderPlate *= -1;
+
+
+                                    if (DrawManagement())
+                                    {
+                                        //Load AllDraw.asd
+                                        if (!Quantum)
+                                            DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+                                        else
+                                            DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+
+                                    }
+                                    else
+                                    {
                                         if (!Quantum)
                                         {
-                                            FOUND = false;
-                                            RefrigtzDLL.AllDraw THIS = null;
-                                            SetDrawFounding(ref FOUND, ref THIS, true);
-                                        }
-                                        else
-                                        {
-                                            FOUND = false;
-                                            QuantumRefrigiz.AllDraw THIS = null;
-                                            SetDrawFounding(ref FOUND, ref THIS, true);
+                                            Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+                                            Draw.TableList.Clear();
+                                            Draw.TableList.Add(CloneATable(Table));
+                                            Draw.SetRowColumn(0);
+                                            RefrigtzDLL.AllDraw.DepthIterative = 0;
+                                            y.t = Draw;
                                         }
 
-                                        if (DrawManagement())
-                                        {
-                                            //Load AllDraw.asd
-                                            if (!Quantum)
-                                                DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                                            else
-                                                DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-
-                                        }
                                         else
                                         {
+
+                                            DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+                                            DrawQ.TableList.Clear();
+                                            DrawQ.TableList.Add(Table);
+                                            DrawQ.SetRowColumn(0);
+                                            QuantumRefrigiz.AllDraw.DepthIterative = 0;
+                                            y.tt = DrawQ;
+                                        }
+                                        y.Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+
+                                        if (!Quantum)
+                                            DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+                                        else
+                                            DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+
+
+                                    }
+                                }
+                                else
+                                {
+
+                                    int iii = 0;
+                                    do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
+                                    System.IO.File.Copy(Root + "\\Database\\CurrentBank.accdb", Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb");
+                                    System.IO.File.Copy(Root + "\\Database\\Monitor.html", Root + "\\Database\\Games\\Monitor" + iii.ToString() + ".html");
+                                    System.IO.File.Delete(Root + "\\Database\\CurrentBank.accdb");
+                                    System.IO.File.Delete(Root + "\\Database\\Monitor.html");
+                                    System.IO.File.Copy(Root + "\\Database\\MainBank\\ChessBank.accdb", Root + "\\Database\\CurrentBank.accdb");
+                                    System.IO.File.Copy(Root + "\\Database\\MainBank\\Monitor_Log.html", Root + "\\Database\\Monitor.html");
+                                    try
+                                    {
+                                        if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
+                                        {
+                                            if (bookConn != null)
+                                                bookConn.Close();
+                                            bookConn = new OleDbConnection(connParam);
+                                            oleDbCmd.Connection = bookConn;
+                                            bookConn.Open();
+                                            InsertTableAtDatabase(Table);
+                                            CreateConfigurationTable();
 
                                             SetAllDrawKind();
+
                                             //Set Configuration To True for some unknown reason!.
                                             //UpdateConfigurationTableVal = true;                             
                                             SetAllDrawKindString();
-                                            y.Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+
+                                            if (!Quantum)
+                                            {
+                                                FOUND = false;
+                                                RefrigtzDLL.AllDraw THIS = null;
+                                                SetDrawFounding(ref FOUND, ref THIS, true);
+                                            }
+                                            else
+                                            {
+                                                FOUND = false;
+                                                QuantumRefrigiz.AllDraw THIS = null;
+                                                SetDrawFounding(ref FOUND, ref THIS, true);
+                                            }
+
+                                            if (DrawManagement())
+                                            {
+                                                //Load AllDraw.asd
+                                                if (!Quantum)
+                                                    DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+                                                else
+                                                    DrawDrawen = y.Load(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+
+                                            }
+                                            else
+                                            {
+
+                                                SetAllDrawKind();
+                                                //Set Configuration To True for some unknown reason!.
+                                                //UpdateConfigurationTableVal = true;                             
+                                                SetAllDrawKindString();
+                                                y.Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
+                                            }
                                         }
+
                                     }
+                                    catch (FileNotFoundException t)
+                                    {
+                                        Log(t);
 
-                                }
-                                catch (FileNotFoundException t)
-                                {
-                                    Log(t);
-
+                                    }
                                 }
                             }
+
+                            //Set Level Variable from selection.
+                            ComboBoxMaxLevelText = ComboBoxMaxLevel.Text;
+
+
+
+
                         }
 
-                        //Set Level Variable from selection.
-                        ComboBoxMaxLevelText = ComboBoxMaxLevel.Text;
-
-
-
-
                     }
 
-
-
-                    if (File.Exists(Root + "\\Run.txt"))
+                    Object oooo = new Object();
+                    lock (oooo)
                     {
-                        String _0 = File.ReadAllText(Root + "\\Run.txt");
-                        if (_0[0] == '1') _1 = true; else _1 = false;
-                        if (_0[1] == '1') _2 = true; else _2 = false;
-                        if (_0[2] == '1') _3 = true; else _3 = false;
-                        if (_0[3] == '1') _4 = true; else _4 = false;
-                        File.Delete(Root + "Run.txt");
-                        ContinueAGameToolStripMenuItem.Visible = false; if (_1) { ComputerWithComputerToolStripMenuItem_Click(sender, e); } else if (_2) { ComputerWithComputerToolStripMenuItem1_Click(sender, e); } else if (_3) { ToolStripMenuItem3_Click(sender, e); } else if (_4) { ToolStripMenuItem6_Click(sender, e); }
+                        if (File.Exists(Root + "\\Run.txt"))
+                        {
+                            String _0 = File.ReadAllText(Root + "\\Run.txt");
+                            if (_0[0] == '1') _1 = true; else _1 = false;
+                            if (_0[1] == '1') _2 = true; else _2 = false;
+                            if (_0[2] == '1') _3 = true; else _3 = false;
+                            if (_0[3] == '1') _4 = true; else _4 = false;
+                            File.Delete(Root + "Run.txt");
+                            ContinueAGameToolStripMenuItem.Visible = false; if (_1) { ComputerWithComputerToolStripMenuItem_Click(sender, e); } else if (_2) { ComputerWithComputerToolStripMenuItem1_Click(sender, e); } else if (_3) { ToolStripMenuItem3_Click(sender, e); } else if (_4) { ToolStripMenuItem6_Click(sender, e); }
+
+                        }
 
                     }
-
 
                     //Loaded = true;
                     LoadedDLL = true;
@@ -5263,11 +5277,11 @@ namespace Refrigtz
 
 
 
-                    var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                    DrawImageOfMain();
 
 
-                    SetPrictureBoxRefregitzInvalidate(PictureBoxTimerBrown);
-                    SetPrictureBoxRefregitzUpdate(PictureBoxTimerBrown);
+                   // SetPrictureBoxRefregitzInvalidate(PictureBoxTimerBrown);
+                    //SetPrictureBoxRefregitzUpdate(PictureBoxTimerBrown);
 
                     if (Quantum)
                     {
@@ -5305,8 +5319,8 @@ namespace Refrigtz
                 Thread tNewGame = new Thread(new ThreadStart(NewGame));
                 tNewGame.Start();
 
-                SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
-                SetPrictureBoxRefregitzUpdate(PictureBoxRefrigtz);
+                //SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
+                //(PictureBoxRefrigtz);
 
                 LoadedTable = true;
             }
@@ -7229,7 +7243,7 @@ namespace Refrigtz
                                Log(t);
                            }
                        }*/
-                // var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                // DrawImageOfMain();
                 if (!Quantum)
                 {
                     if (Kind == 7)
@@ -9532,7 +9546,7 @@ namespace Refrigtz
                         return false;
                     }
                 //if (RefrigtzDLL.AllDraw.MouseClick == 2)
-                var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                DrawImageOfMain();
 
                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
 
@@ -13446,7 +13460,7 @@ namespace Refrigtz
                             // OrderPlate *= -1;
 
                             //Draw.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                            var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                            DrawImageOfMain();
 
                             return false;
 
@@ -13572,7 +13586,7 @@ namespace Refrigtz
                                 return true;
                             }
                             //DrawQ.SolderesOnTable[Soldier].DrawSoldierOnTable(ref g, PictureBoxRefrigtz.Image.Width / 8, PictureBoxRefrigtz.Image.Height / 8);
-                            var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                            DrawImageOfMain();
                             Clicked = false;
 
                             return false;
@@ -13774,7 +13788,7 @@ namespace Refrigtz
                 SetBoxTextWrite(Out);
 
 
-                var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                DrawImageOfMain();
 
                 BobSection = true;
             }
@@ -13830,7 +13844,7 @@ namespace Refrigtz
                 SetBoxTextWrite(Out);
 
 
-                var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                DrawImageOfMain();
 
             }
         }
@@ -14685,7 +14699,7 @@ namespace Refrigtz
                     else
                         QuantumRefrigiz.AllDraw.DrawTable = true;
 
-                    //var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                    //DrawImageOfMain();
 
 
                     SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
@@ -14768,7 +14782,7 @@ namespace Refrigtz
                     else
                         QuantumRefrigiz.AllDraw.DrawTable = true;
 
-                    //var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                    //DrawImageOfMain();
 
 
                     SetPrictureBoxRefregitzInvalidate(PictureBoxRefrigtz);
@@ -16562,7 +16576,7 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                var array = Task.Factory.StartNew(() => DrawImageOfMain()); array.Wait();
+                DrawImageOfMain();
 
                 try
                 {
