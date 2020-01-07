@@ -14292,11 +14292,8 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                if (!Quantum)
-                    while (!AllDrawLoad || RefrigtzDLL.AllDraw.TableListAction.Count == 0 || (!MenueSelecte)) { }
-                else
-                    while (!AllDrawLoad || QuantumRefrigiz.AllDraw.TableListAction.Count == 0 || (!MenueSelecte)) { }
-
+                while ((!AllDrawLoad) &&( RefrigtzDLL.AllDraw.TableListAction.Count == 0) || (!MenueSelecte)) { }
+          
             }
 
         }

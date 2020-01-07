@@ -2520,40 +2520,103 @@ namespace RefrigtzW
 
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingSafety:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        int HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
+        int HeuristicKingPreventionOfCheckedAtBegin(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
             )
         {
             Object O3 = new Object();
             lock (O3)
             {
                 int HA = 0;
-                int[,] Table = CloneATable(Tab);
-                ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[RowD, ColD], CloneATable(Table), Order * -1, RowD, ColD);
-                A.ObjectDangourKingMove(Order, Table);
-                Table = CloneATable(Tab);
-                A.ObjectDangourKingMove(Order, Table);
-
-                int[,] Table1 = new int[8, 8];
-
-                //When Situation Observed Take Situation calcualte Heuristic.
-                Object O4 = new Object();
-                lock (O4)
+                int[,] Tabl = CloneATable(Tab);
+                if (Tabl[RowS, ColS] != 0)
                 {
-                    if (Order == -1 && A.CheckGrayObjectDangour)
-                        HA +=// AllDraw.SignKingDangour *
-                        (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
-                    else
-                        if (Order == 1 && A.CheckBrownObjectDangour)
-                        HA +=// AllDraw.SignKingDangour *
-                        (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                    Tabl[RowD, ColD] = Tabl[RowS, ColS];
+                    Tabl[RowS, ColS] = 0;
 
+                    ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Tab), Order, RowD, ColD);
+                    A.CheckMate(Tabl, Order);
+                    if (!(A.CheckMateGray || A.CheckMateBrown))
+                    {
+                        if (A.CheckGray || A.CheckBrown)
+                        {
+                            HA += RatiionalPenalty;
+                        }
+                    }
+
+                    if (Order == 1)
+                    {
+                        if (A.CheckMateGray)
+                            HA += RatiionalPenalty;
+                        else
+                        if (A.CheckMateBrown)
+                            HA += RatiionalRegard;
+
+                    }
+                    else
+                    {
+                        if (A.CheckMateGray)
+                            HA += RatiionalRegard;
+                        else
+             if (A.CheckMateBrown)
+                            HA += RatiionalPenalty;
+                    }
 
                 }
+                else
+                {
+                    ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Tab), Order, RowD, ColD);
+                    A.CheckMate(Tabl, Order);
+
+                    if (A.CheckGray || A.CheckBrown)
+                    {
+                        HA += RatiionalRegard;
+                    }
+
+                    if (Order == 1)
+                    {
+                        if (A.CheckMateGray)
+                            HA += RatiionalPenalty;
+                        else
+                        if (A.CheckMateBrown)
+                            HA += RatiionalRegard;
+
+                    }
+                    else
+                    {
+                        if (A.CheckMateGray)
+                            HA += RatiionalRegard;
+                        else
+             if (A.CheckMateBrown)
+                            HA += RatiionalPenalty;
+                    }
+                }
+                /*  int[,] Table = CloneATable(Tab);
+                    ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[RowD, ColD], CloneATable(Table), Order * -1, RowD, ColD);
+                    A.ObjectDangourKingMove(Order, Table);
+                    Table = CloneATable(Tab);
+                    A.ObjectDangourKingMove(Order, Table);
+
+                    int[,] Table1 = new int[8, 8];
+
+                    //When Situation Observed Take Situation calcualte Heuristic.
+                    Object O4 = new Object();
+                    lock (O4)
+                    {
+                        if (Order == -1 && A.CheckGrayObjectDangour)
+                            HA +=// AllDraw.SignKingDangour *
+                            (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
+                        else
+                            if (Order == 1 && A.CheckBrownObjectDangour)
+                            HA +=// AllDraw.SignKingDangour *
+                            (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
 
 
+                    }
+
+                    */
                 return HA;
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingDangourous:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingPreventionOfCheckedAtBegin:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Heuristic of Supportation.
         int HeuristicSelfSupported(int[,] Tab, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
@@ -10118,7 +10181,7 @@ namespace RefrigtzW
                  lock (O)
                  {
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[3] = HeuristicKingDangourous(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
+                     HuriisticRemain[3] = HeuristicKingPreventionOfCheckedAtBegin(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
                      , CurrentAStarGredyMax);
                  }
              }

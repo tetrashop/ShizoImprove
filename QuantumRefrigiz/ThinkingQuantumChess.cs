@@ -2534,135 +2534,83 @@ namespace QuantumRefrigiz
 
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingSafety:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        int HeuristicKingDangourous(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
+        int HeuristicKingPreventionOfCheckedAtBegin(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
             )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            /*Object O = new Object();
-            lock (O)
-            {
-                int HeuristicKingDangour = 0;
-                int HA = 0;
-                //For Self.
-                //for (var RowS = 0; RowS < 8; RowS++)
-                ////Parallel.For(0, 8, RowS =>
-                {
-                    ////Parallel.For(0, 8, ColS =>
-                    //for (var ColS = 0; ColS < 8; ColS++)
-                    {
-                        //Ignore of Enemy and Empty.
-                        if (Order == 1 && Tab[RowS, ColS] <= 0)
-                            return 0;
-                        if (Order == -1 && Tab[RowS, ColS] >= 0)
-                            return 0;
-                        ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
-                        //For Enemy and Empty.
-                        ////Parallel.For(0, 8, RowD =>
-                        //for (int RowD = 0; RowD < 8; RowD++)
-                        {
-                            ////Parallel.For(0, 8, ColD =>
-                            //for (int ColD = 0; ColD < 8; ColD++)
-                            {
-                                //Ignore of Self.
-                                if (Order == 1 && Tab[RowD, ColD] > 0)
-                                    return 0;
-                                if (Order == -1 && Tab[RowD, ColD] < 0)
-                                    return 0;
-                                int[,] Table = new int[8, 8];
-                                //Clone a Copy.
-                                for (int ij = 0; ij < 8; ij++)
-                                {
-                                    for (int ji = 0; ji < 8; ji++)
-                                    {
-                                        Object O2 = new Object();
-                                        lock (O2)
-                                        {
-                                            Table[ij, ji] = Tab[ij, ji];
-                                        }
-                                    }
-                                }
-                                Color AA = Color.Gray;
-                                if (Order == -1)
-                                    AA = Color.Brown;
-                                //When Self Move
-                                if (A.Rules(RowS, ColS, RowD, ColD, AA, Table[RowS, ColS]))
-                                {
-                                    //Take Mo0vment
-                                    Object O2 = new Object();
-                                    lock (O2)
-                                    {
-                                        Table[RowD, ColD] = Table[RowS, ColS];
-                                        Table[RowS, ColS] = 0;
-                                    }
-                                    //The Move is Dqangrous.
-                                    Object O3 = new Object();
-                                    lock (O3)
-                                    {
-                                        //if (A.ObjectDangourKingMove(Order, CloneATable(Table), false))
-                                        A.ObjectDangourKingMove(Order, CloneATable(Table), false);
-                                        {
-                                            int[,] Table1 = new int[8, 8];
-                                            //Clone a Copy.
-
-                                            for (int ij = 0; ij < 8; ij++)
-                                            {
-                                                for (int ji = 0; ji < 8; ji++)
-                                                {
-                                                    Object OO2 = new Object();
-                                                    lock (OO2)
-                                                    {
-                                                        Table[ij, ji] = Tab[ij, ji];
-                                                    }
-                                                }
-                                            }
-                                            //When Situation Observed Take Situation calcualte Heuristic.
-                                            Object O4 = new Object();
-                                            lock (O4)
-                                            {
-                                                if (Order == -1 && A.CheckGrayObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
-                                                else
-                                                    if (Order == 1 && A.CheckBrownObjectDangour)
-                                                    HA += AllDraw.SignKingDangour * (ObjectValueCalculator(Table1,RowS,ColS,RowD,ColD));
-
-
-                                            }
-
-                                        }
-                                    }
-                                }
-                            }//);
-                        }//);
-                    }//);
-                }//);
-                //For Order Sign.
-                HeuristicKingDangour += HA * 1;
-                return HeuristicKingDangour;
-            }*/
-            int[,] Table = new int[8, 8];
-
-            for (int ij = 0; ij < 8; ij++)
-            {
-                for (int ji = 0; ji < 8; ji++)
-                {
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        Table[ij, ji] = Tab[ij, ji];
-                    }
-                }
-            }
-            ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
-
-            int HA = 0;
             Object O3 = new Object();
             lock (O3)
             {
-                //if (A.ObjectDangourKingMove(Order, CloneATable(Table), false))
-                A.ObjectDangourKingMove(Order, Table);
+                int HA = 0;
+                int[,] Tabl = CloneATable(Tab);
+                if (Tabl[RowS, ColS] != 0)
                 {
+                    Tabl[RowD, ColD] = Tabl[RowS, ColS];
+                    Tabl[RowS, ColS] = 0;
+
+                    ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Tab), Order, RowD, ColD);
+                    A.CheckMate(Tabl, Order);
+
+                    if (!(A.CheckMateGray || A.CheckMateBrown))
+                    {
+                        if (A.CheckGray || A.CheckBrown)
+                        {
+                            HA += RatiionalPenalty;
+                        }
+                    }
+                    if (Order == 1)
+                    {
+                        if (A.CheckMateGray)
+                            HA += RatiionalPenalty;
+                        else
+                        if (A.CheckMateBrown)
+                            HA += RatiionalRegard;
+
+                    }
+                    else
+                    {
+                        if (A.CheckMateGray)
+                            HA += RatiionalRegard;
+                        else
+             if (A.CheckMateBrown)
+                            HA += RatiionalPenalty;
+                    }
+
+                }
+                else
+                {
+                    ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowD, ColD], CloneATable(Tab), Order, RowD, ColD);
+                    A.CheckMate(Tabl, Order);
+
+                    if (A.CheckGray || A.CheckBrown)
+                    {
+                        HA += RatiionalRegard;
+                    }
+
+                    if (Order == 1)
+                    {
+                        if (A.CheckMateGray)
+                            HA += RatiionalPenalty;
+                        else
+                        if (A.CheckMateBrown)
+                            HA += RatiionalRegard;
+
+                    }
+                    else
+                    {
+                        if (A.CheckMateGray)
+                            HA += RatiionalRegard;
+                        else
+             if (A.CheckMateBrown)
+                            HA += RatiionalPenalty;
+                    }
+                }
+                /*  int[,] Table = CloneATable(Tab);
+                    ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[RowD, ColD], CloneATable(Table), Order * -1, RowD, ColD);
+                    A.ObjectDangourKingMove(Order, Table);
+                    Table = CloneATable(Tab);
+                    A.ObjectDangourKingMove(Order, Table);
+
                     int[,] Table1 = new int[8, 8];
-                    //Clone a Copy.
 
                     //When Situation Observed Take Situation calcualte Heuristic.
                     Object O4 = new Object();
@@ -2679,10 +2627,10 @@ namespace QuantumRefrigiz
 
                     }
 
-                }
+                    */
+                return HA;
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingDangourous:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            return HA;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingPreventionOfCheckedAtBegin:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Heuristic of Supportation.
         int HeuristicSelfSupported(int[,] Tab, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
@@ -10256,7 +10204,7 @@ namespace QuantumRefrigiz
                  lock (O)
                  {
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[3] = HeuristicKingDangourous(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
+                     HuriisticRemain[3] = HeuristicKingPreventionOfCheckedAtBegin(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
                      , CurrentAStarGredyMax);
                  }
              }
