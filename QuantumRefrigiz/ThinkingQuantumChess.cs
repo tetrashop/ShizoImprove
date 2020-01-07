@@ -4726,6 +4726,83 @@ namespace QuantumRefrigiz
                 return Is;
             }
         }
+        bool IsMinisterOrElephantBecomeActive(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
+        {
+            bool Is = false;
+            const int ElephantGray = 2, ElephantBrown = -2;
+            const int MinisterGray = 2, MinisterBrown = -2;
+            if (Order == 1)
+            {
+                if (Table[2, 0] == ElephantGray)
+                {
+                    if (RowS == 1 && ColS == 1)
+                        Is = true;
+                    if (RowS == 3 && ColS == 1)
+                        Is = true;
+                }
+                if (Table[5, 0] == ElephantGray)
+                {
+                    if (RowS == 4 && ColS == 1)
+                        Is = true;
+                    if (RowS == 6 && ColS == 1)
+                        Is = true;
+                }
+                if (Table[3, 0] == MinisterGray)
+                {
+                    if (RowS == 2 && ColS == 1)
+                        Is = true;
+                    if (RowS == 3 && ColS == 1)
+                        Is = true;
+                    if (RowS == 4 && ColS == 1)
+                        Is = true;
+                }
+
+            }
+            else
+            {
+                if (Table[2, 7] == ElephantBrown)
+                {
+                    if (RowS == 1 && ColS == 6)
+                        Is = true;
+                    if (RowS == 3 && ColS == 6)
+                        Is = true;
+                }
+                if (Table[5, 7] == ElephantBrown)
+                {
+                    if (RowS == 4 && ColS == 6)
+                        Is = true;
+                    if (RowS == 6 && ColS == 6)
+                        Is = true;
+                }
+                if (Table[3, 7] == MinisterBrown)
+                {
+                    if (RowS == 2 && ColS == 6)
+                        Is = true;
+                    if (RowS == 3 && ColS == 6)
+                        Is = true;
+                    if (RowS == 4 && ColS == 6)
+                        Is = true;
+                }
+            }
+            return Is;
+        }
+        bool IsContorlCenter(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
+        {
+            bool Is = false;
+
+            const int ControlF = 3, ControlS = 4;
+
+            if ((RowD == ControlF || RowD == ControlS || ColD == ControlF || ColD == ControlS))
+            {
+                if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                    Is = true;
+                if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                    Is = true;
+            }
+            return Is;
+
+        }
+
         ///Heuristic of Check and CheckMate.
         public int HeuristicCheckAndCheckMate(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
         {
@@ -4743,6 +4820,15 @@ namespace QuantumRefrigiz
                 {
                     HA += SimpleMate_Three_And_Four(RowS, ColS, RowD, ColD, Table, a);
                 }
+                if (IsContorlCenter(RowS, ColS, RowD, ColD, CloneATable(Table), a))
+                {
+                    HA += RatiionalRegard;
+                }
+                if (IsMinisterOrElephantBecomeActive(RowS, ColS, RowD, ColD, CloneATable(Table), a))
+                {
+                    HA += RatiionalRegard;
+                }
+
                 return HA;
             }
         }
