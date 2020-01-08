@@ -1247,7 +1247,7 @@ namespace QuantumRefrigiz
             }
         }
         int HeuristicReducsedAttack(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
-               )
+                   )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -1260,7 +1260,7 @@ namespace QuantumRefrigiz
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 int Sign = 1;
-                ///When AStarGreedy Heuristic is Not ASsigned.
+                ///When AStarGreedy Heuristic is Not Assigned.
 
 
                 if (!AStarGreedyHeuristicT)
@@ -1324,9 +1324,9 @@ namespace QuantumRefrigiz
 
                                         HA += RatiionalPenalty;
                                         /*int Reduced = new int();
-                                        int IncreASed = new int();
+                                        int Increased = new int();
                                         Reduced = 0;
-                                        IncreASed = 0;
+                                        Increased = 0;
 
                                         ////Parallel.For(0, 8, g =>
                                         for (int g = 0; g < 8; g++)
@@ -1341,7 +1341,7 @@ namespace QuantumRefrigiz
                                                 if (Order == -1 && Table[g, h] == 0)
                                                     continue;
                                                 Color aaa = new Color();
-                                                //ASsgin Enemy ints.
+                                                //Assgin Enemy ints.
                                                 if (Order * -1 == -1)
                                                     aaa = Color.Brown;
                                                 else
@@ -1358,13 +1358,13 @@ namespace QuantumRefrigiz
                                                 //When Enemy is Supported.
                                                 if (B)
                                                 {
-                                                    //ASsgine variable.
-                                                    IncreASed++;
+                                                    //Assgine variable.
+                                                    Increased++;
 
                                                 }
                                                 if (A)
                                                 {
-                                                    //ASsgine variable.
+                                                    //Assgine variable.
                                                     Reduced++;
                                                     continue;
                                                 }
@@ -1374,8 +1374,8 @@ namespace QuantumRefrigiz
 
                                         if (Reduced != 0)
                                             HA *= (-1 * System.Math.Pow(2, Reduced));
-                                        if (IncreASed != 0)
-                                            HA *= System.Math.Pow(2, IncreASed);
+                                        if (Increased != 0)
+                                            HA *= System.Math.Pow(2, Increased);
 
                                     */
 
@@ -1435,11 +1435,11 @@ namespace QuantumRefrigiz
                                                 if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                                 {
 
-                                                    HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS))));
+                                                    HA += RatiionalPenalty;
                                                     /*int Reduced = new int();
-                                                    int IncreASed = new int();
+                                                    int Increased = new int();
                                                     Reduced = 0;
-                                                    IncreASed = 0;
+                                                    Increased = 0;
                                                     //For All Self Obejcts.                                             
                                                     ////Parallel.For(0, 8, g =>
                                                     ////Parallel.For(0, 8, g =>
@@ -1455,7 +1455,7 @@ namespace QuantumRefrigiz
                                                             if (Order == -1 && Table[g, h] == 0)
                                                                 continue;
                                                             Color aaa = new Color();
-                                                            //ASsgin Enemy ints.
+                                                            //Assgin Enemy ints.
                                                             if (Order * -1 == -1)
                                                                 aaa = Color.Brown;
                                                             else
@@ -1472,13 +1472,13 @@ namespace QuantumRefrigiz
                                                             //When Enemy is Supported.
                                                             if (B)
                                                             {
-                                                                //ASsgine variable.
-                                                                IncreASed++;
+                                                                //Assgine variable.
+                                                                Increased++;
 
                                                             }
                                                             if (A)
                                                             {
-                                                                //ASsgine variable.
+                                                                //Assgine variable.
                                                                 Reduced++;
                                                                 continue;
                                                             }
@@ -1488,8 +1488,8 @@ namespace QuantumRefrigiz
 
                                                     if (Reduced != 0)
                                                         HA *= (-1 * System.Math.Pow(2, Reduced));
-                                                    if (IncreASed != 0)
-                                                        HA *= System.Math.Pow(2, IncreASed);
+                                                    if (Increased != 0)
+                                                        HA *= System.Math.Pow(2, Increased);
                                                 */
                                                 }
                                             }
@@ -1507,7 +1507,7 @@ namespace QuantumRefrigiz
                 Order = DumOrder;
                 //Add Local Heuristic to Global One.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicReducsedAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return HA * 1;
+                return HA;
             }
         }
         ///Value of Object method.

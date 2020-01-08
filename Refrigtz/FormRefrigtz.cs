@@ -625,7 +625,9 @@ namespace Refrigtz
         }
         void AllOp()
         {
-            var arr = Task.Factory.StartNew(() => WaitOnAllOP()); arr.Wait();
+            Thread AllWait = new Thread(new ThreadStart(WaitOnAllOP));
+            AllWait.Start();
+            AllWait.Join();
 
             // RefrigtzDLL.AllDraw.THISDummy.Clone(Draw);
             if (!Quantum)
@@ -4787,7 +4789,7 @@ namespace Refrigtz
                     // TimerAllOperation.Start();
 
                     //Set and syncronization with dynamic refregitzdll.   
-                    AllOperate = new Thread(new ThreadStart(AllOperations));
+                    //AllOperate = new Thread(new ThreadStart(AllOperations));
                     //Wehn no need to load.
                     if (File.Exists(Root + "\\Run.txt"))
                     {
@@ -13151,6 +13153,7 @@ namespace Refrigtz
                 catch (Exception t)
                 {
                     Log(t);
+                    Thread.Sleep(1000);
                     //goto Again;
                 }
                 if (Preveios == Next || Next.Length < 1)
@@ -13663,10 +13666,12 @@ namespace Refrigtz
                 {
                     try
                     {
+                        Thread.Sleep(100);
                         input = "wr" + "\r\n";
                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                         sw.Flush();
-                    
+                        Thread.Sleep(100);
+
                         WaitOn = WaitOnMovmentOccured(Pre, ref wr);
                     }
                     catch (Exception t)
@@ -13676,13 +13681,13 @@ namespace Refrigtz
 
                 } while (WaitOn);
 
-                if (wr == "e8c8"|| wr == "e1c1")
+                if (wr == "e8c8" || wr == "e1c1")
                 {
                     FenCastling = 1;
                     RefrigtzDLL.ChessRules.BigKingCastleBrown = true;
                 }
                 else
-                    if (wr == "e8g8"|| wr == "e1g1")
+                    if (wr == "e8g8" || wr == "e1g1")
                 {
                     RefrigtzDLL.ChessRules.SmallKingCastleBrown = true;
                     FenCastling = 0;
@@ -14292,7 +14297,10 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                while ((!AllDrawLoad) &&( RefrigtzDLL.AllDraw.TableListAction.Count == 0) || (!MenueSelecte)) { }
+                while ((!AllDrawLoad) &&( RefrigtzDLL.AllDraw.TableListAction.Count == 0) && (!MenueSelecte)) 
+                { 
+                //Thread.Sleep(10);
+                }
           
             }
 
@@ -14303,8 +14311,9 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                var array = Task.Factory.StartNew(() => AllOperationsWait());
-                array.Wait();
+                var array = new Thread(new ThreadStart(AllOperationsWait));
+                array.Start();
+                array.Join();
                   //Fen();
                   String FolderLocation = Root;
                 sortOutPut.Clear();
@@ -14329,8 +14338,13 @@ namespace Refrigtz
                 proc = Process.Start(start);
                 proc.BeginOutputReadLine();
                 proc.BeginErrorReadLine();
-                if (File.Exists("output.txt"))
-                    File.Delete("output.txt");
+                Thread.Sleep(100);
+                try
+                {
+                    if (File.Exists("output.txt"))
+                        File.Delete("output.txt");
+                }
+                catch (Exception t) { Log(t); }
 
                 if ((MovmentsNumber > 0) && Stockfish)
                 {
@@ -14354,7 +14368,13 @@ namespace Refrigtz
                     BobSection = true;
                 else
                     BobSection = false;
-       
+
+                /*using (Process proc = Process.Start(start))
+                {
+                    proc.WaitForExit();
+                    // Retrieve the app's exit code
+                    int exitCode = proc.ExitCode;
+                }*/
             }
         }
         List<int[]> WhereNumbers(String Tag)
@@ -19089,7 +19109,7 @@ namespace Refrigtz
             {
                 try
                 {
-                    AllOperations();
+                    //AllOperations();
                 }
                 catch (Exception t)
                 {
@@ -19424,9 +19444,14 @@ namespace Refrigtz
 
                         if (File.Exists("List.txt"))
                             File.Delete("List.txt");
-                        if (File.Exists("output.txt"))
-                            File.Delete("output.txt");
+                        try
+                        {
+                            if (File.Exists("output.txt"))
+                                File.Delete("output.txt");
+                        }
+                        catch (Exception t) { Log(t); }
                         if (File.Exists("CodeLogEvent.txt"))
+
                             File.Delete("CodeLogEvent.txt");
                         if (File.Exists("ErrorProgramRun.txt"))
                             File.Delete("ErrorProgramRun.txt");

@@ -1159,8 +1159,8 @@ namespace RefrigtzDLL
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
 
-                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD)
-                               )));
+                                HA += RatiionalRegard;
+                               
 
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                 //For All Enemy Obejcts.                                             
@@ -1309,7 +1309,7 @@ namespace RefrigtzDLL
                                     if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                     {
 
-                                        HA += RatiionalRegard;
+                                        HA += RatiionalPenalty;
                                         /*int Reduced = new int();
                                         int Increased = new int();
                                         Reduced = 0;

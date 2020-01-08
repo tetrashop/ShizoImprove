@@ -1055,7 +1055,7 @@ namespace RefrigtzW
                             {
 
                                 //Find Heuristic Value Of Current and Add to Sumation.
-                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD))));
+                                HA += RatiionalRegard;
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                 /*int Supported = new int();
                                 int SupportedS = new int();
@@ -1158,8 +1158,8 @@ namespace RefrigtzW
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
 
-                                HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowS, ColS, RowD, ColD)
-                               )));
+                                HA += RatiionalRegard;
+                               
 
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                 //For All Enemy Obejcts.                                             
@@ -1233,7 +1233,7 @@ namespace RefrigtzW
             }
         }
         int HeuristicReducsedAttack(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
-               )
+                 )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -1308,7 +1308,7 @@ namespace RefrigtzW
                                     if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                     {
 
-                                        HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS))));
+                                        HA += RatiionalPenalty;
                                         /*int Reduced = new int();
                                         int Increased = new int();
                                         Reduced = 0;
@@ -1421,7 +1421,7 @@ namespace RefrigtzW
                                                 if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                                 {
 
-                                                    HA += (Sign * (System.Math.Abs(ObjectValueCalculator(CloneATable(Table), RowD, ColD, RowS, ColS))));
+                                                    HA += RatiionalPenalty;
                                                     /*int Reduced = new int();
                                                     int Increased = new int();
                                                     Reduced = 0;
@@ -1493,7 +1493,7 @@ namespace RefrigtzW
                 Order = DumOrder;
                 //Add Local Heuristic to Global One.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicReducsedAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return HA * 1;
+                return HA;
             }
         }
         ///Value of Object method.
