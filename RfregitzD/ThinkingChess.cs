@@ -1233,8 +1233,59 @@ namespace RefrigtzDLL
                 return 1 * HA;
             }
         }
+        bool IsMinisteBreakable(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD)
+        {
+            bool Is = false;
+            const int MinisterGray = 5, MinisterBrown = -5;
+            if (Order == -1)
+            {
+                if (Table[RowD, ColD] == MinisterGray)
+                    return true;
+
+
+            }
+            else
+            {
+                if (Order == 1)
+                {
+                    if (Table[RowD, ColD] == MinisterBrown)
+                        return true;
+                }
+            }
+            return Is;
+
+        }
+        bool IsMinistePowerfull(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD)
+        {
+            bool Is = true;
+            const int MinisterGray = 5, MinisterBrown = -5;
+            if (Order == 1)
+            {
+                if (Table[RowS, ColS] == MinisterGray)
+                {
+                    if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table), 31))
+                    {
+                        if (ColS < 5)
+                            return false;
+                    }
+                }
+            }
+            else
+            {
+                if (Table[RowS, ColS] == MinisterBrown)
+                {
+                    if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Table), 31))
+                    {
+                        if (ColS > 2)
+                            return false;
+                    }
+                }
+            }
+            return Is;
+
+        }
         int HeuristicReducsedAttack(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
-               )
+                 )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -1249,7 +1300,7 @@ namespace RefrigtzDLL
                 int Sign = 1;
                 ///When AStarGreedy Heuristic is Not Assigned.
 
-
+                bool MinisterOnAttack = false;
                 if (!AStarGreedyHeuristicT)
                 {
                     //var RowS = RowSS, ColS = ColSS;
@@ -1308,65 +1359,18 @@ namespace RefrigtzDLL
                                 {
                                     if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                     {
-
-                                        HA += RatiionalPenalty;
-                                        /*int Reduced = new int();
-                                        int Increased = new int();
-                                        Reduced = 0;
-                                        Increased = 0;
-
-                                        ////Parallel.For(0, 8, g =>
-                                        for (int g = 0; g < 8; g++)
+                                        if (IsMinisteBreakable(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
                                         {
-                                            ////Parallel.For(0, 8, h =>
-                                            for (int h = 0; h < 8; h++)
-
-                                            {
-                                                //Ignore Of Enemy Objects.
-                                                if (Order == 1 && Table[g, h] == 0)
-                                                    continue;
-                                                if (Order == -1 && Table[g, h] == 0)
-                                                    continue;
-                                                Color aaa = new Color();
-                                                //Assgin Enemy ints.
-                                                if (Order * -1 == -1)
-                                                    aaa = Color.Brown;
-                                                else
-                                                    aaa = Color.Gray;
-                                                bool A = new bool();
-                                                bool B = new bool();
-
-                                                Object O2 = new Object();
-                                                lock (O2)
-                                                {
-                                                    A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * 1);
-                                                    B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
-                                                }
-                                                //When Enemy is Supported.
-                                                if (B)
-                                                {
-                                                    //Assgine variable.
-                                                    Increased++;
-
-                                                }
-                                                if (A)
-                                                {
-                                                    //Assgine variable.
-                                                    Reduced++;
-                                                    continue;
-                                                }
-                                            }//);
-
-                                        }//);
-
-                                        if (Reduced != 0)
-                                            HA *= (-1 * System.Math.Pow(2, Reduced));
-                                        if (Increased != 0)
-                                            HA *= System.Math.Pow(2, Increased);
-
-                                    */
+                                            MinisterOnAttack = true;
+                                            HA += (3 * RatiionalPenalty);
+                                        }
+                                        else
+                                        {
+                                            HA += RatiionalPenalty;
+                                        }
 
                                     }
+
                                 }
                             }
                         }
@@ -1422,62 +1426,15 @@ namespace RefrigtzDLL
                                                 if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                                 {
 
-                                                    HA += RatiionalPenalty;
-                                                    /*int Reduced = new int();
-                                                    int Increased = new int();
-                                                    Reduced = 0;
-                                                    Increased = 0;
-                                                    //For All Self Obejcts.                                             
-                                                    ////Parallel.For(0, 8, g =>
-                                                    ////Parallel.For(0, 8, g =>
-                                                    for (int g = 0; g < 8; g++)
+                                                    if (IsMinisteBreakable(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
                                                     {
-                                                        ////Parallel.For(0, 8, h =>
-                                                        for (int h = 0; h < 8; h++)
-
-                                                        {
-                                                            //Ignore Of Enemy Objects.
-                                                            if (Order == 1 && Table[g, h] == 0)
-                                                                continue;
-                                                            if (Order == -1 && Table[g, h] == 0)
-                                                                continue;
-                                                            Color aaa = new Color();
-                                                            //Assgin Enemy ints.
-                                                            if (Order * -1 == -1)
-                                                                aaa = Color.Brown;
-                                                            else
-                                                                aaa = Color.Gray;
-                                                            bool A = new bool();
-                                                            bool B = new bool();
-
-                                                            Object O2 = new Object();
-                                                            lock (O2)
-                                                            {
-                                                                A = Support(CloneATable(Table), g, h, RowD, ColD, aaa, Order * 1);
-                                                                B = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
-                                                            }
-                                                            //When Enemy is Supported.
-                                                            if (B)
-                                                            {
-                                                                //Assgine variable.
-                                                                Increased++;
-
-                                                            }
-                                                            if (A)
-                                                            {
-                                                                //Assgine variable.
-                                                                Reduced++;
-                                                                continue;
-                                                            }
-                                                        }//);
-
-                                                    }//);
-
-                                                    if (Reduced != 0)
-                                                        HA *= (-1 * System.Math.Pow(2, Reduced));
-                                                    if (Increased != 0)
-                                                        HA *= System.Math.Pow(2, Increased);
-                                                */
+                                                        MinisterOnAttack = true;
+                                                        HA += (3 * RatiionalPenalty);
+                                                    }
+                                                    else
+                                                    {
+                                                        HA += RatiionalPenalty;
+                                                    }
                                                 }
                                             }
                                         }
@@ -1487,7 +1444,12 @@ namespace RefrigtzDLL
                         }
                     }
                 }
+                if (!MinisterOnAttack)
+                {
+                    if (IsMinistePowerfull(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
+                        HA += RatiionalRegard;
 
+                }
                 //Initiate to Begin Call Orders.
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
