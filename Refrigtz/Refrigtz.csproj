@@ -185,6 +185,7 @@
     </Compile>
     <None Include="app.manifest" />
     <None Include="App.xaml.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

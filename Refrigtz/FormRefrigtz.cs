@@ -4948,10 +4948,14 @@ namespace Refrigtz
                                         if (System.IO.File.Exists(Root + "\\Database\\CurrentBank.accdb"))
                                         {
                                             if (bookConn != null)
+                                            {
                                                 bookConn.Close();
-                                            bookConn = new OleDbConnection(connParam);
-                                            oleDbCmd.Connection = bookConn;
-                                            bookConn.Open();
+                                                oleDbCmd.Dispose();
+                                                bookConn.Dispose();
+                                            }
+                                            //bookConn = new OleDbConnection(connParam);
+                                            //oleDbCmd.Connection = bookConn;
+                                            //bookConn.Open();
 
                                         }
                                     }
@@ -13145,8 +13149,12 @@ namespace Refrigtz
                 try
                 {
 
+
                     if (File.Exists("output.txt"))
+                    {
+                        Helper.WaitOnUsed("output.txt");
                         Next = File.ReadAllText("output.txt");
+                    }
                     if (Preveios == Next || Next.Length < 1)
                         return true;
                 }
@@ -13670,8 +13678,7 @@ namespace Refrigtz
                         input = "wr" + "\r\n";
                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                         sw.Flush();
-                        Thread.Sleep(100);
-
+                       
                         WaitOn = WaitOnMovmentOccured(Pre, ref wr);
                     }
                     catch (Exception t)
@@ -14297,7 +14304,7 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                while ((!AllDrawLoad) &&( RefrigtzDLL.AllDraw.TableListAction.Count == 0) && (!MenueSelecte)) 
+                while ((!AllDrawLoad) ||( RefrigtzDLL.AllDraw.TableListAction.Count == 0) || (!MenueSelecte)) 
                 { 
                 //Thread.Sleep(10);
                 }
@@ -18958,14 +18965,7 @@ namespace Refrigtz
             }
         }
 
-        private void BackgroundWorkerRefregitz_DoWork(object sender, DoWorkEventArgs e)
-        {
-            Object O = new Object();
-            lock (O)
-            {
-                AllOp();
-            }
-        }
+        
 
         private void ToolStripMenuItem21_Click(object sender, EventArgs e)
         {
@@ -19069,8 +19069,7 @@ namespace Refrigtz
                         //ttt.Start();
                         if (!AllDo)
                             AllDo = true;
-                        var array = Task.Factory.StartNew(() => AllOp());
-                        array.Wait();
+                        AllOp();
                         if (EndOfGame)
                             return;
                         // AllOperate.Start();
@@ -19082,24 +19081,24 @@ namespace Refrigtz
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Object O = new Object();
+           /* Object O = new Object();
             lock (O)
             {
                 try
                 {
                     //tttt.Start();
                     //ttt.Start();
-                    var array1 = Task.Factory.StartNew(() => SetRefregitzDLL());
-                    array1.Wait();
-                    var array2 = Task.Factory.StartNew(() => SetNodesCount());
-                    array2.Wait();
-                    var array3 = Task.Factory.StartNew(() => AllOp());
-                    array3.Wait();
+                    Thread arr = new Thread(new ThreadStart(SetRefregitzDLL));
+                    arr.Start();
+                    arr = new Thread(new ThreadStart(SetNodesCount));
+                    arr.Start();
+                    arr = new Thread(new ThreadStart(AllOp));
+                    arr.Start();
                     // AllOperate.Start();
                 }
                 catch (Exception t) { Log(t); }
 
-            }
+          }  */
         }
 
         private void TimerAllOperation_Tick(object sender, EventArgs e)
@@ -19127,8 +19126,8 @@ namespace Refrigtz
                 {
                     try
                     {
-                        var array = Task.Factory.StartNew(() => SetNodesCount());array.Wait();
-                       
+                        SetNodesCount();
+                        
                     }
                     catch (Exception t) { Log(t); }
                 } while (true);
@@ -19153,8 +19152,7 @@ namespace Refrigtz
                             //Thread t = new Thread(new ThreadStart(SetRefregitzDLL));
                             //t.Start();
                             //t.Join();
-                            var array = Task.Factory.StartNew(() => SetRefregitzDLL());
-                            array.Wait();
+                            SetRefregitzDLL();
                             // AllOperate.Start();
                         }
                     }
@@ -19550,8 +19548,7 @@ namespace Refrigtz
         }
         private void backgroundWorkerMoveGray_DoWork(object sender, DoWorkEventArgs e)
         {
-            var array = Task.Factory.StartNew(() => MoveGray());
-            array.Wait();
+            MoveGray();
             OrderPlate *= -1;
             FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
@@ -19599,8 +19596,7 @@ namespace Refrigtz
         }
         private void backgroundWorkerMoveBrown_DoWork(object sender, DoWorkEventArgs e)
         {
-            var array = Task.Factory.StartNew(() => MoveBrown());
-            array.Wait();
+            MoveBrown();
             OrderPlate *= -1;
             FOUND = false;
             RefrigtzDLL.AllDraw THIS = null;
