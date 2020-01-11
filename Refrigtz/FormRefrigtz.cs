@@ -19578,6 +19578,16 @@ namespace Refrigtz
 
         }
 
+        private void aboutHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Object O = new Object();
+            lock (O)
+            {
+                (new AboutBoxFaraDars()).ShowDialog();
+            }
+        }
+
         private void ToolStripMenuItem14_Click(object sender, EventArgs e)
         {
 

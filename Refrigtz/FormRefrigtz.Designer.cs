@@ -161,6 +161,7 @@ namespace Refrigtz
             this.label2 = new System.Windows.Forms.Label();
             this.ButtonPrevious = new System.Windows.Forms.Button();
             this.ButtonNext = new System.Windows.Forms.Button();
+            this.aboutHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStripChessRefrigitz.SuspendLayout();
             this.groupBoxGroupOfPowerity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxRefrigtz)).BeginInit();
@@ -520,7 +521,8 @@ namespace Refrigtz
             // 
             this.AboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem3,
-            this.AboutToolStripMenuItem1});
+            this.AboutToolStripMenuItem1,
+            this.aboutHelpToolStripMenuItem});
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
             this.AboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.AboutToolStripMenuItem.Text = "About";
@@ -528,14 +530,14 @@ namespace Refrigtz
             // ToolStripMenuItem3
             // 
             this.ToolStripMenuItem3.Name = "ToolStripMenuItem3";
-            this.ToolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
+            this.ToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem3.Text = "Help";
             this.ToolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click_1);
             // 
             // AboutToolStripMenuItem1
             // 
             this.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1";
-            this.AboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.AboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.AboutToolStripMenuItem1.Text = "About";
             this.AboutToolStripMenuItem1.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
             // 
@@ -1437,6 +1439,13 @@ namespace Refrigtz
             this.ButtonNext.UseVisualStyleBackColor = true;
             this.ButtonNext.Click += new System.EventHandler(this.ButtonNext_Click);
             // 
+            // aboutHelpToolStripMenuItem
+            // 
+            this.aboutHelpToolStripMenuItem.Name = "aboutHelpToolStripMenuItem";
+            this.aboutHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutHelpToolStripMenuItem.Text = "About Help";
+            this.aboutHelpToolStripMenuItem.Click += new System.EventHandler(this.aboutHelpToolStripMenuItem_Click);
+            // 
             // FormRefrigtz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1772,6 +1781,7 @@ namespace Refrigtz
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ButtonPrevious;
         private System.Windows.Forms.Button ButtonNext;
+        private System.Windows.Forms.ToolStripMenuItem aboutHelpToolStripMenuItem;
     }
 }
 

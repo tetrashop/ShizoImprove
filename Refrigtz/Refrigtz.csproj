@@ -185,6 +185,12 @@
     </Compile>
     <None Include="app.manifest" />
     <None Include="App.xaml.cs" />
+    <Compile Include="AboutBoxFaraDars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxFaraDars.Designer.cs">
+      <DependentUpon>AboutBoxFaraDars.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -254,6 +260,9 @@
     <Compile Include="PlatformHelper.cs" />
     <EmbeddedResource Include="AboutBoxChessRefregitz.resx">
       <DependentUpon>AboutBoxChessRefregitz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBoxFaraDars.resx">
+      <DependentUpon>AboutBoxFaraDars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKindOfGameContinue.resx">
       <DependentUpon>FormKindOfGameContinue.cs</DependentUpon>
