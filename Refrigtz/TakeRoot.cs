@@ -222,8 +222,8 @@ namespace Refrigtz
                             rt.AllDrawCurrentAccessQ = Curent.DrawQ;
                             rt.RewriteAllDrawQ(FormRefrigtz.OrderPlate);
                             QuantumRefrigiz.AllDraw.DrawTable = false;
-                            Curent.SetBoxText("\r\nSaved Completed.");
-                            Curent.RefreshBoxText();
+//Curent.SetBoxText("\r\nSaved Completed.");
+                        //    Curent.RefreshBoxText();
                             //PictureBoxRefrigtz.SendToBack();
                             //PictureBoxTimerGray.SendToBack();
                             //PictureBoxTimerBrown.SendToBack();
@@ -246,8 +246,8 @@ namespace Refrigtz
                         rt.AllDrawCurrentAccess = Curent.Draw;
                         rt.RewriteAllDraw(FormRefrigtz.OrderPlate);
                         RefrigtzDLL.AllDraw.DrawTable = false;
-                        Curent.SetBoxText("\r\nSaved Completed.");
-                        Curent.RefreshBoxText();
+                       // Curent.SetBoxText("\r\nSaved Completed.");
+                       // Curent.RefreshBoxText();
                         //PictureBoxRefrigtz.SendToBack();
                         //PictureBoxTimerGray.SendToBack();
                         //PictureBoxTimerBrown.SendToBack();

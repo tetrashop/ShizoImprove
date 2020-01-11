@@ -642,8 +642,8 @@ namespace Refrigtz
                     {
                         if (RefrigtzDLL.ChessGeneticAlgorithm.NoGameFounf)
                         {
-                            SetBoxText("No Game Could be continued!");
-                            RefreshBoxText();
+                            //SetBoxText("No Game Could be continued!");
+                            //RefreshBoxText();
 
                         }
                         // if (RefrigtzDLL.AllDraw.MouseClick == 0 && !RefrigtzDLL.ThinkingChess.ThinkingRun)
@@ -682,11 +682,11 @@ namespace Refrigtz
                                     StateCC = false;
                                     StateCP = false;
                                     Person = false;
-                                    if (A.CheckMateGray || A.CheckMateBrown)
-                                        SetBoxText("\r\nCheckMate!");
-                                    else if (A.PatkGray || A.PatBrown)
-                                        SetBoxText("\r\nPat!");
-                                    RefreshBoxText();
+                                    //if (A.CheckMateGray || A.CheckMateBrown)
+                                        //SetBoxText("\r\nCheckMate!");
+                                    //else if (A.PatkGray || A.PatBrown)
+                                        //SetBoxText("\r\nPat!");
+                                    //RefreshBoxText();
                                     EndOfGame = true;
                                     return;
                                     //if (AllOperate.IsAlive)
@@ -703,11 +703,11 @@ namespace Refrigtz
 
                                         if (A.CheckGray || A.CheckBrown)
                                         {
-                                            if (OrderPlate == 1)
+                                            //if (OrderPlate == 1)
 
-                                                SetBoxText("\r\nGray OrderPlate!Check!");
-                                            else
-                                                SetBoxText("\r\nBrown OrderPlate!Check!");
+                                                //SetBoxText("\r\nGray OrderPlate!Check!");
+                                         //   else
+                                                //SetBoxText("\r\nBrown OrderPlate!Check!");
 
                                         }
                                 }
@@ -852,10 +852,10 @@ namespace Refrigtz
                                         //
                                         //                                        
                                         ////RefrigtzDLL.AllDraw.MouseClick = 0;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-                                        SetBoxText("\r\nYour Ready!");
-                                        RefreshBoxText();
+                                        //SetBoxText("\r\nObject Cleared.");
+                                        //RefreshBoxText();
+                                        //SetBoxText("\r\nYour Ready!");
+                                        //RefreshBoxText();
                                         Color a = Color.Brown;
 
                                         Thread arr = new Thread(new ThreadStart(SetDrawFound));
@@ -963,10 +963,10 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-                                        SetBoxText("\r\nYour Ready!");
-                                        RefreshBoxText();
+                                        //SetBoxText("\r\nObject Cleared.");
+                                        //RefreshBoxText();
+                                        //SetBoxText("\r\nYour Ready!");
+                                        //RefreshBoxText();
                                         Color a = Color.Brown;
 #pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         FOUND = false;
@@ -1065,10 +1065,10 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-                                        SetBoxText("\r\nYour Ready!");
-                                        RefreshBoxText();
+                                        //SetBoxText("\r\nObject Cleared.");
+                                        //RefreshBoxText();
+                                        //SetBoxText("\r\nYour Ready!");
+                                        //RefreshBoxText();
                                         //Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                         //Draw.TableList.Clear();
                                         //Draw.TableList.Add(CloneATable(Table));
@@ -1282,10 +1282,10 @@ namespace Refrigtz
 
 
                                         ////RefrigtzDLL.AllDraw.MouseClick = 0;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-                                        SetBoxText("\r\nYour Ready!");
-                                        RefreshBoxText();
+                                        //SetBoxText("\r\nObject Cleared.");
+                                        //RefreshBoxText();
+                                        //SetBoxText("\r\nYour Ready!");
+                                        //RefreshBoxText();
                                         Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                         Draw.TableList.Clear();
                                         Draw.TableList.Add(CloneATable(Table));
@@ -1380,10 +1380,10 @@ namespace Refrigtz
                                     ColumnClickP = -1;
                                     RowRealesed = -1;
                                     ColumnRealeased = -1;
-                                    SetBoxText("\r\nObject Cleared.");
-                                    RefreshBoxText();
-                                    SetBoxText("\r\nYour Ready!");
-                                    RefreshBoxText();
+                                    //SetBoxText("\r\nObject Cleared.");
+                                    //RefreshBoxText();
+                                    //SetBoxText("\r\nYour Ready!");
+                                    //RefreshBoxText();
                                     //Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                     //Draw.TableList.Clear();
                                     //Draw.TableList.Add(CloneATable(Table));
@@ -1468,10 +1468,10 @@ namespace Refrigtz
                                     ColumnClickP = -1;
                                     RowRealesed = -1;
                                     ColumnRealeased = -1;
-                                    SetBoxText("\r\nObject Cleared.");
-                                    RefreshBoxText();
-                                    SetBoxText("\r\nYour Ready!");
-                                    RefreshBoxText();
+                                    //SetBoxText("\r\nObject Cleared.");
+                                    //RefreshBoxText();
+                                    //SetBoxText("\r\nYour Ready!");
+                                    //RefreshBoxText();
                                    // Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                    // Draw.TableList.Clear();
                                    // Draw.TableList.Add(CloneATable(Table));
@@ -1598,10 +1598,10 @@ namespace Refrigtz
                                          ColumnClickP = -1;
                                          RowRealesed = -1;
                                          ColumnRealeased = -1;
-                                         SetBoxText("\r\nObject Cleared.");
-                                         RefreshBoxText();
-                                         SetBoxText("\r\nYour Ready!");
-                                         RefreshBoxText();
+                                         //SetBoxText("\r\nObject Cleared.");
+                                         //RefreshBoxText();
+                                         //SetBoxText("\r\nYour Ready!");
+                                         //RefreshBoxText();
                                          Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                          Draw.TableList.Clear();
                                          Draw.TableList.Add(CloneATable(Table));
@@ -1657,10 +1657,10 @@ namespace Refrigtz
 
 
                                          ////RefrigtzDLL.AllDraw.MouseClick = 0;
-                                         SetBoxText("\r\nObject Cleared.");
-                                         RefreshBoxText();
-                                         SetBoxText("\r\nYour Ready!");
-                                         RefreshBoxText();
+                                         //SetBoxText("\r\nObject Cleared.");
+                                         //RefreshBoxText();
+                                         //SetBoxText("\r\nYour Ready!");
+                                         //RefreshBoxText();
                                          Draw = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                          Draw.TableList.Clear();
                                          Draw.TableList.Add(CloneATable(Table));
@@ -1757,10 +1757,10 @@ namespace Refrigtz
                                      ColumnClickP = -1;
                                      RowRealesed = -1;
                                      ColumnRealeased = -1;
-                                     SetBoxText("\r\nObject Cleared.");
-                                     RefreshBoxText();
-                                     SetBoxText("\r\nYour Ready!");
-                                     RefreshBoxText();
+                                     //SetBoxText("\r\nObject Cleared.");
+                                     //RefreshBoxText();
+                                     //SetBoxText("\r\nYour Ready!");
+                                     //RefreshBoxText();
 
 
                                  }
@@ -1912,13 +1912,13 @@ namespace Refrigtz
 
                                              if (OrderPlate == 1)
                                              {
-                                                 SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
-                                                 RefreshBoxText();
+                                                 //SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
+                                                 //RefreshBoxText();
                                              }
                                              else
                                              {
-                                                 SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
-                                                 RefreshBoxText();
+                                                 //SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
+                                                 //RefreshBoxText();
                                              }
 
                                              // RefregitzisCurrent = false;
@@ -2024,8 +2024,8 @@ namespace Refrigtz
                                              Draw.TableList.Clear();
                                              Draw.TableList.Add(CloneATable(Table));
                                              Draw.SetRowColumn(0);
-                                             this.SetBoxText("\r\nThinking Finished by Bob!");
-                                             RefreshBoxText();
+                                             //this.SetBoxText("\r\nThinking Finished by Bob!");
+                                             //RefreshBoxText();
 
                                              if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
                                              {
@@ -2197,8 +2197,8 @@ namespace Refrigtz
 
                         if (QuantumRefrigiz.ChessGeneticAlgorithm.NoGameFounf)
                         {
-                            SetBoxText("No Game Could be continued!");
-                            RefreshBoxText();
+                            //SetBoxText("No Game Could be continued!");
+                            //RefreshBoxText();
 
                         }
                         if (QuantumRefrigiz.AllDraw.MouseClick == 0 && !QuantumRefrigiz.ThinkingQuantumChess.ThinkingQuantumRun)
@@ -2232,11 +2232,11 @@ namespace Refrigtz
                                     StateCC = false;
                                     StateCP = false;
                                     Person = false;
-                                    if (A.CheckMateGray || A.CheckMateBrown)
-                                        SetBoxText("\r\nCheckMate!");
-                                    else if (A.PatkGray || A.PatBrown)
-                                        SetBoxText("\r\nPat!");
-                                    RefreshBoxText();
+                                    //if (A.CheckMateGray || A.CheckMateBrown)
+                                        //SetBoxText("\r\nCheckMate!");
+                                    //else if (A.PatkGray || A.PatBrown)
+                                        //SetBoxText("\r\nPat!");
+                                    //RefreshBoxText();
                                     //if (AllOperate.IsAlive)
                                     //new Syncronization(AllOperate, 1);
 
@@ -2251,11 +2251,11 @@ namespace Refrigtz
 
                                         if (A.CheckGray || A.CheckBrown)
                                         {
-                                            if (OrderPlate == 1)
+                                            //if (OrderPlate == 1)
 
-                                                SetBoxText("\r\nGray OrderPlate!Check!");
-                                            else
-                                                SetBoxText("\r\nBrown OrderPlate!Check!");
+                                                //SetBoxText("\r\nGray OrderPlate!Check!");
+                                           // else
+                                                //SetBoxText("\r\nBrown OrderPlate!Check!");
 
                                         }
                                 }
@@ -2400,10 +2400,10 @@ namespace Refrigtz
                                         //
                                         //                                        
                                         //QuantumRefrigiz.AllDraw.MouseClick = 0;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-                                        SetBoxText("\r\nYour Ready!");
-                                        RefreshBoxText();
+                                        //SetBoxText("\r\nObject Cleared.");
+                                        //RefreshBoxText();
+                                        //SetBoxText("\r\nYour Ready!");
+                                        //RefreshBoxText();
                                         Color a = Color.Brown;
 
                                         Thread arr = new Thread(new ThreadStart(SetDrawFound));
@@ -2509,10 +2509,10 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-                                        SetBoxText("\r\nYour Ready!");
-                                        RefreshBoxText();
+                                        //SetBoxText("\r\nObject Cleared.");
+                                        //RefreshBoxText();
+                                        //SetBoxText("\r\nYour Ready!");
+                                        //RefreshBoxText();
                                         Color a = Color.Brown;
 #pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         FOUND = false;
@@ -2605,10 +2605,10 @@ namespace Refrigtz
                                         ColumnClickP = -1;
                                         RowRealesed = -1;
                                         ColumnRealeased = -1;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-                                        SetBoxText("\r\nYour Ready!");
-                                        RefreshBoxText();
+                                        //SetBoxText("\r\nObject Cleared.");
+                                        //RefreshBoxText();
+                                        //SetBoxText("\r\nYour Ready!");
+                                        //RefreshBoxText();
                                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                         DrawQ.TableList.Clear();
                                         DrawQ.TableList.Add(Table);
@@ -2809,10 +2809,10 @@ namespace Refrigtz
 
 
                                         //QuantumRefrigiz.AllDraw.MouseClick = 0;
-                                        SetBoxText("\r\nObject Cleared.");
-                                        RefreshBoxText();
-                                        SetBoxText("\r\nYour Ready!");
-                                        RefreshBoxText();
+                                        //SetBoxText("\r\nObject Cleared.");
+                                        //RefreshBoxText();
+                                        //SetBoxText("\r\nYour Ready!");
+                                        //RefreshBoxText();
                                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                         DrawQ.TableList.Clear();
                                         DrawQ.TableList.Add(Table);
@@ -2907,10 +2907,10 @@ namespace Refrigtz
                                     ColumnClickP = -1;
                                     RowRealesed = -1;
                                     ColumnRealeased = -1;
-                                    SetBoxText("\r\nObject Cleared.");
-                                    RefreshBoxText();
-                                    SetBoxText("\r\nYour Ready!");
-                                    RefreshBoxText();
+                                    //SetBoxText("\r\nObject Cleared.");
+                                    //RefreshBoxText();
+                                    //SetBoxText("\r\nYour Ready!");
+                                    //RefreshBoxText();
                                     //DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                     //DrawQ.TableList.Clear();
                                     //DrawQ.TableList.Add(Table);
@@ -2991,10 +2991,10 @@ namespace Refrigtz
                                     ColumnClickP = -1;
                                     RowRealesed = -1;
                                     ColumnRealeased = -1;
-                                    SetBoxText("\r\nObject Cleared.");
-                                    RefreshBoxText();
-                                    SetBoxText("\r\nYour Ready!");
-                                    RefreshBoxText();
+                                    //SetBoxText("\r\nObject Cleared.");
+                                    //RefreshBoxText();
+                                    //SetBoxText("\r\nYour Ready!");
+                                    //RefreshBoxText();
                                     DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                     DrawQ.TableList.Clear();
                                     DrawQ.TableList.Add(Table);
@@ -3121,10 +3121,10 @@ namespace Refrigtz
                                          ColumnClickP = -1;
                                          RowRealesed = -1;
                                          ColumnRealeased = -1;
-                                         SetBoxText("\r\nObject Cleared.");
-                                         RefreshBoxText();
-                                         SetBoxText("\r\nYour Ready!");
-                                         RefreshBoxText();
+                                         //SetBoxText("\r\nObject Cleared.");
+                                         //RefreshBoxText();
+                                         //SetBoxText("\r\nYour Ready!");
+                                         //RefreshBoxText();
                                          DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                          DrawQ.TableList.Clear();
                                          DrawQ.TableList.Add(Table);
@@ -3180,10 +3180,10 @@ namespace Refrigtz
 
 
                                          //QuantumRefrigiz.AllDraw.MouseClick = 0;
-                                         SetBoxText("\r\nObject Cleared.");
-                                         RefreshBoxText();
-                                         SetBoxText("\r\nYour Ready!");
-                                         RefreshBoxText();
+                                         //SetBoxText("\r\nObject Cleared.");
+                                         //RefreshBoxText();
+                                         //SetBoxText("\r\nYour Ready!");
+                                         //RefreshBoxText();
                                          DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                          DrawQ.TableList.Clear();
                                          DrawQ.TableList.Add(Table);
@@ -3280,10 +3280,10 @@ namespace Refrigtz
                                      ColumnClickP = -1;
                                      RowRealesed = -1;
                                      ColumnRealeased = -1;
-                                     SetBoxText("\r\nObject Cleared.");
-                                     RefreshBoxText();
-                                     SetBoxText("\r\nYour Ready!");
-                                     RefreshBoxText();
+                                     //SetBoxText("\r\nObject Cleared.");
+                                     //RefreshBoxText();
+                                     //SetBoxText("\r\nYour Ready!");
+                                     //RefreshBoxText();
 
 
                                  }
@@ -3435,13 +3435,13 @@ namespace Refrigtz
 
                                              if (OrderPlate == 1)
                                              {
-                                                 SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
-                                                 RefreshBoxText();
+                                                 //SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
+                                                 //RefreshBoxText();
                                              }
                                              else
                                              {
-                                                 SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
-                                                 RefreshBoxText();
+                                                 //SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
+                                                 //RefreshBoxText();
                                              }
 
                                              // RefregitzisCurrent = false;
@@ -3547,8 +3547,8 @@ namespace Refrigtz
                                              DrawQ.TableList.Clear();
                                              DrawQ.TableList.Add(Table);
                                              DrawQ.SetRowColumn(0);
-                                             this.SetBoxText("\r\nThinking Finished by Bob!");
-                                             RefreshBoxText();
+                                             //this.SetBoxText("\r\nThinking Finished by Bob!");
+                                             //RefreshBoxText();
 
                                              if (QuantumRefrigiz.AllDraw.TableListAction.Count >= 1)
                                              {
@@ -4406,7 +4406,7 @@ namespace Refrigtz
                                 SetBoxText(RefrigtzDLL.AllDraw.ActionString.ToString());
                                 RefrigtzDLL.AllDraw.ActionString.Clear();
                                 RefrigtzDLL.AllDraw.ActionStringReady = false;
-                                RefreshBoxText();
+                                //RefreshBoxText();
                             }
 
                             if (RefrigtzDLL.AllDraw.OutPut.Length != 0)
@@ -4419,7 +4419,7 @@ namespace Refrigtz
                                 }
                                 SetBoxText(Temp);
                                 RefrigtzDLL.AllDraw.OutPut.Clear();
-                                RefreshBoxText();
+                                //RefreshBoxText();
 
                             }
 
@@ -4510,7 +4510,7 @@ namespace Refrigtz
                             if (QuantumRefrigiz.AllDraw.ActionStringReady)
                             {
                                 SetBoxText(QuantumRefrigiz.AllDraw.ActionString.ToString());
-                                RefreshBoxText();
+                                //RefreshBoxText();
                                 QuantumRefrigiz.AllDraw.ActionString.Clear();
                                 QuantumRefrigiz.AllDraw.ActionStringReady = false;
                             }
@@ -4523,7 +4523,7 @@ namespace Refrigtz
                                     Temp = QuantumRefrigiz.AllDraw.OutPut.ToString();
                                 }
                                 SetBoxText(Temp);
-                                RefreshBoxText();
+                                //RefreshBoxText();
                                 QuantumRefrigiz.AllDraw.OutPut.Clear();
 
                             }
@@ -6926,9 +6926,9 @@ namespace Refrigtz
                             if (t3 != null)
                                 t3.Abort();
                             if (GrayWinner)
-                                SetBoxText("\r\nGray Winees!");
+                                //SetBoxText("\r\nGray Winees!");
                             if (BrownWiner)
-                                SetBoxText("\r\nBrown Winees!");
+                                //SetBoxText("\r\nBrown Winees!");
 
                             return;
                         }
@@ -7024,9 +7024,9 @@ namespace Refrigtz
                             if (t3 != null)
                                 t3.Abort();
                             if (GrayWinner)
-                                SetBoxText("\r\nGray Winees!");
+                                //SetBoxText("\r\nGray Winees!");
                             if (BrownWiner)
-                                SetBoxText("\r\nBrown Winees!");
+                                //SetBoxText("\r\nBrown Winees!");
 
                             return;
                         }
@@ -7914,8 +7914,8 @@ namespace Refrigtz
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Soldier, 1);
                         Clicked = false; BobSection = false;
                         return;
@@ -8005,8 +8005,8 @@ namespace Refrigtz
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Elefant, 2);
                         Clicked = false; BobSection = false;
                         return;
@@ -8097,8 +8097,8 @@ namespace Refrigtz
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Hourse, 3);
                         Clicked = false; BobSection = false;
                         return;
@@ -8191,8 +8191,8 @@ namespace Refrigtz
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Castle, 4);
                         Clicked = false; BobSection = false;
                         return;
@@ -8284,8 +8284,8 @@ namespace Refrigtz
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Minister, 5);
                         Clicked = false; BobSection = false;
                         return;
@@ -8375,8 +8375,8 @@ namespace Refrigtz
                         GrayTimer.StopTime();
                         BrownTimer.StartTime("BrownTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, King, 6);
                         Clicked = false; BobSection = false;
                         return;
@@ -8723,8 +8723,8 @@ namespace Refrigtz
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Soldier, -1);
                         Clicked = false; BobSection = false;
                         return;
@@ -8816,8 +8816,8 @@ namespace Refrigtz
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Elefant, -2);
                         Clicked = false; BobSection = false;
                         return;
@@ -8909,8 +8909,8 @@ namespace Refrigtz
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Hourse, -3);
                         Clicked = false; BobSection = false;
                         return;
@@ -9001,8 +9001,8 @@ namespace Refrigtz
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Castle, -4);
                         Clicked = false; BobSection = false;
                         return;
@@ -9095,8 +9095,8 @@ namespace Refrigtz
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Minister, -5);
                         Clicked = false; BobSection = false;
 
@@ -9190,8 +9190,8 @@ namespace Refrigtz
                         BrownTimer.StopTime();
                         GrayTimer.StartTime("GrayTimer");
                         InsertTableAtDatabase(Table);
-                        SetBoxText("\r\nWait...");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nWait...");
+                        //RefreshBoxText();
                         //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
                         Clicked = false; BobSection = false;
                         return;
@@ -9905,8 +9905,8 @@ namespace Refrigtz
                             GrayTimer.StopTime();
                             BrownTimer.StartTime("BrownTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Soldier, 1);
                             Clicked = false; BobSection = false;
                             return;
@@ -10009,8 +10009,8 @@ namespace Refrigtz
                             GrayTimer.StopTime();
                             BrownTimer.StartTime("BrownTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Elefant, 2);
                             Clicked = false; BobSection = false;
                             return;
@@ -10110,8 +10110,8 @@ namespace Refrigtz
                             GrayTimer.StopTime();
                             BrownTimer.StartTime("BrownTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Hourse, 3);
                             Clicked = false; BobSection = false;
                             return;
@@ -10215,8 +10215,8 @@ namespace Refrigtz
                             GrayTimer.StopTime();
                             BrownTimer.StartTime("BrownTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Castle, 4);
                             Clicked = false; BobSection = false;
                             return;
@@ -10318,8 +10318,8 @@ namespace Refrigtz
                             GrayTimer.StopTime();
                             BrownTimer.StartTime("BrownTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, Minister, 5);
                             Clicked = false; BobSection = false;
                             return;
@@ -10420,8 +10420,8 @@ namespace Refrigtz
                             GrayTimer.StopTime();
                             BrownTimer.StartTime("BrownTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Brown, CloneATable(Table), OrderPlate * -1, King, 6);
                             Clicked = false; BobSection = false;
                             return;
@@ -10787,8 +10787,8 @@ namespace Refrigtz
                             BrownTimer.StopTime();
                             GrayTimer.StartTime("GrayTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Soldier, -1);
                             Clicked = false; BobSection = false;
                         }
@@ -10888,8 +10888,8 @@ namespace Refrigtz
                             BrownTimer.StopTime();
                             GrayTimer.StartTime("GrayTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Elefant, -2);
                             Clicked = false; BobSection = false;
                             return;
@@ -10990,8 +10990,8 @@ namespace Refrigtz
                             BrownTimer.StopTime();
                             GrayTimer.StartTime("GrayTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Hourse, -3);
                             Clicked = false; BobSection = false;
                             return;
@@ -11091,8 +11091,8 @@ namespace Refrigtz
                             BrownTimer.StopTime();
                             GrayTimer.StartTime("GrayTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Castle, -4);
                             Clicked = false; BobSection = false;
                             return;
@@ -11193,8 +11193,8 @@ namespace Refrigtz
                             BrownTimer.StopTime();
                             GrayTimer.StartTime("GrayTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, Minister, -5);
                             Clicked = false; BobSection = false;
 
@@ -11300,8 +11300,8 @@ namespace Refrigtz
                             BrownTimer.StopTime();
                             GrayTimer.StartTime("GrayTimer");
                             InsertTableAtDatabase(Table);
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
                             Clicked = false; BobSection = false;
                             return;
@@ -13247,14 +13247,14 @@ namespace Refrigtz
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
                     InsertTableAtDatabase(Table);
-                    SetBoxText("\r\nWait...");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nWait...");
+                    //RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) DrawQ.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
                     Clicked = false; BobSection = false;
 
 
-                    SetBoxText("\r\nDraw Found");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nDraw Found");
+                    //RefreshBoxText();
                     //   SetRefregitzBicture();
                     return true;
                 }
@@ -13349,14 +13349,14 @@ namespace Refrigtz
                     BrownTimer.StopTime();
                     GrayTimer.StartTime("GrayTimer");
                     InsertTableAtDatabase(Table);
-                    SetBoxText("\r\nWait...");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nWait...");
+                    //RefreshBoxText();
                     //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
                     Clicked = false; BobSection = false;
 
 
-                    SetBoxText("\r\nDraw Found");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nDraw Found");
+                    //RefreshBoxText();
                     //   SetRefregitzBicture();
                     return true;
                 }
@@ -13470,8 +13470,8 @@ namespace Refrigtz
                         }
                         else
                         {
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
                             Clicked = false;
                             // SetRefregitzBicture();
@@ -13596,8 +13596,8 @@ namespace Refrigtz
                         }
                         else
                         {
-                            SetBoxText("\r\nWait...");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nWait...");
+                            //RefreshBoxText();
                             //if (!FirstMovmentOnLoad && System.Convert.ToInt32(ComboBoxMaxLevel.Text) > 2) Draw.InitiateAStarGreedytOneNode(0, (int)RowRealesed, (int)ColumnRealeased, Color.Gray, CloneATable(Table), OrderPlate * -1, King, -6);
                             Clicked = false;
                             // SetRefregitzBicture();
@@ -13641,13 +13641,13 @@ namespace Refrigtz
 
                 if (OrderPlate == 1)
                 {
-                    SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Bob!");
+                    //RefreshBoxText();
                 }
                 else
                 {
-                    SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nStockfish Number " + MovmentsNumber + " By Alice!");
+                    //RefreshBoxText();
                 }
 
                 // RefregitzisCurrent = false;
@@ -13756,11 +13756,11 @@ namespace Refrigtz
                 sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                 sw.Flush();
 
-                if (OrderPlate == 1)
-                    this.SetBoxText("\r\nThinking Finished by Bob!");
-                else
-                    this.SetBoxText("\r\nThinking Finished by Alice!");
-                RefreshBoxText();
+                //if (OrderPlate == 1)
+                   // this.SetBoxText("\r\nThinking Finished by Bob!");
+                //else
+                   // this.SetBoxText("\r\nThinking Finished by Alice!");
+                //RefreshBoxText();
 
 
 
@@ -13901,8 +13901,8 @@ namespace Refrigtz
                     {
                         //THISB = THIS.AStarGreedyString;
                         Draw = THIS;
-                        SetBoxText("\r\nDraw Found");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nDraw Found");
+                        //RefreshBoxText();
                     }
                     else
                     {
@@ -13921,8 +13921,8 @@ namespace Refrigtz
                         //Draw.AStarGreedyString = THISB;
                         RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                         RefrigtzDLL.AllDraw.DepthIterative = 0;
-                        SetBoxText("\r\nDraw Not Found");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nDraw Not Found");
+                        //RefreshBoxText();
                     }
                 }*/
                 Object O = new Object();
@@ -13958,8 +13958,8 @@ namespace Refrigtz
                         (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
 
                         Draw.IsCurrentDraw = true;
-                        SetBoxText("\r\nDraw Found");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nDraw Found");
+                        //RefreshBoxText();
                     }
                     else
                     {
@@ -13988,8 +13988,8 @@ namespace Refrigtz
                                 Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
                                 Ord = OrderPlate;
 
-                                SetBoxText("\r\nDraw Found By First Node");
-                                RefreshBoxText();
+                                //SetBoxText("\r\nDraw Found By First Node");
+                                //RefreshBoxText();
                                 return;
                             }
 
@@ -14000,8 +14000,8 @@ namespace Refrigtz
                                 THISB = Draw;
 
                                 Draw.IsCurrentDraw = true;
-                                SetBoxText("\r\nDraw Found By Recurve");
-                                RefreshBoxText();
+                                //SetBoxText("\r\nDraw Found By Recurve");
+                                //RefreshBoxText();
                                 FOUND = false;
                                 Ord = OrderPlate * -1;
                                 Draw.ClearAllTablesHeuristicsAndMore(Ord);
@@ -14030,8 +14030,8 @@ namespace Refrigtz
                                     (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
 
 
-                                    SetBoxText("\r\nRecurved Draw Constructed and Found!");
-                                    RefreshBoxText();
+                                    //SetBoxText("\r\nRecurved Draw Constructed and Found!");
+                                    //RefreshBoxText();
 
                                 }
                                 else
@@ -14050,8 +14050,8 @@ namespace Refrigtz
                                     Draw.AStarGreedyString = THISB;
                                     RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                     RefrigtzDLL.AllDraw.DepthIterative = 0;
-                                    SetBoxText("\r\nDraw Not Found");
-                                    RefreshBoxText();
+                                    //SetBoxText("\r\nDraw Not Found");
+                                    //RefreshBoxText();
                                 }
                             }
                             else
@@ -14071,8 +14071,8 @@ namespace Refrigtz
                                 Draw.AStarGreedyString = THISB;
                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                 RefrigtzDLL.AllDraw.DepthIterative = 0;
-                                SetBoxText("\r\nDraw Not Found");
-                                RefreshBoxText();
+                                //SetBoxText("\r\nDraw Not Found");
+                                //RefreshBoxText();
                             }
                         }
                         else
@@ -14092,8 +14092,8 @@ namespace Refrigtz
                             Draw.AStarGreedyString = THISB;
                             RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                             RefrigtzDLL.AllDraw.DepthIterative = 0;
-                            SetBoxText("\r\nDraw Not Found");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nDraw Not Found");
+                            //RefreshBoxText();
                         }
                     }
                 }
@@ -14134,8 +14134,8 @@ namespace Refrigtz
                     DrawQ = THIS;
 
                     DrawQ.IsCurrentDraw = true;
-                    SetBoxText("\r\nDraw Found");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nDraw Found");
+                    //RefreshBoxText();
                 }
                 else
                 {
@@ -14162,8 +14162,8 @@ namespace Refrigtz
                             DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
                             Ord = OrderPlate;
 
-                            SetBoxText("\r\nDraw Found By Firs Node");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nDraw Found By Firs Node");
+                            //RefreshBoxText();
                             return;
                         }
 
@@ -14176,8 +14176,8 @@ namespace Refrigtz
 
                             Ord = OrderPlate;
 
-                            SetBoxText("\r\nDraw Found By Recurve");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nDraw Found By Recurve");
+                            //RefreshBoxText();
                             FOUND = false;
 
                             Ord = OrderPlate * -1;
@@ -14210,8 +14210,8 @@ namespace Refrigtz
 
                                 (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
 
-                                SetBoxText("\r\nRecurved Draw Constructed and Found!");
-                                RefreshBoxText();
+                                //SetBoxText("\r\nRecurved Draw Constructed and Found!");
+                                //RefreshBoxText();
 
                             }
                             else
@@ -14236,8 +14236,8 @@ namespace Refrigtz
                                 DrawQ.AStarGreedyString = THISB;
                                 QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                                 QuantumRefrigiz.AllDraw.DepthIterative = 0;
-                                SetBoxText("\r\nDraw Not Found by break");
-                                RefreshBoxText();
+                                //SetBoxText("\r\nDraw Not Found by break");
+                                //RefreshBoxText();
 
                             }
 
@@ -14264,8 +14264,8 @@ namespace Refrigtz
                             DrawQ.AStarGreedyString = THISB;
                             QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                             QuantumRefrigiz.AllDraw.DepthIterative = 0;
-                            SetBoxText("\r\nDraw Not Found");
-                            RefreshBoxText();
+                            //SetBoxText("\r\nDraw Not Found");
+                            //RefreshBoxText();
                          
                         }
                     }
@@ -14289,8 +14289,8 @@ namespace Refrigtz
                         DrawQ.AStarGreedyString = THISB;
                         QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
                         QuantumRefrigiz.AllDraw.DepthIterative = 0;
-                        SetBoxText("\r\nDraw Not Found");
-                        RefreshBoxText();
+                        //SetBoxText("\r\nDraw Not Found");
+                        //RefreshBoxText();
                     }
                 }
 
@@ -14503,7 +14503,7 @@ namespace Refrigtz
                     }
                     catch (Exception t) { Log(t); }
                 }
-                this.RefreshBoxText();
+                //this.RefreshBoxText();
             }
         }
         delegate void SetTextBoxTextCallback(String state);
@@ -14543,7 +14543,7 @@ namespace Refrigtz
                     }
                     catch (Exception t) { Log(t); }
                 }
-                this.RefreshBoxText();
+               // this.RefreshBoxText();
             }
         }
         delegate void SetComboBoxTextCallback();
@@ -14683,7 +14683,7 @@ namespace Refrigtz
               
                     //LoadConvertedTable = true;
                     //PaintedPaused = false;
-                    this.SetBoxText("\r\nThinking Finished!");
+                    //this.SetBoxText("\r\nThinking Finished!");
                     try
                     {
 
@@ -14809,7 +14809,7 @@ namespace Refrigtz
                 catch (Exception t)
                 {
                     Log(t);
-                    this.SetBoxText("\r\nError!");
+                    //this.SetBoxText("\r\nError!");
                 }
             }
             //BackgroundWorkerAllOp.RunWorkerAsync();
@@ -14851,26 +14851,26 @@ namespace Refrigtz
 
                 if (OrderPlate == 1)
                 {
-                    SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Gray OrderPlate!");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Gray OrderPlate!");
+                    //RefreshBoxText();
                 }
                 else
                 {
-                    SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
-                    RefreshBoxText();
+                    //SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
+                    //RefreshBoxText();
                 }
 
                 if (OrderPlate == 1)
                 {
-                    this.SetBoxText("\r\nThinking Begin By Bob!");
-                    RefreshBoxText();
+                    //this.SetBoxText("\r\nThinking Begin By Bob!");
+                    //RefreshBoxText();
                 }
                 else
                 {
-                    this.SetBoxText("\r\nThinking Begin By Alice!");
-                    RefreshBoxText();
+                    //this.SetBoxText("\r\nThinking Begin By Alice!");
+                    //RefreshBoxText();
                 }
-                RefreshBoxText();
+                //RefreshBoxText();
                 a = Color.Gray;
                 if (OrderPlate == -1)
                     a = Color.Brown;
@@ -15066,13 +15066,13 @@ namespace Refrigtz
                 UpdateConfigurationTable();
                 if (OrderPlate == 1)
                 {
-                    this.SetBoxText("\r\nThinking Finished By Bob!");
-                    RefreshBoxText();
+                    //this.SetBoxText("\r\nThinking Finished By Bob!");
+                    //RefreshBoxText();
                 }
                 else
                 {
-                    this.SetBoxText("\r\nThinking Finished By Alice!");
-                    RefreshBoxText();
+                    //this.SetBoxText("\r\nThinking Finished By Alice!");
+                    //RefreshBoxText();
                 }
                 using (SoundPlayer soundClick = new SoundPlayer(Root + "\\Music\\Click6.wav"))
                 {
@@ -15207,18 +15207,18 @@ namespace Refrigtz
 
 
 
-                if (OrderPlate == 1)
+                //if (OrderPlate == 1)
 
-                    SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Gray OrderPlate!");
-                else
-                    SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
-                RefreshBoxText();
+                    //SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Gray OrderPlate!");
+                //else
+                    //SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " is Brown OrderPlate!");
+                //RefreshBoxText();
                 Begin4:
-                if (OrderPlate == 1)
-                    SetBoxText("\r\nThinking Begin By Bob!");
-                else
-                    SetBoxText("\r\nThinking Begin By Alice!");
-                RefreshBoxText();
+               // if (OrderPlate == 1)
+                    //SetBoxText("\r\nThinking Begin By Bob!");
+                //else
+                    //SetBoxText("\r\nThinking Begin By Alice!");
+                //RefreshBoxText();
                 Color a = Color.Gray;
                 if (OrderPlate == -1)
                     a = Color.Brown;
@@ -15241,8 +15241,8 @@ namespace Refrigtz
                 else
                     QuantumRefrigiz.ChessRules.CurrentOrder = OrderPlate;
 
-                this.SetBoxText("\r\nThinking Finished By Alice!");
-                RefreshBoxText();
+                //this.SetBoxText("\r\nThinking Finished By Alice!");
+                //RefreshBoxText();
                 if (!Quantum)
                 {
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
@@ -16268,8 +16268,8 @@ namespace Refrigtz
                                                     {
                                                         Soldier = ii;
                                                         RefrigtzDLL.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16287,8 +16287,8 @@ namespace Refrigtz
                                                     {
                                                         Elefant = ii;
                                                         RefrigtzDLL.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16306,8 +16306,8 @@ namespace Refrigtz
                                                     {
                                                         Hourse = ii;
                                                         RefrigtzDLL.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
 
                                                         return;
                                                     }
@@ -16325,8 +16325,8 @@ namespace Refrigtz
                                                     {
                                                         Castle = ii;
                                                         RefrigtzDLL.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16344,8 +16344,8 @@ namespace Refrigtz
                                                     {
                                                         Minister = ii;
                                                         RefrigtzDLL.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16363,8 +16363,8 @@ namespace Refrigtz
                                                     {
                                                         King = ii;
                                                         RefrigtzDLL.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16388,8 +16388,8 @@ namespace Refrigtz
                                                 RowClick = i;
                                                 ColumnClick = j;
                                                 RefrigtzDLL.AllDraw.MouseClick++;
-                                                SetBoxText("\r\nObject Released.");
-                                                RefreshBoxText();
+                                                //SetBoxText("\r\nObject Released.");
+                                                //RefreshBoxText();
 
                                             }
                                             else
@@ -16406,8 +16406,8 @@ namespace Refrigtz
                                                     ColumnRealeased = -1;
                                                 }
                                                 //////RefrigtzDLL.AllDraw.MouseClick = 0;
-                                                SetBoxText("\r\nObject Cleared.");
-                                                RefreshBoxText();
+                                                //SetBoxText("\r\nObject Cleared.");
+                                                //RefreshBoxText();
 
                                             }
                                         }
@@ -16436,8 +16436,8 @@ namespace Refrigtz
                                                     {
                                                         Soldier = ii;
                                                         QuantumRefrigiz.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16455,8 +16455,8 @@ namespace Refrigtz
                                                     {
                                                         Elefant = ii;
                                                         QuantumRefrigiz.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16474,8 +16474,8 @@ namespace Refrigtz
                                                     {
                                                         Hourse = ii;
                                                         QuantumRefrigiz.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
 
                                                         return;
                                                     }
@@ -16493,8 +16493,8 @@ namespace Refrigtz
                                                     {
                                                         Castle = ii;
                                                         QuantumRefrigiz.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16512,8 +16512,8 @@ namespace Refrigtz
                                                     {
                                                         Minister = ii;
                                                         QuantumRefrigiz.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16531,8 +16531,8 @@ namespace Refrigtz
                                                     {
                                                         King = ii;
                                                         QuantumRefrigiz.AllDraw.MouseClick++;
-                                                        SetBoxText("\r\nObject Selected.");
-                                                        RefreshBoxText();
+                                                        //SetBoxText("\r\nObject Selected.");
+                                                        //RefreshBoxText();
                                                         return;
                                                     }
                                                 }
@@ -16556,8 +16556,8 @@ namespace Refrigtz
                                                 RowClick = i;
                                                 ColumnClick = j;
                                                 QuantumRefrigiz.AllDraw.MouseClick++;
-                                                SetBoxText("\r\nObject Released.");
-                                                RefreshBoxText();
+                                                //SetBoxText("\r\nObject Released.");
+                                                //RefreshBoxText();
 
                                             }
                                         }
@@ -16831,9 +16831,9 @@ namespace Refrigtz
                             //Constructed a Draw All.
                             Draw.SetRowColumn(0);
                             //OutPut.ToString().
-                            SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " Fronted.");
+                            //SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " Fronted.");
                             //Refresh TextBox.
-                            RefreshBoxText();
+                            //RefreshBoxText();
 
 
 
@@ -16872,9 +16872,9 @@ namespace Refrigtz
                             //Construction of All Things and Thinkings.
                             Draw.SetRowColumn(0);
                             //Out Put
-                            SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " Backed.");
+                            //SetBoxText("\r\nMovments Number " + MovmentsNumber.ToString() + " Backed.");
                             //Refresh TextBox.
-                            RefreshBoxText();
+                            //RefreshBoxText();
 
 
 
@@ -17539,7 +17539,7 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {          //RunInBackground();
-                SetBoxText("\r\nAll Stop!.");
+                //SetBoxText("\r\nAll Stop!.");
 
             }
         }
@@ -18145,12 +18145,12 @@ namespace Refrigtz
             {
                 if (File.Exists(Root + "ErrorProgramRun.txt") || File.Exists(Root + "\\Run.txt"))
                 {
-                    this.SetBoxText("Clearing...\n\n\n");
+                    //this.SetBoxText("Clearing...\n\n\n");
                     if (File.Exists(Root + "ErrorProgramRun.txt"))
                         File.Delete(Root + "\\ErrorProgramRun.txt");
                     if (File.Exists(Root + "\\Run.txt"))
                         File.Delete(Root + "\\Run.txt");
-                    this.SetBoxText("Finished.");
+                    //this.SetBoxText("Finished.");
 
                 }
             }
@@ -19424,8 +19424,8 @@ namespace Refrigtz
                     catch (Exception t) { }
 #pragma warning restore CS0168 // The variable 't' is declared but never used
                 } while (!finished);
-                SetBoxText("\n\rCleared!");
-                RefreshBoxText();
+                //SetBoxText("\n\rCleared!");
+                //RefreshBoxText();
                 Application.Exit();
             }
         }
