@@ -858,11 +858,10 @@ namespace Refrigtz
                                         RefreshBoxText();
                                         Color a = Color.Brown;
 
-                                        FOUND = false;
-                                        RefrigtzDLL.AllDraw THIS = null;
-
-                                        SetDrawFounding(ref FOUND, ref THIS, false);
-
+                                        Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                                        arr.Start();
+                                        arr.Join();
+             
                                         if (RefrigtzDLL.ChessRules.BigKingCastleGray)
                                         {
                                             FenCastling = 1;
@@ -2407,10 +2406,10 @@ namespace Refrigtz
                                         RefreshBoxText();
                                         Color a = Color.Brown;
 
-                                        FOUND = false;
-                                        QuantumRefrigiz.AllDraw THIS = null;
+                                        Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                                        arr.Start();
+                                        arr.Join();
 
-                                        SetDrawFounding(ref FOUND, ref THIS, false);
 
                                         if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
                                         {
@@ -5050,18 +5049,10 @@ namespace Refrigtz
                                             //UpdateConfigurationTableVal = true;                             
                                             SetAllDrawKindString();
 
-                                            if (!Quantum)
-                                            {
-                                                FOUND = false;
-                                                RefrigtzDLL.AllDraw THIS = null;
-                                                SetDrawFounding(ref FOUND, ref THIS, true);
-                                            }
-                                            else
-                                            {
-                                                FOUND = false;
-                                                QuantumRefrigiz.AllDraw THIS = null;
-                                                SetDrawFounding(ref FOUND, ref THIS, true);
-                                            }
+                                            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                                            arr.Start();
+                                            arr.Join();
+
 
                                             if (DrawManagement())
                                             {
@@ -5162,11 +5153,10 @@ namespace Refrigtz
                             FOUND = false;
                             RefrigtzDLL.AllDraw THIS = null;
                             Draw = y.t;
-                            SetDrawFounding(ref FOUND, ref THIS, true);
-                            /*   FOUND = false;
-                               RefrigtzDLL.AllDraw THIS = null;
-                               SetDrawFounding(ref FOUND, ref THIS, false);
-       */
+                            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                            arr.Start();
+                            arr.Join();
+
                         }
                     }
                     else
@@ -5186,12 +5176,10 @@ namespace Refrigtz
                             FOUND = false;
                             QuantumRefrigiz.AllDraw THIS = null;
                             DrawQ = y.tt;
-                            SetDrawFounding(ref FOUND, ref THIS, true);
+                            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                            arr.Start();
+                            arr.Join();
 
-                            /*DrawQ = y.tt;
-                            FOUND = false;
-                            QuantumRefrigiz.AllDraw THIS = null;
-                            SetDrawFounding(ref FOUND, ref THIS, false);*/
 
                         }
                     }
@@ -5608,9 +5596,11 @@ namespace Refrigtz
                         }
                         if (!Quantum)
                         {
-                            RefrigtzDLL.AllDraw THIS = null;
-                            bool Found = false;
-                            SetDrawFounding(ref Found, ref THIS, false);
+
+                            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                            arr.Start();
+                            arr.Join();
+
 
                             if (!Draw.IsEnemyThingsinStable(TableA, RefrigtzDLL.AllDraw.TableVeryfy, Order))
                             {
@@ -5632,9 +5622,10 @@ namespace Refrigtz
                         }
                         else
                         {
-                            QuantumRefrigiz.AllDraw THIS = null;
-                            bool Found = false;
-                            SetDrawFounding(ref Found, ref THIS, false);
+                            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                            arr.Start();
+                            arr.Join();
+             
                             if (!DrawQ.IsEnemyThingsinStable(TableA, QuantumRefrigiz.AllDraw.TableVeryfy, Order))
                             {
                                 Tab = null;
@@ -13275,10 +13266,11 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
-                FOUND = false;
-                RefrigtzDLL.AllDraw THIS = null;
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
 
-                SetDrawFounding(ref FOUND, ref THIS, false);
+
 
                 if (FOUND)
                 {
@@ -13287,7 +13279,6 @@ namespace Refrigtz
                         Table[ii, jj] = Table[i, j];
                         Table[i, j] = 0;
                     }
-                    Draw = THIS;
                     ///OrderPlate = Draw.OrderP;
                     //RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Tab));
                     // Person = false;
@@ -13448,9 +13439,10 @@ namespace Refrigtz
                                     Table[ik, jk] = Tab[ik, jk];
                                 }
                             }
-                            FOUND = false;
-                            RefrigtzDLL.AllDraw THIS = null;
-                            SetDrawFounding(ref FOUND, ref THIS, false);
+                            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                            arr.Start();
+                            arr.Join();
+             
                             bool StoreStateCC = StateCC, StoreStateCP = StateCP, StoreStateGe = StateGe;
                             if (FOUND)
                             {
@@ -13780,14 +13772,9 @@ namespace Refrigtz
                 Table = CloneATable(Tab);
                 SetAndConfirmSyntax();
 
-                FOUND = false;
-                RefrigtzDLL.AllDraw THIS = null;
-                QuantumRefrigiz.AllDraw THISQ = null;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
-
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
 
                 OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
@@ -13858,6 +13845,20 @@ namespace Refrigtz
 
                 DrawImageOfMain();
 
+            }
+        }
+        void SetDrawFound()
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                FOUND = false;
+                RefrigtzDLL.AllDraw THIS = null;
+                QuantumRefrigiz.AllDraw THISQ = null;
+                if (!Quantum)
+                    SetDrawFounding(ref FOUND, ref THIS, false);
+                else
+                    SetDrawFounding(ref FOUND, ref THISQ, false);
             }
         }
         public void SetDrawFounding(ref bool FOUND, ref RefrigtzDLL.AllDraw THIS, bool First)
@@ -14699,15 +14700,11 @@ namespace Refrigtz
                     SetAndConfirmSyntax();
 
 
-                    FOUND = false;
-                    FOUND = false;
-                    RefrigtzDLL.AllDraw THIS = null;
-                    QuantumRefrigiz.AllDraw THISQ = null;
-                    if (!Quantum)
-                        SetDrawFounding(ref FOUND, ref THIS, false);
-                    else
-                        SetDrawFounding(ref FOUND, ref THISQ, false);
-                  
+                    Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                    arr.Start();
+                    arr.Join();
+
+
                     OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
                     //BobWithStockfishFinished = true;
@@ -14784,14 +14781,10 @@ namespace Refrigtz
 
                     SetAndConfirmSyntax();
 
-                    FOUND = false;
-                    RefrigtzDLL.AllDraw THIS = null;
-                    QuantumRefrigiz.AllDraw THISQ = null;
-                    if (!Quantum)
-                        SetDrawFounding(ref FOUND, ref THIS, false);
-                    else
-                        SetDrawFounding(ref FOUND, ref THISQ, false);
-                   
+                    Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                    arr.Start();
+                    arr.Join();
+             
                     OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
                     OrderPlate *= -1;
@@ -15163,13 +15156,9 @@ namespace Refrigtz
 
                 SetAndConfirmSyntax();
 
-                FOUND = false;
-                THIS = null;
-                THISQ = null;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
 
                 OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
@@ -15433,15 +15422,10 @@ namespace Refrigtz
 
                 SetAndConfirmSyntax();
 
-
-                FOUND = false;
-                THIS = null;
-                THISQ = null;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
-
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+              
                 OpAfterAllTinking(ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
 
                 //BobWithStockfishFinished = true;
@@ -16813,10 +16797,10 @@ namespace Refrigtz
                     label2.Text = "You";
                 }
 
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-
-                SetDrawFounding(ref FOUND, ref THIS, false);
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+             
                 MenueSelecte = true;
                 //UpdateConfigurationTableVal = true;
                 UpdateConfigurationTable();
@@ -17416,9 +17400,10 @@ namespace Refrigtz
                                 AStarGreedyHeuristic = false;
                             if (MovmentsNumber == 1)
                             {
-                                RefrigtzDLL.AllDraw THIS = null;
-                                bool Found = false;
-                                SetDrawFounding(ref Found, ref THIS, false);
+                                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                                arr.Start();
+                                arr.Join();
+
                             }
                             //UpdateConfigurationTable();
                             //RunInFront();
@@ -17436,9 +17421,9 @@ namespace Refrigtz
                                 AStarGreedyHeuristic = false;
                             if (MovmentsNumber == 1)
                             {
-                                QuantumRefrigiz.AllDraw THIS = null;
-                                bool Found = false;
-                                SetDrawFounding(ref Found, ref THIS, false);
+                                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                                arr.Start();
+                                arr.Join();
                             }
                             //UpdateConfigurationTable();
                             //RunInFront();
@@ -17907,13 +17892,11 @@ namespace Refrigtz
                     label1.Text = "Refregiz";
                     label2.Text = "You";
                 }
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+               
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+             
                 MenueSelecte = true;
                 //UpdateConfigurationTableVal = true;
                 UpdateConfigurationTable();
@@ -18048,18 +18031,10 @@ namespace Refrigtz
                             UsePenaltyRegardMechnisam = false;
                         if (MovmentsNumber == 1)
                         {
-                            if (!Quantum)
-                            {
-                                RefrigtzDLL.AllDraw THIS = null;
-                                bool Found = false;
-                                SetDrawFounding(ref Found, ref THIS, false);
-                            }
-                            else
-                            {
-                                QuantumRefrigiz.AllDraw THIS = null;
-                                bool Found = false;
-                                SetDrawFounding(ref Found, ref THIS, false);
-                            }
+                            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                            arr.Start();
+                            arr.Join();
+
                         }
                         //UpdateConfigurationTable();
                         //RunInFront();
@@ -18752,13 +18727,11 @@ namespace Refrigtz
                 FullGame = true;
                 Blitz = false;
                 StateCC = true;
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+                
                 MenueSelecte = true;
                 //UpdateConfigurationTableVal = true;
                 UpdateConfigurationTable();
@@ -18857,13 +18830,11 @@ namespace Refrigtz
                     label1.Text = "Refregiz";
                     label2.Text = "You";
                 }
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+                
                 MenueSelecte = true;
                 //UpdateConfigurationTableVal = true;
                 UpdateConfigurationTable();
@@ -18919,13 +18890,11 @@ namespace Refrigtz
                     label1.Text = "Refregiz";
                     label2.Text = "You";
                 }
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+
 
                 //UpdateConfigurationTableVal = true;
 
@@ -19033,10 +19002,10 @@ namespace Refrigtz
                 }
                 else
                 {
-                    QuantumRefrigiz.AllDraw THIS = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                    FOUND = false;
+                    Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                    arr.Start();
+                    arr.Join();
 
-                    SetDrawFounding(ref FOUND, ref THIS, false);
                 }
                 MenueSelecte = true;
                 //UpdateConfigurationTableVal = true;
@@ -19288,13 +19257,9 @@ namespace Refrigtz
                 BobSection = true;
                 if (!LoadTree)
                 {
-                    RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                    QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                    FOUND = false;
-                    if (!Quantum)
-                        SetDrawFounding(ref FOUND, ref THIS, false);
-                    else
-                        SetDrawFounding(ref FOUND, ref THISQ, false);
+                    Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                    arr.Start();
+                    arr.Join();
 
                 }
                 MenueSelecte = true;
@@ -19357,13 +19322,11 @@ namespace Refrigtz
                 FullGame = true;
                 Blitz = false;
                 StateCC = true;
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+                
                 MenueSelecte = true;
                 //UpdateConfigurationTableVal = true;
                 UpdateConfigurationTable();
@@ -19550,13 +19513,11 @@ namespace Refrigtz
         {
             MoveGray();
             OrderPlate *= -1;
-            FOUND = false;
-            RefrigtzDLL.AllDraw THIS = null;
-            QuantumRefrigiz.AllDraw THISQ = null;
-            if (!Quantum)
-                SetDrawFounding(ref FOUND, ref THIS, false);
-            else
-                SetDrawFounding(ref FOUND, ref THISQ, false);
+
+            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+            arr.Start();
+            arr.Join();
+            
             OrderPlate *= -1;
 
 
@@ -19598,13 +19559,11 @@ namespace Refrigtz
         {
             MoveBrown();
             OrderPlate *= -1;
-            FOUND = false;
-            RefrigtzDLL.AllDraw THIS = null;
-            QuantumRefrigiz.AllDraw THISQ = null;
-            if (!Quantum)
-                SetDrawFounding(ref FOUND, ref THIS, false);
-            else
-                SetDrawFounding(ref FOUND, ref THISQ, false);
+
+            Thread arr = new Thread(new ThreadStart(SetDrawFound));
+            arr.Start();
+            arr.Join();
+            
             OrderPlate *= -1;
 
         }
@@ -19668,13 +19627,11 @@ namespace Refrigtz
                     label1.Text = "Refregiz";
                     label2.Text = "You";
                 }
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+                
                 MenueSelecte = true;
                 //UpdateConfigurationTableVal = true;
                 UpdateConfigurationTable();
@@ -19734,13 +19691,11 @@ namespace Refrigtz
                     label1.Text = "Refregiz";
                     label2.Text = "Refregiz";
                 }
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+                
                 MenueSelecte = true;
                 //UpdateConfigurationTableVal = true;
                 AllDo = false;
@@ -19777,18 +19732,12 @@ namespace Refrigtz
                 StateCP = true;
                 //BobSection = true;
                 //PersonWithStockfish = true;
-                if (!Quantum)
-                {
-                    RefrigtzDLL.AllDraw THIS = null;
-                    bool Found = false;
-                    SetDrawFounding(ref Found, ref THIS, false);
-                }
-                else
-                {
-                    QuantumRefrigiz.AllDraw THIS = null;
-                    bool Found = false;
-                    SetDrawFounding(ref Found, ref THIS, false);
-                }
+
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+
+
                 AllDo = false;
             }
         }
@@ -19819,13 +19768,11 @@ namespace Refrigtz
                 StateCC = true;
                 //BobSection = true;
                 UsePenaltyRegardMechnisam = false;
-                RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                FOUND = false;
-                if (!Quantum)
-                    SetDrawFounding(ref FOUND, ref THIS, false);
-                else
-                    SetDrawFounding(ref FOUND, ref THISQ, false);
+
+                Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                arr.Start();
+                arr.Join();
+                
                 AllDo = false;
             }
         }
@@ -19884,13 +19831,9 @@ namespace Refrigtz
                 BobSection = true;
                 if (!LoadTree)
                 {
-                    RefrigtzDLL.AllDraw THIS = new RefrigtzDLL.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                    QuantumRefrigiz.AllDraw THISQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                    FOUND = false;
-                    if (!Quantum)
-                        SetDrawFounding(ref FOUND, ref THIS, false);
-                    else
-                        SetDrawFounding(ref FOUND, ref THISQ, false);
+                    Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                    arr.Start();
+                    arr.Join();
 
                 }
                 MenueSelecte = true;
@@ -19928,18 +19871,10 @@ namespace Refrigtz
                 UsePenaltyRegardMechnisam = false;
                 if (!AllDrawLoad)
                 {
-                    if (!Quantum)
-                    {
-                        RefrigtzDLL.AllDraw THIS = null;
-                        bool Found = false;
-                        SetDrawFounding(ref Found, ref THIS, false);
-                    }
-                    else
-                    {
-                        RefrigtzDLL.AllDraw THIS = null;
-                        bool Found = false;
-                        SetDrawFounding(ref Found, ref THIS, false);
-                    }
+                    Thread arr = new Thread(new ThreadStart(SetDrawFound));
+                    arr.Start();
+                    arr.Join();
+
                 }
                 AllDo = false;
             }
