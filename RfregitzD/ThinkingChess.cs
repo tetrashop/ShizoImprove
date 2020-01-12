@@ -85,8 +85,9 @@ namespace RefrigtzDLL
     public class ThinkingChess
     {
         public static int Colleralation = int.MinValue;
+        public static int DeColleralation = int.MaxValue;
         public static int[,] TableInitiation ={
-            { -4, -1, 0, 0, 0, 0, 1, 4 },
+             { -4, -1, 0, 0, 0, 0, 1, 4 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
             { -2, -1, 0, 0, 0, 0, 1, 2 },
             { -5, -1, 0, 0, 0, 0, 1, 5 },
@@ -4949,6 +4950,21 @@ namespace RefrigtzDLL
                             }
                         }
                     }
+                    if (!((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    {
+                        if (Tab[RowS, ColS] == -3)
+                            Dis += RatiionalPenalty;
+                        if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
+                        {
+                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                            if (Cor < DeColleralation)
+                            {
+                                DeColleralation = Cor;
+                                Dis += RatiionalRegard;
+
+                            }
+                        }
+                    }
                 }
                 else
                 {
@@ -4964,6 +4980,19 @@ namespace RefrigtzDLL
                             if (Cor > Colleralation)
                             {
                                 Colleralation = Cor;
+                                Dis += RatiionalRegard;
+
+                            }
+                        }
+                    }
+                    if (!((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    {
+                        if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
+                        {
+                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                            if (Cor < DeColleralation)
+                            {
+                                DeColleralation = Cor;
                                 Dis += RatiionalRegard;
 
                             }

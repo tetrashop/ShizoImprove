@@ -84,6 +84,7 @@ namespace RefrigtzW
     public class ThinkingChess
     {
         public static int Colleralation = int.MinValue;
+        public static int DeColleralation = int.MinValue;
         public static int[,] TableInitiation ={
             { -4, -1, 0, 0, 0, 0, 1, 4 },
             { -3, -1, 0, 0, 0, 0, 1, 3 },
@@ -4917,7 +4918,7 @@ namespace RefrigtzW
                 return Is;
             }
         }
-       //Distribution of Objects
+        //Distribution of Objects
         public int HeuristicDistribution(int[,] Tab, int Order, int RowS, int ColS)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -4925,14 +4926,13 @@ namespace RefrigtzW
             lock (O)
             {
                 int Dis = 0;
-
-                
                 const int ObjectGray = 0, ObjectBrown = 0;
+
                 if (IsTableRowColIsZero(RowS, ColS))
                     Dis = RatiionalRegard;
                 else
                     Dis = RatiionalPenalty;
-               
+
                 if (Order == 1)
                 {
                     if ((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
@@ -4945,6 +4945,21 @@ namespace RefrigtzW
                             if (Cor > Colleralation)
                             {
                                 Colleralation = Cor;
+                                Dis += RatiionalRegard;
+
+                            }
+                        }
+                    }
+                    if (!((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    {
+                        if (Tab[RowS, ColS] == -3)
+                            Dis += RatiionalPenalty;
+                        if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
+                        {
+                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                            if (Cor < DeColleralation)
+                            {
+                                DeColleralation = Cor;
                                 Dis += RatiionalRegard;
 
                             }
@@ -4970,7 +4985,22 @@ namespace RefrigtzW
                             }
                         }
                     }
+                    if (!((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    {
+                        if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
+                        {
+                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                            if (Cor < DeColleralation)
+                            {
+                                DeColleralation = Cor;
+                                Dis += RatiionalRegard;
+
+                            }
+                        }
+                    }
                 }
+
+
 
                 /*     //Initiate.
                      int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
