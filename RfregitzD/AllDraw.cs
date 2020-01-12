@@ -21781,6 +21781,7 @@ if (Kind == 5)
         {
 
             ThinkingChess.Colleralation = int.MinValue;
+            ThinkingChess.DeColleralation = int.MaxValue;
             if (FOUND && (!FirstTraversalTree))
                 NumberOfLeafComputation = ThinkingChess.NumbersOfAllNode;
             else

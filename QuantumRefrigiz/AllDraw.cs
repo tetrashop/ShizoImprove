@@ -21800,6 +21800,7 @@ if (Kind == 5)
         {
 
             ThinkingQuantumChess.Colleralation = int.MinValue;
+            ThinkingQuantumChess.DeColleralation = int.MaxValue;
 
             if (FOUND && (!FirstTraversalTree))
                 NumberOfLeafComputation = ThinkingQuantumChess.NumbersOfAllNode;
