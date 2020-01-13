@@ -1064,7 +1064,7 @@ namespace QuantumRefrigiz
                     Object O1 = new Object();
                     lock (O1)
                     {
-                        if (Before)
+                        //if (Before)
                         {
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
@@ -1168,7 +1168,7 @@ namespace QuantumRefrigiz
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        if (Before)
+                        //if (Before)
                         {
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
@@ -1369,7 +1369,7 @@ namespace QuantumRefrigiz
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Before)
+                                //if (Before)
                                 {
                                     if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                     {
@@ -1435,7 +1435,7 @@ namespace QuantumRefrigiz
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            if (Before)
+                                            //if (Before)
                                             {
                                                 if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                                 {
@@ -5425,7 +5425,7 @@ namespace QuantumRefrigiz
                     }
                     else
                         return HeuristicMovementValue;
-                    if (Before)
+                    //if (Before)
                     {
                         //When is Movable Movement inCurrent.
                         if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
@@ -5535,7 +5535,7 @@ namespace QuantumRefrigiz
                     }
                     else
                         return HeuristicMovementValue;
-                    if (Before)
+                    //if (Before)
                     {
                         //When is Movable Movement inCurrent.
                         if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
