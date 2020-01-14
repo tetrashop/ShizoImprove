@@ -3977,23 +3977,150 @@ namespace RefrigtzDLL
                                 continue;
                             if (Order == -1 && Tabl[ik, jk] <= 0)
                                 continue;
-                            if (System.Math.Abs(Tabl[ik, jk]) == 1)
+                            switch (System.Math.Abs(Tabl[ik, jk]))
                             {
-                                //For Current Home
-                                for (var iki = ik - 2; iki < ik + 3; iki++)
-                                    for (var jki = jk - 2; jki < jk + 3; jki++)
+                                case 1:
 
+                                    //For Current Home
+                                    for (var iki = ik - 2; iki < ik + 3; iki++)
+                                        for (var jki = jk - 2; jki < jk + 3; jki++)
+
+                                        ////Parallel.For(ik - 2, ik + 3, iki =>
+                                        ////Parallel.For(jk - 2, jk + 3, jki =>
+                                        // init subtotal
+                                        {
+                                            if (!Scop(ik, jk, iki, jki, 1))
+                                                continue;
+                                            //Ignore of Enemy
+                                            if (Order == 1 && Tabl[iki, jki] < 0)
+                                                continue;
+                                            if (Order == -1 && Tabl[iki, jki] > 0)
+                                                continue;
+                                            if (Is[0] == 1)
+                                                continue;
+                                            int Ord = Order;
+                                            int[,] Tab = CloneATable(Tabl);
+                                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                            bool KindCheckedSelf1 = KindCheckedSelf;
+                                            int[] IS = null;
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                                Is[1] = Is[1]; Is[3] = IS[3];
+                                            }
+
+                                        }
+                                    break;
+                                case 2:
+
+
+                                    //For Current Home
+                                    ////Parallel.For(0, 8, iki =>
+                                    for (var iki = 0; iki < 8; iki++)
+                                    {
+                                        var jki = iki + jk - ik;
+                                        if (!Scop(ik, jk, iki, jki, 2))
+                                            continue;
+                                        //Ignore of Enemy
+                                        if (Order == 1 && Tabl[iki, jki] < 0)
+                                            continue;
+                                        if (Order == -1 && Tabl[iki, jki] > 0)
+                                            continue;
+
+                                        if (Is[0] == 1)
+                                            continue;
+                                        int Ord = Order;
+                                        int[,] Tab = CloneATable(Tabl);
+                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                        bool KindCheckedSelf1 = KindCheckedSelf;
+                                        int[] IS = null;
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
+                                        }
+
+                                    }//);
+                                     //For Current Home
+                                     ////Parallel.For(0, 8, iki =>
+                                    for (var iki = 0; iki < 8; iki++)
+                                    {
+                                        var jki = iki * -1 + jk + ik;
+                                        if (!Scop(ik, jk, iki, jki, 2))
+                                            continue;
+                                        //Ignore of Enemy
+                                        if (Order == 1 && Tabl[iki, jki] < 0)
+                                            continue;
+                                        if (Order == -1 && Tabl[iki, jki] > 0)
+                                            continue;
+
+                                        if (Is[0] == 1)
+                                            continue;
+                                        int Ord = Order;
+                                        int[,] Tab = CloneATable(Tabl);
+                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                        bool KindCheckedSelf1 = KindCheckedSelf;
+                                        int[] IS = null;
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                            Is[1] = Is[1]; Is[3] = IS[3];
+                                        }
+                                    }
+
+                                    break;
+                                case 3:
+
+                                    //For Current Home
                                     ////Parallel.For(ik - 2, ik + 3, iki =>
                                     ////Parallel.For(jk - 2, jk + 3, jki =>
-                                    // init subtotal
+                                    for (var iki = ik - 2; iki < ik + 3; iki++)
+                                        for (var jki = jk - 2; jki < jk + 3; jki++)
+
+                                        {
+                                            if (!Scop(ik, jk, iki, jki, 3))
+                                                continue;
+                                            //Ignore of Enemy
+                                            if (Order == 1 && Tabl[iki, jki] < 0)
+                                                continue;
+                                            if (Order == -1 && Tabl[iki, jki] > 0)
+                                                continue;
+
+                                            int Ord = Order;
+                                            int[,] Tab = CloneATable(Tabl);
+                                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                            bool KindCheckedSelf1 = KindCheckedSelf;
+                                            int[] IS = null;
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                                Is[1] = Is[1]; Is[3] = IS[3];
+                                            }
+                                        }
+                                    break;
+                                case 4:
+
+                                    //For Current Home
+                                    ////Parallel.For(0, 8, iki =>
+                                    for (var iki = 0; iki < 8; iki++)
                                     {
-                                        if (!Scop(ik, jk, iki, jki, 1))
+                                        var jki = jk;
+                                        if (!Scop(ik, jk, iki, jki, 4))
                                             continue;
                                         //Ignore of Enemy
                                         if (Order == 1 && Tabl[iki, jki] < 0)
                                             continue;
                                         if (Order == -1 && Tabl[iki, jki] > 0)
                                             continue;
+
                                         if (Is[0] == 1)
                                             continue;
                                         int Ord = Order;
@@ -4008,209 +4135,13 @@ namespace RefrigtzDLL
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
-
-                                    }
-                                //));
-                            }
-                            else
-                            if (System.Math.Abs(Tabl[ik, jk]) == 2)
-                            {
-
-                                //For Current Home
-                                ////Parallel.For(0, 8, iki =>
-                                for (var iki = 0; iki < 8; iki++)
-                                {
-                                    var jki = iki + jk - ik;
-                                    if (!Scop(ik, jk, iki, jki, 2))
-                                        continue;
-                                    //Ignore of Enemy
-                                    if (Order == 1 && Tabl[iki, jki] < 0)
-                                        continue;
-                                    if (Order == -1 && Tabl[iki, jki] > 0)
-                                        continue;
-
-                                    if (Is[0] == 1)
-                                        continue;
-                                    int Ord = Order;
-                                    int[,] Tab = CloneATable(Tabl);
-                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                    bool KindCheckedSelf1 = KindCheckedSelf;
-                                    int[] IS = null;
-                                    Object O1 = new Object();
-                                    lock (O1)
-                                    {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = Is[1]; Is[3] = IS[3];
-                                    }
-
-                                }//);
-                                 //For Current Home
-                                 ////Parallel.For(0, 8, iki =>
-                                for (var iki = 0; iki < 8; iki++)
-                                {
-                                    var jki = iki * -1 + jk + ik;
-                                    if (!Scop(ik, jk, iki, jki, 2))
-                                        continue;
-                                    //Ignore of Enemy
-                                    if (Order == 1 && Tabl[iki, jki] < 0)
-                                        continue;
-                                    if (Order == -1 && Tabl[iki, jki] > 0)
-                                        continue;
-
-                                    if (Is[0] == 1)
-                                        continue;
-                                    int Ord = Order;
-                                    int[,] Tab = CloneATable(Tabl);
-                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                    bool KindCheckedSelf1 = KindCheckedSelf;
-                                    int[] IS = null;
-                                    Object O1 = new Object();
-                                    lock (O1)
-                                    {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = Is[1]; Is[3] = IS[3];
-                                    }
-                                }//);
-                            }
-                            else
-                            if (System.Math.Abs(Tabl[ik, jk]) == 3)
-                            {
-                                //For Current Home
-                                ////Parallel.For(ik - 2, ik + 3, iki =>
-                                ////Parallel.For(jk - 2, jk + 3, jki =>
-                                for (var iki = ik - 2; iki < ik + 3; iki++)
-                                    for (var jki = jk - 2; jki < jk + 3; jki++)
-
-                                    {
-                                        if (!Scop(ik, jk, iki, jki, 3))
-                                            continue;
-                                        //Ignore of Enemy
-                                        if (Order == 1 && Tabl[iki, jki] < 0)
-                                            continue;
-                                        if (Order == -1 && Tabl[iki, jki] > 0)
-                                            continue;
-
-                                        int Ord = Order;
-                                        int[,] Tab = CloneATable(Tabl);
-                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                        bool KindCheckedSelf1 = KindCheckedSelf;
-                                        int[] IS = null;
-                                        Object O1 = new Object();
-                                        lock (O1)
-                                        {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = Is[1]; Is[3] = IS[3];
-                                        }
-                                    }//));
-                            }
-                            else
-                            if (System.Math.Abs(Tabl[ik, jk]) == 4)
-                            {
-                                //For Current Home
-                                ////Parallel.For(0, 8, iki =>
-                                for (var iki = 0; iki < 8; iki++)
-                                {
-                                    var jki = jk;
-                                    if (!Scop(ik, jk, iki, jki, 4))
-                                        continue;
-                                    //Ignore of Enemy
-                                    if (Order == 1 && Tabl[iki, jki] < 0)
-                                        continue;
-                                    if (Order == -1 && Tabl[iki, jki] > 0)
-                                        continue;
-
-                                    if (Is[0] == 1)
-                                        continue;
-                                    int Ord = Order;
-                                    int[,] Tab = CloneATable(Tabl);
-                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                    bool KindCheckedSelf1 = KindCheckedSelf;
-                                    int[] IS = null;
-                                    Object O1 = new Object();
-                                    lock (O1)
-                                    {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = Is[1]; Is[3] = IS[3];
-                                    }
-                                }//);
-                                 //For Current Home
-                                 ////Parallel.For(0, 8, jki =>
-                                for (var jki = 0; jki < 8; jki++)
-                                {
-                                    var iki = ik;
-                                    if (!Scop(ik, jk, iki, jki, 4))
-                                        continue;
-                                    //Ignore of Enemy
-                                    if (Order == 1 && Tabl[iki, jki] < 0)
-                                        continue;
-                                    if (Order == -1 && Tabl[iki, jki] > 0)
-                                        continue;
-
-                                    if (Is[0] == 1)
-                                        continue;
-                                    int Ord = Order;
-                                    int[,] Tab = CloneATable(Tabl);
-                                    int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                    bool KindCheckedSelf1 = KindCheckedSelf;
-                                    int[] IS = null;
-                                    Object O1 = new Object();
-                                    lock (O1)
-                                    {
-                                        IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                        if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                        Is[1] = Is[1]; Is[3] = IS[3];
-                                    }
-                                }//);
-                            }
-                            else
-                            if (System.Math.Abs(Tabl[ik, jk]) == 5)
-                            {
-
-                                //For Current Home
-                                ////Parallel.For(0, 8, iki =>
-                                ////Parallel.For(0, 8, jki =>
-                                for (var iki = 0; iki < 8; iki++)
+                                    }//);
+                                     //For Current Home
+                                     ////Parallel.For(0, 8, jki =>
                                     for (var jki = 0; jki < 8; jki++)
                                     {
-                                        //Ignore of Enemy
-                                        if (Order == 1 && Tabl[iki, jki] < 0)
-                                            continue;
-                                        if (Order == -1 && Tabl[iki, jki] > 0)
-                                            continue;
-                                        if (!Scop(ik, jk, iki, jki, 5))
-                                            continue;
-
-                                        if (Is[0] == 1)
-                                            continue;
-                                        int Ord = Order;
-                                        int[,] Tab = CloneATable(Tabl);
-                                        int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
-                                        bool KindCheckedSelf1 = KindCheckedSelf;
-                                        int[] IS = null;
-                                        Object O1 = new Object();
-                                        lock (O1)
-                                        {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
-                                            if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
-                                            Is[1] = Is[1]; Is[3] = IS[3];
-                                        }
-                                    }//));
-                            }
-                            else
-                            if (System.Math.Abs(Tabl[ik, jk]) == 6)
-                            {
-                                //For Current Home
-                                ////Parallel.For(ik - 1, ik + 2, iki =>
-                                ////Parallel.For(jk - 1, jk + 2, jki =>
-                                for (var iki = ik - 1; iki < ik + 2; iki++)
-                                    for (var jki = jk - 1; jki < jk + 2; jki++)
-
-                                    {
-                                        if (!Scop(ik, jk, iki, jki, 6))
+                                        var iki = ik;
+                                        if (!Scop(ik, jk, iki, jki, 4))
                                             continue;
                                         //Ignore of Enemy
                                         if (Order == 1 && Tabl[iki, jki] < 0)
@@ -4232,9 +4163,75 @@ namespace RefrigtzDLL
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
-                                    }//));
+                                    }
+                                    break;
+                                case 5:
+
+
+                                    //For Current Home
+                                    ////Parallel.For(0, 8, iki =>
+                                    ////Parallel.For(0, 8, jki =>
+                                    for (var iki = 0; iki < 8; iki++)
+                                        for (var jki = 0; jki < 8; jki++)
+                                        {
+                                            //Ignore of Enemy
+                                            if (Order == 1 && Tabl[iki, jki] < 0)
+                                                continue;
+                                            if (Order == -1 && Tabl[iki, jki] > 0)
+                                                continue;
+                                            if (!Scop(ik, jk, iki, jki, 5))
+                                                continue;
+
+                                            if (Is[0] == 1)
+                                                continue;
+                                            int Ord = Order;
+                                            int[,] Tab = CloneATable(Tabl);
+                                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                            bool KindCheckedSelf1 = KindCheckedSelf;
+                                            int[] IS = null;
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                                Is[1] = Is[1]; Is[3] = IS[3];
+                                            }
+                                        }
+                                    break;
+                                case 6:
+                                    //For Current Home
+                                    ////Parallel.For(ik - 1, ik + 2, iki =>
+                                    ////Parallel.For(jk - 1, jk + 2, jki =>
+                                    for (var iki = ik - 1; iki < ik + 2; iki++)
+                                        for (var jki = jk - 1; jki < jk + 2; jki++)
+
+                                        {
+                                            if (!Scop(ik, jk, iki, jki, 6))
+                                                continue;
+                                            //Ignore of Enemy
+                                            if (Order == 1 && Tabl[iki, jki] < 0)
+                                                continue;
+                                            if (Order == -1 && Tabl[iki, jki] > 0)
+                                                continue;
+
+                                            if (Is[0] == 1)
+                                                continue;
+                                            int Ord = Order;
+                                            int[,] Tab = CloneATable(Tabl);
+                                            int ik1 = ik, jk1 = jk, iki1 = iki, jki1 = jki, OrderP = OrderPalte, OrderM = OrderPalteMinusPluse, Depth1 = Depth + 1;
+                                            bool KindCheckedSelf1 = KindCheckedSelf;
+                                            int[] IS = null;
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
+                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
+                                                Is[1] = Is[1]; Is[3] = IS[3];
+                                            }
+                                        }
+                                    break;
                             }
-                        }//));
+                        }
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
