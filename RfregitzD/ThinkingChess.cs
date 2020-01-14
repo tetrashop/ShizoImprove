@@ -1004,6 +1004,18 @@ namespace RefrigtzDLL
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+        bool IsDistributedObjectAttackNonDistributedEnemyObject(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+
+                if ((Table[RowS, ColS] != TableInitiation[RowS, ColS]) && (Table[RowD, ColD] == TableInitiation[RowD, ColD]))
+                    Is = true;
+                return Is;
+            }
+        }
         ///Heuristic of Attacker.
         int HeuristicAttack(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD)
         {
@@ -1157,10 +1169,12 @@ namespace RefrigtzDLL
                     {
                         //if (Before)
                         {
-                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
+                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
-
-                                HA += RatiionalRegard;
+                                if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
+                                    HA += RatiionalPenalty;
+                                else
+                                    HA += RatiionalRegard;
                                
 
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
