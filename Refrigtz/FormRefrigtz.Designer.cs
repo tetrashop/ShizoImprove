@@ -1017,20 +1017,24 @@ namespace Refrigtz
             // 
             // PictureBoxTimerGray
             // 
+            this.PictureBoxTimerGray.Enabled = false;
             this.PictureBoxTimerGray.Location = new System.Drawing.Point(583, 39);
             this.PictureBoxTimerGray.Name = "PictureBoxTimerGray";
             this.PictureBoxTimerGray.Size = new System.Drawing.Size(193, 66);
             this.PictureBoxTimerGray.TabIndex = 87;
             this.PictureBoxTimerGray.TabStop = false;
+            this.PictureBoxTimerGray.Visible = false;
             this.PictureBoxTimerGray.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxTimerGray_Paint);
             // 
             // PictureBoxTimerBrown
             // 
+            this.PictureBoxTimerBrown.Enabled = false;
             this.PictureBoxTimerBrown.Location = new System.Drawing.Point(794, 38);
             this.PictureBoxTimerBrown.Name = "PictureBoxTimerBrown";
             this.PictureBoxTimerBrown.Size = new System.Drawing.Size(193, 66);
             this.PictureBoxTimerBrown.TabIndex = 88;
             this.PictureBoxTimerBrown.TabStop = false;
+            this.PictureBoxTimerBrown.Visible = false;
             this.PictureBoxTimerBrown.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxTimerBrown_Paint);
             // 
             // PictureBox1
@@ -1293,12 +1297,14 @@ namespace Refrigtz
             // CheckBoxAStarGreedyHeuristic
             // 
             this.CheckBoxAStarGreedyHeuristic.AutoSize = true;
+            this.CheckBoxAStarGreedyHeuristic.Enabled = false;
             this.CheckBoxAStarGreedyHeuristic.Location = new System.Drawing.Point(877, 190);
             this.CheckBoxAStarGreedyHeuristic.Name = "CheckBoxAStarGreedyHeuristic";
             this.CheckBoxAStarGreedyHeuristic.Size = new System.Drawing.Size(130, 17);
             this.CheckBoxAStarGreedyHeuristic.TabIndex = 121;
             this.CheckBoxAStarGreedyHeuristic.Text = "AStarGreedy Heuristic";
             this.CheckBoxAStarGreedyHeuristic.UseVisualStyleBackColor = true;
+            this.CheckBoxAStarGreedyHeuristic.Visible = false;
             this.CheckBoxAStarGreedyHeuristic.CheckedChanged += new System.EventHandler(this.CheckBoxAStarGreedyHeuristic_CheckedChanged);
             this.CheckBoxAStarGreedyHeuristic.CheckStateChanged += new System.EventHandler(this.CheckBoxAStarGreedyHeuristic_CheckStateChanged);
             // 
@@ -1336,21 +1342,25 @@ namespace Refrigtz
             // CheckBoxUsePenaltyRegradMechnisam
             // 
             this.CheckBoxUsePenaltyRegradMechnisam.AutoSize = true;
+            this.CheckBoxUsePenaltyRegradMechnisam.Enabled = false;
             this.CheckBoxUsePenaltyRegradMechnisam.Location = new System.Drawing.Point(592, 289);
             this.CheckBoxUsePenaltyRegradMechnisam.Name = "CheckBoxUsePenaltyRegradMechnisam";
             this.CheckBoxUsePenaltyRegradMechnisam.Size = new System.Drawing.Size(178, 17);
             this.CheckBoxUsePenaltyRegradMechnisam.TabIndex = 125;
             this.CheckBoxUsePenaltyRegradMechnisam.Text = "Use Penalty Regrad Mechnisam";
             this.CheckBoxUsePenaltyRegradMechnisam.UseVisualStyleBackColor = true;
+            this.CheckBoxUsePenaltyRegradMechnisam.Visible = false;
             this.CheckBoxUsePenaltyRegradMechnisam.CheckedChanged += new System.EventHandler(this.CheckBoxUsePenaltyRegradMechnisam_CheckedChanged);
             this.CheckBoxUsePenaltyRegradMechnisam.CheckStateChanged += new System.EventHandler(this.CheckBoxUsePenaltyRegradMechnisam_CheckStateChanged);
             // 
             // ProgressBarVerify
             // 
+            this.ProgressBarVerify.Enabled = false;
             this.ProgressBarVerify.Location = new System.Drawing.Point(15, 606);
             this.ProgressBarVerify.Name = "ProgressBarVerify";
             this.ProgressBarVerify.Size = new System.Drawing.Size(552, 23);
             this.ProgressBarVerify.TabIndex = 126;
+            this.ProgressBarVerify.Visible = false;
             this.ProgressBarVerify.CursorChanged += new System.EventHandler(this.ProgressBarVerify_CursorChanged);
             this.ProgressBarVerify.Click += new System.EventHandler(this.ProgressBarVerify_Click);
             this.ProgressBarVerify.Validated += new System.EventHandler(this.ProgressBarVerify_Validated);
@@ -1419,12 +1429,14 @@ namespace Refrigtz
             // 
             // TextBoxText
             // 
+            this.TextBoxText.Enabled = false;
             this.TextBoxText.Location = new System.Drawing.Point(590, 379);
             this.TextBoxText.Multiline = true;
             this.TextBoxText.Name = "TextBoxText";
             this.TextBoxText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TextBoxText.Size = new System.Drawing.Size(386, 77);
             this.TextBoxText.TabIndex = 132;
+            this.TextBoxText.Visible = false;
             this.TextBoxText.TextChanged += new System.EventHandler(this.TextBoxText_TextChanged);
             // 
             // label1
