@@ -12197,10 +12197,10 @@ namespace QuantumRefrigiz
                 ///Calculate Castles of Gray King.
                 ///
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                Parallel.Invoke(() =>
+                switch (Kind)
                 {
-                    if (Kind == 7)
-                    {
+                    case 7:
+
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleBrown(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
@@ -12208,98 +12208,84 @@ namespace QuantumRefrigiz
                         //oSerialiser.Serialize(oStream, newTask);   
                         newTask.Wait();
                         //oStream.Close();
+                        break;
+                    case -7:
 
-                    }
-                }, () =>
-                {
-                    if (Kind == -7)
-                    {
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
-                    }
-                }, () =>
-                {
-                    if (System.Math.Abs(Kind) == 1)///For Soldier ThinkingQuantum
-                    {
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldier(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                    }
+                        break;
+                    case 1:///For Soldier Thinking
 
-                }, () =>
-                {
-                    if (System.Math.Abs(Kind) == 2)///For Elephant ThinkingQuantum
-                    {
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => ThinkingQuantumElephant(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldier(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        ///oSerialiser.Serialize(oStream, newTask);
+                        newTask.Wait();
+                        //oStream.Close();
+                        break;
+                    case 2:///For Elephant Thinking
+
+                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                        newTask = Task.Factory.StartNew(() => ThinkingQuantumElephant(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        // oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        // oSerialiser.Serialize(oStream, newTask);
+                        newTask.Wait();
+                        //oStream.Close();
+                        break;
+
+                    case 3:///For Hourse Thinking
+
+                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                        newTask = Task.Factory.StartNew(() => ThinkingQuantumHourse(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
-                    }
-                    ///Else for Hourse ThinkingQuantum.
-                }, () =>
-                {
-                    if (System.Math.Abs(Kind) == 3)///For Hourse ThinkingQuantum
-                    {
+                        break;
+
+                    ///Else For Castles Thinking.
+
+                    case 4:///For Castle Thinking
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourse(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        newTask = Task.Factory.StartNew(() => ThinkingQuantumCastle(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
-                        //oStream.Close();
-                    }
-                    ///Else For Castles ThinkingQuantum.
-                }, () =>
-                {
-                    if (System.Math.Abs(Kind) == 4)///For Castle ThinkingQuantum
-                    {
+                        // oStream.Close();
+                        break;
+                    ///Else for Minister Thinkings.
+
+                    case 5:///For Minister Thinking
+
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => ThinkingQuantumCastle(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        newTask = Task.Factory.StartNew(() => ThinkingQuantumMinister(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        ///oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
-                    }
-                    ///Else for Minister ThinkingQuantums.
-                }, () =>
-                {
-                    if (System.Math.Abs(Kind) == 5)///For Minister ThinkingQuantum
-                    {
+                        break;
+                    ///Else For Kings Thinkings.
+                    case 6:///For King Thinking
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => ThinkingQuantumMinister(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        newTask = Task.Factory.StartNew(() => ThinkingQuantumKing(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        // oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        ///oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
-                    }
-                    ///Else For Kings ThinkingQuantums.
-                }, () =>
-                {
-                    if (System.Math.Abs(Kind) == 6)///For King ThinkingQuantum
-                    {
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => ThinkingQuantumKing(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                    }
-                });
+                        break;
+
+                }
                 Object O3 = new Object();
                 lock (O3)
                 {

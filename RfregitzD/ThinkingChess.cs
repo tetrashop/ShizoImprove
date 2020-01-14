@@ -12425,109 +12425,95 @@ namespace RefrigtzDLL
                 ///Calculate Castles of Gray King.
                 ///
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                Parallel.Invoke(() =>
+                switch (Kind)
                 {
-                    if (Kind == 7)
-                    {
+                    case 7:
+
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => this.ThinkingCastleBrown(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);   
                         newTask.Wait();
                         //oStream.Close();
+                        break;
+                    case -7:
 
-                    }
-                }, () =>
-                {
-                    if (Kind == -7)
-                    {
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => this.ThinkingCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        newTask = Task.Factory.StartNew(() => this.ThinkingCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
-                    }
-                }, () =>
-                {
-                    if (System.Math.Abs(Kind) == 1)///For Soldier Thinking
-                    {
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => ThinkingSoldier(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                    }
+                        break;
+                    case 1:///For Soldier Thinking
 
-                }, () =>
-                 {
-                     if (System.Math.Abs(Kind) == 2)///For Elephant Thinking
-                    {
-                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                         var newTask = Task.Factory.StartNew(() => ThinkingElephant(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                    }
-                    ///Else for Hourse Thinking.
-                }, () =>
-                {
-                    if (System.Math.Abs(Kind) == 3)///For Hourse Thinking
-                    {
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => ThinkingHourse(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
+                        newTask = Task.Factory.StartNew(() => ThinkingSoldier(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        ///oSerialiser.Serialize(oStream, newTask);
+                        newTask.Wait();
+                        //oStream.Close();
+                        break;
+                    case 2:///For Elephant Thinking
+
+                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                        newTask = Task.Factory.StartNew(() => ThinkingElephant(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        // oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        // oSerialiser.Serialize(oStream, newTask);
+                        newTask.Wait();
+                        //oStream.Close();
+                        break;
+
+                    case 3:///For Hourse Thinking
+
+                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                        newTask = Task.Factory.StartNew(() => ThinkingHourse(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait();
                         //oStream.Close();
-                    }
+                        break;
+
                     ///Else For Castles Thinking.
-                }, () =>
-                 {
-                     if (System.Math.Abs(Kind) == 4)///For Castle Thinking
-                     {
-                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                         var newTask = Task.Factory.StartNew(() => ThinkingCastle(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
-                         //oSerialiser.Serialize(oStream, newTask);
-                         newTask.Wait();
-                         //oStream.Close();
-                     }
-                     ///Else for Minister Thinkings.
-                 }, () =>
-                 {
-                     if (System.Math.Abs(Kind) == 5)///For Minister Thinking
-                     {
-                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                         var newTask = Task.Factory.StartNew(() => ThinkingMinister(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
-                         //oSerialiser.Serialize(oStream, newTask);
-                         newTask.Wait();
-                         //oStream.Close();
-                     }
-                     ///Else For Kings Thinkings.
-                 }, () =>
-                 {
-                     if (System.Math.Abs(Kind) == 6)///For King Thinking
-                     {
-                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                         var newTask = Task.Factory.StartNew(() => ThinkingKing(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
-                         //oSerialiser.Serialize(oStream, newTask);
-                         newTask.Wait();
-                         //oStream.Close();
-                     }
-                 });
+
+                    case 4:///For Castle Thinking
+                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                        newTask = Task.Factory.StartNew(() => ThinkingCastle(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        //oSerialiser.Serialize(oStream, newTask);
+                        newTask.Wait();
+                        // oStream.Close();
+                        break;
+                    ///Else for Minister Thinkings.
+
+                    case 5:///For Minister Thinking
+
+                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                        newTask = Task.Factory.StartNew(() => ThinkingMinister(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        //oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        ///oSerialiser.Serialize(oStream, newTask);
+                        newTask.Wait();
+                        //oStream.Close();
+                        break;
+                    ///Else For Kings Thinkings.
+                    case 6:///For King Thinking
+                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                        newTask = Task.Factory.StartNew(() => ThinkingKing(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        // oSerialiser = new XmlSerializer(typeof(Task));
+                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                        ///oSerialiser.Serialize(oStream, newTask);
+                        newTask.Wait();
+                        //oStream.Close();
+                        break;
+
+                }
                 Object O3 = new Object();
                 lock (O3)
                 {
