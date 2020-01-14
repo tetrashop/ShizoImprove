@@ -264,30 +264,38 @@ namespace Refrigtz
             // 
             // ToolStripMenuItem14
             // 
+            this.ToolStripMenuItem14.Enabled = false;
             this.ToolStripMenuItem14.Name = "ToolStripMenuItem14";
             this.ToolStripMenuItem14.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem14.Text = "Full Game";
+            this.ToolStripMenuItem14.Visible = false;
             this.ToolStripMenuItem14.Click += new System.EventHandler(this.ToolStripMenuItem14_Click);
             // 
             // ToolStripMenuItem13
             // 
+            this.ToolStripMenuItem13.Enabled = false;
             this.ToolStripMenuItem13.Name = "ToolStripMenuItem13";
             this.ToolStripMenuItem13.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem13.Text = "Full Game NO PR";
+            this.ToolStripMenuItem13.Visible = false;
             this.ToolStripMenuItem13.Click += new System.EventHandler(this.ToolStripMenuItem13_Click);
             // 
             // ToolStripMenuItem12
             // 
+            this.ToolStripMenuItem12.Enabled = false;
             this.ToolStripMenuItem12.Name = "ToolStripMenuItem12";
             this.ToolStripMenuItem12.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem12.Text = "Blitz No PR";
+            this.ToolStripMenuItem12.Visible = false;
             this.ToolStripMenuItem12.Click += new System.EventHandler(this.ToolStripMenuItem12_Click);
             // 
             // ToolStripMenuItem15
             // 
+            this.ToolStripMenuItem15.Enabled = false;
             this.ToolStripMenuItem15.Name = "ToolStripMenuItem15";
             this.ToolStripMenuItem15.Size = new System.Drawing.Size(327, 22);
             this.ToolStripMenuItem15.Text = "Computer By Computer Full Game";
+            this.ToolStripMenuItem15.Visible = false;
             this.ToolStripMenuItem15.Click += new System.EventHandler(this.ToolStripMenuItem15_Click);
             // 
             // ToolStripMenuItem21
@@ -342,6 +350,7 @@ namespace Refrigtz
             // 
             // ComputerWithComputerToolStripMenuItem1
             // 
+            this.ComputerWithComputerToolStripMenuItem1.Enabled = false;
             this.ComputerWithComputerToolStripMenuItem1.Name = "ComputerWithComputerToolStripMenuItem1";
             this.ComputerWithComputerToolStripMenuItem1.Size = new System.Drawing.Size(327, 22);
             this.ComputerWithComputerToolStripMenuItem1.Text = "Computer With Person";
@@ -1436,22 +1445,26 @@ namespace Refrigtz
             // 
             // ButtonPrevious
             // 
+            this.ButtonPrevious.Enabled = false;
             this.ButtonPrevious.Location = new System.Drawing.Point(607, 606);
             this.ButtonPrevious.Name = "ButtonPrevious";
             this.ButtonPrevious.Size = new System.Drawing.Size(75, 23);
             this.ButtonPrevious.TabIndex = 135;
             this.ButtonPrevious.Text = "Previous";
             this.ButtonPrevious.UseVisualStyleBackColor = true;
+            this.ButtonPrevious.Visible = false;
             this.ButtonPrevious.Click += new System.EventHandler(this.ButtonPrevious_Click);
             // 
             // ButtonNext
             // 
+            this.ButtonNext.Enabled = false;
             this.ButtonNext.Location = new System.Drawing.Point(691, 606);
             this.ButtonNext.Name = "ButtonNext";
             this.ButtonNext.Size = new System.Drawing.Size(75, 23);
             this.ButtonNext.TabIndex = 136;
             this.ButtonNext.Text = "Next";
             this.ButtonNext.UseVisualStyleBackColor = true;
+            this.ButtonNext.Visible = false;
             this.ButtonNext.Click += new System.EventHandler(this.ButtonNext_Click);
             // 
             // FormRefrigtz
