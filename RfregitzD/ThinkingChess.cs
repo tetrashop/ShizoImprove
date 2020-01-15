@@ -2479,21 +2479,89 @@ namespace RefrigtzDLL
             Object ol = new Object();
             lock (ol)
             {
-                int[,] Tabl = CloneATable(Tab);
                 int HA = 0;
-                ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tabl[RowD, ColD], CloneATable(Tabl), Order * -1, RowD, ColD);
-                A.ObjectDangourKingMove(Order, Tabl);
-                Tabl = CloneATable(Tab);
-                //When Before Move such situation is observed calculate Heuristic count.
-                if (Order == 1 && A.CheckGrayObjectDangour)
-                    HA += (AllDraw.SignKingSafe *
-                        (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
-                else
-                if (Order == -1 && A.CheckBrownObjectDangour)
-                    HA += (AllDraw.SignKingSafe *
-                        (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
+                const int CastleGray= 4, CastleBrown = -4, KingGray = 6, KingBrown = -6;
+                if (Order == 1)
+                {
+                    if (Kind == 7)
+                        HA = RatiionalRegard;
+                    if (Tab[RowS, ColS] == KingGray && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedGray)
+                        HA += RatiionalPenalty;
+                    if ((Tab[4, 7] == KingGray) && (Tab[7, 7] == CastleGray) && (TableInitiation[4, 7] == 6) && ChessRules.CastleKingAllowedGray)
+                    {
+                        if (RowS == 5 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 5 && ColS == 7)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 7)
+                            HA += RatiionalRegard;
 
+                        if (RowS == 3 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 2 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 3 && ColS == 7)
+                            HA += RatiionalRegard;
+                        if (RowS == 2 && ColS == 7)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 7)
+                            HA += RatiionalRegard;
+                    }
+
+
+
+
+                }
+                else {
+                    if (Kind == -7)
+                        HA = RatiionalRegard;
+                    if(Tab[RowS, ColS] == KingBrown && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedBrown)
+                        HA += RatiionalPenalty;
+                    if ((Tab[4, 7] == KingBrown) && (Tab[7, 7] == CastleBrown) && (TableInitiation[4, 7] == 6) && ChessRules.CastleKingAllowedBrown)
+                    {
+                        if (RowS == 5 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 5 && ColS == 0)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 0)
+                            HA += RatiionalRegard;
+
+                        if (RowS == 3 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 2 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 3 && ColS == 0)
+                            HA += RatiionalRegard;
+                        if (RowS == 2 && ColS == 0)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 0)
+                            HA += RatiionalRegard;
+                    }
+                }
+                /*         int[,] Tabl = CloneATable(Tab);
+                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tabl[RowD, ColD], CloneATable(Tabl), Order * -1, RowD, ColD);
+                         A.ObjectDangourKingMove(Order, Tabl);
+                         Tabl = CloneATable(Tab);
+                         //When Before Move such situation is observed calculate Heuristic count.
+                         if (Order == 1 && A.CheckGrayObjectDangour)
+                             HA += (AllDraw.SignKingSafe *
+                                 (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
+                         else
+                         if (Order == -1 && A.CheckBrownObjectDangour)
+                             HA += (AllDraw.SignKingSafe *
+                                 (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
+
+                   */
                 return HA;
+
             }
 
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingSafety:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -11843,7 +11911,7 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for thinking main method
-        public void ThinkingCastleGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingCastleBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -11879,10 +11947,10 @@ namespace RefrigtzDLL
                 }
             }
 
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for thinking main method
-        public void ThinkingCastleBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingCastleGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -11916,7 +11984,7 @@ namespace RefrigtzDLL
                 }
 
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific determination for thinking main method
         public void ThinkingKing(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
@@ -12427,7 +12495,7 @@ namespace RefrigtzDLL
                     case 7:
 
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => this.ThinkingCastleBrown(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        var newTask = Task.Factory.StartNew(() => this.ThinkingCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);   
@@ -12437,7 +12505,7 @@ namespace RefrigtzDLL
                     case -7:
 
                         //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        newTask = Task.Factory.StartNew(() => this.ThinkingCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                        newTask = Task.Factory.StartNew(() => this.ThinkingCastleBrown(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                         //oSerialiser = new XmlSerializer(typeof(Task));
                         //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);

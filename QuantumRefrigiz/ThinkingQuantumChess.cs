@@ -2483,30 +2483,98 @@ namespace QuantumRefrigiz
                 return SelfSupported;
             }
         }
-        ///Heuristic of King safty.
         int HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
-          )
+              )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
             Object ol = new Object();
             lock (ol)
             {
-                int[,] Tabl = CloneATable(Tab);
                 int HA = 0;
-                ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tabl[RowD, ColD], CloneATable(Tabl), Order * -1, RowD, ColD);
-                A.ObjectDangourKingMove(Order, Tabl);
-                Tabl = CloneATable(Tab);
-                //When Before Move such situation is observed calculate Heuristic count.
-                if (Order == 1 && A.CheckGrayObjectDangour)
-                    HA += (AllDraw.SignKingSafe *
-                        (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
-                else
-                if (Order == -1 && A.CheckBrownObjectDangour)
-                    HA += (AllDraw.SignKingSafe *
-                        (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
+                const int CastleGray = 4, CastleBrown = -4, KingGray = 6, KingBrown = -6;
+                if (Order == 1)
+                {
+                    if (Kind == 7)
+                        HA = RatiionalRegard;
+                    if (Tab[RowS, ColS] == KingGray && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedGray)
+                        HA += RatiionalPenalty;
+                    if ((Tab[4, 7] == KingGray) && (Tab[7, 7] == CastleGray) && (TableInitiation[4, 7] == 6) && ChessRules.CastleKingAllowedGray)
+                    {
+                        if (RowS == 5 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 5 && ColS == 7)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 7)
+                            HA += RatiionalRegard;
 
+                        if (RowS == 3 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 2 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 3 && ColS == 7)
+                            HA += RatiionalRegard;
+                        if (RowS == 2 && ColS == 7)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 7)
+                            HA += RatiionalRegard;
+                    }
+
+
+
+
+                }
+                else
+                {
+                    if (Kind == -7)
+                        HA = RatiionalRegard;
+                    if (Tab[RowS, ColS] == KingBrown && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedBrown)
+                        HA += RatiionalPenalty;
+                    if ((Tab[4, 7] == KingBrown) && (Tab[7, 7] == CastleBrown) && (TableInitiation[4, 7] == 6) && ChessRules.CastleKingAllowedBrown)
+                    {
+                        if (RowS == 5 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 5 && ColS == 0)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 0)
+                            HA += RatiionalRegard;
+
+                        if (RowS == 3 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 2 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 3 && ColS == 0)
+                            HA += RatiionalRegard;
+                        if (RowS == 2 && ColS == 0)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 0)
+                            HA += RatiionalRegard;
+                    }
+                }
+                /*         int[,] Tabl = CloneATable(Tab);
+                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tabl[RowD, ColD], CloneATable(Tabl), Order * -1, RowD, ColD);
+                         A.ObjectDangourKingMove(Order, Tabl);
+                         Tabl = CloneATable(Tab);
+                         //When Before Move such situation is observed calculate Heuristic count.
+                         if (Order == 1 && A.CheckGrayObjectDangour)
+                             HA += (AllDraw.SignKingSafe *
+                                 (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
+                         else
+                         if (Order == -1 && A.CheckBrownObjectDangour)
+                             HA += (AllDraw.SignKingSafe *
+                                 (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
+
+                   */
                 return HA;
+
             }
 
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicKingSafety:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
