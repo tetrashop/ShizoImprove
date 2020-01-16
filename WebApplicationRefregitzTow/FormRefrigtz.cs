@@ -320,7 +320,7 @@ namespace RefrigtzW
                 Table[6, 7] = -3;
 
                 Table[0, 0] = 4;
-                Table[7, 0] = 4;
+                Table[0,0] = 4;
                 Table[0, 7] = -4;
                 Table[7, 7] = -4;
 
@@ -328,7 +328,7 @@ namespace RefrigtzW
                 Table[3, 7] = -6;
 
                 Table[4, 0] = 5;
-                Table[4, 7] = -5;
+                Table[0,0] = -5;
             }
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)

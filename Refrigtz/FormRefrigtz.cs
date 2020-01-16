@@ -237,15 +237,14 @@ namespace Refrigtz
         float RowRealesedP = -1, ColumnRealeasedP = -1;
         float RowRealesed = -1, ColumnRealeased = -1;
         public int[,] Table ={
-            { -4, -1, 0, 0, 0, 0, 1, 4 },
-            { -3, -1, 0, 0, 0, 0, 1, 3 },
-            { -2, -1, 0, 0, 0, 0, 1, 2 },
-            { -5, -1, 0, 0, 0, 0, 1, 5 },
-            { -6, -1, 0, 0, 0, 0, 1, 6 },
-            { -2, -1, 0, 0, 0, 0, 1, 2 },
-            { -3, -1, 0, 0, 0, 0, 1, 3 },
-            { -4, -1, 0, 0, 0, 0, 1, 4 }
-            };
+            { -4, -3, -2, -5, -6, -2, -3, -4 },
+            { -1, -1, -1, -1, -1, -1, -1, -1 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 1, 1, 1, 1, 1, 1, 1, 1 },
+            { 4, 3, 2, 5, 6, 2,3, 4 }};
         List<char> fenS = new List<char>("position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1\0");
 
         //FormRefrigtz THIs = null;

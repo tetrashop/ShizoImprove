@@ -21918,13 +21918,15 @@ if (Kind == 5)
             Object OOOO = new Object();
             lock (OOOO)
             {
+                if (MaxAStarGreedy == 0)
+                    MaxAStarGreedy = PlatformHelper.ProcessorCount;
                 MaxAStarGreedy1 = MaxAStarGreedy;
-            }
-            int[,] Tabl = CloneATable(Table);
-            Color aaa = a;
-            var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
-            array.Wait();
 
+                int[,] Tabl = CloneATable(Table);
+                Color aaa = a;
+                var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
+                array.Wait();
+            }
             Object Om = new Object();
             lock (Om)
             {

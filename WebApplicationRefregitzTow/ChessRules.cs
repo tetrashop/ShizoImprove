@@ -214,6 +214,7 @@ namespace RefrigtzW
             Order = Ord;
         }
         //Initiate of Rules of Chess Refregitz.
+        //Initiate of Rules of Chess Refregitz.
         public bool Rules(int RowFirst, //The First Click Row
             int ColumnFirst, //The First Click Column.
             int RowSecond, //The Destination Click Row

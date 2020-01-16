@@ -2487,63 +2487,66 @@ namespace RefrigtzDLL
                         HA = RatiionalRegard;
                     if (Tab[RowS, ColS] == KingGray && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedGray)
                         HA += RatiionalPenalty;
-                    if ((Tab[4, 7] == KingGray) && (Tab[7, 7] == CastleGray) && (TableInitiation[4, 7] == 6) && ChessRules.CastleKingAllowedGray)
+                    if ((Tab[7, 0] == KingGray) && (Tab[7, 7] == CastleGray) && (TableInitiation[7, 0] == 6) && ChessRules.CastleKingAllowedGray)
                     {
-                        if (RowS == 5 && ColS == 6)
+                        if (RowS == 7 && ColS == 5)
+                            HA += RatiionalRegard;
+                        if (RowS == 7 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 6 && ColS == 5)
                             HA += RatiionalRegard;
                         if (RowS == 6 && ColS == 6)
                             HA += RatiionalRegard;
-                        if (RowS == 5 && ColS == 7)
-                            HA += RatiionalRegard;
-                        if (RowS == 6 && ColS == 7)
-                            HA += RatiionalRegard;
 
-                        if (RowS == 3 && ColS == 6)
+                        if (RowS == 7 && ColS == 3)
                             HA += RatiionalRegard;
-                        if (RowS == 2 && ColS == 6)
+                        if (RowS == 7 && ColS == 2)
                             HA += RatiionalRegard;
-                        if (RowS == 1 && ColS == 6)
+                        if (RowS == 7 && ColS == 1)
                             HA += RatiionalRegard;
-                        if (RowS == 3 && ColS == 7)
+                        if (RowS == 6 && ColS == 3)
                             HA += RatiionalRegard;
-                        if (RowS == 2 && ColS == 7)
-                            HA += RatiionalRegard;
-                        if (RowS == 1 && ColS == 7)
-                            HA += RatiionalRegard;
-                    }
-
-
-
-
-                }
-                else {
-                    if (Kind == -7)
-                        HA = RatiionalRegard;
-                    if(Tab[RowS, ColS] == KingBrown && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedBrown)
-                        HA += RatiionalPenalty;
-                    if ((Tab[4, 7] == KingBrown) && (Tab[7, 7] == CastleBrown) && (TableInitiation[4, 7] == 6) && ChessRules.CastleKingAllowedBrown)
-                    {
-                        if (RowS == 5 && ColS == 1)
+                        if (RowS == 6 && ColS == 2)
                             HA += RatiionalRegard;
                         if (RowS == 6 && ColS == 1)
                             HA += RatiionalRegard;
-                        if (RowS == 5 && ColS == 0)
+
+
+
+
+
+                    }
+                }
+                else
+                {
+                    if (Kind == -7)
+                        HA = RatiionalRegard;
+                    if (Tab[RowS, ColS] == KingBrown && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedBrown)
+                        HA += RatiionalPenalty;
+                    if ((Tab[0, 0] == KingBrown) && (Tab[0, 7] == CastleBrown) && (TableInitiation[0, 7] == 6) && ChessRules.CastleKingAllowedBrown)
+                    {
+                        if (RowS == 0 && ColS == 5)
                             HA += RatiionalRegard;
-                        if (RowS == 6 && ColS == 0)
+                        if (RowS == 0 && ColS == 6)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 5)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 6)
                             HA += RatiionalRegard;
 
-                        if (RowS == 3 && ColS == 1)
+                        if (RowS == 0 && ColS == 3)
                             HA += RatiionalRegard;
-                        if (RowS == 2 && ColS == 1)
+                        if (RowS == 0 && ColS == 2)
+                            HA += RatiionalRegard;
+                        if (RowS == 0 && ColS == 1)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 3)
+                            HA += RatiionalRegard;
+                        if (RowS == 1 && ColS == 2)
                             HA += RatiionalRegard;
                         if (RowS == 1 && ColS == 1)
                             HA += RatiionalRegard;
-                        if (RowS == 3 && ColS == 0)
-                            HA += RatiionalRegard;
-                        if (RowS == 2 && ColS == 0)
-                            HA += RatiionalRegard;
-                        if (RowS == 1 && ColS == 0)
-                            HA += RatiionalRegard;
+
                     }
                 }
                 /*         int[,] Tabl = CloneATable(Tab);
@@ -4673,36 +4676,36 @@ namespace RefrigtzDLL
                 const int MinisteBrownObj = 5, CastleBrownObj = 4, ElephantBrownObj = 2, PawnBrownObj = 1;
                 if (Order == 1)
                 {
-                    if (ColK == 0)
+                    if (Rowk == 0)
                     {
-                        if (Table[Rowk, ColK - 1] == ElepahantGrayObj)
+                        if (Table[Rowk + 1, ColK] == ElepahantGrayObj)
                         {
-                            if (Table[Rowk, ColK - 2] == CastleGrayObj)
+                            if (Table[Rowk + 2, ColK] == CastleGrayObj)
                             {
-                                if ((Table[Rowk - 1, ColK - 1] == PawnGrayObj) || (Table[Rowk + 1, ColK - 1] == PawnGrayObj))
+                                if ((Table[Rowk + 1, ColK - 1] == PawnGrayObj) || (Table[Rowk + 1, ColK + 1] == PawnGrayObj))
                                 {
                                     Is = true;
                                 }
                             }
-                            if (Table[Rowk + 1, ColK + 2] == CastleGrayObj)
+                            if (Table[Rowk + 2, ColK + 1] == CastleGrayObj)
                             {
-                                if ((Table[Rowk - 1, ColK + 1] == MinisteGrayObj) || (Table[Rowk + 1, ColK + 1] == MinisteGrayObj))
+                                if ((Table[Rowk + 1, ColK - 1] == MinisteGrayObj) || (Table[Rowk + 1, ColK + 1] == MinisteGrayObj))
                                 {
                                     Is = true;
                                 }
                             }
                         }
 
-                        if (Table[Rowk, ColK - 1] == PawnGrayObj)
+                        if (Table[Rowk + 1, ColK] == PawnGrayObj)
                         {
-                            if (Table[Rowk - 1, ColK - 2] == MinisteGrayObj)
+                            if (Table[Rowk + 2, ColK + 1] == MinisteGrayObj)
                             {
-                                if (Table[Rowk + 1, ColK - 2] == PawnGrayObj)
+                                if (Table[Rowk + 2, ColK - 1] == PawnGrayObj)
                                     Is = true;
                             }
-                            if (Table[Rowk + 1, ColK - 2] == MinisteGrayObj)
+                            if (Table[Rowk + 2, ColK + 1] == MinisteGrayObj)
                             {
-                                if (Table[Rowk - 1, ColK - 2] == PawnGrayObj)
+                                if (Table[Rowk + 2, ColK - 1] == PawnGrayObj)
                                     Is = true;
                             }
                         }
@@ -4710,36 +4713,36 @@ namespace RefrigtzDLL
                 }
                 else
                 {
-                    if (ColK == 7)
+                    if (Rowk == 7)
                     {
-                        if (Table[Rowk, ColK + 1] == ElepahantGrayObj)
+                        if (Table[Rowk - 1, ColK] == ElepahantGrayObj)
                         {
-                            if (Table[Rowk, ColK + 2] == CastleBrownObj)
+                            if (Table[Rowk - 2, ColK] == CastleBrownObj)
                             {
-                                if ((Table[Rowk - 1, ColK + 1] == PawnBrownObj) || (Table[Rowk + 1, ColK + 1] == PawnBrownObj))
+                                if ((Table[Rowk - 1, ColK - 1] == PawnBrownObj) || (Table[Rowk - 1, ColK + 1] == PawnBrownObj))
                                 {
                                     Is = true;
                                 }
                             }
-                            if (Table[Rowk + 1, ColK + 2] == CastleBrownObj)
+                            if (Table[Rowk - 2, ColK - 1] == CastleBrownObj)
                             {
-                                if ((Table[Rowk - 1, ColK + 1] == MinisteBrownObj) || (Table[Rowk + 1, ColK + 1] == MinisteBrownObj))
+                                if ((Table[Rowk - 1, ColK - 1] == MinisteBrownObj) || (Table[Rowk - 1, ColK + 1] == MinisteBrownObj))
                                 {
                                     Is = true;
                                 }
                             }
                         }
 
-                        if (Table[Rowk, ColK - 1] == PawnBrownObj)
+                        if (Table[Rowk - 1, ColK] == PawnBrownObj)
                         {
-                            if (Table[Rowk - 1, ColK - 2] == MinisteBrownObj)
+                            if (Table[Rowk - 2, ColK - 1] == MinisteBrownObj)
                             {
-                                if (Table[Rowk + 1, ColK - 2] == PawnBrownObj)
+                                if (Table[Rowk - 2, ColK + 1] == PawnBrownObj)
                                     Is = true;
                             }
-                            if (Table[Rowk + 1, ColK - 2] == MinisteBrownObj)
+                            if (Table[Rowk - 2, ColK - 1] == MinisteBrownObj)
                             {
-                                if (Table[Rowk - 1, ColK - 2] == PawnBrownObj)
+                                if (Table[Rowk - 2, ColK + 1] == PawnBrownObj)
                                     Is = true;
                             }
                         }
@@ -5045,54 +5048,54 @@ namespace RefrigtzDLL
             const int MinisterGray = 2, MinisterBrown = -2;
             if (Order == 1)
             {
-                if (Table[2, 0] == ElephantGray)
+                if (Table[7, 2] == ElephantGray)
                 {
-                    if (RowS == 1 && ColS == 1)
-                        Is = true;
-                    if (RowS == 3 && ColS == 1)
-                        Is = true;
-                }
-                if (Table[5, 0] == ElephantGray)
-                {
-                    if (RowS == 4 && ColS == 1)
-                        Is = true;
                     if (RowS == 6 && ColS == 1)
                         Is = true;
+                    if (RowS == 6 && ColS == 3)
+                        Is = true;
                 }
-                if (Table[3, 0] == MinisterGray)
+                if (Table[7, 5] == ElephantGray)
                 {
-                    if (RowS == 2 && ColS == 1)
+                    if (RowS == 6 && ColS == 4)
                         Is = true;
-                    if (RowS == 3 && ColS == 1)
+                    if (RowS == 6 && ColS == 6)
                         Is = true;
-                    if (RowS == 4 && ColS == 1)
+                }
+                if (Table[7, 3] == MinisterGray)
+                {
+                    if (RowS == 6 && ColS == 2)
+                        Is = true;
+                    if (RowS == 6 && ColS == 3)
+                        Is = true;
+                    if (RowS == 6 && ColS == 4)
                         Is = true;
                 }
 
             }
             else
             {
-                if (Table[2, 7] == ElephantBrown)
+                if (Table[0, 2] == ElephantBrown)
                 {
+                    if (RowS == 1 && ColS == 1)
+                        Is = true;
+                    if (RowS == 1 && ColS == 3)
+                        Is = true;
+                }
+                if (Table[0, 5] == ElephantBrown)
+                {
+                    if (RowS == 1 && ColS == 4)
+                        Is = true;
                     if (RowS == 1 && ColS == 6)
                         Is = true;
-                    if (RowS == 3 && ColS == 6)
-                        Is = true;
                 }
-                if (Table[5, 7] == ElephantBrown)
+                if (Table[0, 3] == MinisterBrown)
                 {
-                    if (RowS == 4 && ColS == 6)
+                    if (RowS == 1 && ColS == 2)
                         Is = true;
-                    if (RowS == 6 && ColS == 6)
+                    if (RowS == 1 && ColS == 3)
                         Is = true;
-                }
-                if (Table[3, 7] == MinisterBrown)
-                {
-                    if (RowS == 2 && ColS == 6)
-                        Is = true;
-                    if (RowS == 3 && ColS == 6)
-                        Is = true;
-                    if (RowS == 4 && ColS == 6)
+                    if (RowS == 1 && ColS == 4)
                         Is = true;
                 }
             }
@@ -5506,16 +5509,16 @@ namespace RefrigtzDLL
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    if (k == ColS || k == ColD)
+                    if (k == RowS || k == RowD)
                         continue;
                     if (Table[RowS, ColS] == 1)
                     {
-                        if (Table[RowS, k] == 1)
+                        if (Table[k, RowS] == 1)
                             Is = true;
                     }
                     if (Table[RowD, ColD] == 1)
                     {
-                        if (Table[RowD, k] == 1)
+                        if (Table[k, RowD] == 1)
                             Is = true;
                     }
 
@@ -5527,16 +5530,16 @@ namespace RefrigtzDLL
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    if (k == ColS || k == ColD)
+                    if (k == RowS || k == RowD)
                         continue;
                     if (Table[RowS, ColS] == -1)
                     {
-                        if (Table[RowS, k] == -1)
+                        if (Table[k,RowS] == -1)
                             Is = true;
                     }
                     if (Table[RowD, ColD] == -1)
                     {
-                        if (Table[RowD, k] == -1)
+                        if (Table[ k, RowD] == -1)
                             Is = true;
                     }
                 }
@@ -7994,7 +7997,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -8214,7 +8217,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -8776,7 +8779,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
                 {
 
 
@@ -8969,7 +8972,7 @@ namespace RefrigtzDLL
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
 
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -9157,7 +9160,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -10483,7 +10486,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
                 {
 
                     ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color, CloneATable(TableS), Order, false, 0);
@@ -10805,8 +10808,12 @@ namespace RefrigtzDLL
                  Object O = new Object();
                  lock (O)
                  {
+                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                         return;
+
                      int[,] TableSS = CloneATable(TableS);
-                     Huriistic = HeuristicAll(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
+                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                     Huriistic = HeuristicAll(Before, Killed, TableSS, color, Order, RoS, CoS, RoD, CoD);
                  }
              }
              , () =>
@@ -10814,8 +10821,11 @@ namespace RefrigtzDLL
                  Object O = new Object();
                  lock (O)
                  {
+                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                         return;
+                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[0] = HeuristicCheckAndCheckMate(RowS, ColS, RowD, ColD,TableSS, color//, ref HeuristicObjectDangourCheckMateValue
+                     HuriisticRemain[0] = HeuristicCheckAndCheckMate(RoS, CoS, RoD, CoD,TableSS, color//, ref HeuristicObjectDangourCheckMateValue
                          );
                  }
              }
@@ -10824,6 +10834,9 @@ namespace RefrigtzDLL
                  Object O = new Object();
                  lock (O)
                  {
+                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                         return;
+                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      int[,] TableSS = CloneATable(TableS);
                      HuriisticRemain[1] = HeuristicDistribution(TableSS, Order, RowS, ColS//, ref HeuristicDistributionValue
                           );
@@ -10834,8 +10847,11 @@ namespace RefrigtzDLL
                  Object O = new Object();
                  lock (O)
                  {
+                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                         return;
+                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[2] = HeuristicKingSafety(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
+                     HuriisticRemain[2] = HeuristicKingSafety(TableSS, Order, color, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
                           , CurrentAStarGredyMax);
                  }
              }
@@ -10844,9 +10860,12 @@ namespace RefrigtzDLL
                  Object O = new Object();
                  lock (O)
                  {
+                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                         return;
+                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[3] = HeuristicKingPreventionOfCheckedAtBegin(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicKingSafe
-                     , CurrentAStarGredyMax);
+                     HuriisticRemain[3] = HeuristicKingPreventionOfCheckedAtBegin(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
+                     );
                  }
              }
              , () =>
@@ -10854,8 +10873,11 @@ namespace RefrigtzDLL
                  Object O = new Object();
                  lock (O)
                  {
+                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                         return;
+                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[4] = HeuristicObjectAtCenter(TableSS, color, Order, RowS, ColS, RowD, ColD);
+                     HuriisticRemain[4] = HeuristicObjectAtCenter(TableSS, color, Order, RoS, CoS, RoD, CoD);
                  }
              }
              ));
@@ -10885,7 +10907,8 @@ namespace RefrigtzDLL
             Object OO = new Object();
             lock (OO)
             {
-
+                if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                    return;
                 int[] Huriistic = new int[6];
                 int HCheck = new int();
                 int HDistance = new int();

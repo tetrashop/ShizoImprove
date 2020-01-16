@@ -81,7 +81,8 @@
   <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup>
-    <StartupObject>Refrigtz.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -126,9 +127,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>Refrigtz.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="All, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -198,7 +197,6 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="TakeRoot.cs" />
-    <Compile Include="XmlSerializer.cs" />
     <Compile Include="ClassLoad.cs" />
     <Compile Include="FormKindOfGameContinue.cs">
       <SubType>Form</SubType>
