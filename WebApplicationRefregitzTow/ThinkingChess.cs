@@ -5616,45 +5616,84 @@ namespace RefrigtzW
                 return Dis;
             }
         }
-        bool IsPawnAtAColumn(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
+        bool IsPawnAtAColumnAndNotSupported(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
         {
             bool Is = false;
             if (Order == 1)
             {
-                for (int k = 0; k < 8; k++)
+                if (RowS < 5)
                 {
-                    if (k == RowS || k == RowD)
-                        continue;
-                    if (Table[RowS, ColS] == 1)
+                    for (int k = 0; k < 8; k++)
                     {
-                        if (Table[k, RowS] == 1)
-                            Is = true;
-                    }
-                    if (Table[RowD, ColD] == 1)
-                    {
-                        if (Table[k, RowD] == 1)
-                            Is = true;
-                    }
+                        if (k == RowS || k == RowD)
+                            continue;
+                        if (Table[RowS, ColS] == 1)
+                        {
+                            if (Table[k, RowS] == 1)
+                                Is = true;
+                            bool A = true;
+                            bool B = true;
+                            if (RowS >= 1 && ColS >= 1)
+                                A = (Table[RowS - 1, ColS - 1] == 1);
+                            if (RowS + 1 < 8 && ColS >= 1)
+                                B = (Table[RowS + 1, ColS - 1] == 1);
+                            if (!(A || B))
+                                Is = true;
+                        }
+                        if (Table[RowD, ColD] == 1)
+                        {
+                            if (Table[k, RowD] == 1)
+                                Is = true;
+                            bool A = true;
+                            bool B = true;
+                            if (RowD >= 1 && ColD >= 1)
+                                A = (Table[RowD - 1, ColD - 1] == 1);
+                            if (RowD + 1 < 8 && ColD >= 1)
+                                B = (Table[RowD + 1, ColD - 1] == 1);
+                            if (!(A || B))
+                                Is = true;
+                        }
 
 
+                    }
                 }
 
             }
             else
             {
-                for (int k = 0; k < 8; k++)
+                if (RowS > 2)
                 {
-                    if (k == RowS || k == RowD)
-                        continue;
-                    if (Table[RowS, ColS] == -1)
+                    for (int k = 0; k < 8; k++)
                     {
-                        if (Table[k, RowS] == -1)
-                            Is = true;
-                    }
-                    if (Table[RowD, ColD] == -1)
-                    {
-                        if (Table[k, RowD] == -1)
-                            Is = true;
+                        if (k == RowS || k == RowD)
+                            continue;
+                        if (Table[RowS, ColS] == -1)
+                        {
+                            if (Table[k, RowS] == -1)
+                                Is = true;
+                            bool A = true;
+                            bool B = true;
+                            if (RowS >= 1 && ColS + 1 < 8)
+                                A = (Table[RowS - 1, ColS + 1] == -1);
+                            if (RowS + 1 < 8 && ColS + 1 > 8)
+                                B = (Table[RowS + 1, ColS + 1] == -1);
+                            if (!(A || B))
+                                Is = true;
+
+                        }
+                        if (Table[RowD, ColD] == -1)
+                        {
+                            if (Table[k, RowD] == -1)
+                                Is = true;
+                            bool A = true;
+                            bool B = true;
+                            if (RowD >= 1 && ColD + 1 < 8)
+                                A = (Table[RowD - 1, ColD + 1] == -1);
+                            if (RowD + 1 < 8 && ColD + 1 > 8)
+                                B = (Table[RowD + 1, ColD + 1] == -1);
+                            if (!(A || B))
+                                Is = true;
+                        }
                     }
                 }
             }
@@ -5706,7 +5745,7 @@ namespace RefrigtzW
                         }
 
                     }
-                    if (IsPawnAtAColumn(ii, jj, i, j, CloneATable(Table), Order))
+                    if (IsPawnAtAColumnAndNotSupported(ii, jj, i, j, CloneATable(Table), Order))
                         HA += RatiionalPenalty;
 
 
