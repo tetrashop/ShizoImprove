@@ -2587,44 +2587,47 @@ namespace RefrigtzDLL
         }
         ///Heuristic of King safty.
         int HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
-            )
+          )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-        
+
             Object ol = new Object();
             lock (ol)
             {
                 int HA = 0;
-                const int CastleGray= 4, CastleBrown = -4, KingGray = 6, KingBrown = -6;
+                const int CastleGray = 4, CastleBrown = -4, KingGray = 6, KingBrown = -6;
                 if (Order == 1)
                 {
+                    int RowK = -1, ColK = -1;
+                    ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Tab), Order, RowS, ColS);
+                    G.FindGrayKing(CloneATable(Tab), ref RowK, ref ColK);
                     if (Kind == 7)
                         HA = RatiionalRegard;
-                    if (Tab[RowS, ColS] == KingGray && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedGray)
+                    if (Tab[RowK, ColK] == KingGray && Tab[RowK, ColK] == TableInitiation[RowK, ColK] && ChessRules.CastleKingAllowedGray)
                         HA += RatiionalPenalty;
-                    if ((Tab[7, 0] == KingGray) && (Tab[7, 7] == CastleGray) && (TableInitiation[7, 0] == 6) && ChessRules.CastleKingAllowedGray)
+                    if ((Tab[RowK, ColK] == KingGray) && (Tab[RowK, 7] == CastleGray || Tab[RowK, 0] == CastleGray) && (TableInitiation[RowK, ColK] == 6) && ChessRules.CastleKingAllowedGray)
                     {
-                        if (RowS == 7 && ColS == 5)
+                        if (RowS == RowK && ColS == 5)
                             HA += RatiionalRegard;
-                        if (RowS == 7 && ColS == 6)
+                        if (RowS == RowK && ColS == 6)
                             HA += RatiionalRegard;
-                        if (RowS == 6 && ColS == 5)
-                            HA += RatiionalRegard;
-                        if (RowS == 6 && ColS == 6)
-                            HA += RatiionalRegard;
+                        //if (RowS == RowK - 1 && ColS == 5)
+                        //    HA += RatiionalRegard;
+                        ///if (RowS == RowK - 1 && ColS == 6)
+                         //   HA += RatiionalRegard;
 
-                        if (RowS == 7 && ColS == 3)
+                        if (RowS == RowK && ColS == 3)
                             HA += RatiionalRegard;
-                        if (RowS == 7 && ColS == 2)
+                        if (RowS == RowK && ColS == 2)
                             HA += RatiionalRegard;
-                        if (RowS == 7 && ColS == 1)
+                        if (RowS == RowK && ColS == 1)
                             HA += RatiionalRegard;
-                        if (RowS == 6 && ColS == 3)
-                            HA += RatiionalRegard;
-                        if (RowS == 6 && ColS == 2)
-                            HA += RatiionalRegard;
-                        if (RowS == 6 && ColS == 1)
-                            HA += RatiionalRegard;
+                        // if (RowS == RowK - 1 && ColS == 3)
+                        //    HA += RatiionalRegard;
+                        //if (RowS == RowK - 1 && ColS == 2)
+                        //   HA += RatiionalRegard;
+                        //if (RowS == Row - 1 && ColS == 1)
+                        //   HA += RatiionalRegard;
 
 
 
@@ -2634,33 +2637,36 @@ namespace RefrigtzDLL
                 }
                 else
                 {
+                    int RowK = -1, ColK = -1;
+                    ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Tab), Order, RowS, ColS);
+                    G.FindBrownKing(CloneATable(Tab), ref RowK, ref ColK);
                     if (Kind == -7)
                         HA = RatiionalRegard;
-                    if (Tab[RowS, ColS] == KingBrown && Tab[RowS, ColS] == TableInitiation[RowS, ColS] && ChessRules.CastleKingAllowedBrown)
+                    if (Tab[RowK, ColK] == KingBrown && Tab[RowK, ColK] == TableInitiation[RowK, ColK] && ChessRules.CastleKingAllowedBrown)
                         HA += RatiionalPenalty;
-                    if ((Tab[0, 0] == KingBrown) && (Tab[0, 7] == CastleBrown) && (TableInitiation[0, 7] == 6) && ChessRules.CastleKingAllowedBrown)
+                    if ((Tab[RowK, ColK] == KingBrown) && (Tab[RowK, 7] == CastleBrown || Tab[RowK, 0] == CastleBrown) && (TableInitiation[RowK, ColK] == -6) && ChessRules.CastleKingAllowedBrown)
                     {
-                        if (RowS == 0 && ColS == 5)
+                        if (RowS == RowK && ColS == 5)
                             HA += RatiionalRegard;
-                        if (RowS == 0 && ColS == 6)
+                        if (RowS == RowK && ColS == 6)
                             HA += RatiionalRegard;
-                        if (RowS == 1 && ColS == 5)
-                            HA += RatiionalRegard;
-                        if (RowS == 1 && ColS == 6)
-                            HA += RatiionalRegard;
+                        //if (RowS == RowK + 1 && ColS == 5)
+                        //HA += RatiionalRegard;
+                        // if (RowS == RowK + 1 && ColS == 6)
+                        // HA += RatiionalRegard;
 
-                        if (RowS == 0 && ColS == 3)
+                        if (RowS == RowK && ColS == 3)
                             HA += RatiionalRegard;
-                        if (RowS == 0 && ColS == 2)
+                        if (RowS == RowK && ColS == 2)
                             HA += RatiionalRegard;
-                        if (RowS == 0 && ColS == 1)
+                        if (RowS == RowK && ColS == 1)
                             HA += RatiionalRegard;
-                        if (RowS == 1 && ColS == 3)
-                            HA += RatiionalRegard;
-                        if (RowS == 1 && ColS == 2)
-                            HA += RatiionalRegard;
-                        if (RowS == 1 && ColS == 1)
-                            HA += RatiionalRegard;
+                        //if (RowS == RowK + 1 && ColS == 3)
+                        // HA += RatiionalRegard;
+                        // if (RowS == RowK + 1 && ColS == 2)
+                        //   HA += RatiionalRegard;
+                        //if (RowS == RowK + 1 && ColS == 1)
+                        //  HA += RatiionalRegard;
 
                     }
                 }
@@ -5657,7 +5663,7 @@ namespace RefrigtzDLL
             return Is;
 
         }
-        public int HeuristicObjectAtCenter(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
+        public int HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -5672,10 +5678,41 @@ namespace RefrigtzDLL
                         HA = RatiionalRegard;
 
                     }
+                    if (HA == 0)
+                    {
+                        int[,] Ta = CloneATable(Table);
+                        bool Before = false;
+                        if (Order == 1)
+                        {
+
+                            if (Ta[ii, jj] != 0)
+                            {
+                                Ta[i, j] = Ta[ii, jj];
+                                Ta[ii, jj] = 0;
+                                Before = true;
+                            }
+                            if (Ta[i, j] == 1)
+                                HA += HeuristicAttack(Before, CloneATable(Ta), Ord, aa, ii, jj, i, j);
+                        }
+                        else
+                        {
+                            if (Ta[ii, jj] != 0)
+                            {
+                                Ta[i, j] = Ta[ii, jj];
+                                Ta[ii, jj] = 0;
+                                Before = true;
+                            }
+                            if (Ta[i, j] == -1)
+                                HA += HeuristicAttack(Before, CloneATable(Ta), Ord, aa, ii, jj, i, j);
+
+                        }
+
+                    }
                     if (IsPawnAtAColumn(ii, jj, i, j, CloneATable(Table), Order))
-                        HA = RatiionalPenalty;
+                        HA += RatiionalPenalty;
+
                 }
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicObjectAtCenter:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return HA;
 
             }
@@ -10963,8 +11000,8 @@ namespace RefrigtzDLL
                          return;
                      int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[2] = HeuristicKingSafety(TableSS, Order, color, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
-                          , CurrentAStarGredyMax);
+                     HuriisticRemain[2] = HeuristicKingSafety(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
+                          );
                  }
              }
              , () =>
@@ -10989,7 +11026,7 @@ namespace RefrigtzDLL
                          return;
                      int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[4] = HeuristicObjectAtCenter(TableSS, color, Order, RoS, CoS, RoD, CoD);
+                     HuriisticRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD);
                  }
              }
              ));
