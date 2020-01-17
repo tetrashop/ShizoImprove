@@ -10965,14 +10965,55 @@ else
         }
 
 
+        int HeuristicBetterSpace(int[,] TableSS, Color colorS, Color colorE, int OrderS, int OrderE)
+        {
+            Object OO = new Object();
+            lock (OO)
+            {
+                int HA = 0;
+                int SpaceSelf = 0, SpaceEnemy = 0;
+                for (int RowS = 0; RowS < 8; RowS++)
+                {
+                    for (int ColS = 0; ColS < 8; ColS++)
+                    {
+
+                        for (int RowD = 0; RowD < 8; RowD++)
+                        {
+                            for (int ColD = 0; ColD < 8; ColD++)
+                            {
+                                if ((Order == 1 && TableSS[RowS, ColS] > 0) || (Order == -1 && TableSS[RowS, ColS] < 0))
+                                {
+                                    if (Attack(CloneATable(TableSS), RowS, ColS, RowD, ColD, colorS, OrderS))
+                                        SpaceSelf++;
+                                }
+
+                                if ((Order == 1 && TableSS[RowD, ColD] < 0) || (Order == -1 && TableSS[RowD, ColD] > 0))
+                                {
+                                    if (Attack(CloneATable(TableSS), RowD, ColD, RowS, ColS, colorE, OrderE))
+                                        SpaceEnemy++;
+                                }
+
+                            }
+                        }
+                    }
+
+                }
+                if (SpaceSelf > SpaceEnemy)
+                    HA = RatiionalRegard;
+                else
+                    if (SpaceSelf < SpaceEnemy)
+                    HA = RatiionalPenalty;
+                return HA;
+            }
+        }
         public int[] CalculateHeuristicsParallel(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-  )
+)
         {
             Object OO = new Object();
             lock (OO)
             {
                 int[] Huriistic = null;
-                int[] HuriisticRemain = new int[5];
+                int[] HuriisticRemain = new int[6];
 
                 var output = Task.Factory.StartNew(() =>
              Parallel.Invoke(() =>
@@ -11051,13 +11092,29 @@ else
                      int[,] TableSS = CloneATable(TableS);
                      HuriisticRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD);
                  }
+             }, () =>
+             {
+                 Object O = new Object();
+                 lock (O)
+                 {
+                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                         return;
+                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                     int[,] TableSS = CloneATable(TableS);
+                     Color colorE = Color.Gray;
+                     if (Order == -1)
+                         colorE = Color.Gray;
+                     else
+                         colorE = Color.Brown;
+                     HuriisticRemain[5] = HeuristicBetterSpace(TableSS, color, colorE, Order, Order * -1);
+                 }
              }
              ));
                 output.Wait();
-                int[] hu = new int[11];
+                int[] hu = new int[12];
                 for (int i = 0; i < 6; i++)
                     hu[i] = Huriistic[i];
-                for (int i = 6; i < 11; i++)
+                for (int i = 6; i < 12; i++)
                     hu[i] = HuriisticRemain[i - 6];
                 return hu;
             }
@@ -11081,8 +11138,6 @@ else
             {
                 if (!Scop(RowS, ColS, RowD, ColD, Kind))
                     return;
-
-
                 int[] Huriistic = new int[6];
                 int HCheck = new int();
                 int HDistance = new int();
@@ -11092,12 +11147,11 @@ else
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
                 for (int i = 0; i < 6; i++)
                     Huriistic[i] = Hu[i];
-                HCheck = Hu[6];
-                HDistance = Hu[7];
-                HKingSafe = Hu[8];
-                HKingDangour = Hu[9];
-                HFromCenter = Hu[10];
-
+                HCheck = Hu[7];
+                HDistance = Hu[8];
+                HKingSafe = Hu[9];
+                HKingDangour = Hu[10];
+                HFromCenter = Hu[11];
 
 
                 Object O1 = new Object();

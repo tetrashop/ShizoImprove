@@ -2808,7 +2808,7 @@ namespace RefrigtzDLL
 
 
                 });
-                return HAS + (HAE );
+                return HAS + (HAE);
             }
         }
         ///Identification of Equality
@@ -3196,75 +3196,75 @@ namespace RefrigtzDLL
                             {
                                 //Calculate Local Support Heuristic.
                                 HA += RatiionalPenalty;
-                                 int Supported = new int();
-                                 int SupportedE = new int();
-                                 Supported = 0;
-                                 SupportedE = 0;
-                                 //For All Self Obejcts.                                             
-                                 ////Parallel.For(0, 8, g =>
-                                 for (int g = 0; g < 8; g++)
-                                 {
-                                     //if (Supported)
-                                     //return;
-                                     ////Parallel.For(0, 8, h =>
-                                     for (int h = 0; h < 8; h++)
-                                     {
-                                         Object O2 = new Object();
-                                         lock (O2)
-                                         {
-                                             //if (Supported)
-                                             //return;
-                                             //Ignore Of Enemy Objects.
-                                             if (Order == 1 && Tab[g, h] == 0)
-                                                 continue;
-                                             if (Order == -1 && Tab[g, h] == 0)
-                                                 continue;
-                                             if (!Scop(g, h, RowS, ColS, System.Math.Abs(Tab[g, h])))
-                                                 continue;
+                                int Supported = new int();
+                                int SupportedE = new int();
+                                Supported = 0;
+                                SupportedE = 0;
+                                //For All Self Obejcts.                                             
+                                ////Parallel.For(0, 8, g =>
+                                for (int g = 0; g < 8; g++)
+                                {
+                                    //if (Supported)
+                                    //return;
+                                    ////Parallel.For(0, 8, h =>
+                                    for (int h = 0; h < 8; h++)
+                                    {
+                                        Object O2 = new Object();
+                                        lock (O2)
+                                        {
+                                            //if (Supported)
+                                            //return;
+                                            //Ignore Of Enemy Objects.
+                                            if (Order == 1 && Tab[g, h] == 0)
+                                                continue;
+                                            if (Order == -1 && Tab[g, h] == 0)
+                                                continue;
+                                            if (!Scop(g, h, RowS, ColS, System.Math.Abs(Tab[g, h])))
+                                                continue;
 
-                                             Color aaa = new Color();
-                                             //Assgin Enemy ints.
-                                             aaa = Color.Gray;
-                                             aa = Color.Gray;
+                                            Color aaa = new Color();
+                                            //Assgin Enemy ints.
+                                            aaa = Color.Gray;
+                                            aa = Color.Gray;
 
-                                             if (Order == -1)
-                                                 aaa = Color.Brown;
-                                             else
-                                                 aaa = Color.Gray;
-                                             if (Order * -1 == -1)
-                                                 aa = Color.Brown;
-                                             else
-                                                 aa = Color.Gray;
-                                             //When Enemy is Supported.
-                                             bool A = new bool();
-                                             bool B = new bool();
-                                             A = Support(Tab, g, h, RowS, ColS, aaa, Order);
-                                             B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
-                                             //When Enemy is Supported.
-                                             if (A)
-                                             {
-                                                 //Assgine variable.
-                                                 Supported++;
-                                                 //return;
+                                            if (Order == -1)
+                                                aaa = Color.Brown;
+                                            else
+                                                aaa = Color.Gray;
+                                            if (Order * -1 == -1)
+                                                aa = Color.Brown;
+                                            else
+                                                aa = Color.Gray;
+                                            //When Enemy is Supported.
+                                            bool A = new bool();
+                                            bool B = new bool();
+                                            A = Support(Tab, g, h, RowS, ColS, aaa, Order);
+                                            B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
+                                            //When Enemy is Supported.
+                                            if (A)
+                                            {
+                                                //Assgine variable.
+                                                Supported++;
+                                                //return;
 
-                                             }
-                                             if (B)
-                                             {
-                                                 //Assgine variable.
-                                                 SupportedE++;
-                                                 //return;
+                                            }
+                                            if (B)
+                                            {
+                                                //Assgine variable.
+                                                SupportedE++;
+                                                //return;
 
-                                             }
-                                         }
-                                     }//);
+                                            }
+                                        }
+                                    }//);
 
-                                     // if (Supported)
-                                     //   return;
-                                 }//);
+                                    // if (Supported)
+                                    //   return;
+                                }//);
 
-                                 Object O1 = new Object();
-                                 lock (O1)
-                                 {
+                                Object O1 = new Object();
+                                lock (O1)
+                                {
                                     if (SupportedE > Supported)
                                         //When is Not Supported multyply 100.
                                         HA *= (int)System.Math.Pow(2, Supported);
@@ -3334,83 +3334,83 @@ namespace RefrigtzDLL
                                         {
                                             //Calculate Local Support Heuristic.
                                             HA += RatiionalPenalty;
-                                               int Supported = new int();
-                                              int SupportedE = new int();
-                                              Supported = 0;
-                                              SupportedE = 0;
-                                              //For All Self Obejcts.                                             
-                                              ////Parallel.For(0, 8, g =>
-                                              for (int g = 0; g < 8; g++)
-                                              {
-                                                  //if (Supported)
-                                                  //return;
-                                                  ////Parallel.For(0, 8, h =>
-                                                  for (int h = 0; h < 8; h++)
-                                                  {
-                                                      Object O2 = new Object();
-                                                      lock (O2)
-                                                      {
-                                                          //if (Supported)
-                                                          //return;
-                                                          //Ignore Of Enemy Objects.
-                                                          if (Order == 1 && Tab[g, h] == 0)
-                                                              continue;
-                                                          if (Order == -1 && Tab[g, h] == 0)
-                                                              continue;
-                                                          if (!Scop(g, h, RowS, ColS, System.Math.Abs(Tab[g, h])))
-                                                              continue;
+                                            int Supported = new int();
+                                            int SupportedE = new int();
+                                            Supported = 0;
+                                            SupportedE = 0;
+                                            //For All Self Obejcts.                                             
+                                            ////Parallel.For(0, 8, g =>
+                                            for (int g = 0; g < 8; g++)
+                                            {
+                                                //if (Supported)
+                                                //return;
+                                                ////Parallel.For(0, 8, h =>
+                                                for (int h = 0; h < 8; h++)
+                                                {
+                                                    Object O2 = new Object();
+                                                    lock (O2)
+                                                    {
+                                                        //if (Supported)
+                                                        //return;
+                                                        //Ignore Of Enemy Objects.
+                                                        if (Order == 1 && Tab[g, h] == 0)
+                                                            continue;
+                                                        if (Order == -1 && Tab[g, h] == 0)
+                                                            continue;
+                                                        if (!Scop(g, h, RowS, ColS, System.Math.Abs(Tab[g, h])))
+                                                            continue;
 
-                                                          Color aaa = new Color();
-                                                          //Assgin Enemy ints.
-                                                          aaa = Color.Gray;
-                                                          aa = Color.Gray;
+                                                        Color aaa = new Color();
+                                                        //Assgin Enemy ints.
+                                                        aaa = Color.Gray;
+                                                        aa = Color.Gray;
 
-                                                          if (Order == -1)
-                                                              aaa = Color.Brown;
-                                                          else
-                                                              aaa = Color.Gray;
-                                                          if (Order * -1 == -1)
-                                                              aa = Color.Brown;
-                                                          else
-                                                              aa = Color.Gray;
-                                                          //When Enemy is Supported.
-                                                          bool A = new bool();
-                                                          bool B = new bool();
-                                                          A = Support(Tab, g, h, RowS, ColS, aaa, Order);
-                                                          B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
-                                                          //When Enemy is Supported.
-                                                          if (A)
-                                                          {
-                                                              //Assgine variable.
-                                                              Supported++;
-                                                              //return;
+                                                        if (Order == -1)
+                                                            aaa = Color.Brown;
+                                                        else
+                                                            aaa = Color.Gray;
+                                                        if (Order * -1 == -1)
+                                                            aa = Color.Brown;
+                                                        else
+                                                            aa = Color.Gray;
+                                                        //When Enemy is Supported.
+                                                        bool A = new bool();
+                                                        bool B = new bool();
+                                                        A = Support(Tab, g, h, RowS, ColS, aaa, Order);
+                                                        B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
+                                                        //When Enemy is Supported.
+                                                        if (A)
+                                                        {
+                                                            //Assgine variable.
+                                                            Supported++;
+                                                            //return;
 
-                                                          }
-                                                          if (B)
-                                                          {
-                                                              //Assgine variable.
-                                                              SupportedE++;
-                                                              //return;
+                                                        }
+                                                        if (B)
+                                                        {
+                                                            //Assgine variable.
+                                                            SupportedE++;
+                                                            //return;
 
-                                                          }
-                                                      }
-                                                  }//);
+                                                        }
+                                                    }
+                                                }//);
 
-                                                  // if (Supported)
-                                                  //   return;
-                                              }//);
+                                                // if (Supported)
+                                                //   return;
+                                            }//);
 
-                                              Object O1 = new Object();
-                                              lock (O1)
-                                              {
+                                            Object O1 = new Object();
+                                            lock (O1)
+                                            {
                                                 if (SupportedE > Supported)
                                                     //When is Not Supported multyply 100.
-                                                    HA *= (int) System.Math.Pow(2, Supported);
-                                                  else
+                                                    HA *= (int)System.Math.Pow(2, Supported);
+                                                else
                                                     if (SupportedE < Supported)
                                                     //When is Supported Multyply -100.
-                                                    HA *= (int) (-1 * System.Math.Pow(2, SupportedE));
-                                             }
+                                                    HA *= (int)(-1 * System.Math.Pow(2, SupportedE));
+                                            }
 
                                         }
                                     }
@@ -5466,8 +5466,8 @@ namespace RefrigtzDLL
                     Dis = RatiionalRegard;
                 else
                     Dis = RatiionalPenalty;
-               
-                    if (Order == 1)
+
+                if (Order == 1)
                 {
                     if ((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
@@ -5638,7 +5638,7 @@ namespace RefrigtzDLL
                             Is = true;
                     }
 
-                  
+
                 }
 
             }
@@ -5650,12 +5650,12 @@ namespace RefrigtzDLL
                         continue;
                     if (Table[RowS, ColS] == -1)
                     {
-                        if (Table[k,RowS] == -1)
+                        if (Table[k, RowS] == -1)
                             Is = true;
                     }
                     if (Table[RowD, ColD] == -1)
                     {
-                        if (Table[ k, RowD] == -1)
+                        if (Table[k, RowD] == -1)
                             Is = true;
                     }
                 }
@@ -5947,7 +5947,7 @@ namespace RefrigtzDLL
 
 
                  });
-                return HAS + (HAE );
+                return HAS + (HAE);
             }
         }
         public int HeuristicMovmentSelf(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
@@ -8074,9 +8074,9 @@ namespace RefrigtzDLL
                 return Value;
             }
         }
-        void HuMethod(ref int[] Hu,int HeuristicAttackValue, int HeuristicMovementValue, int HeuristicSelfSupportedValue, int HeuristicObjectDangourCheckMateValue, int HeuristicKillerValue, int HeuristicReducedAttackValue, int HeuristicDistributionValue, int HeuristicKingSafe, int HeuristicFromCenter, int HeuristicKingDangour)
+        void HuMethod(ref int[] Hu, int HeuristicAttackValue, int HeuristicMovementValue, int HeuristicSelfSupportedValue, int HeuristicObjectDangourCheckMateValue, int HeuristicKillerValue, int HeuristicReducedAttackValue, int HeuristicDistributionValue, int HeuristicKingSafe, int HeuristicFromCenter, int HeuristicKingDangour)
         {
-           
+
             Hu[0] += HeuristicAttackValue;
             Hu[1] += HeuristicMovementValue;
             Hu[2] += HeuristicSelfSupportedValue;
@@ -8104,7 +8104,7 @@ namespace RefrigtzDLL
         }
         void HuMethodSup(ref int[] Hu)
         {
-             Hu[0] = HeuristicAttackValueSup;
+            Hu[0] = HeuristicAttackValueSup;
             //HeuristicAttackValueSup = 0;
             Hu[1] = HeuristicMovementValueSup;
             //HeuristicMovementValueSup = 0;
@@ -8146,7 +8146,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -8155,7 +8155,7 @@ namespace RefrigtzDLL
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowDestination, ColumnDestination, RowSource, ColumnSource, ref Sup));
                     newTask1.Wait();
-                    
+
 
                     if (!Sup)
                     {
@@ -8293,7 +8293,7 @@ namespace RefrigtzDLL
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
                         newTask1.Wait();
-                        
+
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
@@ -8366,7 +8366,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -8510,7 +8510,7 @@ namespace RefrigtzDLL
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
                         newTask1.Wait();
-                        
+
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
@@ -8928,7 +8928,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
 
@@ -8981,7 +8981,7 @@ namespace RefrigtzDLL
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            newTask1.Wait(); 
+                            newTask1.Wait();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
@@ -9121,7 +9121,7 @@ namespace RefrigtzDLL
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
 
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -9309,7 +9309,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
@@ -9454,7 +9454,7 @@ namespace RefrigtzDLL
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
                         newTask1.Wait();
-                        
+
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
@@ -9609,7 +9609,7 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("RemoveAtList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //learning autamata maib method
-        void PenaltyMechanisam(ref bool RETURN,ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
+        void PenaltyMechanisam(ref bool RETURN, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -10346,7 +10346,7 @@ namespace RefrigtzDLL
                 }
             }
         }
-        void KilledMethod(ref int Killed,bool Sup, int RowDestination, int ColumnDestination, int RowSource, int ColumnSource, int[,] TableS, ThingsConverter t = null)
+        void KilledMethod(ref int Killed, bool Sup, int RowDestination, int ColumnDestination, int RowSource, int ColumnSource, int[,] TableS, ThingsConverter t = null)
         {
             Object O = new Object();
             lock (O)
@@ -10394,7 +10394,7 @@ namespace RefrigtzDLL
             {
                 if (!Sup)
                 {
-                    TableInitiationPreventionOfMultipleMove[RowDestination, ColumnDestination] ++;
+                    TableInitiationPreventionOfMultipleMove[RowDestination, ColumnDestination]++;
 
                     if (Kind == 1)
                     {
@@ -10607,7 +10607,7 @@ namespace RefrigtzDLL
                 }
             }
         }
-        bool ChessRuleThinking(int[,] TableS,int RowSource,int ColumnSource,int RowDestination,int ColumnDestination)
+        bool ChessRuleThinking(int[,] TableS, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination)
         {
             Object O = new Object();
             lock (O)
@@ -10635,7 +10635,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource , RowDestination, ColumnDestination ))
+                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color, CloneATable(TableS), Order, false, 0);
@@ -10941,7 +10941,47 @@ namespace RefrigtzDLL
 
         }
 
+        int HeuristicBetterSpace(int[,] TableSS, Color colorS, Color colorE, int OrderS, int OrderE)
+        {
+            Object OO = new Object();
+            lock (OO)
+            {
+                int HA = 0;
+                int SpaceSelf = 0, SpaceEnemy = 0;
+                for (int RowS = 0; RowS < 8; RowS++)
+                {
+                    for (int ColS = 0; ColS < 8; ColS++)
+                    {
 
+                        for (int RowD = 0; RowD < 8; RowD++)
+                        {
+                            for (int ColD = 0; ColD < 8; ColD++)
+                            {
+                                if ((Order == 1 && TableSS[RowS, ColS] > 0) || (Order == -1 && TableSS[RowS, ColS] < 0))
+                                {
+                                    if (Attack(CloneATable(TableSS), RowS, ColS, RowD, ColD, colorS, OrderS))
+                                        SpaceSelf++;
+                                }
+
+                                if ((Order == 1 && TableSS[RowD, ColD] < 0) || (Order == -1 && TableSS[RowD, ColD] > 0))
+                                {
+                                    if (Attack(CloneATable(TableSS), RowD, ColD, RowS, ColS, colorE, OrderE))
+                                        SpaceEnemy++;
+                                }
+
+                            }
+                        }
+                    }
+
+                }
+                if (SpaceSelf > SpaceEnemy)
+                    HA = RatiionalRegard;
+                else
+                    if (SpaceSelf < SpaceEnemy)
+                    HA = RatiionalPenalty;
+                return HA;
+            }
+        }
         public int[] CalculateHeuristicsParallel(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
 )
         {
@@ -10949,7 +10989,7 @@ namespace RefrigtzDLL
             lock (OO)
             {
                 int[] Huriistic = null;
-                int[] HuriisticRemain = new int[5];
+                int[] HuriisticRemain = new int[6];
 
                 var output = Task.Factory.StartNew(() =>
              Parallel.Invoke(() =>
@@ -11028,13 +11068,29 @@ namespace RefrigtzDLL
                      int[,] TableSS = CloneATable(TableS);
                      HuriisticRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD);
                  }
+             }, () =>
+             {
+                 Object O = new Object();
+                 lock (O)
+                 {
+                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                         return;
+                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                     int[,] TableSS = CloneATable(TableS);
+                     Color colorE = Color.Gray;
+                     if (Order == -1)
+                         colorE = Color.Gray;
+                     else
+                         colorE = Color.Brown;
+                     HuriisticRemain[5] = HeuristicBetterSpace(TableSS, color,colorE, Order,Order*-1);
+                 }
              }
              ));
                 output.Wait();
-                int[] hu = new int[11];
+                int[] hu = new int[12];
                 for (int i = 0; i < 6; i++)
                     hu[i] = Huriistic[i];
-                for (int i = 6; i < 11; i++)
+                for (int i = 6; i < 12; i++)
                     hu[i] = HuriisticRemain[i - 6];
                 return hu;
             }
@@ -11067,11 +11123,11 @@ namespace RefrigtzDLL
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
                 for (int i = 0; i < 6; i++)
                     Huriistic[i] = Hu[i];
-                HCheck = Hu[6];
-                HDistance = Hu[7];
-                HKingSafe = Hu[8];
-                HKingDangour = Hu[9];
-                HFromCenter = Hu[10];
+                HCheck = Hu[7];
+                HDistance = Hu[8];
+                HKingSafe = Hu[9];
+                HKingDangour = Hu[10];
+                HFromCenter = Hu[11];
 
 
                 Object O1 = new Object();
