@@ -5528,43 +5528,174 @@ else
                     return Is;
                 if (Tab[RowS, ColS] != 0)
                 {
-                    if (Attack(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                    if ((Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
                         Is = true;
-                    if (Attack(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                    if ((Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
                         Is = true;
-                    if (Attack(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                    if ((Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
                         Is = true;
-                    if (Attack(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                    if ((Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
                         Is = true;
-
                     if (!Is)
                     {
-                        int[,] Ta = CloneATable(Tab);
-                        Ta[RowD, ColD] = Tab[RowS, ColS];
-                        Tab[RowS, ColS] = 0;
-                        if (Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
-                            Is = true;
-                        if (Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
-                            Is = true;
-                        if (Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
-                            Is = true;
-                        if (Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
-                            Is = true;
+                        if (Order == 1)
+                        {
+                            if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                                Is = true;
+                            if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                                Is = true;
+                            if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                                Is = true;
+                            if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                                Is = true;
 
+                            if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                                Is = true;
+                            if ((Tab[4, 3] > 0) && Support(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                                Is = true;
+                            if ((Tab[3, 3] > 0) && Support(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                                Is = true;
+                            if ((Tab[4, 4] > 0) && Support(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                                Is = true;
+                        }
+
+                        else
+                        {
+
+                            if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                                Is = true;
+                            if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                                Is = true;
+                            if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                                Is = true;
+                            if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                                Is = true;
+
+                            if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                                Is = true;
+                            if ((Tab[4, 3] < 0) && Support(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                                Is = true;
+                            if ((Tab[3, 3] < 0) && Support(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                                Is = true;
+                            if ((Tab[4, 4] < 0) && Support(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                                Is = true;
+
+                        }
+                        if (!Is)
+                        {
+                            int[,] Ta = CloneATable(Tab);
+                            Ta[RowD, ColD] = Tab[RowS, ColS];
+                            Tab[RowS, ColS] = 0;
+
+                            if ((Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                Is = true;
+                            if ((Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                Is = true;
+                            if ((Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                Is = true;
+                            if ((Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                Is = true;
+                            if (!Is)
+                            {
+                                if (Order == 1)
+                                {
+                                    if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                        Is = true;
+                                    if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                        Is = true;
+                                    if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                        Is = true;
+                                    if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                        Is = true;
+
+                                    if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                        Is = true;
+                                    if ((Tab[4, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                        Is = true;
+                                    if ((Tab[3, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                        Is = true;
+                                    if ((Tab[4, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                        Is = true;
+                                }
+                                else
+                                {
+                                    if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                        Is = true;
+                                    if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                        Is = true;
+                                    if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                        Is = true;
+                                    if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                        Is = true;
+
+                                    if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                        Is = true;
+                                    if ((Tab[4, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                        Is = true;
+                                    if ((Tab[3, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                        Is = true;
+                                    if ((Tab[4, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                        Is = true;
+                                }
+                            }
+                        }
                     }
-                }
-                else
-                {
-                    if (Tab[RowD, ColD] == 1 || Tab[RowD, ColD] == -1)
-                        return Is;
-                    if (Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
-                        Is = true;
-                    if (Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
-                        Is = true;
-                    if (Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
-                        Is = true;
-                    if (Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
-                        Is = true;
+                    else
+                    {
+                        if (Tab[RowD, ColD] == 1 || Tab[RowD, ColD] == -1)
+                            return Is;
+                        if ((Tab[3, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                            Is = true;
+                        if ((Tab[4, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                            Is = true;
+                        if ((Tab[3, 3] == 0) && Movable(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                            Is = true;
+                        if ((Tab[4, 4] == 0) && Movable(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                            Is = true;
+                        if (!Is)
+                        {
+                            if (Order == 1)
+                            {
+                                if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                    Is = true;
+                                if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                    Is = true;
+                                if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                    Is = true;
+                                if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                    Is = true;
+
+                                if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                    Is = true;
+                                if ((Tab[4, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                    Is = true;
+                                if ((Tab[3, 3] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                    Is = true;
+                                if ((Tab[4, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                    Is = true;
+                            }
+                            else
+                            {
+                                if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                    Is = true;
+                                if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                    Is = true;
+                                if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                    Is = true;
+                                if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                    Is = true;
+
+                                if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                    Is = true;
+                                if ((Tab[4, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                    Is = true;
+                                if ((Tab[3, 3] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                    Is = true;
+                                if ((Tab[4, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                    Is = true;
+                            }
+                        }
+                    }
                 }
                 return Is;
 
