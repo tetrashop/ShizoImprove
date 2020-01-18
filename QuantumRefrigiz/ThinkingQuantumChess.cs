@@ -5518,8 +5518,60 @@ else
 
             }
         }
+        public bool CenrtrallnControlByTraversal(int[,] Tab, Color a, int Order, int RowS, int ColS, int RowD, int ColD)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+                if (Tab[RowS, ColS] == 1 || Tab[RowS, ColS] == -1)
+                    return Is;
+                if (Tab[RowS, ColS] != 0)
+                {
+                    if (Attack(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                        Is = true;
+                    if (Attack(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                        Is = true;
+                    if (Attack(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                        Is = true;
+                    if (Attack(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                        Is = true;
+
+                    if (!Is)
+                    {
+                        int[,] Ta = CloneATable(Tab);
+                        Ta[RowD, ColD] = Tab[RowS, ColS];
+                        Tab[RowS, ColS] = 0;
+                        if (Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                            Is = true;
+                        if (Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                            Is = true;
+                        if (Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                            Is = true;
+                        if (Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                            Is = true;
+
+                    }
+                }
+                else
+                {
+                    if (Tab[RowD, ColD] == 1 || Tab[RowD, ColD] == -1)
+                        return Is;
+                    if (Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                        Is = true;
+                    if (Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                        Is = true;
+                    if (Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                        Is = true;
+                    if (Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                        Is = true;
+                }
+                return Is;
+
+            }
+        }
         //Distribution of Objects
-        public int HeuristicDistribution(int[,] Tab, int Order, int RowS, int ColS)
+        public int HeuristicDistribution(int[,] Tab, int Order,Color a, int RowS, int ColS,int RowD,int ColD)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -5604,7 +5656,10 @@ else
                     }
                 }
 
-
+                if (CenrtrallnControlByTraversal(CloneATable(Tab), a, Order, RowS, ColS, RowD, ColD))
+                    Dis += RatiionalRegard;
+                else
+                    Dis += RatiionalPenalty;
 
                 /*     //Initiate.
                      int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
@@ -5710,7 +5765,7 @@ else
                                 A = (Table[RowS - 1, ColS - 1] == 1);
                             if (RowS + 1 < 8 && ColS >= 1)
                                 B = (Table[RowS + 1, ColS - 1] == 1);
-                            if (!(A || B))
+                            if (A || B)
                                 Is = true;
                         }
                         if (Table[RowD, ColD] == 1)
@@ -5723,7 +5778,7 @@ else
                                 A = (Table[RowD - 1, ColD - 1] == 1);
                             if (RowD + 1 < 8 && ColD >= 1)
                                 B = (Table[RowD + 1, ColD - 1] == 1);
-                            if (!(A || B))
+                            if (A || B)
                                 Is = true;
                         }
 
@@ -5750,7 +5805,7 @@ else
                                 A = (Table[RowS - 1, ColS + 1] == -1);
                             if (RowS + 1 < 8 && ColS + 1 > 8)
                                 B = (Table[RowS + 1, ColS + 1] == -1);
-                            if (!(A || B))
+                            if (A || B)
                                 Is = true;
 
                         }
@@ -5764,7 +5819,7 @@ else
                                 A = (Table[RowD - 1, ColD + 1] == -1);
                             if (RowD + 1 < 8 && ColD + 1 > 8)
                                 B = (Table[RowD + 1, ColD + 1] == -1);
-                            if (!(A || B))
+                            if (A || B)
                                 Is = true;
                         }
                     }
@@ -11144,7 +11199,7 @@ else
                          return;
                      int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[1] = HeuristicDistribution(TableSS, Order, RowS, ColS//, ref HeuristicDistributionValue
+                     HuriisticRemain[1] = HeuristicDistribution(TableSS, Order,color, RowS, ColS,RowD,ColD//, ref HeuristicDistributionValue
                           );
                  }
              }
