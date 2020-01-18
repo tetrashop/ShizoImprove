@@ -11368,6 +11368,12 @@ namespace RefrigtzDLL
              }
              ));
                 output.Wait();
+                //Central control befor attack
+                bool A = (Huriistic[0] > 0);
+                bool B = (HuriisticRemain[4] > 0);
+                if (A || (!B))
+                    Huriistic[0] = 0;
+            
                 int[] hu = new int[12];
                 for (int i = 0; i < 6; i++)
                     hu[i] = Huriistic[i];
