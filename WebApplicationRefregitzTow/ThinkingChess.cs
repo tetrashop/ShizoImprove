@@ -5450,6 +5450,56 @@ namespace RefrigtzW
                 return Is;
             }
         }
+        public bool IsCenralPawnIsOk(int[,] Tab, int Order)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+                int NoOfPawn = 0;
+                int NoOfSupport = 0;
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (Order == 1)
+                        {
+                            if (Tab[i, j] == 1)
+                                NoOfPawn++;
+                            if (i - 1 >= 0 && j + 1 < 8)
+                            {
+                                if (Tab[i - 1, j + 1] == 1)
+                                    NoOfSupport++;
+                            }
+                            if (i - 1 >= 0 && j - 1 >= 0)
+                            {
+                                if (Tab[i - 1, j - 1] == 1)
+                                    NoOfSupport++;
+                            }
+                        }
+                        else
+                        {
+                            if (Tab[i, j] == -1)
+                                NoOfPawn++;
+                            if (i + 1 < 8 && j + 1 < 8)
+                            {
+                                if (Tab[i + 1, j + 1] == -1)
+                                    NoOfSupport++;
+                            }
+                            if (i + 1 < 8 && j - 1 >= 0)
+                            {
+                                if (Tab[i + 1, j - 1] == -1)
+                                    NoOfSupport++;
+                            }
+                        }
+                    }
+                }
+                if (NoOfSupport >= (NoOfPawn / 2))
+                    Is = true;
+                return Is;
+
+            }
+        }
         //Distribution of Objects
         public int HeuristicDistribution(int[,] Tab, int Order, int RowS, int ColS)
         {
@@ -5464,6 +5514,10 @@ namespace RefrigtzW
                     Dis = RatiionalRegard;
                 else
                     Dis = RatiionalPenalty;
+                if (IsCenralPawnIsOk(CloneATable(Tab), Order))
+                    Dis += RatiionalRegard;
+                else
+                    Dis += RatiionalPenalty;
 
                 if (Order == 1)
                 {
