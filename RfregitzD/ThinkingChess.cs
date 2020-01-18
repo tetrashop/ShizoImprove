@@ -5451,7 +5451,7 @@ namespace RefrigtzDLL
                 return Is;
             }
         }
-        public bool IsCenralPawnIsOk(int[,] Tab,int Order)
+        public bool IsCentralPawnIsOk(int[,] Tab,int Order)
         {
             Object O = new Object();
             lock (O)
@@ -5503,9 +5503,12 @@ namespace RefrigtzDLL
         }
         public bool CenrtrallnControlByTraversal(int[,] Tab, Color a, int Order, int RowS, int ColS, int RowD, int ColD)
         {
-            Object O = new Object();
+             Object O = new Object();
             lock (O)
             {
+                Color aa = Color.Gray;
+                if (Order * -1 == -1)
+                    aa = Color.Brown;
                 bool Is = false;
                 if (Tab[RowS, ColS] == 1 || Tab[RowS, ColS] == -1)
                     return Is;
@@ -5523,13 +5526,13 @@ namespace RefrigtzDLL
                     {
                         if (Order == 1)
                         {
-                            if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                            if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, aa, Order * -1))
                                 Is = true;
-                            if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                            if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, aa, Order * -1))
                                 Is = true;
-                            if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                            if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, aa, Order * -1))
                                 Is = true;
-                            if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                            if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, aa, Order * -1))
                                 Is = true;
 
                             if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
@@ -5545,13 +5548,13 @@ namespace RefrigtzDLL
                         else
                         {
 
-                            if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
+                            if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 4, aa, Order * -1))
                                 Is = true;
-                            if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, a, Order))
+                            if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 3, aa, Order * -1))
                                 Is = true;
-                            if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, a, Order))
+                            if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowS, ColS, 3, 3, aa, Order * -1))
                                 Is = true;
-                            if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, a, Order))
+                            if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowS, ColS, 4, 4, aa, Order * -1))
                                 Is = true;
 
                             if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowS, ColS, 3, 4, a, Order))
@@ -5582,13 +5585,13 @@ namespace RefrigtzDLL
                             {
                                 if (Order == 1)
                                 {
-                                    if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                    if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1))
                                         Is = true;
-                                    if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                    if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1))
                                         Is = true;
-                                    if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                    if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1))
                                         Is = true;
-                                    if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                    if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1))
                                         Is = true;
 
                                     if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
@@ -5602,13 +5605,13 @@ namespace RefrigtzDLL
                                 }
                                 else
                                 {
-                                    if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                    if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1))
                                         Is = true;
-                                    if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                    if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1))
                                         Is = true;
-                                    if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                    if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1))
                                         Is = true;
-                                    if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                    if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1))
                                         Is = true;
 
                                     if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
@@ -5639,13 +5642,13 @@ namespace RefrigtzDLL
                         {
                             if (Order == 1)
                             {
-                                if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                if ((Tab[3, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1))
                                     Is = true;
-                                if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                if ((Tab[4, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1))
                                     Is = true;
-                                if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                if ((Tab[3, 3] < 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1))
                                     Is = true;
-                                if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                if ((Tab[4, 4] < 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1))
                                     Is = true;
 
                                 if ((Tab[3, 4] > 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
@@ -5659,13 +5662,13 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
+                                if ((Tab[3, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 4, aa, Order * -1))
                                     Is = true;
-                                if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, a, Order))
+                                if ((Tab[4, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 3, aa, Order * -1))
                                     Is = true;
-                                if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, a, Order))
+                                if ((Tab[3, 3] > 0) && Attack(CloneATable(Tab), RowD, ColD, 3, 3, aa, Order * -1))
                                     Is = true;
-                                if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, a, Order))
+                                if ((Tab[4, 4] > 0) && Attack(CloneATable(Tab), RowD, ColD, 4, 4, aa, Order * -1))
                                     Is = true;
 
                                 if ((Tab[3, 4] < 0) && Support(CloneATable(Tab), RowD, ColD, 3, 4, a, Order))
@@ -5698,7 +5701,7 @@ namespace RefrigtzDLL
                     Dis = RatiionalRegard;
                 else
                     Dis = RatiionalPenalty;
-                if (IsCenralPawnIsOk(CloneATable(Tab), Order))
+                if (IsCentralPawnIsOk(CloneATable(Tab), Order))
                     Dis += RatiionalRegard;
                 else
                     Dis += RatiionalPenalty;
