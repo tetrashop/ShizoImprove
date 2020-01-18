@@ -4721,11 +4721,15 @@ else
             lock (O)
             {
                 bool Is = false;
-                if ((System.Math.Abs(Obj1) / Obj1) == (System.Math.Abs(Obj2) / Obj2))
-                    Is = true;
+                if (Obj1 != 0 && Obj2 != 0)
+                {
+                    if ((System.Math.Abs(Obj1) / Obj1) == (System.Math.Abs(Obj2) / Obj2))
+                        Is = true;
+                }
                 return Is;
             }
         }
+
         bool ThereIsOneSideToRanAwayByEnemyKing(int RowK, int ColK, int[,] Table)
         {
             Object O = new Object();
