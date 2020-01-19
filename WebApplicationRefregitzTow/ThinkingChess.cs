@@ -5875,7 +5875,7 @@ namespace RefrigtzW
                             continue;
                         if (Table[RowS, ColS] == 1)
                         {
-                            if (Table[k, RowS] == 1)
+                            if (Table[k, ColS] == 1)
                                 Is = true;
                             bool A = true;
                             bool B = true;
@@ -5883,12 +5883,12 @@ namespace RefrigtzW
                                 A = (Table[RowS - 1, ColS - 1] == 1);
                             if (RowS + 1 < 8 && ColS >= 1)
                                 B = (Table[RowS + 1, ColS - 1] == 1);
-                            if (A || B)
+                            if (!(A || B))
                                 Is = true;
                         }
                         if (Table[RowD, ColD] == 1)
                         {
-                            if (Table[k, RowD] == 1)
+                            if (Table[k, ColD] == 1)
                                 Is = true;
                             bool A = true;
                             bool B = true;
@@ -5896,7 +5896,7 @@ namespace RefrigtzW
                                 A = (Table[RowD - 1, ColD - 1] == 1);
                             if (RowD + 1 < 8 && ColD >= 1)
                                 B = (Table[RowD + 1, ColD - 1] == 1);
-                            if (A || B)
+                            if (!(A || B))
                                 Is = true;
                         }
 
@@ -5915,7 +5915,7 @@ namespace RefrigtzW
                             continue;
                         if (Table[RowS, ColS] == -1)
                         {
-                            if (Table[k, RowS] == -1)
+                            if (Table[k, ColS] == -1)
                                 Is = true;
                             bool A = true;
                             bool B = true;
@@ -5923,13 +5923,13 @@ namespace RefrigtzW
                                 A = (Table[RowS - 1, ColS + 1] == -1);
                             if (RowS + 1 < 8 && ColS + 1 > 8)
                                 B = (Table[RowS + 1, ColS + 1] == -1);
-                            if (A || B)
+                            if (!(A || B))
                                 Is = true;
 
                         }
                         if (Table[RowD, ColD] == -1)
                         {
-                            if (Table[k, RowD] == -1)
+                            if (Table[k, ColD] == -1)
                                 Is = true;
                             bool A = true;
                             bool B = true;
@@ -5937,7 +5937,7 @@ namespace RefrigtzW
                                 A = (Table[RowD - 1, ColD + 1] == -1);
                             if (RowD + 1 < 8 && ColD + 1 > 8)
                                 B = (Table[RowD + 1, ColD + 1] == -1);
-                            if (A || B)
+                            if (!(A || B))
                                 Is = true;
                         }
                     }
