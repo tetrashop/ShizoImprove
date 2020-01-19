@@ -120,7 +120,6 @@
     <Compile Include="Stone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="System\Threading\Task.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutBoxChessRefrigitz.resx">

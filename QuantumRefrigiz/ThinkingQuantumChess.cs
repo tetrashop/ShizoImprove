@@ -106,8 +106,8 @@ namespace QuantumRefrigiz
             { 0, 0, 0, 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0 }
             };
-        int RatiionalRegard = 10000;
-        int RatiionalPenalty = -10000;
+        int RatiionalRegard = 10;
+        int RatiionalPenalty = -10;
 
         public static bool FullGameAllow = false;
         int iIndex = -1;
@@ -147,7 +147,7 @@ namespace QuantumRefrigiz
         public static bool LearningVarsCheckedMateOccured;
         public static bool LearningVarsCheckedMateOccuredOneCheckedMate;
         bool IsGardHighPriority = false;
-        const int ThresholdBlitz = 10000;
+        const int ThresholdBlitz = 10;
         const int ThresholdFullGame = 20000;
         public static int MaxHeuristicx = int.MinValue;
         public bool MovementsAStarGreedyHeuristicFoundT = false;
@@ -12942,8 +12942,8 @@ else
                 ///For Stored Location of Objects.
                 var ii = Row;
                 var jj = Column;
-                if (CheckMateOcuured
-                    || FoundFirstMating > AllDraw.MaxAStarGreedy
+                if (//CheckMateOcuured ||
+                     FoundFirstMating > AllDraw.MaxAStarGreedy
                     )
                 {
 
@@ -12958,8 +12958,8 @@ else
                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return;
                 }
-                if (CheckMateOcuured
-                    || FoundFirstSelfMating > AllDraw.MaxAStarGreedy
+                if (//CheckMateOcuured ||
+                     FoundFirstSelfMating > AllDraw.MaxAStarGreedy
                     )
                 {
 

@@ -1825,6 +1825,7 @@ namespace QuantumRefrigiz
                 this.AStarGreedyString = thisAStarGreedyString;
                 OrderP = Dummy;
             }
+            SetObjectNumbers(Tabl);
         }
         public bool SetRowColumn()
         {
@@ -20223,6 +20224,331 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             return Do;
         }
         //full game main method for deeper decicion and making
+        public bool FullGameThinkingQuantumTreeGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
+        {
+            Object OOOOO = new Object();
+            lock (OOOOO)
+            {
+                bool Do = false;
+                int DummyOrder = Order;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
+
+                var output = Task.Factory.StartNew(() =>
+                {
+                    Parallel.Invoke(() =>
+
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                            int Ord1 = OrderP;
+                            Color a1 = a;
+                            int iAStarGreedy1 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                            //array1.Start();
+                            //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
+
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+
+                            int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
+                            int Ord2 = Order;
+                            Color a2 = a;
+                            int iAStarGreedy2 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                            //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
+                            //array2.Start();
+                            //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
+
+                            //Initiatye Variables.
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+
+                            int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
+                            int Ord3 = Order;
+                            Color a3 = a;
+                            int iAStarGreedy3 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                            //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
+                            ///array3.Start();
+                            //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
+
+                            //Initiatye Variables.
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+
+                            int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
+                            int Ord4 = Order;
+                            Color a4 = a;
+                            int iAStarGreedy4 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                            //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
+                            //array4.Start();
+                            //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
+
+                            //Initiatye Variables.
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+                            int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
+                            int Ord5 = Order;
+                            Color a5 = a;
+                            int iAStarGreedy5 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                            //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
+                            //array5.Start();
+                            //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
+
+                            //Initiatye Variables.
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+                            int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+                            int Ord6 = Order;
+                            Color a6 = a;
+                            int iAStarGreedy6 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                            //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
+                            //array6.Start();
+                            //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    });
+                });
+
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
+                output.Wait();
+                return Do;
+            }
+        }
+        public bool FullGameThinkingQuantumTreeBrown(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
+        {
+            Object OOOOO = new Object();
+            lock (OOOOO)
+            {
+                bool Do = false;
+                int DummyOrder = Order;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
+
+                var output = Task.Factory.StartNew(() =>
+                {
+                    Parallel.Invoke(() =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                            int Ord1 = OrderP;
+                            Color a1 = a;
+                            int iAStarGreedy1 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                            //array1.Start();
+                            //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
+
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+
+                            int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
+                            int Ord2 = Order;
+                            Color a2 = a;
+                            int iAStarGreedy2 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                            //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
+                            //array2.Start();
+                            //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
+
+                            //Initiatye Variables.
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+
+                            int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
+                            int Ord3 = Order;
+                            Color a3 = a;
+                            int iAStarGreedy3 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                            //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
+                            ///array3.Start();
+                            //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
+
+                            //Initiatye Variables.
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+
+                            int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
+                            int Ord4 = Order;
+                            Color a4 = a;
+                            int iAStarGreedy4 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                            //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
+                            //array4.Start();
+                            //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
+
+                            //Initiatye Variables.
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+                            int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
+                            int Ord5 = Order;
+                            Color a5 = a;
+                            int iAStarGreedy5 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                            //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
+                            //array5.Start();
+                            //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
+
+                            //Initiatye Variables.
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    }, () =>
+                    {
+                        Object O1 = new Object();
+                        lock (O1)
+                        {
+                            if (Order == 1)
+                                a = Color.Gray;
+                            else
+                                a = Color.Brown;
+                            //Order *= -1;
+                            //ChessRules.CurrentOrder *= -1;
+                            int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+                            int Ord6 = Order;
+                            Color a6 = a;
+                            int iAStarGreedy6 = iAStarGreedy;
+                            Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                            //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
+                            //array6.Start();
+                            //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
+                            Order = DummyOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                        }
+                    });
+                });
+
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
+                output.Wait();
+                return Do;
+            }
+        }
+        //full game main method for deeper decicion and making
         public bool FullGameThinkingQuantumTree(int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -20488,311 +20814,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //Index[0] = -1;
                 //Soldeir
                 //Initiatye Variables.               
+                var array = Task.Factory.StartNew(() => Do = FullGameThinkingQuantumTreeGray(a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                array.Start();
+                array.Wait();
 
-                var output = Task.Factory.StartNew(() =>
-                {
-                    Parallel.Invoke(() =>
-
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                            int Ord1 = OrderP;
-                            Color a1 = a;
-                            int iAStarGreedy1 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
-                            //array1.Start();
-                            //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
-
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-
-                            int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                            int Ord2 = Order;
-                            Color a2 = a;
-                            int iAStarGreedy2 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                            //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
-                            //array2.Start();
-                            //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
-
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-
-                            int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                            int Ord3 = Order;
-                            Color a3 = a;
-                            int iAStarGreedy3 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                            //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
-                            ///array3.Start();
-                            //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
-
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-
-                            int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                            int Ord4 = Order;
-                            Color a4 = a;
-                            int iAStarGreedy4 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                            //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
-                            //array4.Start();
-                            //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
-
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-                            int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                            int Ord5 = Order;
-                            Color a5 = a;
-                            int iAStarGreedy5 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                            //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
-                            //array5.Start();
-                            //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
-
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-                            int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                            int Ord6 = Order;
-                            Color a6 = a;
-                            int iAStarGreedy6 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                            //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
-                            //array6.Start();
-                            //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    });
-                });
-
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
-                output.Wait();
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
-                var output = Task.Factory.StartNew(() =>
-                {
-                    Parallel.Invoke(() =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                            int Ord1 = OrderP;
-                            Color a1 = a;
-                            int iAStarGreedy1 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
-                            //array1.Start();
-                            //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
-
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-
-                            int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                            int Ord2 = Order;
-                            Color a2 = a;
-                            int iAStarGreedy2 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                            //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
-                            //array2.Start();
-                            //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
-
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-
-                            int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                            int Ord3 = Order;
-                            Color a3 = a;
-                            int iAStarGreedy3 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                            //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
-                            ///array3.Start();
-                            //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
-
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-
-                            int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                            int Ord4 = Order;
-                            Color a4 = a;
-                            int iAStarGreedy4 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                            //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
-                            //array4.Start();
-                            //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
-
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-                            int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                            int Ord5 = Order;
-                            Color a5 = a;
-                            int iAStarGreedy5 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                            //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
-                            //array5.Start();
-                            //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
-
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-                            int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                            int Ord6 = Order;
-                            Color a6 = a;
-                            int iAStarGreedy6 = iAStarGreedy;
-                            Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                            //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
-                            //array6.Start();
-                            //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    });
-                });
-
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
-                output.Wait();
+                var array = Task.Factory.StartNew(() => Do = FullGameThinkingQuantumTreeBrown(a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                array.Start();
+                array.Wait();
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingQuantumTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;

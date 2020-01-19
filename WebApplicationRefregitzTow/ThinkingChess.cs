@@ -107,8 +107,8 @@ namespace RefrigtzW
             { 0, 0, 0, 0, 0, 0, 0, 0 }
             };
 
-        int RatiionalRegard = 10000;
-        int RatiionalPenalty = -10000;
+        int RatiionalRegard = 10;
+        int RatiionalPenalty = -10;
         public static bool FullGameAllow = false;
         int iIndex = -1;
         public static bool IsAtLeastOneKillerAtDraw = false;
@@ -12916,8 +12916,8 @@ namespace RefrigtzW
                 ///For Stored Location of Objects.
                 var ii = Row;
                 var jj = Column;
-                if (CheckMateOcuured
-                    || FoundFirstMating > AllDraw.MaxAStarGreedy
+                if (//CheckMateOcuured|| 
+                FoundFirstMating > AllDraw.MaxAStarGreedy
                     )
                 {
 
@@ -12932,8 +12932,8 @@ namespace RefrigtzW
                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Thinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return;
                 }
-                if (CheckMateOcuured
-                    || FoundFirstSelfMating > AllDraw.MaxAStarGreedy
+                if (//CheckMateOcuured || 
+                FoundFirstSelfMating > AllDraw.MaxAStarGreedy
                     )
                 {
 
