@@ -47,10 +47,10 @@ namespace Chess
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                 {
-                    if (Table[i,j ] == 1)
+                    if (Table[i,j ] == -1)
                         square[i, j] = 6;
                     else
-                    if (Table[i,j ] == -1)
+                    if (Table[i,j ] == 1)
                         square[i, j] = 12;
                     else
                     if (Table[i,j ] == 2)
@@ -140,40 +140,40 @@ namespace Chess
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                 {
-                    if(square[i, j] == 6)
+                    if (square[i, j] == 6)
                         Table[i, j] = -1;
                     else
-                          if (square[i, j] == 12)
+                    if (square[i, j] == 12)
                         Table[i, j] = 1;
                     else
-                          if (square[i, j] == 9)
+                    if (square[i, j] == 9)
                         Table[i, j] = 2;
                     else
-                          if (square[i, j] == 2)
-                        Table[i, j] = -3;
-                    else
-                          if (square[i, j] == 3)
+                    if (square[i, j] == 3)
                         Table[i, j] = -2;
                     else
-                          if (square[i, j] == 8)
+                    if (square[i, j] == 2)
+                        Table[i, j] = -3;
+                    else
+                    if (square[i, j] == 8)
                         Table[i, j] = 3;
                     else
-                          if (square[i, j] == 7)
+                    if (square[i, j] == 7)
                         Table[i, j] = 4;
                     else
-                          if (square[i, j] == 1)
+                    if (square[i, j] == 1)
                         Table[i, j] = -4;
                     else
-                          if (square[i, j] == 10)
+                    if (square[i, j] == 10)
                         Table[i, j] = 5;
                     else
-                        if (square[i, j] == 4)
+                  if (square[i, j] == 4)
                         Table[i, j] = -5;
                     else
-                        if (square[i, j] == 5)
+                  if (square[i, j] == 5)
                         Table[i, j] = -6;
                     else
-                          if (square[i, j] == 11)
+                    if (square[i, j] == 11)
                         Table[i, j] = 6;
                     else
                         Table[i, j] = 0;
