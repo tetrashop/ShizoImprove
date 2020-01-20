@@ -109,6 +109,7 @@
     <Compile Include="ChessForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PlatformHelper.cs" />
     <Compile Include="Point.cs">
       <SubType>Code</SubType>
     </Compile>

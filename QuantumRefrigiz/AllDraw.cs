@@ -18147,6 +18147,43 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SumMinusOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Sum;
         }
+        bool ReturnFullGameThinkingTreeIligalSemaphore(int ik, int kind)
+        {
+            if (kind == 1)
+            {
+                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count == 0)
+                    return true;
+            }
+            else//elephant
+              if (kind == 2)
+            {
+                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count == 0)
+                    return true;
+            }
+            else if (kind == 3)//hourse
+            {
+                if (HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count == 0)
+                    return true;
+            }
+            else if (kind == 4)//Castle
+            {
+                if (CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count == 0)
+                    return true;
+            }
+            else
+                if (kind == 5)//minister
+            {
+                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count == 0)
+                    return true;
+            }
+            else if (kind == 6)//king
+            {
+                if (KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count == 0)
+                    return true;
+            }
+            return false;
+        }
+
         //Semaphore determination about ThinkingQuantum operational completed.
         bool ReturnFullGameThinkingQuantumTreeSemaphore(int ik, int kind)
         {
@@ -18771,6 +18808,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             Object O1 = new Object();
             lock (O1)
             {
+                if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 1))
+                    return false;
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingQuantumTreeSemaphoreAS(Order, iAStarGreedy, ik, 1));
                 array.Wait();
@@ -18973,6 +19012,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             Object O1 = new Object();
             lock (O1)
             {
+                if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 2))
+                    return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingQuantumTreeSemaphoreAS(Order, iAStarGreedy, ik, 2));
                 array.Wait();
@@ -19186,6 +19228,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             Object O1 = new Object();
             lock (O1)
             {
+                if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 3))
+                    return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingQuantumTreeSemaphoreAS(Order, iAStarGreedy, ik, 3));
                 array.Wait();
@@ -19404,6 +19449,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             Object O1 = new Object();
             lock (O1)
             {
+                if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 4))
+                    return false;
+
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingQuantumTreeSemaphoreAS(Order, iAStarGreedy, ik, 4));
@@ -19619,6 +19667,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             Object O1 = new Object();
             lock (O1)
             {
+                if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 5))
+                    return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingQuantumTreeSemaphoreAS(Order, iAStarGreedy, ik, 5));
                 array.Wait();
@@ -19840,6 +19891,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             Object O1 = new Object();
             lock (O1)
             {
+                if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 6))
+                    return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingQuantumTreeSemaphoreAS(Order, iAStarGreedy, ik, 6));
                 array.Wait();
