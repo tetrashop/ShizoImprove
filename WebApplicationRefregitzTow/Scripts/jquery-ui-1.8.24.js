@@ -464,7 +464,7 @@ $.widget.bridge = function( name, object ) {
 			this.each(function() {
 				var instance = $.data( this, name );
 				if ( instance ) {
-					instance.option( options || {} )._init();
+					instance.option( options || {} )._Init();
 				} else {
 					$.data( this, name, new object( options, this ) );
 				}
@@ -505,7 +505,7 @@ $.Widget.prototype = {
 
 		this._create();
 		this._trigger( "create" );
-		this._init();
+		this._Init();
 	},
 	_getCreateOptions: function() {
 		return $.metadata && $.metadata.get( this.element[0] )[ this.widgetName ];

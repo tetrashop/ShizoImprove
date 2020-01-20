@@ -5090,7 +5090,7 @@ else
                 return false;
             }
         }
-        bool IsNumberOfObjecttIsLessThanThreashold(int[,] Tab, int Threashold = 30)
+        bool IsNumberOfObjecttIsLessThanThreashold(int[,] Tab, int Threashold = 10)
         {
             Object O = new Object();
             lock (O)
@@ -5137,7 +5137,7 @@ else
                             {
                                 for (int pp = 0; pp < 8; pp++)
                                 {
-                                    if (Order == 1 & Table[kk, p] <= 0)
+                                    if (Order == 1 & Table[kk, pp] <= 0)
                                         continue;
                                     if (Order == -1 & Table[kk, pp] >= 0)
                                         continue;

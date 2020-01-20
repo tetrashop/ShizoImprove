@@ -5118,7 +5118,7 @@ namespace RefrigtzW
                             {
                                 for (int pp = 0; pp < 8; pp++)
                                 {
-                                    if (Order == 1 & Table[kk, p] <= 0)
+                                    if (Order == 1 & Table[kk, pp] <= 0)
                                         continue;
                                     if (Order == -1 & Table[kk, pp] >= 0)
                                         continue;
@@ -5140,7 +5140,7 @@ namespace RefrigtzW
                                                     Ta[kkk, ppp] = Ta[k, p];
                                                     Ta[k, p] = 0;
 
-                                                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order * -1, kkk, ppp);
+                                                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order , kkk, ppp);
                                                     if (A.CheckMate(CloneATable(Ta), Order * 1))
                                                         return true;
                                                 }

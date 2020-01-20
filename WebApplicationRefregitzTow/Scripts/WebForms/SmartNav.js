@@ -215,7 +215,7 @@ if ((typeof(window.__smartNav) == "undefined") || (window.__smartNav == null))
     window.__smartNav.submit = function()
     {
         window.__smartNav.fInit = false;
-        try { window.__smartNav.init(); } catch(e) {}
+        try { window.__smartNav.Init(); } catch(e) {}
         if (window.__smartNav.fInit) {
             window.__smartNav.form._submit();
         }

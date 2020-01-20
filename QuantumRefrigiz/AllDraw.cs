@@ -15428,173 +15428,176 @@ namespace QuantumRefrigiz
         //boundry condition determistic method for break
         bool FullBoundryConditions(int Current, int Order, int iAStarGreedy)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object O = new Object();
+            lock (O)
+            {//long Time = TimeElapced.TimeNow();Spaces++;
 
 
-            bool IS = false;
-            if (iAStarGreedy < 0 && iAStarGreedy < MaxDuringLevelThinkingQuantumCreation)
-            {
-                IS = true;
-            }
-            //gray
-            if (Order == 1)
-            {
-                //soldier
-                for (int ikk = 0; ikk < SodierMidle; ikk++)
+                bool IS = false;
+                if (iAStarGreedy < 0 && iAStarGreedy < MaxDuringLevelThinkingQuantumCreation)
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
-                        continue;
-                    if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //elephant
-                for (int ikk = 0; ikk < ElefantMidle; ikk++)
-                {
-                    if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
-                        continue;
-                    if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //hourse
-                for (int ikk = 0; ikk < HourseMidle; ikk++)
-                {
-                    if (HoursesOnTable == null || HoursesOnTable[ikk] == null)
-                        continue;
-                    if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //Castle
-                for (int ikk = 0; ikk < CastleMidle; ikk++)
-                {
-                    if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
-                        continue;
-                    if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //minister
-                for (int ikk = 0; ikk < MinisterMidle; ikk++)
-                {
-                    if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
-                        continue;
-                    if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //king
-                for (int ikk = 0; ikk < KingMidle; ikk++)
-                {
-                    if (KingOnTable == null || KingOnTable[ikk] == null)
-                        continue;
-                    if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //when vicrory count satisfied
-                if ((ThinkingQuantumChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
-                {
-                    OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString());
                     IS = true;
                 }
+                //gray
+                if (Order == 1)
+                {
+                    //soldier
+                    for (int ikk = 0; ikk < SodierMidle; ikk++)
+                    {
+                        if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
+                            continue;
+                        if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //elephant
+                    for (int ikk = 0; ikk < ElefantMidle; ikk++)
+                    {
+                        if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
+                            continue;
+                        if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //hourse
+                    for (int ikk = 0; ikk < HourseMidle; ikk++)
+                    {
+                        if (HoursesOnTable == null || HoursesOnTable[ikk] == null)
+                            continue;
+                        if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //Castle
+                    for (int ikk = 0; ikk < CastleMidle; ikk++)
+                    {
+                        if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
+                            continue;
+                        if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //minister
+                    for (int ikk = 0; ikk < MinisterMidle; ikk++)
+                    {
+                        if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
+                            continue;
+                        if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //king
+                    for (int ikk = 0; ikk < KingMidle; ikk++)
+                    {
+                        if (KingOnTable == null || KingOnTable[ikk] == null)
+                            continue;
+                        if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //when vicrory count satisfied
+                    if ((ThinkingQuantumChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                    {
+                        OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString());
+                        IS = true;
+                    }
 
-            }
-            else
-            {
-                //soldier
-                for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
+                }
+                else
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
-                        continue;
-                    if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
+                    //soldier
+                    for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
                     {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                        if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
+                            continue;
+                        if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //elephant
+                    for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
+                    {
+                        if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
+                            continue;
+                        if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //hourse
+                    for (int ikk = HourseMidle; ikk < HourseHight; ikk++)
+                    {
+                        if (HoursesOnTable == null || HoursesOnTable[ikk] == null)
+                            continue;
+                        if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //Castle
+                    for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
+                    {
+                        if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
+                            continue;
+                        if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //minister
+                    for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
+                    {
+                        if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
+                            continue;
+                        if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //king
+                    for (int ikk = KingMidle; ikk < KingHigh; ikk++)
+                    {
+                        if (KingOnTable == null || KingOnTable[ikk] == null)
+                            continue;
+                        if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
+                        {
+                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            IS = true;
+                        }
+                    }
+                    //when victory count satisfied
+                    if ((ThinkingQuantumChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                    {
+                        OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString());
                         IS = true;
                     }
+
                 }
-                //elephant
-                for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
-                {
-                    if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
-                        continue;
-                    if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //hourse
-                for (int ikk = HourseMidle; ikk < HourseHight; ikk++)
-                {
-                    if (HoursesOnTable == null || HoursesOnTable[ikk] == null)
-                        continue;
-                    if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //Castle
-                for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
-                {
-                    if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
-                        continue;
-                    if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //minister
-                for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
-                {
-                    if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
-                        continue;
-                    if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //king
-                for (int ikk = KingMidle; ikk < KingHigh; ikk++)
-                {
-                    if (KingOnTable == null || KingOnTable[ikk] == null)
-                        continue;
-                    if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
-                    {
-                        OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
-                        IS = true;
-                    }
-                }
-                //when victory count satisfied
-                if ((ThinkingQuantumChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
-                {
-                    OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString());
+                //when nu,bers of computational leafs satisfied 
+                if (((ThinkingQuantumChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
                     IS = true;
-                }
 
+                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return IS;
             }
-            //when nu,bers of computational leafs satisfied 
-            if (((ThinkingQuantumChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
-                IS = true;
-
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            return IS;
         }
         //AStarGreedy First Initiat ThinkingQuantum Main Method.
         void AStarGreedyThinkingQuantum(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int[,] Table, Color a, bool TB, bool FOUND, int LeafAStarGreedy)
@@ -21885,229 +21888,233 @@ if (Kind == 5)
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
 
-            ThinkingQuantumChess.Colleralation = int.MinValue;
-            ThinkingQuantumChess.DeColleralation = int.MaxValue;
-
-            if (FOUND && (!FirstTraversalTree))
-                NumberOfLeafComputation = ThinkingQuantumChess.NumbersOfAllNode;
-            else
-                NumberOfLeafComputation = -1;
-            ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw = false;
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            var parallelOptions = new ParallelOptions();
-            parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
-            SetDeptIgnore = SetDept;
-            int[,] TableHeuristic = null;
-            int Current = ChessRules.CurrentOrder;
-            int DummyOrder = Order;
-
-            Object O = new Object();
-            lock (O)
+            Object o = new Object();
+            lock (o)
             {
-                AllDraw.ActionStringReady = false;
-                ThinkingQuantumChess.LearningVarsCheckedMateOccured = false;
-                ThinkingQuantumChess.LearningVarsCheckedMateOccuredOneCheckedMate = false;
-                RegardOccurred = false;
-                Object OO21 = new Object();
-                lock (OO21)
-                {
-                    TaskBegin = 0;
-                    TaskEnd = 0;
-                }
+                ThinkingQuantumChess.Colleralation = int.MinValue;
+                ThinkingQuantumChess.DeColleralation = int.MaxValue;
 
-                Object OO1 = new Object();
-                lock (OO1)
+                if (FOUND && (!FirstTraversalTree))
+                    NumberOfLeafComputation = ThinkingQuantumChess.NumbersOfAllNode;
+                else
+                    NumberOfLeafComputation = -1;
+                ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw = false;
+                //long Time = TimeElapced.TimeNow();Spaces++;
+                var parallelOptions = new ParallelOptions();
+                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+                SetDeptIgnore = SetDept;
+                int[,] TableHeuristic = null;
+                int Current = ChessRules.CurrentOrder;
+                int DummyOrder = Order;
+
+                Object O = new Object();
+                lock (O)
                 {
+                    AllDraw.ActionStringReady = false;
+                    ThinkingQuantumChess.LearningVarsCheckedMateOccured = false;
+                    ThinkingQuantumChess.LearningVarsCheckedMateOccuredOneCheckedMate = false;
+                    RegardOccurred = false;
+                    Object OO21 = new Object();
+                    lock (OO21)
+                    {
+                        TaskBegin = 0;
+                        TaskEnd = 0;
+                    }
+
+                    Object OO1 = new Object();
                     lock (OO1)
                     {
+                        lock (OO1)
+                        {
 
-                        if (AllDraw.THIScomboBoxMaxLevelText != "")
-                            MaxDuringLevelThinkingQuantumCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
+                            if (AllDraw.THIScomboBoxMaxLevelText != "")
+                                MaxDuringLevelThinkingQuantumCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
+
+                        }
+                    }
+                    Object Om1 = new Object();
+                    lock (Om1)
+                    {
+                        MinThinkingQuantumTreeDepth = 0;
+                    }
+
+                    ThinkingQuantumChess.FoundFirstMating = 0;
+                    ThinkingQuantumChess.FoundFirstSelfMating = 0;
+                    //Monitor Log File Appending First Line. 
+                    Object On = new Object();
+                    lock (On)
+                    {
+
+                        OutPut.Append("\n\r=====================================================================================================================================================================<br/>");
+                        OutPut.Append("\n\rMovment Number: " + AllDraw.MovmentsNumber);
 
                     }
+                    //Initiate Local and Global Variables.            
+                    Object ol = new Object();
+                    lock (ol)
+                    {
+                        CurrentHeuristic = Int32.MinValue;
+                        MaxHeuristicxT = Int32.MinValue;
+                        DrawCastleQ.MaxHeuristicxB = Int32.MinValue;
+                        DrawElefantQ.MaxHeuristicxE = Int32.MinValue;
+                        DrawHourseQ.MaxHeuristicxH = Int32.MinValue;
+                        DrawKingQ.MaxHeuristicxK = Int32.MinValue;
+                        DrawMinisterQ.MaxHeuristicxM = Int32.MinValue;
+                        DrawSoldierQ.MaxHeuristicxS = Int32.MinValue;
+                        MovementsAStarGreedyHeuristicFoundT = false;
+                        DrawTable = false;
+                        ChessRules.CheckBrownObjectDangourFirstTimesOcured = false;
+                        ChessRules.CheckGrayObjectDangourFirstTimesOcured = false;
+                    }
                 }
-                Object Om1 = new Object();
-                lock (Om1)
+
+                MaxHeuristicAStarGreedytBackWard.Clear();
+
+                int[,] Tab = null;
+
+                if (!FOUND)
                 {
-                    MinThinkingQuantumTreeDepth = 0;
+                    Object O7 = new Object();
+                    lock (O7)
+                    {
+                        ThinkingQuantumChess.NotSolvedKingDanger = false;
+                        LoopHeuristicIndex = 0;
+                        Less = Int32.MinValue;
+                    }
                 }
-
-                ThinkingQuantumChess.FoundFirstMating = 0;
-                ThinkingQuantumChess.FoundFirstSelfMating = 0;
-                //Monitor Log File Appending First Line. 
-                Object On = new Object();
-                lock (On)
+                //THIS.Invoke((MethodInvoker)delegate()
                 {
+                    Object OOO = new Object();
+                    lock (OOO)
+                    {
+                        if (!SetDept)
+                            MaxAStarGreedy = System.Convert.ToInt32(AllDraw.MaxDuringLevelThinkingQuantumCreation);
+                        AllDraw.AStarGreedyiLevelMax = MaxAStarGreedy;
+                        AStarGreedyiLevelMax = System.Convert.ToInt32(AllDraw.MaxDuringLevelThinkingQuantumCreation);
+                        AllDraw.MaxAStarGreedyHeuristicProgress = 6;
+                        for (var i = 0; i <= MaxAStarGreedy; i++)
+                            AllDraw.MaxAStarGreedyHeuristicProgress += AllDraw.MaxAStarGreedyHeuristicProgress * 6;
+                        increASedProgress = (int)((int)999999999 / (int)(AllDraw.MaxAStarGreedyHeuristicProgress));
+                        Object Omm1 = new Object();
+                        lock (Omm1)
+                        {
+                            AStarGreedytMaxCount = (int)MaxAStarGreedy;
+                        }
+                    }
+                }//);
 
-                    OutPut.Append("\n\r=====================================================================================================================================================================<br/>");
-                    OutPut.Append("\n\rMovment Number: " + AllDraw.MovmentsNumber);
+                ChessRules.CurrentOrder = Current;
+                Order = DummyOrder;
+                int iiii = ii, jjjj = jj, Ord = Order;
+                int MaxAStarGreedy1 = 0;
+                Object OOOO = new Object();
+                lock (OOOO)
+                {
+                    if (MaxAStarGreedy == 0)
+                        MaxAStarGreedy = PlatformHelper.ProcessorCount;
+                    MaxAStarGreedy1 = MaxAStarGreedy;
 
+                    int[,] Tabl = CloneATable(Table);
+                    Color aaa = a;
+                    var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
+                    array.Wait();
                 }
-                //Initiate Local and Global Variables.            
-                Object ol = new Object();
-                lock (ol)
+                Object Om = new Object();
+                lock (Om)
                 {
-                    CurrentHeuristic = Int32.MinValue;
-                    MaxHeuristicxT = Int32.MinValue;
-                    DrawCastleQ.MaxHeuristicxB = Int32.MinValue;
-                    DrawElefantQ.MaxHeuristicxE = Int32.MinValue;
-                    DrawHourseQ.MaxHeuristicxH = Int32.MinValue;
-                    DrawKingQ.MaxHeuristicxK = Int32.MinValue;
-                    DrawMinisterQ.MaxHeuristicxM = Int32.MinValue;
-                    DrawSoldierQ.MaxHeuristicxS = Int32.MinValue;
-                    MovementsAStarGreedyHeuristicFoundT = false;
-                    DrawTable = false;
-                    ChessRules.CheckBrownObjectDangourFirstTimesOcured = false;
-                    ChessRules.CheckGrayObjectDangourFirstTimesOcured = false;
-                }
-            }
-
-            MaxHeuristicAStarGreedytBackWard.Clear();
-
-            int[,] Tab = null;
-
-            if (!FOUND)
-            {
-                Object O7 = new Object();
-                lock (O7)
-                {
-                    ThinkingQuantumChess.NotSolvedKingDanger = false;
-                    LoopHeuristicIndex = 0;
+                    MinThinkingQuantumTreeDepth = MaxAStarGreedy - MinThinkingQuantumTreeDepth;
+                    //Initaite Local Varibales.
+                    Tab = new int[8, 8];
                     Less = Int32.MinValue;
                 }
-            }
-            //THIS.Invoke((MethodInvoker)delegate()
-            {
-                Object OOO = new Object();
-                lock (OOO)
-                {
-                    if (!SetDept)
-                        MaxAStarGreedy = System.Convert.ToInt32(AllDraw.MaxDuringLevelThinkingQuantumCreation);
-                    AllDraw.AStarGreedyiLevelMax = MaxAStarGreedy;
-                    AStarGreedyiLevelMax = System.Convert.ToInt32(AllDraw.MaxDuringLevelThinkingQuantumCreation);
-                    AllDraw.MaxAStarGreedyHeuristicProgress = 6;
-                    for (var i = 0; i <= MaxAStarGreedy; i++)
-                        AllDraw.MaxAStarGreedyHeuristicProgress += AllDraw.MaxAStarGreedyHeuristicProgress * 6;
-                    increASedProgress = (int)((int)999999999 / (int)(AllDraw.MaxAStarGreedyHeuristicProgress));
-                    Object Omm1 = new Object();
-                    lock (Omm1)
-                    {
-                        AStarGreedytMaxCount = (int)MaxAStarGreedy;
-                    }
-                }
-            }//);
-
-            ChessRules.CurrentOrder = Current;
-            Order = DummyOrder;
-            int iiii = ii, jjjj = jj, Ord = Order;
-            int MaxAStarGreedy1 = 0;
-            Object OOOO = new Object();
-            lock (OOOO)
-            {
-                if (MaxAStarGreedy == 0)
-                    MaxAStarGreedy = PlatformHelper.ProcessorCount;
-                MaxAStarGreedy1 = MaxAStarGreedy;
-
-                int[,] Tabl = CloneATable(Table);
-                Color aaa = a;
-                var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
-                array.Wait();
-            }
-            Object Om = new Object();
-            lock (Om)
-            {
-                MinThinkingQuantumTreeDepth = MaxAStarGreedy - MinThinkingQuantumTreeDepth;
-                //Initaite Local Varibales.
-                Tab = new int[8, 8];
-                Less = Int32.MinValue;
-            }
-            ChessRules.CurrentOrder = Current;
-            Order = DummyOrder;
-            Object OO = new Object();
-            lock (OO)
-            {
-                OutPut.Append("\r\nMinimum ThinkingQuantum Tree Depth:" + MinThinkingQuantumTreeDepth.ToString() + "!");
-            }
-            //Order = OrderP;
-            NumberOfLeafComputation = -1;
-
-
-            TableHeuristic = HeuristicAStarGreedySearch(0, a, Order, false);
-            if ((TableHeuristic == null || ((TableZero(TableHeuristic)))) && UsePenaltyRegardMechnisamT)
-            {
-
-
-                Object OOoOO = new Object();
-                lock (OOoOO)
-                {
-                    OutPut.Append("\r\nTable Zero.Possibly Full Penalty!");
-
-
-
-                    bool aa = UsePenaltyRegardMechnisamT;
-                    UsePenaltyRegardMechnisamT = false;
-                    //THISDummy = THISDummy.RemovePenalltyFromFirstBranches(Order);
-                    RemovePenalltyFromFirstBranches(Order);
-                    MaxAStarGreedy = 1;
-                    AStarGreedyiLevelMax = 1;
-                    Less = Int32.MinValue;
-                    //TableHeuristic = THISDummy.HeuristicAStarGreedySearchPenalties(0, a, Order, false,ref HaveKilled);
-                    //TableHeuristic = THISDummy.HeuristicAStarGreedySearch(0, a, Order, false,ref HaveKilled);
-                    TableHeuristic = HeuristicAStarGreedySearch(0, a, Order, false);
-                    //THISDummy.UsePenaltyRegardMechnisamT = aa;
-                    UsePenaltyRegardMechnisamT = aa;
-                }
-
-
-            }
-            else
-            if ((TableHeuristic == null || ((TableZero(TableHeuristic)))))
-                OutPut.Append("\r\nTable Zero.Possibly Full failed!");
-
-            //If Table Found.
-
-            if (TableHeuristic != null)
-            {
-                Object OOOOO = new Object();
-                lock (OOOOO)
-                {
-                    Ord = Order;
-                    if (Ord == 1)
-                    {
-                        OutPut.Append("\r\nHeuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Bob!");
-                    }
-                    else
-                    {
-                        OutPut.Append("\r\nHeuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Alice!");
-
-                    }
-                }
-                Order = DummyOrder;
                 ChessRules.CurrentOrder = Current;
-            }
-            else
-            {
-                Object OOoOO = new Object();
-                lock (OOoOO)
-                {
-                    //Clear AStarGreedy Varibales.
-                    AllDraw.StoreADraw.Clear();
-                    TableCurrent.Clear();
-                    AStarGreedy = 0;
-                }
-
                 Order = DummyOrder;
-                ChessRules.CurrentOrder = Current;
-                //THISDummy.Dispose();
-                Object Omm = new Object();
-                lock (Omm)
+                Object OO = new Object();
+                lock (OO)
                 {
-                    DrawTable = true;
-                    FoundATable = true;
+                    OutPut.Append("\r\nMinimum ThinkingQuantum Tree Depth:" + MinThinkingQuantumTreeDepth.ToString() + "!");
                 }
+                //Order = OrderP;
+                NumberOfLeafComputation = -1;
+
+
+                TableHeuristic = HeuristicAStarGreedySearch(0, a, Order, false);
+                if ((TableHeuristic == null || ((TableZero(TableHeuristic)))) && UsePenaltyRegardMechnisamT)
+                {
+
+
+                    Object OOoOO = new Object();
+                    lock (OOoOO)
+                    {
+                        OutPut.Append("\r\nTable Zero.Possibly Full Penalty!");
+
+
+
+                        bool aa = UsePenaltyRegardMechnisamT;
+                        UsePenaltyRegardMechnisamT = false;
+                        //THISDummy = THISDummy.RemovePenalltyFromFirstBranches(Order);
+                        RemovePenalltyFromFirstBranches(Order);
+                        MaxAStarGreedy = 1;
+                        AStarGreedyiLevelMax = 1;
+                        Less = Int32.MinValue;
+                        //TableHeuristic = THISDummy.HeuristicAStarGreedySearchPenalties(0, a, Order, false,ref HaveKilled);
+                        //TableHeuristic = THISDummy.HeuristicAStarGreedySearch(0, a, Order, false,ref HaveKilled);
+                        TableHeuristic = HeuristicAStarGreedySearch(0, a, Order, false);
+                        //THISDummy.UsePenaltyRegardMechnisamT = aa;
+                        UsePenaltyRegardMechnisamT = aa;
+                    }
+
+
+                }
+                else
+                if ((TableHeuristic == null || ((TableZero(TableHeuristic)))))
+                    OutPut.Append("\r\nTable Zero.Possibly Full failed!");
+
+                //If Table Found.
+
+                if (TableHeuristic != null)
+                {
+                    Object OOOOO = new Object();
+                    lock (OOOOO)
+                    {
+                        Ord = Order;
+                        if (Ord == 1)
+                        {
+                            OutPut.Append("\r\nHeuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Bob!");
+                        }
+                        else
+                        {
+                            OutPut.Append("\r\nHeuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Alice!");
+
+                        }
+                    }
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = Current;
+                }
+                else
+                {
+                    Object OOoOO = new Object();
+                    lock (OOoOO)
+                    {
+                        //Clear AStarGreedy Varibales.
+                        AllDraw.StoreADraw.Clear();
+                        TableCurrent.Clear();
+                        AStarGreedy = 0;
+                    }
+
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = Current;
+                    //THISDummy.Dispose();
+                    Object Omm = new Object();
+                    lock (Omm)
+                    {
+                        DrawTable = true;
+                        FoundATable = true;
+                    }
+                }
+                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Initiate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return CloneATable(TableHeuristic);
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Initiate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            return CloneATable(TableHeuristic);
         }
         //Identification of Illegal AStarGreedy First and Common Hurist Movments.
         public bool IsEnemyThingsinStable(int[,] TableHeuristic, int[,] TableAction, int Order)
