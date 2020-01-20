@@ -471,10 +471,10 @@ namespace QuantumRefrigiz
                                 //Small Gray Castles King.
                                 if (j == DistantColumnSmall && Cromosom2[SmallCastleCastleColumnAfter, DistantRowUp] == KingGray && Cromosom2[SmallCastleCastleColumnAfter, DistantRowUp] == CastleGray && Cromosom1[SmallCastleKingColumnBefore, DistantRowUp] == KingGray && Cromosom1[SmallCastleCastleColumnBefore, DistantRowUp] == CastleGray)
                                 {
-                                    /*CromosomRowFirst = SmallCastleKingColumnBefore;
+                                    CromosomRowFirst = SmallCastleKingColumnBefore;
                                     CromosomColumnFirst = i;
                                     CromosomRow = SmallCastleCastleColumnAfter;
-                                    CromosomColumn = i;*/
+                                    CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.SmallKingCastleGray = true;
@@ -483,10 +483,10 @@ namespace QuantumRefrigiz
                                 else //Big Brjges King Gray.
                                     if (j == DistantColumnBig && Cromosom2[BigCastleCastleColumnAfter, DistantRowUp] == CastleGray && Cromosom2[BigCastleKingColumnAfter, DistantRowUp] == KingGray && Cromosom1[BigCastleCastleColumnBefore, DistantRowUp] == CastleGray && Cromosom1[BigCastleKingColumnBefore, DistantRowUp] == KingGray)
                                 {
-                                    /* CromosomRowFirst = DistantRowUp;
+                                     CromosomRowFirst = DistantRowUp;
                                      CromosomColumnFirst = i;
                                      CromosomRow = DistantRowUp;
-                                     CromosomColumn = i;*/
+                                     CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.BigKingCastleGray = true;
@@ -502,10 +502,10 @@ namespace QuantumRefrigiz
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        /*CromosomRowFirst = DistantRowBelow;
+                                        CromosomRowFirst = DistantRowBelow;
                                         CromosomColumnFirst = i;
                                         CromosomRow = DistantRowBelow;
-                                        CromosomColumn = i;*/
+                                        CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.SmallKingCastleBrown = true;
@@ -518,11 +518,11 @@ namespace QuantumRefrigiz
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        /*  CromosomRowFirst = DistantRowBelow;
+                                          CromosomRowFirst = DistantRowBelow;
                                           CromosomColumnFirst = i;
                                           CromosomRow = DistantRowBelow;
-                                          CromosomColumn = i;*/
-                                        Find = true;
+                                          CromosomColumn = i;
+                                          Find = true;
                                         FindNumber++;
                                         ChessRules.BigKingCastleBrown = true;
                                         Brj = true;
@@ -610,10 +610,10 @@ namespace QuantumRefrigiz
                                 //Small Gray Castles King.
                                 if (j == DistantColumnSmall && Cromosom2[SmallCastleKingColumnAfter, DistantRowBelow] == KingGray && Cromosom2[SmallCastleCastleColumnAfter, DistantRowBelow] == CastleGray && Cromosom1[SmallCastleKingColumnBefore, DistantRowBelow] == KingGray && Cromosom1[SmallCastleCastleColumnBefore, DistantRowBelow] == CastleGray)
                                 {
-                                    /* CromosomRowFirst = DistantRowBelow;
+                                     CromosomRowFirst = DistantRowBelow;
                                      CromosomColumnFirst = i;
                                      CromosomRow = DistantRowBelow;
-                                     CromosomColumn = i;*/
+                                     CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.SmallKingCastleGray = true;
@@ -641,10 +641,10 @@ namespace QuantumRefrigiz
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        /* CromosomRowFirst = DistantRowUp;
+                                        CromosomRowFirst = DistantRowUp;
                                          CromosomColumnFirst = i;
                                          CromosomRow = DistantRowUp;
-                                         CromosomColumn = i;*/
+                                         CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.SmallKingCastleBrown = true;
@@ -657,10 +657,10 @@ namespace QuantumRefrigiz
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        /*   CromosomRowFirst = DistantRowUp;
+                                           CromosomRowFirst = DistantRowUp;
                                            CromosomColumnFirst = i;
                                            CromosomRow = DistantRowUp;
-                                           CromosomColumn = i;*/
+                                           CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.BigKingCastleBrown = true;
