@@ -4891,6 +4891,50 @@ else
                 return Is;
             }
         }
+        public int SimpleMate_Zero(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                int HA = 0;
+                if (Order == 1)
+                {
+                    int RowK = -1, ColK = -1;
+                    ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowD, ColD);
+               
+                    int[,] Tab = CloneATable(Table);
+                    if (G.CheckMate(Tab, Order))
+                    {
+                        if (Order == 1 && G.CheckMateBrown)
+                            HA += RationalWin;
+                        else
+                     if (Order == 1 && G.CheckMateGray)
+                            HA += RationalLosey;
+
+                    }
+                }
+                else
+                {
+                    int RowK = -1, ColK = -1;
+                    ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
+                 
+                    int[,] Tab = CloneATable(Table);
+                    if (G.CheckMate(Tab, Order))
+                    {
+                        if (Order == -1 && G.CheckMateGray)
+                            HA += RationalWin;
+                        else
+                        if (Order == -1 && G.CheckMateBrown)
+                            HA += RationalLosey;
+
+                    }
+
+                }
+
+                return HA;
+            }
+        }
+
         public int SimpleMate_One(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
         {
             Object O = new Object();
@@ -5268,7 +5312,9 @@ else
             lock (O)
             {
                 int HA = 0;
-                HA += SimpleMate_One(RowS, ColS, RowD, ColD, Table, a);
+                HA += SimpleMate_Zero(RowS, ColS, RowD, ColD, Table, a);
+                if (HA == 0)
+                    HA += SimpleMate_One(RowS, ColS, RowD, ColD, Table, a);
                 if (HA == 0)
                 {
                     HA += SimpleMate_Tow(RowS, ColS, RowD, ColD, Table, a);
