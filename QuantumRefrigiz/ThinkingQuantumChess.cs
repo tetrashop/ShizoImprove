@@ -4809,7 +4809,7 @@ else
                     return false;
                 bool Is = false;
                 const int MinisteGrayObj = 5, CastleGrayObj = 4, ElepahantGrayObj = 2, PawnGrayObj = 1;
-                const int MinisteBrownObj = 5, CastleBrownObj = 4, ElephantBrownObj = 2, PawnBrownObj = 1;
+                const int MinisteBrownObj = -5, CastleBrownObj = -4, ElephantBrownObj = -2, PawnBrownObj = -1;
                 if (Order == 1)
                 {
                     if (Rowk == 0)
@@ -5055,7 +5055,9 @@ else
             Object O = new Object();
             lock (O)
             {
+#pragma warning disable CS0219 // The variable 'NIs' is assigned but its value is never used
                 int NIs = 0;
+#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
                 for (int k = 0; k < 8; k++)
                 {
                     for (int p = 0; p < 8; p++)
@@ -9933,6 +9935,7 @@ else
                     {
                         RETURN = true;
                         AddAtList(kind, Current);
+                        return;
 
                     }
                     //Consideration to go to Check.  

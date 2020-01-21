@@ -139,6 +139,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Refrigtz\bin\Debug\All\All\All.csproj">
+      <Project>{ac2b4cf6-3294-46d5-9af0-c58ee5b637d4}</Project>
+      <Name>All</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RfregitzD\RefrigtzDLL.csproj">
       <Project>{6fe9bef7-bd1c-48c4-9967-6d1517c76661}</Project>
       <Name>RefrigtzDLL</Name>

@@ -9907,7 +9907,7 @@ namespace RefrigtzW
                     {
                         RETURN = true;
                         AddAtList(kind, Current);
-
+                        return;
                     }
                     //Consideration to go to Check.  
 
