@@ -15417,7 +15417,8 @@ namespace RefrigtzDLL
             lock (O)
             {
                 bool IS = false;
-                if (iAStarGreedy < 0 && iAStarGreedy < MaxDuringLevelThinkingCreation)
+                if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingCreation
+                )
                 {
                     IS = true;
                 }
@@ -15732,14 +15733,15 @@ namespace RefrigtzDLL
         public bool InitiateAStarGreedytCreationThinking(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
 )
         {
-            if (ThinkingAllowed == null)
-                ThinkingAllowed = new bool[12];
-            for (int iii = 0; iii < 12; iii++)
-                ThinkingAllowed[iii] = true;
-            //long Time = TimeElapced.TimeNow();Spaces++;
+               //long Time = TimeElapced.TimeNow();Spaces++;
             Object o = new Object();
             lock (o)
             {
+                if (ThinkingAllowed == null)
+                    ThinkingAllowed = new bool[12];
+                for (int iii = 0; iii < 12; iii++)
+                    ThinkingAllowed[iii] = true;
+
                 int DummyOrder = new int();
                 DummyOrder = Order;
                 int DummyCurrentOrder = new int();

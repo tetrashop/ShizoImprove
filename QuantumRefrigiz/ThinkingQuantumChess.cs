@@ -106,8 +106,12 @@ namespace QuantumRefrigiz
             { 0, 0, 0, 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0 }
             };
-        int RatiionalRegard = 10;
-        int RatiionalPenalty = -10;
+        int RationalRegard = 10;
+        int RationalPenalty = -10;
+
+        int RationalWin = 1000000;
+        int RationalLosey = -1000000;
+
 
         public static bool FullGameAllow = false;
         int iIndex = -1;
@@ -1079,12 +1083,12 @@ namespace QuantumRefrigiz
                         //if (Before)
                         {
                             if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
-                                HA += RatiionalPenalty;
+                                HA += RationalPenalty;
 else
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
 
-                                HA += RatiionalRegard;
+                                HA += RationalRegard;
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                 int Supported = new int();
                                 int SupportedS = new int();
@@ -1184,12 +1188,12 @@ else
                         //if (Before)
                         {
                             if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
-                                HA += RatiionalPenalty;
+                                HA += RationalPenalty;
                             else
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
 
-                                HA += RatiionalRegard;
+                                HA += RationalRegard;
 
 
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
@@ -1391,7 +1395,7 @@ else
                                     if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                     {
                                         MinisterOnAttack = true;
-                                        HA += RatiionalPenalty;
+                                        HA += RationalPenalty;
                                         //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                         int Supported = new int();
                                         int SupportedS = new int();
@@ -1452,7 +1456,7 @@ else
                                     {
                                         if (IsMinisteBreakable(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
                                         {
-                                            HA += (3 * RatiionalPenalty);
+                                            HA += (3 * RationalPenalty);
                                         }
                                     }
 
@@ -1511,7 +1515,7 @@ else
                                                 if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                                 {
                                                     MinisterOnAttack = true;
-                                                    HA += RatiionalPenalty;
+                                                    HA += RationalPenalty;
                                                     //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                                     int Supported = new int();
                                                     int SupportedS = new int();
@@ -1572,7 +1576,7 @@ else
                                                 {
                                                     if (IsMinisteBreakable(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
                                                     {
-                                                        HA += (3 * RatiionalPenalty);
+                                                        HA += (3 * RationalPenalty);
                                                     }
                                                 }
                                             }
@@ -1586,12 +1590,12 @@ else
                 if (!MinisterOnAttack)
                 {
                     if (IsMinistePowerfull(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
-                        HA += RatiionalRegard;
+                        HA += RationalRegard;
 
                 }
                 else
                 {
-                    HA += RatiionalPenalty;
+                    HA += RationalPenalty;
                 }
                 //Initiate to Begin Call Orders.
                 Order = DummyOrder;
@@ -2614,32 +2618,32 @@ else
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Tab), Order, RowS, ColS);
                     G.FindGrayKing(CloneATable(Tab), ref RowK, ref ColK);
                     if (Kind == 7)
-                        HA = RatiionalRegard;
+                        HA = RationalRegard;
                     if (Tab[RowK, ColK] == KingGray && Tab[RowK, ColK] == TableInitiation[RowK, ColK] && ChessRules.CastleKingAllowedGray)
-                        HA += RatiionalPenalty;
+                        HA += RationalPenalty;
                     if ((Tab[RowK, ColK] == KingGray) && (Tab[RowK, 7] == CastleGray|| Tab[RowK, 0] == CastleGray) && (TableInitiation[RowK, ColK] == 6) && ChessRules.CastleKingAllowedGray)
                     {
                         if (RowS == RowK && ColS == 5)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 6)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK - 1 && ColS == 5)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK - 1 && ColS == 6)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                         if (RowS == RowK && ColS == 3)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 2)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 1)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK - 1 && ColS == 3)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK - 1 && ColS == 2)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == Row - 1 && ColS == 1)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
 
 
@@ -2653,32 +2657,32 @@ else
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Tab), Order, RowS, ColS);
                     G.FindBrownKing(CloneATable(Tab), ref RowK, ref ColK);
                     if (Kind == -7)
-                        HA = RatiionalRegard;
+                        HA = RationalRegard;
                     if (Tab[RowK, ColK] == KingBrown && Tab[RowK, ColK] == TableInitiation[RowK, ColK] && ChessRules.CastleKingAllowedBrown)
-                        HA += RatiionalPenalty;
+                        HA += RationalPenalty;
                     if ((Tab[RowK, ColK] == KingBrown) && (Tab[RowK, 7] == CastleBrown|| Tab[RowK, 0] == CastleBrown) && (TableInitiation[RowK, ColK] == -6) && ChessRules.CastleKingAllowedBrown)
                     {
                         if (RowS == RowK && ColS == 5)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 6)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 5)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 6)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                         if (RowS == RowK && ColS == 3)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 2)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 1)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 3)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 2)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 1)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                     }
                 }
@@ -2722,25 +2726,25 @@ else
                     {
                         if (A.CheckGray || A.CheckBrown)
                         {
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                         }
                     }
                     if (Order == 1)
                     {
                         if (A.CheckMateGray)
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                         else
                         if (A.CheckMateBrown)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                     }
                     else
                     {
                         if (A.CheckMateGray)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         else
              if (A.CheckMateBrown)
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                     }
 
                 }
@@ -2751,25 +2755,25 @@ else
 
                     if (A.CheckGray || A.CheckBrown)
                     {
-                        HA += RatiionalRegard;
+                        HA += RationalRegard;
                     }
 
                     if (Order == 1)
                     {
                         if (A.CheckMateGray)
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                         else
                         if (A.CheckMateBrown)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                     }
                     else
                     {
                         if (A.CheckMateGray)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         else
              if (A.CheckMateBrown)
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                     }
                 }
                 /*  int[,] Table = CloneATable(Tab);
@@ -2899,7 +2903,7 @@ else
                             if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                             {
                                 //Calculate Local Support Heuristic.
-                                HA += RatiionalRegard;
+                                HA += RationalRegard;
                                 int Supported = new int();
                                 int SupportedE = new int();
                                 Supported = 0;
@@ -3037,7 +3041,7 @@ else
                                         if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                                         {
                                             //Calculate Local Support Heuristic.
-                                            HA += RatiionalRegard;
+                                            HA += RationalRegard;
                                             int Supported = new int();
                                             int SupportedE = new int();
                                             Supported = 0;
@@ -3207,7 +3211,7 @@ else
                             if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                             {
                                 //Calculate Local Support Heuristic.
-                                HA += RatiionalPenalty;
+                                HA += RationalPenalty;
                                 int Supported = new int();
                                 int SupportedE = new int();
                                 Supported = 0;
@@ -3345,7 +3349,7 @@ else
                                         if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                                         {
                                             //Calculate Local Support Heuristic.
-                                            HA += RatiionalPenalty;
+                                            HA += RationalPenalty;
                                             int Supported = new int();
                                             int SupportedE = new int();
                                             Supported = 0;
@@ -4900,13 +4904,13 @@ else
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                     else
                     if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                     else
                     if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
 
                 }
                 else
@@ -4916,13 +4920,13 @@ else
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                     else
                     if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                     else
                     if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
 
                 }
 
@@ -4942,7 +4946,7 @@ else
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                 }
                 else
                 {
@@ -4951,7 +4955,7 @@ else
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                 }
                 return HA;
             }
@@ -4969,7 +4973,7 @@ else
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (EnemyKingHaveAtMostOneEmptyItemInAttack(RowK, ColK, Table, Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                 }
                 else
                 {
@@ -4978,7 +4982,7 @@ else
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (EnemyKingHaveAtMostOneEmptyItemInAttack(RowK, ColK, Table, Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                 }
                 return HA;
             }
@@ -5275,11 +5279,11 @@ else
                 }
                 if (IsContorlCenter(RowS, ColS, RowD, ColD, CloneATable(Table), a))
                 {
-                    HA += RatiionalRegard;
+                    HA += RationalRegard;
                 }
                 if (IsMinisterOrElephantBecomeActive(RowS, ColS, RowD, ColD, CloneATable(Table), a))
                 {
-                    HA += RatiionalRegard;
+                    HA += RationalRegard;
                 }
 
                 return HA;
@@ -5721,27 +5725,27 @@ else
                 const int ObjectGray = 0, ObjectBrown = 0;
 
                 if (IsTableRowColIsZero(RowS, ColS))
-                    Dis = RatiionalRegard;
+                    Dis = RationalRegard;
                 else
-                    Dis = RatiionalPenalty;
+                    Dis = RationalPenalty;
                 if (IsCentralPawnIsOk(CloneATable(Tab), Order))
-                    Dis += RatiionalRegard;
+                    Dis += RationalRegard;
                 else
-                    Dis += RatiionalPenalty;
+                    Dis += RationalPenalty;
 
                 if (Order == 1)
                 {
                     if ((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == 3)
-                            Dis += RatiionalRegard;
+                            Dis += RationalRegard;
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
                             if (Cor > Colleralation)
                             {
                                 Colleralation = Cor;
-                                Dis += RatiionalRegard;
+                                Dis += RationalRegard;
 
                             }
                         }
@@ -5749,14 +5753,14 @@ else
                     if (!((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == -3)
-                            Dis += RatiionalPenalty;
+                            Dis += RationalPenalty;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
                             if (Cor < DeColleralation)
                             {
                                 DeColleralation = Cor;
-                                Dis += RatiionalRegard;
+                                Dis += RationalRegard;
 
                             }
                         }
@@ -5766,7 +5770,7 @@ else
                 {
 
                     if (Tab[RowS, ColS] == -3)
-                        Dis += RatiionalRegard;
+                        Dis += RationalRegard;
 
                     if ((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
@@ -5776,7 +5780,7 @@ else
                             if (Cor > Colleralation)
                             {
                                 Colleralation = Cor;
-                                Dis += RatiionalRegard;
+                                Dis += RationalRegard;
 
                             }
                         }
@@ -5789,7 +5793,7 @@ else
                             if (Cor < DeColleralation)
                             {
                                 DeColleralation = Cor;
-                                Dis += RatiionalRegard;
+                                Dis += RationalRegard;
 
                             }
                         }
@@ -5797,9 +5801,9 @@ else
                 }
 
                 if (CenrtrallnControlByTraversal(CloneATable(Tab), a, Order, RowS, ColS, RowD, ColD))
-                    Dis += RatiionalRegard;
+                    Dis += RationalRegard;
                 else
-                    Dis += RatiionalPenalty;
+                    Dis += RationalPenalty;
 
                 /*     //Initiate.
                      int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
@@ -5980,7 +5984,7 @@ else
                 {
                     if ((i == 3 || i == 4) && (j == 3 | j == 4))
                     {
-                        HA = RatiionalRegard;
+                        HA = RationalRegard;
 
                     }
                     if (HA == 0)
@@ -6014,7 +6018,7 @@ else
 
                     }
                     if (IsPawnAtAColumnAndNotSupported(ii, jj, i, j, CloneATable(Table), Order))
-                        HA += RatiionalPenalty;
+                        HA += RationalPenalty;
 
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -6312,7 +6316,7 @@ else
                             for (var ik = 0; ik < 8; ik++)
                                 for (var jk = 0; jk < 8; jk++)
                                     Tab[ik, jk] = Table[ik, jk];
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                             int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -6417,7 +6421,7 @@ else
                         //When is Movable Movement inCurrent.
                         if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                         {
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                             int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -6545,7 +6549,7 @@ else
                             for (var ik = 0; ik < 8; ik++)
                                 for (var jk = 0; jk < 8; jk++)
                                     Tab[ik, jk] = Table[ik, jk];
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                             int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -6651,7 +6655,7 @@ else
                         //When is Movable Movement inCurrent.
                         if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                         {
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                             int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -11288,10 +11292,10 @@ else
 
                 }
                 if (SpaceSelf > SpaceEnemy)
-                    HA = RatiionalRegard;
+                    HA = RationalRegard;
                 else
                     if (SpaceSelf < SpaceEnemy)
-                    HA = RatiionalPenalty;
+                    HA = RationalPenalty;
                 return HA;
             }
         }
@@ -11736,7 +11740,13 @@ else
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantumSoldierbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        void ThinkWait() { do {  } while (ThinkingQuantumAtRun); }
+        void ThinkWait() { 
+        Object O = new Object();
+            lock (O)
+            {
+                do { } while (ThinkingQuantumAtRun);
+            }
+        }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumSoldier(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -12588,14 +12598,16 @@ else
         //specific ThinkingQuantum main method
         void ThinkingQuantumWaite()
         {
-
-            while (!ThinkingQuantumBegin)
+            Object O = new Object();
+            lock (O)
             {
-                if (AllDraw.NumberOfLeafComputation != -1)
-                    break;
-                
-            }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                while (!ThinkingQuantumBegin)
+                {
+                    if (AllDraw.NumberOfLeafComputation != -1)
+                        break;
 
+                }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+            }
         }
         //operantinal of creation of current deeper node and set string making
         void FullGameThinkingQuantumTreeInitialization(AllDraw THIS, int ik, int j, int Order, int kind)
@@ -12767,390 +12779,398 @@ else
 
         public void ThinkingQuantum(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
+            try
+            {
+                /* if (AStarGreedy == null)
+                      AStarGreedy = new List<AllDraw>();
+                  if (Kind == 1)
+                      {
+                          if (AStarGreedy.Count != TableListSolder.Count)
 
-          /* if (AStarGreedy == null)
-                AStarGreedy = new List<AllDraw>();
-            if (Kind == 1)
+                          {
+                          AStarGreedy.Clear();
+                          IndexSoldier = 0;
+                              RowColumnSoldier.Clear();
+                              TableListSolder.Clear();
+                              HeuristicListSolder.Clear();
+                              HitNumberSoldier.Clear();
+                          ThinkingQuantumAtRun = false;
+                      }
+                  }
+                      else
+                        if (Kind == 2)
+                      {
+                          if (AStarGreedy.Count != TableListElefant.Count)
+                          {
+                          AStarGreedy.Clear();
+                          IndexElefant = 0;
+                              RowColumnElefant.Clear();
+                              TableListElefant.Clear();
+                              HeuristicListElefant.Clear();
+                              HitNumberElefant.Clear();
+                          ThinkingQuantumAtRun = false;
+                      }
+                  }
+                      else
+                    if (Kind == 3)
+                      {
+                          if (AStarGreedy.Count != TableListHourse.Count)
+                          {
+                          AStarGreedy.Clear();
+                          IndexHourse = 0;
+                              RowColumnHourse.Clear();
+                              TableListHourse.Clear();
+                              HeuristicListHourse.Clear();
+                              HitNumberHourse.Clear();
+                          ThinkingQuantumAtRun = false;
+                      }
+                  }
+
+                      else
+                      if (Kind == 4)
+                      {
+                          if (AStarGreedy.Count != TableListCastle.Count)
+                          {
+                          AStarGreedy.Clear();
+                          IndexCastle = 0;
+                              RowColumnCastle.Clear();
+                              TableListCastle.Clear();
+                              HeuristicListCastle.Clear();
+                              HitNumberCastle.Clear();
+                          ThinkingQuantumAtRun = false;
+                      }
+                  }
+                      else
+                    if (Kind == 5)
+                      {
+                          if (AStarGreedy.Count != TableListMinister.Count)
+                          {
+                          AStarGreedy.Clear();
+                          IndexMinister = 0;
+                              RowColumnMinister.Clear();
+                              TableListMinister.Clear();
+                              HeuristicListMinister.Clear();
+                              HitNumberMinister.Clear();
+                          ThinkingQuantumAtRun = false;
+                      }
+                  }
+                  if (Kind == 6)
+                  {
+                      if (AStarGreedy.Count != TableListKing.Count)
+                      {
+                          AStarGreedy.Clear();
+                          IndexKing = 0;
+                          RowColumnKing.Clear();
+                          TableListKing.Clear();
+                          HeuristicListKing.Clear();
+                          HitNumberKing.Clear();
+                          ThinkingQuantumAtRun = false;
+                      }
+
+                  }*/
+
+
+
+                //long Time = TimeElapced.TimeNow();Spaces++;
+
+                int ord = Order;
+                Object O = new Object();
+                lock (O)
                 {
-                    if (AStarGreedy.Count != TableListSolder.Count)
-
+                    if (CurrentAStarGredyMax > AllDraw.MaxAStarGreedy)
                     {
-                    AStarGreedy.Clear();
+                        ThinkingQuantumBegin = false;
+
+                        ThinkingQuantumFinished = true;
+                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        return;
+                    }
+                    Thread t = new Thread(new ThreadStart(ThinkingQuantumWaite));
+                    t.Start();
+                    t.Join();
+
+
+                    NumberOfPenalties = 0;
+                    SetObjectNumbers(CloneATable(TableConst));
+                    bool PenRegStrore = true;
+                    // if (Order == AllDraw.OrderPlate)
+                    //  PenRegStrore = false;
+
+
+                    Object O1 = new Object();
+                    lock (O1)
+                    {
+                        BeginThread++;
+                    }
+                    //bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                    {
+                        if (//CheckMateOcuured || 
+                            FoundFirstSelfMating > AllDraw.MaxAStarGreedy
+                            )
+                        {
+                            Object O2 = new Object();
+                            lock (O2)
+                            {
+                                AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " Checkmate SELF");
+                                ThinkingQuantumBegin = false;
+                                ThinkingQuantumFinished = true;
+                                EndThread++;
+                            }
+                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            return;
+                        }
+                        if (//CheckMateOcuured || 
+                            FoundFirstMating > AllDraw.MaxAStarGreedy
+                            )
+                        {
+                            Object O2 = new Object();
+                            lock (O2)
+                            {
+                                AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate ENEY");
+                                ThinkingQuantumBegin = false;
+                                ThinkingQuantumFinished = true;
+                                EndThread++;
+                            }
+                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            return;
+                        }
+
+                    }
+                    int DummyOrder = Order;
+                    int DummyCurrentOrder = ChessRules.CurrentOrder;
+                    //Initiate Locallly Global Variables. 
                     IndexSoldier = 0;
-                        RowColumnSoldier.Clear();
-                        TableListSolder.Clear();
-                        HeuristicListSolder.Clear();
-                        HitNumberSoldier.Clear();
-                    ThinkingQuantumAtRun = false;
-                }
-            }
-                else
-                  if (Kind == 2)
-                {
-                    if (AStarGreedy.Count != TableListElefant.Count)
-                    {
-                    AStarGreedy.Clear();
                     IndexElefant = 0;
-                        RowColumnElefant.Clear();
-                        TableListElefant.Clear();
-                        HeuristicListElefant.Clear();
-                        HitNumberElefant.Clear();
-                    ThinkingQuantumAtRun = false;
-                }
-            }
-                else
-              if (Kind == 3)
-                {
-                    if (AStarGreedy.Count != TableListHourse.Count)
-                    {
-                    AStarGreedy.Clear();
                     IndexHourse = 0;
-                        RowColumnHourse.Clear();
-                        TableListHourse.Clear();
-                        HeuristicListHourse.Clear();
-                        HitNumberHourse.Clear();
-                    ThinkingQuantumAtRun = false;
-                }
-            }
-
-                else
-                if (Kind == 4)
-                {
-                    if (AStarGreedy.Count != TableListCastle.Count)
-                    {
-                    AStarGreedy.Clear();
                     IndexCastle = 0;
-                        RowColumnCastle.Clear();
-                        TableListCastle.Clear();
-                        HeuristicListCastle.Clear();
-                        HitNumberCastle.Clear();
-                    ThinkingQuantumAtRun = false;
-                }
-            }
-                else
-              if (Kind == 5)
-                {
-                    if (AStarGreedy.Count != TableListMinister.Count)
-                    {
-                    AStarGreedy.Clear();
                     IndexMinister = 0;
-                        RowColumnMinister.Clear();
-                        TableListMinister.Clear();
-                        HeuristicListMinister.Clear();
-                        HitNumberMinister.Clear();
-                    ThinkingQuantumAtRun = false;
-                }
-            }
-            if (Kind == 6)
-            {
-                if (AStarGreedy.Count != TableListKing.Count)
-                {
-                    AStarGreedy.Clear();
                     IndexKing = 0;
-                    RowColumnKing.Clear();
-                    TableListKing.Clear();
-                    HeuristicListKing.Clear();
-                    HitNumberKing.Clear();
-                    ThinkingQuantumAtRun = false;
-                }
-
-            }*/
-            
-
-
-            //long Time = TimeElapced.TimeNow();Spaces++;
-
-            int ord = Order;
-            Object O = new Object();
-            lock (O)
-            {
-                if (CurrentAStarGredyMax > AllDraw.MaxAStarGreedy)
-                {
-                    ThinkingQuantumBegin = false;
-
-                    ThinkingQuantumFinished = true;
-                    ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                    return;
-                }
-                Thread t = new Thread(new ThreadStart(ThinkingQuantumWaite));
-                t.Start();
-                t.Join();
-
-
-                NumberOfPenalties = 0;
-                SetObjectNumbers(CloneATable(TableConst));
-                bool PenRegStrore = true;
-                // if (Order == AllDraw.OrderPlate)
-                //  PenRegStrore = false;
-
-                
-                Object O1 = new Object();
-                lock (O1)
-                {
-                    BeginThread++;
-                }
-                //bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
-                {
-                    if (//CheckMateOcuured || 
-                        FoundFirstSelfMating > AllDraw.MaxAStarGreedy
+                    int[,] TableS = new int[8, 8];
+                    ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                    ///Most Dot Net FrameWork Hot Path
+                    ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object TASble.
+                    /* for (var RowS = 0; RowS < 8; RowS++)
+                         for (var ColS = 0; ColS < 8; ColS++)
+                         {
+                             TableS[RowS, ColS] = TableConst[RowS, ColS];
+                         }
+                     */
+                    ///For Stored Location of Objects.
+                    var ii = Row;
+                    var jj = Column;
+                    if (//CheckMateOcuured ||
+                         FoundFirstMating > AllDraw.MaxAStarGreedy
                         )
                     {
+
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " Checkmate SELF");
-                            ThinkingQuantumBegin = false;
+                            AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate ENEMY");
                             ThinkingQuantumFinished = true;
+                            ThinkingQuantumBegin = false;
                             EndThread++;
                         }
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return;
                     }
-                    if (//CheckMateOcuured || 
-                        FoundFirstMating > AllDraw.MaxAStarGreedy
+                    if (//CheckMateOcuured ||
+                         FoundFirstSelfMating > AllDraw.MaxAStarGreedy
                         )
                     {
+
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate ENEY");
-                            ThinkingQuantumBegin = false;
+                            AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " Checkmate SLEF");
                             ThinkingQuantumFinished = true;
+                            ThinkingQuantumBegin = false;
                             EndThread++;
                         }
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return;
                     }
-
-                }
-                int DummyOrder = Order;
-                int DummyCurrentOrder = ChessRules.CurrentOrder;
-                //Initiate Locallly Global Variables. 
-                IndexSoldier = 0;
-                IndexElefant = 0;
-                IndexHourse = 0;
-                IndexCastle = 0;
-                IndexMinister = 0;
-                IndexKing = 0;
-                int[,] TableS = new int[8, 8];
-                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-                ///Most Dot Net FrameWork Hot Path
-                ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object TASble.
-               /* for (var RowS = 0; RowS < 8; RowS++)
-                    for (var ColS = 0; ColS < 8; ColS++)
-                    {
-                        TableS[RowS, ColS] = TableConst[RowS, ColS];
-                    }
-                */
-                ///For Stored Location of Objects.
-                var ii = Row;
-                var jj = Column;
-                if (//CheckMateOcuured ||
-                     FoundFirstMating > AllDraw.MaxAStarGreedy
-                    )
-                {
-
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate ENEMY");
-                        ThinkingQuantumFinished = true;
-                        ThinkingQuantumBegin = false;
-                        EndThread++;
-                    }
-                    ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                    return;
-                }
-                if (//CheckMateOcuured ||
-                     FoundFirstSelfMating > AllDraw.MaxAStarGreedy
-                    )
-                {
-
-                    Object O2 = new Object();
-                    lock (O2)
-                    {
-                        AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " Checkmate SLEF");
-                        ThinkingQuantumFinished = true;
-                        ThinkingQuantumBegin = false;
-                        EndThread++;
-                    }
-                    ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                    return;
-                }
-                IgnoreObjectDangour = -1;
-                ///Initiate a Local Variables.
-                TableS = new int[8, 8];
-                ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
-                QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                ///Most Dot Net FrameWork Hot Path
-                ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object TASble.
-                for (var RowS = 0; RowS < 8; RowS++)
-                    for (var ColS = 0; ColS < 8; ColS++)
-                    {
-                        TableS[RowS, ColS] = TableConst[RowS, ColS];
-                    }
-                ///Deterimine for Castle King Wrongly Desision.
-                bool Castle = false;
-                //ExistInDestinationEnemy = false;
-                bool DoEnemySelf = true;
-                ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
-                if (AAA.CheckMate(TableS, AllDraw.OrderPlate))
-                {
-                    if (AAA.CheckMateGray || AAA.CheckMateBrown)
-                    {
-                        Object O2 = new Object();
-                        lock (O2)
+                    IgnoreObjectDangour = -1;
+                    ///Initiate a Local Variables.
+                    TableS = new int[8, 8];
+                    ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
+                    QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                    ///Most Dot Net FrameWork Hot Path
+                    ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object TASble.
+                    for (var RowS = 0; RowS < 8; RowS++)
+                        for (var ColS = 0; ColS < 8; ColS++)
                         {
-                            AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate");
-                            ThinkingQuantumFinished = true;
-                            CheckMateOcuured = true;
-                            if ((AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
-                            {
-                                FoundFirstSelfMating++;
-                                LoseOcuuredatChiled = -2;
-                            }
-                            if ((AAA.CheckMateGray && AllDraw.OrderPlate == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == 1))
-                            {
-                                WinOcuuredatChiled = 3;
-                                FoundFirstMating++;
-                            }
-                            EndThread++;
+                            TableS[RowS, ColS] = TableConst[RowS, ColS];
                         }
-                        ThinkingQuantumFinished = true;
-                        ThinkingQuantumBegin = false;
+                    ///Deterimine for Castle King Wrongly Desision.
+                    bool Castle = false;
+                    //ExistInDestinationEnemy = false;
+                    bool DoEnemySelf = true;
+                    ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
+                    if (AAA.CheckMate(TableS, AllDraw.OrderPlate))
+                    {
+                        if (AAA.CheckMateGray || AAA.CheckMateBrown)
+                        {
+                            Object O2 = new Object();
+                            lock (O2)
+                            {
+                                AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate");
+                                ThinkingQuantumFinished = true;
+                                CheckMateOcuured = true;
+                                if ((AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
+                                {
+                                    FoundFirstSelfMating++;
+                                    LoseOcuuredatChiled = -2;
+                                }
+                                if ((AAA.CheckMateGray && AllDraw.OrderPlate == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == 1))
+                                {
+                                    WinOcuuredatChiled = 3;
+                                    FoundFirstMating++;
+                                }
+                                EndThread++;
+                            }
+                            ThinkingQuantumFinished = true;
+                            ThinkingQuantumBegin = false;
 
-                        return;
+                            return;
+                        }
                     }
-                }
-                if (Order == 1 && AAA.CheckGray)
-                {
-                    IgnoreObjectDangour = 0;
-                    IsCheck = true;
-                    DoEnemySelf = false;
-                }
-                if (Order == -1 && AAA.CheckBrown)
-                {
-                    IgnoreObjectDangour = 0;
-                    IsCheck = true;
-                    DoEnemySelf = false;
-                }
+                    if (Order == 1 && AAA.CheckGray)
+                    {
+                        IgnoreObjectDangour = 0;
+                        IsCheck = true;
+                        DoEnemySelf = false;
+                    }
+                    if (Order == -1 && AAA.CheckBrown)
+                    {
+                        IgnoreObjectDangour = 0;
+                        IsCheck = true;
+                        DoEnemySelf = false;
+                    }
 
-                //When Root is CheckMate Benefit of Current Order No Consideration.
-                int CDumnmy = ChessRules.CurrentOrder;
-                bool EnemyCheckMateActionsString = false;
-                Order = DummyOrder;
-                ChessRules.CurrentOrder = DummyCurrentOrder;
-                ///Calculate Castles of Gray King.
-                ///
-                int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                switch (Kind)
-                {
-                    case 7:
-
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        var newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleBrown(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);   
-                        newTask.Wait();
-                        //oStream.Close();
-                        break;
-                    case -7:
-
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //oSerialiser = new XmlSerializer(typeof(Task));
-                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                        break;
-                    case 1:///For Soldier Thinking
-
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldier(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //oSerialiser = new XmlSerializer(typeof(Task));
-                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        ///oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                        break;
-                    case 2:///For Elephant Thinking
-
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        newTask = Task.Factory.StartNew(() => ThinkingQuantumElephant(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //oSerialiser = new XmlSerializer(typeof(Task));
-                        // oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        // oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                        break;
-
-                    case 3:///For Hourse Thinking
-
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        newTask = Task.Factory.StartNew(() => ThinkingQuantumHourse(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //oSerialiser = new XmlSerializer(typeof(Task));
-                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                        break;
-
-                    ///Else For Castles Thinking.
-
-                    case 4:///For Castle Thinking
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        newTask = Task.Factory.StartNew(() => ThinkingQuantumCastle(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //oSerialiser = new XmlSerializer(typeof(Task));
-                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        // oStream.Close();
-                        break;
-                    ///Else for Minister Thinkings.
-
-                    case 5:///For Minister Thinking
-
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        newTask = Task.Factory.StartNew(() => ThinkingQuantumMinister(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        //oSerialiser = new XmlSerializer(typeof(Task));
-                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        ///oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                        break;
-                    ///Else For Kings Thinkings.
-                    case 6:///For King Thinking
-                        //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
-                        newTask = Task.Factory.StartNew(() => ThinkingQuantumKing(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                        // oSerialiser = new XmlSerializer(typeof(Task));
-                        //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        ///oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
-                        //oStream.Close();
-                        break;
-
-                }
-                Object O3 = new Object();
-                lock (O3)
-                {
-                    ///Initiate Global Varibales at END.
-                    ThinkingQuantumBegin = false;
-                    ///This Variable Not Work! 
-                    ThinkingQuantumFinished = true;
-
+                    //When Root is CheckMate Benefit of Current Order No Consideration.
+                    int CDumnmy = ChessRules.CurrentOrder;
+                    bool EnemyCheckMateActionsString = false;
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
-                    EndThread++;
+                    ///Calculate Castles of Gray King.
+                    ///
+                    int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                    switch (Kind)
+                    {
+                        case 7:
+
+                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            var newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleBrown(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
+                            //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                            //oSerialiser.Serialize(oStream, newTask);   
+                            newTask.Wait();
+                            //oStream.Close();
+                            break;
+                        case -7:
+
+                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            //oSerialiser = new XmlSerializer(typeof(Task));
+                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                            //oSerialiser.Serialize(oStream, newTask);
+                            newTask.Wait();
+                            //oStream.Close();
+                            break;
+                        case 1:///For Soldier Thinking
+
+                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldier(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            //oSerialiser = new XmlSerializer(typeof(Task));
+                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                            ///oSerialiser.Serialize(oStream, newTask);
+                            newTask.Wait();
+                            //oStream.Close();
+                            break;
+                        case 2:///For Elephant Thinking
+
+                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            newTask = Task.Factory.StartNew(() => ThinkingQuantumElephant(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            //oSerialiser = new XmlSerializer(typeof(Task));
+                            // oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                            // oSerialiser.Serialize(oStream, newTask);
+                            newTask.Wait();
+                            //oStream.Close();
+                            break;
+
+                        case 3:///For Hourse Thinking
+
+                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            newTask = Task.Factory.StartNew(() => ThinkingQuantumHourse(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            //oSerialiser = new XmlSerializer(typeof(Task));
+                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                            //oSerialiser.Serialize(oStream, newTask);
+                            newTask.Wait();
+                            //oStream.Close();
+                            break;
+
+                        ///Else For Castles Thinking.
+
+                        case 4:///For Castle Thinking
+                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            newTask = Task.Factory.StartNew(() => ThinkingQuantumCastle(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            //oSerialiser = new XmlSerializer(typeof(Task));
+                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                            //oSerialiser.Serialize(oStream, newTask);
+                            newTask.Wait();
+                            // oStream.Close();
+                            break;
+                        ///Else for Minister Thinkings.
+
+                        case 5:///For Minister Thinking
+
+                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            newTask = Task.Factory.StartNew(() => ThinkingQuantumMinister(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            //oSerialiser = new XmlSerializer(typeof(Task));
+                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                            ///oSerialiser.Serialize(oStream, newTask);
+                            newTask.Wait();
+                            //oStream.Close();
+                            break;
+                        ///Else For Kings Thinkings.
+                        case 6:///For King Thinking
+                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            newTask = Task.Factory.StartNew(() => ThinkingQuantumKing(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+                            // oSerialiser = new XmlSerializer(typeof(Task));
+                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
+                            ///oSerialiser.Serialize(oStream, newTask);
+                            newTask.Wait();
+                            //oStream.Close();
+                            break;
+
+                    }
+                    Object O3 = new Object();
+                    lock (O3)
+                    {
+                        ///Initiate Global Varibales at END.
+                        ThinkingQuantumBegin = false;
+                        ///This Variable Not Work! 
+                        ThinkingQuantumFinished = true;
+
+                        Order = DummyOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                        EndThread++;
+                    }
+                    //UsePenaltyRegardMechnisamT = PenRegStrore;
+                    //
+                    ///Return at End.
                 }
-                //UsePenaltyRegardMechnisamT = PenRegStrore;
-                //
-                ///Return at End.
+
+                ThinkingQuantumFullGame(iAStarGreedy, THIS);
+
             }
-
-            ThinkingQuantumFullGame(iAStarGreedy, THIS);
-
+            catch (Exception t)
+            {
+                ThinkingQuantumBegin = false;
+                ThinkingQuantumFinished = true;
+                ThinkingQuantumAtRun = false;
+            }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return;
         }

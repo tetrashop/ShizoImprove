@@ -2262,9 +2262,9 @@ namespace RefrigtzW
                             if (Ord == -1 && Tab[ii, jj] < 0)
                                 continue;
                             //Clone a Copy.
-                            for (var iii = 0; iii < 8; iii++)
-                                for (var jjj = 0; jjj < 8; jjj++)
-                                    Table[iii, jjj] = Tab[iii, jjj];
+
+                            Table = CloneATable(Tab);
+                            
                             Color a = Color.Gray;
                             if (Ord == -1)
                                 a = Color.Brown;
@@ -2394,9 +2394,8 @@ namespace RefrigtzW
             if (FindGrayKing(CloneATable(Table), ref RowG, ref ColumnG))
                 A.CheckMateKing(CloneATable(Table), 1, CheckGrayDummy, CheckBrownDummy, RowG, ColumnG, ref ActMoveG, CheckGray);
 
-            for (var i = 0; i < 8; i++)
-                for (var j = 0; j < 8; j++)
-                    Table[i, j] = Tab[i, j];
+            Table = CloneATable(Tab);
+
             //Found of Gray King.
             if (FindGrayKing(CloneATable(Table), ref RowG, ref ColumnG))
                 A.CheckMateNotKing(CloneATable(Table), 1, CheckGrayDummy, CheckBrownDummy, ref ActMoveGF);
@@ -2420,9 +2419,9 @@ namespace RefrigtzW
             //Found of Brown King.
             if (FindBrownKing(CloneATable(Table), ref RowB, ref ColumnB))
                 AA.CheckMateKing(CloneATable(Table), -1, CheckGrayDummy, CheckBrownDummy, RowB, ColumnB, ref ActMoveB, CheckBrown);
-            for (var i = 0; i < 8; i++)
-                for (var j = 0; j < 8; j++)
-                    Table[i, j] = Tab[i, j];
+
+            Table = CloneATable(Tab);
+            
             //Found of Brown King.
             if (FindBrownKing(CloneATable(Table), ref RowB, ref ColumnB))
                 AA.CheckMateNotKing(CloneATable(Table), -1, CheckGrayDummy, CheckBrownDummy, ref ActMoveBF);
@@ -2443,12 +2442,12 @@ namespace RefrigtzW
                 //Initiate Global Variable and Return CheckMate.
                 CheckGray = CheckGrayDummy;
                 CheckBrown = CheckBrownDummy;
-                /*Object On = new Object();
+                Object On = new Object();
                 lock (On)
                 {
                     AllDraw.EndOfGame = true;
                     return true;
-                }*/
+                }
             }
             //Initiate Global Variables.
             CheckGray = CheckGrayDummy;

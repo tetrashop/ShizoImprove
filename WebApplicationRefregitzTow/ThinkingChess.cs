@@ -107,9 +107,13 @@ namespace RefrigtzW
             { 0, 0, 0, 0, 0, 0, 0, 0 }
             };
 
-        int RatiionalRegard = 10;
-        int RatiionalPenalty = -10;
+        int RationalRegard = 10;
+        int RationalPenalty = -10;
         public static bool FullGameAllow = false;
+      
+        int RationalWin = 1000000;
+        int RationalLosey = -1000000;
+
         int iIndex = -1;
         public static bool IsAtLeastOneKillerAtDraw = false;
         public bool KishSelf = false;
@@ -1065,12 +1069,12 @@ namespace RefrigtzW
                         //if (Before)
                         {
                             if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
-                                HA += RatiionalPenalty;
+                                HA += RationalPenalty;
                             else
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
 
-                                HA += RatiionalRegard;
+                                HA += RationalRegard;
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                 int Supported = new int();
                                 int SupportedS = new int();
@@ -1170,12 +1174,12 @@ namespace RefrigtzW
                         //if (Before)
                         {
                             if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
-                                HA += RatiionalPenalty;
+                                HA += RationalPenalty;
                             else
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                             {
 
-                                HA += RatiionalRegard;
+                                HA += RationalRegard;
 
 
                                 //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
@@ -1377,7 +1381,7 @@ namespace RefrigtzW
                                     if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                     {
                                         MinisterOnAttack = true;
-                                        HA += RatiionalPenalty;
+                                        HA += RationalPenalty;
                                         //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                         int Supported = new int();
                                         int SupportedS = new int();
@@ -1438,7 +1442,7 @@ namespace RefrigtzW
                                     {
                                         if (IsMinisteBreakable(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
                                         {
-                                            HA += (3 * RatiionalPenalty);
+                                            HA += (3 * RationalPenalty);
                                         }
                                     }
 
@@ -1497,7 +1501,7 @@ namespace RefrigtzW
                                                 if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, a, Order))
                                                 {
                                                     MinisterOnAttack = true;
-                                                    HA += RatiionalPenalty;
+                                                    HA += RationalPenalty;
                                                     //When there is supporter of attacked Objects take Heuristic negative else take muliply sign and muliply Heuristic.
                                                     int Supported = new int();
                                                     int SupportedS = new int();
@@ -1558,7 +1562,7 @@ namespace RefrigtzW
                                                 {
                                                     if (IsMinisteBreakable(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
                                                     {
-                                                        HA += (3 * RatiionalPenalty);
+                                                        HA += (3 * RationalPenalty);
                                                     }
                                                 }
                                             }
@@ -1572,12 +1576,12 @@ namespace RefrigtzW
                 if (!MinisterOnAttack)
                 {
                     if (IsMinistePowerfull(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
-                        HA += RatiionalRegard;
+                        HA += RationalRegard;
 
                 }
                 else
                 {
-                    HA += RatiionalPenalty;
+                    HA += RationalPenalty;
                 }
                 //Initiate to Begin Call Orders.
                 Order = DummyOrder;
@@ -2600,32 +2604,32 @@ namespace RefrigtzW
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Tab), Order, RowS, ColS);
                     G.FindGrayKing(CloneATable(Tab), ref RowK, ref ColK);
                     if (Kind == 7)
-                        HA = RatiionalRegard;
+                        HA = RationalRegard;
                     if (Tab[RowK, ColK] == KingGray && Tab[RowK, ColK] == TableInitiation[RowK, ColK] && ChessRules.CastleKingAllowedGray)
-                        HA += RatiionalPenalty;
+                        HA += RationalPenalty;
                     if ((Tab[RowK, ColK] == KingGray) && (Tab[RowK, 7] == CastleGray || Tab[RowK, 0] == CastleGray) && (TableInitiation[RowK, ColK] == 6) && ChessRules.CastleKingAllowedGray)
                     {
                         if (RowS == RowK && ColS == 5)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 6)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK - 1 && ColS == 5)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK - 1 && ColS == 6)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                         if (RowS == RowK && ColS == 3)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 2)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 1)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK - 1 && ColS == 3)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK - 1 && ColS == 2)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == Row - 1 && ColS == 1)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
 
 
@@ -2639,32 +2643,32 @@ namespace RefrigtzW
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Tab), Order, RowS, ColS);
                     G.FindBrownKing(CloneATable(Tab), ref RowK, ref ColK);
                     if (Kind == -7)
-                        HA = RatiionalRegard;
+                        HA = RationalRegard;
                     if (Tab[RowK, ColK] == KingBrown && Tab[RowK, ColK] == TableInitiation[RowK, ColK] && ChessRules.CastleKingAllowedBrown)
-                        HA += RatiionalPenalty;
+                        HA += RationalPenalty;
                     if ((Tab[RowK, ColK] == KingBrown) && (Tab[RowK, 7] == CastleBrown || Tab[RowK, 0] == CastleBrown) && (TableInitiation[RowK, ColK] == -6) && ChessRules.CastleKingAllowedBrown)
                     {
                         if (RowS == RowK && ColS == 5)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 6)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 5)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 6)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                         if (RowS == RowK && ColS == 3)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 2)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK && ColS == 1)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 3)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 2)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         if (RowS == RowK + 1 && ColS == 1)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                     }
                 }
@@ -2707,26 +2711,26 @@ namespace RefrigtzW
                     {
                         if (A.CheckGray || A.CheckBrown)
                         {
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                         }
                     }
 
                     if (Order == 1)
                     {
                         if (A.CheckMateGray)
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                         else
                         if (A.CheckMateBrown)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                     }
                     else
                     {
                         if (A.CheckMateGray)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         else
              if (A.CheckMateBrown)
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                     }
 
                 }
@@ -2737,25 +2741,25 @@ namespace RefrigtzW
 
                     if (A.CheckGray || A.CheckBrown)
                     {
-                        HA += RatiionalRegard;
+                        HA += RationalRegard;
                     }
 
                     if (Order == 1)
                     {
                         if (A.CheckMateGray)
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                         else
                         if (A.CheckMateBrown)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
 
                     }
                     else
                     {
                         if (A.CheckMateGray)
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                         else
              if (A.CheckMateBrown)
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                     }
                 }
                 /*  int[,] Table = CloneATable(Tab);
@@ -2885,7 +2889,7 @@ namespace RefrigtzW
                             if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                             {
                                 //Calculate Local Support Heuristic.
-                                HA += RatiionalRegard;
+                                HA += RationalRegard;
                                 int Supported = new int();
                                 int SupportedE = new int();
                                 Supported = 0;
@@ -3023,7 +3027,7 @@ namespace RefrigtzW
                                         if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                                         {
                                             //Calculate Local Support Heuristic.
-                                            HA += RatiionalRegard;
+                                            HA += RationalRegard;
                                             int Supported = new int();
                                             int SupportedE = new int();
                                             Supported = 0;
@@ -3193,7 +3197,7 @@ namespace RefrigtzW
                             if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                             {
                                 //Calculate Local Support Heuristic.
-                                HA += RatiionalPenalty;
+                                HA += RationalPenalty;
                                 int Supported = new int();
                                 int SupportedE = new int();
                                 Supported = 0;
@@ -3331,7 +3335,7 @@ namespace RefrigtzW
                                         if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
                                         {
                                             //Calculate Local Support Heuristic.
-                                            HA += RatiionalPenalty;
+                                            HA += RationalPenalty;
                                             int Supported = new int();
                                             int SupportedE = new int();
                                             Supported = 0;
@@ -4881,13 +4885,13 @@ namespace RefrigtzW
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                     else
                     if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                     else
                     if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
 
                 }
                 else
@@ -4897,13 +4901,13 @@ namespace RefrigtzW
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (CurrentIsTowCastleOrMinisterBecomeCheckedMateAtCloseRanAway(RowK, ColK, CloneATable(Table)))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                     else
                     if (CurrentCanBecomeClosedRanAwayByOneCastleOrMinister(RowK, ColK, CloneATable(Table)))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                     else
                     if (IsObjectrSelfAttackEnemyKing(RowK, ColK, CloneATable(Table), Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
 
                 }
 
@@ -4923,7 +4927,7 @@ namespace RefrigtzW
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                 }
                 else
                 {
@@ -4932,7 +4936,7 @@ namespace RefrigtzW
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                 }
                 return HA;
             }
@@ -4950,7 +4954,7 @@ namespace RefrigtzW
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (EnemyKingHaveAtMostOneEmptyItemInAttack(RowK, ColK, Table, Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                 }
                 else
                 {
@@ -4959,7 +4963,7 @@ namespace RefrigtzW
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
                     if (EnemyKingHaveAtMostOneEmptyItemInAttack(RowK, ColK, Table, Order))
-                        HA += RatiionalRegard;
+                        HA += RationalWin;
                 }
                 return HA;
             }
@@ -5254,11 +5258,11 @@ namespace RefrigtzW
                 }
                 if (IsContorlCenter(RowS, ColS, RowD, ColD, CloneATable(Table), a))
                 {
-                    HA += RatiionalRegard;
+                    HA += RationalRegard;
                 }
                 if (IsMinisterOrElephantBecomeActive(RowS, ColS, RowD, ColD, CloneATable(Table), a))
                 {
-                    HA += RatiionalRegard;
+                    HA += RationalRegard;
                 }
                 
                 return HA;
@@ -5700,27 +5704,27 @@ namespace RefrigtzW
                 const int ObjectGray = 0, ObjectBrown = 0;
 
                 if (IsTableRowColIsZero(RowS, ColS))
-                    Dis = RatiionalRegard;
+                    Dis = RationalRegard;
                 else
-                    Dis = RatiionalPenalty;
+                    Dis = RationalPenalty;
                 if (IsCentralPawnIsOk(CloneATable(Tab), Order))
-                    Dis += RatiionalRegard;
+                    Dis += RationalRegard;
                 else
-                    Dis += RatiionalPenalty;
+                    Dis += RationalPenalty;
 
                 if (Order == 1)
                 {
                     if ((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == 3)
-                            Dis += RatiionalRegard;
+                            Dis += RationalRegard;
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
                             if (Cor > Colleralation)
                             {
                                 Colleralation = Cor;
-                                Dis += RatiionalRegard;
+                                Dis += RationalRegard;
 
                             }
                         }
@@ -5728,14 +5732,14 @@ namespace RefrigtzW
                     if (!((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == -3)
-                            Dis += RatiionalPenalty;
+                            Dis += RationalPenalty;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 31))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
                             if (Cor < DeColleralation)
                             {
                                 DeColleralation = Cor;
-                                Dis += RatiionalRegard;
+                                Dis += RationalRegard;
 
                             }
                         }
@@ -5745,7 +5749,7 @@ namespace RefrigtzW
                 {
 
                     if (Tab[RowS, ColS] == -3)
-                        Dis += RatiionalRegard;
+                        Dis += RationalRegard;
 
                     if ((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
@@ -5755,7 +5759,7 @@ namespace RefrigtzW
                             if (Cor > Colleralation)
                             {
                                 Colleralation = Cor;
-                                Dis += RatiionalRegard;
+                                Dis += RationalRegard;
 
                             }
                         }
@@ -5768,7 +5772,7 @@ namespace RefrigtzW
                             if (Cor < DeColleralation)
                             {
                                 DeColleralation = Cor;
-                                Dis += RatiionalRegard;
+                                Dis += RationalRegard;
 
                             }
                         }
@@ -5776,9 +5780,9 @@ namespace RefrigtzW
                 }
 
                 if (CenrtrallnControlByTraversal(CloneATable(Tab), a, Order, RowS, ColS, RowD, ColD))
-                    Dis += RatiionalRegard;
+                    Dis += RationalRegard;
                 else
-                    Dis += RatiionalPenalty;
+                    Dis += RationalPenalty;
 
                 /*     //Initiate.
                      int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
@@ -5958,7 +5962,7 @@ namespace RefrigtzW
                 {
                     if ((i == 3 || i == 4) && (j == 3 | j == 4))
                     {
-                        HA = RatiionalRegard;
+                        HA = RationalRegard;
 
                     }
                     if (HA == 0)
@@ -5992,7 +5996,7 @@ namespace RefrigtzW
 
                     }
                     if (IsPawnAtAColumnAndNotSupported(ii, jj, i, j, CloneATable(Table), Order))
-                        HA += RatiionalPenalty;
+                        HA += RationalPenalty;
 
 
                 }
@@ -6291,7 +6295,7 @@ namespace RefrigtzW
                             for (var ik = 0; ik < 8; ik++)
                                 for (var jk = 0; jk < 8; jk++)
                                     Tab[ik, jk] = Table[ik, jk];
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                             int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -6396,7 +6400,7 @@ namespace RefrigtzW
                         //When is Movable Movement inCurrent.
                         if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                         {
-                            HA += RatiionalRegard;
+                            HA += RationalRegard;
                             int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -6524,7 +6528,7 @@ namespace RefrigtzW
                             for (var ik = 0; ik < 8; ik++)
                                 for (var jk = 0; jk < 8; jk++)
                                     Tab[ik, jk] = Table[ik, jk];
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                             int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -6630,7 +6634,7 @@ namespace RefrigtzW
                         //When is Movable Movement inCurrent.
                         if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
                         {
-                            HA += RatiionalPenalty;
+                            HA += RationalPenalty;
                             int Supported = 0;
                             int Attacked = 0;
                             //For All Enemy Obejcts.                                             
@@ -11257,10 +11261,10 @@ namespace RefrigtzW
 
                 }
                 if (SpaceSelf > SpaceEnemy)
-                    HA = RatiionalRegard;
+                    HA = RationalRegard;
                 else
                     if (SpaceSelf < SpaceEnemy)
-                    HA = RatiionalPenalty;
+                    HA = RationalPenalty;
                 return HA;
             }
         }
@@ -11704,7 +11708,13 @@ namespace RefrigtzW
             }
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ThinkingSoldierBase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        void ThinkWait() { do {  } while (ThinkingAtRun); }
+        void ThinkWait() { 
+        Object O = new Object();
+            lock (O)
+            { 
+            do { } while (ThinkingAtRun); 
+            }
+        }
         //specific determination for thinking main method
         public void ThinkingSoldier(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
@@ -12555,15 +12565,16 @@ namespace RefrigtzW
         ///Kernel of Thinking
         //specific thinking main method
         void ThinkingWaite()
-        {
-
-            while (!ThinkingBegin)
+        { Object O = new Object();
+            lock (O)
             {
-                if (AllDraw.NumberOfLeafComputation != -1)
-                    break;
-                
-            }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                while (!ThinkingBegin)
+                {
+                    if (AllDraw.NumberOfLeafComputation != -1)
+                        break;
 
+                }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+            }
         }
         //operantinal of creation of current deeper node and set string making
         void FullGameThinkingTreeInitialization(AllDraw THIS, int ik, int j, int Order, int kind)
@@ -12735,7 +12746,7 @@ namespace RefrigtzW
 
         public void Thinking(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+         try{   //long Time = TimeElapced.TimeNow();Spaces++;
          /*   if (AStarGreedy == null)
                 AStarGreedy = new List<AllDraw>();
 
@@ -13121,6 +13132,13 @@ namespace RefrigtzW
 
             ThinkingFullGame(iAStarGreedy, THIS);
 
+            }
+            catch (Exception t)
+            {
+                ThinkingBegin = false;
+                ThinkingFinished = true;
+                ThinkingAtRun = false;
+            } 
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Thinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return;
         }
