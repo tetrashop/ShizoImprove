@@ -5934,8 +5934,9 @@ else
             }
         }
 
-        bool IsPawnAtAColumnAndNotSupported(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
+        bool IsPawnIsolatedOrDoubleBackAwayOrHung(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
         {
+
             bool Is = false;
             if (Order == 1)
             {
@@ -6015,6 +6016,77 @@ else
                     }
                 }
             }
+            if (!Is)
+            {
+                if (Order == 1)
+                {
+                    if (RowS + 1 < 8)
+                    {
+                        if ((Table[RowS + 1, ColS] == 1 && Table[RowS, ColS] == 1))
+                            Is = true;
+
+                    }
+                    else
+                    if (RowS - 1 >= 0)
+                    {
+                        if ((Table[RowS - 1, ColS] == 1 && Table[RowS, ColS] == 1))
+                            Is = true;
+
+                    }
+                }
+                else
+                {
+                    if (RowS + 1 < 8)
+                    {
+                        if ((Table[RowS + 1, ColS] == -1 && Table[RowS, ColS] == -1))
+                            Is = true;
+
+                    }
+                    else
+                  if (RowS - 1 >= 0)
+                    {
+                        if ((Table[RowS - 1, ColS] == -1 && Table[RowS, ColS] == -1))
+                            Is = true;
+
+                    }
+                }
+            }
+            if (!Is)
+            {
+                bool IsSuported = false;
+                for (int i = 0; i < 8; i++)
+                {
+
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (Order == 1 && Table[i, j] <= 0)
+                            continue;
+                        if (Order == -1 && Table[i, j] >= 0)
+                            continue;
+                        if (Math.Abs(Table[RowS, ColS]) == 1 && SameSign(Table[RowS, ColS], Table[i, j]))
+                        {
+                            if (Support(CloneATable(Table), i, j, RowS, ColS, color, Order))
+                            {
+                                IsSuported = true;
+                                break;
+                            }
+                        }
+                        else
+                        if (Math.Abs(Table[RowD, ColD]) == 1 && SameSign(Table[RowD, ColD], Table[i, j]))
+                        {
+                            if (Support(CloneATable(Table), i, j, RowD, ColD, color, Order))
+                            {
+                                IsSuported = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (IsSuported)
+                        break;
+                }
+                Is = (!IsSuported);
+            }
+
             return Is;
 
         }
@@ -6063,7 +6135,7 @@ else
                         }
 
                     }
-                    if (IsPawnAtAColumnAndNotSupported(ii, jj, i, j, CloneATable(Table), Order))
+                    if (IsPawnIsolatedOrDoubleBackAwayOrHung(ii, jj, i, j, CloneATable(Table), Order))
                         HA += RationalPenalty;
 
                 }
