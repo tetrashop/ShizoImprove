@@ -3532,57 +3532,73 @@ namespace QuantumRefrigiz
                 ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j);
                 ///Table[ii, jj] = 0;
                 //Menen Parameter is Moveble to Second Parameters Location returm Movable.
-                if (A.Rules(i, j, ii, jj, a, Order))
+                if (Order == 1 & Table[i, j] > 0 && Table[ii, jj] == 0)
                 {
-                    //Initiate Movments.
-                    Table[ii, jj] = Table[i, j];
-                    Table[i, j] = 0;
-                    //Default Order ASsignments.
-                    int Ord = 1;
-                    //Brown Order Consideration.
-                    if (Table[ii, jj] < 0)
-                        Ord = -1;
-                    //Store of Local Order ASsignments in Global ASsignments.
-                    int DummyOrder = Order;
-                    int DummyCurrentOrder = ChessRules.CurrentOrder;
-                    //Consider Global Check Variables.
-                    ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Ord, ii, jj);
-                    AA.Check(CloneATable(Table), Ord);
-                    //ReaASignment of Premitive Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                    //ReASsignments of Table Content and Consider CheckMate Specific Order.
-                    Table[i, j] = Table[ii, jj];
-                    //When Gray.
-                    if (Table[i, j] > 0)
+                    if (A.Rules(i, j, ii, jj, a, Order))
                     {
-                        //And CheckedMated is Occured for gray. return false.
-                        Table[ii, jj] = Store;
-                        if (AA.CheckMateGray)
-                        {
-                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                            return false;
-                        }
-                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-
                         return true;
-                    }
 
-                    //When Brown.
-                    if (Table[i, j] < 0)
-                    {
-                        Table[ii, jj] = Store;
-                        //When CheckedMated occured for Brown return false.
-                        if (AA.CheckMateBrown)
-                        {
-                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                            return false;
-                        }
-                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                        return true;
                     }
                 }
-                Table[ii, jj] = Store;
+                else
+                 if (Order == -1 & Table[i, j] < 0 && Table[ii, jj] == 0)
+                {
+                    if (A.Rules(i, j, ii, jj, a, Order))
+                    {
+                        return true;
+
+                    }
+                }
+                /* //Initiate Movments.
+                 Table[ii, jj] = Table[i, j];
+                 Table[i, j] = 0;
+                 //Default Order Assignments.
+                 int Ord = 1;
+                 //Brown Order Consideration.
+                 if (Table[ii, jj] < 0)
+                     Ord = -1;
+                 //Store of Local Order Assignments in Global Assignments.
+                 int DummyOrder = Order;
+                 int DummyCurrentOrder = ChessRules.CurrentOrder;
+                 //Consider Global Check Variables.
+                 ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Ord, ii, jj);
+                 AA.Check(CloneATable(Table), Ord);
+                 //Reaasignment of Premitive Variables.
+                 Order = DummyOrder;
+                 ChessRules.CurrentOrder = DummyCurrentOrder;
+                 //Reassignments of Table Content and Consider CheckMate Specific Order.
+                 Table[i, j] = Table[ii, jj];
+                 //When Gray.
+                 if (Table[i, j] > 0)
+                 {
+                     //And CheckedMated is Occured for gray. return false.
+                     Table[ii, jj] = Store;
+                     if (AA.CheckMateGray)
+                     {
+                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                         return false;
+                     }
+                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+
+                     return true;
+                 }
+
+                 //When Brown.
+                 if (Table[i, j] < 0)
+                 {
+                     Table[ii, jj] = Store;
+                     //When CheckedMated occured for Brown return false.
+                     if (AA.CheckMateBrown)
+                     {
+                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                         return false;
+                     }
+                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                     return true;
+                 }
+             }
+             Table[ii, jj] = Store;
+             */
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return false;
             }
@@ -6143,215 +6159,390 @@ namespace QuantumRefrigiz
 
             }
         }
-        public int[] HeuristicAll(bool Before, int Killed, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
+        Color OrderColor(int Ord)
         {
+            Color a = Color.Gray;
+            if (Ord == -1)
+                a = Color.Brown;
+            return a;
+        }
+        bool Permit(int Order, int TabS, int TabD, bool Self = true, bool Move = false)
+        {
+            bool Per = false;
+            if (Self)
+            {
+                if (Move)
+                {
+                    if (Order == 1 && TabS > 0 && TabD == 0)
+                        Per = true;
+                    else
+                        Per = false;
+                    if (Order == -1 && TabS < 0 && TabD == 0)
+                        Per = true;
+                    else
+                        Per = false;
+                }
+                else
+                {
+                    if (Order == 1 && TabS > 0 && TabD > 0)
+                        Per = true;
+                    else
+                        Per = false;
+                    if (Order == -1 && TabS < 0 && TabD < 0)
+                        Per = true;
+                    else
+                        Per = false;
+                }
+            }
+            else
+            {
+                if (Move)
+                {
+                    if (Order == 1 && TabS > 0 && TabD <= 0)
+                        Per = true;
+                    else
+                        Per = false;
+                    if (Order == -1 && TabS < 0 && TabD >= 0)
+                        Per = true;
+                    else
+                        Per = false;
+                }
+                else
+                {
+                    if (Order == 1 && TabS > 0 && TabD < 0)
+                        Per = true;
+                    else
+                        Per = false;
+                    if (Order == -1 && TabS < 0 && TabD > 0)
+                        Per = true;
+                    else
+                        Per = false;
+                }
+            }
+            return Per;
+        }
+        public int[] HeuristicAll(bool Before, int Killed, int[,] Table, Color aa, int Ord)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
             lock (O)
             {
                 int[] Heuristic = new int[6];
-                //Initiate Local Variable.
 
-                //var RowS = RowD, ColS = ColS;
+                int HA = 0;
+                int DumOrder = Order;
                 int DummyOrder = Order;
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                ///When AStarGreedy Heuristic is Not ASsigned.
-
-                if (!AStarGreedyHeuristicT)
+                ///When AStarGreedy Heuristic is Not Assigned.
+                Object O1 = new Object();
+                lock (O1)
                 {
-                    //For Current Objects.
-                    ////Parallel.For(0, 8, RowS =>
-                    {
-                        ////Parallel.For(0, 8, ColS =>
-                        {
-                            var output = Task.Factory.StartNew(() =>
-                   Parallel.Invoke(() =>
-                   {
-                       Object O1 = new Object();
-                       lock (O1)
-                       {
-                           int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
-                           int[,] Table1 = CloneATable(Table);
-                           int Ord1 = Ord;
-                           Color aa1 = aa;
-                           int HAA1 = HeuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
-                           if (HAA1 != 0)
-                               Heuristic[0] += HAA1;
-                       }
-                   }
 
-                   , () =>
-                   {
-                       Object O1 = new Object();
-                       lock (O1)
-                       {
-                           int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
-                           int[,] Table2 = CloneATable(Table);
-                           int Ord2 = Ord;
-                           Color aa2 = aa;
-                           int Killed1 = Killed;
-                           int HAA2 = HeuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
-                           if (HAA2 != 0)
-                               Heuristic[1] += HAA2;
-                       }
-                   }
-                    , () =>
+                    Parallel.For(0, 8, RowS =>
                     {
-                        Object O1 = new Object();
-                        lock (O1)
+                        Parallel.For(0, 8, ColS =>
                         {
-                            int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
-                            int[,] Table3 = CloneATable(Table);
-                            int Ord3 = Ord;
-                            Color aa3 = aa;
-                            int HAA3 = HeuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
-                            if (HAA3 != 0)
-                                Heuristic[2] += HAA3;
-                        }
-                    },
-                    () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
-                            int[,] Table4 = CloneATable(Table);
-                            int Ord4 = Ord;
-                            Color aa4 = aa;
-                            int HAA4 = HeuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
-                            if (HAA4 != 0)
-                                Heuristic[3] += HAA4;
-                        }
-
-                    },
-                    () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
-                            int[,] Table5 = CloneATable(Table);
-                            int Ord5 = Ord;
-                            Color aa5 = aa;
-                            int HAA5 = HeuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
-                                );
-                            if (HAA5 != 0)
-                                Heuristic[4] += HAA5;
-                        }
-                    },
-                    () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
-                        {
-                            int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
-                            int[,] Table6 = CloneATable(Table);
-                            int Ord6 = Ord;
-                            Color aa6 = aa;
-                            int HAA6 = HeuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
-                                    );
-                            if (HAA6 != 0)
-                                Heuristic[5] += HAA6;
-                        }
-                    }
-                   ));
-                            output.Wait();
-
-                        }//);
-                    }//);
-                }
-                //For All Homes Table.
-                else
-                {
-                    ////Parallel.For(0, 8, RowS =>
-                    {
-                        ////Parallel.For(0, 8, ColS =>
-                        {
-                            ////Parallel.For(0, 8, ii =>
-                            for (var ii = 0; ii < 8; ii++)
+                            Parallel.For(0, 8, RowD =>
                             {
-                                ////Parallel.For(0, 8, jj =>
-                                for (var jj = 0; jj < 8; jj++)
+                                Parallel.For(0, 8, ColD =>
                                 {
-                                    var output = Task.Factory.StartNew(() =>
-                   Parallel.Invoke(() =>
-                   {
-                       Object O1 = new Object();
-                       lock (O1)
+                                    if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
+                                        HA += RationalPenalty;
+                                    else
+                                    {
+
+                                        var output = Task.Factory.StartNew(() =>
+                       Parallel.Invoke(() =>
                        {
-                           int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
-                           int[,] Table1 = CloneATable(Table);
-                           int Ord1 = Ord;
-                           Color aa1 = aa;
-                           int HAA1 = HeuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
-                           Heuristic[0] += HAA1;
-                       }
-                   }, () =>
-                   {
-                       int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
-                       int[,] Table2 = CloneATable(Table);
-                       int Ord2 = Ord;
-                       Color aa2 = aa;
-                       int Killed1 = Killed;
-                       int HAA2 = HeuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
-                       Heuristic[1] += HAA2;
-                   }, () =>
-                   {
-                       int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
-                       int[,] Table3 = CloneATable(Table);
-                       int Ord3 = Ord;
-                       Color aa3 = aa;
-                       int HAA3 = HeuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
-                       Heuristic[2] += HAA3;
-                   }, () =>
-                   {
-                       int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
-                       int[,] Table4 = CloneATable(Table);
-                       int Ord4 = Ord;
-                       Color aa4 = aa;
-                       int HAA4 = HeuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
-                       Heuristic[3] += HAA4;
-                   }, () =>
-                   {
-                       int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
-                       int[,] Table5 = CloneATable(Table);
-                       int Ord5 = Ord;
-                       Color aa5 = aa;
-                       int HAA5 = HeuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
-                           );
-                       Heuristic[4] += HAA5;
-                   }, () =>
-                   {
-                       int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
-                       int[,] Table6 = CloneATable(Table);
-                       int Ord6 = Ord;
-                       Color aa6 = aa;
-                       int HAA6 = HeuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
-                          );
-                       Heuristic[5] += HAA6;
-                   }));
-                                    output.Wait();
-                                }
-                            }//);
-                        }//);
-                    }//);
-                }//);
+                           Object OO = new Object();
+                           lock (OO)
+                           {
+                               if (Heuristic[0] == 0)
+                               {
+
+                                   if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                   {
+                                       if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                           Heuristic[0] += RationalPenalty;
+                                   }
+                               }
+                               if (Heuristic[1] == 0 && Heuristic[0] == 0)
+                               {
+                                   if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
+                                   {
+                                       if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                           Heuristic[1] += RationalRegard;
+                                   }
+                               }
+                               if (Heuristic[2] == 0 && Heuristic[0] == 0)
+                               {
+                                   if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                   {
+                                       if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                           Heuristic[2] += RationalPenalty;
+                                   }
+                               }
+
+                               if (Heuristic[3] == 0 && Heuristic[0] == 0)
+                               {
+                                   if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                   {
+                                       if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                           Heuristic[3] += RationalRegard;
+                                   }
+                               }
+                               if (Heuristic[4] == 0 && Heuristic[0] == 0)
+                               {
+                                   if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
+                                   {
+                                       if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                           Heuristic[4] += RationalRegard;
+                                   }
+                               }
+                               if (Heuristic[5] == 0 && Heuristic[0] == 0)
+                               {
+                                   if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                   {
+                                       if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                           Heuristic[5] += RationalPenalty;
+                                   }
+                               }
+
+                           }
+                       }));
+
+                                    }
+
+                                });
+                            });
+                        });
+                    });
+                }
 
 
 
-                //ReASsignments of Begin Call Global Orders.
+
+
+
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                //Store Local Heuristic in Global One.
-                //Heuristic[0] = (Heuristic[0]* SignOrderToPlate(Order));
-                //Heuristic[1] = (Heuristic[1]* SignOrderToPlate(Order));
-                //Heuristic[2] = (Heuristic[2]* SignOrderToPlate(Order));
-                //Heuristic[3] = (Heuristic[3]* SignOrderToPlate(Order));
-                //Heuristic[4] = (Heuristic[4]* SignOrderToPlate(Order));
-                //Heuristic[5] = (Heuristic[5]* SignOrderToPlate(Order));
-                //Return Local Heuristic.
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                Order = DumOrder;
+                //Initiate to Begin Call Orders.
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Heuristic;
+
+
+                /*          Object O = new Object();
+                          lock (O)
+                          {
+                              int[] Heuristic = new int[6];
+                              //Initiate Local Variable.
+
+                              //var RowS = RowD, ColS = ColS;
+                              int DummyOrder = Order;
+                              int DummyCurrentOrder = ChessRules.CurrentOrder;
+                              ///When AStarGreedy Heuristic is Not Assigned.
+
+                              if (!AStarGreedyHeuristicT)
+                              {
+                                  //For Current Objects.
+                                  //Parallel.For(0, 8, RowS =>
+                                  {
+                                      ////Parallel.For(0, 8, ColS =>
+                                      {
+                                          var output = Task.Factory.StartNew(() =>
+                                 Parallel.Invoke(() =>
+                                 {
+                                     Object O1 = new Object();
+                                     lock (O1)
+                                     {
+                                         int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
+                                         int[,] Table1 = CloneATable(Table);
+                                         int Ord1 = Ord;
+                                         Color aa1 = aa;
+                                         int HAA1 = HeuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
+                                         if (HAA1 != 0)
+                                             Heuristic[0] += HAA1;
+                                     }
+                                 }
+
+                                 , () =>
+                                 {
+                                     Object O1 = new Object();
+                                     lock (O1)
+                                     {
+                                         int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
+                                         int[,] Table2 = CloneATable(Table);
+                                         int Ord2 = Ord;
+                                         Color aa2 = aa;
+                                         int Killed1 = Killed;
+                                         int HAA2 = HeuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
+                                         if (HAA2 != 0)
+                                             Heuristic[1] += HAA2;
+                                     }
+                                 }
+                                  , () =>
+                                  {
+                                      Object O1 = new Object();
+                                      lock (O1)
+                                      {
+                                          int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
+                                          int[,] Table3 = CloneATable(Table);
+                                          int Ord3 = Ord;
+                                          Color aa3 = aa;
+                                          int HAA3 = HeuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
+                                          if (HAA3 != 0)
+                                              Heuristic[2] += HAA3;
+                                      }
+                                  },
+                                  () =>
+                                  {
+                                      Object O1 = new Object();
+                                      lock (O1)
+                                      {
+                                          int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
+                                          int[,] Table4 = CloneATable(Table);
+                                          int Ord4 = Ord;
+                                          Color aa4 = aa;
+                                          int HAA4 = HeuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
+                                          if (HAA4 != 0)
+                                              Heuristic[3] += HAA4;
+                                      }
+
+                                  },
+                                  () =>
+                                  {
+                                      Object O1 = new Object();
+                                      lock (O1)
+                                      {
+                                          int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
+                                          int[,] Table5 = CloneATable(Table);
+                                          int Ord5 = Ord;
+                                          Color aa5 = aa;
+                                          int HAA5 = HeuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
+                                              );
+                                          if (HAA5 != 0)
+                                              Heuristic[4] += HAA5;
+                                      }
+                                  },
+                                  () =>
+                                  {
+                                      Object O1 = new Object();
+                                      lock (O1)
+                                      {
+                                          int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
+                                          int[,] Table6 = CloneATable(Table);
+                                          int Ord6 = Ord;
+                                          Color aa6 = aa;
+                                          int HAA6 = HeuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
+                                                  );
+                                          if (HAA6 != 0)
+                                              Heuristic[5] += HAA6;
+                                      }
+                                  }
+                                 ));
+                                          output.Wait();
+
+                                      }//);
+                                  }//);
+                              }
+                              //For All Homes Table.
+                              else
+                              {
+                                  ////Parallel.For(0, 8, RowS =>
+                                  {
+                                      ////Parallel.For(0, 8, ColS =>
+                                      {
+                                          ////Parallel.For(0, 8, ii =>
+                                          for (var ii = 0; ii < 8; ii++)
+                                          {
+                                              ////Parallel.For(0, 8, jj =>
+                                              for (var jj = 0; jj < 8; jj++)
+                                              {
+                                                  var output = Task.Factory.StartNew(() =>
+                                 Parallel.Invoke(() =>
+                                 {
+                                     Object O1 = new Object();
+                                     lock (O1)
+                                     {
+                                         int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
+                                         int[,] Table1 = CloneATable(Table);
+                                         int Ord1 = Ord;
+                                         Color aa1 = aa;
+                                         int HAA1 = HeuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
+                                         Heuristic[0] += HAA1;
+                                     }
+                                 }, () =>
+                                 {
+                                     int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
+                                     int[,] Table2 = CloneATable(Table);
+                                     int Ord2 = Ord;
+                                     Color aa2 = aa;
+                                     int Killed1 = Killed;
+                                     int HAA2 = HeuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
+                                     Heuristic[1] += HAA2;
+                                 }, () =>
+                                 {
+                                     int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
+                                     int[,] Table3 = CloneATable(Table);
+                                     int Ord3 = Ord;
+                                     Color aa3 = aa;
+                                     int HAA3 = HeuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
+                                     Heuristic[2] += HAA3;
+                                 }, () =>
+                                 {
+                                     int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
+                                     int[,] Table4 = CloneATable(Table);
+                                     int Ord4 = Ord;
+                                     Color aa4 = aa;
+                                     int HAA4 = HeuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
+                                     Heuristic[3] += HAA4;
+                                 }, () =>
+                                 {
+                                     int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
+                                     int[,] Table5 = CloneATable(Table);
+                                     int Ord5 = Ord;
+                                     Color aa5 = aa;
+                                     int HAA5 = HeuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
+                                         );
+                                     Heuristic[4] += HAA5;
+                                 }, () =>
+                                 {
+                                     int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
+                                     int[,] Table6 = CloneATable(Table);
+                                     int Ord6 = Ord;
+                                     Color aa6 = aa;
+                                     int HAA6 = HeuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
+                                        );
+                                     Heuristic[5] += HAA6;
+                                 }));
+                                                  output.Wait();
+                                              }
+                                          }//);
+                                      }//);
+                                  }//);
+                              }//);
+
+
+
+                              //Reassignments of Begin Call Global Orders.
+                              Order = DummyOrder;
+                              ChessRules.CurrentOrder = DummyCurrentOrder;
+                              //Store Local Heuristic in Global One.
+                              //Heuristic[0] = (Heuristic[0]* SignOrderToPlate(Order));
+                              //Heuristic[1] = (Heuristic[1]* SignOrderToPlate(Order));
+                              //Heuristic[2] = (Heuristic[2]* SignOrderToPlate(Order));
+                              //Heuristic[3] = (Heuristic[3]* SignOrderToPlate(Order));
+                              //Heuristic[4] = (Heuristic[4]* SignOrderToPlate(Order));
+                              //Heuristic[5] = (Heuristic[5]* SignOrderToPlate(Order));
+                              //Return Local Heuristic.
+                              ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                              return Heuristic;
+                          }
+                   */
+
+
             }
         }
         ///Heuristic of Movments.
@@ -6632,7 +6823,7 @@ namespace QuantumRefrigiz
                     ///When Moveble is true. means [RowS,ColS] is in Movmebale to [RowD,ColD].
                     ///What is Moveable!
                     ///Ans:When [RowS,ColS] is Movebale to [RowD,ColD] continue true when Empty or Enemy is located in [RowS,ColS].
-                    if (Table[RowD, ColD] == 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
+                    if (Table[RowD, ColD] == 0 && DummyOrder == -1 && Table[RowS, ColS] > 0)
                     {
                         Order = -1;
                         Object O1 = new Object();
@@ -6643,7 +6834,7 @@ namespace QuantumRefrigiz
                         }
                         a = Color.Brown;
                     }
-                    else if (Table[RowD, ColD] == 0 && DummyOrder == 1 && Table[RowS, ColS] >= 0)
+                    else if (Table[RowD, ColD] == 0 && DummyOrder == 1 && Table[RowS, ColS] < 0)
                     {
                         Order = 1;
                         Object O1 = new Object();
@@ -6754,7 +6945,7 @@ namespace QuantumRefrigiz
                             a = Color.Brown;
                         }
                     }
-                    else if (Table[RowD, ColD] == 0 && DummyOrder == 1 && Table[RowS, ColS] >= 0)
+                    else if (Table[RowD, ColD] == 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                     {
                         Order = 1;
                         Object O1 = new Object();
@@ -6851,6 +7042,9 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
+                if (Tab[ii, jj] == 0)
+                    return false;
+
                 int CCurentOrder = ChessRules.CurrentOrder;
                 //Initiate Global static  Variable.
                 ChessRules.CurrentOrder = Order;
@@ -6860,8 +7054,8 @@ namespace QuantumRefrigiz
                         Table[ik, jk] = Tab[ik, jk];
 
                 //when there is a Movment from Parameter One to Second Parameter return Attacke..
-                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order) //&& Table[ii, jj] != 0
-                    )
+                if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order) && (!SameSign(Table[i, j], Table[ii, jj])))
+                    
                 {
                     ChessRules.CurrentOrder = CCurentOrder;
                     ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Attack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -6962,28 +7156,24 @@ namespace QuantumRefrigiz
                     for (var ColS = 0; ColS < 8; ColS++)
                         Table[RowS, ColS] = Tab[RowS, ColS];
                 ///When All Tables is Gray.
-                if (Table[i, j] > 0 && Table[ii, jj] > 0)
+                if (Order == 1 && Table[i, j] > 0)
                 {
                     ///When [i,j] Supporte [ii,jj].
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
+                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j],false) && SameSign(Table[i, j], Table[ii, jj]))
                     {
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return true;
                     }
-
                 }
-
-                for (var RowS = 0; RowS < 8; RowS++)
-                    for (var ColS = 0; ColS < 8; ColS++)
-                        Table[RowS, ColS] = Tab[RowS, ColS];
-                ///When All is Brown.
-                if (Table[i, j] < 0 && Table[ii, jj] < 0)
+                else
                 {
-                    ///When [i,j] Supporetd [ii,jj].
-                    if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false))
-                    {
-                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                        return true;
+                    if (Order == -1 && Table[i, j] < 0)
+                    {  ///When [i,j] Supporte [ii,jj].
+                        if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j],false) && SameSign(Table[i, j], Table[ii, jj]))
+                        {
+                            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            return true;
+                        }
                     }
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -11417,7 +11607,7 @@ namespace QuantumRefrigiz
             }
         }
         public int[] CalculateHeuristicsParallel(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-)
+ )
         {
             Object OO = new Object();
             lock (OO)
@@ -11436,7 +11626,7 @@ namespace QuantumRefrigiz
 
                      int[,] TableSS = CloneATable(TableS);
                      int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                     Huriistic = HeuristicAll(Before, Killed, TableSS, color, Order, RoS, CoS, RoD, CoD);
+                     Huriistic = HeuristicAll(Before, Killed, TableSS, color, Order);
                  }
              }
              , () =>
@@ -11457,12 +11647,15 @@ namespace QuantumRefrigiz
                  Object O = new Object();
                  lock (O)
                  {
-                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                         return;
-                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                     int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[1] = HeuristicDistribution(TableSS, Order,color, RowS, ColS,RowD,ColD//, ref HeuristicDistributionValue
-                          );
+                     if (Huriistic[0] == 0)
+                     {
+                         if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                             return;
+                         int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                         int[,] TableSS = CloneATable(TableS);
+                         HuriisticRemain[1] = HeuristicDistribution(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicDistributionValue
+                              );
+                     }
                  }
              }
              , () =>
@@ -11496,36 +11689,42 @@ namespace QuantumRefrigiz
                  Object O = new Object();
                  lock (O)
                  {
-                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                         return;
-                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                     int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD);
+                     if (Huriistic[0] == 0)
+                     {
+                         if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                             return;
+                         int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                         int[,] TableSS = CloneATable(TableS);
+                         HuriisticRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD);
+                     }
                  }
              }, () =>
              {
                  Object O = new Object();
                  lock (O)
                  {
-                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                         return;
-                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                     int[,] TableSS = CloneATable(TableS);
-                     Color colorE = Color.Gray;
-                     if (Order == -1)
-                         colorE = Color.Gray;
-                     else
-                         colorE = Color.Brown;
-                     HuriisticRemain[5] = HeuristicBetterSpace(TableSS, color, colorE, Order, Order * -1);
+                     if (Huriistic[0] == 0)
+                     {
+                         if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                             return;
+                         int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                         int[,] TableSS = CloneATable(TableS);
+                         Color colorE = Color.Gray;
+                         if (Order == -1)
+                             colorE = Color.Gray;
+                         else
+                             colorE = Color.Brown;
+                         HuriisticRemain[5] = HeuristicBetterSpace(TableSS, color, colorE, Order, Order * -1);
+                     }
                  }
              }
              ));
                 output.Wait();
                 //Central control befor attack
-                bool A = (Huriistic[0] > 0);
+                bool A = (Huriistic[1] > 0);
                 bool B = (HuriisticRemain[4] > 0);
                 if (A || (!B))
-                    Huriistic[0] = 0;
+                    Huriistic[1] = 0;
 
                 int[] hu = new int[12];
                 for (int i = 0; i < 6; i++)
@@ -11535,7 +11734,6 @@ namespace QuantumRefrigiz
                 return hu;
             }
         }
-
         public void CalculateHeuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
             , ref int HeuristicAttackValue
                 , ref int HeuristicMovementValue

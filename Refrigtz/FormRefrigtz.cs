@@ -7141,7 +7141,7 @@ namespace Refrigtz
             {
                 QuantumRefrigiz.ThinkingQuantumChess th1 = null;
                 th1 = new QuantumRefrigiz.ThinkingQuantumChess(-1, Kind, 0, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged, Row, Column, color, Table, 0, Order, false, 0, 0, Table[Row, Column]);
-                int HeuristicAttackValue = new int();
+                int HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue = new int();
                 int HeuristicMovementValue = new int();
                 int HeuristicSelfSupportedValue = new int();
                 int HeuristicObjectDangourCheckMateValue = new int();
@@ -7151,10 +7151,10 @@ namespace Refrigtz
                 int HeuristicKingSafe = new int();
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int();
-                th1.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicObjectDangourCheckMateValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                th1.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicObjectDangourCheckMateValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
 
 
-                return HeuristicAttackValue + HeuristicMovementValue +
+                return HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue + HeuristicMovementValue +
               HeuristicSelfSupportedValue +
 
               HeuristicObjectDangourCheckMateValue + HeuristicReducedAttackValue + HeuristicHittingValue + HeuristicDistributionValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
@@ -7168,7 +7168,7 @@ namespace Refrigtz
             {
                 RefrigtzDLL.ThinkingChess th = null;
                 th = new RefrigtzDLL.ThinkingChess(-1, Kind, 0, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged, Row, Column, color, Table, 0, Order, false, 0, 0, Table[Row, Column]);
-                int HeuristicAttackValue = new int();
+                int HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue = new int();
                 int HeuristicMovementValue = new int();
                 int HeuristicSelfSupportedValue = new int();
                 int HeuristicObjectDangourCheckMateValue = new int();
@@ -7178,9 +7178,9 @@ namespace Refrigtz
                 int HeuristicKingSafe = new int();
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int();
-                th.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicObjectDangourCheckMateValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
+                th.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicObjectDangourCheckMateValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour);
 
-                return HeuristicAttackValue + HeuristicMovementValue +
+                return HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue + HeuristicMovementValue +
               HeuristicSelfSupportedValue +
 
               HeuristicObjectDangourCheckMateValue + HeuristicReducedAttackValue + HeuristicHittingValue + HeuristicDistributionValue + HeuristicKingSafe + HeuristicFromCenter + HeuristicKingDangour;
