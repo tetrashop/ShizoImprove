@@ -1125,10 +1125,10 @@ namespace RefrigtzW
 
                                     }//);
                                 }//);
-                                if (SupportedS > Supported)
+                                if (SupportedS > 0 && Supported == 0)
                                     HA *= (int)System.Math.Pow(2, SupportedS);
-
-                                if (Supported < SupportedS)
+                                else
+                                if (Supported > 0)
                                     HA *= (int)(-1 * System.Math.Pow(2, Supported));
                             }
                         }
@@ -1235,12 +1235,11 @@ namespace RefrigtzW
 
                                     }//);
                                 }//);
-                                if (SupportedS > Supported)
+                                if (SupportedS > 0 && Supported == 0)
                                     HA *= (int)System.Math.Pow(2, SupportedS);
-
-                                if (Supported < SupportedS)
+                                else
+                                 if (Supported > 0)
                                     HA *= (int)(-1 * System.Math.Pow(2, Supported));
-
                             }
                         }
                     }
@@ -1432,10 +1431,10 @@ namespace RefrigtzW
 
                                             }//);
                                         }//);
-                                        if (SupportedS < Supported)
+                                        if (SupportedS > 0 && Supported == 0)
                                             HA *= (int)System.Math.Pow(2, SupportedS);
-
-                                        if (Supported > SupportedS)
+                                        else
+                                              if (Supported > 0)
                                             HA *= (int)(-1 * System.Math.Pow(2, Supported));
                                     }
                                     else
@@ -1552,10 +1551,10 @@ namespace RefrigtzW
 
                                                         }//);
                                                     }//);
-                                                    if (SupportedS < Supported)
+                                                    if (SupportedS > 0 && Supported == 0)
                                                         HA *= (int)System.Math.Pow(2, SupportedS);
-
-                                                    if (Supported > SupportedS)
+                                                    else
+                                               if (Supported > 0)
                                                         HA *= (int)(-1 * System.Math.Pow(2, Supported));
                                                 }
                                                 else
@@ -2816,7 +2815,7 @@ namespace RefrigtzW
         ///Identification of Equality
         //Heuristic of Supportation.
         int HeuristicSelfSupported(int[,] Tab, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
-          )
+         )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -2959,11 +2958,11 @@ namespace RefrigtzW
                                 Object O1 = new Object();
                                 lock (O1)
                                 {
-                                    if (Supported > SupportedE)
+                                    if (Supported > 0 && SupportedE == 0)
                                         //When is Not Supported multyply 100.
                                         HA *= (int)(System.Math.Pow(2, Supported));
                                     else
-                                        if (SupportedE > Supported)
+                                        if (SupportedE > 0)
                                         //When is Supported Multyply -100.
                                         HA *= (int)(-1 * System.Math.Pow(2, SupportedE));
                                 }
@@ -3097,11 +3096,11 @@ namespace RefrigtzW
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                if (Supported > SupportedE)
+                                                if (Supported > 0 && SupportedE == 0)
                                                     //When is Not Supported multyply 100.
                                                     HA *= (int)(System.Math.Pow(2, Supported));
                                                 else
-                                    if (SupportedE > Supported)
+                                                  if (SupportedE > 0)
                                                     //When is Supported Multyply -100.
                                                     HA *= (int)(-1 * System.Math.Pow(2, SupportedE));
                                             }
@@ -3267,13 +3266,13 @@ namespace RefrigtzW
                                 Object O1 = new Object();
                                 lock (O1)
                                 {
-                                    if (SupportedE > Supported)
+                                    if (SupportedE > 0 && Supported == 0)
                                         //When is Not Supported multyply 100.
-                                        HA *= (int)System.Math.Pow(2, Supported);
+                                        HA *= (int)System.Math.Pow(2, SupportedE);
                                     else
-                                       if (SupportedE < Supported)
+                                       if (Supported > 0)
                                         //When is Supported Multyply -100.
-                                        HA *= (int)(-1 * System.Math.Pow(2, SupportedE));
+                                        HA *= (int)(-1 * System.Math.Pow(2, Supported));
                                 }
 
                             }
@@ -3405,13 +3404,13 @@ namespace RefrigtzW
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                if (SupportedE > Supported)
+                                                if (SupportedE > 0 && Supported == 0)
                                                     //When is Not Supported multyply 100.
-                                                    HA *= (int)System.Math.Pow(2, Supported);
+                                                    HA *= (int)System.Math.Pow(2, SupportedE);
                                                 else
-                                                    if (SupportedE < Supported)
+                                                      if (Supported > 0)
                                                     //When is Supported Multyply -100.
-                                                    HA *= (int)(-1 * System.Math.Pow(2, SupportedE));
+                                                    HA *= (int)(-1 * System.Math.Pow(2, Supported));
                                             }
 
                                         }
@@ -3430,6 +3429,8 @@ namespace RefrigtzW
                 return HA * 1;
             }
         }        ///Identification of Equality
+ 
+        ///Identification of Equality
         public static bool TableEqual(int[,] Tab1, int[,] Tab2)
         {
             //long Time = TimeElapced.TimeNow();
@@ -6459,12 +6460,13 @@ namespace RefrigtzW
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Supported > Attacked)
+                                if (Supported > 0 && Attacked == 0)
+
                                     //When is Not Supported multyply 100.
                                     HA *= (int)System.Math.Pow(2, Supported);
-
+                                else
                                 //When is Supported Multyply -100.
-                                if (Attacked > Supported)
+                                if (Attacked > 0)
                                     //When is Not Supported multyply 100.
                                     HA *= (int)(-(1 * System.Math.Pow(2, Attacked)));
 
@@ -6544,7 +6546,7 @@ namespace RefrigtzW
                                         bool A = new bool();
                                         bool B = new bool();
                                         A = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
-                                        B = Attack(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1);
+                                        B = Attack(CloneATable(Table), g, h, RowS, ColS, aaa, Order * -1);
                                         //When Enemy is Supported.
                                         if (B)
                                         {
@@ -6564,12 +6566,12 @@ namespace RefrigtzW
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Supported > Attacked)
+                                if (Supported > 0 && Attacked == 0)
                                     //When is Not Supported multyply 100.
                                     HA *= (int)System.Math.Pow(2, Supported);
-
-                                //When is Supported Multyply -100.
-                                if (Attacked > Supported)
+                                else
+                              //When is Supported Multyply -100.
+                              if (Attacked > 0)
                                     //When is Not Supported multyply 100.
                                     HA *= (int)(-(1 * System.Math.Pow(2, Attacked)));
 
@@ -6692,12 +6694,12 @@ namespace RefrigtzW
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Attacked > Supported)
+                                if (Attacked > 0 && Supported == 0)
                                     //When is Not Supported multyply 100.
-                                    HA *= (int)System.Math.Pow(2, Supported);
-
+                                    HA *= (int)System.Math.Pow(2, Attacked);
+                                else
                                 //When is Supported Multyply -100.
-                                if (Supported > Attacked)
+                                if (Supported > 0)
 
                                     //When is Not Supported multyply 100.
                                     HA *= (int)(-(1 * System.Math.Pow(2, Attacked)));
@@ -6778,7 +6780,7 @@ namespace RefrigtzW
                                         bool A = new bool();
                                         bool B = new bool();
                                         A = Support(CloneATable(Table), g, h, RowS, ColS, a, Order);
-                                        B = Attack(CloneATable(Table), g, h, RowD, ColD, aaa, Order * -1);
+                                        B = Attack(CloneATable(Table), g, h, RowS, ColS, aaa, Order * -1);
                                         //When Enemy is Supported.
                                         if (B)
                                         {
@@ -6798,12 +6800,12 @@ namespace RefrigtzW
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Attacked > Supported)
+                                if (Attacked > 0 && Supported == 0)
                                     //When is Not Supported multyply 100.
-                                    HA *= (int)System.Math.Pow(2, Supported);
-
-                                //When is Supported Multyply -100.
-                                if (Supported > Attacked)
+                                    HA *= (int)System.Math.Pow(2, Attacked);
+                                else
+                                  //When is Supported Multyply -100.
+                                  if (Supported > 0)
 
                                     //When is Not Supported multyply 100.
                                     HA *= (int)(-(1 * System.Math.Pow(2, Attacked)));
