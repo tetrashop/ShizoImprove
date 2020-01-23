@@ -605,8 +605,10 @@ namespace Chess
 			for(i=0;i<8;i++)
 				for(j=0;j<8;j++)
 				{
-					m=b.getInfo(i,j);
-					switch(m)
+                    if (i == r && j == s)
+                        continue;
+                    m = b.getInfo(i,j);
+                 	switch(m)
 					{
 						case 0:
 							break;
@@ -664,7 +666,7 @@ namespace Chess
 							{
 								king.x=i;
 								king.y=j;
-								if(queen.move(b,r,s)==1)
+								if(king.move(b,r,s)==1)
 								{
 									return 1;
 								}

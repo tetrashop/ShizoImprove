@@ -1372,14 +1372,14 @@ else
                             if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                             {
                                 Order = 1;
-                                Sign = -1 * AllDraw.SignAttack;
+                                Sign = 1 * AllDraw.SignAttack;
                                 ChessRules.CurrentOrder = 1;
                                 a = Color.Gray;
                             }
                             else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                             {
                                 Order = -1;
-                                Sign = -1 * AllDraw.SignAttack;
+                                Sign = 1 * AllDraw.SignAttack;
                                 ChessRules.CurrentOrder = -1;
                                 a = Color.Brown;
                             }
@@ -1493,14 +1493,14 @@ else
                                         if (Table[RowD, ColD] > 0 && DummyOrder == -1 && Table[RowS, ColS] < 0)
                                         {
                                             Order = 1;
-                                            Sign = -1 * AllDraw.SignAttack;
+                                            Sign = 1 * AllDraw.SignAttack;
                                             ChessRules.CurrentOrder = 1;
                                             a = Color.Gray;
                                         }
                                         else if (Table[RowD, ColD] < 0 && DummyOrder == 1 && Table[RowS, ColS] > 0)
                                         {
                                             Order = -1;
-                                            Sign = -1 * AllDraw.SignAttack;
+                                            Sign = 1 * AllDraw.SignAttack;
                                             ChessRules.CurrentOrder = -1;
                                             a = Color.Brown;
                                         }
