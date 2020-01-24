@@ -6242,48 +6242,48 @@ namespace RefrigtzW
                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
                                    {
                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                           Heuristic[0] += RationalPenalty;
+                                           Heuristic[0] += (RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
                                    }
                                }
-                               if (Heuristic[1] == 0 && Heuristic[0] == 0)
+                               if (Heuristic[1] == 0)
                                {
                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
                                    {
                                        if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                           Heuristic[1] += RationalRegard;
+                                           Heuristic[1] += (RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
                                    }
                                }
-                               if (Heuristic[2] == 0 && Heuristic[0] == 0)
+                               if (Heuristic[2] == 0)
                                {
                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
                                    {
                                        if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                           Heuristic[2] += RationalPenalty;
+                                           Heuristic[2] += (RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
                                    }
                                }
 
-                               if (Heuristic[3] == 0 && Heuristic[0] == 0)
+                               if (Heuristic[3] == 0)
                                {
                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
                                    {
                                        if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                           Heuristic[3] += RationalRegard;
+                                           Heuristic[3] += (RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
                                    }
                                }
-                               if (Heuristic[4] == 0 && Heuristic[0] == 0)
+                               if (Heuristic[4] == 0)
                                {
                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
                                    {
                                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                           Heuristic[4] += RationalRegard;
+                                           Heuristic[4] += (RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
                                    }
                                }
-                               if (Heuristic[5] == 0 && Heuristic[0] == 0)
+                               if (Heuristic[5] == 0)
                                {
-                                   if (Permit(Order*-1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                   if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
                                    {
                                        if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                           Heuristic[5] += RationalPenalty;
+                                           Heuristic[5] += (RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
                                    }
                                }
 
@@ -6523,6 +6523,7 @@ namespace RefrigtzW
 
             }
         }
+
         ///Heuristic of Movments.
         public int HeuristicMovment(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
@@ -11574,6 +11575,16 @@ namespace RefrigtzW
                 return HA;
             }
         }
+        bool SubOfHeuristicAllIsPositive(int[] Heuristic)
+        {
+            bool Is = true;
+            if (Heuristic[0] + Heuristic[1] + Heuristic[2] + Heuristic[3] + Heuristic[4] + Heuristic[5] > 0)
+                Is = true;
+            else
+                Is = false;
+            return Is;
+        
+        }
         public int[] CalculateHeuristicsParallel(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
 )
         {
@@ -11596,18 +11607,25 @@ namespace RefrigtzW
                      int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                      Huriistic = HeuristicAll(Before, Killed, TableSS, color, Order);
                  }
-             }
-             , () =>
-             {
+             }));
+                output.Wait();
+
+                var output1 = Task.Factory.StartNew(() =>
+                Parallel.Invoke(() =>
+                {                   
+             
                  Object O = new Object();
                  lock (O)
                  {
-                     if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                         return;
-                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                     int[,] TableSS = CloneATable(TableS);
-                     HuriisticRemain[0] = HeuristicCheckAndCheckMate(RoS, CoS, RoD, CoD, TableSS, color//, ref HeuristicObjectDangourCheckMateValue
-                         );
+                        if (SubOfHeuristicAllIsPositive(Huriistic))
+                        {
+                            if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                             return;
+                         int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                         int[,] TableSS = CloneATable(TableS);
+                         HuriisticRemain[0] = HeuristicCheckAndCheckMate(RoS, CoS, RoD, CoD, TableSS, color//, ref HeuristicObjectDangourCheckMateValue
+                             );
+                     }
                  }
              }
              , () =>
@@ -11615,7 +11633,7 @@ namespace RefrigtzW
                  Object O = new Object();
                  lock (O)
                  {
-                     if (Huriistic[0] == 0)
+                     if (SubOfHeuristicAllIsPositive(Huriistic))
                      {
                          if (!Scop(RowS, ColS, RowD, ColD, Kind))
                              return;
@@ -11657,7 +11675,7 @@ namespace RefrigtzW
                  Object O = new Object();
                  lock (O)
                  {
-                     if (Huriistic[0] == 0)
+                     if (SubOfHeuristicAllIsPositive(Huriistic))
                      {
                          if (!Scop(RowS, ColS, RowD, ColD, Kind))
                              return;
@@ -11671,7 +11689,7 @@ namespace RefrigtzW
                  Object O = new Object();
                  lock (O)
                  {
-                     if (Huriistic[0] == 0)
+                     if (SubOfHeuristicAllIsPositive(Huriistic))
                      {
                          if (!Scop(RowS, ColS, RowD, ColD, Kind))
                              return;
@@ -11687,7 +11705,7 @@ namespace RefrigtzW
                  }
              }
              ));
-                output.Wait();
+                output1.Wait();
                 //Central control befor attack
                 bool A = (Huriistic[1] > 0);
                 bool B = (HuriisticRemain[4] > 0);
