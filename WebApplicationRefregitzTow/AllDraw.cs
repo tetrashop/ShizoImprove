@@ -10411,7 +10411,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (SolderesOnTable[i].SoldierThinking[k].AStarGreedy.Count > j)
+                            if (SolderesOnTable[i].SoldierThinking[k].AStarGreedy.Count > j&& SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j]!=null)
                                 SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -10569,7 +10569,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j)
+                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]!=null)
                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(2, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -10693,7 +10693,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j)
+                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j&& HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]!=null)
                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(3, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -10811,7 +10811,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j)
+                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j&& CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]!=null)
                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(4, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -10926,7 +10926,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j)
+                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]!=null)
                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(5, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -11036,7 +11036,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j)
+                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j&& KingOnTable[i].KingThinking[0].AStarGreedy[j]!=null)
                                 KingOnTable[i].KingThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(6, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
