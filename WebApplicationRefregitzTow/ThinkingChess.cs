@@ -6236,57 +6236,57 @@ namespace RefrigtzW
                            Object OO = new Object();
                            lock (OO)
                            {
-                               if (Heuristic[0] == 0)
+                               //if (Heuristic[0] == 0)
                                {
 
                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
                                    {
                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                           Heuristic[0] += (RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
+                                           Heuristic[0] += RationalPenalty;//(RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
                                    }
                                }
-                               if (Heuristic[2] == 0)
+                               //if (Heuristic[2] == 0)
                                {
                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
                                    {
                                        if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                           Heuristic[2] += (RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
+                                           Heuristic[2] += RationalPenalty;//(RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
                                    }
                                }
-                               if (Heuristic[5] == 0)
-                               {
-                                   if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
-                                   {
-                                       if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                           Heuristic[5] += (RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
-                                   }
-                               }
-                               if (Heuristic[1] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
+                               /* //if (Heuristic[5] == 0)
+                                {
+                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                    {
+                                        if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                            Heuristic[5] += RationalPenalty;//(RationalPenalty * (int)Math.Abs(Table[RowD, ColD]));
+                                    }
+                                }*/
+                               //if (Heuristic[1] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
                                {
                                    {
                                        if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
                                        {
                                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                               Heuristic[1] += (RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
+                                               Heuristic[1] += RationalRegard;//(RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
                                        }
                                    }
                                }
-                               if (Heuristic[3] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
+                               //if (Heuristic[3] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
                                {
                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
                                    {
                                        if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                           Heuristic[3] += (RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
+                                           Heuristic[3] += RationalRegard;//(RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
                                    }
                                }
-                               if (Heuristic[4] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
-                               {
-                                   if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
-                                   {
-                                       if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                           Heuristic[4] += (RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
-                                   }
-                               }
+                               /*  //if (Heuristic[4] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
+                                 {
+                                     if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
+                                     {
+                                         if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                             Heuristic[4] += RationalRegard;//(RationalRegard * (7 - (int)Math.Abs(Table[RowS, ColS])));
+                                     }
+                                 }*/
 
 
                            }
@@ -6525,7 +6525,6 @@ namespace RefrigtzW
 
             }
         }
-
         ///Heuristic of Movments.
         public int HeuristicMovment(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
@@ -11619,7 +11618,7 @@ namespace RefrigtzW
                  Object O = new Object();
                  lock (O)
                  {
-                        if (SubOfHeuristicAllIsPositive(Huriistic))
+                        //if (SubOfHeuristicAllIsPositive(Huriistic))
                         {
                             if (!Scop(RowS, ColS, RowD, ColD, Kind))
                              return;
@@ -11635,7 +11634,7 @@ namespace RefrigtzW
                  Object O = new Object();
                  lock (O)
                  {
-                     if (SubOfHeuristicAllIsPositive(Huriistic))
+                     //if (SubOfHeuristicAllIsPositive(Huriistic))
                      {
                          if (!Scop(RowS, ColS, RowD, ColD, Kind))
                              return;
@@ -11677,7 +11676,7 @@ namespace RefrigtzW
                  Object O = new Object();
                  lock (O)
                  {
-                     if (SubOfHeuristicAllIsPositive(Huriistic))
+                     //if (SubOfHeuristicAllIsPositive(Huriistic))
                      {
                          if (!Scop(RowS, ColS, RowD, ColD, Kind))
                              return;
@@ -11691,7 +11690,7 @@ namespace RefrigtzW
                  Object O = new Object();
                  lock (O)
                  {
-                     if (SubOfHeuristicAllIsPositive(Huriistic))
+                     //if (SubOfHeuristicAllIsPositive(Huriistic))
                      {
                          if (!Scop(RowS, ColS, RowD, ColD, Kind))
                              return;
