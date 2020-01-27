@@ -14131,10 +14131,10 @@ namespace QuantumRefrigiz
 
 
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][0] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][2] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][5] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14146,10 +14146,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14173,10 +14173,10 @@ namespace QuantumRefrigiz
 
 
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][0] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][1] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][2] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][3] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][4] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][5] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][6] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.SolderesOnTable[i].SoldierThinkingQuantum[0].HeuristicListSolder[j][7] += SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14188,10 +14188,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     SolderesOnTable[ii].SoldierThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14216,10 +14216,10 @@ namespace QuantumRefrigiz
                                 continue;
 
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][2] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][5] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14232,10 +14232,10 @@ namespace QuantumRefrigiz
 
                     }
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14259,10 +14259,10 @@ namespace QuantumRefrigiz
 
 
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][0] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][1] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][2] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][3] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][4] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][5] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][6] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.ElephantOnTable[i].ElefantThinkingQuantum[0].HeuristicListElefant[j][7] += ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14275,10 +14275,10 @@ namespace QuantumRefrigiz
 
                     }
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     ElephantOnTable[ii].ElefantThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14303,10 +14303,10 @@ namespace QuantumRefrigiz
                                 continue;
 
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][5] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14318,10 +14318,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14344,10 +14344,10 @@ namespace QuantumRefrigiz
                                 continue;
 
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][0] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][1] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][2] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][3] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][4] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][5] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][6] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.HoursesOnTable[i].HourseThinkingQuantum[0].HeuristicListHourse[j][7] += HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14359,10 +14359,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     HoursesOnTable[ii].HourseThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14387,10 +14387,10 @@ namespace QuantumRefrigiz
                                 continue;
 
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][2] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][5] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14402,10 +14402,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14428,10 +14428,10 @@ namespace QuantumRefrigiz
 
 
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][0] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][1] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][2] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][3] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][4] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][5] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][6] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.CastlesOnTable[i].CastleThinkingQuantum[0].HeuristicListCastle[j][7] += CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14443,10 +14443,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     CastlesOnTable[ii].CastleThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14471,10 +14471,10 @@ namespace QuantumRefrigiz
                                 continue;
 
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][2] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][5] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14487,10 +14487,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14513,10 +14513,10 @@ namespace QuantumRefrigiz
 
 
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][0] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][1] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][2] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][3] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][4] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][5] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][6] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.MinisterOnTable[i].MinisterThinkingQuantum[0].HeuristicListMinister[j][7] += MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14528,10 +14528,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     MinisterOnTable[ii].MinisterThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14556,10 +14556,10 @@ namespace QuantumRefrigiz
                                 continue;
 
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][0] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][1] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][1] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][2] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][3] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][4] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][3] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][4] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][5] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][6] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][7] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14572,10 +14572,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup = 0;
@@ -14599,10 +14599,10 @@ namespace QuantumRefrigiz
 
 
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][0] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicAttackValueSup;
-                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][1] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicMovementValueSup;
+                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][1] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedMovementValueSup;
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][2] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicSelfSupportedValueSup;
-                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][3] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup;
-                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][4] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKillerValueSup;
+                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][3] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedMovementValueSup;
+                            this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][4] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedSupportSup;
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][5] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedAttackValueSup;
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][6] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicDistributionValueSup;
                             this.KingOnTable[i].KingThinkingQuantum[0].HeuristicListKing[j][7] += KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup;
@@ -14615,10 +14615,10 @@ namespace QuantumRefrigiz
                         }
                     }
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicAttackValueSup = 0;
-                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicMovementValueSup = 0;
+                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicSelfSupportedValueSup = 0;
-                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicObjectDangourCheckMateValueSup = 0;
-                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicKillerValueSup = 0;
+                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedMovementValueSup = 0;
+                    KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedSupportSup = 0;
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicReducedAttackValueSup = 0;
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicDistributionValueSup = 0;
                     KingOnTable[ii].KingThinkingQuantum[0].HeuristicKingSafeSup = 0;
