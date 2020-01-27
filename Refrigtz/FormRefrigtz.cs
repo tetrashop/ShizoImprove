@@ -5150,7 +5150,6 @@ namespace Refrigtz
                         else
                         {
                             FOUND = false;
-                            RefrigtzDLL.AllDraw THIS = null;
                             Draw = y.t;
                             Thread arr = new Thread(new ThreadStart(SetDrawFound));
                             arr.Start();
@@ -5173,7 +5172,6 @@ namespace Refrigtz
                         else
                         {
                             FOUND = false;
-                            QuantumRefrigiz.AllDraw THIS = null;
                             DrawQ = y.tt;
                             Thread arr = new Thread(new ThreadStart(SetDrawFound));
                             arr.Start();
@@ -15408,9 +15406,7 @@ namespace Refrigtz
                 OpBeforeThinking(ref a, ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
                 //FOUND = false;
 
-                RefrigtzDLL.AllDraw THIS = null;
-                QuantumRefrigiz.AllDraw THISQ = null;
-
+              
 
                 var array = Task.Factory.StartNew(() => Initiate(a));
                 array.Wait();

@@ -83,6 +83,13 @@ namespace RefrigtzW
     [Serializable]
     public class ThinkingChess
     {
+        List<int[]> HeuristicAllSupport = new List<int[]>();
+        List<int[]> HeuristicAllReducedSupport = new List<int[]>();
+        List<int[]> HeuristicAllAttacked = new List<int[]>();
+        List<int[]> HeuristicAllReducedAttacked = new List<int[]>();
+        List<int[]> HeuristicAllMove = new List<int[]>();
+        List<int[]> HeuristicAllReducedMove = new List<int[]>();
+    
         public static int Colleralation = int.MinValue;
         public static int DeColleralation = int.MinValue;
         public static int[,] TableInitiation ={
@@ -4853,7 +4860,7 @@ namespace RefrigtzW
                 {
                     if (Rowk == 7)
                     {
-                        if (Table[Rowk - 1, ColK] == ElepahantGrayObj)
+                        if (Table[Rowk - 1, ColK] == ElephantBrownObj)
                         {
                             if (Table[Rowk - 2, ColK] == CastleBrownObj)
                             {
@@ -4939,7 +4946,6 @@ namespace RefrigtzW
                 int HA = 0;
                 if (Order == 1)
                 {
-                    int RowK = -1, ColK = -1;
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowD, ColD);
             
                     int[,] Tab = CloneATable(Table);
@@ -4955,7 +4961,6 @@ namespace RefrigtzW
                 }
                 else
                 {
-                    int RowK = -1, ColK = -1;
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
       
                     int[,] Tab = CloneATable(Table);
@@ -5098,7 +5103,6 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                int NIs = 0;
                 for (int k = 0; k < 8; k++)
                 {
                     for (int p = 0; p < 8; p++)
@@ -6524,6 +6528,177 @@ namespace RefrigtzW
                               return Heuristic;
                           }
                    */
+
+
+            }
+        }
+        public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object O = new Object();
+            lock (O)
+            {
+                int[] Exchange = new int[6];
+
+                int DumOrder = Order;
+                int DummyOrder = Order;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
+                ///When AStarGreedy Exchange is Not Assigned.
+                Object O1 = new Object();
+                lock (O1)
+                {
+
+                    Parallel.For(0, 8, RowS =>
+                    {
+                        Parallel.For(0, 8, ColS =>
+                        {
+                            Parallel.For(0, 8, RowD =>
+                            {
+                                Parallel.For(0, 8, ColD =>
+                                {
+
+
+                                    var output = Task.Factory.StartNew(() =>
+                                    {
+                                        Parallel.Invoke(() =>
+                                        {
+                                            Object OO = new Object();
+                                            lock (OO)
+                                            {
+                                                if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                                {
+                                                    if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                    {
+                                                        Object OOO = new Object();
+                                                        lock (OOO)
+                                                        {
+                                                            int[] A = new int[4];
+                                                            A[0] = RowD;
+                                                            A[1] = ColD;
+                                                            A[2] = RowS;
+                                                            A[3] = ColS;
+                                                            HeuristicAllReducedAttacked.Add(A);
+                                                            Exchange[0]++;
+                                                        }
+                                                    }
+                                                }
+
+                                                if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                                {
+                                                    if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                    {
+                                                        Object OOO = new Object();
+                                                        lock (OOO)
+                                                        {
+                                                            int[] A = new int[4];
+                                                            A[0] = RowD;
+                                                            A[1] = ColD;
+                                                            A[2] = RowS;
+                                                            A[3] = ColS;
+                                                            HeuristicAllReducedSupport.Add(A);
+                                                            Exchange[2]++;
+                                                        }
+                                                    }
+                                                }
+
+                                                if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                                {
+                                                    if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                    {
+                                                        Object OOO = new Object();
+                                                        lock (OOO)
+                                                        {
+                                                            int[] A = new int[4];
+                                                            A[0] = RowD;
+                                                            A[1] = ColD;
+                                                            A[2] = RowS;
+                                                            A[3] = ColS;
+                                                            HeuristicAllReducedMove.Add(A);
+                                                            Exchange[5]++;
+                                                        }
+
+                                                    }
+                                                }
+
+
+                                                if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
+                                                {
+                                                    if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                    {
+                                                        Object OOO = new Object();
+                                                        lock (OOO)
+                                                        {
+                                                            int[] A = new int[4];
+                                                            A[0] = RowS;
+                                                            A[1] = ColS;
+                                                            A[2] = RowD;
+                                                            A[3] = ColD;
+                                                            HeuristicAllAttacked.Add(A);
+                                                            Exchange[1]++;
+                                                        }
+                                                    }
+                                                }
+
+
+                                                if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                                {
+                                                    if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                    {
+                                                        Object OOO = new Object();
+                                                        lock (OOO)
+                                                        {
+                                                            int[] A = new int[4];
+                                                            A[0] = RowS;
+                                                            A[1] = ColS;
+                                                            A[2] = RowD;
+                                                            A[3] = ColD;
+                                                            HeuristicAllSupport.Add(A);
+                                                            Exchange[3]++;
+                                                        }
+                                                    }
+                                                }
+                                                if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
+                                                {
+                                                    if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                    {
+                                                        Object OOO = new Object();
+                                                        lock (OOO)
+                                                        {
+                                                            int[] A = new int[4];
+                                                            A[0] = RowS;
+                                                            A[1] = ColS;
+                                                            A[2] = RowD;
+                                                            A[3] = ColD;
+                                                            HeuristicAllMove.Add(A);
+                                                            Exchange[4]++;
+                                                        }
+                                                    }
+                                                }
+
+
+                                            }
+                                        });
+                                    });
+                                    output.Wait();
+                                });
+                            });
+                        });
+                    });
+                }
+
+
+
+
+
+
+                Order = DummyOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
+                Order = DumOrder;
+                //Initiate to Begin Call Orders.
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ExchangeAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return Exchange;
+
 
 
             }
@@ -13472,6 +13647,7 @@ namespace RefrigtzW
             }
             catch (Exception t)
             {
+                Log(t);
                 ThinkingBegin = false;
                 ThinkingFinished = true;
                 ThinkingAtRun = false;

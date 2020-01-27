@@ -1142,6 +1142,7 @@ namespace RefrigtzW
                 }
                 catch (Exception t)
                 {
+                    Log(t);
                     bookConn.Close();
                     oleDbCmd.Dispose();
                     bookConn.Dispose();

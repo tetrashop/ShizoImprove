@@ -30,10 +30,10 @@ namespace GalleryStudio
         public bool ArrangmentsT = false;
         string SAllDraw = "";
         public int Kind = 0;
-        static GalleryStudio.RefregizMemmory Node;
+        //static GalleryStudio.RefregizMemmory Node;
         public RefrigtzDLL.AllDraw Current = null;
         public QuantumRefrigiz.AllDraw CurrentQ = null;
-        bool NewListOfNextBegins = true;
+        //bool NewListOfNextBegins = true;
 
 
         
