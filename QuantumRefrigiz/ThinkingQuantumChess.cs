@@ -6563,6 +6563,7 @@ namespace QuantumRefrigiz
             lock (O)
             {
                 int[] Exchange = new int[6];
+                int[] ExchangeSeed = new int[3];
 
                 int DumOrder = Order;
                 int DummyOrder = Order;
@@ -6710,8 +6711,25 @@ namespace QuantumRefrigiz
                     });
                 }
 
+                int A = IsSupportLessThanReducedSupport(Exchange[3], Exchange[2]);
+                if (A == 1)
+                    ExchangeSeed[0] = RationalPenalty;
+                else
+                if (A == -1)
+                    ExchangeSeed[0] = RationalRegard;
 
-
+                A = IsAttackLessThanReducedAttack(Exchange[1], Exchange[0]);
+                if (A == 1)
+                    ExchangeSeed[1] = RationalPenalty;
+                else
+             if (A == -1)
+                    ExchangeSeed[1] = RationalRegard;
+                A = IsMoveLessThanReducedMove(Exchange[4], Exchange[5]);
+                if (A == 1)
+                    ExchangeSeed[2] = RationalPenalty;
+                else
+                        if (A == -1)
+                    ExchangeSeed[2] = RationalRegard;
 
 
 
@@ -6720,11 +6738,40 @@ namespace QuantumRefrigiz
                 Order = DumOrder;
                 //Initiate to Begin Call Orders.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ExchangeAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return Exchange;
+                return ExchangeSeed;
 
 
 
             }
+        }
+        int IsSupportLessThanReducedSupport(int Support, int ReducedSupport)
+        {
+            if (Support < ReducedSupport)
+                return 1;
+            else
+                    if (Support > ReducedSupport)
+                return -1;
+            return 0;
+
+        }
+        int IsAttackLessThanReducedAttack(int Attack, int ReducedAttack)
+        {
+            if (Attack < ReducedAttack)
+                return 1;
+            else
+                     if (Attack > ReducedAttack)
+                return -1;
+            return 0;
+        }
+        int IsMoveLessThanReducedMove(int Move, int ReducedMove)
+        {
+            if (Move < ReducedMove)
+                return 1;
+            else
+            if (Move > ReducedMove)
+                return -1;
+            return 0;
+
         }
 
         ///Heuristic of Movments.
