@@ -38,6 +38,13 @@
     </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,9 +101,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ProgramLogo copy.jpg" />
-    <None Include="Resources\imagesIU2UZCZRRun.jpg" />
-    <None Include="Resources\images.jpg" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

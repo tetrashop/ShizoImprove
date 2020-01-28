@@ -16,8 +16,8 @@ namespace RefrigtzDLL
 #pragma warning restore CS0414 // The field 'IsNextEnemyMovementForCheckedMate.Spaces' is assigned but its value is never used
 
         int[,] TableIsNextEnemyMovementForCheckedMate = new int[8, 8];
-        public IsNextEnemyMovementForCheckedMate(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments,int[,] Tab)
-            : base(Order, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments)
+        public IsNextEnemyMovementForCheckedMate(int Order, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments,int[,] Tab)
+            : base(Order, MovementsAStarGreedyHeuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             for (var i = 0; i < 8; i++)
@@ -25,8 +25,8 @@ namespace RefrigtzDLL
                     TableIsNextEnemyMovementForCheckedMate[i, j] = Tab[i, j];
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsNextEnemyMovementForCheckedMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        public IsNextEnemyMovementForCheckedMate(int Order, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi,int[,] Tab)
-            : base(Order, MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, THi)
+        public IsNextEnemyMovementForCheckedMate(int Order, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi,int[,] Tab)
+            : base(Order, MovementsAStarGreedyHeuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, THi)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             for (var i = 0; i < 8; i++)
@@ -50,7 +50,7 @@ namespace RefrigtzDLL
             int A7 = AllDraw.CastleMovments;
             int A8 = AllDraw.ConvertedKind;
             bool A9 = AllDraw.ConvertWait;
-            int A10 = AllDraw.CurrentHuristic;
+            int A10 = AllDraw.CurrentHeuristic;
             int A11 = AllDraw.DepthIterative;
             bool A12 = AllDraw.DrawTable;
             bool A13 = AllDraw.DynamicAStarGreedytPrograming;
@@ -65,9 +65,9 @@ namespace RefrigtzDLL
             int A22 = AllDraw.LastColumn;
             int A23 = AllDraw.LastRow;
             int A24 = AllDraw.Less;
-            int A25 = AllDraw.LoopHuristicIndex;
+            int A25 = AllDraw.LoopHeuristicIndex;
             int A26 = AllDraw.MaxAStarGreedy;
-            int A27 = AllDraw.MaxAStarGreedyHuristicProgress;
+            int A27 = AllDraw.MaxAStarGreedyHeuristicProgress;
             int A28 = AllDraw.MinisterMovments;
             int A29 = AllDraw.MinThinkingTreeDepth;
             int A30 = AllDraw.MouseClick;
@@ -135,7 +135,7 @@ namespace RefrigtzDLL
             bool B7 = ThinkingChess.KingMaovableGray;
             bool B8 = ThinkingChess.LearningVarsCheckedMateOccured;
             bool B9 = ThinkingChess.LearningVarsCheckedMateOccuredOneCheckedMate;
-            int B10 = ThinkingChess.MaxHuristicx;
+            int B10 = ThinkingChess.MaxHeuristicx;
             bool B11 = ThinkingChess.NotSolvedKingDanger;
             int B12 = ThinkingChess.NumbersOfAllNode;
             bool B13 = ThinkingChess.ThinkingRun;
@@ -160,7 +160,7 @@ namespace RefrigtzDLL
             AllDraw.CastleMovments = A7;
              AllDraw.ConvertedKind= A8 ;
              AllDraw.ConvertWait = A9 ;
-             AllDraw.CurrentHuristic= A10 ;
+             AllDraw.CurrentHeuristic= A10 ;
              AllDraw.DepthIterative = A11 ;
              AllDraw.DrawTable = A12 ;
              AllDraw.DynamicAStarGreedytPrograming =A13 ;
@@ -175,12 +175,12 @@ namespace RefrigtzDLL
              AllDraw.LastColumn = A22;
              AllDraw.LastRow = A23;
              AllDraw.Less = A24;
-             AllDraw.LoopHuristicIndex = A25;
+             AllDraw.LoopHeuristicIndex = A25;
              AllDraw.MaxAStarGreedy = A26;
-             AllDraw.MaxAStarGreedyHuristicProgress = A27;
+             AllDraw.MaxAStarGreedyHeuristicProgress = A27;//AllDraw.MouseClick = A30;
              AllDraw.MinisterMovments = A28;
              AllDraw.MinThinkingTreeDepth = A29;
-             AllDraw.MouseClick = A30;
+             //AllDraw.MouseClick = A30;
              AllDraw.MovmentsNumber = A31;
              AllDraw.NextColumn = A32;
              AllDraw.NextRow = A33;
@@ -244,7 +244,7 @@ namespace RefrigtzDLL
              ThinkingChess.KingMaovableGray = B7;
              ThinkingChess.LearningVarsCheckedMateOccured = B8;
              ThinkingChess.LearningVarsCheckedMateOccuredOneCheckedMate = B9;
-             ThinkingChess.MaxHuristicx = B10;
+             ThinkingChess.MaxHeuristicx = B10;
              ThinkingChess.NotSolvedKingDanger =B11;
              ThinkingChess.NumbersOfAllNode = B12;
              ThinkingChess.ThinkingRun = B13;

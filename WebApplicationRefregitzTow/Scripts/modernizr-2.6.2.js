@@ -245,7 +245,7 @@ window.Modernizr = (function( window, document, undefined ) {
     })(),
     /*>>hasevent*/
 
-    // TODO :: Add flag for hasownprop ? didn't last time
+    // TODO :: Add flag for hasownprop ? didn't Last time
 
     // hasOwnProperty shim by kangax needed for Safari 2.0 support
     _hasOwnProperty = ({}).hasOwnProperty, hasOwnProp;
@@ -1092,7 +1092,7 @@ window.Modernizr = (function( window, document, undefined ) {
             parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
 
         p.innerHTML = 'x<style>' + cssText + '</style>';
-        return parent.insertBefore(p.lastChild, parent.firstChild);
+        return parent.insertBefore(p.LastChild, parent.firstChild);
       }
 
       /**

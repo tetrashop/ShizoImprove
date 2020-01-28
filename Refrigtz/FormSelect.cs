@@ -35,56 +35,69 @@ namespace Refrigtz
 
         public void SetCloseVisible()
         {
-            // InvokeRequired required compares the thread ID of the
-            // calling thread to the thread ID of the creating thread.
-            // If these threads are different, it continue;s true.
-            if (this.InvokeRequired)
-            {
-                try
+            Object O = new Object();
+            lock (O)
+            {         // InvokeRequired required compares the thread ID of the
+                      // calling thread to the thread ID of the creating thread.
+                      // If these threads are different, it continue;s true.
+                if (this.InvokeRequired)
                 {
+                    try
+                    {
 
-                    SetCloseVisibleCallback d = new SetCloseVisibleCallback(SetCloseVisible);
-                    this.Invoke(new Action(() => this.Close()));
+                        SetCloseVisibleCallback d = new SetCloseVisibleCallback(SetCloseVisible);
+                        this.Invoke(new Action(() => this.Close()));
+                    }
+                    catch (Exception t) { Log(t); }
                 }
-                catch (Exception t) { Log(t); }
-            }
-            else
-            {
-                try
+                else
                 {
-                    this.Close();
+                    try
+                    {
+                        this.Close();
+                    }
+                    catch (Exception t) { Log(t); }
                 }
-                catch (Exception t) { Log(t); }
             }
-
         }
         private void FormSelect_Load(object sender, EventArgs e)
         {
-            if (File.Exists("_DonotDelete.txt"))
-                RadioButtonBrownOrder.Checked = true;
-            else
-                RadioButtonGrayOrder.Checked = true;
-                
-                    
-            
+            Object O = new Object();
+            lock (O)
+            {
+                if (File.Exists("_DonotDelete.txt"))
+                    RadioButtonBrownOrder.Checked = true;
+                else
+                    RadioButtonGrayOrder.Checked = true;
+
+
+            } 
         }
 
         private void RadioButtonBrownOrder_CheckedChanged(object sender, EventArgs e)
         {
-            if (RadioButtonBrownOrder.Checked)
+            Object O = new Object();
+            lock (O)
             {
-                if (!File.Exists("_DonotDelete.txt"))
-                    File.Create("_DonotDelete.txt");
+                if (RadioButtonBrownOrder.Checked)
+                {
+                    if (!File.Exists("_DonotDelete.txt"))
+                        File.Create("_DonotDelete.txt");
 
+                }
             }
         }
 
         private void RadioButtonGrayOrder_CheckedChanged(object sender, EventArgs e)
         {
-            if (RadioButtonGrayOrder.Checked)
+            Object O = new Object();
+            lock (O)
             {
-                if (File.Exists("_DonotDelete.txt"))
-                    File.Delete("_DonotDelete.txt");
+                if (RadioButtonGrayOrder.Checked)
+                {
+                    if (File.Exists("_DonotDelete.txt"))
+                        File.Delete("_DonotDelete.txt");
+                }
             }
         }
     }

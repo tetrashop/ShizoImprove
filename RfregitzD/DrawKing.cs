@@ -9,7 +9,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawKing
     {
-        
+
         StringBuilder Space = new StringBuilder("&nbsp;");
 #pragma warning disable CS0414 // The field 'DrawKing.Spaces' is assigned but its value is never used
         int Spaces = 0;
@@ -22,20 +22,20 @@ namespace RefrigtzDLL
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        public static Image[] K = new Image[2];
+        
         //Initiate Global Variables.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHeuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHeuristicT = false;
 
         public bool ArrangmentsChanged = false;
-        public static long MaxHuristicxK = -20000000000000000;
+        public static long MaxHeuristicxK = -20000000000000000;
         public float Row, Column;
         public Color color;
         public int[,] Table = null;
@@ -59,36 +59,35 @@ namespace RefrigtzDLL
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
-            K = null;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
-        public int ReturnHuristic()
+        public int ReturnHeuristic()
         {
             int HaveKilled = 0;
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.KingMovments; ii++)
 
-                a += KingThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
+                a += KingThinking[ii].ReturnHeuristic(-1, -1, Order, false, ref HaveKilled);
 
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
-            int a = ReturnHuristic();
-            if (MaxHuristicxK < a)
+            int a = ReturnHeuristic();
+            if (MaxHeuristicxK < a)
             {
                 Object O2 = new Object();
                 lock (O2)
                 {
                     MaxNotFound = false;
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxK)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxK = a;
+                    if (ThinkingChess.MaxHeuristicx < MaxHeuristicxK)
+                        ThinkingChess.MaxHeuristicx = a;
+                    MaxHeuristicxK = a;
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
@@ -99,21 +98,21 @@ namespace RefrigtzDLL
             return false;
         }
         //Constructor 1.
-        /*public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /*public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
             CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+            MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
             BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
+            PredictHeuristicT = PredictHurist;
             OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
+            AStarGreedyHeuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
         }
         */
         //Constructor 2.
-        public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
+        public DrawKing(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -123,13 +122,13 @@ namespace RefrigtzDLL
 
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
                 UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHeuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHeuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
                 //Iniatite Global Variables.
                 Table = new int[8, 8];
@@ -137,7 +136,7 @@ namespace RefrigtzDLL
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.KingMovments; ii++)
-                    KingThinking[ii] = new ThinkingChess(ii,6,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
+                    KingThinking[ii] = new ThinkingChess(ii, 6, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 8, Ord, TB, Cur, 2, 6);
 
                 Row = i;
                 Column = j;
@@ -183,7 +182,7 @@ namespace RefrigtzDLL
             }
 
         }
-      
+
         //Clone a Copy.
         public void Clone(ref DrawKing AA//, ref AllDraw. THIS
             )
@@ -194,12 +193,12 @@ namespace RefrigtzDLL
                 for (var j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Construction Object and Clone a Copy.
-            AA = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.CloneATable(Table), this.Order, false, this.Current);
+            AA = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.CloneATable(Table), this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.KingMovments; i++)
             {
 
-                AA.KingThinking[i] = new ThinkingChess(i,6,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                AA.KingThinking[i] = new ThinkingChess(i, 6, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                 this.KingThinking[i].Clone(ref AA.KingThinking[i]);
 
             }
@@ -217,21 +216,18 @@ namespace RefrigtzDLL
         //Draw an Instatnt King on the Table Method.
         public void DrawKingOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            object balancelockS = new object();
 
-            try
+            lock (balancelockS)
             {
-                object balancelockS = new object();
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
 
-                lock (balancelockS)
+                try
                 {
-                    if (K[0] == null || K[1] == null)
-                    {
-                        K[0] = Image.FromFile(AllDraw.ImagesSubRoot + "KG.png");
-                        K[1] = Image.FromFile(AllDraw.ImagesSubRoot + "KB.png");
-                    }
+
+                    
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Order.
                         if (Order == 1)
@@ -240,7 +236,7 @@ namespace RefrigtzDLL
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Gray King Image On the Table.
-                                g.DrawImage(K[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "KG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
 
                             }
 
@@ -251,19 +247,20 @@ namespace RefrigtzDLL
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt Brown King Image On the Table.
-                                g.DrawImage(K[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "KB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
 
                             }
                         }
                     }
-                }
 
+
+                }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Drawif (KingOnTable==null||KingOnTable[i] == null):" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Drawif (KingOnTable==null||KingOnTable[i] == null):" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

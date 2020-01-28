@@ -18,13 +18,13 @@ namespace RefrigtzW
     public class RefregizMemmory //:AllDraw
     {
         public int iii = 0, jjj = 0;
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHeuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHeuristicT = false;
         public bool ArrangmentsT = false;
         const string SAllDraw = "AllDraw.asd";
         public int Kind = 0;
@@ -51,7 +51,7 @@ namespace RefrigtzW
                 }
            
         }
-        public RefregizMemmory(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//) : base(MovementsAStarGreedyHuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
+        public RefregizMemmory(bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments//) : base(MovementsAStarGreedyHeuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments
             )
         {
             NextS = new List<RefregizMemmory>();
@@ -64,13 +64,13 @@ namespace RefrigtzW
             Object o = new Object();
             lock (o)
             {
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
                 UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHeuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHeuristicT = AStarGreedyHuris;
                 ArrangmentsT = Arrangments;
             }
 
@@ -664,49 +664,49 @@ namespace RefrigtzW
         }
         public RefregizMemmory CloneSphycose(RefregizMemmory t)
         {
-            t = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+            t = new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
             t.iii = iii;
             t.jjj = jjj;
-            t.MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicFoundT;
+            t.MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicFoundT;
             t.IgnoreSelfObjectsT = IgnoreSelfObjectsT;
         t.UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisamT;
         t.BestMovmentsT = BestMovmentsT;
-        t.PredictHuristicT = PredictHuristicT;
+        t.PredictHeuristicT = PredictHeuristicT;
         t.OnlySelfT = OnlySelfT;
-        t.AStarGreedyHuristicT = AStarGreedyHuristicT;
+        t.AStarGreedyHeuristicT = AStarGreedyHeuristicT;
         t.ArrangmentsT = ArrangmentsT;
             t.Kind = Kind;
 
             Current.Clone(t.Current);
             for (int i = 0; i < NextS.Count; i++)
             {
-                t.NextS.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextS.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 NextS[i].CloneSphycose(t.NextS[i]);
             }
 
             for (int i = 0; i < NextE.Count; i++)
             {
-                t.NextE.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextE.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 NextE[i].CloneSphycose(t.NextE[i]);
             }
             for (int i = 0; i < NextH.Count; i++)
             {
-                t.NextH.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextH.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 NextH[i].CloneSphycose(t.NextH[i]);
             }
             for (int i = 0; i < NextC.Count; i++)
             {
-                t.NextC.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextC.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 NextC[i].CloneSphycose(t.NextC[i]);
             }
             for (int i = 0; i < NextM.Count; i++)
             {
-                t.NextM.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextM.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 NextM[i].CloneSphycose(t.NextM[i]);
             }
             for (int i = 0; i < NextK.Count; i++)
             {
-                t.NextK.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextK.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 NextK[i].CloneSphycose(t.NextK[i]);
             }
             t.NewListOfNextBegins = NewListOfNextBegins;
@@ -719,7 +719,7 @@ namespace RefrigtzW
             lock (oo)
             {
 
-                //Current = new RefrigtzW.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+                //Current = new RefrigtzW.AllDraw(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
                 FileStream DummyFileStream = null;
                 
 
@@ -746,7 +746,7 @@ namespace RefrigtzW
             lock (oo)
             {
 
-                //Current = new RefrigtzW.AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+                //Current = new RefrigtzW.AllDraw(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
                 FileStream DummyFileStream = null;
                 
 
@@ -957,7 +957,7 @@ namespace RefrigtzW
                     }
 
                
-                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
+                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT), Order);
                 return Dummy.Current;
                 //return Node.al;
             }
@@ -1100,7 +1100,7 @@ namespace RefrigtzW
                     }
 
                
-                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT), Order);
+                //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT), Order);
                 return Dummy.CurrentQ;
                 //return Node.al;
             }
@@ -1182,7 +1182,7 @@ namespace RefrigtzW
 
 /* public void DeleteObject(RefregizMemmory p)
  {
-     RefregizMemmory t = new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT);
+     RefregizMemmory t = new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
      t = Node;
      if ((t.c) != (p.AllDrawCurrentAccess.RefrigtzW.AllDrawName))
      {
@@ -1213,7 +1213,7 @@ namespace RefrigtzW
          t = t.AllDrawNextAccess;
          Node = t;
      }
-MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT
+MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT
         );
     t = p.AllDrawNodeAccess;
     while (t.AllDrawNextAccess != null)
@@ -1263,7 +1263,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 1;
-                t.NextS.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextS.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 t.Current.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].Clone(t.NextS[j].Current);
             }
             return t.AllDrawNextS(j);
@@ -1273,7 +1273,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 2;
-                t.NextE.Add( new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextE.Add( new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 t.Current.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].Clone(t.NextE[j].Current);
             }
             return t.AllDrawNextE(j);
@@ -1283,7 +1283,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 3;
-                t.NextH.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextH.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 t.Current.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].Clone(t.NextH[j].Current);
             }
             return t.AllDrawNextH(j);
@@ -1293,7 +1293,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 4;
-                t.NextC.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextC.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 t.Current.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].Clone(t.NextC[j].Current);
             }
             return t.AllDrawNextC(j);
@@ -1303,7 +1303,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 5;
-                t.NextM.Add(new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextM.Add(new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 t.Current.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].Clone(t.NextM[j].Current);
             }
             return t.AllDrawNextM(j);
@@ -1313,7 +1313,7 @@ public RefregizMemmory AllDrawNodeAccess
             if (t.Current.KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && j > 0)
             {
                 Kind = 6;
-                t.NextK.Add( new RefregizMemmory(MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsT));
+                t.NextK.Add( new RefregizMemmory(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT));
                 t.Current.KingOnTable[i].KingThinking[0].AStarGreedy[j].Clone(t.NextK[j].Current);
             }
             return t.AllDrawNextK(j);

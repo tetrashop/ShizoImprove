@@ -23,16 +23,21 @@ namespace RefrigtzDLL
         //private readonly object balancelockS = new object();
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
-        public static Image[] S = new Image[2];
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        
+        
+        
+        
+        
+        
+        public bool MovementsAStarGreedyHeuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHeuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static int MaxHuristicxS = int.MinValue;
+        public static int MaxHeuristicxS = int.MinValue;
         public float Row, Column;
         public Color color;
         public ThinkingChess[] SoldierThinking = new ThinkingChess[AllDraw.SodierMovments];
@@ -56,22 +61,21 @@ namespace RefrigtzDLL
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
-            S = null;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool MaxFound(ref bool MaxNotFound)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
-            int a = ReturnHuristic();
-            if (MaxHuristicxS < a)
+            int a = ReturnHeuristic();
+            if (MaxHeuristicxS < a)
             {
                 Object O2 = new Object();
                 lock (O2)
                 {
                     MaxNotFound = false;
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxS)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxS = a;
+                    if (ThinkingChess.MaxHeuristicx < MaxHeuristicxS)
+                        ThinkingChess.MaxHeuristicx = a;
+                    MaxHeuristicxS = a;
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
@@ -81,34 +85,34 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
-        public int ReturnHuristic()
+        public int ReturnHeuristic()
         {
             int HaveKilled = 0;
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                a += SoldierThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
+                a += SoldierThinking[ii].ReturnHeuristic(-1, -1, Order, false,ref HaveKilled);
 
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
         //Constructor 1.
-        /* public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /* public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
          {
              CurrentAStarGredyMax = CurrentAStarGredy;
-             MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+             MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
              IgnoreSelfObjectsT = IgnoreSelfObject;
              UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
              BestMovmentsT = BestMovment;
-             PredictHuristicT = PredictHurist;
+             PredictHeuristicT = PredictHurist;
              OnlySelfT = OnlySel;
-             AStarGreedyHuristicT = AStarGreedyHuris;
+             AStarGreedyHeuristicT = AStarGreedyHuris;
              ArrangmentsChanged = Arrangments;
          }
          */
         //Constructor 2.
-        public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
+        public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             ) :
             base(Arrangments, (int)i, (int)j, a, Tab, Ord, TB, Cur)
         {
@@ -119,13 +123,13 @@ namespace RefrigtzDLL
 
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
                 UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHeuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHeuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variables.  
                 Table = new int[8, 8];
@@ -134,7 +138,7 @@ namespace RefrigtzDLL
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.SodierMovments; ii++)
 
-                    SoldierThinking[ii] = new ThinkingChess(ii,1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
+                    SoldierThinking[ii] = new ThinkingChess(ii,1,CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 4, Ord, TB, Cur, 16, 1);
                 Row = i;
                 Column = j;
                 color = a;
@@ -154,13 +158,13 @@ namespace RefrigtzDLL
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Object and Assignemt of a Clone to Construction of a Copy.
 
-            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
+            AA = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, Tab, this.Order, false, this.Current
                 );
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.SodierMovments; i++)
             {
 
-                AA.SoldierThinking[i] = new ThinkingChess(i,1,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                AA.SoldierThinking[i] = new ThinkingChess(i,1,CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                 this.SoldierThinking[i].Clone(ref AA.SoldierThinking[i]);
 
             }
@@ -214,20 +218,17 @@ namespace RefrigtzDLL
         //Drawing Soldiers On the Table Method..
         public void DrawSoldierOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            try
-            {
-                object balancelockS = new object();
+            object balancelockS = new object();
 
-                lock (balancelockS)
+            lock (balancelockS)
+            {
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
+                try
                 {
-                    if (S[0] == null || S[1] == null)
-                    {
-                        S[0] = Image.FromFile(AllDraw.ImagesSubRoot + "SG.png");
-                        S[1] = Image.FromFile(AllDraw.ImagesSubRoot + "SB.png");
-                    }
+
+  
                     //When Conversion Solders Not Occured.
                     if (!ConvertOperation((int)Row, (int)Column, color, CloneATable(Table), Order, false, Current))
                     {
@@ -243,7 +244,7 @@ namespace RefrigtzDLL
                                 Object O1 = new Object();
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
-                                    g.DrawImage(S[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "SG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
 
                                 }
                             }
@@ -253,7 +254,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw an Instatnt of Brown Soldier File On the Table.
-                                    g.DrawImage(S[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "SB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
 
@@ -270,7 +271,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw of Gray Minsister Image File By an Instant.
-                                    g.DrawImage(DrawMinister.M[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
                             else
@@ -279,7 +280,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Draw a Image File on the Table Form n Instatnt One.
-                                    g.DrawImage(DrawMinister.M[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "MB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
 
@@ -294,7 +295,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Create on the Inststant of Gray Castles Images.
-                                    g.DrawImage(DrawCastle.C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
                             else
@@ -303,7 +304,7 @@ namespace RefrigtzDLL
                                 lock (O1)
                                 {    //Draw an Instant from File of Gray Soldeirs.
                                      //Creat of an Instant of Brown Image Castles.
-                                    g.DrawImage(DrawCastle.C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
 
@@ -318,7 +319,7 @@ namespace RefrigtzDLL
                                 Object O1 = new Object();
                                 lock (O1)
                                 {//Draw an Instatnt of Gray Hourse Image File.
-                                    g.DrawImage(DrawHourse.H[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (int)CellH), CellW, CellH));
                                 }
                             }
                             else
@@ -326,7 +327,7 @@ namespace RefrigtzDLL
                                 Object O1 = new Object();
                                 lock (O1)
                                 {//Creat of an Instatnt Hourse Image File.
-                                    g.DrawImage(DrawHourse.H[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "HB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
 
@@ -341,7 +342,7 @@ namespace RefrigtzDLL
                                 Object O1 = new Object();
                                 lock (O1)
                                 {//Draw an Instatnt Image of Gray Elephant.
-                                    g.DrawImage(DrawElefant.E[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "EG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
                             else
@@ -349,20 +350,21 @@ namespace RefrigtzDLL
                                 Object O1 = new Object();
                                 lock (O1)
                                 {//Draw of Instant Image of Brown Elephant.
-                                    g.DrawImage(DrawElefant.E[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                    g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "EB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                                 }
                             }
 
 
                         }
                     }
+
                 }
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawSoldierOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }

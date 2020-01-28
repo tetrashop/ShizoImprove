@@ -188,7 +188,7 @@
 //==================================================================================================                                                                                    
 //ERROR311421 :The only ERROR is the far disTance between some strings.
 //==================================================================================================                                                                                    
-//ERROR41725312 :far disTance netween some string and over lap of last parantez.
+//ERROR41725312 :far disTance netween some string and over lap of Last parantez.
 //==================================================================================================                                                                                    
 //ERROR415210: It seems will be an error at y value setting.
 //==================================================================================================                                                                                    
@@ -3175,7 +3175,7 @@ namespace Formulas
                                     }
                                     else
                                     {   //t permanently 2. ===                                                                  
-                                        //ERROR41725312 :far disTance netween some string and over lap of last parantez.
+                                        //ERROR41725312 :far disTance netween some string and over lap of Last parantez.
                                         this.CalculatingXAndYAndWhithAndHeight(Current.LeftSideAccess, x - this.XAccessLocation(Current.LeftSideAccess, x), y, 15, 15, false);
                                         this.CalculatingXAndYAndWhithAndHeight(Current.RightSideAccess, x + 10, y, 15, 15, false);
                                     }
@@ -4037,7 +4037,7 @@ namespace Formulas
             Dummy = this.GetAddToTreeNode(Node.RightSideAccess, ref Dummy);
             return Dummy;
         }
-        //System.Threading.Thread XAndY=new System.Threading.Thread(new System.Threading.ThreadStart(this.TransmiteXAndYTraceAtNodes));
+        //Thread XAndY=new Thread(new ThreadStart(this.TransmiteXAndYTraceAtNodes));
         //Call from Equation.
         //ERROR192874984 :InSome Addition of node The Node is not added to current Node.refer to page 139.
         public EquationTrace(Equation THISE, Set SetS)
@@ -5491,7 +5491,7 @@ namespace Formulas
                     this.reciverContractionTreeVaribale.ResivedTaskFunction(Sample, null, x0, 0, null, ref ACT);
                 }
 
-            //The last operation.
+            //The Last operation.
             //ERROR7809678905 : Error on data structure.
             /*if(IsParantes)
               if (this.IsParantez(Sample))

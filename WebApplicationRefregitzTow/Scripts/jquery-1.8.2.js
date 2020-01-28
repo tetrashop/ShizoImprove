@@ -273,7 +273,7 @@ jQuery.fn = jQuery.prototype = {
 		return this.eq( 0 );
 	},
 
-	last: function() {
+	Last: function() {
 		return this.eq( -1 );
 	},
 
@@ -471,7 +471,7 @@ jQuery.extend({
 		}
 
 		// Own properties are enumerated firstly, so to speed up,
-		// if last one is own, then all properties are own.
+		// if Last one is own, then all properties are own.
 
 		var key;
 		for ( key in obj ) {}
@@ -1390,10 +1390,10 @@ jQuery.support = (function() {
 
 	div.appendChild( input );
 	fragment = document.createDocumentFragment();
-	fragment.appendChild( div.lastChild );
+	fragment.appendChild( div.LastChild );
 
 	// WebKit doesn't clone checked state correctly in fragments
-	support.checkClone = fragment.cloneNode( true ).cloneNode( true ).lastChild.checked;
+	support.checkClone = fragment.cloneNode( true ).cloneNode( true ).LastChild.checked;
 
 	// Check if a disconnected CheckBox will retain its checked
 	// value of true after appended to the DOM (IE6/7)
@@ -1903,7 +1903,7 @@ jQuery.extend({
 				queue.unshift( "inprogress" );
 			}
 
-			// clear up the last queue stop function
+			// clear up the Last queue stop function
 			delete hooks.stop;
 			fn.call( elem, next, hooks );
 		}
@@ -3631,14 +3631,14 @@ jQuery.fn.extend({
 			i = 0,
 			toggler = function( event ) {
 				// Figure out which function to execute
-				var lastToggle = ( jQuery._data( this, "lastToggle" + fn.guid ) || 0 ) % i;
-				jQuery._data( this, "lastToggle" + fn.guid, lastToggle + 1 );
+				var LastToggle = ( jQuery._data( this, "LastToggle" + fn.guid ) || 0 ) % i;
+				jQuery._data( this, "LastToggle" + fn.guid, LastToggle + 1 );
 
 				// Make sure that clicks stop
 				event.preventDefault();
 
 				// and execute the function
-				return args[ lastToggle ].apply( this, arguments ) || false;
+				return args[ LastToggle ].apply( this, arguments ) || false;
 			};
 
 		// link all the functions, so any of them can unbind this click handler
@@ -3772,7 +3772,7 @@ var cachedruns,
 	pseudos = ":(" + characterEncoding + ")(?:\\((?:(['\"])((?:\\\\.|[^\\\\])*?)\\2|([^()[\\]]*|(?:(?:" + attributes + ")|[^:]|\\\\.)*|.*))\\)|)",
 
 	// For matchExpr.POS and matchExpr.needsContext
-	pos = ":(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + whitespace +
+	pos = ":(even|odd|eq|gt|lt|nth|first|Last)(?:\\(" + whitespace +
 		"*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)",
 
 	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
@@ -3802,7 +3802,7 @@ var cachedruns,
 		"ATTR": new RegExp( "^" + attributes ),
 		"PSEUDO": new RegExp( "^" + pseudos ),
 		"POS": new RegExp( pos, "i" ),
-		"CHILD": new RegExp( "^:(only|nth|first|last)-child(?:\\(" + whitespace +
+		"CHILD": new RegExp( "^:(only|nth|first|Last)-child(?:\\(" + whitespace +
 			"*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
 			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
 		// For use in libraries implementing .is()
@@ -3841,7 +3841,7 @@ var cachedruns,
 	// Check if attributes should be retrieved by attribute nodes
 	assertAttributes = assert(function( div ) {
 		div.innerHTML = "<select></select>";
-		var type = typeof div.lastChild.getAttribute("multiple");
+		var type = typeof div.LastChild.getAttribute("multiple");
 		// IE8 returns a string for some attributes even when not present
 		return type !== "boolean" && type !== "string";
 	}),
@@ -3855,7 +3855,7 @@ var cachedruns,
 		}
 
 		// Safari 3.2 caches class attributes and doesn't catch changes
-		div.lastChild.className = "e";
+		div.LastChild.className = "e";
 		return div.getElementsByClassName("e").length === 2;
 	}),
 
@@ -4306,14 +4306,14 @@ Expr = Sizzle.selectors = {
 			};
 		},
 
-		"CHILD": function( type, argument, first, last ) {
+		"CHILD": function( type, argument, first, Last ) {
 
 			if ( type === "nth" ) {
 				return function( elem ) {
 					var node, diff,
 						parent = elem.parentNode;
 
-					if ( first === 1 && last === 0 ) {
+					if ( first === 1 && Last === 0 ) {
 						return true;
 					}
 
@@ -4330,7 +4330,7 @@ Expr = Sizzle.selectors = {
 					}
 
 					// Incorporate the offset (or cast to NaN), then check against cycle size
-					diff -= last;
+					diff -= Last;
 					return diff === first || ( diff % first === 0 && diff / first >= 0 );
 				};
 			}
@@ -4354,7 +4354,7 @@ Expr = Sizzle.selectors = {
 						node = elem;
 
 						/* falls through */
-					case "last":
+					case "Last":
 						while ( (node = node.nextSibling) ) {
 							if ( node.nodeType === 1 ) {
 								return false;
@@ -4537,7 +4537,7 @@ Expr = Sizzle.selectors = {
 			return [ 0 ];
 		}),
 
-		"last": createPositionalPseudo(function( matchIndexes, length, argument ) {
+		"Last": createPositionalPseudo(function( matchIndexes, length, argument ) {
 			return [ length - 1 ];
 		}),
 
@@ -4729,7 +4729,7 @@ function tokenize( selector, parseOnly ) {
 		// Filters
 		for ( type in Expr.filter ) {
 			if ( (match = matchExpr[ type ].exec( soFar )) && (!preFilters[ type ] ||
-				// The last two arguments here are (context, xml) for backCompat
+				// The Last two arguments here are (context, xml) for backCompat
 				(match = preFilters[ type ]( match, document, true ))) ) {
 
 				tokens.push( matched = new Token( match.shift() ) );
@@ -5427,7 +5427,7 @@ jQuery.fn.extend({
 		return !!selector && (
 			typeof selector === "string" ?
 				// If this is a positional/relative selector, check membership in the returned set
-				// so $("p:first").is("p:last") won't return true for a doc with two "p".
+				// so $("p:first").is("p:Last") won't return true for a doc with two "p".
 				rneedsContext.test( selector ) ?
 					jQuery( selector, this.context ).index( this[0] ) >= 0 :
 					jQuery.filter( selector, this ).length > 0 :
@@ -5983,7 +5983,7 @@ jQuery.fn.extend({
 			if ( first ) {
 				table = table && jQuery.nodeName( first, "tr" );
 
-				// Use the original fragment for the last item instead of the first because it can end up
+				// Use the original fragment for the Last item instead of the first because it can end up
 				// being emptied incorrectly in certain situations (#8070).
 				// Fragments from the fragment cache must always be cloned and never used in place.
 				for ( iNoClone = results.cacheable || l - 1; i < l; i++ ) {
@@ -6327,7 +6327,7 @@ jQuery.extend({
 
 					// Move to the right depth
 					while ( depth-- ) {
-						div = div.lastChild;
+						div = div.LastChild;
 					}
 
 					// Remove IE's autoinserted <tbody> from table fragments
@@ -7758,7 +7758,7 @@ jQuery.extend({
 
 					modified = jqXHR.getResponseHeader("Last-Modified");
 					if ( modified ) {
-						jQuery.lastModified[ ifModifiedKey ] = modified;
+						jQuery.LastModified[ ifModifiedKey ] = modified;
 					}
 					modified = jqXHR.getResponseHeader("Etag");
 					if ( modified ) {
@@ -7922,8 +7922,8 @@ jQuery.extend({
 		// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
 		if ( s.ifModified ) {
 			ifModifiedKey = ifModifiedKey || s.url;
-			if ( jQuery.lastModified[ ifModifiedKey ] ) {
-				jqXHR.setRequestHeader( "If-Modified-Since", jQuery.lastModified[ ifModifiedKey ] );
+			if ( jQuery.LastModified[ ifModifiedKey ] ) {
+				jqXHR.setRequestHeader( "If-Modified-Since", jQuery.LastModified[ ifModifiedKey ] );
 			}
 			if ( jQuery.etag[ ifModifiedKey ] ) {
 				jqXHR.setRequestHeader( "If-None-Match", jQuery.etag[ ifModifiedKey ] );
@@ -7998,7 +7998,7 @@ jQuery.extend({
 	active: 0,
 
 	// Last-Modified header cache for next request
-	lastModified: {},
+	LastModified: {},
 	etag: {}
 
 });
@@ -8673,7 +8673,7 @@ function Animation( elem, properties, options ) {
 					animation.tweens[ index ].run( 1 );
 				}
 
-				// resolve when we played the last frame
+				// resolve when we played the Last frame
 				// otherwise, reject
 				if ( gotoEnd ) {
 					deferred.resolveWith( elem, [ animation, gotoEnd ] );
@@ -9070,7 +9070,7 @@ jQuery.fn.extend({
 				}
 			}
 
-			// start the next in the queue if the last step wasn't forced
+			// start the next in the queue if the Last step wasn't forced
 			// timers currently will call their complete callbacks, which will dequeue
 			// but only if they were gotoEnd
 			if ( dequeue || !gotoEnd ) {

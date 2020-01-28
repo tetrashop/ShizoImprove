@@ -27,7 +27,7 @@ namespace QuantumRefrigiz
             }
 
         }
-        public static void IncreasingThreadPerformance()
+        public static void IncreASingThreadPerformance()
         {
             Process.GetCurrentProcess().PriorityBoostEnabled = true;
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime;
@@ -72,7 +72,7 @@ namespace QuantumRefrigiz
         [STAThread]
         public static void Main()
         {
-            // IncreasingThreadPerformance();
+            // IncreASingThreadPerformance();
             //Intiate  Program Load and Calling.
             //Application.EnableVisualStyles();
             //

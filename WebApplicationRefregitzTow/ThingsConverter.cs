@@ -123,7 +123,7 @@ namespace RefrigtzW
                             {
                                 if (AllDraw.OrderPlate == 1)
                                 {
-                                    /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                    /* while (AllDraw.ConvertedKind == -1) { 
                                      }
 
                                      Rand = AllDraw.ConvertedKind;
@@ -142,7 +142,7 @@ namespace RefrigtzW
                                 if (AllDraw.OrderPlate == -1)
                                 {
                                     //(new FormُSelectItems()).ShowDialog();
-                                    /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                    /*  while (AllDraw.ConvertedKind == -1) {  
                                       }
 
                                       Rand = AllDraw.ConvertedKind;
@@ -232,7 +232,7 @@ namespace RefrigtzW
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                        /* while (AllDraw.ConvertedKind == -1) {  
                                          }
 
                                          Rand = AllDraw.ConvertedKind;
@@ -250,7 +250,7 @@ namespace RefrigtzW
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                        /*  while (AllDraw.ConvertedKind == -1) {  
                                           }
 
                                           Rand = AllDraw.ConvertedKind;
@@ -343,7 +343,7 @@ namespace RefrigtzW
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                        /*  while (AllDraw.ConvertedKind == -1) { 
                                           }
 
                                           Rand = AllDraw.ConvertedKind;
@@ -361,7 +361,7 @@ namespace RefrigtzW
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        /*   while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                        /*   while (AllDraw.ConvertedKind == -1) { 
                                            }
 
                                            Rand = AllDraw.ConvertedKind;
@@ -462,7 +462,7 @@ namespace RefrigtzW
 
 
                 }
-                System.Threading.Thread.Sleep(100);
+                
                 //return Convert State.
                 return Convert;
             }

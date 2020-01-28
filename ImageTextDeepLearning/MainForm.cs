@@ -158,7 +158,7 @@
         {
             if (!ReferenceEquals(this.frame, null))
             {
-                new ShowContoursForm(this.processor.templates, this.processor.samples, this.frame).ShowDialog();
+                new ShowContoursForm(this.processor.templates, this.processor.samples, this.frame.Bitmap).ShowDialog();
             }
         }
 

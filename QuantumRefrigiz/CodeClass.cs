@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /*****************************************************************************
- * "1" Boundry Huristic Founding.
- * "2" Search in ThinkingQuantum Tree to found Max or Min Huristic.
+ * "1" Boundry Heuristic Founding.
+ * "2" Search in ThinkingQuantum Tree to found Max or Min Heuristic.
  **/
 namespace QuantumRefrigiz
 {
-    class CodeClass
+    class Codeclass
     {
 
         public static void SaveByCode(int Code, int LineCode, String File)

@@ -77,7 +77,7 @@ namespace Refrigtz
             this.ComboBoxDatabase.Name = "ComboBoxDatabase";
             this.ComboBoxDatabase.Size = new System.Drawing.Size(121, 21);
             this.ComboBoxDatabase.TabIndex = 3;
-            this.ComboBoxDatabase.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDataBase_SelectedIndexChanged);
+            this.ComboBoxDatabase.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDatabase_SelectedIndexChanged);
             // 
             // RadioButtonBlitz
             // 

@@ -2,27 +2,27 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following
+// General Information about an Assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("ImageTextDeepLearning")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TeraShop")]
-[assembly: AssemblyProduct("ImageTextDeepLearning")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+// associated with an Assembly.
+[Assembly: AssemblyTitle("ImageTextDeepLearning")]
+[Assembly: AssemblyDescription("")]
+[Assembly: AssemblyConfiguration("")]
+[Assembly: AssemblyCompany("TeraShop")]
+[Assembly: AssemblyProduct("ImageTextDeepLearning")]
+[Assembly: AssemblyCopyright("Copyright ©  2019")]
+[Assembly: AssemblyTrademark("")]
+[Assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible
-// to COM components.  If you need to access a type in this assembly from
+// Setting ComVisible to false makes the types in this Assembly not visible
+// to COM components.  If you need to access a type in this Assembly from
 // COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
+[Assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e472ff55-8392-4b29-8afd-28cfdd110790")]
+[Assembly: Guid("e472ff55-8392-4b29-8afd-28cfdd110790")]
 
-// Version information for an assembly consists of the following four values:
+// Version information for an Assembly consists of the following four values:
 //
 //      Major Version
 //      Minor Version
@@ -31,6 +31,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("6.0.0.5")]
-[assembly: AssemblyFileVersion("6.0.0.5")]
+// [Assembly: AssemblyVersion("1.0.*")]
+[Assembly: AssemblyVersion("6.0.0.5")]
+[Assembly: AssemblyFileVersion("6.0.0.5")]

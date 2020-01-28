@@ -20,19 +20,19 @@ function WebForm_DoPostBackWithOptions(options) {
             theForm.action = options.actionUrl;
         }
         if (options.trackFocus) {
-            var lastFocus = theForm.elements["__LASTFOCUS"];
-            if ((typeof(lastFocus) != "undefined") && (lastFocus != null)) {
+            var LastFocus = theForm.elements["__LastFOCUS"];
+            if ((typeof(LastFocus) != "undefined") && (LastFocus != null)) {
                 if (typeof(document.activeElement) == "undefined") {
-                    lastFocus.value = options.eventTarget;
+                    LastFocus.value = options.eventTarget;
                 }
                 else {
                     var active = document.activeElement;
                     if ((typeof(active) != "undefined") && (active != null)) {
                         if ((typeof(active.id) != "undefined") && (active.id != null) && (active.id.length > 0)) {
-                            lastFocus.value = active.id;
+                            LastFocus.value = active.id;
                         }
                         else if (typeof(active.name) != "undefined") {
-                            lastFocus.value = active.name;
+                            LastFocus.value = active.name;
                         }
                     }
                 }

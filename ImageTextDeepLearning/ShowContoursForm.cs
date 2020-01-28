@@ -23,7 +23,7 @@
         private DataGridViewTextBoxColumn Column;
         private Label label2;
 
-        public ShowContoursForm(Templates templates, Templates samples, IImage image)
+        public ShowContoursForm(Templates templates, Templates samples, Image image)
         {
             bool flag = !ReferenceEquals(image, null);
             if (flag)
@@ -204,6 +204,7 @@
             this.Controls.Add(this.dgvContours);
             this.Name = "ShowContoursForm";
             this.Text = "Create templates";
+            this.Load += new System.EventHandler(this.ShowContoursForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContours)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -220,6 +221,11 @@
         }
 
         private void dgvContours_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ShowContoursForm_Load(object sender, EventArgs e)
         {
 
         }

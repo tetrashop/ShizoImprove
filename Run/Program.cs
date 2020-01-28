@@ -62,7 +62,7 @@ namespace Run
                 }
             }
         
-        System.Threading.Thread.Sleep(3000);
+        
         String FolderLocation = Root;
             int exitCode = 0;
 

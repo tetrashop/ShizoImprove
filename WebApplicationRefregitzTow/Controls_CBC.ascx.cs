@@ -78,6 +78,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading;
 using RefrigtzW;
 namespace WebApplicationRefregitzTow
 {
@@ -94,17 +95,17 @@ namespace WebApplicationRefregitzTow
 #pragma warning disable CS3008 // Identifier '_2' is not CLS-compliant
         public static Control _2 = null;
 #pragma warning restore CS3008 // Identifier '_2' is not CLS-compliant
-        public double MaxHuristicxT = Double.MinValue;
-        public bool MovementsAStarGreedyHuristicFound = false;
+        public double MaxHeuristicxT = Double.MinValue;
+        public bool MovementsAStarGreedyHeuristicFound = false;
         public bool IIgnoreSelfObjects = false;
         public bool UsePenaltyRegardMechnisam = true;
         public bool BestMovments = false;
-        public bool PredictHuristic = true;
+        public bool PredictHeuristic = true;
         public bool OnlySelf = false;
-        public bool AStarGreedyHuristic = false;
+        public bool AStarGreedyHeuristic = false;
 
         bool ArrangmentsChanged = true;
-        System.Threading.Thread t;
+        Thread t;
         /// <summary>
         /// recursively finds a child control of the specified parent.
         /// </summary>
@@ -189,7 +190,7 @@ namespace WebApplicationRefregitzTow
 
 
 
-                            if ((new ChessRules(0,MovementsAStarGreedyHuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,7, FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, 7))
+                            if ((new ChessRules(0,MovementsAStarGreedyHeuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHeuristic,OnlySelf,AStarGreedyHeuristic,ArrangmentsChanged,7, FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, 7))
                             {
 
                                 FormRefrigtz.Table[Row1 - 2, Column1] = FormRefrigtz.Table[Row1, Column1];
@@ -205,7 +206,7 @@ namespace WebApplicationRefregitzTow
 
                         else if ((Column1 == Column2) && (Row1 == Row2 + 2))
                         {
-                            if ((new ChessRules(0,MovementsAStarGreedyHuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,-7, FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, -7))
+                            if ((new ChessRules(0,MovementsAStarGreedyHeuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHeuristic,OnlySelf,AStarGreedyHeuristic,ArrangmentsChanged,-7, FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, -7))
                             {
                                 FormRefrigtz.Table[Row1 + 2, Column1] = FormRefrigtz.Table[Row1, Column1];
                                 FormRefrigtz.Table[Row1 + 3, Column1] = FormRefrigtz.Table[Row1, 0];
@@ -216,7 +217,7 @@ namespace WebApplicationRefregitzTow
                         }
                         else
                         {
-                            if ((new ChessRules(0,MovementsAStarGreedyHuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHuristic,OnlySelf,AStarGreedyHuristic,ArrangmentsChanged,FormRefrigtz.Table[Row1, Column1], FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, FormRefrigtz.Table[Row1, Column1]))
+                            if ((new ChessRules(0,MovementsAStarGreedyHeuristicFound,IIgnoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHeuristic,OnlySelf,AStarGreedyHeuristic,ArrangmentsChanged,FormRefrigtz.Table[Row1, Column1], FormRefrigtz.Table, FormRefrigtz.OrderPlate, Row1, Column1)).Rules(Row1, Column1, Row2, Column2, A, FormRefrigtz.Table[Row1, Column1]))
                             {
                                 ThingsConverter t = new ThingsConverter();
                                 t.ConvertOperation(Row2, Column2, A, FormRefrigtz.Table, FormRefrigtz.OrderPlate, false, 0);
@@ -247,7 +248,7 @@ namespace WebApplicationRefregitzTow
             //*****************************************
             //               TODO:
             //Now add a procedure to do the validation of the move
-            //The logic example castling or see if valid move, etc
+            //The logic example Castling or see if valid move, etc
             //
             //*****************************************
             //   PROCEDUREVALIDATEMOVE(MoveFrom,MoveTo)
@@ -986,7 +987,7 @@ namespace WebApplicationRefregitzTow
 
                 }
 
-                //Do a check for castle
+                //Do a check for Castle
                 ChessImage = ChessImage.ToLower();
                 if (ChessImage == "Images/wking.gif")
                 {
@@ -998,7 +999,7 @@ namespace WebApplicationRefregitzTow
                         MoveTo = 62;
                         goto BeginSection;
                     }
-                    //Do a check to look for long castle
+                    //Do a check to look for long Castle
                     if (MoveFrom == 61 & MoveTo == 59)
                     {
                         //Castle to long side
@@ -1008,7 +1009,7 @@ namespace WebApplicationRefregitzTow
                     }
                 }
 
-                //Do same check for black king castle
+                //Do same check for black king Castle
                 if (ChessImage == "Images/bking.gif")
                 {
                     //Do a check to see if king move from (e1)
@@ -1019,7 +1020,7 @@ namespace WebApplicationRefregitzTow
                         MoveTo = 6;
                         goto BeginSection;
                     }
-                    //Do a check to look for long castle
+                    //Do a check to look for long Castle
                     if (MoveFrom == 5 & MoveTo == 3)
                     {
                         //Castle to long side
@@ -1142,7 +1143,7 @@ namespace WebApplicationRefregitzTow
                                                                             }
                             }
                         }
-                    //stem.Threading.Thread.Sleep(1000);
+                    //stem.Threading.
              //   }
             //  } while (true);
         }
@@ -1340,7 +1341,7 @@ namespace WebApplicationRefregitzTow
             Panel63.Visible = true;
             Image64.ImageUrl = "Images/WRook.gif";
             UserControlLoad();
-            //System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(SetImages));
+            //Thread t = new Thread(new ThreadStart(SetImages));
             //t.Start();
 
         }
@@ -1608,7 +1609,7 @@ namespace WebApplicationRefregitzTow
             else
             {
 
-                t = new System.Threading.Thread(new System.Threading.ThreadStart(UserControlLoad));
+                t = new Thread(new ThreadStart(UserControlLoad));
                 t.Start();
             }
         }

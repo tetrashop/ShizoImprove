@@ -134,7 +134,7 @@ namespace RefrigtzDLL
                             {
                                 if (AllDraw.OrderPlate == 1)
                                 {
-                                    /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                    /* while (AllDraw.ConvertedKind == -1) { 
                                      }
 
                                      Rand = AllDraw.ConvertedKind;
@@ -153,7 +153,7 @@ namespace RefrigtzDLL
                                 if (AllDraw.OrderPlate == -1)
                                 {
                                     //(new FormُSelectItems()).ShowDialog();
-                                    /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                    /*  while (AllDraw.ConvertedKind == -1) {  
                                       }
 
                                       Rand = AllDraw.ConvertedKind;
@@ -167,7 +167,7 @@ namespace RefrigtzDLL
                             }
                             else
                                 Rand = (new Random()).Next(0, 4);
-                            //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                            //If Rand is Equaled the Operation will cuased automaticcally base on Color..
                             if (Rand == 0)
                             {
                                 if (Order == 1)
@@ -243,7 +243,7 @@ namespace RefrigtzDLL
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        /* while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                        /* while (AllDraw.ConvertedKind == -1) {  
                                          }
 
                                          Rand = AllDraw.ConvertedKind;
@@ -261,7 +261,7 @@ namespace RefrigtzDLL
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100); 
+                                        /*  while (AllDraw.ConvertedKind == -1) {  
                                           }
 
                                           Rand = AllDraw.ConvertedKind;
@@ -275,7 +275,7 @@ namespace RefrigtzDLL
                                 }
                                 else
                                     Rand = (new Random()).Next(0, 4);
-                                //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                                //If Rand is Equaled the Operation will cuased automaticcally base on Color..
                                 if (Rand == 0)
                                 {
                                     if (Order == 1)
@@ -354,7 +354,7 @@ namespace RefrigtzDLL
                                 {
                                     if (AllDraw.OrderPlate == 1)
                                     {
-                                        /*  while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                        /*  while (AllDraw.ConvertedKind == -1) { 
                                           }
 
                                           Rand = AllDraw.ConvertedKind;
@@ -372,7 +372,7 @@ namespace RefrigtzDLL
                                 {
                                     if (AllDraw.OrderPlate == -1)
                                     {
-                                        /*   while (AllDraw.ConvertedKind == -1) { System.Threading.Thread.Sleep(100);
+                                        /*   while (AllDraw.ConvertedKind == -1) { 
                                            }
 
                                            Rand = AllDraw.ConvertedKind;
@@ -386,7 +386,7 @@ namespace RefrigtzDLL
                                 }
                                 else
                                     Rand = (new Random()).Next(0, 4);
-                                //If Rand is Equaled the Operation will cuased automaticcally Base on Color..
+                                //If Rand is Equaled the Operation will cuased automaticcally base on Color..
                                 if (Rand == 0)
                                 {
                                     if (Order == 1)
@@ -473,7 +473,7 @@ namespace RefrigtzDLL
 
 
                 }
-                System.Threading.Thread.Sleep(100);
+                
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ConvertOperation:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //return Convert State.
                 return Convert;

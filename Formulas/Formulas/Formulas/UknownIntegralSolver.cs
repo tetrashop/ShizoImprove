@@ -22,6 +22,7 @@
 //=========================================================================
 using System;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Formulas
 {
@@ -119,25 +120,25 @@ namespace Formulas
                 {
                     SetLableValue(label17, "Integral Calculation Finished.Verifing");
                     A++;
-                    System.Threading.Thread.Sleep(1000);
+                    
                 }
                 if (A == 1)
                 {
                     SetLableValue(label17, "Integral Calculation Finished.Verifing.");
                     A++;
-                    System.Threading.Thread.Sleep(1000);
+                    
                 }
                 if (A == 2)
                 {
                     SetLableValue(label17, "Integral Calculation Finished.Verifing..");
                     A++;
-                    System.Threading.Thread.Sleep(1000);
+                    
                 }
                 if (A == 3)
                 {
                     SetLableValue(label17, "Integral Calculation Finished.Verifing...");
                     A = 0;
-                    System.Threading.Thread.Sleep(1000);
+                    
                 }
             }
         }
@@ -219,7 +220,7 @@ namespace Formulas
             //Copy = RoundTree.RoundTreeMethod(Copy,0);
           
             Copy.ThreadAccess = null;
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Verifing));
+            Thread t = new Thread(new ThreadStart(Verifing));
             t.Start();
             //ERRORCORECTION6646464654643211:The Verification Return Valid result:1394/4/9
             if (EqualToObject.IsEqualWithOutThreadConsiderationCommonly(Simplifier.SimplifierFx(RoundTree.RoundTreeMethod(ChangeFunction.ChangeFunctionFx(Derivasion.DerivasionOfFX(Copy.CopyNewTree(Copy), ref UNKNOWN), ref UNKNOWN), RoundTree.MaxFractionalDesimal(CopyNode)), ref UNKNOWN), CopyNode))
@@ -242,9 +243,9 @@ namespace Formulas
         private void button2_Click(object sender, EventArgs e)
         {
             Enterface.Hide();
-            //System.Threading.Thread SolverThread = new System.Threading.Thread(new System.Threading.ThreadStart(Solver));
+            //Thread SolverThread = new Thread(new ThreadStart(Solver));
             //SolverThread.Start();            
-            System.Threading.Thread Tr = new System.Threading.Thread(new System.Threading.ThreadStart(SolverThread));
+            Thread Tr = new Thread(new ThreadStart(SolverThread));
             Tr.Start();
 
         }

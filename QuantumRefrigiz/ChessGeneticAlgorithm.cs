@@ -3,7 +3,7 @@
  * *****************************************************************************************************************************************
  * Ramin Edjlal********************************************************************************************RS*****0.12**4**Managements and Cuation Programing**
  * The Loop Genetic Mechanism Stop Working*****************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Table List Genetic Loop Huristic Stop Working***********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * Table List Genetic Loop Heuristic Stop Working***********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Program Stop Working************************************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * IndexOutOfBout Exeption*********************************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Genetic Algorithm Order Misleading**********************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
@@ -22,8 +22,8 @@
  * Genetic Algorithm Rules MalFunction.********************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Malfunction of Brown Order (Alice).No Chess Rules Identification By Genetic Algorithm*******************RS*****0.12**4**Managements and Cuation Programing**(+)
  * Genetic Algorithm MalFunction.**************************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * No Logical Reason For Malfunction of NonRulements of Genetic Algorithm.*********************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * No Logical Reason for Malfunction of Bob Soldier Attack Movements to go non enemy.**********************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * No Logical ReASon For Malfunction of NonRulements of Genetic Algorithm.*********************************RS*****0.12**4**Managements and Cuation Programing**(+)
+ * No Logical ReASon for Malfunction of Bob Soldier Attack Movements to go non enemy.**********************RS*****0.12**4**Managements and Cuation Programing**(+)
  * 1395/1/3************************************************************************************************RS*****0.12**4**Managements and Cuation Programing**(+:Sum(22))
  * Metric After Retrieve to Customer.*********************************************************************************************************
  * 530 Error To Attempt Convert Chess rules and ThinkingQuantum Chess to dll.************************************************************************
@@ -251,13 +251,13 @@ namespace QuantumRefrigiz
         const int KingGray = 6;
         const int KingBrown = -6;
         //Initiate Global Variables.
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHeuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHeuristicT = false;
         bool ArrangmentsChanged = false;
         public bool CastlesKing = false;
         public static bool NoGameFounf = false;
@@ -281,15 +281,15 @@ namespace QuantumRefrigiz
             catch (Exception t) { Log(t); }
         }
         //Constructor.
-        public ChessGeneticAlgorithm(bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        public ChessGeneticAlgorithm(bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
-            MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+            MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
             BestMovmentsT = BestMovment;
-            PredictHuristicT = PredictHurist;
+            PredictHeuristicT = PredictHurist;
             OnlySelfT = OnlySel;
-            AStarGreedyHuristicT = AStarGreedyHuris;
+            AStarGreedyHeuristicT = AStarGreedyHuris;
             ArrangmentsChanged = Arrangments;
             //Initiate Global Variables.
             RowColumn.Clear();
@@ -471,10 +471,10 @@ namespace QuantumRefrigiz
                                 //Small Gray Castles King.
                                 if (j == DistantColumnSmall && Cromosom2[SmallCastleCastleColumnAfter, DistantRowUp] == KingGray && Cromosom2[SmallCastleCastleColumnAfter, DistantRowUp] == CastleGray && Cromosom1[SmallCastleKingColumnBefore, DistantRowUp] == KingGray && Cromosom1[SmallCastleCastleColumnBefore, DistantRowUp] == CastleGray)
                                 {
-                                    /*CromosomRowFirst = SmallCastleKingColumnBefore;
+                                    CromosomRowFirst = SmallCastleKingColumnBefore;
                                     CromosomColumnFirst = i;
                                     CromosomRow = SmallCastleCastleColumnAfter;
-                                    CromosomColumn = i;*/
+                                    CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.SmallKingCastleGray = true;
@@ -483,10 +483,10 @@ namespace QuantumRefrigiz
                                 else //Big Brjges King Gray.
                                     if (j == DistantColumnBig && Cromosom2[BigCastleCastleColumnAfter, DistantRowUp] == CastleGray && Cromosom2[BigCastleKingColumnAfter, DistantRowUp] == KingGray && Cromosom1[BigCastleCastleColumnBefore, DistantRowUp] == CastleGray && Cromosom1[BigCastleKingColumnBefore, DistantRowUp] == KingGray)
                                 {
-                                    /* CromosomRowFirst = DistantRowUp;
+                                     CromosomRowFirst = DistantRowUp;
                                      CromosomColumnFirst = i;
                                      CromosomRow = DistantRowUp;
-                                     CromosomColumn = i;*/
+                                     CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.BigKingCastleGray = true;
@@ -502,10 +502,10 @@ namespace QuantumRefrigiz
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        /*CromosomRowFirst = DistantRowBelow;
+                                        CromosomRowFirst = DistantRowBelow;
                                         CromosomColumnFirst = i;
                                         CromosomRow = DistantRowBelow;
-                                        CromosomColumn = i;*/
+                                        CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.SmallKingCastleBrown = true;
@@ -518,11 +518,11 @@ namespace QuantumRefrigiz
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        /*  CromosomRowFirst = DistantRowBelow;
+                                          CromosomRowFirst = DistantRowBelow;
                                           CromosomColumnFirst = i;
                                           CromosomRow = DistantRowBelow;
-                                          CromosomColumn = i;*/
-                                        Find = true;
+                                          CromosomColumn = i;
+                                          Find = true;
                                         FindNumber++;
                                         ChessRules.BigKingCastleBrown = true;
                                         Brj = true;
@@ -610,10 +610,10 @@ namespace QuantumRefrigiz
                                 //Small Gray Castles King.
                                 if (j == DistantColumnSmall && Cromosom2[SmallCastleKingColumnAfter, DistantRowBelow] == KingGray && Cromosom2[SmallCastleCastleColumnAfter, DistantRowBelow] == CastleGray && Cromosom1[SmallCastleKingColumnBefore, DistantRowBelow] == KingGray && Cromosom1[SmallCastleCastleColumnBefore, DistantRowBelow] == CastleGray)
                                 {
-                                    /* CromosomRowFirst = DistantRowBelow;
+                                     CromosomRowFirst = DistantRowBelow;
                                      CromosomColumnFirst = i;
                                      CromosomRow = DistantRowBelow;
-                                     CromosomColumn = i;*/
+                                     CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.SmallKingCastleGray = true;
@@ -641,10 +641,10 @@ namespace QuantumRefrigiz
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        /* CromosomRowFirst = DistantRowUp;
+                                        CromosomRowFirst = DistantRowUp;
                                          CromosomColumnFirst = i;
                                          CromosomRow = DistantRowUp;
-                                         CromosomColumn = i;*/
+                                         CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.SmallKingCastleBrown = true;
@@ -657,10 +657,10 @@ namespace QuantumRefrigiz
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                        /*   CromosomRowFirst = DistantRowUp;
+                                           CromosomRowFirst = DistantRowUp;
                                            CromosomColumnFirst = i;
                                            CromosomRow = DistantRowUp;
-                                           CromosomColumn = i;*/
+                                           CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.BigKingCastleBrown = true;
@@ -766,7 +766,7 @@ namespace QuantumRefrigiz
             {
                 //Create and new an Object.
                 int[,] Table = new int[8, 8];
-                //Assigne Parameter To New Objects.
+                //ASsigne Parameter To New Objects.
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
@@ -784,7 +784,7 @@ namespace QuantumRefrigiz
             {
                 //Create and new an Object.
                 bool[,] Table = new bool[8, 8];
-                //Assigne Parameter To New Objects.
+                //ASsigne Parameter To New Objects.
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
@@ -866,7 +866,7 @@ namespace QuantumRefrigiz
                         if (Gen1 == CromosomRow && Gen2 == CromosomColumn)
                             continue;
                         //Rulement of Gen Movments.
-                        if ((new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, GeneticTable[CromosomRow, CromosomColumn], CloneATable(GeneticTable), Order, CromosomRow, CromosomColumn)).Rules(CromosomRow, CromosomColumn, Gen1,
+                        if ((new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, GeneticTable[CromosomRow, CromosomColumn], CloneATable(GeneticTable), Order, CromosomRow, CromosomColumn)).Rules(CromosomRow, CromosomColumn, Gen1,
                         Gen2, color, GeneticTable[CromosomRow, CromosomColumn]))
                         {
                             //Initiate Global Variables and Syntax.
@@ -890,7 +890,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 //Check Consideration.
-                                if ((new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, GeneticTable[CromosomRow, CromosomRow], CloneATable(GeneticTable), Order, CromosomRow, CromosomColumn)).Check(CloneATable(GeneticTable), Order))
+                                if ((new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, GeneticTable[CromosomRow, CromosomRow], CloneATable(GeneticTable), Order, CromosomRow, CromosomColumn)).Check(CloneATable(GeneticTable), Order))
                                 {
                                     GeneticTable[CromosomRow, CromosomColumn] = GeneticTable[Gen1, Gen2];
                                     GeneticTable[Gen1, Gen2] = 0;
@@ -933,7 +933,7 @@ namespace QuantumRefrigiz
                         else
                             Ki = 1;
                         Count++;
-                    } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
+                    } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
@@ -952,7 +952,7 @@ namespace QuantumRefrigiz
                         else
                             Ki = -1;
                         Count++;
-                    } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
+                    } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
@@ -985,7 +985,7 @@ namespace QuantumRefrigiz
                     else
                         Ki = 1;
                     Count++;
-                } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
+                } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
                     return null;
 
@@ -1000,7 +1000,7 @@ namespace QuantumRefrigiz
                     else
                         Ki = -1;
                     Count++;
-                } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
+                } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
                     return null;
             }

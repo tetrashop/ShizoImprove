@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,7 +43,7 @@ namespace ImageTextDeepLearning
         private void FormImageTextDeepLearning_Load(object sender, EventArgs e)
         {
             //Thread of load
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(Progress));
+            Thread t = new Thread(new ThreadStart(Progress));
             t.Start();
         }
         //click on open buttonb event
@@ -82,7 +83,7 @@ namespace ImageTextDeepLearning
                 //create constructor image
                 t = new SmallImageing(PictureBoxImageTextDeepLearning.BackgroundImage);
                 //Do splitation
-                bool Do = t.Splitation(pictureBoxTest);
+                bool Do = t.Splitation(PictureBoxTest);
                 //wen successfull
                 if (Do)
                 {
@@ -95,7 +96,7 @@ namespace ImageTextDeepLearning
 if (buttonSplitationConjunction.Text == "Conjunction")
             {
                 //Do conjunction
-                bool Do = t.Conjunction(pictureBoxTest, PictureBoxImageTextDeepLearning);
+                bool Do = t.Conjunction(PictureBoxTest, PictureBoxImageTextDeepLearning);
                 //when successfull
                 if (Do)
                 {
@@ -385,7 +386,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             {
                 t = new SmallImageing(PictureBoxImageTextDeepLearning.BackgroundImage);
 
-                bool Do = t.Splitation(pictureBoxTest);
+                bool Do = t.Splitation(PictureBoxTest);
 
                 if (Do)
                 {
@@ -396,7 +397,7 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             else
 if (buttonSplitationConjunction.Text == "Conjunction")
             {
-                bool Do = t.Conjunction(pictureBoxTest, PictureBoxImageTextDeepLearning);
+                bool Do = t.Conjunction(PictureBoxTest, PictureBoxImageTextDeepLearning);
                 if (Do)
                 {
                     PictureBoxImageTextDeepLearning.BackgroundImage = t.RootConjuction;
@@ -416,11 +417,11 @@ if (buttonSplitationConjunction.Text == "Conjunction")
                 {
                     try
                     {
-                        pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
-                        pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                        pictureBoxTest.Refresh();
-                        pictureBoxTest.Update();
-                        System.Threading.Thread.Sleep(1000);
+                        PictureBoxTest.BackgroundImage = On.tt.AllImage[i];
+                        PictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                        PictureBoxTest.Refresh();
+                        PictureBoxTest.Update();
+                        
                     }
                     catch (System.Exception t) { }
                 }
@@ -429,10 +430,10 @@ if (buttonSplitationConjunction.Text == "Conjunction")
         //conjuncton create shapes menue strip
         private void createConjunctionShapesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
+            Thread t = new Thread(new ThreadStart(CreateOneConShape));
             t.Start();
             t.Join();
-             t = new System.Threading.Thread(new System.Threading.ThreadStart(Draw));
+             t = new Thread(new ThreadStart(Draw));
             t.Start();
             t.Join();
 
@@ -443,11 +444,11 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             }
             /* for (int i = 0; i < On.t.KeyboardAllImage.Count; i++)
              {
-                 pictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
-                 pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                 pictureBoxTest.Refresh();
-                 pictureBoxTest.Update();
-                 System.Threading.Thread.Sleep(1000);
+                 PictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
+                 PictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                 PictureBoxTest.Refresh();
+                 PictureBoxTest.Update();
+                 
              }*/
         }
         //detection form munue strip
@@ -473,16 +474,16 @@ if (buttonSplitationConjunction.Text == "Conjunction")
         //create main detection button
         private void CreateConSha_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(CreateOneConShape));
+            Thread t = new Thread(new ThreadStart(CreateOneConShape));
             t.Start();
             t.Join();
             for (int i = 0; i < On.tt.AllImage.Count; i++)
             {
-                pictureBoxTest.BackgroundImage = On.tt.AllImage[i];
-                pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                pictureBoxTest.Refresh();
-                pictureBoxTest.Update();
-                System.Threading.Thread.Sleep(1000);
+                PictureBoxTest.BackgroundImage = On.tt.AllImage[i];
+                PictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                PictureBoxTest.Refresh();
+                PictureBoxTest.Update();
+                
             }
             for (int i = 0; i < On.Detected.Count; i++)
             {               
@@ -491,11 +492,11 @@ if (buttonSplitationConjunction.Text == "Conjunction")
             }
            /* for (int i = 0; i < On.t.KeyboardAllImage.Count; i++)
             {
-                pictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
-                pictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
-                pictureBoxTest.Refresh();
-                pictureBoxTest.Update();
-                System.Threading.Thread.Sleep(1000);
+                PictureBoxTest.BackgroundImage = On.t.KeyboardAllImage[i];
+                PictureBoxTest.BackgroundImageLayout = ImageLayout.Zoom;
+                PictureBoxTest.Refresh();
+                PictureBoxTest.Update();
+                
             }*/
         }
     }

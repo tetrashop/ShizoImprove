@@ -1,6 +1,6 @@
 //ERRORCORECTION2189743 :the Second condition of above is added.
 //======================================================================
-//ERROCRECTIOn98217487 :the last condition (Dummy.ThreadAccess.SampleAccess) is Div.
+//ERROCRECTIOn98217487 :the Last condition (Dummy.ThreadAccess.SampleAccess) is Div.
 //======================================================================
 using System;
 using System.Collections.Generic;
@@ -135,7 +135,7 @@ namespace Formulas
             if (END)
                 return Dummy;
             try
-            {   //ERROCRECTIOn98217487 :the last condition (Dummy.ThreadAccess.SampleAccess) is Div.
+            {   //ERROCRECTIOn98217487 :the Last condition (Dummy.ThreadAccess.SampleAccess) is Div.
                 if ((EqualToObject.IsEqualWithOutThreadConsiderationCommonly(Dummy, COMMONSUBFACTOR) && (Dummy.ThreadAccess.SampleAccess == "*")||(Dummy.ThreadAccess.SampleAccess == "/")))
                 {
                     Dummy.SetLefTandRightCommonlySide(null, null);

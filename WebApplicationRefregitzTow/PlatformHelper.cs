@@ -9,7 +9,7 @@ namespace System.Threading
     {
         
         private const int PROCESSOR_COUNT_REFRESH_INTERVAL_MS = 0x7530;
-        private static volatile int s_lastProcessorCountRefreshTicks;
+        private static volatile int s_LastProcessorCountRefreshTicks;
         private static volatile int s_processorCount;
 
         internal static bool IsSingleProcessor
@@ -26,10 +26,10 @@ namespace System.Threading
             {
                 int tickCount = Environment.TickCount;
                 int num2 = s_processorCount;
-                if ((num2 == 0) || ((tickCount - s_lastProcessorCountRefreshTicks) >= 0x7530))
+                if ((num2 == 0) || ((tickCount - s_LastProcessorCountRefreshTicks) >= 0x7530))
                 {
                     s_processorCount = num2 = Environment.ProcessorCount;
-                    s_lastProcessorCountRefreshTicks = tickCount;
+                    s_LastProcessorCountRefreshTicks = tickCount;
                 }
                 return num2;
             }

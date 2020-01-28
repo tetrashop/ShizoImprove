@@ -9,7 +9,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class DrawCastle
     {
-       
+
 
         StringBuilder Space = new StringBuilder("&nbsp;");
 #pragma warning disable CS0414 // The field 'DrawCastle.Spaces' is assigned but its value is never used
@@ -21,19 +21,19 @@ namespace RefrigtzDLL
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
-        public static Image[] C = new Image[2];
+        
         //Iniatite Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
-        public bool MovementsAStarGreedyHuristicFoundT = false;
+        public bool MovementsAStarGreedyHeuristicFoundT = false;
         public bool IgnoreSelfObjectsT = false;
         public bool UsePenaltyRegardMechnisamT = true;
         public bool BestMovmentsT = false;
-        public bool PredictHuristicT = true;
+        public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
-        public bool AStarGreedyHuristicT = false;
+        public bool AStarGreedyHeuristicT = false;
         public bool ArrangmentsChanged = false;
-        public static long MaxHuristicxB = -20000000000000000;
+        public static long MaxHeuristicxB = -20000000000000000;
         public float Row, Column;
         public Color color;
         public ThinkingChess[] CastleThinking = new ThinkingChess[AllDraw.CastleMovments];
@@ -57,7 +57,6 @@ namespace RefrigtzDLL
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             ValuableSelfSupported = null;
-            C = null;
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
         }
@@ -65,16 +64,16 @@ namespace RefrigtzDLL
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
 
-            int a = ReturnHuristic();
-            if (MaxHuristicxB < a)
+            int a = ReturnHeuristic();
+            if (MaxHeuristicxB < a)
             {
                 MaxNotFound = false;
                 Object O = new Object();
                 lock (O)
                 {
-                    if (ThinkingChess.MaxHuristicx < MaxHuristicxB)
-                        ThinkingChess.MaxHuristicx = a;
-                    MaxHuristicxB = a;
+                    if (ThinkingChess.MaxHeuristicx < MaxHeuristicxB)
+                        ThinkingChess.MaxHeuristicx = a;
+                    MaxHeuristicxB = a;
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return true;
@@ -84,35 +83,35 @@ namespace RefrigtzDLL
             ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
-        public int ReturnHuristic()
+        public int ReturnHeuristic()
         {
             int HaveKilled = 0;
             //long Time = TimeElapced.TimeNow();Spaces++;
             int a = 0;
             for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
 
-                a += CastleThinking[ii].ReturnHuristic(-1, -1, Order, false,ref HaveKilled);
+                a += CastleThinking[ii].ReturnHeuristic(-1, -1, Order, false, ref HaveKilled);
 
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return a;
         }
 
 
         //Constructor 1.
-        /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
+        /*  public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
           {
               CurrentAStarGredyMax = CurrentAStarGredy;
-              MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+              MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
               IgnoreSelfObjectsT = IgnoreSelfObject;
               UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
               BestMovmentsT = BestMovment;
-              PredictHuristicT = PredictHurist;
+              PredictHeuristicT = PredictHurist;
               OnlySelfT = OnlySel;
-              AStarGreedyHuristicT = AStarGreedyHuris;
+              AStarGreedyHeuristicT = AStarGreedyHuris;
               ArrangmentsChanged = Arrangments;
           }*/
         //constructor 2.
-        public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
+        public DrawCastle(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -121,13 +120,13 @@ namespace RefrigtzDLL
             {
 
                 CurrentAStarGredyMax = CurrentAStarGredy;
-                MovementsAStarGreedyHuristicFoundT = MovementsAStarGreedyHuristicTFou;
+                MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
                 UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
                 BestMovmentsT = BestMovment;
-                PredictHuristicT = PredictHurist;
+                PredictHeuristicT = PredictHurist;
                 OnlySelfT = OnlySel;
-                AStarGreedyHuristicT = AStarGreedyHuris;
+                AStarGreedyHeuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
                 //Initiate Global Variable By Local Parmenter.
                 Table = new int[8, 8];
@@ -135,7 +134,7 @@ namespace RefrigtzDLL
                     for (var jj = 0; jj < 8; jj++)
                         Table[ii, jj] = Tab[ii, jj];
                 for (var ii = 0; ii < AllDraw.CastleMovments; ii++)
-                    CastleThinking[ii] = new ThinkingChess(ii,4,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
+                    CastleThinking[ii] = new ThinkingChess(ii, 4, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, (int)i, (int)j, a, Tab, 16, Ord, TB, Cur, 4, 4);
 
                 Row = i;
                 Column = j;
@@ -191,12 +190,12 @@ namespace RefrigtzDLL
                 for (var j = 0; j < 8; j++)
                     Tab[i, j] = this.Table[i, j];
             //Initiate a Constructed Brideges an Clone a Copy.
-            AA = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.CloneATable(Table), this.Order, false, this.Current);
+            AA = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, this.Row, this.Column, this.color, this.CloneATable(Table), this.Order, false, this.Current);
             AA.ArrangmentsChanged = ArrangmentsChanged;
             for (var i = 0; i < AllDraw.CastleMovments; i++)
             {
 
-                AA.CastleThinking[i] = new ThinkingChess(i,4,CurrentAStarGredyMax, MovementsAStarGreedyHuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHuristicT, OnlySelfT, AStarGreedyHuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
+                AA.CastleThinking[i] = new ThinkingChess(i, 4, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, (int)this.Row, (int)this.Column);
                 this.CastleThinking[i].Clone(ref AA.CastleThinking[i]);
 
             }
@@ -214,21 +213,17 @@ namespace RefrigtzDLL
         //Draw An Instatnt Brideges Images On the Table Method.
         public void DrawCastleOnTable(ref Graphics g, int CellW, int CellH)
         {
-            if (g == null)
-                return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            try
-            {
-                object balancelockS = new object();
+            object balancelockS = new object();
 
-                lock (balancelockS)
+            lock (balancelockS)
+            {
+                if (g == null)
+                    return;
+                //long Time = TimeElapced.TimeNow();Spaces++;
+                try
                 {
 
-                    if (C[0] == null || C[1] == null)
-                    {
-                        C[0] = Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png");
-                        C[1] = Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png");
-                    }
+                    
                     if (((int)Row >= 0) && ((int)Row < 8) && ((int)Column >= 0) && ((int)Column < 8))
                     { //Gray Color.
                         if (Order == 1)
@@ -237,7 +232,7 @@ namespace RefrigtzDLL
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw a Gray Castles Instatnt Image On hte Tabe.
-                                g.DrawImage(C[0], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrG.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                         }
                         else
@@ -246,17 +241,18 @@ namespace RefrigtzDLL
                             lock (O1)
                             {    //Draw an Instant from File of Gray Soldeirs.
                                  //Draw an Instatnt of Brown Castles On the Table.
-                                g.DrawImage(C[1], new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
+                                g.DrawImage(Image.FromFile(AllDraw.ImagesSubRoot + "BrB.png"), new Rectangle((int)(Row * (float)CellW), (int)(Column * (float)CellH), CellW, CellH));
                             }
                         }
                     }
                 }
+
+                catch (Exception t)
+                {
+                    Log(t);
+                }
+                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawCastleOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
-            catch (Exception t)
-            {
-                Log(t);
-            }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("DrawCastleOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
     }
 }
