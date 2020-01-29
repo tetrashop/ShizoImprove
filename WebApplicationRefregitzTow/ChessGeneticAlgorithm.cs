@@ -675,7 +675,7 @@ namespace RefrigtzW
                     {
                         if (Order == 1)
                         {
-                            if (Cromosom2[j, i] <= 0 && Cromosom1[j, i] > 0)
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] > 0)
                             {
                                 CromosomRowFirst = j;
                                 CromosomColumnFirst = i;
@@ -685,7 +685,7 @@ namespace RefrigtzW
                             }
 
                             else
-                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] == 0)
+                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] <= 0)
                             {
                                 CromosomRow = j;
                                 CromosomColumn = i;
@@ -696,7 +696,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            if (Cromosom2[j, i] >= 0 && Cromosom1[j, i] < 0)
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] < 0)
                             {
                                 CromosomRowFirst = j;
                                 CromosomColumnFirst = i;
@@ -706,7 +706,7 @@ namespace RefrigtzW
                             }
 
                             else
-                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] == 0)
+                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] >= 0)
                             {
                                 CromosomRow = j;
                                 CromosomColumn = i;

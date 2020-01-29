@@ -673,12 +673,13 @@ namespace QuantumRefrigiz
                         }
                     }
 
+
                     //When To Same Locatjon Tbles are Different jn Gen.
                     if (Cromosom1[j, i] != Cromosom2[j, i])
                     {
                         if (Order == 1)
                         {
-                            if (Cromosom2[j, i] <= 0 && Cromosom1[j, i] > 0)
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] > 0)
                             {
                                 CromosomRowFirst = j;
                                 CromosomColumnFirst = i;
@@ -688,7 +689,7 @@ namespace QuantumRefrigiz
                             }
 
                             else
-                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] == 0)
+                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] <= 0)
                             {
                                 CromosomRow = j;
                                 CromosomColumn = i;
@@ -699,7 +700,7 @@ namespace QuantumRefrigiz
                         }
                         else
                         {
-                            if (Cromosom2[j, i] >= 0 && Cromosom1[j, i] < 0)
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] < 0)
                             {
                                 CromosomRowFirst = j;
                                 CromosomColumnFirst = i;
@@ -709,7 +710,7 @@ namespace QuantumRefrigiz
                             }
 
                             else
-                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] == 0)
+                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] >= 0)
                             {
                                 CromosomRow = j;
                                 CromosomColumn = i;
@@ -719,7 +720,6 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-
                     //Store Locatjon of Gen and Calculate Gen Numbers.
 
                 }

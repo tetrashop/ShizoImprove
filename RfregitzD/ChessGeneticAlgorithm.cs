@@ -687,7 +687,7 @@ namespace RefrigtzDLL
                     {
                         if (Order == 1)
                         {
-                            if (Cromosom2[j, i] <= 0 && Cromosom1[j, i] > 0)
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] > 0)
                             {
                                 CromosomRowFirst = j;
                                 CromosomColumnFirst = i;
@@ -697,7 +697,7 @@ namespace RefrigtzDLL
                             }
 
                             else
-                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] == 0)
+                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] <= 0)
                             {
                                 CromosomRow = j;
                                 CromosomColumn = i;
@@ -708,7 +708,7 @@ namespace RefrigtzDLL
                         }
                         else
                         {
-                            if (Cromosom2[j, i] >= 0 && Cromosom1[j, i] < 0)
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] < 0)
                             {
                                 CromosomRowFirst = j;
                                 CromosomColumnFirst = i;
@@ -718,7 +718,7 @@ namespace RefrigtzDLL
                             }
 
                             else
-                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] == 0)
+                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] >= 0)
                             {
                                 CromosomRow = j;
                                 CromosomColumn = i;
