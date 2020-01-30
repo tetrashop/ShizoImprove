@@ -241,10 +241,15 @@ namespace RefrigtzDLL
             {
                 int[,] Table = CloneATable(TableS);
 
+                if (Order == 1 && Table[RowFirst, ColumnFirst] < 0)
+                    return false;
+                if (Order == -1 && Table[RowFirst, ColumnFirst] > 0)
+                    return false;
+
                 //long Time = TimeElapced.TimeNow();Spaces++;
 
 
-               if (Table[RowFirst, ColumnFirst] > 0 && Table[RowSecond, ColumnSecond] > 0)
+                if (Table[RowFirst, ColumnFirst] > 0 && Table[RowSecond, ColumnSecond] > 0)
                 {
                     if (!SelfHomeStatCP)
                         IgnoreSelfObject = true;
@@ -2693,12 +2698,15 @@ namespace RefrigtzDLL
                 {
                     //Rule of Soldeir.
                     case 1:
-
+                        if (System.Math.Abs(TableS[RowFirst, ColumnFirst]) != Kind)
+                            return false;
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return SoldierRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
 
-
+                        
                     case 4://Rule of Castles.
+                        if (System.Math.Abs(TableS[RowFirst, ColumnFirst]) != Kind)
+                            return false;
 
 
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -2706,20 +2714,28 @@ namespace RefrigtzDLL
 
 
                     case 3://Rule of Hourses.
+                        if (System.Math.Abs(TableS[RowFirst, ColumnFirst]) != Kind)
+                            return false;
                         return HourseRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
 
                     case 2://Rule of Elephant.
 
+                        if (System.Math.Abs(TableS[RowFirst, ColumnFirst]) != Kind)
+                            return false;
 
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return ElefantRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
                     case 5://Rule of Ministers.
+                        if (System.Math.Abs(TableS[RowFirst, ColumnFirst]) != Kind)
+                            return false;
 
                         ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
 
                     case 6://Rule of Kings.
-                           ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        if (System.Math.Abs(TableS[RowFirst, ColumnFirst]) != Kind)
+                            return false;
+                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Rule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return KingRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki);
                     case 7://Rule of Castles King.
 
