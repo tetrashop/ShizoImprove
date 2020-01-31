@@ -9427,6 +9427,29 @@ namespace QuantumRefrigiz
             
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("StringHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+        bool IsSupHuTrue(int i, int j, int k, int Kind)
+        {
+            bool Is = false;
+            if (Kind == 1)
+                Is = SolderesOnTable[i].SoldierThinkingQuantum[0].IsSupHu[j];
+            else
+   if (Kind == 2)
+                Is = ElephantOnTable[i].ElefantThinkingQuantum[0].IsSupHu[j];
+            else
+   if (Kind == 3)
+                Is = HoursesOnTable[i].HourseThinkingQuantum[0].IsSupHu[j];
+            else
+   if (Kind == 4)
+                Is = CastlesOnTable[i].CastleThinkingQuantum[0].IsSupHu[j];
+            else
+   if (Kind == 5)
+                Is = MinisterOnTable[i].MinisterThinkingQuantum[0].IsSupHu[j];
+            else
+   if (Kind == 6)
+                Is = KingOnTable[i].KingThinkingQuantum[0].IsSupHu[j];
+            return Is;
+        }
+
         //method for return index base calculated Heuristic specified and clear
         void SaveLess(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
         {
@@ -9853,11 +9876,13 @@ namespace QuantumRefrigiz
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool continued = false;
 
+            if (IsSupHuTrue(i, j, k, Kind))
+                return true;
+
             if (Kind == 1)
             {
                 if (SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                 {
-
                     Object O11 = new Object();
                     lock (O11)
                     {
@@ -15957,6 +15982,7 @@ namespace QuantumRefrigiz
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
+                    iAStarGreedy--;
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -15964,7 +15990,6 @@ namespace QuantumRefrigiz
 
                 }
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
-                iAStarGreedy--;
             }
             bool Do = false;
             if (iAStarGreedy >= 0 && iAStarGreedy < MaxDuringLevelThinkingQuantumCreation)

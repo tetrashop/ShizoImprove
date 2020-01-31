@@ -11895,13 +11895,13 @@ namespace QuantumRefrigiz
 
         }
         public int[] CalculateHeuristicsParallel(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-      )
+       )
         {
             Object OO = new Object();
             lock (OO)
             {
                 int[] Heuristic = null;
-                int[] Exchange = null;
+                int[] Exchange = new int[3];
                 int[] HeuristicRemain = new int[6];
 
                 var output = Task.Factory.StartNew(() =>
@@ -11923,12 +11923,13 @@ namespace QuantumRefrigiz
                         Object O = new Object();
                         lock (O)
                         {
-                            if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                return;
+                            /* if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                 return;
 
-                            int[,] TableSS = CloneATable(TableS);
-                            int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                            Exchange = HeuristicExchange(Before, Killed, TableSS, color, Order);
+                             int[,] TableSS = CloneATable(TableS);
+                             int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                             Exchange = HeuristicExchange(Before, Killed, TableSS, color, Order);
+                        */
                         }
                     });
                 });

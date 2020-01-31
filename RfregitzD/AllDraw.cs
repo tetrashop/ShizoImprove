@@ -9410,6 +9410,29 @@ namespace RefrigtzDLL
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("StringHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+        bool IsSupHuTrue(int i, int j, int k, int Kind)
+        {
+            bool Is = false;
+            if (Kind == 1)
+                Is = SolderesOnTable[i].SoldierThinking[0].IsSupHu[j];
+            else
+   if (Kind == 2)
+                Is = ElephantOnTable[i].ElefantThinking[0].IsSupHu[j];
+            else
+   if (Kind == 3)
+                Is = HoursesOnTable[i].HourseThinking[0].IsSupHu[j];
+            else
+   if (Kind == 4)
+                Is = CastlesOnTable[i].CastleThinking[0].IsSupHu[j];
+            else
+   if (Kind == 5)
+                Is = MinisterOnTable[i].MinisterThinking[0].IsSupHu[j];
+            else
+   if (Kind == 6)
+                Is = KingOnTable[i].KingThinking[0].IsSupHu[j];
+            return Is;
+        }
+
         //method for return index base calculated Heuristic specified and clear
         void SaveLess(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
         {
@@ -9835,12 +9858,14 @@ namespace RefrigtzDLL
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool continued = false;
+            if (IsSupHuTrue(i, j, k, Kind))
+                return true;
 
             if (Kind == 1)
             {
                 if (SolderesOnTable[i].SoldierThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                 {
-
+                   
                     Object O11 = new Object();
                     lock (O11)
                     {
@@ -15940,6 +15965,7 @@ namespace RefrigtzDLL
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
+                    iAStarGreedy--;
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -15947,7 +15973,6 @@ namespace RefrigtzDLL
 
                 }
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
-                iAStarGreedy--;
             }
             bool Do = false;
             if (iAStarGreedy >= 0 && iAStarGreedy < MaxDuringLevelThinkingCreation)
