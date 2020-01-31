@@ -6719,30 +6719,30 @@ namespace RefrigtzDLL
                         });
                     });
                 }
-                /*  //When situation is closed
-                 int A1 = IsSupportLessThanReducedSupport(Exchange[3], Exchange[2]);
-                 if (A1 > 0)
-                     ExchangeSeed[0] = RationalPenalty;
-                 else
-                 if (A1 != 0 //&& Exchange[2] == 0
-                 )
-                     ExchangeSeed[0] = RationalRegard;
-                 //when situation is closed and restriction
-                 A1 = IsAttackLessThanReducedAttack(Exchange[1], Exchange[0]);
-                 if (A1 > 0)
-                     ExchangeSeed[1] = RationalPenalty;
-                 else
-              if (A1 != 0 //&& Exchange[0] == 0
-              )
-                     ExchangeSeed[1] = RationalRegard;
-                 //reserved
+                int A1 = IsSupportLessThanReducedSupport(Exchange[3], Exchange[2]);
+                if (A1 > 0)
+                    ExchangeSeed[0] = RationalPenalty;
+                else
+                if (A1 != 0 //&& Exchange[2] == 0
+                )
 
-             A1 = IsMoveLessThanReducedMove(Exchange[4], Exchange[5]);
-             if (A1 > 0)
-                 ExchangeSeed[2] = RationalPenalty;
-             else
-                     if (Exchange[5] == 0)
-                 ExchangeSeed[2] = RationalRegard;
+                    ExchangeSeed[0] = RationalRegard;
+                //when situation is closed and restriction
+                A1 = IsAttackLessThanReducedAttack(Exchange[1], Exchange[0]);
+                if (A1 > 0)
+                    ExchangeSeed[1] = RationalPenalty;
+                else
+             if (A1 != 0 //&& Exchange[0] == 0
+             )
+                    ExchangeSeed[1] = RationalRegard;
+                //reserved
+
+                /* A1 = IsMoveLessThanReducedMove(Exchange[4], Exchange[5]);
+                 if (A1 > 0)
+                     ExchangeSeed[2] = RationalPenalty;
+                 else
+                         if (Exchange[5] == 0)
+                     ExchangeSeed[2] = RationalRegard;
 
  */
 
@@ -11894,13 +11894,13 @@ namespace RefrigtzDLL
                         Object O = new Object();
                         lock (O)
                         {
-                           /* if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                            if (!Scop(RowS, ColS, RowD, ColD, Kind))
                                 return;
 
                             int[,] TableSS = CloneATable(TableS);
                             int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                             Exchange = HeuristicExchange(Before, Killed, TableSS, color, Order);
-                       */ }
+                        }
                     });
                 });
                 output.Wait();
