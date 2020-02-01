@@ -6756,14 +6756,10 @@ namespace QuantumRefrigiz
              )
                     ExchangeSeed[1] = RationalRegard;    //reserved
 
-                /* A1 = IsMoveLessThanReducedMove(Exchange[4], Exchange[5]);
-                 if (A1 > 0)
-                     ExchangeSeed[2] = RationalPenalty;
-                 else
-                         if (Exchange[5] == 0)
-                     ExchangeSeed[2] = RationalRegard;
+                //Closed space remove
+                A1 = (Exchange[1] + Exchange[3] + Exchange[4]);
+                ExchangeSeed[2] = (int)(((double)RationalPenalty) * (1.0 - (((double)(A1)) / 64.0)));
 
- */
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
