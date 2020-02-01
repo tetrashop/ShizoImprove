@@ -11277,8 +11277,9 @@ namespace QuantumRefrigiz
                             TableS[RowSource, ColumnSource] = 0;
                         }
                     }
-                    KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                }
+                 }
+                KillerAtThinkingQuantum.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+
                 return;
             }
         }

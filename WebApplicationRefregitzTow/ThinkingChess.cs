@@ -11246,8 +11246,9 @@ namespace RefrigtzW
                             TableS[RowSource, ColumnSource] = 0;
                         }
                     }
-                    KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                 }
+                KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+
                 return;
             }
         }

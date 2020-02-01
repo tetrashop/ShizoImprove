@@ -11237,7 +11237,7 @@ namespace RefrigtzDLL
                             Killed = TableConst[RowDestination, ColumnDestination];
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
-                       }
+                        }
                     }
                     else
                     {
@@ -11249,8 +11249,9 @@ namespace RefrigtzDLL
                             TableS[RowSource, ColumnSource] = 0;
                         }
                     }
-                    KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                 }
+                KillerAtThinking.Add(KilledBool(RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+
                 return;
             }
 
