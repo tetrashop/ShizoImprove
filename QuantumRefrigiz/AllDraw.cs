@@ -22822,6 +22822,7 @@ if (Kind == 5)
                             this.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].LoadrECQ(Quantum, Order, DummyFileStream, Formatters);
                         }
                     }
+                    return this;
                     //this = (AllDraw)Formatters.Deserialize(DummyFileStream);
                 }
 

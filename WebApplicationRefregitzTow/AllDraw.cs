@@ -22687,8 +22687,7 @@ if (Kind == 5)
             {
 
 
-
-                while (DummyFileStream.Position < DummyFileStream.Length)
+                 while (DummyFileStream.Position < DummyFileStream.Length)
                 {
 
                     for (int i = 0; i < this.SodierHigh; i++)
@@ -22703,6 +22702,7 @@ if (Kind == 5)
                             continue;
                         if (this.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
                             continue;
+
 
                         for (int j = 0; j < this.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                         {
@@ -22806,6 +22806,7 @@ if (Kind == 5)
                             this.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
                         }
                     }
+                    return this;
                     //this = (AllDraw)Formatters.Deserialize(DummyFileStream);
                 }
 
