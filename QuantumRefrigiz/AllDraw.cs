@@ -9581,6 +9581,9 @@ namespace QuantumRefrigiz
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             bool continued = false;
+            if (IsSupHuTrue(i, j, k, Kind))
+                return true;
+
             //soldier
             if (Kind == 1)
             {

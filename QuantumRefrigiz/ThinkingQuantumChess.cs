@@ -6738,11 +6738,12 @@ namespace QuantumRefrigiz
                         });
                     });
                 }
+                //When situation is closed
                 int A1 = IsSupportLessThanReducedSupport(Exchange[3], Exchange[2]);
                 if (A1 > 0)
                     ExchangeSeed[0] = RationalPenalty;
                 else
-                if (A1 != 0 //&& Exchange[2] == 0
+                if (A1 != 0 && Exchange[2] == 0
                 )
 
                     ExchangeSeed[0] = RationalRegard;
@@ -6751,10 +6752,9 @@ namespace QuantumRefrigiz
                 if (A1 > 0)
                     ExchangeSeed[1] = RationalPenalty;
                 else
-             if (A1 != 0 //&& Exchange[0] == 0
+                if (A1 != 0 && Exchange[0] == 0
              )
-                    ExchangeSeed[1] = RationalRegard;
-                //reserved
+                    ExchangeSeed[1] = RationalRegard;    //reserved
 
                 /* A1 = IsMoveLessThanReducedMove(Exchange[4], Exchange[5]);
                  if (A1 > 0)

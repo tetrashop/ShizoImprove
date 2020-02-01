@@ -6720,7 +6720,7 @@ namespace RefrigtzW
                    if (A1 > 0)
                        ExchangeSeed[0] = RationalPenalty;
                    else
-                   if (A1 != 0 //&& Exchange[2] == 0
+                   if (A1 != 0 && Exchange[2] == 0
                    )
 
                        ExchangeSeed[0] = RationalRegard;
@@ -6729,7 +6729,7 @@ namespace RefrigtzW
                    if (A1 > 0)
                        ExchangeSeed[1] = RationalPenalty;
                    else
-                if (A1 != 0 //&& Exchange[0] == 0
+                   if (A1 != 0 && Exchange[0] == 0
                 )
                        ExchangeSeed[1] = RationalRegard;
                        //reserved
