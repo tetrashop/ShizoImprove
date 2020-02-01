@@ -5,12 +5,15 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using Chess;
+using System.Diagnostics;
 
 namespace Refrigtz
 {
     [Serializable]
     public class TakeRoot
     {
+        bool WaitOnplay = false;
+
         String path3 = @"temp";
         String AllDrawReplacement = "";
 
@@ -167,10 +170,34 @@ namespace Refrigtz
                 }
             }
             catch (Exception t) { Log(t); }
+            System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
+            ttt.Start();
+            ttt.Join();
+
             return DrawDrawen;
         }
+        void Wait()
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                PerformanceCounter myAppCpu =
+                    new PerformanceCounter(
+                        "Process", "% Processor Time", Process.GetCurrentProcess().ProcessName, true);
+
+
+                do { WaitOnplay = true; } while (myAppCpu.NextValue() != 0);
+
+                WaitOnplay = false;
+            }
+        }
+
         public bool Save(bool FOUND,bool Quantum, ChessForm Curent, ref bool LoadTree, bool MovementsAStarGreedyHeuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHeuristic, bool OnlySelf, bool AStarGreedyHeuristic, bool ArrangmentsChanged)
         {
+            System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
+            ttt.Start();
+            ttt.Join();
+
             /*if (!Quantum)
             {
                 while (Curent.Draw.AStarGreedyString != null)
