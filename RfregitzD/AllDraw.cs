@@ -22568,7 +22568,7 @@ if (Kind == 5)
                             continue;
                         if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
                             continue;
-
+                        Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
@@ -22588,6 +22588,7 @@ if (Kind == 5)
                             continue;
                         if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
@@ -22607,6 +22608,7 @@ if (Kind == 5)
                             continue;
                         if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
@@ -22626,6 +22628,7 @@ if (Kind == 5)
                             continue;
                         if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
@@ -22645,6 +22648,7 @@ if (Kind == 5)
                             continue;
                         if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
@@ -22666,6 +22670,7 @@ if (Kind == 5)
                             continue;
                         if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
@@ -22704,8 +22709,9 @@ if (Kind == 5)
                         continue;
                     if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
                         continue;
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
 
-                    for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22728,7 +22734,9 @@ if (Kind == 5)
                         continue;
                     if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22750,7 +22758,9 @@ if (Kind == 5)
                         continue;
                     if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22773,7 +22783,9 @@ if (Kind == 5)
                         continue;
                     if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22796,7 +22808,9 @@ if (Kind == 5)
                         continue;
                     if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22821,7 +22835,9 @@ if (Kind == 5)
                         continue;
                     if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {

@@ -179,7 +179,7 @@ namespace GalleryStudio
                 DummyFileStream.Seek(0, SeekOrigin.Begin);
 
                 Formatters.Serialize(DummyFileStream, CurrentQ);
-                CurrentQ.RewriteAllDrawRec(Formatters, DummyFileStream, Order);
+                CurrentQ.RewriteAllDrawRecQ(Formatters, DummyFileStream, Order);
 
 
                 DummyFileStream.Flush(); DummyFileStream.Close();

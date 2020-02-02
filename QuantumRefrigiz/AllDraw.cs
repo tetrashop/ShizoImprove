@@ -22562,7 +22562,7 @@ if (Kind == 5)
                 return R;
             }
         }
-        public void RewriteAllDrawRec(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
+        public void RewriteAllDrawRecQ(BinaryFormatter Formatters, FileStream DummyFileStream, int Order)
         {
             Object o = new Object();
             lock (o)
@@ -22589,12 +22589,12 @@ if (Kind == 5)
                             continue;
                         if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy == null)
                             continue;
-
+                        Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j]);
 
-                            Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRecQ(Formatters, DummyFileStream, Order * -1);
                         }
                     }
                     for (int i = 0; i < Node.ElefantHigh; i++)
@@ -22609,10 +22609,11 @@ if (Kind == 5)
                             continue;
                         if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j]);
-                            Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRecQ(Formatters, DummyFileStream, Order * -1);
 
                         }
                     }
@@ -22628,10 +22629,11 @@ if (Kind == 5)
                             continue;
                         if (Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j]);
-                            Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRecQ(Formatters, DummyFileStream, Order * -1);
                         }
 
                     }
@@ -22647,10 +22649,11 @@ if (Kind == 5)
                             continue;
                         if (Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j]);
-                            Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRecQ(Formatters, DummyFileStream, Order * -1);
                         }
                     }
 
@@ -22666,10 +22669,11 @@ if (Kind == 5)
                             continue;
                         if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j]);
-                            Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRecQ(Formatters, DummyFileStream, Order * -1);
                         }
 
                     }
@@ -22687,10 +22691,11 @@ if (Kind == 5)
                             continue;
                         if (Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy == null)
                             continue;
+                        Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count);
                         for (int j = 0; j < Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; j++)
                         {
                             Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j]);
-                            Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                            Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].RewriteAllDrawRecQ(Formatters, DummyFileStream, Order * -1);
                         }
                     }
                 }
@@ -22725,8 +22730,9 @@ if (Kind == 5)
                         continue;
                     if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy == null)
                         continue;
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
 
-                    for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; j++)
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22749,7 +22755,9 @@ if (Kind == 5)
                         continue;
                     if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22771,7 +22779,9 @@ if (Kind == 5)
                         continue;
                     if (Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22794,7 +22804,9 @@ if (Kind == 5)
                         continue;
                     if (Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22817,7 +22829,9 @@ if (Kind == 5)
                         continue;
                     if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
@@ -22842,7 +22856,9 @@ if (Kind == 5)
                         continue;
                     if (Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy == null)
                         continue;
-                    for (int j = 0; j < Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; j++)
+                    int count = (Int32)Formatters.Deserialize(DummyFileStream);
+
+                    for (int j = 0; j < count; j++)
                     {
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
