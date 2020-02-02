@@ -98,7 +98,7 @@ namespace GalleryStudio
                 Console.WriteLine("Loading...");
                 tt = (RefrigtzDLL.AllDraw)Formatters.Deserialize(DummyFileStream);
 
-                tt = tt.LoadrEC(Quantum, Order, DummyFileStream, Formatters);
+                tt =(RefrigtzDLL.AllDraw)tt.LoaderEC(Quantum, Order, DummyFileStream, Formatters);
 
                 DummyFileStream.Flush();
                 DummyFileStream.Close();
@@ -123,7 +123,7 @@ namespace GalleryStudio
                 DummyFileStream.Seek(0, SeekOrigin.Begin);
                 tQ = (QuantumRefrigiz.AllDraw)Formatters.Deserialize(DummyFileStream);
 
-                tQ = tQ.LoadrECQ(Quantum, Order, DummyFileStream, Formatters);
+                tQ = tQ.LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
 
                 DummyFileStream.Flush();
                 DummyFileStream.Close();

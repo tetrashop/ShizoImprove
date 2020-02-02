@@ -16,9 +16,11 @@ namespace Chess
 
         public Logger(string logPath)
         {
-            file = new FileStream(logPath, FileMode.Open);
-            writer = new StreamWriter(file);
-            mutex = new object();
+            using (file = File.Open(logPath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite))
+            {
+                writer = new StreamWriter(file);
+                mutex = new object();
+            }
         }
 
         // Log is thread safe, it can be called from many threads

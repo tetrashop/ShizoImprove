@@ -22696,140 +22696,171 @@ if (Kind == 5)
                 }
             }
         }
-        public AllDraw LoadrECQ(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
+        public AllDraw LoaderECQ(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
             Object o = new Object();
             lock (o)
             {
 
+                bool Act = false;
+                AllDraw Node = this;
+
+                if (DummyFileStream.Position >= DummyFileStream.Length)
+                    return Node;
 
 
-                while (DummyFileStream.Position < DummyFileStream.Length)
+
+                //Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
+
+
+                for (int i = 0; i < Node.SodierHigh; i++)
                 {
+                    if (Node.SolderesOnTable == null)
+                        continue;
+                    if (Node.SolderesOnTable[i] == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinkingQuantum == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0] == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy == null)
+                        continue;
 
-                    for (int i = 0; i < this.SodierHigh; i++)
+                    for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; j++)
                     {
-                        if (this.SolderesOnTable == null)
-                            continue;
-                        if (this.SolderesOnTable[i] == null)
-                            continue;
-                        if (this.SolderesOnTable[i].SoldierThinkingQuantum == null)
-                            continue;
-                        if (this.SolderesOnTable[i].SoldierThinkingQuantum[0] == null)
-                            continue;
-                        if (this.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy == null)
-                            continue;
-
-                        for (int j = 0; j < this.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; j++)
+                        if (DummyFileStream.Position < DummyFileStream.Length)
                         {
-                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].LoadrECQ(Quantum, Order, DummyFileStream, Formatters);
+
+                            Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
-                    for (int i = 0; i < this.ElefantHigh; i++)
-                    {
-                        if (this.ElephantOnTable == null)
-                            continue;
-                        if (this.ElephantOnTable[i] == null)
-                            continue;
-                        if (this.ElephantOnTable[i].ElefantThinkingQuantum == null)
-                            continue;
-                        if (this.ElephantOnTable[i].ElefantThinkingQuantum[0] == null)
-                            continue;
-                        if (this.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; j++)
-                        {
-                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].LoadrECQ(Quantum, Order, DummyFileStream, Formatters);
-
-                        }
-                    }
-                    for (int i = 0; i < this.HourseHight; i++)
-                    {
-                        if (this.HoursesOnTable == null)
-                            continue;
-                        if (this.HoursesOnTable[i] == null)
-                            continue;
-                        if (this.HoursesOnTable[i].HourseThinkingQuantum == null)
-                            continue;
-                        if (this.HoursesOnTable[i].HourseThinkingQuantum[0] == null)
-                            continue;
-                        if (this.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; j++)
-                        {
-                            this.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].LoadrECQ(Quantum, Order, DummyFileStream, Formatters);
-                        }
-
-                    }
-                    for (int i = 0; i < this.CastleHigh; i++)
-                    {
-                        if (this.CastlesOnTable == null)
-                            continue;
-                        if (this.CastlesOnTable[i] == null)
-                            continue;
-                        if (this.CastlesOnTable[i].CastleThinkingQuantum == null)
-                            continue;
-                        if (this.CastlesOnTable[i].CastleThinkingQuantum[0] == null)
-                            continue;
-                        if (this.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; j++)
-                        {
-                            this.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].LoadrECQ(Quantum, Order, DummyFileStream, Formatters);
-                        }
-                    }
-
-                    for (int i = 0; i < this.MinisterHigh; i++)
-                    {
-                        if (this.MinisterOnTable == null)
-                            continue;
-                        if (this.MinisterOnTable[i] == null)
-                            continue;
-                        if (this.MinisterOnTable[i].MinisterThinkingQuantum == null)
-                            continue;
-                        if (this.MinisterOnTable[i].MinisterThinkingQuantum[0] == null)
-                            continue;
-                        if (this.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; j++)
-                        {
-                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].LoadrECQ(Quantum, Order, DummyFileStream, Formatters);
-                        }
-
-                    }
-                    for (int i = 0; i < this.KingHigh; i++)
-                    {
-                        if (this.KingOnTable == null)
-                            continue;
-                        if (this.KingOnTable[i] == null)
-                            continue;
-                        if (this.KingOnTable[i].KingThinkingQuantum == null)
-                            continue;
-                        if (this.KingOnTable[i].KingThinkingQuantum[0] == null)
-                            continue;
-                        if (this.KingOnTable[i].KingThinkingQuantum[0] == null)
-                            continue;
-                        if (this.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; j++)
-                        {
-                            this.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].LoadrECQ(Quantum, Order, DummyFileStream, Formatters);
-                        }
-                    }
-                    return this;
-                    //this = (AllDraw)Formatters.Deserialize(DummyFileStream);
                 }
+                for (int i = 0; i < Node.ElefantHigh; i++)
+                {
+                    if (Node.ElephantOnTable == null)
+                        continue;
+                    if (Node.ElephantOnTable[i] == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinkingQuantum == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0] == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
+                        }
+                    }
+                }
+                for (int i = 0; i < Node.HourseHight; i++)
+                {
+                    if (Node.HoursesOnTable == null)
+                        continue;
+                    if (Node.HoursesOnTable[i] == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinkingQuantum == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinkingQuantum[0] == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
+                        }
+
+                    }
+                }
+                for (int i = 0; i < Node.CastleHigh; i++)
+                {
+                    if (Node.CastlesOnTable == null)
+                        continue;
+                    if (Node.CastlesOnTable[i] == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinkingQuantum == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinkingQuantum[0] == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
+
+                        }
+                    }
+                }
+                for (int i = 0; i < Node.MinisterHigh; i++)
+                {
+                    if (Node.MinisterOnTable == null)
+                        continue;
+                    if (Node.MinisterOnTable[i] == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinkingQuantum == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0] == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
+                        }
+
+                    }
+                }
+                for (int i = 0; i < Node.KingHigh; i++)
+                {
+                    if (Node.KingOnTable == null)
+                        continue;
+                    if (Node.KingOnTable[i] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinkingQuantum == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinkingQuantum[0] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinkingQuantum[0] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
+                        }
+                    }
+                }
+                //  if (!Act)
+                //   return this;
+                //this = (AllDraw)Formatters.Deserialize(DummyFileStream);
+
 
 
                 //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT), Order);
-                return this;
-                //return this.al;
+                return Node;
+                //return Node.al;
             }
         }
 

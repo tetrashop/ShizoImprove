@@ -788,7 +788,7 @@ namespace RefrigtzW
 
                     Console.WriteLine("Loading...");
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
-                   t = LoadrEC(Quantum, Order, this, DummyFileStream, Formatters);
+                   t = LoaderEC(Quantum, Order, this, DummyFileStream, Formatters);
                     
                     DummyFileStream.Flush();
                     DummyFileStream.Close();
@@ -810,7 +810,7 @@ namespace RefrigtzW
 
                     Console.WriteLine("Loading...");
                     DummyFileStream.Seek(0, SeekOrigin.Begin);
-                        tQ = LoadrECQ(Quantum, Order, this, DummyFileStream, Formatters);
+                        tQ = LoaderECQ(Quantum, Order, this, DummyFileStream, Formatters);
 
                     DummyFileStream.Flush();
                     DummyFileStream.Close();
@@ -819,7 +819,7 @@ namespace RefrigtzW
                 //return Node.al;
             }
         }
-        public AllDraw LoadrEC(bool Quantum, int Order, RefrigtzW.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
+        public AllDraw LoaderEC(bool Quantum, int Order, RefrigtzW.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
             RefregizMemmory Dummy = null;
             Object o = new Object();
@@ -962,7 +962,7 @@ namespace RefrigtzW
                 //return Node.al;
             }
         }
-        public RefrigtzW.AllDraw LoadrECQ(bool Quantum, int Order, RefrigtzW.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
+        public RefrigtzW.AllDraw LoaderECQ(bool Quantum, int Order, RefrigtzW.RefregizMemmory Last, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
             RefregizMemmory Dummy = null;
             Object o = new Object();

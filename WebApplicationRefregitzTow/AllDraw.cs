@@ -2205,7 +2205,7 @@ namespace RefrigtzW
                 do
                 {
 
-                    
+
                 } while (!SetRowColumnFinished);
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SetRowColumnFinishedWait:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -5025,7 +5025,7 @@ namespace RefrigtzW
                     int c = SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier.Count;
                     int d = SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder.Count;
                     int e = 0;
-                                        if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null&& SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count>j)
+                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j)
                         e = -1;
                     else
                         e = SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count;
@@ -5048,7 +5048,7 @@ namespace RefrigtzW
                     int c = ElephantOnTable[i].ElefantThinking[0].RowColumnElefant.Count;
                     int d = ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant.Count;
                     int e = 0;
-                     if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count>j)
+                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j)
                         e = -1;
                     else
                         e = ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count;
@@ -5069,7 +5069,7 @@ namespace RefrigtzW
                     int c = HoursesOnTable[i].HourseThinking[0].RowColumnHourse.Count;
                     int d = HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse.Count;
                     int e = 0;
-                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null&& HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count>j)
+                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j)
                         e = -1;
                     else
                         e = HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count;
@@ -5090,7 +5090,7 @@ namespace RefrigtzW
                     int c = CastlesOnTable[i].CastleThinking[0].RowColumnCastle.Count;
                     int d = CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle.Count;
                     int e = 0;
-                      if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null&& CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count>j)
+                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j)
                         e = -1;
                     else
                         e = CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count;
@@ -5111,7 +5111,7 @@ namespace RefrigtzW
                     int c = MinisterOnTable[i].MinisterThinking[0].RowColumnMinister.Count;
                     int d = MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister.Count;
                     int e = 0;
-                       if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count>j)
+                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j)
                         e = -1;
                     else
                         e = MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count;
@@ -5132,7 +5132,7 @@ namespace RefrigtzW
                     int c = KingOnTable[i].KingThinking[0].RowColumnKing.Count;
                     int d = KingOnTable[i].KingThinking[0].PenaltyRegardListKing.Count;
                     int e = 0;
-                              if (KingOnTable[i].KingThinking[0].AStarGreedy != null&& KingOnTable[i].KingThinking[0].AStarGreedy.Count>j)
+                    if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count > j)
                         e = -1;
                     else
                         e = KingOnTable[i].KingThinking[0].AStarGreedy.Count;
@@ -6210,7 +6210,7 @@ namespace RefrigtzW
             }
             //when is 2 consider determinstic results about contanied
             if (Is == 2)
-            IsThereCalculatedAStarGreedyNode(i);
+                IsThereCalculatedAStarGreedyNode(i);
             return Is;
         }
         //when current side of alldraw is not contained and semi computated 
@@ -9408,7 +9408,7 @@ namespace RefrigtzW
             {
                 OutPut.Append("\r\n" + SOut);
             }
-            
+
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("StringHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         bool IsSupHuTrue(int i, int j, int k, int Kind)
@@ -9868,7 +9868,7 @@ namespace RefrigtzW
             {
                 if (SolderesOnTable[i].SoldierThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                 {
-                  
+
 
                     Object O11 = new Object();
                     lock (O11)
@@ -10428,7 +10428,7 @@ namespace RefrigtzW
                 {
                     for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                     {
-                        
+
                         {
 
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -10439,7 +10439,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (SolderesOnTable[i].SoldierThinking[k].AStarGreedy.Count > j&& SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j]!=null)
+                            if (SolderesOnTable[i].SoldierThinking[k].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j] != null)
                                 SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -10586,7 +10586,7 @@ namespace RefrigtzW
                 {
                     for (j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                     {
-                        
+
                         {
 
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -10597,7 +10597,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j&& ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]!=null)
+                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j] != null)
                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(2, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -10710,7 +10710,7 @@ namespace RefrigtzW
                 {
                     for (j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[k] != null && j < HoursesOnTable[i].HourseThinking[k].TableListHourse.Count; j++)
                     {
-                        
+
                         {
 
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -10721,7 +10721,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j&& HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]!=null)
+                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy[j] != null)
                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(3, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -10828,7 +10828,7 @@ namespace RefrigtzW
                 {
                     for (j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
                     {
-                        
+
                         {
 
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -10839,7 +10839,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j&& CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]!=null)
+                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy[j] != null)
                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(4, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -10944,7 +10944,7 @@ namespace RefrigtzW
                 {
                     for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                     {
-                        
+
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -10954,7 +10954,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]!=null)
+                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j] != null)
                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(5, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -11053,7 +11053,7 @@ namespace RefrigtzW
                 {
                     for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                     {
-                        
+
                         {
 
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -11064,7 +11064,7 @@ namespace RefrigtzW
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
-                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j&& KingOnTable[i].KingThinking[0].AStarGreedy[j]!=null)
+                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && KingOnTable[i].KingThinking[0].AStarGreedy[j] != null)
                                 KingOnTable[i].KingThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(6, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
@@ -14646,7 +14646,7 @@ namespace RefrigtzW
         {
             if (ThinkingAllowed == null)
                 ThinkingAllowed = new bool[12];
-            do {  } while (!ThinkingAllowed[i - 1]);
+            do { } while (!ThinkingAllowed[i - 1]);
 
 
         }
@@ -15978,7 +15978,7 @@ namespace RefrigtzW
 
                 }
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
-             }
+            }
             bool Do = false;
             if (iAStarGreedy >= 0 && iAStarGreedy < MaxDuringLevelThinkingCreation)
             {
@@ -16188,7 +16188,7 @@ namespace RefrigtzW
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                        
+
                         //Parallel.Invoke(() =>
                         {
                             var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
@@ -16324,7 +16324,7 @@ namespace RefrigtzW
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
                         //int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
-                        
+
                         //Parallel.Invoke(() =>
                         {
                             Do |= this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy);
@@ -18808,7 +18808,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //main decistion
                 while (ReturnFullGameThinkingTreeSemaphore(ik, Kind))
                 {
-                    
+
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         break;
@@ -20895,7 +20895,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else
             {
                 var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeBrown(a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
-               // array.Start();
+                // array.Start();
                 array.Wait();
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -22680,140 +22680,171 @@ if (Kind == 5)
                 }
             }
         }
-        public AllDraw LoadrEC(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
+        public AllDraw LoaderEC(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
         {
             Object o = new Object();
             lock (o)
             {
 
+                bool Act = false;
+                AllDraw Node = this;
 
-                 while (DummyFileStream.Position < DummyFileStream.Length)
+                if (DummyFileStream.Position >= DummyFileStream.Length)
+                    return Node;
+
+
+
+                //Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
+
+
+                for (int i = 0; i < Node.SodierHigh; i++)
                 {
+                    if (Node.SolderesOnTable == null)
+                        continue;
+                    if (Node.SolderesOnTable[i] == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinking == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinking[0] == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
+                        continue;
 
-                    for (int i = 0; i < this.SodierHigh; i++)
+                    for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                     {
-                        if (this.SolderesOnTable == null)
-                            continue;
-                        if (this.SolderesOnTable[i] == null)
-                            continue;
-                        if (this.SolderesOnTable[i].SoldierThinking == null)
-                            continue;
-                        if (this.SolderesOnTable[i].SoldierThinking[0] == null)
-                            continue;
-                        if (this.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
-                            continue;
-
-
-                        for (int j = 0; j < this.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
+                        if (DummyFileStream.Position < DummyFileStream.Length)
                         {
-                            this.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
+
+                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
-                    for (int i = 0; i < this.ElefantHigh; i++)
-                    {
-                        if (this.ElephantOnTable == null)
-                            continue;
-                        if (this.ElephantOnTable[i] == null)
-                            continue;
-                        if (this.ElephantOnTable[i].ElefantThinking == null)
-                            continue;
-                        if (this.ElephantOnTable[i].ElefantThinking[0] == null)
-                            continue;
-                        if (this.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
-                        {
-                            this.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
-
-                        }
-                    }
-                    for (int i = 0; i < this.HourseHight; i++)
-                    {
-                        if (this.HoursesOnTable == null)
-                            continue;
-                        if (this.HoursesOnTable[i] == null)
-                            continue;
-                        if (this.HoursesOnTable[i].HourseThinking == null)
-                            continue;
-                        if (this.HoursesOnTable[i].HourseThinking[0] == null)
-                            continue;
-                        if (this.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
-                        {
-                            this.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
-                        }
-
-                    }
-                    for (int i = 0; i < this.CastleHigh; i++)
-                    {
-                        if (this.CastlesOnTable == null)
-                            continue;
-                        if (this.CastlesOnTable[i] == null)
-                            continue;
-                        if (this.CastlesOnTable[i].CastleThinking == null)
-                            continue;
-                        if (this.CastlesOnTable[i].CastleThinking[0] == null)
-                            continue;
-                        if (this.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
-                        {
-                            this.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
-                        }
-                    }
-
-                    for (int i = 0; i < this.MinisterHigh; i++)
-                    {
-                        if (this.MinisterOnTable == null)
-                            continue;
-                        if (this.MinisterOnTable[i] == null)
-                            continue;
-                        if (this.MinisterOnTable[i].MinisterThinking == null)
-                            continue;
-                        if (this.MinisterOnTable[i].MinisterThinking[0] == null)
-                            continue;
-                        if (this.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
-                        {
-                            this.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
-                        }
-
-                    }
-                    for (int i = 0; i < this.KingHigh; i++)
-                    {
-                        if (this.KingOnTable == null)
-                            continue;
-                        if (this.KingOnTable[i] == null)
-                            continue;
-                        if (this.KingOnTable[i].KingThinking == null)
-                            continue;
-                        if (this.KingOnTable[i].KingThinking[0] == null)
-                            continue;
-                        if (this.KingOnTable[i].KingThinking[0] == null)
-                            continue;
-                        if (this.KingOnTable[i].KingThinking[0].AStarGreedy == null)
-                            continue;
-                        for (int j = 0; j < this.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
-                        {
-                            this.KingOnTable[i].KingThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            this.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoadrEC(Quantum, Order, DummyFileStream, Formatters);
-                        }
-                    }
-                    return this;
-                    //this = (AllDraw)Formatters.Deserialize(DummyFileStream);
                 }
+                for (int i = 0; i < Node.ElefantHigh; i++)
+                {
+                    if (Node.ElephantOnTable == null)
+                        continue;
+                    if (Node.ElephantOnTable[i] == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinking == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinking[0] == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = Node;
+                        }
+                    }
+                }
+                for (int i = 0; i < Node.HourseHight; i++)
+                {
+                    if (Node.HoursesOnTable == null)
+                        continue;
+                    if (Node.HoursesOnTable[i] == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinking == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinking[0] == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = Node;
+                        }
+
+                    }
+                }
+                for (int i = 0; i < Node.CastleHigh; i++)
+                {
+                    if (Node.CastlesOnTable == null)
+                        continue;
+                    if (Node.CastlesOnTable[i] == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinking == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinking[0] == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = Node;
+
+                        }
+                    }
+                }
+                for (int i = 0; i < Node.MinisterHigh; i++)
+                {
+                    if (Node.MinisterOnTable == null)
+                        continue;
+                    if (Node.MinisterOnTable[i] == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinking == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinking[0] == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = Node;
+                        }
+
+                    }
+                }
+                for (int i = 0; i < Node.KingHigh; i++)
+                {
+                    if (Node.KingOnTable == null)
+                        continue;
+                    if (Node.KingOnTable[i] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinking == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinking[0] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinking[0] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
+                        continue;
+                    for (int j = 0; j < Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                    {
+                        if (DummyFileStream.Position < DummyFileStream.Length)
+                        {
+                            Node.KingOnTable[i].KingThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
+                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = Node;
+                        }
+                    }
+                }
+                //  if (!Act)
+                //   return this;
+                //this = (AllDraw)Formatters.Deserialize(DummyFileStream);
+
 
 
                 //return CreateAllDrawFromMemmory(Last, new AllDraw(MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT), Order);
-                return this;
-                //return this.al;
+                return Node;
+                //return Node.al;
             }
         }
 

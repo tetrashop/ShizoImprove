@@ -89,10 +89,10 @@ namespace Refrigtz
                 String P = Path.GetFullPath(path3);
                 AllDrawReplacement = Path.Combine(P, AllDrawKindString);
 
-                //Logger y = new Logger(AllDrawReplacement);
+                Logger y = new Logger(AllDrawReplacement);
                 //y.Dispose();
 
-                //y = new Logger(AllDrawKindString);
+                y = new Logger(AllDrawKindString);
                 //y.Dispose();
 
                 if (File.Exists(AllDrawKindString))
