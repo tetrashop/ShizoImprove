@@ -6314,7 +6314,7 @@ namespace QuantumRefrigiz
                                                         if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
                                                         {
                                                             if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                                Heuristic[5] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
+                                                                Heuristic[5] += (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
                                                         }
                                                     }*/
                                                     if (Heuristic[1] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
@@ -6323,7 +6323,7 @@ namespace QuantumRefrigiz
                                                             if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                             {
                                                                 if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                    Heuristic[1] += RationalRegard;// RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                                    Heuristic[1] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
                                                             }
                                                         }
                                                     }
@@ -6332,7 +6332,7 @@ namespace QuantumRefrigiz
                                                         if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
                                                         {
                                                             if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                Heuristic[3] += RationalRegard;// (RationalRegard * DiffSupport(Table[RowS, ColS], Table[RowD, ColD]));
+                                                                Heuristic[3] += (RationalRegard * DiffSupport(Table[RowS, ColS], Table[RowD, ColD]));
                                                         }
                                                     }
                                                     /* if (Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
@@ -6340,7 +6340,7 @@ namespace QuantumRefrigiz
                                                          if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
                                                          {
                                                              if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                 Heuristic[4] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                                 Heuristic[4] += (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
                                                          }
                                                      }*/
 

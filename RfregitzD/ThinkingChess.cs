@@ -6213,7 +6213,7 @@ namespace RefrigtzDLL
             if (Penalty)
             {
                 if (Math.Abs(Obj1) > Math.Abs(Obj2))
-                    return 10 - Math.Abs(df) + 1;
+                    return 12 - Math.Abs(df) + 1;
                 else
                     return Math.Abs(df) + 1;
             }
@@ -6222,7 +6222,7 @@ namespace RefrigtzDLL
                 if (Math.Abs(Obj1) > Math.Abs(Obj2))
                     return Math.Abs(df) + 1;
                 else
-                    return 10 - Math.Abs(df) + 1;
+                    return 12 - Math.Abs(df) + 1;
             }
 
             return df;

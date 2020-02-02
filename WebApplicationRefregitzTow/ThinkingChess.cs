@@ -6209,7 +6209,7 @@ namespace RefrigtzW
             if (Penalty)
             {
                 if (Math.Abs(Obj1) > Math.Abs(Obj2))
-                    return 10 - Math.Abs(df) + 1;
+                    return 12 - Math.Abs(df) + 1;
                 else
                     return Math.Abs(df) + 1;
             }
@@ -6218,7 +6218,7 @@ namespace RefrigtzW
                 if (Math.Abs(Obj1) > Math.Abs(Obj2))
                     return Math.Abs(df) + 1;
                 else
-                    return 10 - Math.Abs(df) + 1;
+                    return 12 - Math.Abs(df) + 1;
             }
 
             return df;
@@ -6274,8 +6274,8 @@ namespace RefrigtzW
 
                                                         if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                         {
-                                                            if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                                Heuristic[0] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
+                                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                            Heuristic[0] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
                                                         }
                                                     }
                                                     if (Heuristic[2] == 0)
@@ -6283,7 +6283,7 @@ namespace RefrigtzW
                                                         if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
                                                         {
                                                             if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                                Heuristic[2] += RationalPenalty;// RationalPenalty;// (RationalPenalty * DiffSupport(Table[RowD, ColD], Table[RowS, ColS]));
+                                                                Heuristic[2] += RationalPenalty;// += (RationalPenalty * DiffSupport(Table[RowD, ColD], Table[RowS, ColS]));
                                                         }
                                                     }
                                                     /*if (Heuristic[2] == 0&&Heuristic[0] == 0)
@@ -6291,7 +6291,7 @@ namespace RefrigtzW
                                                         if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
                                                         {
                                                             if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                                Heuristic[5] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
+                                                                Heuristic[5] += (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
                                                         }
                                                     }*/
                                                     if (Heuristic[1] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
@@ -6299,8 +6299,8 @@ namespace RefrigtzW
                                                         {
                                                             if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                             {
-                                                                if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                    Heuristic[1] += RationalRegard;// RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                                Heuristic[1] += RationalRegard;// RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
                                                             }
                                                         }
                                                     }
@@ -6309,7 +6309,7 @@ namespace RefrigtzW
                                                         if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
                                                         {
                                                             if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                Heuristic[3] += RationalRegard;// RationalRegard;// (RationalRegard * DiffSupport(Table[RowS, ColS], Table[RowD, ColD]));
+                                                                Heuristic[3] += RationalRegard;// (RationalRegard * DiffSupport(Table[RowS, ColS], Table[RowD, ColD]));
                                                         }
                                                     }
                                                     /* if (Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
@@ -6317,7 +6317,7 @@ namespace RefrigtzW
                                                          if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
                                                          {
                                                              if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                 Heuristic[4] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                                 Heuristic[4] += (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
                                                          }
                                                      }*/
 
