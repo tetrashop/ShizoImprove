@@ -84,6 +84,9 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ThinkingQuantumChess
     {
+        bool IKIsCentralPawnIsOk = false;
+
+
         List<int[]> HeuristicAllSupport = new List<int[]>();
         List<int[]> HeuristicAllReducedSupport = new List<int[]>();
         List<int[]> HeuristicAllAttacked = new List<int[]>();
@@ -5789,19 +5792,22 @@ namespace QuantumRefrigiz
             {
                 int Dis = 0;
                 const int ObjectGray = 0, ObjectBrown = 0;
-
+                //prevenstion from multiple move
                 if (IsTableRowColIsZero(RowS, ColS))
                     Dis = RationalRegard;
                 else
                     Dis = RationalPenalty;
-                if (IsCentralPawnIsOk(CloneATable(Tab), Order))
+                    //checked when pawn suppor themselves at center.
+                IKIsCentralPawnIsOk = IsCentralPawnIsOk(CloneATable(Tab), Order);
+                if (IKIsCentralPawnIsOk)
                     Dis += RationalRegard;
                 else
                     Dis += RationalPenalty;
 
+                //distrubution for objects from begin
                 if (Order == 1)
                 {
-                    if ((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == 3)
                             Dis += RationalRegard;
@@ -5816,7 +5822,7 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                    if (!((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == -3)
                             Dis += RationalPenalty;
@@ -5838,7 +5844,7 @@ namespace QuantumRefrigiz
                     if (Tab[RowS, ColS] == -3)
                         Dis += RationalRegard;
 
-                    if ((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
@@ -5851,7 +5857,7 @@ namespace QuantumRefrigiz
                             }
                         }
                     }
-                    if (!((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
@@ -6747,6 +6753,22 @@ namespace QuantumRefrigiz
                 )
 
                     ExchangeSeed[0] = RationalRegard;
+                else//When reinforcment arrangments is Ok
+                {
+                    if (IKIsCentralPawnIsOk && Exchange[3] == 0)
+                    {
+                        ExchangeSeed[0] += RationalRegard;
+
+                    }
+                    else
+                    {
+                        if (IKIsCentralPawnIsOk && Exchange[2] != 0)
+                        {
+                            ExchangeSeed[0] += RationalPenalty;
+
+                        }
+                    }
+                }
                 //when situation is closed and restriction
                 A1 = IsAttackLessThanReducedAttack(Exchange[1], Exchange[0]);
                 if (A1 > 0)
@@ -6754,12 +6776,11 @@ namespace QuantumRefrigiz
                 else
                 if (A1 != 0 && Exchange[0] == 0
              )
-                    ExchangeSeed[1] = RationalRegard;    //reserved
+                    ExchangeSeed[1] = RationalRegard;
 
                 //Closed space remove
                 A1 = (Exchange[1] + Exchange[3] + Exchange[4]);
                 ExchangeSeed[2] = (int)(((double)RationalPenalty) * (1.0 - (((double)(A1)) / 64.0)));
-
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -6767,7 +6788,6 @@ namespace QuantumRefrigiz
                 //Initiate to Begin Call Orders.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ExchangeAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return ExchangeSeed;
-
 
 
             }

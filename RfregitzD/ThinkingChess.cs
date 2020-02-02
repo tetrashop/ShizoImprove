@@ -84,6 +84,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess
     {
+        bool IKIsCentralPawnIsOk = false;
         List<int[]> HeuristicAllSupport = new List<int[]>();
         List<int[]> HeuristicAllReducedSupport = new List<int[]>();
         List<int[]> HeuristicAllAttacked = new List<int[]>();
@@ -5776,14 +5777,15 @@ namespace RefrigtzDLL
                     Dis = RationalRegard;
                 else
                     Dis = RationalPenalty;
-                if (IsCentralPawnIsOk(CloneATable(Tab), Order))
+                IKIsCentralPawnIsOk = IsCentralPawnIsOk(CloneATable(Tab), Order);
+                if (IKIsCentralPawnIsOk)
                     Dis += RationalRegard;
                 else
                     Dis += RationalPenalty;
                 
                 if (Order == 1)
                 {
-                    if ((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == 3)
                             Dis += RationalRegard;
@@ -5798,7 +5800,7 @@ namespace RefrigtzDLL
                             }
                         }
                     }
-                    if (!((Tab[3, 4] != ObjectGray && Tab[4, 3] != ObjectGray && Tab[3, 3] != ObjectGray && Tab[4, 4] != ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == -3)
                             Dis += RationalPenalty;
@@ -5820,7 +5822,7 @@ namespace RefrigtzDLL
                     if (Tab[RowS, ColS] == -3)
                         Dis += RationalRegard;
 
-                    if ((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
@@ -5833,7 +5835,7 @@ namespace RefrigtzDLL
                             }
                         }
                     }
-                    if (!((Tab[3, 4] != ObjectBrown && Tab[4, 3] != ObjectBrown && Tab[3, 3] != ObjectBrown && Tab[4, 4] != ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+                    if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
@@ -6728,6 +6730,22 @@ namespace RefrigtzDLL
                 )
 
                     ExchangeSeed[0] = RationalRegard;
+                else//When reinforcment arrangments is Ok
+                {
+                    if (IKIsCentralPawnIsOk && Exchange[3] == 0)
+                    {
+                        ExchangeSeed[0] += RationalRegard;
+
+                    }
+                    else
+                    {
+                        if (IKIsCentralPawnIsOk && Exchange[2] != 0)
+                        {
+                            ExchangeSeed[0] += RationalPenalty;
+
+                        }
+                    }
+                }
                 //when situation is closed and restriction
                 A1 = IsAttackLessThanReducedAttack(Exchange[1], Exchange[0]);
                 if (A1 > 0)
