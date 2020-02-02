@@ -3797,7 +3797,7 @@ namespace QuantumRefrigiz
             return Is;
         }
         //All valid call of current alldraw deeper of founding get node.
-        public AllDraw FoundOfCurrentTableNodeAStardGreedy(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
+        public AllDraw FoundOfCurrentTableNodeAstardGreedy(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
             //soldier
             if (BondryObjectNumber(i, 1, Order) && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null)
@@ -3885,7 +3885,8 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
-
+                            if (IsSupHuTrue(i, j, 0, 1))
+                                continue;
 
                             if (ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Tab))
                             {
@@ -3896,7 +3897,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 for (int k = 0; SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && k < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
 
@@ -3910,6 +3911,8 @@ namespace QuantumRefrigiz
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
 
+                            if (IsSupHuTrue(i, j, 0, 2))
+                                continue;
 
                             if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
                             {
@@ -3923,7 +3926,7 @@ namespace QuantumRefrigiz
 
 
                                 for (int k = 0; ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && k < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -3934,6 +3937,9 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
+
+                            if (IsSupHuTrue(i, j, 0, 3))
+                                continue;
 
                             if (ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j], Tab))
                             {
@@ -3946,7 +3952,7 @@ namespace QuantumRefrigiz
                             {
 
                                 for (int k = 0; HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && k < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
 
                                 if (Found)
                                     return THIS;
@@ -3959,6 +3965,9 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 4))
+                                continue;
+
 
                             if (ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab))
                             {
@@ -3971,7 +3980,7 @@ namespace QuantumRefrigiz
                             {
 
                                 for (int k = 0; CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && k < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -3982,7 +3991,8 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
-
+                            if (IsSupHuTrue(i, j, 0, 5))
+                                continue;
                             if (ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab))
                             {
                                 FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -3994,7 +4004,7 @@ namespace QuantumRefrigiz
                             {
 
                                 for (int k = 0; MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && k < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4007,6 +4017,9 @@ namespace QuantumRefrigiz
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
 
+                            if (IsSupHuTrue(i, j, 0, 6))
+                                continue;
+
                             if (ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Tab))
                             {
                                 FoundOfCurrentTableNodeKingIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -4018,7 +4031,7 @@ namespace QuantumRefrigiz
                             {
 
                                 for (int k = 0; KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && k < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4034,6 +4047,8 @@ namespace QuantumRefrigiz
                         for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                         {
 
+                            if (IsSupHuTrue(i, j, 0, 1))
+                                continue;
 
                             if (ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Tab))
                             {
@@ -4045,7 +4060,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 for (int k = 0; SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && k < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4056,6 +4071,8 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 2))
+                                continue;
 
 
                             if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
@@ -4068,7 +4085,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 for (int k = 0; ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && k < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4080,6 +4097,8 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 3))
+                                continue;
 
 
                             if (ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j], Tab))
@@ -4092,7 +4111,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 for (int k = 0; HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && k < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4105,6 +4124,8 @@ namespace QuantumRefrigiz
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                         {
 
+                            if (IsSupHuTrue(i, j, 0, 4))
+                                continue;
 
                             if (ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab))
                             {
@@ -4116,7 +4137,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 for (int k = 0; CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && k < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4128,6 +4149,9 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 5))
+                                continue;
+
 
                             if (ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab))
                             {
@@ -4139,7 +4163,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 for (int k = 0; MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && k < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4150,6 +4174,8 @@ namespace QuantumRefrigiz
                     {
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 6))
+                                continue;
 
                             if (ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Tab))
                             {
@@ -4161,7 +4187,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 for (int k = 0; KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && k < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; k++)
-                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4198,7 +4224,7 @@ namespace QuantumRefrigiz
                             else
                             {
 
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
 
@@ -4224,7 +4250,7 @@ namespace QuantumRefrigiz
                             {
 
 
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4247,7 +4273,7 @@ namespace QuantumRefrigiz
                             {
 
 
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4270,7 +4296,7 @@ namespace QuantumRefrigiz
                             else
                             {
 
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4292,7 +4318,7 @@ namespace QuantumRefrigiz
                             else
                             {
 
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4315,7 +4341,7 @@ namespace QuantumRefrigiz
                             else
                             {
 
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4341,7 +4367,7 @@ namespace QuantumRefrigiz
                             }
                             else
                             {
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4363,7 +4389,7 @@ namespace QuantumRefrigiz
                             }
                             else
                             {
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4386,7 +4412,7 @@ namespace QuantumRefrigiz
                             }
                             else
                             {
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4409,7 +4435,7 @@ namespace QuantumRefrigiz
                             }
                             else
                             {
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4431,7 +4457,7 @@ namespace QuantumRefrigiz
                             }
                             else
                             {
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4452,7 +4478,7 @@ namespace QuantumRefrigiz
                             }
                             else
                             {
-                                FoundOfCurrentTableNodeAStardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -5216,6 +5242,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 1))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Tab))
                         {
                             FoundOfCurrentTableNodeSolderIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5231,6 +5259,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 1))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Tab))
                         {
                             FoundOfCurrentTableNodeSolderIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5300,6 +5330,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 2))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
                         {
 
@@ -5317,6 +5349,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 2))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
                         {
                             FoundOfCurrentTableNodeElephantIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5387,6 +5421,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 3))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j], Tab))
                         {
                             FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5404,6 +5440,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 3))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j], Tab))
                         {
                             FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5474,6 +5512,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 4))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab))
                         {
 
@@ -5491,6 +5531,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null && CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 4))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab))
                         {
                             FoundOfCurrentTableNodeCastleIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5560,6 +5602,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 5))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab))
                         {
                             FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5577,9 +5621,13 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 5))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab))
                         {
                             FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
+                            if (Found)
+                                return Found;
 
                         }
 
@@ -5644,6 +5692,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 6))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Tab))
                         {
                             FoundOfCurrentTableNodeKingIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5661,6 +5711,8 @@ namespace QuantumRefrigiz
                 {
                     for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum != null && KingOnTable[i].KingThinkingQuantum[0] != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null && KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 6))
+                            continue;
                         if (ThinkingQuantumChess.TableEqual(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Tab))
                         {
                             FoundOfCurrentTableNodeKingIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -6565,6 +6617,8 @@ namespace QuantumRefrigiz
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+                        if (IsSupHuTrue(i, j, 0, 1))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -6725,6 +6779,8 @@ namespace QuantumRefrigiz
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 2))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -6870,6 +6926,8 @@ namespace QuantumRefrigiz
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 3))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -7018,6 +7076,8 @@ namespace QuantumRefrigiz
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 4))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -7168,6 +7228,8 @@ namespace QuantumRefrigiz
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 5))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -7310,6 +7372,8 @@ namespace QuantumRefrigiz
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 6))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -18865,6 +18929,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 1))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19073,6 +19139,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 2))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19288,6 +19356,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+                        if (IsSupHuTrue(ik, j, 0, 3))
+                            continue;
 
 
                         //when search finished stop and return
@@ -19510,6 +19580,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 4))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19729,6 +19801,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 5))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19955,6 +20029,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+                        if (IsSupHuTrue(ik, j, 0, 6))
+                            continue;
 
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))

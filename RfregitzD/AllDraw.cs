@@ -3868,7 +3868,8 @@ namespace RefrigtzDLL
                     {
                         for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
-
+                            if (IsSupHuTrue(i, j, 0, 1))
+                                continue;
 
                             if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                             {
@@ -3893,6 +3894,8 @@ namespace RefrigtzDLL
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
 
+                            if (IsSupHuTrue(i, j, 0, 2))
+                                continue;
 
                             if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
                             {
@@ -3918,6 +3921,9 @@ namespace RefrigtzDLL
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
 
+                            if (IsSupHuTrue(i, j, 0, 3))
+                                continue;
+
                             if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
                             {
                                 FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -3942,6 +3948,9 @@ namespace RefrigtzDLL
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 4))
+                                continue;
+
 
                             if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
                             {
@@ -3965,7 +3974,8 @@ namespace RefrigtzDLL
                     {
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
-
+                            if (IsSupHuTrue(i, j, 0, 5))
+                                continue;
                             if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
                             {
                                 FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -3989,6 +3999,9 @@ namespace RefrigtzDLL
                     {
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
+
+                            if (IsSupHuTrue(i, j, 0, 6))
+                                continue;
 
                             if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
                             {
@@ -4017,6 +4030,8 @@ namespace RefrigtzDLL
                         for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
+                            if (IsSupHuTrue(i, j, 0, 1))
+                                continue;
 
                             if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                             {
@@ -4039,6 +4054,8 @@ namespace RefrigtzDLL
                     {
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 2))
+                                continue;
 
 
                             if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
@@ -4063,6 +4080,8 @@ namespace RefrigtzDLL
                     {
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 3))
+                                continue;
 
 
                             if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
@@ -4088,6 +4107,8 @@ namespace RefrigtzDLL
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
+                            if (IsSupHuTrue(i, j, 0, 4))
+                                continue;
 
                             if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
                             {
@@ -4111,6 +4132,9 @@ namespace RefrigtzDLL
                     {
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 5))
+                                continue;
+
 
                             if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
                             {
@@ -4133,6 +4157,8 @@ namespace RefrigtzDLL
                     {
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
+                            if (IsSupHuTrue(i, j, 0, 6))
+                                continue;
 
                             if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
                             {
@@ -5200,6 +5226,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 1))
+                            continue;
                         if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                         {
                             FoundOfCurrentTableNodeSolderIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5215,6 +5243,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 1))
+                            continue;
                         if (ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j], Tab))
                         {
                             FoundOfCurrentTableNodeSolderIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5284,6 +5314,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 2))
+                            continue;
                         if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
                         {
 
@@ -5301,6 +5333,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 2))
+                            continue;
                         if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
                         {
                             FoundOfCurrentTableNodeElephantIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5371,6 +5405,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && HoursesOnTable[i].HourseThinking[0].TableListHourse.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 3))
+                            continue;
                         if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
                         {
                             FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5388,6 +5424,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null && HoursesOnTable[i].HourseThinking[0].TableListHourse.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 3))
+                            continue;
                         if (ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].TableListHourse[j], Tab))
                         {
                             FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5458,6 +5496,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 4))
+                            continue;
                         if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
                         {
 
@@ -5475,6 +5515,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null && CastlesOnTable[i].CastleThinking[0].TableListCastle.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 4))
+                            continue;
                         if (ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Tab))
                         {
                             FoundOfCurrentTableNodeCastleIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5544,6 +5586,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 5))
+                            continue;
                         if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
                         {
                             FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5561,6 +5605,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 5))
+                            continue;
                         if (ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Tab))
                         {
                             FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5628,6 +5674,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && KingOnTable[i].KingThinking[0].TableListKing.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 6))
+                            continue;
                         if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
                         {
                             FoundOfCurrentTableNodeKingIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -5645,6 +5693,8 @@ namespace RefrigtzDLL
                 {
                     for (int j = 0; KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null && KingOnTable[i].KingThinking[0].TableListKing.Count > j; j++)
                     {
+                        if (IsSupHuTrue(i, j, 0, 6))
+                            continue;
                         if (ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].TableListKing[j], Tab))
                         {
                             FoundOfCurrentTableNodeKingIJ(i, j, Tab, Order, ref THIS, ref Found);
@@ -6549,6 +6599,8 @@ namespace RefrigtzDLL
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+                        if (IsSupHuTrue(i, j, 0, 1))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -6709,6 +6761,8 @@ namespace RefrigtzDLL
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 2))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -6854,6 +6908,8 @@ namespace RefrigtzDLL
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 3))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -7002,6 +7058,8 @@ namespace RefrigtzDLL
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 4))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -7152,6 +7210,8 @@ namespace RefrigtzDLL
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 5))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -7294,6 +7354,8 @@ namespace RefrigtzDLL
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(i, j, 0, 6))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -18845,6 +18907,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 1))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19053,6 +19117,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 2))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19269,6 +19335,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 3))
+                            continue;
 
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -19490,6 +19558,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 4))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19709,6 +19779,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 5))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19936,6 +20008,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (OOOOO)
                     {
 
+                        if (IsSupHuTrue(ik, j, 0, 6))
+                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
