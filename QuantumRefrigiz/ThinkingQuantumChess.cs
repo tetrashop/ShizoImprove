@@ -5793,12 +5793,12 @@ namespace QuantumRefrigiz
                 int Dis = 0;
                 const int ObjectGray = 0, ObjectBrown = 0;
                 //opperation decision making  on pawn movment
-                if (IsTableRowColIsZero(RowS, ColS))
+                if (IsTableRowColIsZero(RowS, ColS) && HeuristicAllReducedAttacked.Count == 0)
                     Dis = RationalRegard;
                 else
                     Dis = RationalPenalty;
                 IKIsCentralPawnIsOk = IsCentralPawnIsOk(CloneATable(Tab), Order);
-                if (IKIsCentralPawnIsOk)
+                if (IKIsCentralPawnIsOk && HeuristicAllReducedAttacked.Count == 0)
                     Dis += RationalRegard;
                 else
                     Dis += RationalPenalty;
@@ -5825,10 +5825,10 @@ namespace QuantumRefrigiz
                     }
                     if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
+                        if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
                             Dis += RationalPenalty;
                         else
-                          if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
+                          if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
                             Dis += RationalRegard;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
@@ -5865,10 +5865,10 @@ namespace QuantumRefrigiz
                     }
                     if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
+                        if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
                             Dis += RationalRegard;
                         else
-                              if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
+                              if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
                             Dis += RationalPenalty;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
