@@ -5792,25 +5792,26 @@ namespace QuantumRefrigiz
             {
                 int Dis = 0;
                 const int ObjectGray = 0, ObjectBrown = 0;
-                //prevenstion from multiple move
+                //opperation decision making  on pawn movment
                 if (IsTableRowColIsZero(RowS, ColS))
                     Dis = RationalRegard;
                 else
                     Dis = RationalPenalty;
-                    //checked when pawn suppor themselves at center.
                 IKIsCentralPawnIsOk = IsCentralPawnIsOk(CloneATable(Tab), Order);
                 if (IKIsCentralPawnIsOk)
                     Dis += RationalRegard;
                 else
                     Dis += RationalPenalty;
 
-                //distrubution for objects from begin
                 if (Order == 1)
                 {
                     if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == 3)
+                        if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
                             Dis += RationalRegard;
+                        else
+                          if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
+                            Dis += RationalPenalty;
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -5824,8 +5825,11 @@ namespace QuantumRefrigiz
                     }
                     if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == -3)
+                        if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
                             Dis += RationalPenalty;
+                        else
+                          if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
+                            Dis += RationalRegard;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -5841,11 +5845,13 @@ namespace QuantumRefrigiz
                 else
                 {
 
-                    if (Tab[RowS, ColS] == -3)
-                        Dis += RationalRegard;
-
                     if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
+                        if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
+                            Dis += RationalRegard;
+                        else
+         if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
+                            Dis += RationalPenalty;
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -5859,6 +5865,11 @@ namespace QuantumRefrigiz
                     }
                     if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
+                        if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
+                            Dis += RationalRegard;
+                        else
+                              if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
+                            Dis += RationalPenalty;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -6126,11 +6137,14 @@ namespace QuantumRefrigiz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if ((i == 3 || i == 4) && (j == 3 | j == 4))
+                    if ((i == 3 || i == 4) && (j == 3 || j == 4) && HeuristicAllReducedAttacked.Count == 0)
                     {
                         HA = RationalRegard;
 
                     }
+                    else
+                       if ((i == 3 || i == 4) && (j == 3 || j == 4) && HeuristicAllReducedAttacked.Count != 0)
+                        HA = RationalPenalty;
                     if (HA == 0)
                     {
                         int[,] Ta = CloneATable(Table);
@@ -6163,6 +6177,7 @@ namespace QuantumRefrigiz
                     }
                     if (IsPawnIsolatedOrDoubleBackAwayOrHung(ii, jj, i, j, CloneATable(Table), Order))
                         HA += RationalPenalty;
+
 
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;

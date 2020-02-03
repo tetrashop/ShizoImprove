@@ -5782,13 +5782,16 @@ namespace RefrigtzDLL
                     Dis += RationalRegard;
                 else
                     Dis += RationalPenalty;
-                
+
                 if (Order == 1)
                 {
                     if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == 3)
+                        if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
                             Dis += RationalRegard;
+                        else
+                          if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
+                            Dis += RationalPenalty;
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -5802,8 +5805,11 @@ namespace RefrigtzDLL
                     }
                     if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == -3)
+                        if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
                             Dis += RationalPenalty;
+                        else
+                          if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
+                            Dis += RationalRegard;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -5819,11 +5825,13 @@ namespace RefrigtzDLL
                 else
                 {
 
-                    if (Tab[RowS, ColS] == -3)
-                        Dis += RationalRegard;
-
                     if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
+                        if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
+                            Dis += RationalRegard;
+                        else
+         if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
+                            Dis += RationalPenalty;
                         if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -5837,6 +5845,11 @@ namespace RefrigtzDLL
                     }
                     if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
+                        if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
+                            Dis += RationalRegard;
+                        else
+                              if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
+                            Dis += RationalPenalty;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -6103,11 +6116,14 @@ namespace RefrigtzDLL
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    if ((i == 3 || i == 4) && (j == 3 | j == 4))
+                    if ((i == 3 || i == 4) && (j == 3 || j == 4) && HeuristicAllReducedAttacked.Count == 0)
                     {
                         HA = RationalRegard;
 
                     }
+                    else
+                    if ((i == 3 || i == 4) && (j == 3 || j == 4) && HeuristicAllReducedAttacked.Count != 0)
+                        HA = RationalPenalty;
                     if (HA == 0)
                     {
                         int[,] Ta = CloneATable(Table);
@@ -6140,6 +6156,7 @@ namespace RefrigtzDLL
                     }
                     if (IsPawnIsolatedOrDoubleBackAwayOrHung(ii, jj, i, j, CloneATable(Table), Order))
                         HA += RationalPenalty;
+
 
                 }
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
