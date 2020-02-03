@@ -341,7 +341,7 @@ namespace RefrigtzW
                 AllDraw.TableListAction.Add(Table);
             }
             Draw.TableList.Clear();
-            Draw.TableList.Add(Table);
+            Draw.TableList.Add(CloneATable(Table));
             Draw.SetRowColumn(0);
             /*for (int i = 0; i < 8; i++)
             {
@@ -382,7 +382,7 @@ namespace RefrigtzW
             }
             RefrigtzW.ThinkingChess.LearniningTable = new RefrigtzW.NetworkQuantumLearningKrinskyAtamata(8, 8, 8);
             Draw.TableList.Clear();
-            Draw.TableList.Add(Table);
+            Draw.TableList.Add(CloneATable(Table));
             Draw.SetRowColumn(0);
             //TakeRoot.CalculateRootGray(Draw);
         }
@@ -593,7 +593,7 @@ namespace RefrigtzW
                                 TableA[i, j] = Tab[i, j];
 
                         Draw.TableList.Clear();
-                        Draw.TableList.Add(TableA);
+                        Draw.TableList.Add(CloneATable(TableA));
                         Draw.SetRowColumn(0);
                         AllDraw.TableListAction.Add(TableA);
                         if (AllDraw.TableListAction.Count >= 1)
@@ -729,7 +729,7 @@ namespace RefrigtzW
                         for (int j = 0; j < 8; j++)
                             TableA[i, j] = Tab[i, j];
                     Draw.TableList.Clear();
-                    Draw.TableList.Add(TableA);
+                    Draw.TableList.Add(CloneATable(TableA));
                     Draw.SetRowColumn(0);
                     if (!Draw.IsEnemyThingsinStable(TableA, AllDraw.TableVeryfy, Order))
                     {
@@ -1357,7 +1357,7 @@ namespace RefrigtzW
                     TableA[i, j] = Table[i, j];
 
             Draw.TableList.Clear();
-            Draw.TableList.Add(TableA);
+            Draw.TableList.Add(CloneATable(TableA));
             Draw.SetRowColumn(0);
             while (!ReadF) ;
 
@@ -1404,7 +1404,7 @@ namespace RefrigtzW
                     OrderPlate *= -1;
                     ChessRules.CurrentOrder *= -1;
                     Draw.TableList.Clear();
-                    Draw.TableList.Add(Tab);
+                    Draw.TableList.Add(CloneATable(Tab));
                     Draw.SetRowColumn(0);
                     RefrigtzW.AllDraw.TableListAction.Add(Tab);
                     //RefrigtzW.FormRefrigtz.MovmentsNumber++; 
@@ -1595,7 +1595,7 @@ namespace RefrigtzW
                     OrderPlate = OrderPlate * -1;
                     Draw = new AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
-                    Draw.TableList.Add(Table);
+                    Draw.TableList.Add(CloneATable(Table));
                     Draw.SetRowColumn(0);
                     RefrigtzW.AllDraw.DepthIterative = 0;
                 }
@@ -1707,7 +1707,7 @@ namespace RefrigtzW
                     OrderPlate = OrderPlate * -1;
                     Draw = new AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                     Draw.TableList.Clear();
-                    Draw.TableList.Add(Table);
+                    Draw.TableList.Add(CloneATable(Table));
                     Draw.SetRowColumn(0);
                     RefrigtzW.AllDraw.DepthIterative = 0;
                 }

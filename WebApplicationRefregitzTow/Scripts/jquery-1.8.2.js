@@ -3991,7 +3991,7 @@ function createPositionalPseudo( fn ) {
 			// Match elements found at the specified indexes
 			while ( i-- ) {
 				if ( seed[ (j = matchIndexes[i]) ] ) {
-					seed[j] = !(matches[j] = seed[j]);
+					seed[j] = !(matches[j] = seed[j]));
 				}
 			}
 		});
@@ -4999,7 +4999,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// Add elements passing elementMatchers directly to results
 			for ( ; (elem = elems[i]) != null; i++ ) {
 				if ( byElement && elem ) {
-					for ( j = 0; (matcher = elementMatchers[j]); j++ ) {
+					for ( j = 0; (matcher = elementMatchers[j])); j++ ) {
 						if ( matcher( elem, context, xml ) ) {
 							results.push( elem );
 							break;
@@ -5028,7 +5028,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// Apply set filters to unmatched elements
 			matchedCount += i;
 			if ( bySet && i !== matchedCount ) {
-				for ( j = 0; (matcher = setMatchers[j]); j++ ) {
+				for ( j = 0; (matcher = setMatchers[j])); j++ ) {
 					matcher( unmatched, setMatched, context, xml );
 				}
 

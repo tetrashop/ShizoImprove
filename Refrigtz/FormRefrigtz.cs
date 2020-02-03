@@ -2620,7 +2620,7 @@ namespace Refrigtz
                                         //RefreshBoxText();
                                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                         DrawQ.TableList.Clear();
-                                        DrawQ.TableList.Add(Table);
+                                        DrawQ.TableList.Add(CloneATable(Table));
                                         DrawQ.SetRowColumn(0);
                                         BobSection = false;
                                         AllDo = false;
@@ -2824,7 +2824,7 @@ namespace Refrigtz
                                         //RefreshBoxText();
                                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                         DrawQ.TableList.Clear();
-                                        DrawQ.TableList.Add(Table);
+                                        DrawQ.TableList.Add(CloneATable(Table));
                                         DrawQ.SetRowColumn(0);
                                         if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
                                         {
@@ -2922,7 +2922,7 @@ namespace Refrigtz
                                     //RefreshBoxText();
                                     //DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                     //DrawQ.TableList.Clear();
-                                    //DrawQ.TableList.Add(Table);
+                                    //DrawQ.TableList.Add(CloneATable(Table));
                                     //DrawQ.SetRowColumn(0);
                                     BobSection = true;
 
@@ -3006,7 +3006,7 @@ namespace Refrigtz
                                     //RefreshBoxText();
                                     DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                     DrawQ.TableList.Clear();
-                                    DrawQ.TableList.Add(Table);
+                                    DrawQ.TableList.Add(CloneATable(Table));
                                     DrawQ.SetRowColumn(0);
                                     BobSection = true;
                                     AllDo = false;
@@ -3136,7 +3136,7 @@ namespace Refrigtz
                                          //RefreshBoxText();
                                          DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                          DrawQ.TableList.Clear();
-                                         DrawQ.TableList.Add(Table);
+                                         DrawQ.TableList.Add(CloneATable(Table));
                                          DrawQ.SetRowColumn(0);
 
 
@@ -3195,7 +3195,7 @@ namespace Refrigtz
                                          //RefreshBoxText();
                                          DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                          DrawQ.TableList.Clear();
-                                         DrawQ.TableList.Add(Table);
+                                         DrawQ.TableList.Add(CloneATable(Table));
                                          DrawQ.SetRowColumn(0);
                                          if (QuantumRefrigiz.ChessRules.BigKingCastleGray)
                                          {
@@ -3554,7 +3554,7 @@ namespace Refrigtz
                                              QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(Table));
                                              DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound,IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                              DrawQ.TableList.Clear();
-                                             DrawQ.TableList.Add(Table);
+                                             DrawQ.TableList.Add(CloneATable(Table));
                                              DrawQ.SetRowColumn(0);
                                              //this.SetBoxText("\r\nThinking Finished by Bob!");
                                              //RefreshBoxText();
@@ -3606,7 +3606,7 @@ namespace Refrigtz
                                              OrderPlate *= -1;
                                              BobSection = true;
                                              DrawQ.TableList.Clear();
-                                             DrawQ.TableList.Add(Table);
+                                             DrawQ.TableList.Add(CloneATable(Table));
                                              Draw.SetRowColumn(0);
                                              InsertTableAtDatabase(Table);
                                              GrayTimer.StartTime("GrayTimer");
@@ -4928,7 +4928,7 @@ namespace Refrigtz
 
                                         DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                         DrawQ.TableList.Clear();
-                                        DrawQ.TableList.Add(Table);
+                                        DrawQ.TableList.Add(CloneATable(Table));
                                         DrawQ.SetRowColumn(0);
                                         QuantumRefrigiz.AllDraw.DepthIterative = 0;
                                         y.tt = DrawQ;
@@ -5014,7 +5014,7 @@ namespace Refrigtz
 
                                             DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                             DrawQ.TableList.Clear();
-                                            DrawQ.TableList.Add(Table);
+                                            DrawQ.TableList.Add(CloneATable(Table));
                                             DrawQ.SetRowColumn(0);
                                             QuantumRefrigiz.AllDraw.DepthIterative = 0;
                                             y.tt = DrawQ;
@@ -5173,7 +5173,7 @@ namespace Refrigtz
                         {
                             DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                             DrawQ.TableList.Clear();
-                            DrawQ.TableList.Add(Table);
+                            DrawQ.TableList.Add(CloneATable(Table));
                             DrawQ.SetRowColumn(0);
                             QuantumRefrigiz.AllDraw.DepthIterative = 0;
 
@@ -7752,7 +7752,7 @@ namespace Refrigtz
                     {
                         RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                         RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                        RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                        RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                         RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                     }
                     InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -7911,7 +7911,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table);
@@ -8006,7 +8006,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -8098,7 +8098,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -8192,7 +8192,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -8285,7 +8285,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -8377,7 +8377,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -8564,7 +8564,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -8724,7 +8724,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -8817,7 +8817,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -8910,7 +8910,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -9002,7 +9002,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -9095,7 +9095,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -9190,7 +9190,7 @@ namespace Refrigtz
                         {
                             RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                             RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                            RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                             RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                         }
                         InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -9737,7 +9737,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -9747,7 +9747,7 @@ namespace Refrigtz
 
                             DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                             DrawQ.TableList.Clear();
-                            DrawQ.TableList.Add(Table);
+                            DrawQ.TableList.Add(CloneATable(Table));
                             DrawQ.SetRowColumn(0);
 
 
@@ -9855,7 +9855,7 @@ namespace Refrigtz
                                 }
                                 DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                 DrawQ.TableList.Clear();
-                                DrawQ.TableList.Add(Table);
+                                DrawQ.TableList.Add(CloneATable(Table));
                                 DrawQ.SetRowColumn(0);
 
 
@@ -9913,7 +9913,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -10017,7 +10017,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -10118,7 +10118,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -10223,7 +10223,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -10325,7 +10325,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -10428,7 +10428,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Gray);
@@ -10624,7 +10624,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -10633,7 +10633,7 @@ namespace Refrigtz
 
                             DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                             DrawQ.TableList.Clear();
-                            DrawQ.TableList.Add(Table);
+                            DrawQ.TableList.Add(CloneATable(Table));
                             DrawQ.SetRowColumn(0);
 
 
@@ -10738,7 +10738,7 @@ namespace Refrigtz
                                 }
                                 DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                                 DrawQ.TableList.Clear();
-                                DrawQ.TableList.Add(Table);
+                                DrawQ.TableList.Add(CloneATable(Table));
                                 DrawQ.SetRowColumn(0);
 
 
@@ -10795,7 +10795,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -10896,7 +10896,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -10998,7 +10998,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -11099,7 +11099,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -11200,7 +11200,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                             }
                             InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -11306,7 +11306,7 @@ namespace Refrigtz
                             {
                                 QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                                QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                                 QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
 
                             }
@@ -13205,7 +13205,7 @@ namespace Refrigtz
                     {
                         QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                         QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                        QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                        QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                         QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                     }
                     InsertTableAtDatabase(Table); QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(0, CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -13216,7 +13216,7 @@ namespace Refrigtz
                     {
                         QuantumRefrigiz.AllDraw.StoreADraw.RemoveAt(0);
                         QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Clear();
-                        QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(Table);
+                        QuantumRefrigiz.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                         QuantumRefrigiz.AllDraw.StoreADraw[0].SetRowColumn(0);
                     }
                     InsertTableAtDatabase(Table);    QuantumRefrigiz.AllDraw.Less += CalculateMoveMentHueuristicUser(CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -13307,7 +13307,7 @@ namespace Refrigtz
                     {
                         RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                         RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                        RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                        RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                         RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                     }
                     InsertTableAtDatabase(Table); RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(0, CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -13318,7 +13318,7 @@ namespace Refrigtz
                     {
                         RefrigtzDLL.AllDraw.StoreADraw.RemoveAt(0);
                         RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Clear();
-                        RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(Table);
+                        RefrigtzDLL.AllDraw.StoreADraw[0].TableList.Add(CloneATable(Table));
                         RefrigtzDLL.AllDraw.StoreADraw[0].SetRowColumn(0);
                     }
                     InsertTableAtDatabase(Table);    RefrigtzDLL.AllDraw.Less += CalculateMoveMentHueuristicUser(CloneATable(Table), -1, (int)RowRealesed, (int)ColumnRealeased, (int)RowRealesedP, (int)ColumnRealeasedP, Color.Brown);
@@ -14018,14 +14018,14 @@ namespace Refrigtz
                             {
 
                                 Draw = THIS;
-                                THISB = Draw;
+                                
 
                                 Draw.IsCurrentDraw = true;
                                 //SetBoxText("\r\nDraw Found By Recurve");
                                 //RefreshBoxText();
                                 FOUND = false;
                                 Ord = OrderPlate * -1;
-                                Draw.ClearAllTablesHeuristicsAndMore(Ord);
+                                ////Draw.ClearAllTablesHeuristicsAndMore(Ord);
                                 bool Store = Deeperthandeeper;
                                 Deeperthandeeper = false;
 
@@ -14203,7 +14203,7 @@ namespace Refrigtz
 
                             Ord = OrderPlate * -1;
 
-                            DrawQ.ClearAllTablesHeuristicsAndMore(Ord);
+                            //DrawQ.ClearAllTablesHeuristicsAndMore(Ord);
                             bool Store = Deeperthandeeper;
                             Deeperthandeeper = false;
 
@@ -19016,7 +19016,7 @@ namespace Refrigtz
                 {
                     DrawQ = new QuantumRefrigiz.AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                     DrawQ.TableList.Clear();
-                    DrawQ.TableList.Add(Table);
+                    DrawQ.TableList.Add(CloneATable(Table));
                     DrawQ.SetRowColumn(0);
                 }
                 else
