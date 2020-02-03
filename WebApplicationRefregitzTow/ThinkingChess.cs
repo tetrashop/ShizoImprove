@@ -6731,19 +6731,26 @@ namespace RefrigtzW
                 )
 
                     ExchangeSeed[0] = RationalRegard;
+                else
+                    if (A1 < 0)
+                    ExchangeSeed[0] = RationalPenalty;
+
                 else//When reinforcment arrangments is Ok
                 {
-                    if (IKIsCentralPawnIsOk && Exchange[3] == 0)
+                    if (Order != AllDraw.OrderPlate)
                     {
-                        ExchangeSeed[0] += RationalRegard;
-
-                    }
-                    else
-                    {
-                        if (IKIsCentralPawnIsOk && Exchange[2] != 0)
+                        if (IKIsCentralPawnIsOk && Exchange[0] == 0)
                         {
-                            ExchangeSeed[0] += RationalPenalty;
+                            ExchangeSeed[0] += RationalRegard;
 
+                        }
+                        else
+                        {
+                            if (IKIsCentralPawnIsOk && Exchange[0] != 0)
+                            {
+                                ExchangeSeed[0] += RationalPenalty;
+
+                            }
                         }
                     }
                 }
@@ -6755,6 +6762,10 @@ namespace RefrigtzW
                 if (A1 != 0 && Exchange[0] == 0
              )
                     ExchangeSeed[1] = RationalRegard;
+                else
+                if (A1 < 0)
+                    ExchangeSeed[1] = RationalPenalty;
+
 
                 //Closed space remove
                 A1 = (Exchange[1] + Exchange[3] + Exchange[4]);
@@ -6766,6 +6777,7 @@ namespace RefrigtzW
                 //Initiate to Begin Call Orders.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ExchangeAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return ExchangeSeed;
+
 
 
             }
