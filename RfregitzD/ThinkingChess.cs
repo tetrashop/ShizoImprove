@@ -6361,7 +6361,12 @@ namespace RefrigtzDLL
 
 
 
-
+                //when theres is at least one reducedattacked meaningful for regard.
+                if (Heuristic[0] != 0)
+                {
+                    Heuristic[1] = 0;
+                    Heuristic[3] = 0;
+                }
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
