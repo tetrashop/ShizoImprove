@@ -4958,7 +4958,7 @@ namespace RefrigtzW
                             HA += RationalRegard;
                         else
                      if (Order == 1 && G.CheckMateGray)
-                           HA += RationalPenalty;
+                            HA += RationalPenalty;
 
                     }
                 }
@@ -4973,7 +4973,7 @@ namespace RefrigtzW
                             HA += RationalRegard;
                         else
                         if (Order == -1 && G.CheckMateBrown)
-                           HA += RationalPenalty;
+                            HA += RationalPenalty;
                     }
                 }
 
@@ -6294,8 +6294,8 @@ namespace RefrigtzW
 
                                                         if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                         {
-                                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                            Heuristic[0] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
+                                                            if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                                Heuristic[0] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
                                                         }
                                                     }
                                                     if (Heuristic[2] == 0)
@@ -6319,8 +6319,8 @@ namespace RefrigtzW
                                                         {
                                                             if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                             {
-                                                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                Heuristic[1] += RationalRegard;// RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                                if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                                    Heuristic[1] += RationalRegard;// RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
                                                             }
                                                         }
                                                     }
@@ -6585,7 +6585,7 @@ namespace RefrigtzW
 
             }
         }
-        public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord)
+        public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord, int Ros, int Cos, int Rod, int Cod)
         {
             //long Time = TimeElapced.TimeNow();Spaces
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -6740,9 +6740,6 @@ namespace RefrigtzW
                         });
                     });
                 }
-
-
-
                 //When situation is closed
                 int A1 = IsSupportLessThanReducedSupport(Exchange[3], Exchange[2]);
                 if (A1 > 0)
@@ -6792,13 +6789,44 @@ namespace RefrigtzW
                 A1 = (Exchange[1] + Exchange[3] + Exchange[4]);
                 ExchangeSeed[2] = (int)(((double)RationalPenalty) * (1.0 - (((double)(A1)) / 64.0)));
 
+                //When victorian of self on enemy to consideration of weaker self traversal object at active enemy strong traversal
+                if (ExchangeSeed[0] + ExchangeSeed[1] + ExchangeSeed[2] >= 0)
+                {
+
+                    if (Exchange[3] - Exchange[2] + Exchange[1] - Exchange[0] > 0)
+                    {
+                        int HAA6 = 0;
+                        Object O11 = new Object();
+                        lock (O11)
+                        {
+                            int i6 = Ros, j6 = Cos, iiii6 = Rod, jjjj6 = Cod;
+                            int[,] Table6 = CloneATable(Table);
+                            int Ord6 = Ord;
+                            Color aa6 = aa;
+                            HAA6 = HeuristicEnemySupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6);
+                        }
+                        if (HAA6 != 0)
+                        {
+                            if (System.Math.Abs(Table[Rod, Cod]) - System.Math.Abs(Table[Ros, Cos]) >= 2)
+                            {
+                                ExchangeSeed[0] += RationalRegard;
+                            }
+                        }
+                        else
+                        if (HAA6 == 0)
+                        {
+                            ExchangeSeed[0] += RationalRegard;
+                        }
+                    }
+
+
+                }
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
                 //Initiate to Begin Call Orders.
                 ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ExchangeAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return ExchangeSeed;
-
 
 
             }
@@ -9069,7 +9097,7 @@ namespace RefrigtzW
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource , ColumnSource , RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
                     newTask1.Wait();
 
 
@@ -9098,7 +9126,7 @@ namespace RefrigtzW
                         if (!Sup) { NumbersOfAllNode++; }
                     }
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource , ColumnSource , RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                     newTask1.Wait();
 
 
@@ -9130,7 +9158,7 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource , ColumnSource , RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             newTask1.Wait();
 
                         }
@@ -9148,7 +9176,7 @@ namespace RefrigtzW
                             {
                                 //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                    //HeuristicCheckedMate = 0;
+                                //HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
                                 newTask1.Wait();
@@ -9289,7 +9317,7 @@ namespace RefrigtzW
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource , ColumnSource , RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
                     newTask1.Wait();
 
                     if (!Sup)
@@ -9317,7 +9345,7 @@ namespace RefrigtzW
                         if (!Sup) { NumbersOfAllNode++; }
                     }
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource , ColumnSource , RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                     newTask1.Wait();
 
 
@@ -9347,7 +9375,7 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource , ColumnSource , RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             newTask1.Wait();
 
                         }
@@ -9365,7 +9393,7 @@ namespace RefrigtzW
                             {
                                 //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                    //HeuristicCheckedMate = 0;
+                                //HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
                                 newTask1.Wait();
@@ -9852,7 +9880,7 @@ namespace RefrigtzW
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource , ColumnSource , RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
                     newTask1.Wait();
 
 
@@ -9882,7 +9910,7 @@ namespace RefrigtzW
                     }
 
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource , ColumnSource , RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                     newTask1.Wait();
 
 
@@ -9913,7 +9941,7 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource , ColumnSource , RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             newTask1.Wait();
 
                         }
@@ -9931,7 +9959,7 @@ namespace RefrigtzW
                             {
                                 //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                    //HeuristicCheckedMate = 0;
+                                //HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
                                 newTask1.Wait();
@@ -10044,7 +10072,7 @@ namespace RefrigtzW
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource , ColumnSource , RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
                     newTask1.Wait();
 
                     if (!Sup)
@@ -10073,7 +10101,7 @@ namespace RefrigtzW
                     }
 
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource , ColumnSource , RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                     newTask1.Wait();
 
 
@@ -10103,7 +10131,7 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource , ColumnSource , RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             newTask1.Wait();
 
                         }
@@ -10121,7 +10149,7 @@ namespace RefrigtzW
                             {
                                 //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                    //HeuristicCheckedMate = 0;
+                                //HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
                                 newTask1.Wait();
@@ -10232,7 +10260,7 @@ namespace RefrigtzW
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource , ColumnSource , RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
                     newTask1.Wait();
 
                     if (!Sup)
@@ -10260,7 +10288,7 @@ namespace RefrigtzW
                         if (!Sup) { NumbersOfAllNode++; }
                     }
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource , ColumnSource , RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
                     newTask1.Wait();
 
 
@@ -10290,7 +10318,7 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource , ColumnSource , RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             newTask1.Wait();
 
                         }
@@ -10308,7 +10336,7 @@ namespace RefrigtzW
                             {
                                 //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                    //HeuristicCheckedMate = 0;
+                                //HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
                                 newTask1.Wait();
@@ -11562,7 +11590,7 @@ namespace RefrigtzW
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource , ColumnSource , RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
                     newTask1.Wait();
 
 
@@ -11594,7 +11622,7 @@ namespace RefrigtzW
 
 
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource , ColumnSource , RowDestination, ColumnDestination, TableS, t));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS, t));
                     newTask1.Wait();
 
 
@@ -11623,7 +11651,7 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource , ColumnSource , RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             newTask1.Wait();
 
                         }
@@ -11641,7 +11669,7 @@ namespace RefrigtzW
                             {
                                 //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                    //HeuristicCheckedMate = 0;
+                                //HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
                                 newTask1.Wait();
@@ -11821,7 +11849,7 @@ namespace RefrigtzW
                 {
                     //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
                     //if (IgnoreFromCheckandMateHeuristic)
-                        ////HeuristicCheckedMate = 0;
+                    ////HeuristicCheckedMate = 0;
 
                     newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
                     newTask1.Wait();
@@ -11940,13 +11968,13 @@ namespace RefrigtzW
                         Object O = new Object();
                         lock (O)
                         {
-                             if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                 return;
+                            if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                return;
 
-                             int[,] TableSS = CloneATable(TableS);
-                             int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                             Exchange = HeuristicExchange(Before, Killed, TableSS, color, Order);
-                        
+                            int[,] TableSS = CloneATable(TableS);
+                            int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                            Exchange = HeuristicExchange(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
+
                         }
                     });
                 });
@@ -12248,7 +12276,7 @@ namespace RefrigtzW
                 //Calculate Movment Heuristic After Movments.
                 //Caused this for Stachostic results.
 
-                newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource , ColumnSource , RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                 newTask1.Wait();
 
                 String H = "";
@@ -12258,7 +12286,7 @@ namespace RefrigtzW
                 {
                     //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
                     //if (IgnoreFromCheckandMateHeuristic)
-                        //HeuristicCheckedMate = 0;
+                    //HeuristicCheckedMate = 0;
 
                     newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
                     newTask1.Wait();
