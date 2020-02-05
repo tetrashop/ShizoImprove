@@ -6592,6 +6592,7 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
+                const int ToSupport = 3, ReducedAttacked = 0, ReducedSupport = 2, ReducedMove = 5, ToAttacked = 1, ToMoved = 4;
                 int[] Exchange = new int[6];
                 int[] ExchangeSeed = new int[3];
 
@@ -6633,7 +6634,7 @@ namespace RefrigtzW
                                                             A[2] = RowS;
                                                             A[3] = ColS;
                                                             HeuristicAllReducedAttacked.Add(A);
-                                                            Exchange[0]++;
+                                                            Exchange[ReducedAttacked]++;
                                                         }
                                                     }
                                                 }
@@ -6651,7 +6652,7 @@ namespace RefrigtzW
                                                             A[2] = RowS;
                                                             A[3] = ColS;
                                                             HeuristicAllReducedSupport.Add(A);
-                                                            Exchange[2]++;
+                                                            Exchange[ReducedSupport]++;
                                                         }
                                                     }
                                                 }
@@ -6669,7 +6670,7 @@ namespace RefrigtzW
                                                             A[2] = RowS;
                                                             A[3] = ColS;
                                                             HeuristicAllReducedMove.Add(A);
-                                                            Exchange[5]++;
+                                                            Exchange[ReducedMove]++;
                                                         }
 
                                                     }
@@ -6689,7 +6690,7 @@ namespace RefrigtzW
                                                             A[2] = RowD;
                                                             A[3] = ColD;
                                                             HeuristicAllAttacked.Add(A);
-                                                            Exchange[1]++;
+                                                            Exchange[ToAttacked]++;
                                                         }
                                                     }
                                                 }
@@ -6708,7 +6709,7 @@ namespace RefrigtzW
                                                             A[2] = RowD;
                                                             A[3] = ColD;
                                                             HeuristicAllSupport.Add(A);
-                                                            Exchange[3]++;
+                                                            Exchange[ToSupport]++;
                                                         }
                                                     }
                                                 }
@@ -6725,7 +6726,7 @@ namespace RefrigtzW
                                                             A[2] = RowD;
                                                             A[3] = ColD;
                                                             HeuristicAllMove.Add(A);
-                                                            Exchange[4]++;
+                                                            Exchange[ToMoved]++;
                                                         }
                                                     }
                                                 }
@@ -6741,30 +6742,25 @@ namespace RefrigtzW
                     });
                 }
                 //When situation is closed
-                int A1 = IsSupportLessThanReducedSupport(Exchange[3], Exchange[2]);
+                int A1 = IsSupportLessThanReducedSupport(Exchange[ToSupport], Exchange[ReducedSupport]);
                 if (A1 > 0)
                     ExchangeSeed[0] = RationalPenalty;
                 else
-                if (A1 != 0 && Exchange[2] == 0
-                )
-
+                if (A1 < 0 && Exchange[ReducedSupport] == 0)
                     ExchangeSeed[0] = RationalRegard;
-                else
-                    if (A1 < 0)
-                    ExchangeSeed[0] = RationalPenalty;
 
                 else//When reinforcment arrangments is Ok
                 {
                     if (Order != AllDraw.OrderPlate)
                     {
-                        if (IKIsCentralPawnIsOk && Exchange[0] == 0)
+                        if (IKIsCentralPawnIsOk && Exchange[ReducedAttacked] == 0)
                         {
                             ExchangeSeed[0] += RationalRegard;
 
                         }
                         else
                         {
-                            if (IKIsCentralPawnIsOk && Exchange[0] != 0)
+                            if (IKIsCentralPawnIsOk && Exchange[ReducedAttacked] != 0)
                             {
                                 ExchangeSeed[0] += RationalPenalty;
 
@@ -6773,27 +6769,26 @@ namespace RefrigtzW
                     }
                 }
                 //when situation is closed and restriction
-                A1 = IsAttackLessThanReducedAttack(Exchange[1], Exchange[0]);
+                A1 = IsAttackLessThanReducedAttack(Exchange[ToAttacked], Exchange[ReducedAttacked]);
                 if (A1 > 0)
                     ExchangeSeed[1] = RationalPenalty;
                 else
-                if (A1 != 0 && Exchange[0] == 0
-             )
+                if (A1 < 0 && Exchange[ReducedAttacked] == 0)
                     ExchangeSeed[1] = RationalRegard;
-                else
-                if (A1 < 0)
-                    ExchangeSeed[1] = RationalPenalty;
 
 
                 //Closed space remove
-                A1 = (Exchange[1] + Exchange[3] + Exchange[4]);
-                ExchangeSeed[2] = (int)(((double)RationalPenalty) * (1.0 - (((double)(A1)) / 64.0)));
+                A1 = (Exchange[ToAttacked] + Exchange[ToSupport] + Exchange[ToMoved]);
+                //penalties
+                int A2 = A1 + (Exchange[ReducedAttacked] + Exchange[ReducedSupport] + Exchange[ReducedMove]);
+                ExchangeSeed[2] = (int)(((double)RationalPenalty) * ((((double)(A2)) / 64.0)));
+
 
                 //When victorian of self on enemy to consideration of weaker self traversal object at active enemy strong traversal
                 if (ExchangeSeed[0] + ExchangeSeed[1] + ExchangeSeed[2] >= 0)
                 {
 
-                    if (Exchange[3] - Exchange[2] + Exchange[1] - Exchange[0] > 0)
+                    if (Exchange[ToSupport] - Exchange[ReducedSupport] + Exchange[ToAttacked] - Exchange[ReducedAttacked] > 0)
                     {
                         int HAA6 = 0;
                         Object O11 = new Object();
