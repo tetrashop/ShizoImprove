@@ -5812,15 +5812,16 @@ namespace QuantumRefrigiz
                         else
                           if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
                             Dis += RationalPenalty;
-                        if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                        
+                    }
+                    if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                    {
+                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                        if (Cor > Colleralation)
                         {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
-                            if (Cor > Colleralation)
-                            {
-                                Colleralation = Cor;
-                                Dis += RationalRegard;
+                            Colleralation = Cor;
+                            Dis += RationalRegard;
 
-                            }
                         }
                     }
                     if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
@@ -5852,15 +5853,16 @@ namespace QuantumRefrigiz
                         else
          if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
                             Dis += RationalPenalty;
-                        if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                        
+                    }
+                    if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                    {
+                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                        if (Cor > Colleralation)
                         {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
-                            if (Cor > Colleralation)
-                            {
-                                Colleralation = Cor;
-                                Dis += RationalRegard;
+                            Colleralation = Cor;
+                            Dis += RationalRegard;
 
-                            }
                         }
                     }
                     if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
@@ -6616,6 +6618,7 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
+                int[,] RemobeActiveDenfesiveObjectsOfEnemy = new int[8, 8];
                 const int ToSupport = 3, ReducedAttacked = 0, ReducedSupport = 2, ReducedMove = 5, ToAttacked = 1, ToMoved = 4;
                 int[] Exchange = new int[6];
                 int[] ExchangeSeed = new int[3];
@@ -6840,6 +6843,17 @@ namespace QuantumRefrigiz
 
 
                 }
+
+                //Simplification of mathematic method when we have victories
+                double ExchangedOfGameSimplification = (double)(Exchange[ToSupport] - Exchange[ReducedSupport] + Exchange[ToAttacked] - Exchange[ReducedSupport]);
+                double MAX = 64.0;
+                ExchangeSeed[2] += (int)(((double)(RationalRegard)) * (ExchangedOfGameSimplification / MAX));
+
+                //Remove of most impressive defensive enemy Objects
+                double Defen = (double)(RemobeActiveDenfesiveObjectsOfEnemy[Ros, Cos] - RemobeActiveDenfesiveObjectsOfEnemy[Rod, Cod]);
+                ExchangeSeed[2] += (int)(((double)(RationalRegard)) * (Defen / MAX) * 4);
+
+
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;

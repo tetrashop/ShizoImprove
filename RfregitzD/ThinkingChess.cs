@@ -5792,15 +5792,16 @@ namespace RefrigtzDLL
                         else
                           if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
                             Dis += RationalPenalty;
-                        if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                        
+                    }
+                    if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                    {
+                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                        if (Cor > Colleralation)
                         {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
-                            if (Cor > Colleralation)
-                            {
-                                Colleralation = Cor;
-                                Dis += RationalRegard;
+                            Colleralation = Cor;
+                            Dis += RationalRegard;
 
-                            }
                         }
                     }
                     if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
@@ -5810,15 +5811,16 @@ namespace RefrigtzDLL
                         else
                           if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
                             Dis += RationalRegard;
-                        if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                        
+                    }
+                    if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                    {
+                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                        if (Cor < DeColleralation)
                         {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
-                            if (Cor < DeColleralation)
-                            {
-                                DeColleralation = Cor;
-                                Dis += RationalRegard;
+                            DeColleralation = Cor;
+                            Dis += RationalRegard;
 
-                            }
                         }
                     }
                 }
@@ -6595,6 +6597,7 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
+                int[,] RemobeActiveDenfesiveObjectsOfEnemy = new int[8, 8]; 
                 const int ToSupport = 3, ReducedAttacked = 0, ReducedSupport = 2, ReducedMove = 5, ToAttacked = 1, ToMoved = 4;
                 int[] Exchange = new int[6];
                 int[] ExchangeSeed = new int[3];
@@ -6649,6 +6652,8 @@ namespace RefrigtzDLL
                                                         Object OOO = new Object();
                                                         lock (OOO)
                                                         {
+                                                            RemobeActiveDenfesiveObjectsOfEnemy[RowD, ColD]++;
+                                                            RemobeActiveDenfesiveObjectsOfEnemy[RowS, ColS]--;
                                                             int[] A = new int[4];
                                                             A[0] = RowD;
                                                             A[1] = ColD;
@@ -6706,6 +6711,8 @@ namespace RefrigtzDLL
                                                         Object OOO = new Object();
                                                         lock (OOO)
                                                         {
+                                                            RemobeActiveDenfesiveObjectsOfEnemy[RowS, ColS]++;
+                                                            RemobeActiveDenfesiveObjectsOfEnemy[RowD, ColD]--;
                                                             int[] A = new int[4];
                                                             A[0] = RowS;
                                                             A[1] = ColS;
@@ -6819,6 +6826,17 @@ namespace RefrigtzDLL
 
 
                 }
+                //Simplification of mathematic method when we have victories
+                double ExchangedOfGameSimplification = (double)(Exchange[ToSupport] - Exchange[ReducedSupport] + Exchange[ToAttacked] - Exchange[ReducedSupport]);
+                double MAX = 64.0;
+                ExchangeSeed[2] += (int)(((double)(RationalRegard)) * (ExchangedOfGameSimplification / MAX));
+
+                //Remove of most impressive defensive enemy Objects
+                double Defen = (double)(RemobeActiveDenfesiveObjectsOfEnemy[Ros, Cos] - RemobeActiveDenfesiveObjectsOfEnemy[Rod, Cod]);
+                ExchangeSeed[2] += (int)(((double)(RationalRegard)) * (Defen / MAX) * 4);
+
+
+                ExchangeSeed[2]+=
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;

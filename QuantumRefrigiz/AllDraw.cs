@@ -15527,7 +15527,7 @@ namespace QuantumRefrigiz
 
 
                 bool IS = false;
-                if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingQuantumCreation
+                if (iAStarGreedy <= 0 //&& iAStarGreedy < MaxDuringLevelThinkingQuantumCreation
                 )
                 {
                     IS = true;
@@ -16050,12 +16050,13 @@ namespace QuantumRefrigiz
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    iAStarGreedy--;
+                   
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return null;
 
+                    iAStarGreedy--;
                 }
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
             }
@@ -16085,7 +16086,8 @@ namespace QuantumRefrigiz
 
 
                     var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinkingQuantum(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
-                    array1.Wait();
+                    //array1.Wait();
+                    tH.Add(array1);
 
                 }
 
@@ -16252,8 +16254,13 @@ namespace QuantumRefrigiz
                 {
                     Tabl = CloneATable(Table);
                     var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy));
-                    array1.Wait();
-                    /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
+                    if (tH.Count > 0)
+                    {
+                        tH.Add(array1);
+                        Parallel.ForEach(tH, items => Task.WaitAll(items));
+                    }
+                    else
+                        array1.Wait(); /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
                     tFoundOfLeafDepenOfKindFullGame.Start();
                     T.Add(tFoundOfLeafDepenOfKindFullGame);*/
                 }
@@ -16275,7 +16282,10 @@ namespace QuantumRefrigiz
                             //tH.Add(array1);
                             //array1.Wait();
                             if (tH.Count > 0)
+                            {
+                                tH.Add(array1);
                                 Parallel.ForEach(tH, items => Task.WaitAll(items));
+                            }
                             else
                                 array1.Wait();
                             /*tFullGameThinkingQuantumTree = new Task(new Action(() => Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
@@ -16344,7 +16354,7 @@ namespace QuantumRefrigiz
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    //if (iAStarGreedy < 0)
+                    //if (iAStarGreedy <= 0)
                     {
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -20545,7 +20555,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         }
                     });
                 });
-
+                TH.Add(output);
                 Parallel.ForEach(TH, items => Task.WaitAll(items));
                 output.Wait();
                 return Do;
@@ -20706,7 +20716,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         }
                     });
                 });
-
+                TH.Add(output);
                 Parallel.ForEach(TH, items => Task.WaitAll(items));
                 output.Wait();
                 return Do;

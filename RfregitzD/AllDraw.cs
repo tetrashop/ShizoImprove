@@ -15507,7 +15507,7 @@ namespace RefrigtzDLL
             lock (O)
             {
                 bool IS = false;
-                if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingCreation
+                if (iAStarGreedy <= 0 //&& iAStarGreedy < MaxDuringLevelThinkingCreation
                 )
                 {
                     IS = true;
@@ -16030,12 +16030,13 @@ namespace RefrigtzDLL
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    iAStarGreedy--;
+                    
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return null;
 
+                    AStarGreedy--;
                 }
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
             }
@@ -16065,7 +16066,8 @@ namespace RefrigtzDLL
 
 
                     var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinking(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
-                    array1.Wait();
+                    //array1.Wait();
+                    tH.Add(array1);
 
                 }
 
@@ -16232,8 +16234,13 @@ namespace RefrigtzDLL
                 {
                     Tabl = CloneATable(Table);
                     var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy));
-                    array1.Wait();
-                    /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
+                    if (tH.Count > 0)
+                    {
+                        tH.Add(array1);
+                        Parallel.ForEach(tH, items => Task.WaitAll(items));
+                    }
+                    else
+                        array1.Wait();   /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
                     tFoundOfLeafDepenOfKindFullGame.Start();
                     T.Add(tFoundOfLeafDepenOfKindFullGame);*/
                 }
@@ -16252,10 +16259,12 @@ namespace RefrigtzDLL
                         //Parallel.Invoke(() =>
                         {
                             var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
-                            //tH.Add(array1);
                             //array1.Wait();
                             if (tH.Count > 0)
+                            {
+                                tH.Add(array1);
                                 Parallel.ForEach(tH, items => Task.WaitAll(items));
+                            }
                             else
                                 array1.Wait();
                             /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
@@ -16324,7 +16333,7 @@ namespace RefrigtzDLL
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    //if (iAStarGreedy < 0)
+                    //if (iAStarGreedy <= 0)
                     {
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -20521,7 +20530,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         }
                     });
                 });
-
+                TH.Add(output);
                 Parallel.ForEach(TH, items => Task.WaitAll(items));
                 output.Wait();
                 return Do;
@@ -20682,7 +20691,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         }
                     });
                 });
-
+                TH.Add(output);
                 Parallel.ForEach(TH, items => Task.WaitAll(items));
                 output.Wait();
                 return Do;
