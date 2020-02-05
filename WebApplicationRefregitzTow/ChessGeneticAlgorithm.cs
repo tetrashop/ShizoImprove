@@ -675,20 +675,20 @@ namespace RefrigtzW
                     {
                         if (Order == 1)
                         {
-                            if (Cromosom2[j, i] <= 0 && Cromosom1[j, i] > 0)
+                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] <= 0)
                             {
-                                CromosomRowFirst = j;
-                                CromosomColumnFirst = i;
+                                CromosomRow = j;
+                                CromosomColumn = i;
                                 Find = true;
                                 FindNumber++;
                                 //Hit = true;
                             }
 
                             else
-                            if (Cromosom2[j, i] > 0 && Cromosom1[j, i] == 0)
+                            if (Cromosom2[j, i] == 0 && Cromosom1[j, i] > 0)
                             {
-                                CromosomRow = j;
-                                CromosomColumn = i;
+                                CromosomRowFirst = j;
+                                CromosomColumnFirst = i;
                                 Find = true;
                                 FindNumber++;
                                 //Hit = true;
@@ -696,20 +696,20 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            if (Cromosom2[j, i] >= 0 && Cromosom1[j, i] < 0)
+                            if (Cromosom2[j, i] < 0 && Cromosom1[j, i] >= 0)
                             {
-                                CromosomRowFirst = j;
-                                CromosomColumnFirst = i;
-                                Find = true;
+                                CromosomRow = j;
+                                CromosomColumn = i;
+                               Find = true;
                                 FindNumber++;
                                 //Hit = true;
                             }
 
                             else
-                           if (Cromosom2[j, i] < 0 && Cromosom1[j, i] == 0)
+                           if (Cromosom2[j, i] == 0 && Cromosom1[j, i] < 0)
                             {
-                                CromosomRow = j;
-                                CromosomColumn = i;
+                                CromosomRowFirst = j;
+                                CromosomColumnFirst = i;
                                 Find = true;
                                 FindNumber++;
                                 //Hit = true;

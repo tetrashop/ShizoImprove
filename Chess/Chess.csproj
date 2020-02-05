@@ -35,7 +35,8 @@
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <DocumentationFile>
     </DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
@@ -109,6 +110,7 @@
     <Compile Include="ChessForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="PlatformHelper.cs" />
     <Compile Include="Point.cs">
       <SubType>Code</SubType>
@@ -121,6 +123,7 @@
     <Compile Include="Stone.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TakeRoot.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutBoxChessRefrigitz.resx">
@@ -139,6 +142,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GalleryStudio\GalleryStudio.csproj">
+      <Project>{257fbd67-c2d8-4e20-8d14-9a4e27341e1a}</Project>
+      <Name>GalleryStudio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Refrigtz\bin\Debug\All\All\All.csproj">
       <Project>{ac2b4cf6-3294-46d5-9af0-c58ee5b637d4}</Project>
       <Name>All</Name>

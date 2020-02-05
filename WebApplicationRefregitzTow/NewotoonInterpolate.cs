@@ -36,7 +36,7 @@ namespace RefrigtzW
                             {
                                 Double d = 1;
                                 for (int j = 0; j < i; j++)
-                                    d = d * (x0 - x[j]);
+                                    d = d * (x0 - x[j]));
                                 d = d * fx0untinxn(x, f, i, 0, i);
                                 s = s + d;
                             }
