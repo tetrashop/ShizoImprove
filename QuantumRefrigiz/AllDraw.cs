@@ -7520,6 +7520,9 @@ namespace QuantumRefrigiz
                 Object Omm = new Object();
                 lock (Omm)
                 {
+                    if (LeafAStarGreedy >= MaxAStarGreedy)
+                        return;
+
                     Object OOOO = new Object();
                     lock (OOOO)
                     {
