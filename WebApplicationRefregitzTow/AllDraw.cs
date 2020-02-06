@@ -7644,7 +7644,7 @@ namespace RefrigtzW
                                 }
                             });
                         });
-                        output.Wait();
+                        output.Wait(); output.Dispose();
 
 
                     }
@@ -7775,7 +7775,7 @@ namespace RefrigtzW
                                 }
                             });
                         });
-                        output.Wait();
+                        output.Wait(); output.Dispose();
                     }
                 }
                 //when not occured untile now computational op
@@ -13633,8 +13633,8 @@ namespace RefrigtzW
                                     if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                     {
                                         //Initiate of Local Variables By Global Objective Gray Current Solder.
-                                        ii = (int)SolderesOnTable[i].Row;
-                                        jj = (int)SolderesOnTable[i].Column;
+                                        int ik=(int)SolderesOnTable[i].Row;
+                                       int jk=(int)SolderesOnTable[i].Column;
                                         //Construction of Thinking Gray Soldier By Local Variables.
 
                                         //If There is no Thinking Movments on Current Object  
@@ -13682,8 +13682,8 @@ namespace RefrigtzW
                                     if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                     {
                                         //Inititate Local Variables By Global Varibales.
-                                        ii = (int)MinisterOnTable[i].Row;
-                                        jj = (int)MinisterOnTable[i].Column;
+                                        int ik=(int)MinisterOnTable[i].Row;
+                                       int jk=(int)MinisterOnTable[i].Column;
                                         //Construction of Thinking Objects Gray Minister.
 
                                         //If There is Not Minister Of Gray In The Thinking Table List.   
@@ -13730,8 +13730,8 @@ namespace RefrigtzW
                                     if (KingOnTable != null && KingOnTable[i] != null)
                                     {
                                         //Initiate Local varibale By Global Objective Varibales.
-                                        ii = (int)(int)KingOnTable[i].Row;
-                                        jj = (int)KingOnTable[i].Column;
+                                        int ik=(int)(int)KingOnTable[i].Row;
+                                       int jk=(int)KingOnTable[i].Column;
                                         //Construction of Gray King Thinking Objects.
 
                                         //When There is Not Thinking Table Gray King Movments.
@@ -13792,8 +13792,8 @@ namespace RefrigtzW
                                     if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                     {
                                         //Initiate of Local Variables By Global Objective Gray Current Solder.
-                                        ii = (int)SolderesOnTable[i].Row;
-                                        jj = (int)SolderesOnTable[i].Column;
+                                        int ik=(int)SolderesOnTable[i].Row;
+                                       int jk=(int)SolderesOnTable[i].Column;
                                         //Construction of Thinking Gray Soldier By Local Variables.
 
                                         //If There is no Thinking Movments on Current Object  
@@ -13839,8 +13839,8 @@ namespace RefrigtzW
                                     if (ElephantOnTable != null && ElephantOnTable[i] != null)
                                     {
                                         //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
-                                        ii = (int)ElephantOnTable[i].Row;
-                                        jj = (int)ElephantOnTable[i].Column;
+                                        int ik=(int)ElephantOnTable[i].Row;
+                                       int jk=(int)ElephantOnTable[i].Column;
                                         //Construction of Thinking Objects By Local Varibales.
 
                                         //If There is Not Thinking Objetive List Elephant Gray. 
@@ -13885,8 +13885,8 @@ namespace RefrigtzW
                                     if (HoursesOnTable != null && HoursesOnTable[i] != null)
                                     {
                                         //Initiate of Local Variables By Global Gray Hourse Objectives.
-                                        ii = (int)HoursesOnTable[i].Row;
-                                        jj = (int)HoursesOnTable[i].Column;
+                                        int ik=(int)HoursesOnTable[i].Row;
+                                       int jk=(int)HoursesOnTable[i].Column;
                                         //Construction of Gray Hourse Thinking Objects..
 
                                         //When There is Not HourseList Count. 
@@ -13931,8 +13931,8 @@ namespace RefrigtzW
                                     if (CastlesOnTable != null && CastlesOnTable[i] != null)
                                     {
                                         //Initaiate of Local Varibales By Global Varoiables.
-                                        ii = (int)CastlesOnTable[i].Row;
-                                        jj = (int)CastlesOnTable[i].Column;
+                                        int ik=(int)CastlesOnTable[i].Row;
+                                       int jk=(int)CastlesOnTable[i].Column;
                                         //Construction of Thinking Variables By Local Variables.
 
                                         //When Count of Table Castles of Thinking Not Exist Do Operational.
@@ -13977,8 +13977,8 @@ namespace RefrigtzW
                                     if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                     {
                                         //Inititate Local Variables By Global Varibales.
-                                        ii = (int)MinisterOnTable[i].Row;
-                                        jj = (int)MinisterOnTable[i].Column;
+                                        int ik=(int)MinisterOnTable[i].Row;
+                                       int jk=(int)MinisterOnTable[i].Column;
                                         //Construction of Thinking Objects Gray Minister.
 
                                         //If There is Not Minister Of Gray In The Thinking Table List.   
@@ -14023,8 +14023,8 @@ namespace RefrigtzW
                                     if (KingOnTable != null && KingOnTable[i] != null)
                                     {
                                         //Initiate Local varibale By Global Objective Varibales.
-                                        ii = (int)(int)KingOnTable[i].Row;
-                                        jj = (int)KingOnTable[i].Column;
+                                        int ik=(int)(int)KingOnTable[i].Row;
+                                       int jk=(int)KingOnTable[i].Column;
                                         //Construction of Gray King Thinking Objects.
 
                                         //When There is Not Thinking Table Gray King Movments.
@@ -14738,11 +14738,11 @@ namespace RefrigtzW
                         if (SolderesOnTable != null && SolderesOnTable[i] != null)
                         {
                             //Initiate of Local Variables By Global Objective Gray Current Solder.
-                            ii = (int)SolderesOnTable[i].Row;
-                            jj = (int)SolderesOnTable[i].Column;
+                            int ik=(int)SolderesOnTable[i].Row;
+                           int jk=(int)SolderesOnTable[i].Column;
                             //Construction of Thinking Gray Soldier By Local Variables.
                             if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
                             //If There is no Thinking Movments on Current Object  
 
                             if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
@@ -14802,11 +14802,11 @@ namespace RefrigtzW
                         if (ElephantOnTable != null && ElephantOnTable[i] != null)
                         {
                             //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
-                            ii = (int)ElephantOnTable[i].Row;
-                            jj = (int)ElephantOnTable[i].Column;
+                            int ik=(int)ElephantOnTable[i].Row;
+                           int jk=(int)ElephantOnTable[i].Column;
                             //Construction of Thinking Objects By Local Varibales.
                             if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
                             //If There is Not Thinking Objetive List Elephant Gray. 
                             if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                             {
@@ -14867,11 +14867,11 @@ namespace RefrigtzW
                         if (HoursesOnTable != null && HoursesOnTable[i] != null)
                         {
                             //Initiate of Local Variables By Global Gray Hourse Objectives.
-                            ii = (int)HoursesOnTable[i].Row;
-                            jj = (int)HoursesOnTable[i].Column;
+                            int ik=(int)HoursesOnTable[i].Row;
+                           int jk=(int)HoursesOnTable[i].Column;
                             //Construction of Gray Hourse Thinking Objects..
                             if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
                             //When There is Not HourseList Count. 
                             if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                             {
@@ -14934,11 +14934,11 @@ namespace RefrigtzW
                         if (CastlesOnTable != null && CastlesOnTable[i] != null)
                         {
                             //Initaiate of Local Varibales By Global Varoiables.
-                            ii = (int)CastlesOnTable[i].Row;
-                            jj = (int)CastlesOnTable[i].Column;
+                            int ik=(int)CastlesOnTable[i].Row;
+                           int jk=(int)CastlesOnTable[i].Column;
                             //Construction of Thinking Variables By Local Variables.
                             if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
                             //When Count of Table Castles of Thinking Not Exist Do Operational.
                             if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
                             {
@@ -15000,11 +15000,11 @@ namespace RefrigtzW
                         if (MinisterOnTable != null && MinisterOnTable[i] != null)
                         {
                             //Inititate Local Variables By Global Varibales.
-                            ii = (int)MinisterOnTable[i].Row;
-                            jj = (int)MinisterOnTable[i].Column;
+                            int ik=(int)MinisterOnTable[i].Row;
+                           int jk=(int)MinisterOnTable[i].Column;
                             //Construction of Thinking Objects Gray Minister.
                             if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
                             //If There is Not Minister Of Gray In The Thinking Table List.   
                             if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                             {
@@ -15065,11 +15065,11 @@ namespace RefrigtzW
                         if (KingOnTable != null && KingOnTable[i] != null)
                         {
                             //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)(int)KingOnTable[i].Row;
-                            jj = (int)KingOnTable[i].Column;
+                            int ik=(int)(int)KingOnTable[i].Row;
+                           int jk=(int)KingOnTable[i].Column;
                             //Construction of Gray King Thinking Objects.
                             if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
                             //When There is Not Thinking Table Gray King Movments.
                             if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                             {
@@ -15128,11 +15128,11 @@ namespace RefrigtzW
                         if (SolderesOnTable != null && SolderesOnTable[i] != null)
                         {
                             //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)SolderesOnTable[i].Row;
-                            jj = (int)SolderesOnTable[i].Column;
+                            int ik=(int)SolderesOnTable[i].Row;
+                           int jk=(int)SolderesOnTable[i].Column;
                             //Construction of Thinking Brown Current Objects.
                             if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
                             {
                                 //When There is Current Brown Object Table List Thinking Objective Movments.
                                 if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
@@ -15194,11 +15194,11 @@ namespace RefrigtzW
                         if (ElephantOnTable != null && ElephantOnTable[i] != null)
                         {
                             //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)ElephantOnTable[i].Row;
-                            jj = (int)ElephantOnTable[i].Column;
+                            int ik=(int)ElephantOnTable[i].Row;
+                           int jk=(int)ElephantOnTable[i].Column;
                             //Construction of Thinking Brown Current Objects.
                             if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
                             {
                                 //When There is Current Brown Object Table List Thinking Objective Movments.
                                 if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
@@ -15259,11 +15259,11 @@ namespace RefrigtzW
                         if (HoursesOnTable != null && HoursesOnTable[i] != null)
                         {
                             //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)HoursesOnTable[i].Row;
-                            jj = (int)HoursesOnTable[i].Column;
+                            int ik=(int)HoursesOnTable[i].Row;
+                           int jk=(int)HoursesOnTable[i].Column;
                             //Construction of Thinking Brown Current Objects.
                             if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
 
                             {
                                 //When There is Current Brown Object Table List Thinking Objective Movments.
@@ -15328,11 +15328,11 @@ namespace RefrigtzW
 
                         {
                             //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)CastlesOnTable[i].Row;
-                            jj = (int)CastlesOnTable[i].Column;
+                            int ik=(int)CastlesOnTable[i].Row;
+                           int jk=(int)CastlesOnTable[i].Column;
                             //Construction of Thinking Brown Current Objects.
                             if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
 
                             {
                                 //When There is Current Brown Object Table List Thinking Objective Movments.
@@ -15394,11 +15394,11 @@ namespace RefrigtzW
                         if (MinisterOnTable != null && MinisterOnTable[i] != null)
                         {
                             //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)MinisterOnTable[i].Row;
-                            jj = (int)MinisterOnTable[i].Column;
+                            int ik=(int)MinisterOnTable[i].Row;
+                           int jk=(int)MinisterOnTable[i].Column;
                             //Construction of Thinking Brown Current Objects.
                             if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
 
                             //When There is Current Brown Object Table List Thinking Objective Movments.
                             if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
@@ -15459,11 +15459,11 @@ namespace RefrigtzW
                         if (KingOnTable != null && KingOnTable[i] != null)
                         {
                             //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)KingOnTable[i].Row;
-                            jj = (int)KingOnTable[i].Column;
+                            int ik=(int)KingOnTable[i].Row;
+                           int jk=(int)KingOnTable[i].Column;
                             //Construction of Thinking Brown Current Objects.
                             if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
+                                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
 
                             //When There is Current Brown Object Table List Thinking Objective Movments.
                             if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
@@ -15817,7 +15817,7 @@ namespace RefrigtzW
                           }
                       })
                      );
-                    output.Wait();
+                    output.Wait(); output.Dispose();
                 }
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AstarGreedyThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -15915,7 +15915,7 @@ namespace RefrigtzW
                         }
                     })
                     );
-                    output.Wait();
+                    output.Wait(); output.Dispose();
                 }
                 else//Brown Order Considarations.
                 {
@@ -15984,7 +15984,7 @@ namespace RefrigtzW
                         }
                     })
                 );
-                    output.Wait();
+                    output.Wait(); output.Dispose();
 
                 }
             }
@@ -16228,7 +16228,7 @@ namespace RefrigtzW
             ChessRules.CurrentOrder = DummyCurrentOrder;
 
             var array = Task.Factory.StartNew(() => Serve(Order));
-            array.Wait();
+            array.Wait(); array.Dispose();
 
             if (FOUND)
             {
@@ -16240,10 +16240,16 @@ namespace RefrigtzW
                     if (tH.Count > 0)
                     {
                         tH.Add(array1);
-                        Parallel.ForEach(tH, items => Task.WaitAll(items));
+                        Task.WaitAll(tH.ToArray());
+                        //for (int g = 0; g < tH.Count; g++)
+                            //tH[g].Dispose();
+                        tH.Clear();
                     }
                     else
-                        array1.Wait();     /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
+                    {
+                        array1.Wait();
+                        array1.Dispose();
+                    }    /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
                     tFoundOfLeafDepenOfKindFullGame.Start();
                     T.Add(tFoundOfLeafDepenOfKindFullGame);*/
                 }
@@ -16266,10 +16272,16 @@ namespace RefrigtzW
                             if (tH.Count > 0)
                             {
                                 tH.Add(array1);
-                                Parallel.ForEach(tH, items => Task.WaitAll(items));
+                                Task.WaitAll(tH.ToArray());
+                                //for (int g = 0; g < tH.Count; g++)
+                                    //tH[g].Dispose();
+                                tH.Clear();
                             }
                             else
+                            {
                                 array1.Wait();
+                                array1.Dispose();
+                            }
                             /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
                         tFullGameThinkingTree.Start();
                         T.Add(tFullGameThinkingTree);*/
@@ -16289,7 +16301,7 @@ namespace RefrigtzW
                         MinThinkingTreeDepth = iAStarGreedy;
             }
 
-
+            tH.Clear();
 
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(T, items => Task.WaitAll(items));
@@ -18903,7 +18915,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 1));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -19114,7 +19126,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 2));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -19333,7 +19345,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 3));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
 
                 Object OOOO = new Object();
@@ -19559,7 +19571,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 4));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -19781,7 +19793,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 5));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
 
                 Object OOOO = new Object();
@@ -20010,7 +20022,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 6));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
 
                 Object OOOO = new Object();
@@ -20560,8 +20572,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     });
                 });
                 TH.Add(output);
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
-                output.Wait();
+                Task.WaitAll(TH.ToArray());
+                //for (int g = 0; g < TH.Count; g++)
+                    //TH[g].Dispose();
+                TH.Clear();
                 return Do;
             }
         }
@@ -20721,8 +20735,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     });
                 });
                 TH.Add(output);
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
-                output.Wait();
+                Task.WaitAll(TH.ToArray());
+                //for (int g = 0; g < TH.Count; g++)
+                    //TH[g].Dispose();
+                TH.Clear();
                 return Do;
             }
         }
@@ -20994,7 +21010,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //Initiatye Variables.               
                 var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeGray(a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
                 //array.Start();
-                array.Wait();
+                array.Wait(); array.Dispose();
 
 
             }
@@ -21003,7 +21019,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeBrown(a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
                 // array.Start();
-                array.Wait();
+                array.Wait(); array.Dispose();
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
@@ -21220,7 +21236,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     });
                 })
                 );
-                output.Wait();
+                output.Wait(); output.Dispose();
 
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
@@ -21374,7 +21390,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     });
                 })
                 );
-                output.Wait();
+                output.Wait(); output.Dispose();
             }
             //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
@@ -22012,6 +22028,14 @@ if (Kind == 5)
             Object o = new Object();
             lock (o)
             {
+                if (tH != null)
+                    tH.Clear();
+                else
+                    tH = new List<Task>();
+                if (TH != null)
+                    TH.Clear();
+                else
+                    TH = new List<Task>();
                 ThinkingChess.Colleralation = int.MinValue;
                 ThinkingChess.DeColleralation = int.MaxValue;
 
@@ -22137,8 +22161,9 @@ if (Kind == 5)
 
                     int[,] Tabl = CloneATable(Table);
                     Color aaa = a;
-                    var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
-                    array.Wait();
+                    //var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
+                    //array.Wait(); array.Dispose();
+                    InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
                 }
                 Object Om = new Object();
                 lock (Om)

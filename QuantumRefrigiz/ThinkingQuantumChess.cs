@@ -6371,7 +6371,7 @@ namespace QuantumRefrigiz
                                                 }
                                             });
                                         });
-                                        output.Wait();
+                                        output.Wait(); output.Dispose();
 
                                     }
 
@@ -6508,7 +6508,7 @@ namespace QuantumRefrigiz
                                       }
                                   }
                                  ));
-                                          output.Wait();
+                                          output.Wait(); output.Dispose();
 
                                       }//);
                                   }//);
@@ -6583,7 +6583,7 @@ namespace QuantumRefrigiz
                                         );
                                      Heuristic[5] += HAA6;
                                  }));
-                                                  output.Wait();
+                                                  output.Wait(); output.Dispose();
                                               }
                                           }//);
                                       }//);
@@ -6762,7 +6762,7 @@ namespace QuantumRefrigiz
                                             }
                                         });
                                     });
-                                    output.Wait();
+                                    output.Wait(); output.Dispose();
                                 });
                             });
                         });
@@ -12022,7 +12022,7 @@ namespace QuantumRefrigiz
                         }
                     });
                 });
-                output.Wait();
+                output.Wait(); output.Dispose();
 
                 var output1 = Task.Factory.StartNew(() =>
                 {

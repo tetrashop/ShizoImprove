@@ -6345,7 +6345,7 @@ namespace RefrigtzW
                                                 }
                                             });
                                         });
-                                        output.Wait();
+                                        output.Wait(); output.Dispose();
 
                                     }
 
@@ -6482,7 +6482,7 @@ namespace RefrigtzW
                                       }
                                   }
                                  ));
-                                          output.Wait();
+                                          output.Wait(); output.Dispose();
 
                                       }//);
                                   }//);
@@ -6557,7 +6557,7 @@ namespace RefrigtzW
                                         );
                                      Heuristic[5] += HAA6;
                                  }));
-                                                  output.Wait();
+                                                  output.Wait(); output.Dispose();
                                               }
                                           }//);
                                       }//);
@@ -6736,7 +6736,7 @@ namespace RefrigtzW
                                             }
                                         });
                                     });
-                                    output.Wait();
+                                    output.Wait(); output.Dispose();
                                 });
                             });
                         });
@@ -11983,7 +11983,7 @@ namespace RefrigtzW
                         }
                     });
                 });
-                output.Wait();
+                output.Wait(); output.Dispose();
 
                 var output1 = Task.Factory.StartNew(() =>
                 {
