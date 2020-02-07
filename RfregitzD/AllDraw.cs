@@ -6718,7 +6718,7 @@ namespace RefrigtzDLL
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -6880,7 +6880,7 @@ namespace RefrigtzDLL
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7179,7 +7179,7 @@ namespace RefrigtzDLL
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7327,7 +7327,7 @@ namespace RefrigtzDLL
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7477,7 +7477,7 @@ namespace RefrigtzDLL
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7790,7 +7790,7 @@ namespace RefrigtzDLL
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
 
-                        iAStarGreedy++;
+                        //iAStarGreedy++;
                         Color a = Color.Gray;
                         if (Order == -1)
                             a = Color.Brown;
@@ -13040,7 +13040,7 @@ namespace RefrigtzDLL
                         return null;
                 }
 
-                iAStarGreedy++;
+                //iAStarGreedy++;
 
 
 

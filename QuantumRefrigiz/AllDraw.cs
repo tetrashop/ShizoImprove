@@ -6737,7 +6737,7 @@ namespace QuantumRefrigiz
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -6899,7 +6899,7 @@ namespace QuantumRefrigiz
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7198,7 +7198,7 @@ namespace QuantumRefrigiz
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7346,7 +7346,7 @@ namespace QuantumRefrigiz
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7496,7 +7496,7 @@ namespace QuantumRefrigiz
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7809,7 +7809,7 @@ namespace QuantumRefrigiz
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
 
-                        iAStarGreedy++;
+                        //iAStarGreedy++;
                         Color a = Color.Gray;
                         if (Order == -1)
                             a = Color.Brown;
@@ -13061,7 +13061,7 @@ namespace QuantumRefrigiz
                         return null;
                 }
 
-                iAStarGreedy++;
+                //iAStarGreedy++;
 
 
 

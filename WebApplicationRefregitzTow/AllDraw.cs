@@ -6719,7 +6719,7 @@ namespace RefrigtzW
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -6881,7 +6881,7 @@ namespace RefrigtzW
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7180,7 +7180,7 @@ namespace RefrigtzW
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7328,7 +7328,7 @@ namespace RefrigtzW
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7478,7 +7478,7 @@ namespace RefrigtzW
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -7790,7 +7790,7 @@ namespace RefrigtzW
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
 
-                        iAStarGreedy++;
+                        //iAStarGreedy++;
                         Color a = Color.Gray;
                         if (Order == -1)
                             a = Color.Brown;
@@ -13042,7 +13042,7 @@ namespace RefrigtzW
                         return null;
                 }
 
-                iAStarGreedy++;
+                //iAStarGreedy++;
 
 
 
