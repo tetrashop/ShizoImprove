@@ -5743,7 +5743,7 @@ namespace RefrigtzDLL
             return Found;
         }
         //found of leadfs of created tree depend of orderic 
-          public AllDraw FoundOfLeafDepenOfKind(ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        public AllDraw FoundOfLeafDepenOfKind(ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
@@ -5762,13 +5762,17 @@ namespace RefrigtzDLL
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0// && Kind == 1
+                            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count// && Kind == 1
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]), Order * -1, false, false, 0);
+                                Leaf = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5786,13 +5790,17 @@ namespace RefrigtzDLL
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 //&& Kind == 2
+                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count //&& Kind == 2
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]), Order * -1, false, false, 0);
+                                Leaf = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5811,13 +5819,17 @@ namespace RefrigtzDLL
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 //&& Kind == 3
+                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count //&& Kind == 3
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]), Order * -1, false, false, 0);
+                                Leaf = HoursesOnTable[i].HourseThinking[0].AStarGreedy[HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5828,22 +5840,26 @@ namespace RefrigtzDLL
                         }
 
                     }
+
                     if (Found)
                         return Leaf;
-
                     for (var i = 0; i < CastleMidle; i++)
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 //&& Kind == 4
+                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count //&& Kind == 4
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]), Order * -1, false, false, 0);
+                                Leaf = CastlesOnTable[i].CastleThinking[0].AStarGreedy[CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5860,13 +5876,17 @@ namespace RefrigtzDLL
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 //&& Kind == 5
+                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count //&& Kind == 5
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]), Order * -1, false, false, 0);
+                                Leaf = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5885,13 +5905,17 @@ namespace RefrigtzDLL
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 //&& Kind == 6
+                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count < KingOnTable[i].KingThinking[0].TableListKing.Count //&& Kind == 6
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                KingOnTable[i].KingThinking[0].AStarGreedy[KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]), Order * -1, false, false, 0);
+                                Leaf = KingOnTable[i].KingThinking[0].AStarGreedy[KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5914,13 +5938,17 @@ namespace RefrigtzDLL
 
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 //&& Kind == 1
+                            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count// && Kind == 1
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]), Order * -1, false, false, 0);
+                                Leaf = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5938,13 +5966,17 @@ namespace RefrigtzDLL
 
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 //&& Kind == 2
+                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count //&& Kind == 2
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]), Order * -1, false, false, 0);
+                                Leaf = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5962,13 +5994,17 @@ namespace RefrigtzDLL
 
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 //&& Kind == 3
+                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count //&& Kind == 3
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]), Order * -1, false, false, 0);
+                                Leaf = HoursesOnTable[i].HourseThinking[0].AStarGreedy[HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -5986,13 +6022,17 @@ namespace RefrigtzDLL
 
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 //&& Kind == 4
+                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count //&& Kind == 4
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]), Order * -1, false, false, 0);
+                                Leaf = CastlesOnTable[i].CastleThinking[0].AStarGreedy[CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -6010,13 +6050,17 @@ namespace RefrigtzDLL
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 //&& Kind == 5
+                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count //&& Kind == 5
                             )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]), Order * -1, false, false, 0);
+                                Leaf = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
                             }
                             else//deeper
@@ -6026,24 +6070,27 @@ namespace RefrigtzDLL
 
                         }
                     }
+
                     if (Found)
                         return Leaf;
-
                     for (var i = KingMidle; i < KingHigh; i++)
                     {
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 //&& Kind == 6
-                            )
+                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count < KingOnTable[i].KingThinking[0].TableListKing.Count //&& Kind == 6
+                           )
                             {
                                 Found = true;
-                                Leaf = this;
+                                BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
+                                Color aa = Color.Gray;
+                                if (Order * -1 == -1)
+                                    aa = Color.Brown;
+                                KingOnTable[i].KingThinking[0].AStarGreedy[KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]), Order * -1, false, false, 0);
+                                Leaf = KingOnTable[i].KingThinking[0].AStarGreedy[KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1];
                                 return Leaf;
-
                             }
                             else//deeper
                                 for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
@@ -22783,10 +22830,11 @@ if (Kind == 5)
                 AllDraw Node = this;
 
 
-                while (DummyFileStream.Position < DummyFileStream.Length)
-                {
+                if (DummyFileStream.Position >= DummyFileStream.Length)
+                    return;
 
-                    Formatters.Serialize(DummyFileStream, Node);
+
+                Formatters.Serialize(DummyFileStream, Node);
 
                     for (int i = 0; i < Node.SodierHigh; i++)
                     {
@@ -22909,7 +22957,7 @@ if (Kind == 5)
                             Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
                         }
                     }
-                }
+                
             }
         }
         public AllDraw LoaderEC(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
