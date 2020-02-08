@@ -5761,7 +5761,7 @@ namespace QuantumRefrigiz
             return Found;
         }
         //found of leadfs of created tree depend of orderic 
-        public AllDraw FoundOfLeafDepenOfKind(int Kind, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf)
+        public AllDraw FoundOfLeafDepenOfKind(ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
@@ -5786,12 +5786,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
-
                             }
                             else//deeper
                                 for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
                         }
@@ -5808,11 +5808,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
 
@@ -5830,11 +5831,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
                         }
@@ -5853,11 +5855,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                         }
                     }
@@ -5873,11 +5876,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
 
@@ -5895,11 +5899,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
 
@@ -5921,11 +5926,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                         }
                     }
@@ -5942,11 +5948,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                         }
                     }
@@ -5963,11 +5970,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                         }
                     }
@@ -5984,11 +5992,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
                         }
@@ -6005,11 +6014,12 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
                         }
@@ -6027,12 +6037,13 @@ namespace QuantumRefrigiz
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
 
                             }
                             else//deeper
                                 for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
-                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
 
@@ -16082,9 +16093,9 @@ namespace QuantumRefrigiz
             DummyOrder = Order;
             int DummyCurrentOrder = new int();
             DummyCurrentOrder = ChessRules.CurrentOrder;
-#pragma warning disable CS0219 // The variable 'i' is ASsigned but its value is never used
+#pragma warning disable CS0219 // The variable 'i' is assigned but its value is never used
             int i = 0, ik = 0;
-#pragma warning restore CS0219 // The variable 'i' is ASsigned but its value is never used
+#pragma warning restore CS0219 // The variable 'i' is assigned but its value is never used
             int[,] TablInit = new int[8, 8];
             if (Order == 1)
                 a = Color.Gray;
@@ -16092,13 +16103,15 @@ namespace QuantumRefrigiz
                 a = Color.Brown;
             var j = 0;
 
-            //Fairness conditions for perposive AStar greedy search.
+            //Fairness conditions for perposive astar greedy search.
             Object Omm = new Object();
             lock (Omm)
             {
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
+
+
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -16303,7 +16316,9 @@ namespace QuantumRefrigiz
                 lock (O)
                 {
                     Tabl = CloneATable(Table);
-                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy));
+                    QuantumRefrigiz.AllDraw Leaf = null;
+                    int OrderLeaf = Order;
+                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, ref OrderLeaf, 0, 0, 0, 0));
                     if (tH.Count > 0)
                     {
                         tH.Add(array1);
@@ -16316,9 +16331,8 @@ namespace QuantumRefrigiz
                     {
                         array1.Wait();
                         array1.Dispose();
-                    }/*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
-                   
-                   tFoundOfLeafDepenOfKindFullGame.Start();
+                    }    /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
+                    tFoundOfLeafDepenOfKindFullGame.Start();
                     T.Add(tFoundOfLeafDepenOfKindFullGame);*/
                 }
             }
@@ -16335,8 +16349,10 @@ namespace QuantumRefrigiz
 
                         //Parallel.Invoke(() =>
                         {
-                            var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
-                            //tH.Add(array1);
+                            Tabl = CloneATable(Table);
+                            QuantumRefrigiz.AllDraw Leaf = null;
+                            int OrderLeaf = Order;
+                            var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, ref OrderLeaf, 0, 0, 0, 0));
                             //array1.Wait();
                             if (tH.Count > 0)
                             {
@@ -16350,9 +16366,10 @@ namespace QuantumRefrigiz
                             {
                                 array1.Wait();
                                 array1.Dispose();
-                            }   /*tFullGameThinkingQuantumTree = new Task(new Action(() => Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
-                         tFullGameThinkingQuantumTree.Start();
-                         T.Add(tFullGameThinkingQuantumTree);*/
+                            }
+                            /*tFullGameThinkingQuantumTree = new Task(new Action(() => Do = this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
+                        tFullGameThinkingQuantumTree.Start();
+                        T.Add(tFullGameThinkingQuantumTree);*/
 
 
                         }//);
@@ -16369,8 +16386,8 @@ namespace QuantumRefrigiz
                         MinThinkingQuantumTreeDepth = iAStarGreedy;
             }
 
-
             tH.Clear();
+
             //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(T, items => Task.WaitAll(items));
             return this;

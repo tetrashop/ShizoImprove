@@ -5743,7 +5743,7 @@ namespace RefrigtzW
             return Found;
         }
         //found of leadfs of created tree depend of orderic 
-        public AllDraw FoundOfLeafDepenOfKind(int Kind, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf)
+        public AllDraw FoundOfLeafDepenOfKind(ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
@@ -5768,12 +5768,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
-
                             }
                             else//deeper
                                 for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
                         }
@@ -5790,11 +5790,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
-                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
 
@@ -5812,11 +5813,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
-                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
                         }
@@ -5835,11 +5837,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
-                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                         }
                     }
@@ -5855,11 +5858,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
-                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
 
@@ -5877,11 +5881,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
-                                    KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
 
@@ -5903,11 +5908,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                         }
                     }
@@ -5924,11 +5930,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
-                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                         }
                     }
@@ -5945,11 +5952,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
-                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                         }
                     }
@@ -5966,11 +5974,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
-                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
                         }
@@ -5987,11 +5996,12 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
                             }
                             else//deeper
                                 for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
-                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
                         }
@@ -6009,12 +6019,13 @@ namespace RefrigtzW
                                 Found = true;
                                 Leaf = this;
                                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                Leaf.FoundOfLeafDepenOfKindFullGame(CloneATable(Leaf.TableList[0]), Order, MaxAStarGreedy, ik, jk, iii, jjj, true, MaxAStarGreedy);
                                 return Leaf;
 
                             }
                             else//deeper
                                 for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
-                                    KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
+                                    KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
 
@@ -16285,8 +16296,11 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
+                    RefrigtzW.AllDraw Leaf = null;
                     Tabl = CloneATable(Table);
-                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy));
+                    int OrderLeaf = Order;
+                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, ref OrderLeaf, 0, 0, 0, 0));
+
                     if (tH.Count > 0)
                     {
                         tH.Add(array1);
