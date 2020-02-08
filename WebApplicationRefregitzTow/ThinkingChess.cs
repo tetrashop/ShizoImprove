@@ -6258,7 +6258,8 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                int[] Heuristic = new int[6];
+                int[] HeuristicA = new int[6];
+                int[] HeuristicB = new int[6];
 
                 int HA = 0;
                 int DumOrder = Order;
@@ -6289,58 +6290,62 @@ namespace RefrigtzW
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
-                                                    if (Heuristic[0] == 0)
-                                                    {
 
-                                                        if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
+
+                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
+                                                    {
+                                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                         {
-                                                            if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                                Heuristic[0] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
+                                                            if (HeuristicA[0] == 0)
+                                                                HeuristicA[0] = RationalPenalty;
+                                                            HeuristicB[0] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
                                                         }
                                                     }
-                                                    if (Heuristic[2] == 0)
+
+                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
                                                     {
-                                                        if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                                        if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                         {
-                                                            if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                                Heuristic[2] += RationalPenalty;// += (RationalPenalty * DiffSupport(Table[RowD, ColD], Table[RowS, ColS]));
+                                                            if (HeuristicA[2] == 0)
+                                                                HeuristicA[2] = RationalPenalty;
+                                                            HeuristicB[2] += RationalPenalty;// (RationalPenalty * DiffSupport(Table[RowD, ColD], Table[RowS, ColS]));
                                                         }
                                                     }
-                                                    /*if (Heuristic[2] == 0&&Heuristic[0] == 0)
+
+                                                    /*     if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                                         {
+                                                             if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                                 HeuristicB[5] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
+                                                         }
+
+                                                        */
+                                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                     {
-                                                        if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                                        if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
                                                         {
-                                                            if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                                Heuristic[5] += (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
-                                                        }
-                                                    }*/
-                                                    if (Heuristic[1] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
-                                                    {
-                                                        {
-                                                            if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
-                                                            {
-                                                                if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                    Heuristic[1] += RationalRegard;// RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
-                                                            }
-                                                        }
-                                                    }
-                                                    if (Heuristic[3] == 0 && Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
-                                                    {
-                                                        if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
-                                                        {
-                                                            if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                Heuristic[3] += RationalRegard;// (RationalRegard * DiffSupport(Table[RowS, ColS], Table[RowD, ColD]));
+                                                            if (HeuristicA[1] == 0)
+                                                                HeuristicA[1] = RationalRegard;
+                                                            HeuristicB[1] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
                                                         }
                                                     }
-                                                    /* if (Heuristic[2] == 0 && Heuristic[0] == 0 && Heuristic[5] == 0)
-                                                     {
+
+                                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                                    {
+                                                        if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                        {
+                                                            if (HeuristicA[3] == 0)
+                                                                HeuristicA[3] = RationalRegard;
+                                                            HeuristicB[3] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                        }
+                                                    }
+
+                                                    /*
                                                          if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
                                                          {
                                                              if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                 Heuristic[4] += (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
-                                                         }
-                                                     }*/
-
+                                                                 HeuristicB[4] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                         }                                                    
+*/
 
                                                 }
                                             });
@@ -6356,21 +6361,22 @@ namespace RefrigtzW
                 }
 
 
+                if (HeuristicA[0] != 0 && HeuristicA[1] != 0 && HeuristicA[2] != 0 && HeuristicA[3] != 0)
+                    return HeuristicB;
+
                 //when theres is at least one reducedattacked meaningful for regard.
-                if (Heuristic[0] != 0)
+                if (HeuristicA[0] != 0)
                 {
-                    Heuristic[1] = 0;
-                    Heuristic[3] = 0;
+                    HeuristicA[1] = 0;
+                    HeuristicA[3] = 0;
                 }
-
-
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
                 //Initiate to Begin Call Orders.
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                return Heuristic;
+                return HeuristicA;
 
 
                 /*          Object O = new Object();
@@ -6403,7 +6409,7 @@ namespace RefrigtzW
                                          Color aa1 = aa;
                                          int HAA1 = HeuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
                                          if (HAA1 != 0)
-                                             Heuristic[0] += HAA1;
+                                             HeuristicB[0] += HAA1;
                                      }
                                  }
 
@@ -6419,7 +6425,7 @@ namespace RefrigtzW
                                          int Killed1 = Killed;
                                          int HAA2 = HeuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
                                          if (HAA2 != 0)
-                                             Heuristic[1] += HAA2;
+                                             HeuristicB[1] += HAA2;
                                      }
                                  }
                                   , () =>
@@ -6433,7 +6439,7 @@ namespace RefrigtzW
                                           Color aa3 = aa;
                                           int HAA3 = HeuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
                                           if (HAA3 != 0)
-                                              Heuristic[2] += HAA3;
+                                              HeuristicB[2] += HAA3;
                                       }
                                   },
                                   () =>
@@ -6447,7 +6453,7 @@ namespace RefrigtzW
                                           Color aa4 = aa;
                                           int HAA4 = HeuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
                                           if (HAA4 != 0)
-                                              Heuristic[3] += HAA4;
+                                              HeuristicB[3] += HAA4;
                                       }
 
                                   },
@@ -6463,7 +6469,7 @@ namespace RefrigtzW
                                           int HAA5 = HeuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
                                               );
                                           if (HAA5 != 0)
-                                              Heuristic[4] += HAA5;
+                                              HeuristicB[4] += HAA5;
                                       }
                                   },
                                   () =>
@@ -6478,7 +6484,7 @@ namespace RefrigtzW
                                           int HAA6 = HeuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
                                                   );
                                           if (HAA6 != 0)
-                                              Heuristic[5] += HAA6;
+                                              HeuristicB[5] += HAA6;
                                       }
                                   }
                                  ));
@@ -6511,7 +6517,7 @@ namespace RefrigtzW
                                          int Ord1 = Ord;
                                          Color aa1 = aa;
                                          int HAA1 = HeuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
-                                         Heuristic[0] += HAA1;
+                                         HeuristicB[0] += HAA1;
                                      }
                                  }, () =>
                                  {
@@ -6521,7 +6527,7 @@ namespace RefrigtzW
                                      Color aa2 = aa;
                                      int Killed1 = Killed;
                                      int HAA2 = HeuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
-                                     Heuristic[1] += HAA2;
+                                     HeuristicB[1] += HAA2;
                                  }, () =>
                                  {
                                      int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
@@ -6529,7 +6535,7 @@ namespace RefrigtzW
                                      int Ord3 = Ord;
                                      Color aa3 = aa;
                                      int HAA3 = HeuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
-                                     Heuristic[2] += HAA3;
+                                     HeuristicB[2] += HAA3;
                                  }, () =>
                                  {
                                      int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
@@ -6537,7 +6543,7 @@ namespace RefrigtzW
                                      int Ord4 = Ord;
                                      Color aa4 = aa;
                                      int HAA4 = HeuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
-                                     Heuristic[3] += HAA4;
+                                     HeuristicB[3] += HAA4;
                                  }, () =>
                                  {
                                      int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
@@ -6546,7 +6552,7 @@ namespace RefrigtzW
                                      Color aa5 = aa;
                                      int HAA5 = HeuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
                                          );
-                                     Heuristic[4] += HAA5;
+                                     HeuristicB[4] += HAA5;
                                  }, () =>
                                  {
                                      int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
@@ -6555,7 +6561,7 @@ namespace RefrigtzW
                                      Color aa6 = aa;
                                      int HAA6 = HeuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
                                         );
-                                     Heuristic[5] += HAA6;
+                                     HeuristicB[5] += HAA6;
                                  }));
                                                   output.Wait(); output.Dispose();
                                               }
@@ -6570,12 +6576,12 @@ namespace RefrigtzW
                               Order = DummyOrder;
                               ChessRules.CurrentOrder = DummyCurrentOrder;
                               //Store Local Heuristic in Global One.
-                              //Heuristic[0] = (Heuristic[0]* SignOrderToPlate(Order));
-                              //Heuristic[1] = (Heuristic[1]* SignOrderToPlate(Order));
-                              //Heuristic[2] = (Heuristic[2]* SignOrderToPlate(Order));
-                              //Heuristic[3] = (Heuristic[3]* SignOrderToPlate(Order));
-                              //Heuristic[4] = (Heuristic[4]* SignOrderToPlate(Order));
-                              //Heuristic[5] = (Heuristic[5]* SignOrderToPlate(Order));
+                              //HeuristicB[0] = (HeuristicB[0]* SignOrderToPlate(Order));
+                              //HeuristicB[1] = (HeuristicB[1]* SignOrderToPlate(Order));
+                              //HeuristicB[2] = (HeuristicB[2]* SignOrderToPlate(Order));
+                              //HeuristicB[3] = (HeuristicB[3]* SignOrderToPlate(Order));
+                              //HeuristicB[4] = (HeuristicB[4]* SignOrderToPlate(Order));
+                              //HeuristicB[5] = (HeuristicB[5]* SignOrderToPlate(Order));
                               //Return Local Heuristic.
                               ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                               return Heuristic;
