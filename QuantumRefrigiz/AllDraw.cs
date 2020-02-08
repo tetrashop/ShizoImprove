@@ -5796,6 +5796,8 @@ namespace QuantumRefrigiz
 
                         }
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < ElefantMidle; i++)
                     {
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
@@ -5819,6 +5821,8 @@ namespace QuantumRefrigiz
 
                         }
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < HourseMidle; i++)
                     {
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
@@ -5843,6 +5847,8 @@ namespace QuantumRefrigiz
 
                     }
 
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < CastleMidle; i++)
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
@@ -5864,6 +5870,8 @@ namespace QuantumRefrigiz
 
                         }
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < MinisterMidle; i++)
                     {
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
@@ -5887,6 +5895,8 @@ namespace QuantumRefrigiz
 
                         }
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < KingMidle; i++)
                     {
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
@@ -5913,6 +5923,8 @@ namespace QuantumRefrigiz
                 }
                 else
                 {
+                    if (Found)
+                        return Leaf;
                     for (var i = SodierMidle; i < SodierHigh; i++)
                     {
                         for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
@@ -5935,6 +5947,8 @@ namespace QuantumRefrigiz
 
                         }
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
                     {
                         for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
@@ -5957,6 +5971,8 @@ namespace QuantumRefrigiz
 
                         }
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = HourseMidle; i < HourseHight; i++)
                     {
                         for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
@@ -5979,6 +5995,8 @@ namespace QuantumRefrigiz
 
                         }
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = CastleMidle; i < CastleHigh; i++)
                     {
                         for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
@@ -6002,6 +6020,8 @@ namespace QuantumRefrigiz
 
                         }
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
                     {
                         for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
@@ -6025,6 +6045,8 @@ namespace QuantumRefrigiz
                         }
                     }
 
+                    if (Found)
+                        return Leaf;
                     for (var i = KingMidle; i < KingHigh; i++)
                     {
                         for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
