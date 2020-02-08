@@ -5760,7 +5760,8 @@ namespace RefrigtzW
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy || SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0// && Kind == 1
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5781,7 +5782,8 @@ namespace RefrigtzW
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
+                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 //&& Kind == 2
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5802,7 +5804,8 @@ namespace RefrigtzW
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
+                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 //&& Kind == 3
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5824,7 +5827,8 @@ namespace RefrigtzW
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
+                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 //&& Kind == 4
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5843,7 +5847,8 @@ namespace RefrigtzW
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
+                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 //&& Kind == 5
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5864,7 +5869,8 @@ namespace RefrigtzW
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
+                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 //&& Kind == 6
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5889,7 +5895,8 @@ namespace RefrigtzW
 
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
+                            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 //&& Kind == 1
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5909,7 +5916,8 @@ namespace RefrigtzW
 
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
+                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 //&& Kind == 2
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5929,7 +5937,8 @@ namespace RefrigtzW
 
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
+                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 //&& Kind == 3
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5949,7 +5958,8 @@ namespace RefrigtzW
 
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
+                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 //&& Kind == 4
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5969,7 +5979,8 @@ namespace RefrigtzW
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
+                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 //&& Kind == 5
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -5990,7 +6001,8 @@ namespace RefrigtzW
                         {
 
                             //when leaf found set refer bool and alldraw refer objects
-                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
+                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 //&& Kind == 6
+                            )
                             {
                                 Found = true;
                                 Leaf = this;
@@ -6658,9 +6670,9 @@ namespace RefrigtzW
                         }
                         FullGameFound = true;
                         ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                         InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
                         {
                             SolderesOnTable[i].SoldierThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -6719,9 +6731,9 @@ namespace RefrigtzW
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
 
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                 InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
                                 {
@@ -6824,9 +6836,9 @@ namespace RefrigtzW
                         }
                         FullGameFound = true;
                         ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                         InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
                         {
                             ElephantOnTable[i].ElefantThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -6882,9 +6894,9 @@ namespace RefrigtzW
                             lock (O1)
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                 InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
                                 {
@@ -6970,9 +6982,9 @@ namespace RefrigtzW
                         }
                         FullGameFound = true;
                         ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                         InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
                         {
                             HoursesOnTable[i].HourseThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -7029,9 +7041,9 @@ namespace RefrigtzW
                             lock (O1)
                             {
 
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                 InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
                                 {
@@ -7120,9 +7132,9 @@ namespace RefrigtzW
                         }
                         FullGameFound = true;
                         ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                         InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
                         {
                             CastlesOnTable[i].CastleThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -7180,9 +7192,9 @@ namespace RefrigtzW
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                 InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
                                 {
@@ -7272,9 +7284,9 @@ namespace RefrigtzW
                         }
                         FullGameFound = true;
                         ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                         InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
                         {
                             MinisterOnTable[i].MinisterThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -7327,9 +7339,9 @@ namespace RefrigtzW
                             }
                             ////OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                            ClearAllTablesHeuristicsAndMore(Order);
+                            //ClearAllTablesHeuristicsAndMore(Order);
 
-                            InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                             InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                             for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
                             {
@@ -7418,9 +7430,9 @@ namespace RefrigtzW
                         }
                         FullGameFound = true;
                         ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                         InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
                         {
                             KingOnTable[i].KingThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -7479,9 +7491,9 @@ namespace RefrigtzW
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
 
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                 InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
                                 {
@@ -7824,7 +7836,7 @@ namespace RefrigtzW
                         Color a = Color.Gray;
                         if (Order == -1)
                             a = Color.Brown;
-                        InitiateAStarGreedyt(0, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                         InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                                                                                                                      //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                     }
                 }
