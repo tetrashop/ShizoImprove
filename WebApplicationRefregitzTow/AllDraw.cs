@@ -6774,7 +6774,7 @@ namespace RefrigtzW
                                 {
                                     FirstTraversalTree = false;
 
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();
+                                    //SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();
                                     //when search finished stop and return
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -6929,7 +6929,7 @@ namespace RefrigtzW
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();
+                                //ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();
                                 this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -7076,7 +7076,7 @@ namespace RefrigtzW
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();
+                                //HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();
                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -7229,7 +7229,7 @@ namespace RefrigtzW
                                 if (Order == -1)
                                     a = Color.Brown;
                                 int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
-                                CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();
+                                //CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();
 
                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
@@ -7376,7 +7376,7 @@ namespace RefrigtzW
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();
+                                //MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();
                                 this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -7526,7 +7526,7 @@ namespace RefrigtzW
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                KingOnTable[i].KingThinking[0].AStarGreedy.Clear();
+                                //KingOnTable[i].KingThinking[0].AStarGreedy.Clear();
                                 this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }

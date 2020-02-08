@@ -6656,7 +6656,7 @@ namespace QuantumRefrigiz
             Object P = new Object();
             lock (P)
             {
-                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null //&& SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null
+                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum  != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder != null //&& SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null
                          ; j++)
                 {
                     Object OOOOO = new Object();
@@ -6792,7 +6792,7 @@ namespace QuantumRefrigiz
                                 {
                                     FirstTraversalTree = false;
 
-                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Clear();
+                                    //SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Clear();
                                     //when search finished stop and return
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
@@ -6817,7 +6817,7 @@ namespace QuantumRefrigiz
             Object P = new Object();
             lock (P)
             {
-                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null
+                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum  != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant != null //&& ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null
             ; j++)
                 {
                     Object OOOOO = new Object();
@@ -6947,7 +6947,7 @@ namespace QuantumRefrigiz
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Clear();
+                                //ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Clear();
                                 this.FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -6964,7 +6964,7 @@ namespace QuantumRefrigiz
             Object P = new Object();
             lock (P)
             {
-                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null //&& HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null
+                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum  != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count && HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse != null //&& HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null
            ; j++)
                 {
                     Object OOOOO = new Object();
@@ -7094,7 +7094,7 @@ namespace QuantumRefrigiz
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Clear();
+                                //HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Clear();
                                 this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -7114,7 +7114,7 @@ namespace QuantumRefrigiz
             Object P = new Object();
             lock (P)
             {
-                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count //&& CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null
+                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum  != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count //&& CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle != null
                                   ; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 4))
@@ -7247,7 +7247,7 @@ namespace QuantumRefrigiz
                                 if (Order == -1)
                                     a = Color.Brown;
                                 int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
-                                CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Clear();
+                                //CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Clear();
 
                                 this.FullGameThinkingQuantumTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
@@ -7266,7 +7266,7 @@ namespace QuantumRefrigiz
             Object P = new Object();
             lock (P)
             {
-                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null
+                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum  != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister != null //&& MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null
                   ; j++)
                 {
                     if (IsSupHuTrue(i, j, 0, 5))
@@ -7394,7 +7394,7 @@ namespace QuantumRefrigiz
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Clear();
+                                //MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Clear();
                                 this.FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -7410,7 +7410,7 @@ namespace QuantumRefrigiz
             Object P = new Object();
             lock (P)
             {
-                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null
+                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum  != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count && KingOnTable[i].KingThinkingQuantum[0].TableListKing != null //&& KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null
            ; j++)
                 {
                     Object OOOOO = new Object();
@@ -7544,7 +7544,7 @@ namespace QuantumRefrigiz
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Clear();
+                                //KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Clear();
                                 this.FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
