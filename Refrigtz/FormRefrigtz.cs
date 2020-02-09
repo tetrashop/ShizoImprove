@@ -13997,7 +13997,8 @@ namespace Refrigtz
                             if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 2))
                             {
                                 Ord = OrderPlate * -1;
-
+                                OrderPlate = Ord;
+                                RefrigtzDLL.AllDraw.OrderPlate = Ord;
                                 Color aa = Color.Gray;
                                 if (Ord == -1)
                                     aa = Color.Brown;
@@ -14024,7 +14025,7 @@ namespace Refrigtz
                                 //SetBoxText("\r\nDraw Found By Recurve");
                                 //RefreshBoxText();
                                 FOUND = false;
-                                Ord = OrderPlate * -1;
+                             
                                 ////Draw.ClearAllTablesHeuristicsAndMore(Ord);
                                 bool Store = Deeperthandeeper;
                                 Deeperthandeeper = false;
@@ -14032,13 +14033,17 @@ namespace Refrigtz
                                 Color aa = Color.Gray;
                                 if (Ord == -1)
                                     aa = Color.Brown;
-                                Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, false, 0);
-                                Deeperthandeeper = Store;
-                                Ord = OrderPlate;
-
+                                bool B = RefrigtzDLL.AllDraw.Blitz;
+                                RefrigtzDLL.AllDraw.Blitz = false;
+                                Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0);
+                                RefrigtzDLL.AllDraw.Blitz = B;
+                                 Deeperthandeeper = Store;
+                              
                                 Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
 
-
+                                OrderPlate *= -1;
+                                RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
+                                
                                 if (FOUND)
                                 {
                                     Draw = THIS;
@@ -14174,6 +14179,8 @@ namespace Refrigtz
                         if ((QuantumRefrigiz.AllDraw.TableListAction.Count >= 2))
                         {
                             Ord = OrderPlate * -1;
+                            OrderPlate = Ord;
+                            QuantumRefrigiz.AllDraw.OrderPlate = Ord;
 
                             DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
                         }
@@ -14195,14 +14202,12 @@ namespace Refrigtz
                             DrawQ = THIS;
                             THISB = DrawQ;
 
-                            Ord = OrderPlate;
-
+                           
                             //SetBoxText("\r\nDraw Found By Recurve");
                             //RefreshBoxText();
                             FOUND = false;
 
-                            Ord = OrderPlate * -1;
-
+                          
                             //DrawQ.ClearAllTablesHeuristicsAndMore(Ord);
                             bool Store = Deeperthandeeper;
                             Deeperthandeeper = false;
@@ -14211,12 +14216,16 @@ namespace Refrigtz
                             Color aa = Color.Gray;
                             if (Ord == -1)
                                 aa = Color.Brown;
-                            DrawQ.InitiateAStarGreedyt(QuantumRefrigiz.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, false, false, 0);
+                            bool B = QuantumRefrigiz.AllDraw.Blitz;
+                            QuantumRefrigiz.AllDraw.Blitz = false;
+                            DrawQ.InitiateAStarGreedyt(QuantumRefrigiz.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0);
+                            QuantumRefrigiz.AllDraw.Blitz = B;
                             Deeperthandeeper = Store;
-                            Ord = OrderPlate;
-
+                           
                             DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
 
+                            OrderPlate *= -1;
+                            QuantumRefrigiz.AllDraw.OrderPlate = Ord;
 
 
                             if (FOUND)
