@@ -14003,16 +14003,29 @@ namespace Refrigtz
                                 if (Ord == -1)
                                     aa = Color.Brown;
                                 Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
-                            }
-                            else
+                            }else
                             if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 1))
                             {
-                                Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
-                                Ord = OrderPlate;
+                                //if (RefrigtzDLL.AllDraw.TableListAction.Count == 1)
+                                {
+                                    Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
+                                    Ord = OrderPlate;
+                                   RefrigtzDLL.AllDraw.OrderPlate = Ord;
 
-                                //SetBoxText("\r\nDraw Found By First Node");
-                                //RefreshBoxText();
-                                return;
+                                    //SetBoxText("\r\nDraw Found By First Node");
+                                    //RefreshBoxText();
+                                    return;
+                                }
+                                /*else
+                                {
+                                    Ord = OrderPlate;
+                                   RefrigtzDLL.AllDraw.OrderPlate = Ord;
+                                    OrderPlate = Ord;
+                                    Color aa = Color.Gray;
+                                    if (Ord == -1)
+                                        aa = Color.Brown;
+                                    Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
+                                }*/
                             }
 
                             if (FOUND)
@@ -14035,15 +14048,20 @@ namespace Refrigtz
                                     aa = Color.Brown;
                                 bool B = RefrigtzDLL.AllDraw.Blitz;
                                 RefrigtzDLL.AllDraw.Blitz = false;
-                                Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0);
+                                //if (RefrigtzDLL.AllDraw.TableListAction.Count > 2)
+                                    Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0);
+                                //else
+                                    //Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
                                 RefrigtzDLL.AllDraw.Blitz = B;
                                  Deeperthandeeper = Store;
                               
                                 Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
 
-                                OrderPlate *= -1;
-                                RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
-                                
+                                //if ((RefrigtzDLL.AllDraw.TableListAction.Count > 2))
+                                {
+                                    OrderPlate *= -1;
+                                    RefrigtzDLL.AllDraw.OrderPlate = OrderPlate;
+                                }
                                 if (FOUND)
                                 {
                                     Draw = THIS;
@@ -14187,12 +14205,26 @@ namespace Refrigtz
                         else
                         if ((QuantumRefrigiz.AllDraw.TableListAction.Count >= 1))
                         {
-                            DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
-                            Ord = OrderPlate;
+                            //if (QuantumRefrigiz.AllDraw.TableListAction.Count == 1)
+                            {
+                                DrawQ.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
+                                Ord = OrderPlate;
+                                QuantumRefrigiz.AllDraw.OrderPlate = Ord;
 
-                            //SetBoxText("\r\nDraw Found By Firs Node");
-                            //RefreshBoxText();
-                            return;
+                                //SetBoxText("\r\nDraw Found By First Node");
+                                //RefreshBoxText();
+                                return;
+                            }
+                            /*else
+                            {
+                                Ord = OrderPlate;
+                                QuantumRefrigiz.AllDraw.OrderPlate = Ord;
+                                OrderPlate = Ord;
+                                Color aa = Color.Gray;
+                                if (Ord == -1)
+                                    aa = Color.Brown;
+                                DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
+                            }*/
                         }
 
                         if (FOUND)
@@ -14202,12 +14234,12 @@ namespace Refrigtz
                             DrawQ = THIS;
                             THISB = DrawQ;
 
-                           
+
                             //SetBoxText("\r\nDraw Found By Recurve");
                             //RefreshBoxText();
                             FOUND = false;
 
-                          
+
                             //DrawQ.ClearAllTablesHeuristicsAndMore(Ord);
                             bool Store = Deeperthandeeper;
                             Deeperthandeeper = false;
@@ -14218,16 +14250,22 @@ namespace Refrigtz
                                 aa = Color.Brown;
                             bool B = QuantumRefrigiz.AllDraw.Blitz;
                             QuantumRefrigiz.AllDraw.Blitz = false;
-                            DrawQ.InitiateAStarGreedyt(QuantumRefrigiz.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0);
+                           // if (QuantumRefrigiz.AllDraw.TableListAction.Count > 2)
+                                DrawQ.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0);
+                            //else
+                                ///DrawQ.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
                             QuantumRefrigiz.AllDraw.Blitz = B;
                             Deeperthandeeper = Store;
-                           
+
                             DrawQ.FoundOfCurrentTableNode(CloneATable(QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
 
-                            OrderPlate *= -1;
-                            QuantumRefrigiz.AllDraw.OrderPlate = Ord;
 
+                           //if ((QuantumRefrigiz.AllDraw.TableListAction.Count > 2))
+                            {
+                                OrderPlate *= -1;
+                                QuantumRefrigiz.AllDraw.OrderPlate = Ord;
 
+                            }
                             if (FOUND)
                             {
                                 DrawQ = THIS;
