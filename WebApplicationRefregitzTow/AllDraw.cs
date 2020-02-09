@@ -22982,7 +22982,7 @@ if (Kind == 5)
 
 
 
-                //Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
+                Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
 
 
                 for (int i = 0; i < Node.SodierHigh; i++)

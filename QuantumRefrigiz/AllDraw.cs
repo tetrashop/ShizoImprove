@@ -22996,7 +22996,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
 
-                //Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
+                Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
 
 
                 for (int i = 0; i < Node.SodierHigh; i++)
