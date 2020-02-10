@@ -5783,6 +5783,120 @@ namespace QuantumRefrigiz
 
             }
         }
+        bool ExistCastleInDouble(int Order, int[,] Table, int RowS, int ColS, int RowD, int ColD)
+        {
+            bool Ex = false;
+            int[,] Tab = CloneATable(Table);
+
+            if (Order == 1)
+            {
+                if (Tab[RowD, ColD] == 4)
+                {
+                    if (ColD == 7)
+                    {
+                        for (int Row = 0; Row < 8; Row++)
+                        {
+                            if (Tab[Row, 6] == 4)
+                                Ex = true;
+                        }
+                    }
+                    else
+                    if (ColD == 6)
+                    {
+                        for (int Row = 0; Row < 8; Row++)
+                        {
+                            if (Tab[Row, 7] == 4)
+                                Ex = true;
+                        }
+                    }
+                }
+                if (!Ex)
+                {
+                    if (Tab[RowS, ColS] == 4 && Tab[RowD, ColD] <= 0)
+                    {
+                        Tab[RowD, ColD] = Tab[RowS, ColS];
+                        Tab[RowS, ColS] = 0;
+
+                        if (Tab[RowD, ColD] == 4)
+                        {
+                            if (ColD == 7)
+                            {
+                                for (int Row = 0; Row < 8; Row++)
+                                {
+                                    if (Tab[Row, 6] == 4)
+                                        Ex = true;
+                                }
+                            }
+                            else
+                            if (ColD == 6)
+                            {
+                                for (int Row = 0; Row < 8; Row++)
+                                {
+                                    if (Tab[Row, 7] == 4)
+                                        Ex = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (Tab[RowD, ColD] == -4)
+                {
+                    if (ColD == 0)
+                    {
+                        for (int Row = 0; Row < 8; Row++)
+                        {
+                            if (Tab[Row, 1] == -4)
+                                Ex = true;
+                        }
+                    }
+                    else
+                    if (ColD == 1)
+                    {
+                        for (int Row = 0; Row < 8; Row++)
+                        {
+                            if (Tab[Row, 0] == -4)
+                                Ex = true;
+                        }
+                    }
+                }
+                if (!Ex)
+                {
+                    if (Tab[RowS, ColS] == -4 && Tab[RowD, ColD] <= 0)
+                    {
+                        Tab[RowD, ColD] = Tab[RowS, ColS];
+                        Tab[RowS, ColS] = 0;
+
+                        if (Tab[RowD, ColD] == -4)
+                        {
+                            if (ColD == 0)
+                            {
+                                for (int Row = 0; Row < 8; Row++)
+                                {
+                                    if (Tab[Row, 1] == -4)
+                                        Ex = true;
+                                }
+                            }
+                            else
+                            if (ColD == 1)
+                            {
+                                for (int Row = 0; Row < 8; Row++)
+                                {
+                                    if (Tab[Row, 0] == -4)
+                                        Ex = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return Ex;
+
+        }
+
         //Distribution of Objects
         public int HeuristicDistribution(int[,] Tab, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
         {
@@ -5804,6 +5918,8 @@ namespace QuantumRefrigiz
                 else
                     Dis += RationalPenalty;
 
+                if (ExistCastleInDouble(Order, CloneATable(Tab), RowS, ColS, RowD, ColD))
+                    Dis += RationalRegard;
                 if (Order == 1)
                 {
                     //castle in col 7 8
