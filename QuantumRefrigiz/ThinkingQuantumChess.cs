@@ -5790,6 +5790,7 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
+            
                 int Dis = 0;
                 const int ObjectGray = 0, ObjectBrown = 0;
                 //opperation decision making  on pawn movment
@@ -5805,6 +5806,13 @@ namespace QuantumRefrigiz
 
                 if (Order == 1)
                 {
+                    //castle in col 7 8
+                    if (ColD == 6 || ColD == 7)
+                    {
+                        if (Tab[RowS, ColS] == 4 || Tab[RowD, ColD] == 4)
+                            Dis += RationalRegard;
+                    }
+
                     if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
@@ -5845,7 +5853,12 @@ namespace QuantumRefrigiz
                 }
                 else
                 {
-
+                    //castle in col 7 8
+                    if (ColD == 1 || ColD == 0)
+                    {
+                        if (Tab[RowS, ColS] == -4 || Tab[RowD, ColD] == -4)
+                            Dis += RationalRegard;
+                    }
                     if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)

@@ -5770,6 +5770,7 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
+
                 int Dis = 0;
                 const int ObjectGray = 0, ObjectBrown = 0;
                 //opperation decision making  on pawn movment
@@ -5785,6 +5786,13 @@ namespace RefrigtzDLL
 
                 if (Order == 1)
                 {
+                    //castle in col 7 8
+                    if (ColD == 6 || ColD == 7)
+                    {
+                        if (Tab[RowS, ColS] == 4 || Tab[RowD, ColD] == 4)
+                            Dis += RationalRegard;
+                    }
+
                     if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
@@ -5792,7 +5800,7 @@ namespace RefrigtzDLL
                         else
                           if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
                             Dis += RationalPenalty;
-                        
+
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
@@ -5811,22 +5819,26 @@ namespace RefrigtzDLL
                         else
                           if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
                             Dis += RationalRegard;
-                        
-                    }
-                    if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
-                    {
-                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
-                        if (Cor < DeColleralation)
+                        if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
-                            DeColleralation = Cor;
-                            Dis += RationalRegard;
+                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                            if (Cor < DeColleralation)
+                            {
+                                DeColleralation = Cor;
+                                Dis += RationalRegard;
 
+                            }
                         }
                     }
                 }
                 else
                 {
-
+                    //castle in col 7 8
+                    if (ColD == 1 || ColD == 0)
+                    {
+                        if (Tab[RowS, ColS] == -4 || Tab[RowD, ColD] == -4)
+                            Dis += RationalRegard;
+                    }
                     if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
                         if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
@@ -5834,15 +5846,16 @@ namespace RefrigtzDLL
                         else
          if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
                             Dis += RationalPenalty;
-                        if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
-                        {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
-                            if (Cor > Colleralation)
-                            {
-                                Colleralation = Cor;
-                                Dis += RationalRegard;
 
-                            }
+                    }
+                    if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
+                    {
+                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                        if (Cor > Colleralation)
+                        {
+                            Colleralation = Cor;
+                            Dis += RationalRegard;
+
                         }
                     }
                     if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
