@@ -6726,6 +6726,73 @@ namespace RefrigtzDLL
 
             }
         }
+        int NoOfExistInAttackList(int Rows, int Cols)
+        {
+            int Is = 0;
+            for (int i = 0; i < HeuristicAllAttacked.Count; i++)
+            {
+                if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols)
+                    Is++;
+
+            }
+            return Is;
+        }
+        int NoOfExistInReducedAttackList(int Rows, int Cols)
+        {
+            int Is = 0;
+            for (int i = 0; i < HeuristicAllReducedAttacked.Count; i++)
+            {
+                if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols)
+                    Is++;
+
+            }
+            return Is;
+        }
+        int NoOfExistInSupportList(int Rows, int Cols)
+        {
+            int Is = 0;
+            for (int i = 0; i < HeuristicAllSupport.Count; i++)
+            {
+                if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols)
+                    Is++;
+
+            }
+            return Is;
+        }
+        int NoOfExistInReducedSupportList(int Rows, int Cols)
+        {
+            int Is = 0;
+            for (int i = 0; i < HeuristicAllReducedSupport.Count; i++)
+            {
+                if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols)
+                    Is++;
+
+            }
+            return Is;
+        }
+        int HeuristicPromotion(int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
+        {
+            int HP = 0;
+            if (Order == 1)
+            {
+                if (Cod != 0)
+                    return HP;
+                if (Tab[Ros, Cos] == 0 && Tab[Rod, Cod] == 1)
+                {
+                    HP = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                }
+            }
+            else
+            {
+                if (Cod != 7)
+                    return HP;
+                if (Tab[Ros, Cos] == 0 && Tab[Rod, Cod] == -1)
+                {
+                    HP = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                }
+            }
+            return HP;
+        }
         public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord, int Ros, int Cos, int Rod, int Cod)
         {
             //long Time = TimeElapced.TimeNow();Spaces
@@ -6733,7 +6800,7 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                int[,] RemobeActiveDenfesiveObjectsOfEnemy = new int[8, 8]; 
+                int[,] RemobeActiveDenfesiveObjectsOfEnemy = new int[8, 8];
                 const int ToSupport = 3, ReducedAttacked = 0, ReducedSupport = 2, ReducedMove = 5, ToAttacked = 1, ToMoved = 4;
                 int[] Exchange = new int[6];
                 int[] ExchangeSeed = new int[3];
@@ -6788,8 +6855,6 @@ namespace RefrigtzDLL
                                                         Object OOO = new Object();
                                                         lock (OOO)
                                                         {
-                                                            RemobeActiveDenfesiveObjectsOfEnemy[RowD, ColD]++;
-                                                            RemobeActiveDenfesiveObjectsOfEnemy[RowS, ColS]--;
                                                             int[] A = new int[4];
                                                             A[0] = RowD;
                                                             A[1] = ColD;
@@ -6847,8 +6912,6 @@ namespace RefrigtzDLL
                                                         Object OOO = new Object();
                                                         lock (OOO)
                                                         {
-                                                            RemobeActiveDenfesiveObjectsOfEnemy[RowS, ColS]++;
-                                                            RemobeActiveDenfesiveObjectsOfEnemy[RowD, ColD]--;
                                                             int[] A = new int[4];
                                                             A[0] = RowS;
                                                             A[1] = ColS;
@@ -6891,7 +6954,7 @@ namespace RefrigtzDLL
                 int A1 = IsSupportLessThanReducedSupport(Exchange[ToSupport], Exchange[ReducedSupport]);
                 if (A1 > 0)
                     ExchangeSeed[0] = RationalPenalty;
-                else               
+                else
                 if (A1 < 0 && Exchange[ReducedSupport] == 0)
                     ExchangeSeed[0] = RationalRegard;
 
@@ -6962,6 +7025,7 @@ namespace RefrigtzDLL
 
 
                 }
+
                 //Simplification of mathematic method when we have victories
                 double ExchangedOfGameSimplification = (double)(Exchange[ToSupport] - Exchange[ReducedSupport] + Exchange[ToAttacked] - Exchange[ReducedSupport]);
                 double MAX = 64.0;
@@ -6971,8 +7035,8 @@ namespace RefrigtzDLL
                 double Defen = (double)(RemobeActiveDenfesiveObjectsOfEnemy[Ros, Cos] - RemobeActiveDenfesiveObjectsOfEnemy[Rod, Cod]);
                 ExchangeSeed[2] += (int)(((double)(RationalRegard)) * (Defen / MAX) * 4);
 
+                ExchangeSeed[2] += HeuristicPromotion(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
 
-                ExchangeSeed[2]+=
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
