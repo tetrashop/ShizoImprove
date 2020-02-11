@@ -6772,7 +6772,7 @@ namespace RefrigtzW
             {
                 if (Cod != 0)
                     return HP;
-                if (Tab[Ros, Cos] == 0 && Tab[Rod, Cod] == 1)
+                if (TableConst[Ros, Cos] == 1 && Tab[Rod, Cod] > 0)
                 {
                     HP = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
                 }
@@ -6781,7 +6781,7 @@ namespace RefrigtzW
             {
                 if (Cod != 7)
                     return HP;
-                if (Tab[Ros, Cos] == 0 && Tab[Rod, Cod] == -1)
+                if (TableConst[Ros, Cos] == -1 && Tab[Rod, Cod] < 0)
                 {
                     HP = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
                 }
