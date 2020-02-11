@@ -23019,7 +23019,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         {
 
                             Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
@@ -23044,7 +23044,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
@@ -23068,7 +23068,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
 
@@ -23093,7 +23093,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
 
                         }
@@ -23118,7 +23118,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
 
@@ -23145,7 +23145,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                            Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].LoaderECQ(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }

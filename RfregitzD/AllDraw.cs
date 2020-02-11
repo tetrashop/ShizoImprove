@@ -22997,7 +22997,7 @@ if (Kind == 5)
                         {
 
                             Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order, DummyFileStream, Formatters);
+                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
@@ -23022,7 +23022,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order, DummyFileStream, Formatters);
+                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
@@ -23046,7 +23046,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order, DummyFileStream, Formatters);
+                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
 
@@ -23071,7 +23071,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order, DummyFileStream, Formatters);
+                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = Node;
 
                         }
@@ -23096,7 +23096,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order, DummyFileStream, Formatters);
+                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
 
@@ -23123,7 +23123,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.KingOnTable[i].KingThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order, DummyFileStream, Formatters);
+                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order*-1, DummyFileStream, Formatters);
                             Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
