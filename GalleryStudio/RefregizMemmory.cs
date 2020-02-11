@@ -90,7 +90,7 @@ namespace GalleryStudio
             {
 
 
-                RefrigtzDLL.AllDraw tt = null;
+                RefrigtzDLL.AllDraw tt = new RefrigtzDLL.AllDraw(Order, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
                 FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
                 BinaryFormatter Formatters = new BinaryFormatter();
                 DummyFileStream.Seek(0, SeekOrigin.Begin);
@@ -114,7 +114,7 @@ namespace GalleryStudio
             lock (o)
             {
 
-                QuantumRefrigiz.AllDraw tQ = null;
+                QuantumRefrigiz.AllDraw tQ = new QuantumRefrigiz.AllDraw(Order, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
 
                 FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
                 BinaryFormatter Formatters = new BinaryFormatter();
