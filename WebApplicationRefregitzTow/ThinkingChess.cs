@@ -439,6 +439,8 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
+                if(feedCancellationTokenSource==null)  feedCancellationTokenSource = new CancellationTokenSource();
+
                 //Initiate Variables.
                 iIndex = iInde;
                 CurrentAStarGredyMax = CurrentAStarGredy;
@@ -612,6 +614,8 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
+                if(feedCancellationTokenSource==null)  feedCancellationTokenSource = new CancellationTokenSource();
+
                 iIndex = iInde;
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;

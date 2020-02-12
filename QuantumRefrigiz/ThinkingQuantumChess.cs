@@ -454,6 +454,8 @@ namespace QuantumRefrigiz
             lock (O)
             {
                 //Initiate Variables.
+                if(feedCancellationTokenSource==null)  feedCancellationTokenSource = new CancellationTokenSource();
+
                 iIndex = iInde;
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
@@ -626,6 +628,8 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
+                if (feedCancellationTokenSource == null) feedCancellationTokenSource = new CancellationTokenSource();
+
                 iIndex = iInde;
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;

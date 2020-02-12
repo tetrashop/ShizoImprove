@@ -576,7 +576,7 @@ namespace RefrigtzDLL
             Object a = new Object();
             lock (a)
             {
-
+                if(feedCancellationTokenSource==null)  feedCancellationTokenSource = new CancellationTokenSource();
                 MaxHeuristicxT = Int32.MinValue;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
                 IgnoreSelfObjectsT = IgnoreSelfObject;
@@ -818,6 +818,8 @@ namespace RefrigtzDLL
             Object a = new Object();
             lock (a)
             {
+                if(feedCancellationTokenSource==null)  feedCancellationTokenSource = new CancellationTokenSource();
+
                 OrderP = Order;
                 MaxHeuristicxT = Int32.MinValue;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;

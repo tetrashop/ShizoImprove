@@ -439,6 +439,8 @@ namespace RefrigtzDLL
             lock (O)
             {
                 //Initiate Variables.
+                if(feedCancellationTokenSource==null)  feedCancellationTokenSource = new CancellationTokenSource();
+
                 iIndex = iInde;
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
@@ -611,6 +613,8 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
+                if(feedCancellationTokenSource==null)  feedCancellationTokenSource = new CancellationTokenSource();
+
                 iIndex = iInde;
                 CurrentAStarGredyMax = CurrentAStarGredy;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
