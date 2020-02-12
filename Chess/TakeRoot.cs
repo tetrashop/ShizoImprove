@@ -193,9 +193,9 @@ namespace Refrigtz
                     }
                 }
                 catch (Exception t) { Log(t); }
-                System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
-                ttt.Start();
-                ttt.Join();
+                //System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
+                //ttt.Start();
+                //ttt.Join();
 
                 return DrawDrawen;
             }
@@ -222,9 +222,9 @@ namespace Refrigtz
             Object OO = new Object();
             lock (OO)
             {
-                System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
-                ttt.Start();
-                ttt.Join();
+                //System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
+                //ttt.Start();
+                //ttt.Join();
 
                 /*if (!Quantum)
                 {
