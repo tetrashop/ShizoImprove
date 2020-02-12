@@ -16373,7 +16373,7 @@ namespace RefrigtzW
                     if (tH.Count > 0)
                     {
                         tH.Add(array1);
-                        Task.WaitAll(tH.ToArray());
+                        Parallel.ForEach(tH, items => Task.WaitAll(items));
                         //for (int g = 0; g < tH.Count; g++)
                         //tH[g].Dispose();
                         tH.Clear();
@@ -16405,7 +16405,7 @@ namespace RefrigtzW
                             if (tH.Count > 0)
                             {
                                 tH.Add(array1);
-                                Task.WaitAll(tH.ToArray());
+                                Parallel.ForEach(tH, items => Task.WaitAll(items));
                                 //for (int g = 0; g < tH.Count; g++)
                                 //tH[g].Dispose();
                                 tH.Clear();
@@ -20573,7 +20573,6 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 var output = Task.Factory.StartNew(() =>
                 {
                     Parallel.Invoke(() =>
-
                     {
                         Object O1 = new Object();
                         lock (O1)
@@ -20586,8 +20585,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord1 = OrderP;
                             Color a1 = a;
                             int iAStarGreedy1 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                            //Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                            var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy));
+                            TH.Add(array1);
                             //array1.Start();
                             //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
@@ -20610,8 +20610,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord2 = Order;
                             Color a2 = a;
                             int iAStarGreedy2 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                            //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
+                            //Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                            var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy));
+                            TH.Add(array2);
                             //array2.Start();
                             //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
@@ -20619,7 +20620,6 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             Order = DummyOrder;
                             ChessRules.CurrentOrder = DummyCurrentOrder;
                         }
-
                     }, () =>
                     {
                         Object O1 = new Object();
@@ -20636,8 +20636,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord3 = Order;
                             Color a3 = a;
                             int iAStarGreedy3 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                            //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
+                            //Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                            var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy));
+                            TH.Add(array3);
                             ///array3.Start();
                             //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
@@ -20661,8 +20662,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord4 = Order;
                             Color a4 = a;
                             int iAStarGreedy4 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                            //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
+                            //Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                            var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy));
+                            TH.Add(array4);
                             //array4.Start();
                             //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
@@ -20685,8 +20687,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord5 = Order;
                             Color a5 = a;
                             int iAStarGreedy5 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                            //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
+                            //Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                            var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy));
+                            TH.Add(array5);
                             //array5.Start();
                             //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
@@ -20709,8 +20712,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord6 = Order;
                             Color a6 = a;
                             int iAStarGreedy6 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                            //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
+                            //Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                            var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy));
+                            TH.Add(array6);
                             //array6.Start();
                             //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                             Order = DummyOrder;
@@ -20719,7 +20723,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     });
                 });
                 TH.Add(output);
-                Task.WaitAll(TH.ToArray());
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
                 //for (int g = 0; g < TH.Count; g++)
                 //TH[g].Dispose();
                 TH.Clear();
@@ -20750,8 +20754,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord1 = OrderP;
                             Color a1 = a;
                             int iAStarGreedy1 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                            //Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                            var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy));
+                            TH.Add(array1);
                             //array1.Start();
                             //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
@@ -20774,8 +20779,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord2 = Order;
                             Color a2 = a;
                             int iAStarGreedy2 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                            //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
+                            //Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                            var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy));
+                            TH.Add(array2);
                             //array2.Start();
                             //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
@@ -20799,8 +20805,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord3 = Order;
                             Color a3 = a;
                             int iAStarGreedy3 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                            //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
+                            //Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                            var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy));
+                            TH.Add(array3);
                             ///array3.Start();
                             //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
@@ -20824,8 +20831,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord4 = Order;
                             Color a4 = a;
                             int iAStarGreedy4 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                            //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
+                            //Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                            var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy));
+                            TH.Add(array4);
                             //array4.Start();
                             //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
@@ -20848,8 +20856,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord5 = Order;
                             Color a5 = a;
                             int iAStarGreedy5 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                            //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
+                            //Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                            var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy));
+                            TH.Add(array5);
                             //array5.Start();
                             //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
@@ -20872,8 +20881,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             int Ord6 = Order;
                             Color a6 = a;
                             int iAStarGreedy6 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                            //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
+                            //Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                            var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy));
+                            TH.Add(array6);
                             //array6.Start();
                             //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                             Order = DummyOrder;
@@ -20882,7 +20892,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     });
                 });
                 TH.Add(output);
-                Task.WaitAll(TH.ToArray());
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
                 //for (int g = 0; g < TH.Count; g++)
                 //TH[g].Dispose();
                 TH.Clear();
