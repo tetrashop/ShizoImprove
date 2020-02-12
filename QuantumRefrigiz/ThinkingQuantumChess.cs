@@ -421,9 +421,9 @@ namespace QuantumRefrigiz
             }
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        private readonly CancellationTokenSource feedCancellationTokenSource =
+        [field:NonSerialized] private readonly CancellationTokenSource feedCancellationTokenSource =
            new CancellationTokenSource();
-        private readonly Task feedTask;
+        [field:NonSerialized] private readonly Task feedTask;
 
 
 

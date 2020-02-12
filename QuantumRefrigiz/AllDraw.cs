@@ -561,9 +561,9 @@ namespace QuantumRefrigiz
 
             }
         }
-        private readonly CancellationTokenSource feedCancellationTokenSource =
+        [field:NonSerialized] private readonly CancellationTokenSource feedCancellationTokenSource =
             new CancellationTokenSource();
-        private readonly Task feedTask;
+        [field:NonSerialized] private readonly Task feedTask;
 
         
 
