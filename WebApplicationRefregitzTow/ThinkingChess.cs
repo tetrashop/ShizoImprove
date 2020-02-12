@@ -5905,13 +5905,20 @@ namespace RefrigtzW
                         if (Tab[RowS, ColS] == 4 || Tab[RowD, ColD] == 4)
                             Dis += RationalRegard;
                     }
-                     if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
+
+                    if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
+                        if ((Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
+                            Dis += RationalPenalty;
+                        else
+                     if ((Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(RowD, ColD) > 0))
+                            Dis += RationalPenalty;
+                        else
+                  if ((Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(RowS, ColS) == 0))
                             Dis += RationalRegard;
                         else
-                          if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
-                            Dis += RationalPenalty;
+                  if ((Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(RowD, ColD) == 0))
+                            Dis += RationalRegard;
 
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
@@ -5924,13 +5931,25 @@ namespace RefrigtzW
 
                         }
                     }
+
+
+
+                    if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
+                        Dis += RationalPenalty;
+                    else
+              if ((Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(RowD, ColD) > 0))
+                        Dis += RationalPenalty;
+                    else
+           if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(RowS, ColS) == 0))
+                        Dis += RationalRegard;
+                    else
+           if ((Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(RowD, ColD) == 0))
+                        Dis += RationalRegard;
+
+
                     if (!((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
-                            Dis += RationalPenalty;
-                        else
-                          if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
-                            Dis += RationalRegard;
+
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
@@ -5953,12 +5972,17 @@ namespace RefrigtzW
                     }
                     if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count == 0)
+                        if ((Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
+                            Dis += RationalPenalty;
+                        else
+                              if ((Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(RowD, ColD) > 0))
+                            Dis += RationalPenalty;
+                        else
+                           if ((Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(RowS, ColS) == 0))
                             Dis += RationalRegard;
                         else
-         if (Tab[RowS, ColS] == -3 && HeuristicAllReducedAttacked.Count != 0)
-                            Dis += RationalPenalty;
-
+                           if ((Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(RowD, ColD) == 0))
+                            Dis += RationalRegard;
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
@@ -5970,13 +5994,21 @@ namespace RefrigtzW
 
                         }
                     }
+
+                    if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
+                        Dis += RationalPenalty;
+                    else
+                    if ((Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(RowD, ColD) > 0))
+                        Dis += RationalPenalty;
+                    else
+                 if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(RowS, ColS) == 0))
+                        Dis += RationalRegard;
+                    else
+                 if ((Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(RowD, ColD) == 0))
+                        Dis += RationalRegard;
+
                     if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count != 0)
-                            Dis += RationalRegard;
-                        else
-                              if (Tab[RowS, ColS] == 3 && HeuristicAllReducedAttacked.Count == 0)
-                            Dis += RationalPenalty;
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
                             int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
