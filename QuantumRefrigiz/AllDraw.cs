@@ -160,7 +160,7 @@ namespace QuantumRefrigiz
 
     [Serializable]
 
-    public class AllDraw
+    public class AllDraw:IDisposable
     {
         public static bool LeafSemaphoreIndex = false;
         //Initiate Variables. 
@@ -559,6 +559,29 @@ namespace QuantumRefrigiz
                 //returnb location
                 return Location;
 
+            }
+        }
+        private readonly CancellationTokenSource feedCancellationTokenSource =
+            new CancellationTokenSource();
+        private readonly Task feedTask;
+
+        
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                feedCancellationTokenSource.Cancel();
+                feedTask.Wait();
+
+                feedCancellationTokenSource.Dispose();
+                feedTask.Dispose();
             }
         }
         //Constructor
@@ -7670,126 +7693,129 @@ namespace QuantumRefrigiz
                         Color a = Color.Gray;
                         var output = Task.Factory.StartNew(() =>
                         {
-                            Parallel.Invoke(() =>
+                            while (!feedCancellationTokenSource.IsCancellationRequested)
                             {
+                                Parallel.Invoke(() =>
+                                {
                                 //soldier
                                 for (var i = 0; i < SodierMidle; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //elephant
                                 for (var i = 0; i < ElefantMidle; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //hourse
                                 for (var i = 0; i < HourseMidle; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //Castle
                                 for (var i = 0; i < CastleMidle; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //minister
                                 for (var i = 0; i < MinisterMidle; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //king
                                 for (var i = 0; i < KingMidle; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            });
+                                });
+                            }
                         });
                         output.Wait(); output.Dispose();
 
@@ -7800,127 +7826,130 @@ namespace QuantumRefrigiz
                         Color a = Color.Brown;
                         var output = Task.Factory.StartNew(() =>
                         {
-                            Parallel.Invoke(() =>
+                            while (!feedCancellationTokenSource.IsCancellationRequested)
                             {
+                                Parallel.Invoke(() =>
+                                {
                                 //soldier
                                 for (var i = SodierMidle; i < SodierHigh; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //elephant
                                 for (var i = ElefantMidle; i < ElefantHigh; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //hourse
                                 for (var i = HourseMidle; i < HourseHight; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //Castle
                                 for (var i = CastleMidle; i < CastleHigh; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //minister
                                 for (var i = MinisterMidle; i < MinisterHigh; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
+                                }, () =>
+                                {
                                 //king
                                 for (var i = KingMidle; i < KingHigh; i++)
-                                {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
                                         //when search finished stop and return
                                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            });
+                                });
+                            }
                         });
                         output.Wait(); output.Dispose();
                     }
@@ -15840,62 +15869,67 @@ namespace QuantumRefrigiz
                     Color aa = a;
 
                     var output = Task.Factory.StartNew(() =>
-                    Parallel.Invoke(() =>
                     {
-                        //For All Gray Soldier Objects.
-                        Object O = new Object();
-                        lock (O)
+                        while (!feedCancellationTokenSource.IsCancellationRequested)
                         {
-                            this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        //For All Gray Elephant Objects.
-                        Object O = new Object();
-                        lock (O)
+                            Parallel.Invoke(() =>
                         {
-                            this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            //For All Gray Soldier Objects.
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
                         }
-                    }
-                    , () =>
-                    {
-                        //For All Gray Hourse Objects.
-                        Object O = new Object();
-                        lock (O)
+                        ,
+                        () =>
                         {
-                            this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            //For All Gray Elephant Objects.
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
                         }
-                    }
-                    ,
-                    () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
+                        , () =>
                         {
-                            this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            //For All Gray Hourse Objects.
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
                         }
-                    }
-                    , () =>
-                    {
+                        ,
+                        () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                        , () =>
+                        {
 
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
 
-                    }
-                    , () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
                         }
-                    })
-                    );
+                        , () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        });
+                        }
+                    });
+
                 }
                 else//Brown Order Considarations.
                 {
@@ -15907,62 +15941,66 @@ namespace QuantumRefrigiz
                     //If Order is Gray.
 
                     var output = Task.Factory.StartNew(() =>
-                      Parallel.Invoke(() =>
+                  {
+                      while (!feedCancellationTokenSource.IsCancellationRequested)
                       {
-                          //For All Gray Soldier Objects.
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                      ,
-                      () =>
-                      {
-                          //For All Gray Elephant Objects.
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                      , () =>
-                      {
-                          //For All Gray Hourse Objects.
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                      ,
-                      () =>
-                      {
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                      , () =>
-                      {
+                          Parallel.Invoke(() =>
+                   {
+                       //For All Gray Soldier Objects.
+                       Object O = new Object();
+                       lock (O)
+                       {
+                           this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                       }
+                   }
+                   ,
+                   () =>
+                   {
+                       //For All Gray Elephant Objects.
+                       Object O = new Object();
+                       lock (O)
+                       {
+                           this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                       }
+                   }
+                   , () =>
+                   {
+                       //For All Gray Hourse Objects.
+                       Object O = new Object();
+                       lock (O)
+                       {
+                           this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                       }
+                   }
+                   ,
+                   () =>
+                   {
+                       Object O = new Object();
+                       lock (O)
+                       {
+                           this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                       }
+                   }
+                   , () =>
+                   {
 
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
+                       Object O = new Object();
+                       lock (O)
+                       {
+                           this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                       }
 
+                   }
+                   , () =>
+                   {
+                       Object O = new Object();
+                       lock (O)
+                       {
+                           this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                       }
+                   });
                       }
-                      , () =>
-                      {
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      })
-                     );
+                  });
                     output.Wait(); output.Dispose();
                 }
             }
@@ -16006,62 +16044,66 @@ namespace QuantumRefrigiz
 
 
                     var output = Task.Factory.StartNew(() =>
-                    Parallel.Invoke(() =>
                     {
-                        //For All Gray Soldier Objects.
-                        Object O = new Object();
-                        lock (O)
+                        while (!feedCancellationTokenSource.IsCancellationRequested)
                         {
-                            this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        //For All Gray Elephant Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-                        //For All Gray Hourse Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
+                            Parallel.Invoke(() =>
+                            {
+                                //For All Gray Soldier Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            ,
+                            () =>
+                            {
+                                //For All Gray Elephant Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            , () =>
+                            {
+                                //For All Gray Hourse Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            ,
+                            () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }
+                            , () =>
+                            {
 
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
 
-                    }
-                    , () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                            , () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            });
                         }
-                    })
-                    );
+                    });
                     output.Wait(); output.Dispose();
                 }
                 else//Brown Order Considarations.
@@ -16075,62 +16117,66 @@ namespace QuantumRefrigiz
 
 
                     var output = Task.Factory.StartNew(() =>
-                    Parallel.Invoke(() =>
                     {
-                        //For All Gray Soldier Objects.
-                        Object O = new Object();
-                        lock (O)
+                        while (!feedCancellationTokenSource.IsCancellationRequested)
                         {
-                            this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        //For All Gray Elephant Objects.
-                        Object O = new Object();
-                        lock (O)
+                            Parallel.Invoke(() =>
                         {
-                            this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            //For All Gray Soldier Objects.
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
                         }
-                    }
-                    , () =>
-                    {
-                        //For All Gray Hourse Objects.
-                        Object O = new Object();
-                        lock (O)
+                        ,
+                        () =>
                         {
-                            this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            //For All Gray Elephant Objects.
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
                         }
-                    }
-                    ,
-                    () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
+                        , () =>
                         {
-                            this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            //For All Gray Hourse Objects.
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
                         }
-                    }
-                    , () =>
-                    {
+                        ,
+                        () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }
+                        , () =>
+                        {
 
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
 
-                    }
-                    , () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
                         }
-                    })
-                );
+                        , () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        });
+                        }
+                    });
                     output.Wait(); output.Dispose();
 
                 }
@@ -20587,155 +20633,158 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    Parallel.Invoke(() =>
+                    while (!feedCancellationTokenSource.IsCancellationRequested)
                     {
-                        Object O1 = new Object();
-                        lock (O1)
+                        Parallel.Invoke(() =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                            int Ord1 = OrderP;
-                            Color a1 = a;
-                            int iAStarGreedy1 = iAStarGreedy;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                int Ord1 = OrderP;
+                                Color a1 = a;
+                                int iAStarGreedy1 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
                             var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy));
-                            TH.Add(array1);
+                                TH.Add(array1);
                             //array1.Start();
                             //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
 
                             int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                            int Ord2 = Order;
-                            Color a2 = a;
-                            int iAStarGreedy2 = iAStarGreedy;
+                                int Ord2 = Order;
+                                Color a2 = a;
+                                int iAStarGreedy2 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
                             var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy));
-                            TH.Add(array2);
+                                TH.Add(array2);
                             //array2.Start();
                             //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
                             //Initiatye Variables.
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
 
                             int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                            int Ord3 = Order;
-                            Color a3 = a;
-                            int iAStarGreedy3 = iAStarGreedy;
+                                int Ord3 = Order;
+                                Color a3 = a;
+                                int iAStarGreedy3 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
                             var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy));
-                            TH.Add(array3);
+                                TH.Add(array3);
                             ///array3.Start();
                             //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
                             //Initiatye Variables.
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
 
                             int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                            int Ord4 = Order;
-                            Color a4 = a;
-                            int iAStarGreedy4 = iAStarGreedy;
+                                int Ord4 = Order;
+                                Color a4 = a;
+                                int iAStarGreedy4 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
                             var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy));
-                            TH.Add(array4);
+                                TH.Add(array4);
                             //array4.Start();
                             //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
                             //Initiatye Variables.
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
                             int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                            int Ord5 = Order;
-                            Color a5 = a;
-                            int iAStarGreedy5 = iAStarGreedy;
+                                int Ord5 = Order;
+                                Color a5 = a;
+                                int iAStarGreedy5 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
                             var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy));
-                            TH.Add(array5);
+                                TH.Add(array5);
                             //array5.Start();
                             //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
                             //Initiatye Variables.
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
                             int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                            int Ord6 = Order;
-                            Color a6 = a;
-                            int iAStarGreedy6 = iAStarGreedy;
+                                int Ord6 = Order;
+                                Color a6 = a;
+                                int iAStarGreedy6 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
                             var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy));
-                            TH.Add(array6);
+                                TH.Add(array6);
                             //array6.Start();
                             //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    });
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        });
+                    }
                 });
                 TH.Add(output);
                 Parallel.ForEach(TH, items => Task.WaitAll(items));
@@ -20756,155 +20805,158 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    Parallel.Invoke(() =>
+                    while (!feedCancellationTokenSource.IsCancellationRequested)
                     {
-                        Object O1 = new Object();
-                        lock (O1)
+                        Parallel.Invoke(() =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                            int Ord1 = OrderP;
-                            Color a1 = a;
-                            int iAStarGreedy1 = iAStarGreedy;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                int Ord1 = OrderP;
+                                Color a1 = a;
+                                int iAStarGreedy1 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
                             var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy));
-                            TH.Add(array1);
+                                TH.Add(array1);
                             //array1.Start();
                             //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
 
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
 
                             int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                            int Ord2 = Order;
-                            Color a2 = a;
-                            int iAStarGreedy2 = iAStarGreedy;
+                                int Ord2 = Order;
+                                Color a2 = a;
+                                int iAStarGreedy2 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
                             var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy));
-                            TH.Add(array2);
+                                TH.Add(array2);
                             //array2.Start();
                             //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
 
                             //Initiatye Variables.
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
 
                             int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                            int Ord3 = Order;
-                            Color a3 = a;
-                            int iAStarGreedy3 = iAStarGreedy;
+                                int Ord3 = Order;
+                                Color a3 = a;
+                                int iAStarGreedy3 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
                             var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy));
-                            TH.Add(array3);
+                                TH.Add(array3);
                             ///array3.Start();
                             //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
 
                             //Initiatye Variables.
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
 
                             int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                            int Ord4 = Order;
-                            Color a4 = a;
-                            int iAStarGreedy4 = iAStarGreedy;
+                                int Ord4 = Order;
+                                Color a4 = a;
+                                int iAStarGreedy4 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
                             var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy));
-                            TH.Add(array4);
+                                TH.Add(array4);
                             //array4.Start();
                             //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
 
                             //Initiatye Variables.
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
                             int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                            int Ord5 = Order;
-                            Color a5 = a;
-                            int iAStarGreedy5 = iAStarGreedy;
+                                int Ord5 = Order;
+                                Color a5 = a;
+                                int iAStarGreedy5 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
                             var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy));
-                            TH.Add(array5);
+                                TH.Add(array5);
                             //array5.Start();
                             //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
 
                             //Initiatye Variables.
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
                             //Order *= -1;
                             //ChessRules.CurrentOrder *= -1;
                             int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                            int Ord6 = Order;
-                            Color a6 = a;
-                            int iAStarGreedy6 = iAStarGreedy;
+                                int Ord6 = Order;
+                                Color a6 = a;
+                                int iAStarGreedy6 = iAStarGreedy;
                             //Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
                             var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy));
-                            TH.Add(array6);
+                                TH.Add(array6);
                             //array6.Start();
                             //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
                             Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    });
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        });
+                    }
                 });
                 TH.Add(output);
                 Parallel.ForEach(TH, items => Task.WaitAll(items));
@@ -21224,56 +21276,244 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             if (Order == 1)
             {
                 var output = Task.Factory.StartNew(() =>
-                Parallel.For(0, MaxGrayMidle(), i =>
                 {
-                    Parallel.Invoke(() =>
-
+                    while (!feedCancellationTokenSource.IsCancellationRequested)
                     {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-                            if (i < SodierMidle)
-                            {
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                                    int Ord1 = OrderP;
-                                    Color a1 = a;
-                                    int iAStarGreedy1 = iAStarGreedy;
-                                    int i1 = i;
-                                    Do |= FullGameThinkingQuantumTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                                    //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
-                                    //array1.Start();
-                                    //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
+                        Parallel.For(0, MaxGrayMidle(), i =>
+                    {
+                        Parallel.Invoke(() =>
 
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                        {
+                            Object ooo = new Object();
+                            lock (ooo)
+                            {
+                                if (i < SodierMidle)
+                                {
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                        int Ord1 = OrderP;
+                                        Color a1 = a;
+                                        int iAStarGreedy1 = iAStarGreedy;
+                                        int i1 = i;
+                                        Do |= FullGameThinkingQuantumTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                                        //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingQuantumTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                                        //array1.Start();
+                                        //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
+
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
                                 }
                             }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
+                        }, () =>
                         {
-
-                            if (i < ElefantMidle)
+                            Object ooo = new Object();
+                            lock (ooo)
                             {
-                                Object O1 = new Object();
-                                lock (O1)
+
+                                if (i < ElefantMidle)
+                                {
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        //Order *= -1;
+                                        //ChessRules.CurrentOrder *= -1;
+
+                                        int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
+                                        int Ord2 = Order;
+                                        Color a2 = a;
+                                        int iAStarGreedy2 = iAStarGreedy;
+                                        int i2 = i;
+                                        Do |= this.FullGameThinkingQuantumTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                                        //Initiatye Variables.
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }
+                        }, () =>
+                        {
+                            Object ooo = new Object();
+                            lock (ooo)
+                            {
+
+                                if (i < HourseMidle)
+                                {
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        //Order *= -1;
+                                        //ChessRules.CurrentOrder *= -1;
+
+                                        int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
+                                        int Ord3 = Order;
+                                        Color a3 = a;
+                                        int iAStarGreedy3 = iAStarGreedy;
+                                        int i3 = i;
+                                        Do |= this.FullGameThinkingQuantumTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                                        //Initiatye Variables.
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }
+                        }, () =>
+                        {
+                            Object ooo = new Object();
+                            lock (ooo)
+                            {
+
+                                if (i < CastleMidle)
+                                {
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        //Order *= -1;
+                                        //ChessRules.CurrentOrder *= -1;
+
+                                        int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
+                                        int Ord4 = Order;
+                                        Color a4 = a;
+                                        int iAStarGreedy4 = iAStarGreedy;
+                                        int i4 = i;
+                                        Do |= this.FullGameThinkingQuantumTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                                        //Initiatye Variables.
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }
+                        }, () =>
+                        {
+                            Object ooo = new Object();
+                            lock (ooo)
+                            {
+
+                                if (i < MinisterMidle)
+                                {
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        //Order *= -1;
+                                        //ChessRules.CurrentOrder *= -1;
+                                        int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
+                                        int Ord5 = Order;
+                                        Color a5 = a;
+                                        int iAStarGreedy5 = iAStarGreedy;
+                                        int i5 = i;
+                                        Do |= this.FullGameThinkingQuantumTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                                        //Initiatye Variables.
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }
+                        }, () =>
+                        {
+                            Object ooo = new Object();
+                            lock (ooo)
+                            {
+
+                                if (i < KingMidle)
+
+                                {
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        //Order *= -1;
+                                        //ChessRules.CurrentOrder *= -1;
+                                        int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+                                        int Ord6 = Order;
+                                        Color a6 = a;
+                                        int iAStarGreedy6 = iAStarGreedy;
+                                        int i6 = i;
+                                        Do |= this.FullGameThinkingQuantumTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }
+                        });
+                    });
+                    }
+                });
+                output.Wait(); output.Dispose();
+
+            }
+            //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
+            else
+            {
+                var output = Task.Factory.StartNew(() =>
+                {
+                    while (!feedCancellationTokenSource.IsCancellationRequested)
+                    {
+
+                        Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
+                    {
+                        Parallel.Invoke(() =>
+                        {
+                            Object ooo = new Object();
+                            lock (ooo)
+                            {
+
+                                if (i >= SodierMidle && i < SodierHigh)
+                                {
+
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                        int Ord1 = OrderP;
+                                        Color a1 = a;
+                                        int iAStarGreedy1 = iAStarGreedy;
+                                        int i1 = i;
+                                        Do |= this.FullGameThinkingQuantumTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }
+                        }, () =>
+                        {
+                            if (i >= ElefantMidle && i < ElefantHigh)
+                            {
+                                Object ooo = new Object();
+                                lock (ooo)
                                 {
                                     if (Order == 1)
                                         a = Color.Gray;
                                     else
                                         a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
-
                                     int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
                                     int Ord2 = Order;
                                     Color a2 = a;
@@ -21285,14 +21525,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                     ChessRules.CurrentOrder = DummyCurrentOrder;
                                 }
                             }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
+                        }, () =>
                         {
-
-                            if (i < HourseMidle)
+                            if (i >= HourseMidle && i < HourseHight)
                             {
                                 Object O1 = new Object();
                                 lock (O1)
@@ -21301,8 +21536,6 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         a = Color.Gray;
                                     else
                                         a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
 
                                     int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
                                     int Ord3 = Order;
@@ -21315,25 +21548,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                     ChessRules.CurrentOrder = DummyCurrentOrder;
                                 }
                             }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
+                        }, () =>
                         {
-
-                            if (i < CastleMidle)
+                            if (i >= CastleMidle && i < CastleHigh)
                             {
-                                Object O1 = new Object();
-                                lock (O1)
+                                Object ooo = new Object();
+                                lock (ooo)
                                 {
                                     if (Order == 1)
                                         a = Color.Gray;
                                     else
                                         a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
-
                                     int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
                                     int Ord4 = Order;
                                     Color a4 = a;
@@ -21345,24 +21570,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                     ChessRules.CurrentOrder = DummyCurrentOrder;
                                 }
                             }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
+                        }, () =>
                         {
-
-                            if (i < MinisterMidle)
+                            if (i >= MinisterMidle && i < MinisterHigh)
                             {
-                                Object O1 = new Object();
-                                lock (O1)
+                                Object ooo = new Object();
+                                lock (ooo)
                                 {
                                     if (Order == 1)
                                         a = Color.Gray;
                                     else
                                         a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
                                     int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
                                     int Ord5 = Order;
                                     Color a5 = a;
@@ -21374,25 +21592,22 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                     ChessRules.CurrentOrder = DummyCurrentOrder;
                                 }
                             }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
+
+                        }, () =>
                         {
-
-                            if (i < KingMidle)
-
+                            if (i >= KingMidle && i < KingHigh)
                             {
-                                Object O1 = new Object();
-                                lock (O1)
+                                Object ooo = new Object();
+                                lock (ooo)
                                 {
                                     if (Order == 1)
                                         a = Color.Gray;
                                     else
                                         a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
+                                    if (Order == 1)
+                                        a = Color.Gray;
+                                    else
+                                        a = Color.Brown;
                                     int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
                                     int Ord6 = Order;
                                     Color a6 = a;
@@ -21403,164 +21618,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                     ChessRules.CurrentOrder = DummyCurrentOrder;
                                 }
                             }
-                        }
+                        });
                     });
-                })
-                );
-                output.Wait(); output.Dispose();
-
-            }
-            //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
-            else
-            {
-                var output = Task.Factory.StartNew(() =>
-                Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
-                {
-                    Parallel.Invoke(() =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-
-                            if (i >= SodierMidle && i < SodierHigh)
-                            {
-
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                                    int Ord1 = OrderP;
-                                    Color a1 = a;
-                                    int iAStarGreedy1 = iAStarGreedy;
-                                    int i1 = i;
-                                    Do |= this.FullGameThinkingQuantumTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                                }
-                            }
-                        }
-                    }, () =>
-                    {
-                        if (i >= ElefantMidle && i < ElefantHigh)
-                        {
-                            Object ooo = new Object();
-                            lock (ooo)
-                            {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                                int Ord2 = Order;
-                                Color a2 = a;
-                                int iAStarGreedy2 = iAStarGreedy;
-                                int i2 = i;
-                                Do |= this.FullGameThinkingQuantumTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                                //Initiatye Variables.
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    }, () =>
-                    {
-                        if (i >= HourseMidle && i < HourseHight)
-                        {
-                            Object O1 = new Object();
-                            lock (O1)
-                            {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-
-                                int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                                int Ord3 = Order;
-                                Color a3 = a;
-                                int iAStarGreedy3 = iAStarGreedy;
-                                int i3 = i;
-                                Do |= this.FullGameThinkingQuantumTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                                //Initiatye Variables.
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    }, () =>
-                    {
-                        if (i >= CastleMidle && i < CastleHigh)
-                        {
-                            Object ooo = new Object();
-                            lock (ooo)
-                            {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                                int Ord4 = Order;
-                                Color a4 = a;
-                                int iAStarGreedy4 = iAStarGreedy;
-                                int i4 = i;
-                                Do |= this.FullGameThinkingQuantumTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                                //Initiatye Variables.
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    }, () =>
-                    {
-                        if (i >= MinisterMidle && i < MinisterHigh)
-                        {
-                            Object ooo = new Object();
-                            lock (ooo)
-                            {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                                int Ord5 = Order;
-                                Color a5 = a;
-                                int iAStarGreedy5 = iAStarGreedy;
-                                int i5 = i;
-                                Do |= this.FullGameThinkingQuantumTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                                //Initiatye Variables.
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-
-                    }, () =>
-                    {
-                        if (i >= KingMidle && i < KingHigh)
-                        {
-                            Object ooo = new Object();
-                            lock (ooo)
-                            {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                                int Ord6 = Order;
-                                Color a6 = a;
-                                int iAStarGreedy6 = iAStarGreedy;
-                                int i6 = i;
-                                Do |= this.FullGameThinkingQuantumTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    });
-                })
-                );
+                    }
+                });
                 output.Wait(); output.Dispose();
             }
             //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingQuantumTreeObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -23198,5 +23259,6 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
         }
 
     }
+   
 }
 //End of Documentation.
