@@ -77,6 +77,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace QuantumRefrigiz

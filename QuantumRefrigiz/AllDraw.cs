@@ -153,6 +153,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.ComponentModel;
+
 namespace QuantumRefrigiz
 {
 

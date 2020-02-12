@@ -78,6 +78,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text;
 using System.Xml.Serialization;
+using System.ComponentModel;
 
 namespace RefrigtzDLL
 {
