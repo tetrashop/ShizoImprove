@@ -1,87 +1,4 @@
-/***********************************************************************************
- * Every Ruls of objective condition of chess game.*********************************
- * Current Rules Have not Attack Movements****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Ramin Edjlal********************************************************************
- * Current Rules Have Not 'Check' And 'CheckMate' *************************************RS*****0.12**4**Managements and Cuation Programing**(+*)QC-OK.
- * Elephant Rules Hardly*********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Horse Rules Hardly************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Minister Rules Hardly*********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * King Rules Hardly*************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Castles Rules Hardly**********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Restricted has been solved****************************************************--**(-)
- * No movements greater than one. Some Abnormal Movements************************RS*****0.12**4**Managements and Cuation Programing**(++)
- * Abnormal Movements Correction*************************************************--**(-)
- * Clear Dirty Part**************************************************************--**(-)
- * Chess Rules Soldier Not Moved Jump From Enemy to 2****************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Chess Rules Abnormally Minister Gray Elephant to Right************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Chess Rules Elephant Normally*************************************************--**(-)
- * Abnormally Recursive Method***************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Chess Rule Check CheckMate Doesn’t Work*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Clicking 'Table' Content Has been Abnormally**********************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * The Mechanism of Check Declared and Act 'Not' Logically************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * The Mechanism of Table Assignments and the Virtualization Misleading**********RS*****0.12**4**Managements and Cuation Programing**(+)
- * The Movements of horse Brown 'Alice' Left Side Cause to Mislead***************RS*****0.12**4**Managements and Cuation Programing**(+)
- * ExistInDestinationEnemy Thinking Misleading Operations************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Null Thinking Exception Handling Should be Configured*************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Malfunction of Mouse 'Bob' Event Handling For Movements***********************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Non 'Check' Second Rules 'Alice' Move to 'Check' State**************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * 'CheckMate' Not Recognized By 'Alice'.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * 'Check' Recognized From 'Hard' Game. CheckMate Have Not Been Identified.************RSPB(+*)
- * Chess Rules MalFunctional*****************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Unsatisfied CheckMate By 'Bob' With 'Alice'****************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Removable 'Check' by 'Bob' Was Not done by 'Alice' ****************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Unknown 'CheckRemovable' and Unknown 'Check' Mechanism**************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Table Content at 'Bob' 'Check' of 'Alice', Malfunction with 'horse'************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Can Hit 'King'****************************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Gone to 'Check' State Deterministic********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * King Killer. Gone to ObjectDanger State by 'Alice' and 'Bob'***********************RSRS(++)
- * King Killer By 'Alice' and Gone to ObjectDanger Remaining**************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Killer Check Solved by Changing Strategy. Check by 'Alice' Cannot Been Removed.RS*****0.12**4**Managements and Cuation Programing**(-+)
- * Castle King Mechanism Failed**************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Arguments IgonoreTowEnemy Between King and Attaker in Check ObjectDanger Misleading**RS*****0.12**4**Managements and Cuation Programing**(+)
- * 'Check' Ignore. Un Rulement 'Bob Movements*************************************RSRS(++)
- * Unidentified 'Bob' Minister Movements in Check and Unrulements Movements*******RS*****0.12**4**Managements and Cuation Programing**(+)
- * Tow King Beside Them**********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * King of 'Bob' Gone to ObjectDanger.*************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Gone to Check by 'Bob'*********************************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Chess Order and Chess Check by Bob Malfunctioned*******************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * 'CheckMate' of 'Alice' Ended by Moving of 'Bob' King Unrulments********************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Movements of 'Alice' Soldier to Backward.*************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * BrigdeKing Movements in Large Castle King Misleading**************************RS*****0.12**4**Managements and Cuation Programing**(_)
- * Syntax Statements Failed By Halting.******************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Check Of Bob Misleading no reason.*********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Syntax Error At Genetic Algorithm By Bob.*************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * 1394/12/20********************************************************************RS*****0.12**4**Managements and Cuation Programing**(+:Sum(48)) (_ :Sum(1)) (-:Sum(5)) (*:Sum(2))
- * Chess Syntax MalFunction.*****************************************************RS*****0.12**4**Managements and Cuation Programing**[+]
- * Chess Rules Non Soldier Colud Not been Detected. For AStarGreedy Fist Algorithm.*****RS*****0.12**4**Managements and Cuation Programing**{+}
- * 'Check' Released isolatly.'Check' of Brown (Alice) No Matched Realesed.*********RS*****0.12**4**Managements and Cuation Programing**<+>
- * 'Check' Not Detected By Bob.***************************************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Bob Cloud not Remove 'Check'.**************************************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Bob Colud not Move.No Check asnd CheckMate.*****************************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Kings Have been Realeased Attacked.By Alice and Bob.**************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * ObjectDanger kings Not work!********************************************************CU*****0.88**1**Risk Control************************<*>QC-OK.
- * Chess Rules of Movments AStarGreedy First caused to Databse MalFunction.*************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * Mal Function of Table.Table zero.!********************************************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Timer of Bob and Alice do not works!******************************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * Not Right of Penalty Regard Mechansim.Misleading of Operations.***************RS*****0.12**4**Managements and Cuation Programing**(+)
- * Reveal From CheckMate By Alice MalFunction.****************************************RS*****0.12**4**Managements and Cuation Programing**{+}
- * CheckMate Not Work On Statistic and More By Alice.*********************************RS*****0.12**4**Managements and Cuation Programing**{+}
- * CheckMate Operation By Alice is MalFunction.***************************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * 'Minister' Alice Have been Check unreasonably.*********************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * 'Alice' Supposed Wrongly CheckObjectDangour Means Check.*******************************CU*****0.88**1**Risk Control************************(*)QC-OK.
- * Illegal King Foundation in Rules Function No Reasonaly.***********************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Brown (Alice) King Dosn't exist.**********************************************RS*****0.12**4**Managements and Cuation Programing**<+>
- * Mal Function of Castles King User Determination.******************************CU*****0.88**1**Risk Control************************{*}QC-OK
- * Mal Function of Check int Detection at ObjectDangouring.****************************CU*****0.88**1**Risk Control************************<*>QC_OK
- * Assignment of Check State at ObjectDangourCheckRemove Method Not Occured.**************CU*****0.88**1**Risk Control************************<*>QC_OK.
- * Table Incredible Content Leads to Undisirable Result in Check and ....*********RS**0.12**4**Managements and Cuation Programing*****(+)
- * CheckedMate Complexity Over Numbers Of Cores Compexity.************************CU*****0.88**1**Risk Control************************{*}QC-OK.
- * Alice Castles King Statistic is misleading.************************************.CU*****0.88**1**Risk Control************************{*}Qc_OK
- * Sodiers of Alice get to go backward and non Existining Enemy of Killer sometimes.CU*****0.88**1**Risk Control************************{*}Qc_Bad.
- * Pat Mechanisam Dosn't act Misleading.*********************************************.CU*****0.88**1**Risk Control************************{*}QC_OK.
- * ************************************************************************************************************************************(+):Sum(1)) 4:(+:Sum(5)) 5.(*:Sum(1)) 6.(+:Sum(2)) (*:Sum(2)) 7.(+:Sum(2)) 8.(*:Sum(3)) 9.(QC-OK.:Sum(7))
- * ********************************************************************************
- */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -675,16 +592,7 @@ namespace RefrigtzDLL
                 bool CheckGrayDummy = CheckGray;
                 bool CheckBrownDummy = CheckBrown;
                 //If There is Check on Tow Side.
-                /*if (CheckBrown || CheckGray)
-                {
-                    //Check meand achmaz.
-                    if (CheckBrown)
-                        CheckBrownObjectDangour = true;
-                    if (CheckGray)
-                        CheckGrayObjectDangour = true;
-                    return true;
-
-                }*/
+                
                 int CDummy = RefrigtzDLL.ChessRules.CurrentOrder;
                 int COrder = Order;
                 if (Order == 1)
@@ -881,16 +789,7 @@ namespace RefrigtzDLL
                 bool CheckGrayDummy = CheckGray;
                 bool CheckBrownDummy = CheckBrown;
                 //If There is Check on Tow Side.
-                /*if (CheckBrown || CheckGray)
-                {
-                    //Check meand achmaz.
-                    if (CheckBrown)
-                        CheckBrownObjectDangour = true;
-                    if (CheckGray)
-                        CheckGrayObjectDangour = true;
-                    return true;
-
-                }*/
+                
                 int CDummy = RefrigtzDLL.ChessRules.CurrentOrder;
                 int COrder = Order;
                 if (Order == 1)
@@ -2673,14 +2572,7 @@ namespace RefrigtzDLL
                     }
                 }
                 //Determination of King Enemy at Destination Home.
-                /*if (!KingAttacker)
-                {
-                    //Coluld not hit King In Destination Enemy.
-                    if (Order == 1 && Table[RowSecond, ColumnSecond] == -6)
-                        return false;
-                    if (Order == -1 && Table[RowSecond, ColumnSecond] == 6)
-                        return false;
-                }*/
+                
                 //If Source and The Destination are The Same.
                 if (RowFirst == RowSecond && ColumnFirst == ColumnSecond)
                 {
@@ -2758,162 +2650,7 @@ namespace RefrigtzDLL
                 if (MinisterRules(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy, Ki) && (System.Math.Abs(RowFirst - RowSecond) <= 1) && (System.Math.Abs(ColumnFirst - ColumnSecond) <= 1))
                 {
                     //Initiate Local Variable.
-                    /* int[,] Tab = new int[8, 8];
-                     //Clone A Copy.,
-                     for (var i = 0; i < 8; i++)
-                         for (var j = 0; j < 8; j++)
-                         {
-                             Tab[i, j] = Table[i, j];
-                         }
-                     //Initiate Local Varibale and Move.
-                     int Store = Tab[RowSecond, ColumnSecond];
-                     Tab[RowSecond, ColumnSecond] = Tab[RowFirst, ColumnFirst];
-                     Tab[RowFirst, ColumnFirst] = 0;
-                     //When There is Check State.
-                     if (Check(Tab, Order))
-                     {
-                         if (!PatCheckedInKingRule)
-                         {
-                             //Check Gray State return Non Rule.
-                             if (Order == 1 && CheckGray)
-                                 return false;
-                             else//Brown Check State return Non Rule.
-                                 if (Order == -1 && CheckBrown)
-                                     return false;
-                         }
-                         else
-                         {
-                             //Check Gray State return Non Rule.
-                             if (Order == -1 && CheckGray)
-                                 return false;
-                             else//Brown Check State return Non Rule.
-                                 if (Order == 1 && CheckBrown)
-                                     return false;
-                         }
-                     }
-
-                     //Determination of Gray Enemy State Check at Enemy King at Around Existing Return Not Validity.
-                     if (Order == 1 && Table[RowFirst, ColumnFirst] == 6)
-                     {
-
-                             if ((RowSecond + 1) < 8)
-                             {
-                                 if (Table[RowSecond + 1, ColumnSecond] == -6)
-                                     return false;
-                             }
-
-
-                             if ((ColumnSecond + 1) < 8)
-                             {
-                                 if (Table[RowSecond, ColumnSecond + 1] == -6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond + 1) < 8) && ((ColumnSecond + 1) < 8))
-                             {
-                                 if (Table[RowSecond + 1, ColumnSecond + 1] == -6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond - 1) >= 0))
-                             {
-                                 if (Table[RowSecond - 1, ColumnSecond] == -6)
-                                     return false;
-                             }
-
-
-                             if (ColumnSecond - 1 >= 0)
-                             {
-                                 if (Table[RowSecond, ColumnSecond - 1] == -6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond - 1) >= 0) && ((ColumnSecond - 1) >= 0))
-                             {
-                                 if (Table[RowSecond - 1, ColumnSecond - 1] == -6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond + 1) < 8) && ((ColumnSecond - 1) >= 0))
-                             {
-                                 if (Table[RowSecond + 1, ColumnSecond - 1] == -6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond - 1) >= 0) && ((ColumnSecond + 1) < 8))
-                             {
-                                 if (Table[RowSecond - 1, ColumnSecond + 1] == -6)
-                                     return false;
-                             }
-
-
-                     }//Determination of Brown Enemy State Check at Enemy King at Around Existing Return Not Validity.         
-                     else if (Order == -1 && Table[RowFirst, ColumnFirst] == -6)
-                     {
-
-                             if ((RowSecond + 1) < 8)
-                             {
-                                 if (Table[RowSecond + 1, ColumnSecond] == 6)
-                                     return false;
-                             }
-
-
-                             if ((ColumnSecond + 1) < 8)
-                             {
-                                 if (Table[RowSecond, ColumnSecond + 1] == 6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond + 1) < 8) && ((ColumnSecond + 1) < 8))
-                             {
-                                 if (Table[RowSecond + 1, ColumnSecond + 1] == 6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond - 1) >= 0))
-                             {
-                                 if (Table[RowSecond - 1, ColumnSecond] == 6)
-                                     return false;
-                             }
-
-
-                             if (ColumnSecond - 1 >= 0)
-                             {
-                                 if (Table[RowSecond, ColumnSecond - 1] == 6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond - 1) >= 0) && ((ColumnSecond - 1) >= 0))
-                             {
-                                 if (Table[RowSecond - 1, ColumnSecond - 1] == 6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond + 1) < 8) && ((ColumnSecond - 1) >= 0))
-                             {
-                                 if (Table[RowSecond + 1, ColumnSecond - 1] == 6)
-                                     return false;
-                             }
-
-
-                             if (((RowSecond - 1) >= 0) && ((ColumnSecond + 1) < 8))
-                             {
-                                 if (Table[RowSecond - 1, ColumnSecond + 1] == 6)
-                                     return false;
-                             }
-
-
-                     }
-                     */
+                    
                     Move = true;
                 }
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("KingRule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -3126,12 +2863,7 @@ namespace RefrigtzDLL
                 }
 
                 //Return Not Validity.
-                /*if (Move && System.Math.Abs(Ki) != 6)
-                {
-                    if (AchmazCheckByMoveByRule(CloneATable(Table), RowFirst, ColumnFirst, RowSecond, ColumnSecond, Order))
-                        Move = false;
-                }
-                 */
+                
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CastleRule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //Return not Vailidity.
                 return Move;
@@ -3239,12 +2971,7 @@ namespace RefrigtzDLL
                     if (!Act)
                         Move = true;
                 }
-                /*if (Move && System.Math.Abs(Ki) != 6)
-                {
-                    if (AchmazCheckByMoveByRule(CloneATable(Table), RowFirst, ColumnFirst, RowSecond, ColumnSecond, Order))
-                        Move = false;
-                }
-                 */
+                
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ElephantRule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //Return Not Validity.
                 return Move;
@@ -3270,12 +2997,7 @@ namespace RefrigtzDLL
                     Move = true;
                 }
                 //Return Not Validity.
-                /* if (Move)
-                 {
-                     if (AchmazCheckByMoveByRule(CloneATable(Table), RowFirst, ColumnFirst, RowSecond, ColumnSecond, Order))
-                         Move = false;
-                 }
-                 */
+                
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HourseRule:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Move;
             }
@@ -3648,12 +3370,7 @@ namespace RefrigtzDLL
                     ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SoldierRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return SoldierRulesaArrangmentsBoardOne(RowFirst, ColumnFirst, RowSecond, ColumnSecond, NotMoved, color, ExistInDestinationEnemy);
                 }
-                /*if (Move)
-                {
-                    if (AchmazCheckByMoveByRule(CloneATable(Table), RowFirst, ColumnFirst, RowSecond, ColumnSecond, Order))
-                        Move = false;
-                }
-                 */
+                
                 ///Return Not Validity.
             }
         }
