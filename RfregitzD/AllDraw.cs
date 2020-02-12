@@ -546,7 +546,7 @@ namespace RefrigtzDLL
 
             }
         }
-        [field:NonSerialized] private readonly CancellationTokenSource feedCancellationTokenSource =
+        [field:NonSerialized] private CancellationTokenSource feedCancellationTokenSource =
             new CancellationTokenSource();
         [field:NonSerialized] private readonly Task feedTask;
 
@@ -16171,6 +16171,7 @@ namespace RefrigtzDLL
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
            )
         {
+            if (feedCancellationTokenSource == null) feedCancellationTokenSource = new CancellationTokenSource();
             //long Time = TimeElapced.TimeNow();Spaces++;
             OrderP = Order;
             SetObjectNumbers(Tab);

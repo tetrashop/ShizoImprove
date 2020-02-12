@@ -407,7 +407,7 @@ namespace RefrigtzDLL
             }
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        [field:NonSerialized] private readonly CancellationTokenSource feedCancellationTokenSource =
+        [field:NonSerialized] private CancellationTokenSource feedCancellationTokenSource =
             new CancellationTokenSource();
         [field:NonSerialized] private readonly Task feedTask;
 
@@ -13781,7 +13781,9 @@ namespace RefrigtzDLL
         public void Thinking(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
             try
-            {/*   if (AStarGreedy == null)
+            {
+                if (feedCancellationTokenSource == null) feedCancellationTokenSource = new CancellationTokenSource();
+                /*   if (AStarGreedy == null)
                 AStarGreedy = new List<AllDraw>();
             if (Kind == 1)
             {
@@ -13869,7 +13871,7 @@ namespace RefrigtzDLL
 
             }
             */
-             //long Time = TimeElapced.TimeNow();Spaces++;
+                                                                                                                     //long Time = TimeElapced.TimeNow();Spaces++;
 
                 int ord = Order;
                 Object O = new Object();
