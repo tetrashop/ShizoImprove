@@ -9344,7 +9344,7 @@ namespace RefrigtzDLL
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
                     if (!Sup)
@@ -9364,7 +9364,7 @@ namespace RefrigtzDLL
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -9373,7 +9373,7 @@ namespace RefrigtzDLL
                     }
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
 
@@ -9388,14 +9388,14 @@ namespace RefrigtzDLL
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
@@ -9405,7 +9405,7 @@ namespace RefrigtzDLL
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
 
                         }
                     }
@@ -9425,7 +9425,7 @@ namespace RefrigtzDLL
                                 //////HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                newTask1.Wait();
+                                newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
@@ -9477,18 +9477,18 @@ namespace RefrigtzDLL
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
@@ -9564,7 +9564,7 @@ namespace RefrigtzDLL
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     if (!Sup)
                     {
@@ -9583,7 +9583,7 @@ namespace RefrigtzDLL
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -9592,7 +9592,7 @@ namespace RefrigtzDLL
                     }
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
 
@@ -9605,14 +9605,14 @@ namespace RefrigtzDLL
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
@@ -9622,7 +9622,7 @@ namespace RefrigtzDLL
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
 
                         }
                     }
@@ -9642,7 +9642,7 @@ namespace RefrigtzDLL
                                 //////HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                newTask1.Wait();
+                                newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListMinister.Add(Hu);
@@ -9694,19 +9694,19 @@ namespace RefrigtzDLL
                     {
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                         /*
                         if (Order == 1)
                                 //AllDraw.OutPut.Append("\r\nThinking Minister AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
@@ -10127,7 +10127,7 @@ namespace RefrigtzDLL
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
                     if (!Sup)
@@ -10147,7 +10147,7 @@ namespace RefrigtzDLL
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -10157,7 +10157,7 @@ namespace RefrigtzDLL
 
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
 
@@ -10171,14 +10171,14 @@ namespace RefrigtzDLL
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
@@ -10188,7 +10188,7 @@ namespace RefrigtzDLL
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
 
                         }
                     }
@@ -10208,7 +10208,7 @@ namespace RefrigtzDLL
                                 //////HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                newTask1.Wait();
+                                newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListCastle.Add(Hu);
@@ -10261,18 +10261,18 @@ namespace RefrigtzDLL
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
                  if (Order == 1)
@@ -10319,7 +10319,7 @@ namespace RefrigtzDLL
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     if (!Sup)
                     {
@@ -10338,7 +10338,7 @@ namespace RefrigtzDLL
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -10348,7 +10348,7 @@ namespace RefrigtzDLL
 
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
 
@@ -10361,14 +10361,14 @@ namespace RefrigtzDLL
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
@@ -10378,7 +10378,7 @@ namespace RefrigtzDLL
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
 
                         }
                     }
@@ -10398,7 +10398,7 @@ namespace RefrigtzDLL
                                 //////HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                newTask1.Wait();
+                                newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListHourse.Add(Hu);
@@ -10451,18 +10451,18 @@ namespace RefrigtzDLL
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                         /*
                         if (Order == 1)
                                 //AllDraw.OutPut.Append("\r\nThinking Hourse AstarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingLevel.ToString() + "th Thinking String " + OutPutAction;
@@ -10507,7 +10507,7 @@ namespace RefrigtzDLL
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     if (!Sup)
                     {
@@ -10526,7 +10526,7 @@ namespace RefrigtzDLL
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -10535,7 +10535,7 @@ namespace RefrigtzDLL
                     }
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
 
@@ -10548,14 +10548,14 @@ namespace RefrigtzDLL
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
@@ -10565,7 +10565,7 @@ namespace RefrigtzDLL
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
 
                         }
                     }
@@ -10585,7 +10585,7 @@ namespace RefrigtzDLL
                                 //////HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                newTask1.Wait();
+                                newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListElefant.Add(Hu);
@@ -10638,18 +10638,18 @@ namespace RefrigtzDLL
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
@@ -11839,13 +11839,13 @@ namespace RefrigtzDLL
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
                     if (!Sup)
                     {
                         newTask1 = Task.Factory.StartNew(() => SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                         ///Add Table to List of Private.
                         HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
 
@@ -11860,7 +11860,7 @@ namespace RefrigtzDLL
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -11871,7 +11871,7 @@ namespace RefrigtzDLL
 
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS, t));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
 
@@ -11883,14 +11883,14 @@ namespace RefrigtzDLL
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
                             //{ ThinkingAtRun = false; return; }
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
                     Object A5 = new object();
@@ -11900,7 +11900,7 @@ namespace RefrigtzDLL
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            newTask1.Wait();
+                            newTask1.Wait(); newTask1.Dispose();
 
                         }
                     }
@@ -11920,7 +11920,7 @@ namespace RefrigtzDLL
                                 ////////HeuristicCheckedMate = 0;
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                newTask1.Wait();
+                                newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListSolder.Add(Hu);
@@ -11971,18 +11971,18 @@ namespace RefrigtzDLL
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         //HeuristicKingDangourSup = 0;
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        newTask1.Wait();
+                        newTask1.Wait(); newTask1.Dispose();
 
                         /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
                                            if (Order == 1)
@@ -12051,7 +12051,7 @@ namespace RefrigtzDLL
                     ThinkingRun = true;
                 }
                 var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                newTask1.Wait();
+                newTask1.Wait(); newTask1.Dispose();
                 Object A = new object();
                 lock (A)
                 {
@@ -12079,7 +12079,7 @@ namespace RefrigtzDLL
                 PenaltyVCar = false;
                 int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                 newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                newTask1.Wait();
+                newTask1.Wait(); newTask1.Dispose();
 
                 //{ ThinkingAtRun = false; return; }
                 //Store Movments Items. 
@@ -12099,7 +12099,7 @@ namespace RefrigtzDLL
                     ////////HeuristicCheckedMate = 0;
 
                     newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                     HeuristicListKing.Add(Hu);
@@ -12324,7 +12324,7 @@ namespace RefrigtzDLL
 
                  });
                 });
-                output1.Wait();
+                output1.Wait(); output1.Dispose();
                 //Central control befor attack
                 bool A = (Heuristic[1] > 0);
                 bool B = (HeuristicRemain[4] > 0);
@@ -12489,7 +12489,7 @@ namespace RefrigtzDLL
                 }
 
                 var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                newTask1.Wait();
+                newTask1.Wait(); newTask1.Dispose();
 
                 Object A = new object();
                 lock (A)
@@ -12538,7 +12538,7 @@ namespace RefrigtzDLL
                 PenaltyVCar = false;
                 int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                 newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                newTask1.Wait();
+                newTask1.Wait(); newTask1.Dispose();
 
                 //{ ThinkingAtRun = false; return; }
 
@@ -12553,7 +12553,7 @@ namespace RefrigtzDLL
                 //Caused this for Stachostic results.
 
                 newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                newTask1.Wait();
+                newTask1.Wait(); newTask1.Dispose();
 
                 String H = "";
                 int[] Hu = new int[10];
@@ -12565,7 +12565,7 @@ namespace RefrigtzDLL
                     //////HeuristicCheckedMate = 0;
 
                     newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                    newTask1.Wait();
+                    newTask1.Wait(); newTask1.Dispose();
 
 
                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
@@ -12695,7 +12695,7 @@ namespace RefrigtzDLL
                     //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                     //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                     //oSerialiser.Serialize(oStream, newTask);   
-                    newTask.Wait();
+                    newTask.Wait(); newTask.Dispose();
                     //oStream.Close();
                 }
             }
@@ -12742,7 +12742,7 @@ namespace RefrigtzDLL
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                                 //oSerialiser.Serialize(oStream, newTask);
-                                newTask.Wait();
+                                newTask.Wait(); newTask.Dispose();
                                 //oStream.Close();
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
@@ -12784,7 +12784,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
                 }
@@ -12819,7 +12819,7 @@ namespace RefrigtzDLL
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                                 //oSerialiser.Serialize(oStream, newTask);
-                                newTask.Wait();
+                                newTask.Wait(); newTask.Dispose();
                                 //oStream.Close();
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
@@ -12874,7 +12874,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
                 }
@@ -12909,7 +12909,7 @@ namespace RefrigtzDLL
                     //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                     //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                     //oSerialiser.Serialize(oStream, newTask);
-                    newTask.Wait();
+                    newTask.Wait(); newTask.Dispose();
                     //oStream.Close();
                 }
 
@@ -12946,7 +12946,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
                 }
@@ -12980,7 +12980,7 @@ namespace RefrigtzDLL
                     //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                     //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                     //oSerialiser.Serialize(oStream, newTask);
-                    newTask.Wait();
+                    newTask.Wait(); newTask.Dispose();
                     //oStream.Close();
                 }
             }
@@ -13017,7 +13017,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
                 }
@@ -13055,7 +13055,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
                 }
@@ -13094,7 +13094,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
                 }
@@ -13131,7 +13131,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
 
@@ -13154,7 +13154,7 @@ namespace RefrigtzDLL
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                 //oSerialiser.Serialize(oStream, newTask);
-                newTask.Wait();
+                newTask.Wait(); newTask.Dispose();
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13167,7 +13167,7 @@ namespace RefrigtzDLL
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                 //oSerialiser.Serialize(oStream, newTask);
-                newTask.Wait();
+                newTask.Wait(); newTask.Dispose();
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13180,7 +13180,7 @@ namespace RefrigtzDLL
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                 //oSerialiser.Serialize(oStream, newTask);
-                newTask.Wait();
+                newTask.Wait(); newTask.Dispose();
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13193,7 +13193,7 @@ namespace RefrigtzDLL
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                 //oSerialiser.Serialize(oStream, newTask);
-                newTask.Wait();
+                newTask.Wait(); newTask.Dispose();
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13206,7 +13206,7 @@ namespace RefrigtzDLL
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                 //oSerialiser.Serialize(oStream, newTask);
-                newTask.Wait();
+                newTask.Wait(); newTask.Dispose();
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13219,7 +13219,7 @@ namespace RefrigtzDLL
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                 //oSerialiser.Serialize(oStream, newTask);
-                newTask.Wait();
+                newTask.Wait(); newTask.Dispose();
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13232,7 +13232,7 @@ namespace RefrigtzDLL
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                 //oSerialiser.Serialize(oStream, newTask);
-                newTask.Wait();
+                newTask.Wait(); newTask.Dispose();
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13245,7 +13245,7 @@ namespace RefrigtzDLL
                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                 //oSerialiser.Serialize(oStream, newTask);
-                newTask.Wait();
+                newTask.Wait(); newTask.Dispose();
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13287,7 +13287,7 @@ namespace RefrigtzDLL
                             //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                             //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                             //oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
                         }
                     }
@@ -13328,7 +13328,7 @@ namespace RefrigtzDLL
                             Order = ord;
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                         }
 
                     }
@@ -13347,9 +13347,9 @@ namespace RefrigtzDLL
             {
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask1 = Task.Factory.StartNew(() => ThinkingCastleOne(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                newTask1.Wait();
+                newTask1.Wait(); newTask1.Dispose();
                 var newTask2 = Task.Factory.StartNew(() => ThinkingCastleTow(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                newTask2.Wait();
+                newTask2.Wait(); newTask2.Dispose();
             }
 
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13386,7 +13386,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
 
                     }
@@ -13422,7 +13422,7 @@ namespace RefrigtzDLL
                             //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                             //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                             //oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
 
 
@@ -13462,7 +13462,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
                     ThinkingAtRun = false;
@@ -13499,7 +13499,7 @@ namespace RefrigtzDLL
                         //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                         //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                         //oSerialiser.Serialize(oStream, newTask);
-                        newTask.Wait();
+                        newTask.Wait(); newTask.Dispose();
                         //oStream.Close();
                     }
                     ThinkingAtRun = false;
@@ -13548,7 +13548,7 @@ namespace RefrigtzDLL
                                 //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                                 //if (File.Exists(@"C:\xmlFile.xml")) File.Delete(@"C:\xmlFile.xml"); Stream oStream = new FileStream(@"C:\xmlFile.xml", FileMode.CreateNew);
                                 //oSerialiser.Serialize(oStream, newTask);
-                                newTask.Wait();
+                                newTask.Wait(); newTask.Dispose();
                                 //oStream.Close();
 
                             }
@@ -14025,7 +14025,7 @@ namespace RefrigtzDLL
                             //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
                             //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             //oSerialiser.Serialize(oStream, newTask);   
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
                             break;
                         case -7:
@@ -14035,7 +14035,7 @@ namespace RefrigtzDLL
                             //oSerialiser = new XmlSerializer(typeof(Task));
                             //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             //oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
                             break;
                         case 1:///For Soldier Thinking
@@ -14045,7 +14045,7 @@ namespace RefrigtzDLL
                             //oSerialiser = new XmlSerializer(typeof(Task));
                             //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             ///oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
                             break;
                         case 2:///For Elephant Thinking
@@ -14055,7 +14055,7 @@ namespace RefrigtzDLL
                             //oSerialiser = new XmlSerializer(typeof(Task));
                             // oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             // oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
                             break;
 
@@ -14066,7 +14066,7 @@ namespace RefrigtzDLL
                             //oSerialiser = new XmlSerializer(typeof(Task));
                             //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             //oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
                             break;
 
@@ -14078,7 +14078,7 @@ namespace RefrigtzDLL
                             //oSerialiser = new XmlSerializer(typeof(Task));
                             //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             //oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             // oStream.Close();
                             break;
                         ///Else for Minister Thinkings.
@@ -14090,7 +14090,7 @@ namespace RefrigtzDLL
                             //oSerialiser = new XmlSerializer(typeof(Task));
                             //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             ///oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
                             break;
                         ///Else For Kings Thinkings.
@@ -14100,7 +14100,7 @@ namespace RefrigtzDLL
                             // oSerialiser = new XmlSerializer(typeof(Task));
                             //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             ///oSerialiser.Serialize(oStream, newTask);
-                            newTask.Wait();
+                            newTask.Wait(); newTask.Dispose();
                             //oStream.Close();
                             break;
 
