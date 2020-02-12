@@ -7675,7 +7675,7 @@ namespace RefrigtzDLL
                         Color a = Color.Gray;
                         var output = Task.Factory.StartNew(() =>
                         {
-                            while (!feedCancellationTokenSource.IsCancellationRequested)
+                            if (!feedCancellationTokenSource.IsCancellationRequested)
                             {
                                 Parallel.Invoke(() => 
                                     {
@@ -7808,7 +7808,7 @@ namespace RefrigtzDLL
                         Color a = Color.Brown;
                         var output = Task.Factory.StartNew(() =>
                         {
-                            while (!feedCancellationTokenSource.IsCancellationRequested)
+                            if (!feedCancellationTokenSource.IsCancellationRequested)
                             {
                                 Parallel.Invoke(() =>
                                 {
@@ -15851,7 +15851,7 @@ namespace RefrigtzDLL
 
                     var output = Task.Factory.StartNew(() =>
                     {
-                        while (!feedCancellationTokenSource.IsCancellationRequested)
+                        if (!feedCancellationTokenSource.IsCancellationRequested)
                         {
                             Parallel.Invoke(() =>
                             {
@@ -15922,7 +15922,7 @@ namespace RefrigtzDLL
 
                     var output = Task.Factory.StartNew(() =>
                     {
-                        while (!feedCancellationTokenSource.IsCancellationRequested)
+                        if (!feedCancellationTokenSource.IsCancellationRequested)
                         {
                             Parallel.Invoke(() =>
                             {
@@ -16025,7 +16025,7 @@ namespace RefrigtzDLL
 
                     var output = Task.Factory.StartNew(() =>
                     {
-                        while (!feedCancellationTokenSource.IsCancellationRequested)
+                        if (!feedCancellationTokenSource.IsCancellationRequested)
                         {
                             Parallel.Invoke(() =>
                             {
@@ -16098,7 +16098,7 @@ namespace RefrigtzDLL
 
                     var output = Task.Factory.StartNew(() =>
                     {
-                        while (!feedCancellationTokenSource.IsCancellationRequested)
+                        if (!feedCancellationTokenSource.IsCancellationRequested)
                         {
                             Parallel.Invoke(() =>
                             {
@@ -20610,7 +20610,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    while (!feedCancellationTokenSource.IsCancellationRequested)
+                    if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {
@@ -20782,7 +20782,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    while (!feedCancellationTokenSource.IsCancellationRequested)
+                    if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {
@@ -21255,7 +21255,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 var output = Task.Factory.StartNew(() =>
                 {
-                    while (!feedCancellationTokenSource.IsCancellationRequested)
+                    if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.For(0, MaxGrayMidle(), i =>
                         {
@@ -21449,7 +21449,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 var output = Task.Factory.StartNew(() =>
                 {
-                    while (!feedCancellationTokenSource.IsCancellationRequested)
+                    if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
                         {

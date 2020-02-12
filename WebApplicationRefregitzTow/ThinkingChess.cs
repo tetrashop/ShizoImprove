@@ -6470,7 +6470,7 @@ namespace RefrigtzW
 
                                         var output = Task.Factory.StartNew(() =>
                                         {
-                                            while (!feedCancellationTokenSource.IsCancellationRequested)
+                                            if (!feedCancellationTokenSource.IsCancellationRequested)
                                             {
                                                 Parallel.Invoke(() =>
                                                 {
@@ -6878,7 +6878,7 @@ namespace RefrigtzW
 
                                     var output = Task.Factory.StartNew(() =>
                                     {
-                                        while (!feedCancellationTokenSource.IsCancellationRequested)
+                                        if (!feedCancellationTokenSource.IsCancellationRequested)
                                         {
                                             Parallel.Invoke(() =>
                                             {
@@ -12223,7 +12223,7 @@ namespace RefrigtzW
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    while (!feedCancellationTokenSource.IsCancellationRequested)
+                    if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {
@@ -12257,7 +12257,7 @@ namespace RefrigtzW
 
                 var output1 = Task.Factory.StartNew(() =>
                 {
-                    while (!feedCancellationTokenSource.IsCancellationRequested)
+                    if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {
