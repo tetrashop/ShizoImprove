@@ -19207,6 +19207,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19236,30 +19239,36 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             )
                             {
 
-                                //when do permite
-                                if (Index[0] != -1)
+                                //when blitz game (limited game)
+                                if (AllDraw.Blitz)
                                 {
-                                    //object kind semaphore
-                                    if (ik != Index[0])
+                                    //when do permite
+                                    if (Index[0] != -1)
                                     {
-                                        //satisfied of created deeper one
-                                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
-                                        continue;
+                                        //object kind semaphore
+                                        if (ik != Index[0])
+                                        {
+                                            //satisfied of created deeper one
+                                            BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
+                                            continue;
+                                        }
+                                        else//computational lists semaphore
+                                        if (j != jindex[0])
+                                        {
+                                            //satisfied of created deeper tow
+                                            BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 1);
+                                            continue;
+                                        }
                                     }
                                     else
-                                        if (j != jindex[0])
                                     {
-                                        //satisfied of created deeper tow
-                                        BlitzNotValidFullGameThinkingQuantumTreePartTow(ik, Order, 1);
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 1);
                                         continue;
                                     }
                                 }
                                 else
-                                {
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingQuantumTreePartThree(ik, Order, 1);
-                                    continue;
-                                }
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19422,6 +19431,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 2);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19479,6 +19491,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 2);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19643,6 +19658,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 3);
+
 
                                 Object O3 = new Object();
                                 lock (O3)
@@ -19700,6 +19718,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                             continue;
                                         }
                                     }
+                                    else
+                                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 3);
+
 
                                     Object O3 = new Object();
                                     lock (O3)
@@ -19866,6 +19887,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 4);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19923,6 +19947,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 4);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20092,6 +20119,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 5);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20152,6 +20182,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 5);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20320,6 +20353,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                     }
 
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 6);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20377,6 +20413,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                                     }
 
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 6);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {

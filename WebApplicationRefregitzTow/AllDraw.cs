@@ -19155,6 +19155,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19185,29 +19188,36 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             {
 
                                 //when do permite
-                                if (Index[0] != -1)
+                                //when blitz game (limited game)
+                                if (AllDraw.Blitz)
                                 {
-                                    //object kind semaphore
-                                    if (ik != Index[0])
+                                    //when do permite
+                                    if (Index[0] != -1)
                                     {
-                                        //satisfied of created deeper one
-                                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
-                                        continue;
+                                        //object kind semaphore
+                                        if (ik != Index[0])
+                                        {
+                                            //satisfied of created deeper one
+                                            BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
+                                            continue;
+                                        }
+                                        else//computational lists semaphore
+                                        if (j != jindex[0])
+                                        {
+                                            //satisfied of created deeper tow
+                                            BlitzNotValidFullGameThinkingTreePartTow(ik, Order, 1);
+                                            continue;
+                                        }
                                     }
                                     else
-                                        if (j != jindex[0])
                                     {
-                                        //satisfied of created deeper tow
-                                        BlitzNotValidFullGameThinkingTreePartTow(ik, Order, 1);
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(ik, Order, 1);
                                         continue;
                                     }
                                 }
                                 else
-                                {
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(ik, Order, 1);
-                                    continue;
-                                }
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19373,6 +19383,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19430,6 +19443,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19594,6 +19610,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
+
 
                                 Object O3 = new Object();
                                 lock (O3)
@@ -19651,6 +19670,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             continue;
                                         }
                                     }
+                                    else
+                                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
+
+
 
                                     Object O3 = new Object();
                                     lock (O3)
@@ -19816,6 +19839,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19873,6 +19899,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20044,6 +20073,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20104,6 +20136,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20273,6 +20308,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     }
 
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20330,6 +20368,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     }
 
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
