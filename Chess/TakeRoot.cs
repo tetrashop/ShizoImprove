@@ -251,6 +251,8 @@ namespace Refrigtz
                 */
                 try
                 {
+                    
+                   
                     if (!File.Exists(AllDrawKindString))
                     {
                         GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged
