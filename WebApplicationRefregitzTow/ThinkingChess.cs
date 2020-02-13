@@ -12708,16 +12708,13 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
                 ///Initiate a Local Variables.
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                for (var RowS = 0; RowS < 8; RowS++)
-                    for (var ColS = 0; ColS < 8; ColS++)
-                    {
-                        TableS[RowS, ColS] = TableConst[RowS, ColS];
-                    }
+                
                 if (Scop(ii, jj, i, j, 1) && System.Math.Abs(TableS[ii, jj]) == 1 && System.Math.Abs(Kind) == 1)
                 {
                     Order = ord;
@@ -12792,7 +12789,8 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
                 ///Initiate a Local Variables.
 
@@ -12801,11 +12799,7 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                    
                     ///Else for Elephant Thinking.
                     if (Scop(ii, jj, i, j, 2) && System.Math.Abs(TableS[ii, jj]) == 2 && System.Math.Abs(Kind) == 2)
                     {
@@ -12887,7 +12881,8 @@ namespace RefrigtzW
             lock (O1)
             {
 
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
 
                 ///Initiate a Local Variables.
@@ -12919,7 +12914,8 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
 
 
@@ -12927,11 +12923,7 @@ namespace RefrigtzW
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                for (var RowS = 0; RowS < 8; RowS++)
-                    for (var ColS = 0; ColS < 8; ColS++)
-                    {
-                        TableS[RowS, ColS] = TableConst[RowS, ColS];
-                    }
+                
                 Order = ord;
                 if (Scop(ii, jj, ii - 2, jj - 1, 3))
                 {
@@ -12954,7 +12946,8 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
 
                 ///Initiate a Local Variables.
@@ -12964,11 +12957,7 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                    
                     Order = ord;
                     if (Scop(ii, jj, ii + 2, jj - 1, 3))
                     {
@@ -12991,18 +12980,15 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
 
                 ///Initiate a Local Variables.
 
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                for (var RowS = 0; RowS < 8; RowS++)
-                    for (var ColS = 0; ColS < 8; ColS++)
-                    {
-                        TableS[RowS, ColS] = TableConst[RowS, ColS];
-                    }
+                
                 Order = ord;
                 if (Scop(ii, jj, ii - 2, jj + 1, 3))
                 {
@@ -13024,7 +13010,8 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
 
 
@@ -13035,11 +13022,7 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                    
                     Order = ord;
                     if (Scop(ii, jj, ii + 1, jj + 2, 3))
                     {
@@ -13062,7 +13045,8 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
 
 
@@ -13073,11 +13057,7 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                    
                     Order = ord;
                     if (Scop(ii, jj, ii - 1, jj - 2, 3))
                     {
@@ -13100,7 +13080,8 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
 
 
@@ -13112,11 +13093,7 @@ namespace RefrigtzW
                 Object O111 = new Object();
                 lock (O111)
                 {
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                    
                     Order = ord;
                     if (Scop(ii, jj, ii + 1, jj - 2, 3))
                     {
@@ -13139,7 +13116,8 @@ namespace RefrigtzW
             Object O111 = new Object();
             lock (O111)
             {
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
 
 
                 ///Initiate a Local Variables.
@@ -13149,11 +13127,7 @@ namespace RefrigtzW
                 Object O = new Object();
                 lock (O)
                 {
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                    
                     Order = ord;
                     if (Scop(ii, jj, ii - 1, jj + 2, 3))
                     {
@@ -13301,14 +13275,11 @@ namespace RefrigtzW
                         var j = jj;
 
                         ///Initiate a Local Variables.
-                        int[,] TableS = new int[8, 8];
+                        int[,] TableS = CloneATable(TableConst);
+
                         ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        for (var RowS = 0; RowS < 8; RowS++)
-                            for (var ColS = 0; ColS < 8; ColS++)
-                            {
-                                TableS[RowS, ColS] = TableConst[RowS, ColS];
-                            }
+                        
                         if (Scop(ii, jj, i, j, 4) && System.Math.Abs(TableS[ii, jj]) == 4 && System.Math.Abs(Kind) == 4)
                         {
                             //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
@@ -13345,14 +13316,11 @@ namespace RefrigtzW
                         var i = ii;
 
                         ///Initiate a Local Variables.
-                        int[,] TableS = new int[8, 8];
+                        int[,] TableS = CloneATable(TableConst);
+
                         ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                        for (var RowS = 0; RowS < 8; RowS++)
-                            for (var ColS = 0; ColS < 8; ColS++)
-                            {
-                                TableS[RowS, ColS] = TableConst[RowS, ColS];
-                            }
+                        
                         if (Scop(ii, jj, i, j, 4) && System.Math.Abs(TableS[ii, jj]) == 4 && System.Math.Abs(Kind) == 4)
                         {
                             //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
@@ -13395,18 +13363,15 @@ namespace RefrigtzW
 
 
                 ///Initiate a Local Variables.
-                int[,] TableS = new int[8, 8];
+                int[,] TableS = CloneATable(TableConst);
+
                 ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                 QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                 Object O = new Object();
                 lock (O)
                 {
                     //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                    
                     if (Scop(ii, jj, i, j, 5) && System.Math.Abs(TableS[ii, jj]) == 5 && System.Math.Abs(Kind) == 5)
                     {
                         //Thread ss = new Thread(new ThreadStart(ThinkWait)); ss.Start(); ss.Join();
@@ -13476,14 +13441,12 @@ namespace RefrigtzW
 
 
                     ///Initiate a Local Variables.
-                    int[,] TableS = new int[8, 8];
+                    int[,] TableS = CloneATable(TableConst);
+
                     ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                    
+
                     ///Calculate of Castles of Brown.
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, -7, CloneATable(TableS), Order, ii, jj)).Rules(ii, jj, i, jj, color, -7) && (ChessRules.CastleKingAllowedBrown))
                     {
@@ -13514,14 +13477,10 @@ namespace RefrigtzW
 
 
                     ///Initiate a Local Variables.
-                    int[,] TableS = new int[8, 8];
+                    int[,] TableS = CloneATable(TableConst);
                     ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                    for (var RowS = 0; RowS < 8; RowS++)
-                        for (var ColS = 0; ColS < 8; ColS++)
-                        {
-                            TableS[RowS, ColS] = TableConst[RowS, ColS];
-                        }
+                   
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 7, CloneATable(TableS), Order, ii, jj)).Rules(ii, jj, i, jj, color, 7) && (ChessRules.CastleKingAllowedGray))
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
@@ -13545,8 +13504,7 @@ namespace RefrigtzW
             Object O1 = new Object();
             lock (O1)
             {
-                int[,] TableS = new int[8, 8];
-                Object O = new Object();
+                 Object O = new Object();
                 lock (O)
                 {
                     ////Parallel.For(ii - 1, ii + 2, i =>
@@ -13560,14 +13518,12 @@ namespace RefrigtzW
                             if (i == ii && j == jj)
                                 continue;
                             ///Initiate a Local Variables.
-                            TableS = new int[8, 8];
+                            int[,] TableS = CloneATable(TableConst);
+
                             ///"Inizialization of This New Class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                             QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
-                            for (var RowS = 0; RowS < 8; RowS++)
-                                for (var ColS = 0; ColS < 8; ColS++)
-                                {
-                                    TableS[RowS, ColS] = TableConst[RowS, ColS];
-                                }
+                            
+
                             if (Scop(ii, jj, i, j, 6) && System.Math.Abs(TableS[ii, jj]) == 6 && System.Math.Abs(Kind) == 6)
                             {
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();

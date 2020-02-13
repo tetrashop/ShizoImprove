@@ -15691,7 +15691,7 @@ namespace QuantumRefrigiz
 
 
                 bool IS = false;
-                if (iAStarGreedy <= 0 //&& iAStarGreedy < MaxDuringLevelThinkingQuantumCreation
+                if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingQuantumCreation
                 )
                 {
                     IS = true;
@@ -16556,7 +16556,7 @@ namespace QuantumRefrigiz
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    //if (iAStarGreedy <= 0)
+                    //if (iAStarGreedy < 0)
                     {
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
@@ -18950,8 +18950,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             if (kind == 1)
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 1))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 1))
+                    //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].Row) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1]);
@@ -18974,8 +18974,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else if (kind == 2)//elephant 
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 2))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 2))
+                    //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].Row) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1]);
@@ -19000,8 +19000,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else if (kind == 3)//hourse
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 3))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 3))
+                    //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].Row) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1]);
@@ -19026,8 +19026,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else if (kind == 4)//Castle
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 4))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 4))
+                    //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].Row) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1]);
@@ -19051,8 +19051,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else if (kind == 5)//minister
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 5))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 5))
+                    //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].Row) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1]);
@@ -19077,8 +19077,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             else if (kind == 6)//king
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 6))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 6))
+                    //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].Row) + Number(KingOnTable[ik].KingThinkingQuantum[0].Column) + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1]);
