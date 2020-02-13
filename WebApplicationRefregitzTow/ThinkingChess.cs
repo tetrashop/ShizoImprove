@@ -6851,6 +6851,28 @@ namespace RefrigtzW
             }
             return HP;
         }
+        int HeuristicElephantOpen(int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
+        {
+            int HE = 0;
+            if (Order == 1)
+            {
+
+                if (TableConst[Ros, Cos] == 2 && Tab[Rod, Cod] <= 0)
+                {
+                    HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                }
+            }
+            else
+            {
+
+                if (TableConst[Ros, Cos] == -2 && Tab[Rod, Cod] >= 0)
+                {
+                    HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                }
+            }
+            return HE;
+        }
+
         public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord, int Ros, int Cos, int Rod, int Cod)
         {
             //long Time = TimeElapced.TimeNow();Spaces
@@ -7098,6 +7120,8 @@ namespace RefrigtzW
 
                 ExchangeSeed[2] += HeuristicPromotion(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
 
+                ExchangeSeed[2] += HeuristicElephantOpen(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
+                
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
