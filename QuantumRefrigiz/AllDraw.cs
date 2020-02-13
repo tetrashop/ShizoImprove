@@ -16445,7 +16445,7 @@ namespace QuantumRefrigiz
                     {
                         tH.Add(array1);
                         
-                        Parallel.ForEach(tH, items => Task.WaitAll(items));
+                        Task.WhenAll(tH.ToArray());
                         //for (int g = 0; g < tH.Count; g++)
                         //tH[g].Dispose();
                         tH.Clear();
@@ -16480,7 +16480,7 @@ namespace QuantumRefrigiz
                             if (tH.Count > 0)
                             {
                                 tH.Add(array1);
-                                Parallel.ForEach(tH, items => Task.WaitAll(items));
+                                Task.WhenAll(tH.ToArray());
                                 //for (int g = 0; g < tH.Count; g++)
                                 //tH[g].Dispose();
                                 tH.Clear();
@@ -16512,7 +16512,7 @@ namespace QuantumRefrigiz
             tH.Clear();
 
             //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            //Parallel.ForEach(T, items => Task.WaitAll(items));
+            //Parallel.ForEach(T, items => Task.WhenAll(items));
             return this;
 
         }
@@ -20833,7 +20833,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     }
                 });
                 TH.Add(output);
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
+                Task.WhenAll(TH.ToArray());
                 //for (int g = 0; g < TH.Count; g++)
                 //TH[g].Dispose();
                 TH.Clear();
@@ -21005,7 +21005,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     }
                 });
                 TH.Add(output);
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
+                Task.WhenAll(TH.ToArray());
                 //for (int g = 0; g < TH.Count; g++)
                 //TH[g].Dispose();
                 TH.Clear();
