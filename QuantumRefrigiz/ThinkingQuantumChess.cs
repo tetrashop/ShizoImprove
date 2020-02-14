@@ -6898,7 +6898,7 @@ namespace QuantumRefrigiz
                     HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
                     if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
                         HE *= NoOfExistInMoveList(Rod, Cod);
-                }
+                 }
             }
             else
             {
@@ -6908,9 +6908,34 @@ namespace QuantumRefrigiz
                     HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
                     if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
                         HE *= NoOfExistInMoveList(Rod, Cod);
-                }
+                 }
             }
             return HE;
+        }
+        int HeuristicHourseClose(int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
+        {
+            int HH = 0;
+            if (Order == 1)
+            {
+
+                if (TableConst[Ros, Cos] == 3 && Tab[Rod, Cod] <= 0)
+                {
+                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                    if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
+                        HH *= (64 - NoOfExistInMoveList(Rod, Cod));
+                  }
+            }
+            else
+            {
+
+                if (TableConst[Ros, Cos] == -3 && Tab[Rod, Cod] >= 0)
+                {
+                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                    if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
+                        HH *= (64 - NoOfExistInMoveList(Rod, Cod));
+                 }
+            }
+            return HH;
         }
 
         public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord, int Ros, int Cos, int Rod, int Cod)
@@ -7161,6 +7186,8 @@ namespace QuantumRefrigiz
                 ExchangeSeed[2] += HeuristicPromotion(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
 
                 ExchangeSeed[2] += HeuristicElephantOpen(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
+
+                ExchangeSeed[2] += HeuristicHourseClose(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
                 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
