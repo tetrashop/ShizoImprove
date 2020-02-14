@@ -5266,13 +5266,13 @@ namespace QuantumRefrigiz
             {
                 if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    if (!SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(1, Order))
+                    /*if (!SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(1, Order))
                     {
                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]));
                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
                     THIS = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5357,13 +5357,13 @@ namespace QuantumRefrigiz
             {
                 if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    if (!ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(2, Order))
+                    /*if (!ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(2, Order))
                     {
                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]));
                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
                     THIS = ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5450,13 +5450,13 @@ namespace QuantumRefrigiz
             {
                 if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    if (!HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(3, Order))
+                    /*if (!HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(3, Order))
                     {
                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]));
                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
 
                     THIS = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
@@ -5544,13 +5544,14 @@ namespace QuantumRefrigiz
             {
                 if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    if (!CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(4, Order))
+                    /*if (!CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(4, Order))
                     {
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]));
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
+
                     THIS = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j];
 
                     Found = true;
@@ -5638,13 +5639,13 @@ namespace QuantumRefrigiz
             {
                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    if (!MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(5, Order))
+                    /*if (!MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(5, Order))
                     {
                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]));
                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
                     THIS = MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5731,13 +5732,14 @@ namespace QuantumRefrigiz
             {
                 if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    if (!KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(6, Order))
+                    /*if (!KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(6, Order))
                     {
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]));
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
+
                     THIS = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;

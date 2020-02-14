@@ -5247,13 +5247,13 @@ namespace RefrigtzW
             {
                 if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
+                    /*if (!SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
                     {
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]));
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].SetRowColumn(0);
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
                     THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5338,13 +5338,13 @@ namespace RefrigtzW
             {
                 if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
+                    /*if (!ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
                     {
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]));
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].SetRowColumn(0);
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
                     THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5432,13 +5432,13 @@ namespace RefrigtzW
             {
                 if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
+                   /* if (!HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
                     {
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]));
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].SetRowColumn(0);
                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
 
                     THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                     Found = true;
@@ -5526,13 +5526,13 @@ namespace RefrigtzW
             {
                 if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
+                    /*if (!CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
                     {
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]));
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].SetRowColumn(0);
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
                     THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
 
                     Found = true;
@@ -5620,13 +5620,13 @@ namespace RefrigtzW
             {
                 if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
+                    /*if (!MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
                     {
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]));
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].SetRowColumn(0);
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
                     THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5711,13 +5711,13 @@ namespace RefrigtzW
             {
                 if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!KingOnTable[i].KingThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
+                    /*if (!KingOnTable[i].KingThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
                     {
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]));
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].SetRowColumn(0);
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }
+                    }*/
                     THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
