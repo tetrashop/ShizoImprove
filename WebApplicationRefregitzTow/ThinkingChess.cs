@@ -6784,6 +6784,17 @@ namespace RefrigtzW
 
             }
         }
+        int NoOfExistInMoveList(int Rows, int Cols)
+        {
+            int Is = 0;
+            for (int i = 0; i < HeuristicAllMove.Count; i++)
+            {
+                if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols)
+                    Is++;
+
+            }
+            return Is;
+        }
         int NoOfExistInAttackList(int Rows, int Cols)
         {
             int Is = 0;
@@ -6860,6 +6871,8 @@ namespace RefrigtzW
                 if (TableConst[Ros, Cos] == 2 && Tab[Rod, Cod] <= 0)
                 {
                     HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                    if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
+                        HE *= NoOfExistInMoveList(Rod, Cod);
                 }
             }
             else
@@ -6868,6 +6881,8 @@ namespace RefrigtzW
                 if (TableConst[Ros, Cos] == -2 && Tab[Rod, Cod] >= 0)
                 {
                     HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                    if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
+                        HE *= NoOfExistInMoveList(Rod, Cod);
                 }
             }
             return HE;
