@@ -6367,7 +6367,7 @@ namespace RefrigtzDLL
             }
             return HE;
         }
-        int HeuristicHourseClose(int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
+        int HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
             int HH = 0;
             if (Order == 1)
@@ -6375,7 +6375,9 @@ namespace RefrigtzDLL
 
                 if (TableConst[Ros, Cos] == 3 && Tab[Rod, Cod] <= 0)
                 {
-                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                    //Base of weak hourse is where is Home strong.
+                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (128- NoOfExistInReducedAttackList(Ros, Cos) + NoOfExistInReducedSupportList(Ros, Cos))));
+                    //Hourse close
                     if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
                         HH *= (64 - NoOfExistInMoveList(Rod, Cod));
                 }
@@ -6385,13 +6387,16 @@ namespace RefrigtzDLL
 
                 if (TableConst[Ros, Cos] == -3 && Tab[Rod, Cod] >= 0)
                 {
-                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                    //Base of weak hourse is where is Home strong.
+                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (128- NoOfExistInReducedAttackList(Ros, Cos) + NoOfExistInReducedSupportList(Ros, Cos))));
+                    //Hourse close
                     if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
                         HH *= (64 - NoOfExistInMoveList(Rod, Cod));
                 }
             }
             return HH;
         }
+
 
         public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord, int Ros, int Cos, int Rod, int Cod)
         {
@@ -6642,7 +6647,7 @@ namespace RefrigtzDLL
 
                 ExchangeSeed[2] += HeuristicElephantOpen(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
 
-                ExchangeSeed[2] += HeuristicHourseClose(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
+                ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
