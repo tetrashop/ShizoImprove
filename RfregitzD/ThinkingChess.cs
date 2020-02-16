@@ -48,8 +48,8 @@ namespace RefrigtzDLL
             { 0, 0, 0, 0, 0, 0, 0, 0 }
             };
 
-        readonly int RationalRegard = 10;
-        readonly int RationalPenalty = -10;
+        int RationalRegard = 10;
+        int RationalPenalty = -10;
 
         readonly int RationalWin = 1000000;
         readonly int RationalLosey = -1000000;
@@ -12922,6 +12922,36 @@ namespace RefrigtzDLL
         {
             try
             {
+                if (AllDraw.OrderPlate == Order)
+                {
+                    //Combination of tow elephant s powerfull of tow hourse
+                    if (Kind == 2)
+                    {
+                        RationalPenalty *= 2;
+                        RationalRegard *= 2;
+                    }
+                    if (Kind == 3)
+                    {
+                        RationalPenalty /= 2;
+                        RationalRegard /= 2;
+                    }
+                }
+                else
+                {
+
+                    //defensive of tow elephant and primitative of tow hourse
+                    if (Kind == 2)
+                    {
+                        RationalPenalty /= 2;
+                        RationalRegard /= 2;
+                    }
+                    if (Kind == 3)
+                    {
+                        RationalPenalty *= 2;
+                        RationalRegard *= 2;
+                    }
+
+                }
                 if (feedCancellationTokenSource == null) feedCancellationTokenSource = new CancellationTokenSource();
                 
                                                                                                                      //long Time = TimeElapced.TimeNow();Spaces++;

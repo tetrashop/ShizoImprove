@@ -13801,6 +13801,36 @@ namespace RefrigtzW
         {
             try
             {
+                if (AllDraw.OrderPlate == Order)
+                {
+                    //Combination of tow elephant s powerfull of tow hourse
+                    if (Kind == 2)
+                    {
+                        RationalPenalty *= 2;
+                        RationalRegard *= 2;
+                    }
+                    if (Kind == 3)
+                    {
+                        RationalPenalty /= 2;
+                        RationalRegard /= 2;
+                    }
+                }
+                else
+                {
+
+                    //defensive of tow elephant and primitative of tow hourse
+                    if (Kind == 2)
+                    {
+                        RationalPenalty /= 2;
+                        RationalRegard /= 2;
+                    }
+                    if (Kind == 3)
+                    {
+                        RationalPenalty *= 2;
+                        RationalRegard *= 2;
+                    }
+
+                }
                 if (feedCancellationTokenSource == null) feedCancellationTokenSource = new CancellationTokenSource(); //long Time = TimeElapced.TimeNow();Spaces++;
                 /*   if (AStarGreedy == null)
                        AStarGreedy = new List<AllDraw>();
