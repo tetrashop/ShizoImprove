@@ -421,6 +421,50 @@ namespace TryCatchRemover
                     if (jj > ii)
                         Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
                 }
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("char") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("//");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("string") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("//");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("String") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("//");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("Int32") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("//");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("Int64") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("//");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("Double") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("//");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                
+
                 i++;
             } while (i < Contain.Length);
             saveFileDialogTryCatchRemover.ShowDialog();
