@@ -31,8 +31,8 @@ namespace RefrigtzDLL
         const int DistantRowBelow = 7;
         const int DistantRowUp = 0;
 
-        const int SmallCastleKingColumnBefore = 4;//44444
-        const int SmallCastleKingColumnAfter = 6;//666666
+        const int SmallCastleKingColumnBefore = 4;
+        const int SmallCastleKingColumnAfter = 6;
         const int SmallCastleCastleColumnBefore = 7;
         const int SmallCastleCastleColumnAfter = 5;
 
@@ -74,7 +74,7 @@ namespace RefrigtzDLL
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
-                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                    File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
                 }
             }
             catch (Exception t) { Log(t); }
@@ -82,7 +82,7 @@ namespace RefrigtzDLL
         //Constructor.
         public ChessGeneticAlgorithm(bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -93,11 +93,11 @@ namespace RefrigtzDLL
             ArrangmentsChanged = Arrangments;
             //Initiate Global Variables.
             RowColumn.Clear();
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ChessGeneticAlgorithm:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         public bool FindHitToModified(int[,] Cromosom1, int[,] Cromosom2, List<int[,]> List, int Index, int Order, bool and)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             bool Find = false;
             for (var i = 0; i < 8; i++)
             {
@@ -139,13 +139,13 @@ namespace RefrigtzDLL
                 if (Find)
                     break;
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FindHitToModified:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
             return Find;
         }
         //Found of Different Home Gen in Tow Chess Home Table Method. 
         public bool FindGenToModified(int[,] Cromosom1, int[,] Cromosom2, List<int[,]> List, int Index, int Order, bool and)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             ChessRules.SmallKingCastleBrown = false;
             ChessRules.SmallKingCastleGray = false;
             ChessRules.BigKingCastleBrown = false;
@@ -455,7 +455,7 @@ namespace RefrigtzDLL
                                 CromosomColumn = i;
                                 Find = true;
                                 FindNumber++;
-                                //Hit = true;
+                                
                             }
 
                             else
@@ -465,7 +465,7 @@ namespace RefrigtzDLL
                                 CromosomColumnFirst = i;
                                 Find = true;
                                 FindNumber++;
-                                //Hit = true;
+                                
                             }
                         }
                         else
@@ -476,7 +476,7 @@ namespace RefrigtzDLL
                                 CromosomColumn = i;
                                 Find = true;
                                 FindNumber++;
-                                //Hit = true;
+                                
                             }
 
                             else
@@ -486,7 +486,7 @@ namespace RefrigtzDLL
                                 CromosomColumnFirst = i;
                                 Find = true;
                                 FindNumber++;
-                                //Hit = true;
+                                
                             }
                         }
                     }
@@ -494,7 +494,7 @@ namespace RefrigtzDLL
                 }
             }
             Hit = HitSet(Order, Cromosom1, Cromosom2);
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FindGenToModified:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
             //If Gen Foundatjon js Valjd. 
             if (((FindNumber >= 1) && Find) || Brj || AllDraw.SodierConversionOcuured)
                 return Find;
@@ -524,7 +524,7 @@ namespace RefrigtzDLL
         }
         int[,] CloneATable(int[,] Tab)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -535,14 +535,14 @@ namespace RefrigtzDLL
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Table;
             }
 
         }
         bool[,] CloneATable(bool[,] Tab)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -553,7 +553,7 @@ namespace RefrigtzDLL
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Table;
             }
 
@@ -561,7 +561,7 @@ namespace RefrigtzDLL
         //Table Foundation of Genetic Alogorithm Method.
         public int[,] GenerateTable(List<int[,]> List, int Index, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             //Initiate Local Variables.
             Begine5:
             RowColumn.Clear();
@@ -610,7 +610,7 @@ namespace RefrigtzDLL
                 //If Gen Kind Not Found Retrun Not Valididity.
                 if (List[List.Count + MinusOne][CromosomRow, CromosomColumn] == 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return null;
                 }
                 else
@@ -665,7 +665,7 @@ namespace RefrigtzDLL
 
                                 else
                                 {
-                                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                    
                                     //Return Genetic Table.
                                     return GeneticTable;
                                 }
@@ -703,7 +703,7 @@ namespace RefrigtzDLL
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return null;
                     }
 
@@ -723,7 +723,7 @@ namespace RefrigtzDLL
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return null;
                     }
 
@@ -756,7 +756,7 @@ namespace RefrigtzDLL
                 } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return null;
                 }
 
@@ -774,7 +774,7 @@ namespace RefrigtzDLL
                 } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return null;
                 }
             }
