@@ -6275,6 +6275,17 @@ namespace RefrigtzDLL
             }
             return Is;
         }
+        int NoOfExistInReducedMoveList(int Rows, int Cols)
+        {
+            int Is = 0;
+            for (int i = 0; i < HeuristicAllReducedMove.Count; i++)
+            {
+                if (HeuristicAllReducedMove[i][1] == Rows && HeuristicAllReducedMove[i][2] == Cols)
+                    Is++;
+
+            }
+            return Is;
+        }
         int NoOfExistInAttackList(int Rows, int Cols)
         {
             int Is = 0;
@@ -6648,6 +6659,9 @@ namespace RefrigtzDLL
                 ExchangeSeed[2] += HeuristicElephantOpen(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
 
                 ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
+
+                //Safty before Attack
+                ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Rod, Cod) + NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))) + (RationalRegard * (NoOfExistInMoveList(Ros, Cos) + NoOfExistInAttackList(Ros, Cos) + NoOfExistInSupportList(Ros, Cos)));
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;

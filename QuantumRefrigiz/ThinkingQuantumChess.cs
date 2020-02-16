@@ -6820,6 +6820,17 @@ namespace QuantumRefrigiz
             }
             return Is;
         }
+        int NoOfExistInReducedMoveList(int Rows, int Cols)
+        {
+            int Is = 0;
+            for (int i = 0; i < HeuristicAllReducedMove.Count; i++)
+            {
+                if (HeuristicAllReducedMove[i][1] == Rows && HeuristicAllReducedMove[i][2] == Cols)
+                    Is++;
+
+            }
+            return Is;
+        }
         int NoOfExistInAttackList(int Rows, int Cols)
         {
             int Is = 0;
@@ -6898,7 +6909,7 @@ namespace QuantumRefrigiz
                     HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
                     if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
                         HE *= NoOfExistInMoveList(Rod, Cod);
-                 }
+                }
             }
             else
             {
@@ -6908,7 +6919,7 @@ namespace QuantumRefrigiz
                     HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
                     if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
                         HE *= NoOfExistInMoveList(Rod, Cod);
-                 }
+                }
             }
             return HE;
         }
@@ -6921,7 +6932,7 @@ namespace QuantumRefrigiz
                 if (TableConst[Ros, Cos] == 3 && Tab[Rod, Cod] <= 0)
                 {
                     //Base of weak hourse is where is Home strong.
-                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (128- NoOfExistInReducedAttackList(Ros, Cos) + NoOfExistInReducedSupportList(Ros, Cos))));
+                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Ros, Cos) + NoOfExistInReducedSupportList(Ros, Cos))));
                     //Hourse close
                     if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
                         HH *= (64 - NoOfExistInMoveList(Rod, Cod));
@@ -6933,7 +6944,7 @@ namespace QuantumRefrigiz
                 if (TableConst[Ros, Cos] == -3 && Tab[Rod, Cod] >= 0)
                 {
                     //Base of weak hourse is where is Home strong.
-                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (128- NoOfExistInReducedAttackList(Ros, Cos) + NoOfExistInReducedSupportList(Ros, Cos))));
+                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Ros, Cos) + NoOfExistInReducedSupportList(Ros, Cos))));
                     //Hourse close
                     if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
                         HH *= (64 - NoOfExistInMoveList(Rod, Cod));
@@ -6941,6 +6952,7 @@ namespace QuantumRefrigiz
             }
             return HH;
         }
+
 
         public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord, int Ros, int Cos, int Rod, int Cod)
         {
@@ -7192,7 +7204,10 @@ namespace QuantumRefrigiz
                 ExchangeSeed[2] += HeuristicElephantOpen(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
 
                 ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
-                
+
+                //Safty before Attack
+                ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Rod, Cod) + NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))) + (RationalRegard * (NoOfExistInMoveList(Ros, Cos) + NoOfExistInAttackList(Ros, Cos) + NoOfExistInSupportList(Ros, Cos)));
+
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
