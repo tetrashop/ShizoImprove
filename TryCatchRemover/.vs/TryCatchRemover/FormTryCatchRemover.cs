@@ -358,21 +358,21 @@ namespace TryCatchRemover
                     if (jj > ii)
                         Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
                 }
-                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("for") != -1 && Contain[i].IndexOf("/r") != -1)
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("for") != -1 && Contain[i].IndexOf("(") != -1 && Contain[i].IndexOf("/r") != -1)
                 {
                     int ii = Contain[i].IndexOf("//");
                     int jj = Contain[i].Length;
                     if (jj > ii)
                         Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
                 }
-                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("if") != -1 && Contain[i].IndexOf("/r") != -1)
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("if") != -1 && Contain[i].IndexOf("(") != -1 && Contain[i].IndexOf("/r") != -1)
                 {
                     int ii = Contain[i].IndexOf("//");
                     int jj = Contain[i].Length;
                     if (jj > ii)
                         Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
                 }
-                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("while") != -1 && Contain[i].IndexOf("/r") != -1)
+                if (Contain[i].IndexOf("//") != -1 && Contain[i].IndexOf("while") != -1 && (Contain[i].Length == 5 && Contain[i].IndexOf("}") != -1) && Contain[i].IndexOf("/r") != -1)
                 {
                     int ii = Contain[i].IndexOf("//");
                     int jj = Contain[i].Length;
