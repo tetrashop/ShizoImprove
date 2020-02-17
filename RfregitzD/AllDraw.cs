@@ -547,7 +547,7 @@ namespace RefrigtzDLL
             }
         }
         [field: NonSerialized]
-        private CancellationTokenSource feedCancellationTokenSource =
+        private readonly CancellationTokenSource feedCancellationTokenSource =
             new CancellationTokenSource();
         [field: NonSerialized] private readonly Task feedTask;
 
@@ -563,11 +563,11 @@ namespace RefrigtzDLL
         {
             if (disposing)
             {
-                feedCancellationTokenSource.Cancel();
-                feedTask.Wait();
+                //feedCancellationTokenSource.Cancel();
+                //feedTask.Wait();
 
-                feedCancellationTokenSource.Dispose();
-                feedTask.Dispose();
+                //feedCancellationTokenSource.Dispose();
+                //feedTask.Dispose();
             }
         }
         //Constructor
@@ -577,7 +577,7 @@ namespace RefrigtzDLL
             Object a = new Object();
             lock (a)
             {
-                if (feedCancellationTokenSource == null) feedCancellationTokenSource = new CancellationTokenSource();
+                
 
                 MaxHeuristicxT = Int32.MinValue;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
@@ -820,7 +820,7 @@ namespace RefrigtzDLL
             Object a = new Object();
             lock (a)
             {
-                if (feedCancellationTokenSource == null) feedCancellationTokenSource = new CancellationTokenSource();
+                
 
                 OrderP = Order;
                 MaxHeuristicxT = Int32.MinValue;
@@ -16145,8 +16145,7 @@ namespace RefrigtzDLL
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            if (feedCancellationTokenSource == null) feedCancellationTokenSource = new CancellationTokenSource();
-            //long Time = TimeElapced.TimeNow();Spaces++;
+              //long Time = TimeElapced.TimeNow();Spaces++;
             OrderP = Order;
             SetObjectNumbers(Tab);
 
@@ -16222,6 +16221,7 @@ namespace RefrigtzDLL
 
 
                     var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinking(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
+                    //array1.ConfigureAwait(false);
                     //array1.Wait();
                     tH.Add(array1);
 
@@ -16381,6 +16381,7 @@ namespace RefrigtzDLL
             ChessRules.CurrentOrder = DummyCurrentOrder;
 
             var array = Task.Factory.StartNew(() => Serve(Order));
+            //array.ConfigureAwait(false);
             array.Wait(); array.Dispose();
 
             if (FOUND)
@@ -16393,10 +16394,11 @@ namespace RefrigtzDLL
                     int OrderLeaf = Order;
                     var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, ref OrderLeaf, 0, 0, 0, 0));
 
+                    //array1.ConfigureAwait(false);
                     if (tH.Count > 0)
                     {
                         tH.Add(array1);
-                        Task.WhenAll(tH.ToArray());
+                        Task.WaitAll(tH.ToArray());
                         //for (int g = 0; g < tH.Count; g++)
                         //tH[g].Dispose();
                         tH.Clear();
@@ -16424,11 +16426,12 @@ namespace RefrigtzDLL
                         //Parallel.Invoke(() =>
                         {
                             var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
+                            //array1.ConfigureAwait(false);
                             //array1.Wait();
                             if (tH.Count > 0)
                             {
                                 tH.Add(array1);
-                                Task.WhenAll(tH.ToArray());
+                                Task.WaitAll(tH.ToArray());
                                 //for (int g = 0; g < tH.Count; g++)
                                 //tH[g].Dispose();
                                 tH.Clear();
@@ -16460,7 +16463,7 @@ namespace RefrigtzDLL
             tH.Clear();
 
             //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-            //Parallel.ForEach(T, items => Task.WhenAll(items));
+            //Parallel.ForEach(T, items => Task.WaitAll(items));
             return this;
 
         }
@@ -18764,91 +18767,86 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             if (kind == 1)
             {
                 //when valid do create of deeper node and string making
-                if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count > SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count)
+                if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count == SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count)
                 {
                     if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 2)//elephant 
             {
                 //when valid do create of deeper node and string making
-                if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count > ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count)
+                if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count)
                 {
                     if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 3)//hourse
             {
                 //when valid do create of deeper node and string making
-                if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
+                if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count == HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
                 {
                     if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                         HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].TableList.Clear();
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 4)//Castle
             {
                 //when valid do create of deeper node and string making
-                if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
+                if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
                 {
                     if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].TableList.Clear();
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 5)//minister
             {
                 //when valid do create of deeper node and string making
-                if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count > MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count)
+                if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count)
                 {
                     if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
                         MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 6)//king
             {
                 //when valid do create of deeper node and string making
-                if (KingOnTable[ik].KingThinking[0].TableListKing.Count > KingOnTable[ik].KingThinking[0].AStarGreedy.Count)
+                if (KingOnTable[ik].KingThinking[0].TableListKing.Count == KingOnTable[ik].KingThinking[0].AStarGreedy.Count)
                 {
                     if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
                         KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
-                    KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].TableList.Clear();
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -18880,6 +18878,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 int Ord = Order;
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 var array1 = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Ord * -1, false, FOUND, LeafAStarGreedy));
+                //array1.ConfigureAwait(false);
                 TH.Add(array1);
             }
             else if (kind == 2)//elephant 
@@ -18905,6 +18904,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
                 var array1 = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                //array1.ConfigureAwait(false);
                 TH.Add(array1);
 
             }
@@ -18930,6 +18930,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 int Ord = Order;
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 var array1 = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                //array1.ConfigureAwait(false);
                 TH.Add(array1);
 
 
@@ -18956,6 +18957,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 int Ord = Order;
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 var array1 = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                //array1.ConfigureAwait(false);
                 TH.Add(array1);
 
             }
@@ -18982,6 +18984,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
                 var array1 = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                //array1.ConfigureAwait(false);
                 TH.Add(array1);
 
             }
@@ -19008,6 +19011,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
                 var array1 = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                //array1.ConfigureAwait(false);
 
                 TH.Add(array1);
 
@@ -19085,6 +19089,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 1));
+                //array.ConfigureAwait(false);
                 array.Wait(); array.Dispose();
 
                 Object OOOO = new Object();
@@ -20790,7 +20795,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 });
                 TH.Add(output);
-                Task.WhenAll(TH.ToArray());
+                Task.WaitAll(TH.ToArray());
                 //for (int g = 0; g < TH.Count; g++)
                 //TH[g].Dispose();
                 TH.Clear();
@@ -20962,7 +20967,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 });
                 TH.Add(output);
-                Task.WhenAll(TH.ToArray());
+                Task.WaitAll(TH.ToArray());
                 //for (int g = 0; g < TH.Count; g++)
                 //TH[g].Dispose();
                 TH.Clear();
@@ -22393,7 +22398,7 @@ if (Kind == 5)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (MaxAStarGreedy == 0)
+                    //if (MaxAStarGreedy == 0)
                         MaxAStarGreedy = PlatformHelper.ProcessorCount;
                     MaxAStarGreedy1 = MaxAStarGreedy;
 
@@ -23074,7 +23079,7 @@ if (Kind == 5)
             lock (o)
             {
 
-                bool Act = false;
+                //bool Act = false;
                 AllDraw Node = this;
 
                 if (DummyFileStream.Position >= DummyFileStream.Length)

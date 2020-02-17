@@ -12,9 +12,9 @@ namespace Refrigtz
     [Serializable]
     public class TakeRoot
     {
-        bool WaitOnplay = false;
+        //bool WaitOnplay = false;
 
-        String path3 = @"temp";
+        readonly String path3 = @"temp";
         String AllDrawReplacement = "";
 
         public static int AllDrawKind = 0;//0,1,2,3,4,5,6
@@ -211,9 +211,9 @@ namespace Refrigtz
                         "Process", "% Processor Time", Process.GetCurrentProcess().ProcessName, true);
 
 
-                do { WaitOnplay = true; } while (myAppCpu.NextValue() != 0);
+                ///do { WaitOnplay = true; } while (myAppCpu.NextValue() != 0);
 
-                WaitOnplay = false;
+                //WaitOnplay = false;
             }
         }
 

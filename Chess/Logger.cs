@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Chess
 {
-    class Logger : IDisposable
+    class Logger //: IDisposable
     {
         private FileStream file; //Only this instance have a right to own it
         private StreamWriter writer;
