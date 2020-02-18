@@ -95,6 +95,8 @@ namespace QuantumRefrigiz
         List<int[]> HeuristicAllMove = new List<int[]>();
         List<int[]> HeuristicAllReducedMove = new List<int[]>();
 
+        public static int ColleralationGray = int.MinValue;
+        public static int ColleralationBrown = int.MinValue;
         public static int Colleralation = int.MinValue;
         public static int DeColleralation = int.MinValue;
         public static int[,] TableInitiation ={
@@ -12592,35 +12594,8 @@ namespace QuantumRefrigiz
                 int HExchangeInnovation = 0;
                 int HExchangeSupport = 0;
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
-                /*if (HeuristicReducedAttackValue < 0 || Hu[0] < 0)
-                {
 
-                    Hu[1] = 0;
-                    Hu[2] = 0;
-                    Hu[3] = 0;
-                    Hu[4] = 0;
-                    Hu[5] = 0;
-                    Hu[6] = 0;
-                    Hu[7] = 0;
-                    Hu[8] = 0;
-                    Hu[9] = 0;
-                    Hu[10] = 0;
-                    Hu[11] = 0;
-                    Hu[12] = 0;
-                    Hu[13] = 0;
-                    Hu[14] = 0;
-                    HeuristicAttackValue = 0;
-                    HeuristicSelfSupportedValue = 0;
-                    HeuristicReducedSupport = 0;
-                    HeuristicMovementValue = 0;
-                    HeuristicCheckedMate = 0;
-                    HeuristicDistributionValue = 0;
-                    HeuristicKingSafe = 0;
-                    HeuristicFromCenter = 0;
-                    HeuristicKingDangour = 0;
-                    HeuristicReducedMovementValue = 0;
 
-                }*/
                 Heuristic[0] = Hu[0];
                 Heuristic[1] = Hu[1];
                 Heuristic[2] = Hu[2];
@@ -12632,8 +12607,8 @@ namespace QuantumRefrigiz
                 HDistance = Hu[7];
                 HKingSafe = Hu[8];
                 HKingDangour = Hu[9];
-                HFromCenter = Hu[10] + Hu[11] + Hu[12];
-                HExchangeInnovation = Hu[13];
+                HFromCenter = Hu[10];
+                HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
 
                 Object O1 = new Object();
@@ -12644,35 +12619,57 @@ namespace QuantumRefrigiz
                     if (Before)
                     {
 
-                        HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
-                        HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
-                        HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
-                        HeuristicSelfSupportedValue = (Heuristic[3] * SignOrderToPlate(Order));
-                        HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
-                        HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                        HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
-                        HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
+                        HeuristicSelfSupportedValue = (Heuristic[3] * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
-
+                        HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
+                        if (Order == 1 && ColleralationGray > 30)
+                        {
+                            HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
+                            HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
+                            HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
+                            HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
+                            HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                            HeuristicCheckedMate = ((HCheck * SignOrderToPlate(Order)));
+                            HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
+                        }
+                        if (Order == -1 && ColleralationBrown > 30)
+                        {
+                            HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
+                            HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
+                            HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
+                            HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
+                            HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                            HeuristicCheckedMate = ((HCheck * SignOrderToPlate(Order)));
+                            HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
+                        }
                     }
                     else
                     {
-
-                        HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
-                        HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
-                        HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
-                        HeuristicSelfSupportedValue += (Heuristic[3] * SignOrderToPlate(Order));
-                        HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
-                        HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                        HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue += (HDistance * SignOrderToPlate(Order));
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
-                        HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
+                        HeuristicSelfSupportedValue += (Heuristic[3] * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
+                        HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
+                        HeuristicDistributionValue += (HDistance * SignOrderToPlate(Order));
+                        if (HeuristicAttackValue == 0 && HeuristicReducedAttackValue == 0 && HeuristicReducedSupport == 0 && HeuristicReducedMovementValue == 0)
+                            HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
 
-
+                        if (Order == 1 && ColleralationGray > 30)
+                        {
+                            HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
+                            HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
+                            HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
+                            HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                            HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
+                        }
+                        if (Order == -1 && ColleralationBrown > 30)
+                        {
+                            HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
+                            HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
+                            HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
+                            HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                            HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
+                        }
                     }
                 }
             }

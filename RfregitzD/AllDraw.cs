@@ -995,12 +995,13 @@ namespace RefrigtzDLL
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index, bool Verify = false)
         {
+            AllDraw thisAStarGreedyString = this.AStarGreedyString;
+
             if (Verify)
             {
                 if (SetRowColumn())
                     return;
                 int Dummy = OrderP;
-                AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
                 //long Time = TimeElapced.TimeNow(); Spaces++;
                 Object a1 = new Object();
                 lock (a1)
@@ -1414,7 +1415,7 @@ namespace RefrigtzDLL
             else
             {
                 int Dummy = OrderP;
-                AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
+            
                 //long Time = TimeElapced.TimeNow(); Spaces++;
                 Object a1 = new Object();
                 lock (a1)
@@ -1844,7 +1845,7 @@ namespace RefrigtzDLL
         public bool SetRowColumn()
         {
             int Dummy = OrderP;
-            AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
+            AllDraw thisAStarGreedyString = this.AStarGreedyString;
             //long Time = TimeElapced.TimeNow(); Spaces++;
             Object a1 = new Object();
             lock (a1)

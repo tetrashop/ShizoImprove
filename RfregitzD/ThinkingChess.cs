@@ -24,6 +24,8 @@ namespace RefrigtzDLL
         List<int[]> HeuristicAllMove = new List<int[]>();
         List<int[]> HeuristicAllReducedMove = new List<int[]>();
 
+        public static int ColleralationGray = int.MinValue;
+        public static int ColleralationBrown = int.MinValue;
         public static int Colleralation = int.MinValue;
         public static int DeColleralation = int.MaxValue;
         public static int[,] TableInitiation ={
@@ -5728,6 +5730,7 @@ namespace RefrigtzDLL
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
+
                         int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
                         if (Cor > Colleralation)
                         {
@@ -5735,8 +5738,14 @@ namespace RefrigtzDLL
                             Dis += RationalRegard;
 
                         }
-                    }
+                        if (Cor > ColleralationGray)
+                        {
+                            ColleralationGray = Cor;
 
+                        }
+                        
+
+                    }
 
 
                     if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
@@ -5762,6 +5771,11 @@ namespace RefrigtzDLL
                             {
                                 DeColleralation = Cor;
                                 Dis += RationalRegard;
+
+                            }
+                            if (Cor > ColleralationBrown)
+                            {
+                                ColleralationBrown = Cor;
 
                             }
                         }
@@ -11924,8 +11938,8 @@ namespace RefrigtzDLL
                 HDistance = Hu[7];
                 HKingSafe = Hu[8];
                 HKingDangour = Hu[9];
-                HFromCenter = Hu[10] + Hu[11] + Hu[12];
-                HExchangeInnovation = Hu[13];
+                HFromCenter = Hu[10] ;
+                HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
 
                 Object O1 = new Object();
@@ -11936,35 +11950,57 @@ namespace RefrigtzDLL
                     if (Before)
                     {
 
-                        HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
-                        HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
-                        HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
-                        HeuristicSelfSupportedValue = (Heuristic[3] * SignOrderToPlate(Order));
-                        HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
-                        HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                        HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
-                        HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
+                        HeuristicSelfSupportedValue = (Heuristic[3] * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
-
+                        HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
+                        if (Order == 1 && ColleralationGray > 30)
+                        {
+                            HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
+                            HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
+                            HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
+                            HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
+                            HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                            HeuristicCheckedMate = ((HCheck * SignOrderToPlate(Order)));
+                            HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
+                        }
+                        if (Order == -1 && ColleralationBrown > 30)
+                        {
+                            HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
+                            HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
+                            HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
+                            HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
+                            HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                            HeuristicCheckedMate = ((HCheck * SignOrderToPlate(Order)));
+                            HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
+                        }
                     }
                     else
                     {
-
-                        HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
-                        HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
-                        HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
-                        HeuristicSelfSupportedValue += (Heuristic[3] * SignOrderToPlate(Order));
-                        HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
-                        HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                        HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue += (HDistance * SignOrderToPlate(Order));
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
-                        HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
+                        HeuristicSelfSupportedValue += (Heuristic[3] * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
+                        HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
+                        HeuristicDistributionValue += (HDistance * SignOrderToPlate(Order));
+                        if (HeuristicAttackValue == 0 && HeuristicReducedAttackValue == 0 && HeuristicReducedSupport == 0 && HeuristicReducedMovementValue == 0)
+                            HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
 
-
+                        if (Order == 1 && ColleralationGray > 30)
+                        {
+                            HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
+                            HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
+                            HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
+                            HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                            HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
+                        }
+                        if (Order == -1 && ColleralationBrown > 30)
+                        {
+                            HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
+                            HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
+                            HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
+                            HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                            HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
+                        }
                     }
                 }
             }
