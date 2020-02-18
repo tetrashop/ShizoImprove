@@ -16222,8 +16222,9 @@ namespace RefrigtzDLL
 
                     var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinking(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
                     //array1.ConfigureAwait(false);
-                    //array1.Wait();
-                    tH.Add(array1);
+                    array1.Wait();
+                    array1.Dispose();
+                    //tH.Add(array1);
 
                 }
 
@@ -16382,7 +16383,11 @@ namespace RefrigtzDLL
 
             var array = Task.Factory.StartNew(() => Serve(Order));
             //array.ConfigureAwait(false);
-            array.Wait(); array.Dispose();
+            array.Wait();
+            array.Dispose();
+            //tH.Add(array);
+            // Parallel.ForEach(tH, items => Task.WaitAll(items));
+            //  tH.Clear();
 
             if (FOUND)
             {
@@ -16395,21 +16400,12 @@ namespace RefrigtzDLL
                     var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, ref OrderLeaf, 0, 0, 0, 0));
 
                     //array1.ConfigureAwait(false);
-                    if (tH.Count > 0)
-                    {
-                        tH.Add(array1);
-                        Task.WaitAll(tH.ToArray());
-                        //for (int g = 0; g < tH.Count; g++)
-                        //tH[g].Dispose();
-                        tH.Clear();
-                    }
-                    else
-                    {
-                        array1.Wait();
-                        array1.Dispose();
-                    }    /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
-                    tFoundOfLeafDepenOfKindFullGame.Start();
-                    T.Add(tFoundOfLeafDepenOfKindFullGame);*/
+
+                    array1.Wait();
+                    array1.Dispose();
+                    /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
+                tFoundOfLeafDepenOfKindFullGame.Start();
+                T.Add(tFoundOfLeafDepenOfKindFullGame);*/
                 }
             }
             else
@@ -16423,34 +16419,24 @@ namespace RefrigtzDLL
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
-                        //Parallel.Invoke(() =>
-                        {
-                            var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
-                            //array1.ConfigureAwait(false);
-                            //array1.Wait();
-                            if (tH.Count > 0)
-                            {
-                                tH.Add(array1);
-                                Task.WaitAll(tH.ToArray());
-                                //for (int g = 0; g < tH.Count; g++)
-                                //tH[g].Dispose();
-                                tH.Clear();
-                            }
-                            else
-                            {
-                                array1.Wait();
-                                array1.Dispose();
-                            }
-                            /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
-                        tFullGameThinkingTree.Start();
-                        T.Add(tFullGameThinkingTree);*/
+
+                        var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
+                        //array1.ConfigureAwait(false);
+                        //array1.Wait();
+
+                        array1.Wait();
+                        array1.Dispose();
+
+                        /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
+                    tFullGameThinkingTree.Start();
+                    T.Add(tFullGameThinkingTree);*/
 
 
-                        }//);
                     }
                 }
-
             }
+
+            
 
             Object Om = new Object();
             lock (Om)
@@ -20795,7 +20781,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 });
                 TH.Add(output);
-                Task.WaitAll(TH.ToArray());
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
                 //for (int g = 0; g < TH.Count; g++)
                 //TH[g].Dispose();
                 TH.Clear();
@@ -20967,7 +20953,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 });
                 TH.Add(output);
-                Task.WaitAll(TH.ToArray());
+                Parallel.ForEach(TH, items => Task.WaitAll(items));
                 //for (int g = 0; g < TH.Count; g++)
                 //TH[g].Dispose();
                 TH.Clear();
