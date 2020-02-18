@@ -13,7 +13,7 @@ using System.ComponentModel;
 namespace RefrigtzW
 {
     [Serializable]
-    public class ThinkingChess //: IDisposable
+    public class ThinkingChess ////: IDisposable
     {
         bool IKIsCentralPawnIsOk = false;
         List<int[]> HeuristicAllSupport = new List<int[]>();
@@ -6175,7 +6175,7 @@ namespace RefrigtzW
                                         {
 
 
-                                            if (!feedCancellationTokenSource.IsCancellationRequested)
+                                            //if (!feedCancellationTokenSource.IsCancellationRequested)
                                             {
                                                 Parallel.Invoke(() =>
                                                 {
@@ -6661,7 +6661,7 @@ namespace RefrigtzW
                                 {
                                     Parallel.For(0, 8, ColD =>
                                     {
-                                        if (!feedCancellationTokenSource.IsCancellationRequested)
+                                        //if (!feedCancellationTokenSource.IsCancellationRequested)
                                         {
                                             Parallel.Invoke(() =>
                                             {
@@ -11737,7 +11737,7 @@ namespace RefrigtzW
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    if (!feedCancellationTokenSource.IsCancellationRequested)
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {
@@ -11772,7 +11772,7 @@ namespace RefrigtzW
 
                 var output1 = Task.Factory.StartNew(() =>
                 {
-                    if (!feedCancellationTokenSource.IsCancellationRequested)
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {

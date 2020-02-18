@@ -88,9 +88,12 @@ namespace GalleryStudio
             Object o = new Object();
             lock (o)
             {
-
                 if (File.Exists(SAllDraw))
                 {
+                    FileInfo A = new FileInfo(SAllDraw);
+                    if (A.Length == 0)
+                        return null;
+
                     RefrigtzDLL.AllDraw tt = new RefrigtzDLL.AllDraw(Order, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
                     FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
                     BinaryFormatter Formatters = new BinaryFormatter();
@@ -121,6 +124,9 @@ namespace GalleryStudio
 
                 if (File.Exists(SAllDraw))
                 {
+                    FileInfo A = new FileInfo(SAllDraw);
+                    if (A.Length == 0)
+                        return null;
                     QuantumRefrigiz.AllDraw tQ = new QuantumRefrigiz.AllDraw(Order, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
 
                     FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);

@@ -83,7 +83,7 @@ using System.Xml.Serialization;
 namespace QuantumRefrigiz
 {
     [Serializable]
-    public class ThinkingQuantumChess: IDisposable
+    public class ThinkingQuantumChess//: IDisposable
     {
         bool IKIsCentralPawnIsOk = false;
 
@@ -6501,7 +6501,7 @@ namespace QuantumRefrigiz
                                     {
 
 
-                                        if (!feedCancellationTokenSource.IsCancellationRequested)
+                                        //if (!feedCancellationTokenSource.IsCancellationRequested)
                                         {
                                             Parallel.Invoke(() =>
                                             {
@@ -6987,7 +6987,7 @@ namespace QuantumRefrigiz
                                 {
                                     Parallel.For(0, 8, ColD =>
                                     {
-                                        if (!feedCancellationTokenSource.IsCancellationRequested)
+                                        //if (!feedCancellationTokenSource.IsCancellationRequested)
                                         {
                                             Parallel.Invoke(() =>
                                             {
@@ -12416,7 +12416,7 @@ namespace QuantumRefrigiz
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    if (!feedCancellationTokenSource.IsCancellationRequested)
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {
@@ -12452,7 +12452,7 @@ namespace QuantumRefrigiz
 
                 var output1 = Task.Factory.StartNew(() =>
                 {
-                    if (!feedCancellationTokenSource.IsCancellationRequested)
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {

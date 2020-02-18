@@ -14,7 +14,7 @@ using System.ComponentModel;
 namespace RefrigtzDLL
 {
     [Serializable]
-    public class ThinkingChess: IDisposable
+    public class ThinkingChess//: IDisposable
     {
         bool IKIsCentralPawnIsOk = false;
         List<int[]> HeuristicAllSupport = new List<int[]>();
@@ -6173,7 +6173,7 @@ namespace RefrigtzDLL
                                         {
 
 
-                                            if (!feedCancellationTokenSource.IsCancellationRequested)
+                                            //if (!feedCancellationTokenSource.IsCancellationRequested)
                                             {
                                                 Parallel.Invoke(() =>
                                                 {
@@ -6659,7 +6659,7 @@ namespace RefrigtzDLL
                             {
                                 Parallel.For(0, 8, ColD =>
                                 {                                    
-                                        if (!feedCancellationTokenSource.IsCancellationRequested)
+                                        //if (!feedCancellationTokenSource.IsCancellationRequested)
                                         {
                                             Parallel.Invoke(() =>
                                             {
@@ -11735,7 +11735,7 @@ namespace RefrigtzDLL
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    if (!feedCancellationTokenSource.IsCancellationRequested)
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {
@@ -11770,7 +11770,7 @@ namespace RefrigtzDLL
 
                 var output1 = Task.Factory.StartNew(() =>
                 {
-                    if (!feedCancellationTokenSource.IsCancellationRequested)
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
                         Parallel.Invoke(() =>
                         {
