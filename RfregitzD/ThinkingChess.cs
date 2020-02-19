@@ -5738,7 +5738,7 @@ namespace RefrigtzDLL
                             Dis += RationalRegard;
 
                         }
-                        if (Cor > ColleralationGray)
+                        if (Cor > ColleralationGray && Tab[RowS, ColS] > 0)
                         {
                             ColleralationGray = Cor;
 
@@ -5773,11 +5773,7 @@ namespace RefrigtzDLL
                                 Dis += RationalRegard;
 
                             }
-                            if (Cor > ColleralationBrown)
-                            {
-                                ColleralationBrown = Cor;
-
-                            }
+                            
                         }
                     }
                 }
@@ -5812,6 +5808,11 @@ namespace RefrigtzDLL
                             Dis += RationalRegard;
 
                         }
+                        if (Cor > ColleralationBrown && Tab[RowS, ColS] < 0)
+                        {
+                            ColleralationBrown = Cor;
+
+                        }
                     }
 
                     if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
@@ -5837,6 +5838,7 @@ namespace RefrigtzDLL
                                 Dis += RationalRegard;
 
                             }
+                            
                         }
                     }
                 }

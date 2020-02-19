@@ -5730,6 +5730,7 @@ namespace RefrigtzW
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
+
                         int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
                         if (Cor > Colleralation)
                         {
@@ -5737,8 +5738,14 @@ namespace RefrigtzW
                             Dis += RationalRegard;
 
                         }
-                    }
+                        if (Cor > ColleralationGray && Tab[RowS, ColS] > 0)
+                        {
+                            ColleralationGray = Cor;
 
+                        }
+
+
+                    }
 
 
                     if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
@@ -5766,6 +5773,7 @@ namespace RefrigtzW
                                 Dis += RationalRegard;
 
                             }
+
                         }
                     }
                 }
@@ -5800,6 +5808,11 @@ namespace RefrigtzW
                             Dis += RationalRegard;
 
                         }
+                        if (Cor > ColleralationBrown && Tab[RowS, ColS] < 0)
+                        {
+                            ColleralationBrown = Cor;
+
+                        }
                     }
 
                     if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
@@ -5825,6 +5838,7 @@ namespace RefrigtzW
                                 Dis += RationalRegard;
 
                             }
+                           
                         }
                     }
                 }

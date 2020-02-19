@@ -5977,6 +5977,7 @@ namespace QuantumRefrigiz
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
+
                         int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
                         if (Cor > Colleralation)
                         {
@@ -5984,8 +5985,14 @@ namespace QuantumRefrigiz
                             Dis += RationalRegard;
 
                         }
-                    }
+                        if (Cor > ColleralationGray && Tab[RowS, ColS] > 0)
+                        {
+                            ColleralationGray = Cor;
 
+                        }
+
+
+                    }
 
 
                     if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
@@ -6013,6 +6020,7 @@ namespace QuantumRefrigiz
                                 Dis += RationalRegard;
 
                             }
+
                         }
                     }
                 }
@@ -6047,6 +6055,11 @@ namespace QuantumRefrigiz
                             Dis += RationalRegard;
 
                         }
+                        if (Cor > ColleralationBrown && Tab[RowS, ColS] < 0)
+                        {
+                            ColleralationBrown = Cor;
+
+                        }
                     }
 
                     if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
@@ -6072,6 +6085,7 @@ namespace QuantumRefrigiz
                                 Dis += RationalRegard;
 
                             }
+                            
                         }
                     }
                 }
@@ -6081,85 +6095,7 @@ namespace QuantumRefrigiz
                 else
                     Dis += RationalPenalty;
 
-                /*     //Initiate.
-                     int RowG = -1, ColumnG = -1, RowB = -1, ColumnB = -1;
-                     //Create ChessRules Objects.
-                     ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[RowS, ColS], Tab, Order, RowS, ColS);
-                    //Order is  Gray.
-                     if (Order == -1)
-                     {
-                         //Found of Gray King Location.
-                         A.FindGrayKing(Tab, ref RowG, ref ColumnG);
 
-                         //When Soldier.
-                         if (System.Math.Abs(Tab[RowS, ColS]) == 1)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2)
-                                 ((RowS - RowG) * (RowS - RowG)) + ((ColS - ColumnG) * (ColS - ColumnG))));
-                         else
-                             //When Elephant.
-                             if (System.Math.Abs(Tab[RowS, ColS]) == 2)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2)
-                                 ((RowS - RowG) * (RowS - RowG)) + ((ColS - ColumnG) * (ColS - ColumnG))));
-                         else
-                                 //When Hourse.
-                                 if (System.Math.Abs(Tab[RowS, ColS]) == 3)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2)
-                                 ((RowS - RowG) * (RowS - RowG)) + ((ColS - ColumnG) * (ColS - ColumnG))));
-                         else
-                                     //When Castles.
-                                     if (System.Math.Abs(Tab[RowS, ColS]) == 4)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2)
-                                ((RowS - RowG) * (RowS - RowG)) + ((ColS - ColumnG) * (ColS - ColumnG))));
-                         else
-                                         //When minister.
-                                         if (System.Math.Abs(Tab[RowS, ColS]) == 5)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2)
-                                ((RowS - RowG) * (RowS - RowG)) + ((ColS - ColumnG) * (ColS - ColumnG))));
-                         else
-                                             //When King.
-                                             if (System.Math.Abs(Tab[RowS, ColS]) == 6)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowG, 2) + System.Math.Pow(ColS - ColumnG, 2)
-                                 ((RowS - RowG) * (RowS - RowG)) + ((ColS - ColumnG) * (ColS - ColumnG))));
-
-                     }
-                     //Brown Order.
-                     else
-                     {
-                         //Found of Brown King Location.
-                         A.FindBrownKing(Tab, ref RowB, ref ColumnB);
-                         //When Soldier.
-                         if (System.Math.Abs(Tab[RowS, ColS]) == 1)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2)
-                                 ((RowS - RowB) * (RowS - RowB)) + ((ColS - ColumnB) * (ColS - ColumnB))));
-                         else
-                             //When Elephant.
-                             if (System.Math.Abs(Tab[RowS, ColS]) == 2)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2)
-                                  ((RowS - RowB) * (RowS - RowB)) + ((ColS - ColumnB) * (ColS - ColumnB))));
-                         else
-                                 //When Hourse.
-                                 if (System.Math.Abs(Tab[RowS, ColS]) == 3)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2)
-                                   ((RowS - RowB) * (RowS - RowB)) + ((ColS - ColumnB) * (ColS - ColumnB))));
-                         else
-                                     //When Castles.
-                                     if (System.Math.Abs(Tab[RowS, ColS]) == 4)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2)
-                                   ((RowS - RowB) * (RowS - RowB)) + ((ColS - ColumnB) * (ColS - ColumnB))));
-                         else
-                                         //When Minister.
-                                         if (System.Math.Abs(Tab[RowS, ColS]) == 5)
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2)
-                                   ((RowS - RowB) * (RowS - RowB)) + ((ColS - ColumnB) * (ColS - ColumnB))));
-                         else
-                             //When King.
-                             Dis = (int)(AllDraw.SignDistance * System.Math.Sqrt(//System.Math.Pow(RowS - RowB, 2) + System.Math.Pow(ColS - ColumnB, 2)
-                                  ((RowS - RowB) * (RowS - RowB)) + ((ColS - ColumnB) * (ColS - ColumnB))));
-                         //Dis = (int)( -1000;
-
-                     }
-                     ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicDistribution:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                 */
                 return Dis;
             }
         }
