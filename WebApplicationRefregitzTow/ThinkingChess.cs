@@ -11901,6 +11901,11 @@ namespace RefrigtzW
                 return hu;
             }
         }
+        void SetSupHuTrue()
+        {
+            IsSupHu[IsSupHu.Count - 1] = true;
+            IsSup[IsSup.Count - 1] = true;
+        }
 
         public void CalculateHeuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
           , ref int HeuristicAttackValue
@@ -11954,57 +11959,73 @@ namespace RefrigtzW
                     if (Before)
                     {
 
-                        HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
+                        HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
+                        HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
+                        HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
                         HeuristicSelfSupportedValue = (Heuristic[3] * SignOrderToPlate(Order));
+                        HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
+                        HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                        HeuristicCheckedMate = ((HCheck * SignOrderToPlate(Order)));
+                        HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
+                        HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-                        if (Order == 1 && ColleralationGray > 30)
+
+                        bool A = false, B = false, C = false, D = false;
+                        if (Order == 1)
                         {
-                            HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
-                            HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
-                            HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
-                            HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
-                            HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                            HeuristicCheckedMate = ((HCheck * SignOrderToPlate(Order)));
-                            HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
+                            A = ColleralationGray < 30;
+                            B = Killed > 0;
+                            C = HeuristicCheckedMate != 0;
+                            D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
                         }
-                        if (Order == -1 && ColleralationBrown > 30)
+                        else
                         {
-                            HeuristicAttackValue = (Heuristic[1] * SignOrderToPlate(Order));
-                            HeuristicReducedAttackValue = (Heuristic[0] * SignOrderToPlate(Order));
-                            HeuristicReducedSupport = (Heuristic[2] * SignOrderToPlate(Order));
-                            HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
-                            HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                            HeuristicCheckedMate = ((HCheck * SignOrderToPlate(Order)));
-                            HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
+                            A = ColleralationBrown < 30;
+                            B = Killed > 0;
+                            C = HeuristicCheckedMate != 0;
+                            D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
                         }
+                        if ((!((!A) || ((!B) && (!C) && (!D)))))
+                        {
+                            SetSupHuTrue();
+                        }
+
                     }
                     else
                     {
-                        HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
+                        HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
+                        HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
+                        HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
                         HeuristicSelfSupportedValue += (Heuristic[3] * SignOrderToPlate(Order));
+                        HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
+                        HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
+                        HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
+                        HeuristicDistributionValue += (HDistance * SignOrderToPlate(Order));
+                        HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
-                        HeuristicDistributionValue += (HDistance * SignOrderToPlate(Order));
-                        if (HeuristicAttackValue == 0 && HeuristicReducedAttackValue == 0 && HeuristicReducedSupport == 0 && HeuristicReducedMovementValue == 0)
-                            HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
 
-                        if (Order == 1 && ColleralationGray > 30)
+                        bool A = false, B = false, C = false, D = false;
+                        if (Order == 1)
                         {
-                            HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
-                            HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
-                            HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
-                            HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                            HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
+                            A = ColleralationGray < 30;
+                            B = Killed > 0;
+                            C = HeuristicCheckedMate != 0;
+                            D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
                         }
-                        if (Order == -1 && ColleralationBrown > 30)
+                        else
                         {
-                            HeuristicAttackValue += (Heuristic[1] * SignOrderToPlate(Order));
-                            HeuristicReducedAttackValue += (Heuristic[0] * SignOrderToPlate(Order));
-                            HeuristicReducedSupport += (Heuristic[2] * SignOrderToPlate(Order));
-                            HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                            HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
+                            A = ColleralationBrown < 30;
+                            B = Killed > 0;
+                            C = HeuristicCheckedMate != 0;
+                            D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
                         }
+                        if ((!((!A) || ((!B) && (!C) && (!D)))))
+                        {
+                            SetSupHuTrue();
+                        }
+
                     }
                 }
             }
