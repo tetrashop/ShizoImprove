@@ -95,6 +95,8 @@ namespace QuantumRefrigiz
         List<int[]> HeuristicAllMove = new List<int[]>();
         List<int[]> HeuristicAllReducedMove = new List<int[]>();
 
+        public int DifOfNoOfSupporteAndReducedSupportGray = int.MinValue;
+        public int DifOfNoOfSupporteAndReducedSupportBrown = int.MinValue;
         public static int ColleralationGray = int.MinValue;
         public static int ColleralationBrown = int.MinValue;
         public static int Colleralation = int.MinValue;
@@ -5357,6 +5359,7 @@ namespace QuantumRefrigiz
 
         }
 
+     
         ///Heuristic of Check and CheckMate.
         public int HeuristicCheckAndCheckMate(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
         {
@@ -12593,6 +12596,22 @@ namespace QuantumRefrigiz
                         {
                             SetSupHuTrue();
                         }
+                        if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= 1 && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                        {
+                            SetSupHuTrue();
+                        }
+                        if (A)
+                        {
+                            if (ColleralationGray < 32)
+                            {
+                                if (NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportGray)
+                                {
+                                    DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD);
+                                }
+                                else
+                                    SetSupHuTrue();
+                            }
+                        }
 
                     }
                     else
@@ -12627,6 +12646,22 @@ namespace QuantumRefrigiz
                         if ((!((!A) || ((!B) && (!C) && (!D)))))
                         {
                             SetSupHuTrue();
+                        }
+                        if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= 1 && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                        {
+                            SetSupHuTrue();
+                        }
+                        if (A)
+                        {
+                            if (ColleralationBrown < 32)
+                            {
+                                if (NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportBrown)
+                                {
+                                    DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD);
+                                }
+                                else
+                                    SetSupHuTrue();
+                            }
                         }
 
                     }
