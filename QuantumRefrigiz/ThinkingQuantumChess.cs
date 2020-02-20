@@ -12577,6 +12577,7 @@ namespace QuantumRefrigiz
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
 
+                        //Ignore of atack and checkedmate at first until all move;
                         bool A = false, B = false, C = false, D = false;
                         if (Order == 1)
                         {
@@ -12592,14 +12593,17 @@ namespace QuantumRefrigiz
                             C = HeuristicCheckedMate != 0;
                             D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
                         }
+                        //Every objects one move at game begin;
                         if ((!((!A) || ((!B) && (!C) && (!D)))))
                         {
                             SetSupHuTrue();
                         }
+                        //Empire more
                         if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= 1 && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                         {
                             SetSupHuTrue();
                         }
+                        //Hourse before elephants;
                         if (A)
                         {
                             if (ColleralationGray < 32)
@@ -12610,6 +12614,14 @@ namespace QuantumRefrigiz
                                 }
                                 else
                                     SetSupHuTrue();
+                            }
+                        }
+                        if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
+                        {
+                            if (((TableInitiation[1, 7] == TableS[1, 7] && TableS[1, 7] == 3) && TableInitiationPreventionOfMultipleMove[1, 7] == 0) || ((TableInitiation[6, 7] == TableS[6, 7] && TableS[6, 7] == 3) && TableInitiationPreventionOfMultipleMove[6, 7] == 0))
+                            {
+
+                                SetSupHuTrue();
                             }
                         }
 
@@ -12628,6 +12640,7 @@ namespace QuantumRefrigiz
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
+                        //Ignore of atack and checkedmate at first until all move;
                         bool A = false, B = false, C = false, D = false;
                         if (Order == 1)
                         {
@@ -12647,10 +12660,12 @@ namespace QuantumRefrigiz
                         {
                             SetSupHuTrue();
                         }
+                        //Every objects one move at game begin;
                         if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= 1 && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                         {
                             SetSupHuTrue();
                         }
+                        //Empire more
                         if (A)
                         {
                             if (ColleralationBrown < 32)
@@ -12663,7 +12678,15 @@ namespace QuantumRefrigiz
                                     SetSupHuTrue();
                             }
                         }
+                        //Hourse before elephants;
+                        if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
+                        {
+                            if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == 3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0))
+                            {
 
+                                SetSupHuTrue();
+                            }
+                        }
                     }
                 }
             }
