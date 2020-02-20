@@ -5214,6 +5214,8 @@ namespace RefrigtzW
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeSolderIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 1))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
             {
@@ -5305,6 +5307,8 @@ namespace RefrigtzW
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeElephantIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 2))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
             {
@@ -5399,6 +5403,8 @@ namespace RefrigtzW
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeHourseIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 3))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
             {
@@ -5493,6 +5499,8 @@ namespace RefrigtzW
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeCastleIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 4))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
             {
@@ -5587,6 +5595,8 @@ namespace RefrigtzW
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeMinisterIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 5))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
             {
@@ -5678,6 +5688,8 @@ namespace RefrigtzW
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeKingIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 6))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (KingOnTable[i].KingThinking[0].AStarGreedy == null)
             {
@@ -5768,7 +5780,7 @@ namespace RefrigtzW
             }
             return Found;
         }
-        public AllDraw FoundOfLeafDepenOfKindSoldier(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+         public AllDraw FoundOfLeafDepenOfKindSoldier(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
@@ -5782,6 +5794,8 @@ namespace RefrigtzW
                 for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                 {
 
+                    if (IsSupHuTrue(i, j, 0, 1))
+                        continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count <= SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count// && Kind == 1
                     )
@@ -5821,6 +5835,8 @@ namespace RefrigtzW
 
                 for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 2))
+                        continue;
 
                     //when leaf found set refer bool and alldraw refer objects
                     if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count <= ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count //&& Kind == 2
@@ -5859,6 +5875,8 @@ namespace RefrigtzW
 
                 for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 3))
+                        continue;
 
                     //when leaf found set refer bool and alldraw refer objects
                     if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count <= HoursesOnTable[i].HourseThinking[0].TableListHourse.Count //&& Kind == 3
@@ -5899,6 +5917,9 @@ namespace RefrigtzW
 
                 for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 4))
+                        continue;
+
 
                     //when leaf found set refer bool and alldraw refer objects
                     if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count <= CastlesOnTable[i].CastleThinking[0].TableListCastle.Count //&& Kind == 4
@@ -5936,6 +5957,8 @@ namespace RefrigtzW
 
                 for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 5))
+                        continue;
 
                     //when leaf found set refer bool and alldraw refer objects
                     if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count <= MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count //&& Kind == 5
@@ -5976,7 +5999,8 @@ namespace RefrigtzW
 
                 for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
                 {
-
+                    if (IsSupHuTrue(i, j, 0, 6))
+                        continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if (KingOnTable[i].KingThinking[0].AStarGreedy.Count <= KingOnTable[i].KingThinking[0].TableListKing.Count //&& Kind == 6
                     )
@@ -17367,14 +17391,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HeuristicListSolder.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j]
                    )
                         continue;
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
+                        continue;
+
 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
@@ -17429,14 +17453,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HeuristicListElefant.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j]
                  )
                         continue;
+
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
+                        continue;
+
 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
@@ -17494,14 +17519,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HeuristicListHourse.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j]
                     )
                         continue;
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
+                        continue;
+
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
                         continue;
@@ -17630,14 +17655,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HeuristicListCastle.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (CastlesOnTable[ik].CastleThinking[0].IsSupHu[j]
                     )
                         continue;
+
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
+                        continue;
+
 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
@@ -17699,13 +17725,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HeuristicListMinister.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (MinisterOnTable[ik].MinisterThinking[0].IsSupHu[j]
                       )
+                        continue;
+
+
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
                         continue;
 
                     //when node have kings dangoures ignore and continue.
@@ -17761,14 +17788,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < KingOnTable[ik].KingThinking[0].HeuristicListKing.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (KingOnTable[ik].KingThinking[0].IsSupHu[j]
                      )
                         continue;
+
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
+                        continue;
+
 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
@@ -17810,7 +17838,6 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTree(int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
@@ -22968,7 +22995,7 @@ if (Kind == 5)
                         {
 
                             Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order * -1, DummyFileStream, Formatters);
+                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
@@ -22995,7 +23022,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order * -1, DummyFileStream, Formatters);
+                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
@@ -23021,7 +23048,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order * -1, DummyFileStream, Formatters);
+                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
 
@@ -23048,7 +23075,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order * -1, DummyFileStream, Formatters);
+                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = Node;
 
                         }
@@ -23075,7 +23102,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order * -1, DummyFileStream, Formatters);
+                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
 
@@ -23104,7 +23131,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.KingOnTable[i].KingThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order * -1, DummyFileStream, Formatters);
+                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }

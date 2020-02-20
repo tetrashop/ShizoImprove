@@ -5234,6 +5234,8 @@ namespace QuantumRefrigiz
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeSolderIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 1))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy == null)
             {
@@ -5266,7 +5268,7 @@ namespace QuantumRefrigiz
             {
                 if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    /*if (!SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(1, Order))
+                    /*if (!SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
                     {
                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]));
@@ -5325,6 +5327,8 @@ namespace QuantumRefrigiz
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeElephantIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 2))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy == null)
             {
@@ -5357,7 +5361,7 @@ namespace QuantumRefrigiz
             {
                 if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    /*if (!ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(2, Order))
+                    /*if (!ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
                     {
                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]));
@@ -5382,6 +5386,7 @@ namespace QuantumRefrigiz
                     {
                         if (IsSupHuTrue(i, j, 0, 2))
                             continue;
+
                         if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
                         {
 
@@ -5418,6 +5423,8 @@ namespace QuantumRefrigiz
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeHourseIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 3))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy == null)
             {
@@ -5450,13 +5457,13 @@ namespace QuantumRefrigiz
             {
                 if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    /*if (!HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(3, Order))
-                    {
-                        HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
-                        HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]));
-                        HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
-                        HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
-                    }*/
+                    /* if (!HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
+                     {
+                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
+                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]));
+                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
+                         HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
+                     }*/
 
                     THIS = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
@@ -5512,6 +5519,8 @@ namespace QuantumRefrigiz
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeCastleIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 4))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy == null)
             {
@@ -5544,14 +5553,13 @@ namespace QuantumRefrigiz
             {
                 if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    /*if (!CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(4, Order))
+                    /*if (!CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
                     {
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]));
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
                         CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
                     }*/
-
                     THIS = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j];
 
                     Found = true;
@@ -5607,6 +5615,8 @@ namespace QuantumRefrigiz
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeMinisterIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 5))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy == null)
             {
@@ -5639,7 +5649,7 @@ namespace QuantumRefrigiz
             {
                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    /*if (!MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(5, Order))
+                    /*if (!MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
                     {
                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]));
@@ -5686,8 +5696,6 @@ namespace QuantumRefrigiz
                         if (ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab))
                         {
                             FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
-                            if (Found)
-                                return Found;
 
                         }
 
@@ -5700,6 +5708,8 @@ namespace QuantumRefrigiz
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeKingIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 6))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy == null)
             {
@@ -5732,14 +5742,13 @@ namespace QuantumRefrigiz
             {
                 if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-                    /*if (!KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsAStargreedyHaveNode(6, Order))
+                    /*if (!KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
                     {
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]));
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].SetRowColumn(0);
                         KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].AStarGreedyString = this;
                     }*/
-
                     THIS = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5805,6 +5814,8 @@ namespace QuantumRefrigiz
                 for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && j < SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count; j++)
                 {
 
+                    if (IsSupHuTrue(i, j, 0, 1))
+                        continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count <= SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count// && Kind == 1
                     )
@@ -5844,6 +5855,8 @@ namespace QuantumRefrigiz
 
                 for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && j < ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 2))
+                        continue;
 
                     //when leaf found set refer bool and alldraw refer objects
                     if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count <= ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count //&& Kind == 2
@@ -5882,6 +5895,8 @@ namespace QuantumRefrigiz
 
                 for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && j < HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 3))
+                        continue;
 
                     //when leaf found set refer bool and alldraw refer objects
                     if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count <= HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count //&& Kind == 3
@@ -5922,6 +5937,9 @@ namespace QuantumRefrigiz
 
                 for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && j < CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 4))
+                        continue;
+
 
                     //when leaf found set refer bool and alldraw refer objects
                     if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count <= CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count //&& Kind == 4
@@ -5959,6 +5977,8 @@ namespace QuantumRefrigiz
 
                 for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && j < MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 5))
+                        continue;
 
                     //when leaf found set refer bool and alldraw refer objects
                     if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count <= MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count //&& Kind == 5
@@ -5999,7 +6019,8 @@ namespace QuantumRefrigiz
 
                 for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && j < KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count; j++)
                 {
-
+                    if (IsSupHuTrue(i, j, 0, 6))
+                        continue;
                     //when leaf found set refer bool and alldraw refer objects
                     if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count <= KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count //&& Kind == 6
                     )
@@ -6823,7 +6844,7 @@ namespace QuantumRefrigiz
                                 }
                                 ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                                //ThinkingChess.NumbersOfAllNode++;
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
                                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
@@ -6900,7 +6921,7 @@ namespace QuantumRefrigiz
                                 }
                                 ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                                //ThinkingChess.NumbersOfAllNode++;
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
                                 this.FullGameThinkingQuantumTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
 
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
@@ -6986,7 +7007,7 @@ namespace QuantumRefrigiz
                                 }
                                 ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                                //ThinkingChess.NumbersOfAllNode++;
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
                                 ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
@@ -7133,7 +7154,7 @@ namespace QuantumRefrigiz
                                 }
                                 ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                                //ThinkingChess.NumbersOfAllNode++;
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
                                 HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
@@ -7284,7 +7305,7 @@ namespace QuantumRefrigiz
                                 }
                                 ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                                //ThinkingChess.NumbersOfAllNode++;
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
                                 CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[iii].AStarGreedyString = this;
 
@@ -7434,7 +7455,7 @@ namespace QuantumRefrigiz
                                 }
                                 ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                                //ThinkingChess.NumbersOfAllNode++;
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
                                 MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[iii].AStarGreedyString = this;
 
@@ -7581,7 +7602,7 @@ namespace QuantumRefrigiz
                                 }
                                 ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                                //ThinkingChess.NumbersOfAllNode++;
+                                //ThinkingQuantumChess.NumbersOfAllNode++;
                                 KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
@@ -17412,14 +17433,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when there is computational lists
                 for (j = 0; j < SolderesOnTable[ik].SoldierThinkingQuantum[0].HeuristicListSolder.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSupHu[j]
                    )
                         continue;
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
+                        continue;
+
 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order, ik, j, 0))
@@ -17474,14 +17495,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when there is computational lists
                 for (j = 0; j < ElephantOnTable[ik].ElefantThinkingQuantum[0].HeuristicListElefant.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (ElephantOnTable[ik].ElefantThinkingQuantum[0].IsSupHu[j]
                  )
                         continue;
+
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
+                        continue;
+
 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order, ik, j, 0))
@@ -17539,14 +17561,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when there is computational lists
                 for (j = 0; j < HoursesOnTable[ik].HourseThinkingQuantum[0].HeuristicListHourse.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (HoursesOnTable[ik].HourseThinkingQuantum[0].IsSupHu[j]
                     )
                         continue;
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
+                        continue;
+
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order, ik, j, 0))
                         continue;
@@ -17675,14 +17697,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when there is computational lists
                 for (j = 0; j < CastlesOnTable[ik].CastleThinkingQuantum[0].HeuristicListCastle.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (CastlesOnTable[ik].CastleThinkingQuantum[0].IsSupHu[j]
                     )
                         continue;
+
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
+                        continue;
+
 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order, ik, j, 0))
@@ -17744,13 +17767,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when there is computational lists
                 for (j = 0; j < MinisterOnTable[ik].MinisterThinkingQuantum[0].HeuristicListMinister.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (MinisterOnTable[ik].MinisterThinkingQuantum[0].IsSupHu[j]
                       )
+                        continue;
+
+
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
                         continue;
 
                     //when node have kings dangoures ignore and continue.
@@ -17806,14 +17830,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when there is computational lists
                 for (j = 0; j < KingOnTable[ik].KingThinkingQuantum[0].HeuristicListKing.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (KingOnTable[ik].KingThinkingQuantum[0].IsSupHu[j]
                      )
                         continue;
+
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
+                        continue;
+
 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order, ik, j, 0))
