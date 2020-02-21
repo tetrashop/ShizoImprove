@@ -11909,16 +11909,16 @@ namespace RefrigtzDLL
         }
 
         public void CalculateHeuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-          , ref int HeuristicAttackValue
-              , ref int HeuristicMovementValue
-              , ref int HeuristicSelfSupportedValue
-              , ref int HeuristicReducedMovementValue
-             , ref int HeuristicReducedSupport
-              , ref int HeuristicReducedAttackValue
-              , ref int HeuristicDistributionValue
-          , ref int HeuristicKingSafe
-          , ref int HeuristicFromCenter
-          , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+         , ref int HeuristicAttackValue
+             , ref int HeuristicMovementValue
+             , ref int HeuristicSelfSupportedValue
+             , ref int HeuristicReducedMovementValue
+            , ref int HeuristicReducedSupport
+             , ref int HeuristicReducedAttackValue
+             , ref int HeuristicDistributionValue
+         , ref int HeuristicKingSafe
+         , ref int HeuristicFromCenter
+         , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -11972,7 +11972,7 @@ namespace RefrigtzDLL
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
 
-                        //Ignore of atack and checkedmate at first until all move;
+                        //Ignore of atack and checkedmate at first until all move
                         bool A = false, B = false, C = false, D = false;
                         if (Order == 1)
                         {
@@ -11988,7 +11988,7 @@ namespace RefrigtzDLL
                             C = HeuristicCheckedMate != 0;
                             D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
                         }
-                        //Every objects one move at game begin;
+                        //Every objects one move at game begin
                         if ((!((!A) || ((!B) && (!C) && (!D)))))
                         {
                             SetSupHuTrue();
@@ -11998,7 +11998,7 @@ namespace RefrigtzDLL
                         {
                             SetSupHuTrue();
                         }
-                        //Hourse before elephants;
+                        //Hourse before elephants
                         if (A)
                         {
                             if (ColleralationGray < 32)
@@ -12019,6 +12019,9 @@ namespace RefrigtzDLL
                                 SetSupHuTrue();
                             }
                         }
+                        //Disturbe on huge traversal exchange prevention 
+                        if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
+                            SetSupHuTrue();
 
                     }
                     else
@@ -12035,7 +12038,7 @@ namespace RefrigtzDLL
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
-                        //Ignore of atack and checkedmate at first until all move;
+                        //Ignore of atack and checkedmate at first until all move
                         bool A = false, B = false, C = false, D = false;
                         if (Order == 1)
                         {
@@ -12055,7 +12058,7 @@ namespace RefrigtzDLL
                         {
                             SetSupHuTrue();
                         }
-                        //Every objects one move at game begin;
+                        //Every objects one move at game begin
                         if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= 1 && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                         {
                             SetSupHuTrue();
@@ -12073,7 +12076,7 @@ namespace RefrigtzDLL
                                     SetSupHuTrue();
                             }
                         }
-                        //Hourse before elephants;
+                        //Hourse before elephants
                         if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
                         {
                             if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == 3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0))
@@ -12082,6 +12085,9 @@ namespace RefrigtzDLL
                                 SetSupHuTrue();
                             }
                         }
+                        //Disturbe on huge traversal exchange prevention 
+                        if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
+                            SetSupHuTrue();
                     }
                 }
             }

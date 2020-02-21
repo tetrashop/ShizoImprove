@@ -11973,7 +11973,7 @@ namespace RefrigtzW
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
 
-                        //Ignore of atack and checkedmate at first until all move;
+                        //Ignore of atack and checkedmate at first until all move
                         bool A = false, B = false, C = false, D = false;
                         if (Order == 1)
                         {
@@ -11989,7 +11989,7 @@ namespace RefrigtzW
                             C = HeuristicCheckedMate != 0;
                             D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
                         }
-                        //Every objects one move at game begin;
+                        //Every objects one move at game begin
                         if ((!((!A) || ((!B) && (!C) && (!D)))))
                         {
                             SetSupHuTrue();
@@ -11999,7 +11999,7 @@ namespace RefrigtzW
                         {
                             SetSupHuTrue();
                         }
-                        //Hourse before elephants;
+                        //Hourse before elephants
                         if (A)
                         {
                             if (ColleralationGray < 32)
@@ -12020,6 +12020,9 @@ namespace RefrigtzW
                                 SetSupHuTrue();
                             }
                         }
+                        //Disturbe on huge traversal exchange prevention 
+                        if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
+                            SetSupHuTrue();
 
                     }
                     else
@@ -12036,7 +12039,7 @@ namespace RefrigtzW
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
-                        //Ignore of atack and checkedmate at first until all move;
+                        //Ignore of atack and checkedmate at first until all move
                         bool A = false, B = false, C = false, D = false;
                         if (Order == 1)
                         {
@@ -12056,7 +12059,7 @@ namespace RefrigtzW
                         {
                             SetSupHuTrue();
                         }
-                        //Every objects one move at game begin;
+                        //Every objects one move at game begin
                         if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= 1 && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                         {
                             SetSupHuTrue();
@@ -12074,7 +12077,7 @@ namespace RefrigtzW
                                     SetSupHuTrue();
                             }
                         }
-                        //Hourse before elephants;
+                        //Hourse before elephants
                         if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
                         {
                             if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == 3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0))
@@ -12083,12 +12086,14 @@ namespace RefrigtzW
                                 SetSupHuTrue();
                             }
                         }
+                        //Disturbe on huge traversal exchange prevention 
+                        if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
+                            SetSupHuTrue();
                     }
                 }
             }
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CalculateHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-        }        //specific determination for ThinkingQuantum main method
-
+        }
         //specific determination for thinking main method
         void CastleThinkingGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
