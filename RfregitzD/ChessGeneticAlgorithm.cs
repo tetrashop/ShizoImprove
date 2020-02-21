@@ -1,4 +1,4 @@
-﻿/*******************************************************************************************************************************************
+/*******************************************************************************************************************************************
  * Using Genetic Algorithm to produce new movment of repitativeloop conditions.*************RS**********************************************
  * *****************************************************************************************************************************************
  * Ramin Edjlal********************************************************************************************RS*****0.12**4**Managements and Cuation Programing**
@@ -216,13 +216,6 @@ namespace RefrigtzDLL
     [Serializable]
     public class ChessGeneticAlgorithm
     {
-
-
-        StringBuilder Space = new StringBuilder("&nbsp;");
-#pragma warning disable CS0414 // The field 'ChessGeneticAlgorithm.Spaces' is assigned but its value is never used
-        int Spaces = 0;
-#pragma warning restore CS0414 // The field 'ChessGeneticAlgorithm.Spaces' is assigned but its value is never used
-
         //
         public bool Hit = false;
 
@@ -288,7 +281,6 @@ namespace RefrigtzDLL
         //Constructor.
         public ChessGeneticAlgorithm(bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
             MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
             IgnoreSelfObjectsT = IgnoreSelfObject;
             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
@@ -299,11 +291,9 @@ namespace RefrigtzDLL
             ArrangmentsChanged = Arrangments;
             //Initiate Global Variables.
             RowColumn.Clear();
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ChessGeneticAlgorithm:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool FindHitToModified(int[,] Cromosom1, int[,] Cromosom2, List<int[,]> List, int Index, int Order, bool and)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
             bool Find = false;
             for (var i = 0; i < 8; i++)
             {
@@ -345,13 +335,11 @@ namespace RefrigtzDLL
                 if (Find)
                     break;
             }
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FindHitToModified:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Find;
         }
         //Found of Different Home Gen in Tow Chess Home Table Method. 
         public bool FindGenToModified(int[,] Cromosom1, int[,] Cromosom2, List<int[,]> List, int Index, int Order, bool and)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
             ChessRules.SmallKingCastleBrown = false;
             ChessRules.SmallKingCastleGray = false;
             ChessRules.BigKingCastleBrown = false;
@@ -492,10 +480,10 @@ namespace RefrigtzDLL
                                 else //Big Brjges King Gray.
                                     if (j == DistantColumnBig && Cromosom2[BigCastleCastleColumnAfter, DistantRowUp] == CastleGray && Cromosom2[BigCastleKingColumnAfter, DistantRowUp] == KingGray && Cromosom1[BigCastleCastleColumnBefore, DistantRowUp] == CastleGray && Cromosom1[BigCastleKingColumnBefore, DistantRowUp] == KingGray)
                                 {
-                                     CromosomRowFirst = DistantRowUp;
-                                     CromosomColumnFirst = i;
-                                     CromosomRow = DistantRowUp;
-                                     CromosomColumn = i;
+                                    CromosomRowFirst = DistantRowUp;
+                                    CromosomColumnFirst = i;
+                                    CromosomRow = DistantRowUp;
+                                    CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.BigKingCastleGray = true;
@@ -527,10 +515,10 @@ namespace RefrigtzDLL
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                          CromosomRowFirst = DistantRowBelow;
-                                          CromosomColumnFirst = i;
-                                          CromosomRow = DistantRowBelow;
-                                          CromosomColumn = i;
+                                        CromosomRowFirst = DistantRowBelow;
+                                        CromosomColumnFirst = i;
+                                        CromosomRow = DistantRowBelow;
+                                        CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.BigKingCastleBrown = true;
@@ -619,10 +607,10 @@ namespace RefrigtzDLL
                                 //Small Gray Castles King.
                                 if (j == DistantColumnSmall && Cromosom2[SmallCastleKingColumnAfter, DistantRowBelow] == KingGray && Cromosom2[SmallCastleCastleColumnAfter, DistantRowBelow] == CastleGray && Cromosom1[SmallCastleKingColumnBefore, DistantRowBelow] == KingGray && Cromosom1[SmallCastleCastleColumnBefore, DistantRowBelow] == CastleGray)
                                 {
-                                     CromosomRowFirst = DistantRowBelow;
-                                     CromosomColumnFirst = i;
-                                     CromosomRow = DistantRowBelow;
-                                     CromosomColumn = i;
+                                    CromosomRowFirst = DistantRowBelow;
+                                    CromosomColumnFirst = i;
+                                    CromosomRow = DistantRowBelow;
+                                    CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.SmallKingCastleGray = true;
@@ -631,10 +619,10 @@ namespace RefrigtzDLL
                                 else //Big Brjges King Gray.
                                     if (j == DistantColumnBig && Cromosom2[BigCastleCastleColumnAfter, DistantRowBelow] == CastleGray && Cromosom2[BigCastleKingColumnAfter, DistantRowBelow] == KingGray && Cromosom1[BigCastleCastleColumnBefore, DistantRowBelow] == CastleGray && Cromosom1[BigCastleKingColumnBefore, DistantRowBelow] == KingGray)
                                 {
-                                        CromosomRowFirst = DistantRowBelow;
-                                        CromosomColumnFirst = i;
-                                        CromosomRow = DistantRowBelow;
-                                        CromosomColumn = i;
+                                    CromosomRowFirst = DistantRowBelow;
+                                    CromosomColumnFirst = i;
+                                    CromosomRow = DistantRowBelow;
+                                    CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
                                     ChessRules.BigKingCastleGray = true;
@@ -650,10 +638,10 @@ namespace RefrigtzDLL
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                         CromosomRowFirst = DistantRowUp;
-                                         CromosomColumnFirst = i;
-                                         CromosomRow = DistantRowUp;
-                                         CromosomColumn = i;
+                                        CromosomRowFirst = DistantRowUp;
+                                        CromosomColumnFirst = i;
+                                        CromosomRow = DistantRowUp;
+                                        CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.SmallKingCastleBrown = true;
@@ -666,10 +654,10 @@ namespace RefrigtzDLL
                                     Object O = new Object();
                                     lock (O)
                                     {
-                                           CromosomRowFirst = DistantRowUp;
-                                           CromosomColumnFirst = i;
-                                           CromosomRow = DistantRowUp;
-                                           CromosomColumn = i;
+                                        CromosomRowFirst = DistantRowUp;
+                                        CromosomColumnFirst = i;
+                                        CromosomRow = DistantRowUp;
+                                        CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
                                         ChessRules.BigKingCastleBrown = true;
@@ -732,27 +720,28 @@ namespace RefrigtzDLL
                 }
             }
             Hit = HitSet(Order, Cromosom1, Cromosom2);
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FindGenToModified:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FindGenToModified:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //If Gen Foundatjon js Valjd. 
             if (((FindNumber >= 1) && Find) || Brj || AllDraw.SodierConversionOcuured)
                 return Find;
             //Gen Not Found.
             return false;
         }
-        bool HitSet(int Order,int[,] Cromosom1, int[,] Cromosom2)
+        bool HitSet(int Order, int[,] Cromosom1, int[,] Cromosom2)
         {
             bool Hit = false;
             try
             {
                 if (CromosomRowFirst != -1 && CromosomColumnFirst != -1 && CromosomRow != -1 && CromosomColumn != -1)
-                {if (Order == 1)
+                {
+                    if (Order == 1)
                     {
                         if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] > 0 && Cromosom1[CromosomRow, CromosomColumn] < 0)
                             Hit = true;
                     }
                     else
                     {
-                        if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] < 0 && Cromosom2[CromosomRow, CromosomColumn] > 0)
+                        if (Cromosom1[CromosomRowFirst, CromosomColumnFirst] < 0 && Cromosom1[CromosomRow, CromosomColumn] > 0)
                             Hit = true;
                     }
                 }
@@ -773,7 +762,7 @@ namespace RefrigtzDLL
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Table;
             }
 
@@ -791,7 +780,7 @@ namespace RefrigtzDLL
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
-                ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Table;
             }
 
@@ -799,7 +788,6 @@ namespace RefrigtzDLL
         //Table Foundation of Genetic Alogorithm Method.
         public int[,] GenerateTable(List<int[,]> List, int Index, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
             //Initiate Local Variables.
             Begine5:
             RowColumn.Clear();
@@ -848,7 +836,6 @@ namespace RefrigtzDLL
                 //If Gen Kind Not Found Retrun Not Valididity.
                 if (List[List.Count + MinusOne][CromosomRow, CromosomColumn] == 0)
                 {
-                    ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return null;
                 }
                 else
@@ -903,7 +890,7 @@ namespace RefrigtzDLL
 
                                 else
                                 {
-                                    ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+
                                     //Return Genetic Table.
                                     return GeneticTable;
                                 }
@@ -941,7 +928,6 @@ namespace RefrigtzDLL
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
-                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return null;
                     }
 
@@ -961,7 +947,6 @@ namespace RefrigtzDLL
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
-                        ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                         return null;
                     }
 
@@ -993,10 +978,7 @@ namespace RefrigtzDLL
                     Count++;
                 } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
-                {
-                    ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return null;
-                }
 
             }
             else
@@ -1011,10 +993,7 @@ namespace RefrigtzDLL
                     Count++;
                 } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
-                {
-                    ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("GenerateTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return null;
-                }
             }
 
             goto BeginFind;

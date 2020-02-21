@@ -83,27 +83,35 @@ namespace GalleryStudio
             }
 
         }
-         public RefrigtzDLL.AllDraw Load(bool Quantum, int Order)
+        public RefrigtzDLL.AllDraw Load(bool Quantum, int Order)
         {
             Object o = new Object();
             lock (o)
             {
+                if (File.Exists(SAllDraw))
+                {
+                    FileInfo A = new FileInfo(SAllDraw);
+                    if (A.Length == 0)
+                        return null;
 
+                    RefrigtzDLL.AllDraw tt = new RefrigtzDLL.AllDraw(Order, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
+                    FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
+                    BinaryFormatter Formatters = new BinaryFormatter();
+                    DummyFileStream.Seek(0, SeekOrigin.Begin);
 
-                RefrigtzDLL.AllDraw tt = null;
-                FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
-                BinaryFormatter Formatters = new BinaryFormatter();
-                DummyFileStream.Seek(0, SeekOrigin.Begin);
+                    Console.WriteLine("Loading...");
+                    tt = (RefrigtzDLL.AllDraw)Formatters.Deserialize(DummyFileStream);
+                    if (tt == null)
+                        return tt;
+                    tt = (RefrigtzDLL.AllDraw)tt.LoaderEC(Quantum, Order, DummyFileStream, Formatters);
 
-                Console.WriteLine("Loading...");
-                tt = (RefrigtzDLL.AllDraw)Formatters.Deserialize(DummyFileStream);
+                    DummyFileStream.Flush();
+                    DummyFileStream.Close();
 
-                tt =(RefrigtzDLL.AllDraw)tt.LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                    return tt;
+                }
 
-                DummyFileStream.Flush();
-                DummyFileStream.Close();
-
-                return tt;
+                return null;
 
                 //return Node.al;
             }
@@ -114,21 +122,31 @@ namespace GalleryStudio
             lock (o)
             {
 
-                QuantumRefrigiz.AllDraw tQ = null;
+                if (File.Exists(SAllDraw))
+                {
+                    FileInfo A = new FileInfo(SAllDraw);
+                    if (A.Length == 0)
+                        return null;
+                    QuantumRefrigiz.AllDraw tQ = new QuantumRefrigiz.AllDraw(Order, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsT);
 
-                FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
-                BinaryFormatter Formatters = new BinaryFormatter();
+                    FileStream DummyFileStream = new FileStream(SAllDraw, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite);
+                    BinaryFormatter Formatters = new BinaryFormatter();
 
-                Console.WriteLine("Loading...");
-                DummyFileStream.Seek(0, SeekOrigin.Begin);
-                tQ = (QuantumRefrigiz.AllDraw)Formatters.Deserialize(DummyFileStream);
+                    Console.WriteLine("Loading...");
+                    DummyFileStream.Seek(0, SeekOrigin.Begin);
+                    tQ = (QuantumRefrigiz.AllDraw)Formatters.Deserialize(DummyFileStream);
+                    if (tQ == null)
+                        return tQ;
 
-                tQ = tQ.LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
+                    tQ = tQ.LoaderECQ(Quantum, Order, DummyFileStream, Formatters);
 
-                DummyFileStream.Flush();
-                DummyFileStream.Close();
+                    DummyFileStream.Flush();
+                    DummyFileStream.Close();
 
-                return tQ;
+                    return tQ;
+                }
+
+                return null;
                 //return Node.al;
             }
         }

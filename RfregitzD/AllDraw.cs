@@ -7,10 +7,10 @@
  * Wait For Finished Current AStarGreedy Caused To Long Time*************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Need To Heuristic (Arvin) Function(s) to Manage Cell in Form1**************************0.12**4**Managements and Cuation Programing**********************(+)
  * First Scanning Movements of Things Anomaly*********************************************0.12**4**Managements and Cuation Programing**********************(+)
- * In Current Version of Heuristic Table Doesnâ€™t Reached(Zero)****************************0.12**4**Managements and Cuation Programing**********************(+)
+ * In Current Version of Heuristic Table Doesn’t Reached(Zero)****************************0.12**4**Managements and Cuation Programing**********************(+)
  * In Current Version InitiateForEveryThisngsHome Dosn't Work*****************************0.12**4**Managements and Cuation Programing**********************(+)
  * In This Version Thinking Taking A LotofTime(AStarGreedyt Array Tree)**********************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Work In AStarGreedys. But Scanning Dosenâ€™t Works************************************0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Work In AStarGreedys. But Scanning Dosen’t Works************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Adding Clone Caused To Stack Overflow**************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Clone Caused To StackOverFlow**********************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Row And Column Become Zero in Virtualization*******************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -21,7 +21,7 @@
  * Heuristic Dosn't Work*******************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * int Order Of Visualization Changed Suddenly******************************************0.12**4**Managements and Cuation Programing**********************(+)
  * int Changes with no movement*********************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Table Not Gate (Inversion of Table List) Doesnâ€™t help to do Normally*******************0.12**4**Managements and Cuation Programing**********************(+)
+ * Table Not Gate (Inversion of Table List) Doesn’t help to do Normally*******************0.12**4**Managements and Cuation Programing**********************(+)
  * Literally Errors Correction************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * From Arrangements of Things Reaches Suddenly Things Location OccuRS********************0.12**4**Managements and Cuation Programing**********************(+)
  * The Arrangements is Logical************************************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -41,7 +41,7 @@
  * One movements Right .Heuristic Remaining Constant Results******************************0.12**4**Managements and Cuation Programing**********************(+)
  * Constant Heuristic Result**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
  * Need To Add A Heuristic Useful Another*************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Function Doesâ€™ Work Allis suddenly Become Zero that Previously Working*******0.12**4**Managements and Cuation Programing**********************(+)
+ * Heuristic Function Does’ Work Allis suddenly Become Zero that Previously Working*******0.12**4**Managements and Cuation Programing**********************(+)
  * No Movement Greater than one order in Computer 'Alice'*********************************0.12**4**Managements and Cuation Programing**********************(+)
  * Tow movements in Computer 'Alice' Of two Different Order int*************************0.12**4**Managements and Cuation Programing**********************(+)
  * Heuristic Not Work Greater than 3 Length Count of A************************************0.12**4**Managements and Cuation Programing**********************(+)
@@ -146,13 +146,14 @@
  */
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
-using System.Diagnostics;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.ComponentModel;
 namespace RefrigtzDLL
 {
 
@@ -160,8 +161,10 @@ namespace RefrigtzDLL
 
     [Serializable]
 
-    public class AllDraw
-    {   //Initiate Variables. 
+    public class AllDraw //: IDisposable
+    {
+        public static bool LeafSemaphoreIndex = false;
+        //Initiate Variables. 
         bool[] ThinkingAllowed = { false, false, false, false, false, false, false, false, false, false, false, false };
 
 
@@ -364,7 +367,7 @@ namespace RefrigtzDLL
                 string stackTrace = ex.ToString();
                 File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
             }
-            AllDraw.OutPut.Append("\r\nALLDrawLog:" + (TimeElapced.TimeNow() - Time).ToString());
+            //AllDraw.OutPut.Append("\r\nALLDrawLog:" + (TimeElapced.TimeNow() - Time).ToString());
         }
         //Determine when a MoveOccured.
         //Note for before move.At most one  moves.
@@ -377,7 +380,7 @@ namespace RefrigtzDLL
                 int IsInt = (new Random()).Next(0, 32);
                 Is = System.Convert.ToBoolean(IsInt % 2);
             }
-            AllDraw.OutPut.Append("\r\nIsAeMoveOccured:" + (TimeElapced.TimeNow() - Time).ToString());
+            //AllDraw.OutPut.Append("\r\nIsAeMoveOccured:" + (TimeElapced.TimeNow() - Time).ToString());
             return Is;
         }
         void TimeEnd()
@@ -392,7 +395,7 @@ namespace RefrigtzDLL
 
             } while (Later - Now < 3 * 60000);
 
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("TimeEnd:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("TimeEnd:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
         }
         //Determine and set numbers of all curent state table severasl kinds node.
@@ -492,7 +495,7 @@ namespace RefrigtzDLL
                         }
                     }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
         }
         //Found of Specific Objects uniqued
@@ -537,10 +540,34 @@ namespace RefrigtzDLL
                         }
 
                     }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundLocationOfObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundLocationOfObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //returnb location
                 return Location;
 
+            }
+        }
+        [field: NonSerialized]
+        private readonly CancellationTokenSource feedCancellationTokenSource =
+            new CancellationTokenSource();
+        [field: NonSerialized] private readonly Task feedTask;
+
+
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                //feedCancellationTokenSource.Cancel();
+                //feedTask.Wait();
+
+                //feedCancellationTokenSource.Dispose();
+                //feedTask.Dispose();
             }
         }
         //Constructor
@@ -550,6 +577,7 @@ namespace RefrigtzDLL
             Object a = new Object();
             lock (a)
             {
+                
 
                 MaxHeuristicxT = Int32.MinValue;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
@@ -639,7 +667,7 @@ namespace RefrigtzDLL
                 MaxLess6 = 0;
                 LoopHeuristicIndex = 0;
                 Move = 0;
-                ////MouseClick = 0;
+                //MouseClick = 0;
                 AStarGreedyIndex = new int[20];
                 AStarGreedy = 0;
                 SolderesOnTable = null;
@@ -656,7 +684,7 @@ namespace RefrigtzDLL
                 //APredict = new ChessPerdict(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged//, ref th
                 //    );
                 OrderP = Order;
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllDraw_1:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("AllDraw_1:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             }
         }
@@ -783,7 +811,7 @@ namespace RefrigtzDLL
                     AA.SetObjectNumbers(AA.TableList[0]);
                 AA.AStarGreedy = AStarGreedy;
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //a Constructor
         public AllDraw(int Order, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi)
@@ -792,6 +820,8 @@ namespace RefrigtzDLL
             Object a = new Object();
             lock (a)
             {
+                
+
                 OrderP = Order;
                 MaxHeuristicxT = Int32.MinValue;
                 MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
@@ -889,7 +919,7 @@ namespace RefrigtzDLL
                 MaxLess6 = 0;
                 LoopHeuristicIndex = 0;
                 Move = 0;
-                ////MouseClick = 0;
+                //MouseClick = 0;
                 AStarGreedyIndex = new int[20];
                 AStarGreedy = 0;
                 /*SolderesOnTable = null;
@@ -905,7 +935,7 @@ namespace RefrigtzDLL
                     MaxDuringLevelThinkingCreation = System.Convert.ToInt32(AllDraw.THIScomboBoxMaxLevelText);
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("AllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Check For Thinking Of Current Item Movments Finished.
         public bool AllCurrentAStarGreedyThinkingFinished(AllDraw Dum, int i, int j, int Kind)
@@ -955,22 +985,23 @@ namespace RefrigtzDLL
                             return true;
                     }
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllCurrentAStarGreedyThinkingFinished:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("AllCurrentAStarGreedyThinkingFinished:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Finished;
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("AllDraw_2:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index, bool Verify = false)
         {
+            AllDraw thisAStarGreedyString = this.AStarGreedyString;
+
             if (Verify)
             {
                 if (SetRowColumn())
                     return;
                 int Dummy = OrderP;
-                AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
                 //long Time = TimeElapced.TimeNow(); Spaces++;
                 Object a1 = new Object();
                 lock (a1)
@@ -1376,7 +1407,7 @@ namespace RefrigtzDLL
                     }
                     SetRowColumnFinished = true;
                 }
-                //{ AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space); AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
+                //{ //AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space); //AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
                 Spaces--;
                 this.AStarGreedyString = thisAStarGreedyString;
                 OrderP = Dummy;
@@ -1384,7 +1415,7 @@ namespace RefrigtzDLL
             else
             {
                 int Dummy = OrderP;
-                AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
+            
                 //long Time = TimeElapced.TimeNow(); Spaces++;
                 Object a1 = new Object();
                 lock (a1)
@@ -1804,7 +1835,7 @@ namespace RefrigtzDLL
                     }
                     SetRowColumnFinished = true;
                 }
-                //{ AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space); AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
+                //{ //AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space); //AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
                 Spaces--;
                 this.AStarGreedyString = thisAStarGreedyString;
                 OrderP = Dummy;
@@ -1814,7 +1845,7 @@ namespace RefrigtzDLL
         public bool SetRowColumn()
         {
             int Dummy = OrderP;
-            AllDraw thisAStarGreedyString = new AllDraw(OrderP, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); thisAStarGreedyString = this.AStarGreedyString;
+            AllDraw thisAStarGreedyString = this.AStarGreedyString;
             //long Time = TimeElapced.TimeNow(); Spaces++;
             Object a1 = new Object();
             lock (a1)
@@ -2151,44 +2182,44 @@ namespace RefrigtzDLL
                 for (var i = So2; i < SodierHigh; i++)
                     SolderesOnTable[i] = null;
 
-                /*  for (var i = El1; i < ElefantMidle; i++)
-                      ElephantOnTable[i] = null;
+                for (var i = El1; i < ElefantMidle; i++)
+                    ElephantOnTable[i] = null;
 
-                  for (var i = El2; i < ElefantHigh; i++)
-                      ElephantOnTable[i] = null;
+                for (var i = El2; i < ElefantHigh; i++)
+                    ElephantOnTable[i] = null;
 
-                  for (var i = Ho1; i < HourseMidle; i++)
-                      HoursesOnTable[i] = null;
+                for (var i = Ho1; i < HourseMidle; i++)
+                    HoursesOnTable[i] = null;
 
-                  for (var i = Ho2; i < HourseHight; i++)
-                      HoursesOnTable[i] = null;
+                for (var i = Ho2; i < HourseHight; i++)
+                    HoursesOnTable[i] = null;
 
-                  for (var i = Br1; i < CastleMidle; i++)
-                      CastlesOnTable[i] = null;
+                for (var i = Br1; i < CastleMidle; i++)
+                    CastlesOnTable[i] = null;
 
-                  for (var i = Br2; i < CastleHigh; i++)
-                      CastlesOnTable[i] = null;
+                for (var i = Br2; i < CastleHigh; i++)
+                    CastlesOnTable[i] = null;
 
-                  for (var i = Mi1; i < MinisterMidle; i++)
-                      MinisterOnTable[i] = null;
+                for (var i = Mi1; i < MinisterMidle; i++)
+                    MinisterOnTable[i] = null;
 
-                  for (var i = Mi2; i < MinisterHigh; i++)
-                      MinisterOnTable[i] = null;
+                for (var i = Mi2; i < MinisterHigh; i++)
+                    MinisterOnTable[i] = null;
 
-                  for (var i = Ki1; i < KingMidle; i++)
-                      KingOnTable[i] = null;
+                for (var i = Ki1; i < KingMidle; i++)
+                    KingOnTable[i] = null;
 
-                  for (var i = Ki2; i < KingHigh; i++)
-                      KingOnTable[i] = null;
-                  if (TableList.Count > 0)
-                  {
-                      for (var i = 0; i < 8; i++)
-                          for (var j = 0; j < 8; j++)
-                              Tabl[i, j] = TableList[0][i, j];
-                  }*/
+                for (var i = Ki2; i < KingHigh; i++)
+                    KingOnTable[i] = null;
+                if (TableList.Count > 0)
+                {
+                    for (var i = 0; i < 8; i++)
+                        for (var j = 0; j < 8; j++)
+                            Tabl[i, j] = TableList[0][i, j];
+                }
                 SetRowColumnFinished = true;
             }
-            //{ AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space); AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
+            //{ //AllDraw.OutPut.Append("\r\n"); for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space); //AllDraw.OutPut.Append("SetRowColumn:" + (TimeElapced.TimeNow() - Time).ToString()); }
             Spaces--;
             this.AStarGreedyString = thisAStarGreedyString;
             OrderP = Dummy;
@@ -2205,9 +2236,10 @@ namespace RefrigtzDLL
                 do
                 {
 
+
                 } while (!SetRowColumnFinished);
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SetRowColumnFinishedWait:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SetRowColumnFinishedWait:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Max Index List Of Heuristic AStarGreedy First Method.
         public void BeginIndexFoundingMaxLessofMaxList(int ListIndex, List<int> Founded, ref int LessB)
@@ -2281,7 +2313,7 @@ namespace RefrigtzDLL
                     }
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BeginIndexFoundingMaxLessofMaxList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BeginIndexFoundingMaxLessofMaxList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Method for Check of Existence of Checkmate less than for checked mate.
         bool IsToCheckMateHasLessDeeperThanForCheckMate(AllDraw A, int Order, ref int ToCheckMate, ref int ForCheckMate, int AStarGreedy)
@@ -2673,7 +2705,7 @@ namespace RefrigtzDLL
                         }
 
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsToCheckMateHasLessDeeperThanForCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsToCheckMateHasLessDeeperThanForCheckMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 ChessRules.CurrentOrder = CDummy;
                 return AA;
             }
@@ -3312,7 +3344,7 @@ namespace RefrigtzDLL
                 }
                 ChessRules.CurrentOrder = CDummy;
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsPenaltyRegardCheckMateAtBranch:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsPenaltyRegardCheckMateAtBranch:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //A Mechanisam for penalty all subbranches of chiled of root at contained of same childes  of making penalty by target 
         public void MakePenaltyAllCheckMateBranches(AllDraw A, int Order)
@@ -3509,7 +3541,7 @@ namespace RefrigtzDLL
                         }
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MakePenaltyAllCheckMateBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MakePenaltyAllCheckMateBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //remove penalty from root current node.
         public AllDraw RemovePenalltyFromFirstBranches(int Order)
@@ -3692,7 +3724,7 @@ namespace RefrigtzDLL
 
                         }
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("RemovePenalltyFromFirstBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemovePenalltyFromFirstBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return this;
             }
 
@@ -3856,7 +3888,7 @@ namespace RefrigtzDLL
                         THIS = this;
                         Found = true;
                     }
-                    //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfCurrentTableNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return THIS;
                 }
 
@@ -3879,8 +3911,9 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                for (int k = 0; SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; k++)
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; k++)
+                                //SolderesOnTable[i].SoldierThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
 
@@ -3908,8 +3941,9 @@ namespace RefrigtzDLL
                             {
 
 
-                                for (int k = 0; ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; k++)
-                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; k++)
+                                //ElephantOnTable[i].ElefantThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -3934,8 +3968,9 @@ namespace RefrigtzDLL
                             else
                             {
 
-                                for (int k = 0; HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && k < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; k++)
-                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && k < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; k++)
+                                //HoursesOnTable[i].HourseThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
 
                                 if (Found)
                                     return THIS;
@@ -3962,8 +3997,9 @@ namespace RefrigtzDLL
                             else
                             {
 
-                                for (int k = 0; CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && k < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; k++)
-                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && k < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; k++)
+                                // CastlesOnTable[i].CastleThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -3986,8 +4022,9 @@ namespace RefrigtzDLL
                             else
                             {
 
-                                for (int k = 0; MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; k++)
-                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; k++)
+                                //MinisterOnTable[i].MinisterThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4013,8 +4050,9 @@ namespace RefrigtzDLL
                             else
                             {
 
-                                for (int k = 0; KingOnTable[i].KingThinking[0].AStarGreedy != null && k < KingOnTable[i].KingThinking[0].AStarGreedy.Count; k++)
-                                    KingOnTable[i].KingThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; KingOnTable[i].KingThinking[0].AStarGreedy != null && k < KingOnTable[i].KingThinking[0].AStarGreedy.Count; k++)
+                                //KingOnTable[i].KingThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4042,8 +4080,9 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                for (int k = 0; SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; k++)
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && k < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; k++)
+                                //SolderesOnTable[i].SoldierThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4067,8 +4106,9 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                for (int k = 0; ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; k++)
-                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && k < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; k++)
+                                //ElephantOnTable[i].ElefantThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4093,8 +4133,9 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                for (int k = 0; HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && k < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; k++)
-                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && k < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; k++)
+                                //HoursesOnTable[i].HourseThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4119,8 +4160,9 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                for (int k = 0; CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && k < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; k++)
-                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && k < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; k++)
+                                ///CastlesOnTable[i].CastleThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4145,8 +4187,9 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                for (int k = 0; MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; k++)
-                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && k < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; k++)
+                                //MinisterOnTable[i].MinisterThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4169,8 +4212,9 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                for (int k = 0; KingOnTable[i].KingThinking[0].AStarGreedy != null && k < KingOnTable[i].KingThinking[0].AStarGreedy.Count; k++)
-                                    KingOnTable[i].KingThinking[0].AStarGreedy[k].FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
+                                //for (int k = 0; KingOnTable[i].KingThinking[0].AStarGreedy != null && k < KingOnTable[i].KingThinking[0].AStarGreedy.Count; k++)
+                                //KingOnTable[i].KingThinking[0].AStarGreedy[k].
+                                FoundOfCurrentTableNodeAstardGreedy(i, j, Tab, Order, ref THIS, ref Found);
                                 if (Found)
                                     return THIS;
                             }
@@ -4630,7 +4674,6 @@ namespace RefrigtzDLL
 
 
         }
-        //clear all non nessaraly nodes of current
         public void ClearAllTablesHeuristicsAndMoreGray(int Order)
         {
             Object O = new Object();
@@ -5174,6 +5217,8 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeSolderIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 1))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
             {
@@ -5183,6 +5228,7 @@ namespace RefrigtzDLL
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]));
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].SetRowColumn(0);
+                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5196,6 +5242,7 @@ namespace RefrigtzDLL
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]));
                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].SetRowColumn(0);
+                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5204,12 +5251,13 @@ namespace RefrigtzDLL
             {
                 if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
+                    /*if (!SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
                     {
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]));
                         SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].SetRowColumn(0);
-                    }
+                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
+                    }*/
                     THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5262,6 +5310,8 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeElephantIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 2))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
             {
@@ -5271,6 +5321,7 @@ namespace RefrigtzDLL
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]));
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].SetRowColumn(0);
+                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5284,6 +5335,7 @@ namespace RefrigtzDLL
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]));
                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].SetRowColumn(0);
+                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5292,12 +5344,13 @@ namespace RefrigtzDLL
             {
                 if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
+                    /*if (!ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
                     {
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]));
                         ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].SetRowColumn(0);
-                    }
+                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
+                    }*/
                     THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5316,6 +5369,7 @@ namespace RefrigtzDLL
                     {
                         if (IsSupHuTrue(i, j, 0, 2))
                             continue;
+
                         if (ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Tab))
                         {
 
@@ -5352,6 +5406,8 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeHourseIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 3))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
             {
@@ -5361,6 +5417,7 @@ namespace RefrigtzDLL
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]));
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].SetRowColumn(0);
+                HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5374,6 +5431,7 @@ namespace RefrigtzDLL
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]));
                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].SetRowColumn(0);
+                HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5382,12 +5440,13 @@ namespace RefrigtzDLL
             {
                 if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
-                    {
-                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
-                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]));
-                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].SetRowColumn(0);
-                    }
+                    /* if (!HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
+                     {
+                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
+                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]));
+                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].SetRowColumn(0);
+                         HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
+                     }*/
 
                     THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                     Found = true;
@@ -5443,6 +5502,8 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeCastleIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 4))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
             {
@@ -5452,6 +5513,7 @@ namespace RefrigtzDLL
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]));
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].SetRowColumn(0);
+                CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5465,6 +5527,7 @@ namespace RefrigtzDLL
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]));
                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].SetRowColumn(0);
+                CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5473,12 +5536,13 @@ namespace RefrigtzDLL
             {
                 if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
+                    /*if (!CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
                     {
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]));
                         CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].SetRowColumn(0);
-                    }
+                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
+                    }*/
                     THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
 
                     Found = true;
@@ -5534,6 +5598,8 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeMinisterIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 5))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
             {
@@ -5543,6 +5609,7 @@ namespace RefrigtzDLL
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]));
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].SetRowColumn(0);
+                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5556,6 +5623,7 @@ namespace RefrigtzDLL
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]));
                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].SetRowColumn(0);
+                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5564,12 +5632,13 @@ namespace RefrigtzDLL
             {
                 if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
+                    /*if (!MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
                     {
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]));
                         MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].SetRowColumn(0);
-                    }
+                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
+                    }*/
                     THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5622,6 +5691,8 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeKingIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
+            if (IsSupHuTrue(i, j, 0, 6))
+                return false;
             //when is null creation enough but empty and create deeper node 
             if (KingOnTable[i].KingThinking[0].AStarGreedy == null)
             {
@@ -5631,6 +5702,7 @@ namespace RefrigtzDLL
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]));
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].SetRowColumn(0);
+                KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5644,6 +5716,7 @@ namespace RefrigtzDLL
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]));
                 KingOnTable[i].KingThinking[0].AStarGreedy[j].SetRowColumn(0);
+                KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                 Found = true;
                 return true;
@@ -5652,12 +5725,13 @@ namespace RefrigtzDLL
             {
                 if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count > j)
                 {
-                    if (!KingOnTable[i].KingThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
+                    /*if (!KingOnTable[i].KingThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
                     {
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]));
                         KingOnTable[i].KingThinking[0].AStarGreedy[j].SetRowColumn(0);
-                    }
+                        KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
+                    }*/
                     THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5709,8 +5783,255 @@ namespace RefrigtzDLL
             }
             return Found;
         }
+        public AllDraw FoundOfLeafDepenOfKindSoldier(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                if (Found)
+                    return Leaf;
+
+
+                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                {
+
+                    if (IsSupHuTrue(i, j, 0, 1))
+                        continue;
+                    //when leaf found set refer bool and alldraw refer objects
+                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count <= SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count// && Kind == 1
+                    )
+                    {
+                        Found = true;
+                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
+                        //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        Color aa = Color.Gray;
+                        if (Order * -1 == -1)
+                            aa = Color.Brown;
+                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]), Order * -1, false, false, 0);
+                        Leaf = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1];
+                        return Leaf;
+                    }
+                    else//deeper
+                        for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                            SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+
+
+                }
+
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return Leaf;
+            }
+        }
+        public AllDraw FoundOfLeafDepenOfKindElephant(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                if (Found)
+                    return Leaf;
+
+
+
+                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 2))
+                        continue;
+
+                    //when leaf found set refer bool and alldraw refer objects
+                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count <= ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count //&& Kind == 2
+                    )
+                    {
+                        Found = true;
+                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
+                        //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        Color aa = Color.Gray;
+                        if (Order * -1 == -1)
+                            aa = Color.Brown;
+                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]), Order * -1, false, false, 0);
+                        Leaf = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1];
+                        return Leaf;
+                    }
+                    else//deeper
+                        for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                            ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+
+
+
+                }
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return Leaf;
+            }
+        }
+        public AllDraw FoundOfLeafDepenOfKindHourse(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                if (Found)
+                    return Leaf;
+
+                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 3))
+                        continue;
+
+                    //when leaf found set refer bool and alldraw refer objects
+                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count <= HoursesOnTable[i].HourseThinking[0].TableListHourse.Count //&& Kind == 3
+                    )
+                    {
+                        Found = true;
+                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
+                        //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        Color aa = Color.Gray;
+                        if (Order * -1 == -1)
+                            aa = Color.Brown;
+                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]), Order * -1, false, false, 0);
+                        Leaf = HoursesOnTable[i].HourseThinking[0].AStarGreedy[HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1];
+                        return Leaf;
+                    }
+                    else//deeper
+                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                            HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+
+
+                }
+
+
+
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return Leaf;
+            }
+        }
+        public AllDraw FoundOfLeafDepenOfKindCastle(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                if (Found)
+                    return Leaf;
+
+                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 4))
+                        continue;
+
+
+                    //when leaf found set refer bool and alldraw refer objects
+                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count <= CastlesOnTable[i].CastleThinking[0].TableListCastle.Count //&& Kind == 4
+                    )
+                    {
+                        Found = true;
+                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
+                        //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        Color aa = Color.Gray;
+                        if (Order * -1 == -1)
+                            aa = Color.Brown;
+                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]), Order * -1, false, false, 0);
+                        Leaf = CastlesOnTable[i].CastleThinking[0].AStarGreedy[CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1];
+                        return Leaf;
+                    }
+                    else//deeper
+                        for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                            CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+
+                }
+
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return Leaf;
+            }
+        }
+        public AllDraw FoundOfLeafDepenOfKindMinister(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                if (Found)
+                    return Leaf;
+
+                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 5))
+                        continue;
+
+                    //when leaf found set refer bool and alldraw refer objects
+                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count <= MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count //&& Kind == 5
+                    )
+                    {
+                        Found = true;
+                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
+                        //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        Color aa = Color.Gray;
+                        if (Order * -1 == -1)
+                            aa = Color.Brown;
+                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]), Order * -1, false, false, 0);
+                        Leaf = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1];
+                        return Leaf;
+                    }
+                    else//deeper
+                        for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                            MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+
+
+
+                }
+
+
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return Leaf;
+            }
+        }
+        public AllDraw FoundOfLeafDepenOfKindKing(int i, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                if (Found)
+                    return Leaf;
+
+                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 6))
+                        continue;
+                    //when leaf found set refer bool and alldraw refer objects
+                    if (KingOnTable[i].KingThinking[0].AStarGreedy.Count <= KingOnTable[i].KingThinking[0].TableListKing.Count //&& Kind == 6
+                    )
+                    {
+                        Found = true;
+                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
+                        //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        Color aa = Color.Gray;
+                        if (Order * -1 == -1)
+                            aa = Color.Brown;
+                        KingOnTable[i].KingThinking[0].AStarGreedy[KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]), Order * -1, false, false, 0);
+                        Leaf = KingOnTable[i].KingThinking[0].AStarGreedy[KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1];
+                        return Leaf;
+                    }
+                    else//deeper
+                        for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                            KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
+
+
+
+                }
+
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                return Leaf;
+            }
+        }
         //found of leadfs of created tree depend of orderic 
-        public AllDraw FoundOfLeafDepenOfKind(int Kind, ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf)
+        public AllDraw FoundOfLeafDepenOfKind(ref AllDraw Leaf, ref bool Found, int Order, ref int OrderLeaf, int ik, int jk, int iii, int jjj)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object a = new Object();
@@ -5725,258 +6046,82 @@ namespace RefrigtzDLL
 
                     for (var i = 0; i < SodierMidle; i++)
                     {
-                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
-                        {
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (SolderesOnTable[i].SoldierThinking[0].IsThereMateOfEnemy || SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-
-                        }
+                        FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < ElefantMidle; i++)
                     {
-                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
-                        {
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
-                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-
-
-                        }
+                        FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < HourseMidle; i++)
                     {
-                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
-                        {
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
-                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-
-                        }
+                        FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
 
                     }
 
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < CastleMidle; i++)
                     {
-                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
-                        {
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
-                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-                        }
+                        FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < MinisterMidle; i++)
                     {
-                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
-                        {
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
-                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-
-
-                        }
+                        FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = 0; i < KingMidle; i++)
                     {
-                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
-                        {
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
-                                    KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-
-
-                        }
+                        FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
                 }
                 else
                 {
+                    if (Found)
+                        return Leaf;
                     for (var i = SodierMidle; i < SodierHigh; i++)
                     {
-                        for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
-                        {
-
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0 && Kind == 1)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-                        }
+                        FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
                     {
-                        for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
-                        {
-
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0 && Kind == 2)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
-                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-                        }
+                        FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = HourseMidle; i < HourseHight; i++)
                     {
-                        for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
-                        {
-
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0 && Kind == 3)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
-                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-                        }
+                        FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = CastleMidle; i < CastleHigh; i++)
                     {
-                        for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
-                        {
-
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0 && Kind == 4)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
-                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-
-                        }
+                        FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
+                    if (Found)
+                        return Leaf;
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
                     {
-                        for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
-                        {
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0 && Kind == 5)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
-                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-
-                        }
+                        FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
 
+                    if (Found)
+                        return Leaf;
                     for (var i = KingMidle; i < KingHigh; i++)
                     {
-                        for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
-                        {
-
-                            //when leaf found set refer bool and alldraw refer objects
-                            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0 && Kind == 6)
-                            {
-                                Found = true;
-                                Leaf = this;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                                return Leaf;
-
-                            }
-                            else//deeper
-                                for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
-                                    KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(Kind, ref Leaf, ref Found, Order * -1, ref OrderLeaf);
-
-
-
-                        }
+                        FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKind:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Leaf;
             }
         }
@@ -6004,7 +6149,7 @@ namespace RefrigtzDLL
                                 && Kind == 1)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6022,7 +6167,7 @@ namespace RefrigtzDLL
                         && Kind == 2)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6041,7 +6186,7 @@ namespace RefrigtzDLL
 && Kind == 3)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6061,7 +6206,7 @@ namespace RefrigtzDLL
                                 && Kind == 4)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6079,7 +6224,7 @@ namespace RefrigtzDLL
                                 && Kind == 5)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6098,7 +6243,7 @@ namespace RefrigtzDLL
                                 && Kind == 6)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6121,7 +6266,7 @@ namespace RefrigtzDLL
                                 && Kind == 1)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6139,7 +6284,7 @@ namespace RefrigtzDLL
                                 && Kind == 2)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6157,7 +6302,7 @@ namespace RefrigtzDLL
                                 && Kind == 3)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6175,7 +6320,7 @@ namespace RefrigtzDLL
                                 && Kind == 4)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6193,7 +6338,7 @@ namespace RefrigtzDLL
                                 && Kind == 5)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
                             }
                             else//deeper
@@ -6211,7 +6356,7 @@ namespace RefrigtzDLL
                                 && Kind == 6)
                             {
                                 Found = true;
-                                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                 return true;
 
                             }
@@ -6223,7 +6368,7 @@ namespace RefrigtzDLL
 
                         }
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsFoundOfLeafDepenOfKindhaveVictory:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Found;
             }
         }
@@ -6260,7 +6405,7 @@ namespace RefrigtzDLL
             }
             //when is 2 consider determinstic results about contanied
             if (Is == 2)
-                IsThereCalculatedAStarGreedyNode(i);
+                IsThereCalculatedAStarGreedyNode(i, Kind);
             return Is;
         }
         //when current side of alldraw is not contained and semi computated 
@@ -6282,7 +6427,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 & e > j && (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])))
                         Is = true;
 
                 }
@@ -6300,7 +6445,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 & e > j && (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])))
                         Is = true;
                 }
             }
@@ -6317,7 +6462,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 & e > j && (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], HoursesOnTable[i].HourseThinking[0].TableListHourse[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], HoursesOnTable[i].HourseThinking[0].TableListHourse[j])))
                         Is = true;
                 }
             }
@@ -6334,7 +6479,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 & e > j && (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CastlesOnTable[i].CastleThinking[0].TableListCastle[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CastlesOnTable[i].CastleThinking[0].TableListCastle[j])))
                         Is = true;
                 }
             }
@@ -6350,7 +6495,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 & e > j && (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])))
                         Is = true;
                 }
             }
@@ -6366,7 +6511,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 & e > j && (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], KingOnTable[i].KingThinking[0].TableListKing[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], KingOnTable[i].KingThinking[0].TableListKing[j])))
                         Is = true;
                 }
             }
@@ -6376,6 +6521,28 @@ namespace RefrigtzDLL
             //when current alldraw tablelist not exist return true
             if (d == 0)
                 Is = true;
+            return Is;
+
+
+        }
+        public bool IsAtLeastAllObjectIsNull()
+        {
+            bool Is = false;
+            //Soldier
+
+            if (SolderesOnTable == null)
+                Is = true;
+            if (ElephantOnTable == null)
+                Is = true;
+            if (HoursesOnTable == null)
+                Is = true;
+            if (CastlesOnTable == null)
+                Is = true;
+            if (MinisterOnTable == null)
+                Is = true;
+            if (KingOnTable == null)
+                Is = true;
+
             return Is;
 
 
@@ -6626,10 +6793,10 @@ namespace RefrigtzDLL
 
                         }
                         FullGameFound = true;
-                        //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
                         {
                             SolderesOnTable[i].SoldierThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -6658,10 +6825,10 @@ namespace RefrigtzDLL
                                         return;
 
                                 }
-                                //OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                                ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                 //ThinkingChess.NumbersOfAllNode++;
-                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
                             for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
@@ -6681,16 +6848,16 @@ namespace RefrigtzDLL
                                     return;
 
                             }
-                            //OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                            ////OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                             Object O1 = new Object();
                             lock (O1)
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
 
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
                                 {
@@ -6718,7 +6885,7 @@ namespace RefrigtzDLL
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
@@ -6729,13 +6896,13 @@ namespace RefrigtzDLL
                                 {
                                     FirstTraversalTree = false;
 
-                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();
+                                    //SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();
                                     //when search finished stop and return
                                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                                         return;
 
                                 }
-                                //OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                                ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                 //ThinkingChess.NumbersOfAllNode++;
                                 this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
@@ -6792,10 +6959,10 @@ namespace RefrigtzDLL
 
                         }
                         FullGameFound = true;
-                        //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
                         {
                             ElephantOnTable[i].ElefantThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -6821,10 +6988,10 @@ namespace RefrigtzDLL
                                         return;
 
                                 }
-                                //OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                                ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                 //ThinkingChess.NumbersOfAllNode++;
-                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
 
@@ -6845,15 +7012,15 @@ namespace RefrigtzDLL
                                     return;
 
                             }
-                            //OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                            ////OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                             Object O1 = new Object();
                             lock (O1)
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
                                 {
@@ -6880,11 +7047,11 @@ namespace RefrigtzDLL
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();
+                                //ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();
                                 this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -6907,9 +7074,9 @@ namespace RefrigtzDLL
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
-
                         if (IsSupHuTrue(i, j, 0, 3))
                             continue;
+
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -6938,10 +7105,10 @@ namespace RefrigtzDLL
 
                         }
                         FullGameFound = true;
-                        //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
                         {
                             HoursesOnTable[i].HourseThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -6968,10 +7135,10 @@ namespace RefrigtzDLL
                                         return;
 
                                 }
-                                //OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                                ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                 //ThinkingChess.NumbersOfAllNode++;
-                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
 
@@ -6992,15 +7159,15 @@ namespace RefrigtzDLL
                                     return;
 
                             }
-                            //OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                            ////OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                             Object O1 = new Object();
                             lock (O1)
                             {
 
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
                                 {
@@ -7031,7 +7198,7 @@ namespace RefrigtzDLL
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();
+                                //HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();
                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -7054,12 +7221,12 @@ namespace RefrigtzDLL
                 for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count //&& CastlesOnTable[i].CastleThinking[0].TableListCastle != null
                                   ; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 4))
+                        continue;
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
 
-                        if (IsSupHuTrue(i, j, 0, 4))
-                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -7088,10 +7255,10 @@ namespace RefrigtzDLL
 
                         }
                         FullGameFound = true;
-                        //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
                         {
                             CastlesOnTable[i].CastleThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -7119,10 +7286,10 @@ namespace RefrigtzDLL
                                         return;
 
                                 }
-                                //OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                                ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                 //ThinkingChess.NumbersOfAllNode++;
-                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].AStarGreedyString = this;
 
                             }
@@ -7144,14 +7311,14 @@ namespace RefrigtzDLL
                                     return;
 
                             }
-                            //OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                            ////OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
                                 {
@@ -7179,12 +7346,12 @@ namespace RefrigtzDLL
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
                                 int Ord = Order, iAStarGreedy1 = 0, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
-                                CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();
+                                //CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();
 
                                 this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, i1, j1, false, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
@@ -7206,12 +7373,12 @@ namespace RefrigtzDLL
                 for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null //&& MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null
                   ; j++)
                 {
+                    if (IsSupHuTrue(i, j, 0, 5))
+                        continue;
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
 
-                        if (IsSupHuTrue(i, j, 0, 5))
-                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
@@ -7240,10 +7407,10 @@ namespace RefrigtzDLL
 
                         }
                         FullGameFound = true;
-                        //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
                         {
                             MinisterOnTable[i].MinisterThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -7269,10 +7436,10 @@ namespace RefrigtzDLL
                                         return;
 
                                 }
-                                //OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                                ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                 //ThinkingChess.NumbersOfAllNode++;
-                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].AStarGreedyString = this;
 
                             }
@@ -7294,11 +7461,11 @@ namespace RefrigtzDLL
                                     return;
 
                             }
-                            //OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                            ////OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
-                            ClearAllTablesHeuristicsAndMore(Order);
+                            //ClearAllTablesHeuristicsAndMore(Order);
 
-                            InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                            InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                             for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
                             {
@@ -7327,11 +7494,11 @@ namespace RefrigtzDLL
                             {
                                 FullGameFound = true;
 
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();
+                                //MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();
                                 this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -7386,10 +7553,10 @@ namespace RefrigtzDLL
 
                         }
                         FullGameFound = true;
-                        //OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
-                        ClearAllTablesHeuristicsAndMore(Order);
+                        ////OutPut.Append("\r\nLeaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                        //ClearAllTablesHeuristicsAndMore(Order);
 
-                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                        InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
                         for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
                         {
                             KingOnTable[i].KingThinking[0].AStarGreedy[h].AStarGreedyString = this;
@@ -7416,10 +7583,10 @@ namespace RefrigtzDLL
                                         return;
 
                                 }
-                                //OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                                ////OutPut.Append("\r\nAStarGreedy traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                                 //ThinkingChess.NumbersOfAllNode++;
-                                KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy++);
+                                KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 KingOnTable[i].KingThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
 
@@ -7441,16 +7608,16 @@ namespace RefrigtzDLL
                                     return;
 
                             }
-                            //OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
+                            ////OutPut.Append("\r\nFull Game traversal to Leaf Tree Creation is " + LeafAStarGreedy.ToString() + "at AStarGreedy " + iAStarGreedy.ToString());
 
                             Object O1 = new Object();
                             lock (O1)
                             {
                                 int Ord = Order, ii1 = ii, jj1 = jj, i1 = i, j1 = j;
 
-                                ClearAllTablesHeuristicsAndMore(Order);
+                                //ClearAllTablesHeuristicsAndMore(Order);
 
-                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
+                                InitiateAStarGreedyt(AllDraw.MaxAStarGreedy - LeafAStarGreedy, ii, jj, a, CloneATable(Table), Order, false, false, LeafAStarGreedy);//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref double LessLess
 
                                 for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
                                 {
@@ -7477,11 +7644,11 @@ namespace RefrigtzDLL
                             Object OO1 = new Object();
                             lock (OO1)
                             {
-                                iAStarGreedy++;
+                                //iAStarGreedy++;
                                 a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                KingOnTable[i].KingThinking[0].AStarGreedy.Clear();
+                                //KingOnTable[i].KingThinking[0].AStarGreedy.Clear();
                                 this.FullGameThinkingTree(Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                             }
@@ -7494,6 +7661,8 @@ namespace RefrigtzDLL
         }
         public void FoundOfLeafDepenOfKindFullGame(int[,] Table, int Order, int iAStarGreedy, int ii, int jj, int ik, int jjj, bool FOUND, int LeafAStarGreedy)
         {
+            LeafSemaphoreIndex = true;
+
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object a1 = new Object();
             lock (a1)
@@ -7501,6 +7670,8 @@ namespace RefrigtzDLL
                 Object Omm = new Object();
                 lock (Omm)
                 {
+                    if (LeafAStarGreedy >= MaxAStarGreedy)
+                        return;
                     Object OOOO = new Object();
                     lock (OOOO)
                     {
@@ -7522,128 +7693,131 @@ namespace RefrigtzDLL
                         Color a = Color.Gray;
                         var output = Task.Factory.StartNew(() =>
                         {
-                            Parallel.Invoke(() =>
+                            //if (!feedCancellationTokenSource.IsCancellationRequested)
                             {
-                                //soldier
-                                for (var i = 0; i < SodierMidle; i++)
+                                Parallel.Invoke(() =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //soldier
+                                    for (var i = 0; i < SodierMidle; i++)
                                     {
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //elephant
-                                for (var i = 0; i < ElefantMidle; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //elephant
+                                    for (var i = 0; i < ElefantMidle; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //hourse
-                                for (var i = 0; i < HourseMidle; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //hourse
+                                    for (var i = 0; i < HourseMidle; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //Castle
-                                for (var i = 0; i < CastleMidle; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //Castle
+                                    for (var i = 0; i < CastleMidle; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //minister
-                                for (var i = 0; i < MinisterMidle; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //minister
+                                    for (var i = 0; i < MinisterMidle; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //king
-                                for (var i = 0; i < KingMidle; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //king
+                                    for (var i = 0; i < KingMidle; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            });
+                                });
+                            }
                         });
-                        output.Wait();
+                        output.Wait(); output.Dispose();
 
 
                     }
@@ -7652,129 +7826,132 @@ namespace RefrigtzDLL
                         Color a = Color.Brown;
                         var output = Task.Factory.StartNew(() =>
                         {
-                            Parallel.Invoke(() =>
+                            //if (!feedCancellationTokenSource.IsCancellationRequested)
                             {
-                                //soldier
-                                for (var i = SodierMidle; i < SodierHigh; i++)
+                                Parallel.Invoke(() =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //soldier
+                                    for (var i = SodierMidle; i < SodierHigh; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameSoldeir(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //elephant
-                                for (var i = ElefantMidle; i < ElefantHigh; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //elephant
+                                    for (var i = ElefantMidle; i < ElefantHigh; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameElepahnt(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //hourse
-                                for (var i = HourseMidle; i < HourseHight; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //hourse
+                                    for (var i = HourseMidle; i < HourseHight; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameHourse(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //Castle
-                                for (var i = CastleMidle; i < CastleHigh; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //Castle
+                                    for (var i = CastleMidle; i < CastleHigh; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameCastle(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //minister
-                                for (var i = MinisterMidle; i < MinisterHigh; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //minister
+                                    for (var i = MinisterMidle; i < MinisterHigh; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameMinister(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            }, () =>
-                            {
-                                //king
-                                for (var i = KingMidle; i < KingHigh; i++)
+                                }, () =>
                                 {
-                                    Object OOOO = new Object();
-                                    lock (OOOO)
+                                    //king
+                                    for (var i = KingMidle; i < KingHigh; i++)
                                     {
+                                        Object OOOO = new Object();
+                                        lock (OOOO)
+                                        {
 
-                                        //when search finished stop and return
-                                        if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
-                                            return;
+                                            //when search finished stop and return
+                                            if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
+                                                return;
 
+                                        }
+                                        Object P = new Object();
+                                        lock (P)
+                                        {
+                                            FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                        }
                                     }
-                                    Object P = new Object();
-                                    lock (P)
-                                    {
-                                        FoundOfLeafDepenOfKindFullGameKing(a, ref FullGameFound, Table, Order, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
-                                    }
-                                }
-                            });
+                                });
+                            }
                         });
-                        output.Wait();
+                        output.Wait(); output.Dispose();
                     }
                 }
                 //when not occured untile now computational op
@@ -7787,7 +7964,7 @@ namespace RefrigtzDLL
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return;
 
-                        iAStarGreedy++;
+                        //iAStarGreedy++;
                         Color a = Color.Gray;
                         if (Order == -1)
                             a = Color.Brown;
@@ -7795,7 +7972,7 @@ namespace RefrigtzDLL
                                                                                                                                           //Initiate(ii, jj, a, CloneATable(Table), Order, false, false,LeafAStarGreedy);
                     }
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfLeafDepenOfKindFullGame:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfLeafDepenOfKindFullGame:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return;
             }
         }
@@ -8016,7 +8193,7 @@ namespace RefrigtzDLL
                         }
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MakeRegardAllCheckMateBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MakeRegardAllCheckMateBranches:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //when all branches of root is lose and close ignore of learning autamata option  
         int[,] HeuristicAStarGreadySearchPenalties(int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
@@ -8209,12 +8386,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                                 }
                                             }
@@ -8329,12 +8506,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                                 }
                                             }
@@ -8489,12 +8666,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Elephant By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Elephant By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Elephant By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Elephant By Alice!");
 
                                                 }
                                             }
@@ -8544,12 +8721,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                                 }
                                             }
@@ -8696,12 +8873,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Hourse By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Hourse By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Hourse By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Hourse By Alice!");
 
                                                 }
                                             }
@@ -8753,12 +8930,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                             }
                                         }
@@ -8905,12 +9082,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Castles By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Castles By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Castles By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Castles By Alice!");
 
                                                 }
                                             }
@@ -8959,12 +9136,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                                 }
                                             }
@@ -9118,12 +9295,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Minister By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Minister By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Minister By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Minister By Alice!");
 
                                                 }   //Set Table and Heuristic Value and Syntax.
                                             }
@@ -9172,12 +9349,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                                 }
                                             }
@@ -9329,12 +9506,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic King By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic King By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic King By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic King By Alice!");
 
                                                 }
                                             }
@@ -9385,12 +9562,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                                 }
                                             }
@@ -9411,7 +9588,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchPenalties:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchPenalties:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -9468,9 +9645,10 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                OutPut.Append("\r\n" + SOut);
+                //OutPut.Append("\r\n" + SOut);
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("StringHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("StringHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         bool IsSupHuTrue(int i, int j, int k, int Kind)
         {
@@ -9494,7 +9672,6 @@ namespace RefrigtzDLL
                 Is = KingOnTable[i].KingThinking[0].IsSupHu[j];
             return Is;
         }
-
         //method for return index base calculated Heuristic specified and clear
         void SaveLess(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
         {
@@ -9529,7 +9706,7 @@ namespace RefrigtzDLL
             {
                 Less = KingOnTable[i].KingThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled);
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SaveLess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SaveLess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //index of tables that verified existence havbeen saved into refer var
         void SaveTableHeuristic(int i, int j, int k, int Kind, ref int[,] TableHeuristic)
@@ -9565,7 +9742,7 @@ namespace RefrigtzDLL
             {
                 TableHeuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SaveTableHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SaveTableHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //same of befor verified existence of begin move and end move location saved in unique results of Last best movments
         void SaveBeginEndLocation(int i, int j, int k, int Kind)
@@ -9619,7 +9796,7 @@ namespace RefrigtzDLL
                 AllDraw.NextRow = KingOnTable[i].KingThinking[k].RowColumnKing[j][0];
                 AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SaveBeginEndLocation:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SaveBeginEndLocation:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //regard section of main Heuristic in learning autamata section
         bool HeuristicRegardSection(int i, int j, int k, ref bool Act, ref int[,] TableHeuristic, ref bool AA, Color a, int Kind, ref int Do, int AStarGreedyi, int Order)
@@ -9803,7 +9980,7 @@ namespace RefrigtzDLL
                     continued = true;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicRegardSection:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicRegardSection:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return continued;
         }
         //initiate deterministic vars of orderic Heuristic value
@@ -9870,7 +10047,7 @@ namespace RefrigtzDLL
                 CL6 = k;
                 Ki6 = j;
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateVars:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateVars:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //deterministic of checke of movments occured for ignore
         bool CheckeHuristci(int[,] TableS, int Order, int i, int j, int k)
@@ -9895,7 +10072,7 @@ namespace RefrigtzDLL
                         continued = true;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckeHuristci:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheckeHuristci:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return continued;
         }
         //minitoring of Heuristic output
@@ -9907,16 +10084,16 @@ namespace RefrigtzDLL
             {
                 if (Order == 1)
                 {
-                    OutPut.Append("\r\nChess Heuristic Elephant By Bob!");
+                    //OutPut.Append("\r\nChess Heuristic Elephant By Bob!");
 
                 }
                 else//If Order is Brown.
                 {
-                    OutPut.Append("\r\nChess Heuristic Elephant By Alice!");
+                    //OutPut.Append("\r\nChess Heuristic Elephant By Alice!");
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("OutputHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("OutputHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //main method of Heuristic
         bool HeuristicMainBody(int i, int j, int k, ref bool Act, ref int[,] TableHeuristic, ref bool CurrentTableHeuristic, ref bool AA, Color a, int Kind, ref int Do, int AStarGreedyi, int Order)
@@ -9931,6 +10108,7 @@ namespace RefrigtzDLL
                 if (SolderesOnTable[i].SoldierThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                 {
 
+
                     Object O11 = new Object();
                     lock (O11)
                     {
@@ -9942,10 +10120,10 @@ namespace RefrigtzDLL
 
                             if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
-                                if (Order == 1)
-                                    AllDraw.OutPut.Append("\r\nHeuristic Soldier By Bob was not Valid Movment!");
-                                else
-                                    AllDraw.OutPut.Append("\r\nHeuristic Soldier By Alice was not Valid Movment!");
+                                //if (Order == 1)
+                                //AllDraw.OutPut.Append("\r\nHeuristic Soldier By Bob was not Valid Movment!");
+                                //else
+                                //AllDraw.OutPut.Append("\r\nHeuristic Soldier By Alice was not Valid Movment!");
 
                                 return true;
                             }
@@ -10046,10 +10224,10 @@ namespace RefrigtzDLL
 
                         if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
-                            if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHeuristic Elephant By Bob was not Valid Movment!");
-                            else
-                                AllDraw.OutPut.Append("\r\nHeuristic Elephant By Alice was not Valid Movment!");
+                            //if (Order == 1)
+                            //AllDraw.OutPut.Append("\r\nHeuristic Elephant By Bob was not Valid Movment!");
+                            //else
+                            //AllDraw.OutPut.Append("\r\nHeuristic Elephant By Alice was not Valid Movment!");
 
                             return true;
                         }
@@ -10128,11 +10306,11 @@ namespace RefrigtzDLL
                         {
                             if (Order == 1)
                             {
-                                AllDraw.OutPut.Append("\r\nHeuristic Hourse By Bob was not Valid Movment!");
+                                //AllDraw.OutPut.Append("\r\nHeuristic Hourse By Bob was not Valid Movment!");
                             }
                             else
                             {
-                                AllDraw.OutPut.Append("\r\nHeuristic Hourse By Alice was not Valid Movment!");
+                                //AllDraw.OutPut.Append("\r\nHeuristic Hourse By Alice was not Valid Movment!");
 
                                 return true;
                             }
@@ -10209,10 +10387,10 @@ namespace RefrigtzDLL
 
                         if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
-                            if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHeuristic Castle By Bob was not Valid Movment!");
-                            else
-                                AllDraw.OutPut.Append("\r\nHeuristic Castle By Alice was not Valid Movment!");
+                            //if (Order == 1)
+                            //AllDraw.OutPut.Append("\r\nHeuristic Castle By Bob was not Valid Movment!");
+                            //else
+                            //AllDraw.OutPut.Append("\r\nHeuristic Castle By Alice was not Valid Movment!");
 
                             return true;
                         }
@@ -10292,10 +10470,10 @@ namespace RefrigtzDLL
 
                         if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
-                            if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHeuristic Minister By Bob was not Valid Movment!");
-                            else { }
-                            AllDraw.OutPut.Append("\r\nHeuristic Minister By Alice was not Valid Movment!");
+                            //if (Order == 1)
+                            //AllDraw.OutPut.Append("\r\nHeuristic Minister By Bob was not Valid Movment!");
+                            //else 
+                            //AllDraw.OutPut.Append("\r\nHeuristic Minister By Alice was not Valid Movment!");
 
                             return true;
                         }
@@ -10377,10 +10555,10 @@ namespace RefrigtzDLL
 
                         if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
-                            if (Order == 1)
-                                AllDraw.OutPut.Append("\r\nHeuristic King By Bob was not Valid Movment!");
-                            else
-                                AllDraw.OutPut.Append("\r\nHeuristic King By Alice was not Valid Movment!");
+                            //if (Order == 1)
+                            //AllDraw.OutPut.Append("\r\nHeuristic King By Bob was not Valid Movment!");
+                            //else
+                            //AllDraw.OutPut.Append("\r\nHeuristic King By Alice was not Valid Movment!");
 
                             return true;
                         }
@@ -10443,7 +10621,7 @@ namespace RefrigtzDLL
                 {
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicMainBody:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicMainBody:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return continued;
         }
         //determined verified victom occured
@@ -10489,6 +10667,7 @@ namespace RefrigtzDLL
                 {
                     for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                     {
+
                         {
 
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -10541,7 +10720,7 @@ namespace RefrigtzDLL
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10559,9 +10738,9 @@ namespace RefrigtzDLL
                     for (var i = 0; i < SodierMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchSoldier(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchSoldierGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchSoldierGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10578,9 +10757,9 @@ namespace RefrigtzDLL
                     for (var i = SodierMidle; i < SodierHigh; i++)
                         TableHeuristic = HeuristicAStarGreadySearchSoldier(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10598,9 +10777,9 @@ namespace RefrigtzDLL
                     for (var i = 0; i < ElefantMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchElephant(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10618,9 +10797,9 @@ namespace RefrigtzDLL
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
                         TableHeuristic = HeuristicAStarGreadySearchElephant(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10702,7 +10881,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
 
@@ -10722,9 +10901,9 @@ namespace RefrigtzDLL
                     for (var i = 0; i < HourseMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchHourse(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                   // CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10742,9 +10921,9 @@ namespace RefrigtzDLL
                     for (var i = HourseMidle; i < HourseHight; i++)
                         TableHeuristic = HeuristicAStarGreadySearchHourse(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10822,7 +11001,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10839,9 +11018,9 @@ namespace RefrigtzDLL
                     for (var i = 0; i < CastleMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchCastle(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10860,9 +11039,9 @@ namespace RefrigtzDLL
                         TableHeuristic = HeuristicAStarGreadySearchCastle(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10940,7 +11119,7 @@ namespace RefrigtzDLL
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -10957,9 +11136,9 @@ namespace RefrigtzDLL
                         TableHeuristic = HeuristicAStarGreadySearchMinsister(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchMinsisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchMinsisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
 
@@ -10977,9 +11156,9 @@ namespace RefrigtzDLL
                         TableHeuristic = HeuristicAStarGreadySearchMinsister(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchMinsisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchMinsisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -11051,7 +11230,7 @@ namespace RefrigtzDLL
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchMinsister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchMinsister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -11067,9 +11246,9 @@ namespace RefrigtzDLL
                     for (var i = 0; i < KingMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchKing(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -11086,9 +11265,9 @@ namespace RefrigtzDLL
                     for (var i = KingMidle; i < KingHigh; i++)
                         TableHeuristic = HeuristicAStarGreadySearchKing(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                else
-                    CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //else
+                    //CodeClass.SaveByCode(1, callStack.GetFileLineNumber(), callStack.GetFileName());
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -11162,7 +11341,7 @@ namespace RefrigtzDLL
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -11189,7 +11368,7 @@ namespace RefrigtzDLL
                 HeuristicAStarGreadySearchMinsisterGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
                 HeuristicAStarGreadySearchKingGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -11215,7 +11394,7 @@ namespace RefrigtzDLL
                 HeuristicAStarGreadySearchMinsisterBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
                 HeuristicAStarGreadySearchKingBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreadySearchBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreadySearchBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -11399,12 +11578,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                             }
                                         }
@@ -11514,12 +11693,12 @@ namespace RefrigtzDLL
                                             {
                                                 if (Order == 1)
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                                 }
                                                 else//If Order is Brown.
                                                 {
-                                                    OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                    //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                                 }
                                             }
@@ -11683,12 +11862,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Elephant By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Elephant By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Elephant By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Elephant By Alice!");
 
                                             }
                                         }
@@ -11740,12 +11919,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                             }
                                         }
@@ -11911,12 +12090,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Hourse By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Hourse By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Hourse By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Hourse By Alice!");
 
                                             }
                                         }
@@ -11970,12 +12149,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                             }
                                         }
@@ -12135,12 +12314,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Castles By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Castles By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Castles By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Castles By Alice!");
 
                                             }
                                         }
@@ -12194,12 +12373,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                             }
                                         }
@@ -12349,12 +12528,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Minister By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Minister By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Minister By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Minister By Alice!");
 
                                             }
                                         }
@@ -12404,12 +12583,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                             }
                                         }
@@ -12564,12 +12743,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic King By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic King By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic King By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic King By Alice!");
 
                                             }
                                         }
@@ -12623,12 +12802,12 @@ namespace RefrigtzDLL
                                         {
                                             if (Order == 1)
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Bob!");
 
                                             }
                                             else//If Order is Brown.
                                             {
-                                                OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
+                                                //OutPut.Append("\r\nChess Heuristic Sodier By Alice!");
 
                                             }
                                         }
@@ -12646,7 +12825,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BrownHeuristicAStarGreaedySearchPenalites:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BrownHeuristicAStarGreaedySearchPenalites:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -12756,7 +12935,7 @@ namespace RefrigtzDLL
                 if (Act)
                     return TableHeuristic;
                 //Return what found table.
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreedySearch:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreedySearch:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return TableHeuristic;
             }
         }
@@ -12859,7 +13038,7 @@ namespace RefrigtzDLL
                 MaxHeuristicAStarGreedytBackWardTable.Add(TableHeuristic);
 
                 Founded.Clear();
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("HeuristicAStarGreedySearchPenalties:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAStarGreedySearchPenalties:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //If Found retrun table.
                 if (Act)
                     return TableHeuristic;
@@ -12896,12 +13075,12 @@ namespace RefrigtzDLL
                     {
                         if (Order == 1)
                         {
-                            OutPut.Append("\r\nChess Genetic By Bob!");
+                            //OutPut.Append("\r\nChess Genetic By Bob!");
 
                         }
                         else//If Order is Brown.
                         {
-                            OutPut.Append("\r\nChess Genetic By Alice!");
+                            //OutPut.Append("\r\nChess Genetic By Alice!");
 
 
                         }
@@ -12929,12 +13108,12 @@ namespace RefrigtzDLL
                     {
                         if (Order == 1)
                         {
-                            OutPut.Append("\r\nGenetic Algorithm Begin AStarGreedy " + i.ToString() + " By Bob!");
+                            //OutPut.Append("\r\nGenetic Algorithm Begin AStarGreedy " + i.ToString() + " By Bob!");
 
                         }
                         else//If Order is Brown.
                         {
-                            OutPut.Append("\r\nGenetic Algirithm Begin AStarGreedy " + i.ToString() + " By Alice!");
+                            //OutPut.Append("\r\nGenetic Algirithm Begin AStarGreedy " + i.ToString() + " By Alice!");
 
 
                         }
@@ -12949,12 +13128,12 @@ namespace RefrigtzDLL
                     {
                         if (Order == 1)
                         {
-                            OutPut.Append("\r\nGenetic Algorithm Finsished AStarGreedy " + i.ToString() + " By Bob!");
+                            //OutPut.Append("\r\nGenetic Algorithm Finsished AStarGreedy " + i.ToString() + " By Bob!");
 
                         }
                         else//If Order is Brown.
                         {
-                            OutPut.Append("\r\nGenetic Algirithm Finished AStarGreedy " + i.ToString() + " By Alice!");
+                            //OutPut.Append("\r\nGenetic Algirithm Finished AStarGreedy " + i.ToString() + " By Alice!");
 
 
                         }
@@ -12996,7 +13175,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = Current;
 
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateGenetic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateGenetic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
         }
         //AStarGreedy First Initiat Thinking Main Method.
@@ -13037,7 +13216,7 @@ namespace RefrigtzDLL
                         return null;
                 }
 
-                iAStarGreedy++;
+                //iAStarGreedy++;
 
 
 
@@ -13522,7 +13701,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytOneNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytOneNode:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -13549,7 +13728,7 @@ namespace RefrigtzDLL
                     if (Tab[i] > Max)
                         Max = Tab[i];
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxGrayMidle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MaxGrayMidle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Max;
             }
         }
@@ -13574,7 +13753,7 @@ namespace RefrigtzDLL
                     if (Tab[i] > Max)
                         Max = Tab[i];
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxBrownHigh:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MaxBrownHigh:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Max;
             }
         }
@@ -13599,7 +13778,7 @@ namespace RefrigtzDLL
                     if (Tab[i] < Min)
                         Min = Tab[i];
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MinBrownMidle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MinBrownMidle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Min;
             }
         }
@@ -13630,8 +13809,8 @@ namespace RefrigtzDLL
                                     if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                     {
                                         //Initiate of Local Variables By Global Objective Gray Current Solder.
-                                        ii = (int)SolderesOnTable[i].Row;
-                                        jj = (int)SolderesOnTable[i].Column;
+                                        int ik = (int)SolderesOnTable[i].Row;
+                                        int jk = (int)SolderesOnTable[i].Column;
                                         //Construction of Thinking Gray Soldier By Local Variables.
 
                                         //If There is no Thinking Movments on Current Object  
@@ -13679,8 +13858,8 @@ namespace RefrigtzDLL
                                     if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                     {
                                         //Inititate Local Variables By Global Varibales.
-                                        ii = (int)MinisterOnTable[i].Row;
-                                        jj = (int)MinisterOnTable[i].Column;
+                                        int ik = (int)MinisterOnTable[i].Row;
+                                        int jk = (int)MinisterOnTable[i].Column;
                                         //Construction of Thinking Objects Gray Minister.
 
                                         //If There is Not Minister Of Gray In The Thinking Table List.   
@@ -13727,8 +13906,8 @@ namespace RefrigtzDLL
                                     if (KingOnTable != null && KingOnTable[i] != null)
                                     {
                                         //Initiate Local varibale By Global Objective Varibales.
-                                        ii = (int)(int)KingOnTable[i].Row;
-                                        jj = (int)KingOnTable[i].Column;
+                                        int ik = (int)(int)KingOnTable[i].Row;
+                                        int jk = (int)KingOnTable[i].Column;
                                         //Construction of Gray King Thinking Objects.
 
                                         //When There is Not Thinking Table Gray King Movments.
@@ -13758,7 +13937,7 @@ namespace RefrigtzDLL
                     }//);
                 }//);
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytObjectGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytObjectGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         AllDraw InitiateAStarGreedytObjectBrown(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
@@ -13789,8 +13968,8 @@ namespace RefrigtzDLL
                                     if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                     {
                                         //Initiate of Local Variables By Global Objective Gray Current Solder.
-                                        ii = (int)SolderesOnTable[i].Row;
-                                        jj = (int)SolderesOnTable[i].Column;
+                                        int ik = (int)SolderesOnTable[i].Row;
+                                        int jk = (int)SolderesOnTable[i].Column;
                                         //Construction of Thinking Gray Soldier By Local Variables.
 
                                         //If There is no Thinking Movments on Current Object  
@@ -13836,8 +14015,8 @@ namespace RefrigtzDLL
                                     if (ElephantOnTable != null && ElephantOnTable[i] != null)
                                     {
                                         //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
-                                        ii = (int)ElephantOnTable[i].Row;
-                                        jj = (int)ElephantOnTable[i].Column;
+                                        int ik = (int)ElephantOnTable[i].Row;
+                                        int jk = (int)ElephantOnTable[i].Column;
                                         //Construction of Thinking Objects By Local Varibales.
 
                                         //If There is Not Thinking Objetive List Elephant Gray. 
@@ -13882,8 +14061,8 @@ namespace RefrigtzDLL
                                     if (HoursesOnTable != null && HoursesOnTable[i] != null)
                                     {
                                         //Initiate of Local Variables By Global Gray Hourse Objectives.
-                                        ii = (int)HoursesOnTable[i].Row;
-                                        jj = (int)HoursesOnTable[i].Column;
+                                        int ik = (int)HoursesOnTable[i].Row;
+                                        int jk = (int)HoursesOnTable[i].Column;
                                         //Construction of Gray Hourse Thinking Objects..
 
                                         //When There is Not HourseList Count. 
@@ -13928,8 +14107,8 @@ namespace RefrigtzDLL
                                     if (CastlesOnTable != null && CastlesOnTable[i] != null)
                                     {
                                         //Initaiate of Local Varibales By Global Varoiables.
-                                        ii = (int)CastlesOnTable[i].Row;
-                                        jj = (int)CastlesOnTable[i].Column;
+                                        int ik = (int)CastlesOnTable[i].Row;
+                                        int jk = (int)CastlesOnTable[i].Column;
                                         //Construction of Thinking Variables By Local Variables.
 
                                         //When Count of Table Castles of Thinking Not Exist Do Operational.
@@ -13974,8 +14153,8 @@ namespace RefrigtzDLL
                                     if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                     {
                                         //Inititate Local Variables By Global Varibales.
-                                        ii = (int)MinisterOnTable[i].Row;
-                                        jj = (int)MinisterOnTable[i].Column;
+                                        int ik = (int)MinisterOnTable[i].Row;
+                                        int jk = (int)MinisterOnTable[i].Column;
                                         //Construction of Thinking Objects Gray Minister.
 
                                         //If There is Not Minister Of Gray In The Thinking Table List.   
@@ -14020,8 +14199,8 @@ namespace RefrigtzDLL
                                     if (KingOnTable != null && KingOnTable[i] != null)
                                     {
                                         //Initiate Local varibale By Global Objective Varibales.
-                                        ii = (int)(int)KingOnTable[i].Row;
-                                        jj = (int)KingOnTable[i].Column;
+                                        int ik = (int)(int)KingOnTable[i].Row;
+                                        int jk = (int)KingOnTable[i].Column;
                                         //Construction of Gray King Thinking Objects.
 
                                         //When There is Not Thinking Table Gray King Movments.
@@ -14050,7 +14229,7 @@ namespace RefrigtzDLL
 
                 }//);
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytObjectBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytObjectBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //return index of table state index at list
@@ -14063,7 +14242,7 @@ namespace RefrigtzDLL
                 if (TableEqual(T[i], TAab))
                     C = i;
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundTableIndex:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundTableIndex:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return C;
         }
         //when tatow table is not equal
@@ -14077,7 +14256,7 @@ namespace RefrigtzDLL
                     if (t1[i, j] != t2[i, j])
                         Is = false;
                 }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("TableEqual:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("TableEqual:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Is;
         }
         //support of objects by self object regard by values named served
@@ -14175,7 +14354,7 @@ namespace RefrigtzDLL
                     ServeISSup(Order, 6, i);
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Serve:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Serve:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         //served mechaisam core
@@ -14214,7 +14393,7 @@ namespace RefrigtzDLL
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
                             SolderesOnTable[i].SoldierThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Soldeir!");
+                            //AllDraw.OutPut.Append("\r\nServed Soldeir!");
                         }
                     }
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicAttackValueSup = 0;
@@ -14256,7 +14435,7 @@ namespace RefrigtzDLL
                             this.SolderesOnTable[i].SoldierThinking[0].HeuristicListSolder[j][9] += SolderesOnTable[ii].SoldierThinking[0].HeuristicKingDangourSup;
                             SolderesOnTable[i].SoldierThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Soldeir!");
+                            //AllDraw.OutPut.Append("\r\nServed Soldeir!");
                         }
                     }
                     SolderesOnTable[ii].SoldierThinking[0].HeuristicAttackValueSup = 0;
@@ -14299,7 +14478,7 @@ namespace RefrigtzDLL
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
                             ElephantOnTable[i].ElefantThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Elephant!");
+                            //AllDraw.OutPut.Append("\r\nServed Elephant!");
                         }
 
                     }
@@ -14342,7 +14521,7 @@ namespace RefrigtzDLL
                             this.ElephantOnTable[i].ElefantThinking[0].HeuristicListElefant[j][9] += ElephantOnTable[ii].ElefantThinking[0].HeuristicKingDangourSup;
                             ElephantOnTable[i].ElefantThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Elephant!");
+                            //AllDraw.OutPut.Append("\r\nServed Elephant!");
                         }
 
                     }
@@ -14386,7 +14565,7 @@ namespace RefrigtzDLL
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
                             HoursesOnTable[i].HourseThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Hourse!");
+                            //AllDraw.OutPut.Append("\r\nServed Hourse!");
                         }
                     }
                     HoursesOnTable[ii].HourseThinking[0].HeuristicAttackValueSup = 0;
@@ -14427,7 +14606,7 @@ namespace RefrigtzDLL
                             this.HoursesOnTable[i].HourseThinking[0].HeuristicListHourse[j][9] += HoursesOnTable[ii].HourseThinking[0].HeuristicKingDangourSup;
                             HoursesOnTable[i].HourseThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Hourse!");
+                            //AllDraw.OutPut.Append("\r\nServed Hourse!");
                         }
                     }
                     HoursesOnTable[ii].HourseThinking[0].HeuristicAttackValueSup = 0;
@@ -14470,7 +14649,7 @@ namespace RefrigtzDLL
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
                             CastlesOnTable[i].CastleThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Castle!");
+                            //AllDraw.OutPut.Append("\r\nServed Castle!");
                         }
                     }
                     CastlesOnTable[ii].CastleThinking[0].HeuristicAttackValueSup = 0;
@@ -14511,7 +14690,7 @@ namespace RefrigtzDLL
                             this.CastlesOnTable[i].CastleThinking[0].HeuristicListCastle[j][9] += CastlesOnTable[ii].CastleThinking[0].HeuristicKingDangourSup;
                             CastlesOnTable[i].CastleThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Castle!");
+                            //AllDraw.OutPut.Append("\r\nServed Castle!");
                         }
                     }
                     CastlesOnTable[ii].CastleThinking[0].HeuristicAttackValueSup = 0;
@@ -14555,7 +14734,7 @@ namespace RefrigtzDLL
                             MinisterOnTable[i].MinisterThinking[0].IsSup[j] = false;
 
 
-                            AllDraw.OutPut.Append("\r\nServed Minister!");
+                            //AllDraw.OutPut.Append("\r\nServed Minister!");
                         }
                     }
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicAttackValueSup = 0;
@@ -14596,7 +14775,7 @@ namespace RefrigtzDLL
                             this.MinisterOnTable[i].MinisterThinking[0].HeuristicListMinister[j][9] += MinisterOnTable[ii].MinisterThinking[0].HeuristicKingDangourSup;
                             MinisterOnTable[i].MinisterThinking[0].IsSup[j] = false;
 
-                            AllDraw.OutPut.Append("\r\nServed Minister!");
+                            //AllDraw.OutPut.Append("\r\nServed Minister!");
                         }
                     }
                     MinisterOnTable[ii].MinisterThinking[0].HeuristicAttackValueSup = 0;
@@ -14640,7 +14819,7 @@ namespace RefrigtzDLL
                             KingOnTable[i].KingThinking[0].IsSup[j] = false;
 
 
-                            AllDraw.OutPut.Append("\r\nServed King!");
+                            //AllDraw.OutPut.Append("\r\nServed King!");
                         }
                     }
                     KingOnTable[ii].KingThinking[0].HeuristicAttackValueSup = 0;
@@ -14683,7 +14862,7 @@ namespace RefrigtzDLL
                             KingOnTable[i].KingThinking[0].IsSup[j] = false;
 
 
-                            AllDraw.OutPut.Append("\r\nServed King!");
+                            //AllDraw.OutPut.Append("\r\nServed King!");
                         }
                     }
                     KingOnTable[ii].KingThinking[0].HeuristicAttackValueSup = 0;
@@ -14700,7 +14879,7 @@ namespace RefrigtzDLL
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ServeISSup:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ServeISSup:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         void ThinkingAllowedSemaphore(int i)
         {
@@ -14725,54 +14904,74 @@ namespace RefrigtzDLL
                 Parallel.For(0, SodierMidle, i =>
                 //for (var i = 0; i < SodierMidle; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //If Solders Not Exist Continue and Traversal Back.
-                        if (SolderesOnTable != null && SolderesOnTable[i] != null)
-                        {
-                            //Initiate of Local Variables By Global Objective Gray Current Solder.
-                            ii = (int)SolderesOnTable[i].Row;
-                            jj = (int)SolderesOnTable[i].Column;
-                            //Construction of Thinking Gray Soldier By Local Variables.
-                            if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-                            //If There is no Thinking Movments on Current Object  
-
-                            if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                            {
-                                //For All Movable Gray Solders.
-                                ////Parallel.For(0, AllDraw.SodierMovments, j =>
-                                {
-                                    //Thinking of Gray Solder Operation.
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
-                                        SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
-                                        tH.Add(array);
-                                        //ServeISSup(Order,1, i);
-                                    }
-
-                                }//);
-                            }
-                            else
-                            {
-                                SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = false;
-                                SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = true;
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedytSodler(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytSodlerGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytSodlerGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return this;
+        }
+        AllDraw InitiateAStarGreedytSodler(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+             )
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object oo = new Object();
+            lock (oo)
+            {
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(1));
+                //arr.Wait();
+
+                //For Gray Soldeirs Objects. 
+
+                Object O = new Object();
+                lock (O)
+                {
+
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //If Solders Not Exist Continue and Traversal Back.
+                    if (SolderesOnTable != null && SolderesOnTable[i] != null)
+                    {
+                        //Initiate of Local Variables By Global Objective Gray Current Solder.
+                        int ik = (int)SolderesOnTable[i].Row;
+                        int jk = (int)SolderesOnTable[i].Column;
+                        //Construction of Thinking Gray Soldier By Local Variables.
+                        //if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
+                            //SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
+                        //If There is no Thinking Movments on Current Object  
+
+                        if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
+                        {
+                            //For All Movable Gray Solders.
+                            ////Parallel.For(0, AllDraw.SodierMovments, j =>
+                            {
+                                //Thinking of Gray Solder Operation.
+                                Object OOO = new Object();
+                                lock (OOO)
+                                {
+                                    SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
+                                    SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
+                                    var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
+                                    //ServeISSup(Order,1, i);
+                                }
+
+                            }//);
+                        }
+                        else
+                        {
+                            SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = false;
+                            SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = true;
+                        }
+                    }
+
+                }
+
+
+
+            }
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytSodlerGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiation of elephant gray
@@ -14789,53 +14988,71 @@ namespace RefrigtzDLL
                 Parallel.For(0, ElefantMidle, i =>
                 //for (var i = 0; i < ElefantMidle; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //Ignore of Non Exist Current Elephant Gray Objects.
-                        if (ElephantOnTable != null && ElephantOnTable[i] != null)
-                        {
-                            //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
-                            ii = (int)ElephantOnTable[i].Row;
-                            jj = (int)ElephantOnTable[i].Column;
-                            //Construction of Thinking Objects By Local Varibales.
-                            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-                            //If There is Not Thinking Objetive List Elephant Gray. 
-                            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                            {
-                                //For All Possible Movments.
-                                ////Parallel.For(0, AllDraw.ElefantMovments, j =>
-                                {
-                                    //Operational Thinking Gray Elephant. 
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
-                                        ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
-
-                                        var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
-                                        tH.Add(array);
-                                        //ServeISSup(Order,2, i);
-
-                                    }
-                                }//);
-                            }
-                            else
-                            {
-                                ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = false;
-                                ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = true;
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedytElephant(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+
+            return this;
+        }
+        AllDraw InitiateAStarGreedytElephant(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+             )
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object oo = new Object();
+            lock (oo)
+            {
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(2));
+                //arr.Wait();
+
+
+                Object O = new Object();
+                lock (O)
+                {
+
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //Ignore of Non Exist Current Elephant Gray Objects.
+                    if (ElephantOnTable != null && ElephantOnTable[i] != null)
+                    {
+                        //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
+                        int ik = (int)ElephantOnTable[i].Row;
+                        int jk = (int)ElephantOnTable[i].Column;
+                        //Construction of Thinking Objects By Local Varibales.
+                        //if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
+                            //ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
+                        //If There is Not Thinking Objetive List Elephant Gray. 
+                        if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
+                        {
+                            //For All Possible Movments.
+                            ////Parallel.For(0, AllDraw.ElefantMovments, j =>
+                            {
+                                //Operational Thinking Gray Elephant. 
+                                Object OOO = new Object();
+                                lock (OOO)
+                                {
+                                    ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
+                                    ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+
+                                    var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
+                                    //ServeISSup(Order,2, i);
+
+                                }
+                            }//);
+                        }
+                        else
+                        {
+                            ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = false;
+                            ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = true;
+                        }
+                    }
+
+                }
+
+            }
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             return this;
         }
@@ -14854,61 +15071,81 @@ namespace RefrigtzDLL
                 Parallel.For(0, HourseMidle, i =>
                 //for (var i = 0; i < HourseMidle; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //Ignore of Non Exist Current Gray Hourse Objects.
-                        if (HoursesOnTable != null && HoursesOnTable[i] != null)
-                        {
-                            //Initiate of Local Variables By Global Gray Hourse Objectives.
-                            ii = (int)HoursesOnTable[i].Row;
-                            jj = (int)HoursesOnTable[i].Column;
-                            //Construction of Gray Hourse Thinking Objects..
-                            if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-                            //When There is Not HourseList Count. 
-                            if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                            {
-                                //For All Possible Movments.
-                                ////Parallel.For(0, AllDraw.HourseMovments, j =>
-                                {
-                                    //Thinking of Gray Hourse Oprational.
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
-                                        HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
-                                        tH.Add(array);
-
-                                        //ServeISSup(Order,3, i);
-
-
-
-                                    }
-                                }//);
-                            }
-                            else
-                            {
-                                HoursesOnTable[i].HourseThinking[0].ThinkingBegin = false;
-                                HoursesOnTable[i].HourseThinking[0].ThinkingFinished = true;
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedythHourse(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return this;
+        }
+        AllDraw InitiateAStarGreedythHourse(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+            )
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object oo = new Object();
+            lock (oo)
+            {
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(3));
+                //arr.Wait();
+
+                //For All Gray Hourse Objects.
+
+                Object O = new Object();
+                lock (O)
+                {
+
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //Ignore of Non Exist Current Gray Hourse Objects.
+                    if (HoursesOnTable != null && HoursesOnTable[i] != null)
+                    {
+                        //Initiate of Local Variables By Global Gray Hourse Objectives.
+                        int ik = (int)HoursesOnTable[i].Row;
+                        int jk = (int)HoursesOnTable[i].Column;
+                        //Construction of Gray Hourse Thinking Objects..
+                        //if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
+                            //HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
+                        //When There is Not HourseList Count. 
+                        if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
+                        {
+                            //For All Possible Movments.
+                            ////Parallel.For(0, AllDraw.HourseMovments, j =>
+                            {
+                                //Thinking of Gray Hourse Oprational.
+                                Object OOO = new Object();
+                                lock (OOO)
+                                {
+                                    HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
+                                    HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
+                                    var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
+
+                                    //ServeISSup(Order,3, i);
+
+
+
+                                }
+                            }//);
+                        }
+                        else
+                        {
+                            HoursesOnTable[i].HourseThinking[0].ThinkingBegin = false;
+                            HoursesOnTable[i].HourseThinking[0].ThinkingFinished = true;
+                        }
+                    }
+
+                }
+
+
+            }
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiation of Castle gray
+
         AllDraw InitiateAStarGreedythCastleGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
-            )
+       )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object oo = new Object();
@@ -14921,55 +15158,73 @@ namespace RefrigtzDLL
                 Parallel.For(0, CastleMidle, i =>
                 //for (var i = 0; i < CastleMidle; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //When Current Castles Gray Not Exist Continue Traversal Back.
-                        if (CastlesOnTable != null && CastlesOnTable[i] != null)
-                        {
-                            //Initaiate of Local Varibales By Global Varoiables.
-                            ii = (int)CastlesOnTable[i].Row;
-                            jj = (int)CastlesOnTable[i].Column;
-                            //Construction of Thinking Variables By Local Variables.
-                            if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-                            //When Count of Table Castles of Thinking Not Exist Do Operational.
-                            if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                            {
-                                //For All Possible Movments.
-                                ////Parallel.For(0, AllDraw.CastleMovments, j =>
-                                {
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        //Thinking of Gray Castles Operational.
-                                        CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
-                                        CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-
-                                        var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
-                                        tH.Add(array);
-                                        //ServeISSup(Order,4, i);
-
-                                    }
-                                }//);
-
-                            }
-                            else
-                            {
-                                CastlesOnTable[i].CastleThinking[0].ThinkingBegin = false;
-                                CastlesOnTable[i].CastleThinking[0].ThinkingFinished = true;
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedythCastle(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return this;
+        }
+        AllDraw InitiateAStarGreedythCastle(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+       )
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object oo = new Object();
+            lock (oo)
+            {
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(4));
+                //arr.Wait();
+
+                //For All Possible Gray Castles Objects.
+
+                Object O = new Object();
+                lock (O)
+                {
+
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //When Current Castles Gray Not Exist Continue Traversal Back.
+                    if (CastlesOnTable != null && CastlesOnTable[i] != null)
+                    {
+                        //Initaiate of Local Varibales By Global Varoiables.
+                        int ik = (int)CastlesOnTable[i].Row;
+                        int jk = (int)CastlesOnTable[i].Column;
+                        //Construction of Thinking Variables By Local Variables.
+                        //if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
+                            //CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
+                        //When Count of Table Castles of Thinking Not Exist Do Operational.
+                        if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
+                        {
+                            //For All Possible Movments.
+                            ////Parallel.For(0, AllDraw.CastleMovments, j =>
+                            {
+                                Object OOO = new Object();
+                                lock (OOO)
+                                {
+                                    //Thinking of Gray Castles Operational.
+                                    CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
+                                    CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
+
+                                    var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
+                                    //ServeISSup(Order,4, i);
+
+                                }
+                            }//);
+
+                        }
+                        else
+                        {
+                            CastlesOnTable[i].CastleThinking[0].ThinkingBegin = false;
+                            CastlesOnTable[i].CastleThinking[0].ThinkingFinished = true;
+                        }
+                    }
+
+                }
+
+            }
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiation of minister gray
@@ -14988,57 +15243,76 @@ namespace RefrigtzDLL
                 //for (var i = 0; i < MinisterMidle; i++)
                 {
 
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //For Each Non Exist Gray Minister Objectives.
-                        if (MinisterOnTable != null && MinisterOnTable[i] != null)
-                        {
-                            //Inititate Local Variables By Global Varibales.
-                            ii = (int)MinisterOnTable[i].Row;
-                            jj = (int)MinisterOnTable[i].Column;
-                            //Construction of Thinking Objects Gray Minister.
-                            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-                            //If There is Not Minister Of Gray In The Thinking Table List.   
-                            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                            {
-                                //For All Possible Movments.
-                                // //Parallel.For(0, AllDraw.MinisterMovments, j =>
-                                {
-                                    //Thinking of Gray Minister Operational.
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
-                                        MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
-
-                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
-                                        tH.Add(array);
-                                        //ServeISSup(Order,5, i);
-
-                                    }
-                                }//);
-
-                            }
-                            else
-                            {
-                                MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = false;
-                                MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = true;
-                            }
-                        }
-                    }
+                    InitiateAStarGreedythMinister(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
 
                 });
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return this;
+        }
+        AllDraw InitiateAStarGreedythMinister(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+            )
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object oo = new Object();
+            lock (oo)
+            {
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(5));
+                //arr.Wait();
+
+                //For All Possible Gray Minister Movments.
+
+
+                Object O = new Object();
+                lock (O)
+                {
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //For Each Non Exist Gray Minister Objectives.
+                    if (MinisterOnTable != null && MinisterOnTable[i] != null)
+                    {
+                        //Inititate Local Variables By Global Varibales.
+                        int ik = (int)MinisterOnTable[i].Row;
+                        int jk = (int)MinisterOnTable[i].Column;
+                        //Construction of Thinking Objects Gray Minister.
+                        //if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+                            //MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
+                        //If There is Not Minister Of Gray In The Thinking Table List.   
+                        if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+                        {
+                            //For All Possible Movments.
+                            // //Parallel.For(0, AllDraw.MinisterMovments, j =>
+                            {
+                                //Thinking of Gray Minister Operational.
+                                Object OOO = new Object();
+                                lock (OOO)
+                                {
+                                    MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
+                                    MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+
+                                    var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
+                                    //ServeISSup(Order,5, i);
+
+                                }
+                            }//);
+
+                        }
+                        else
+                        {
+                            MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = false;
+                            MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = true;
+                        }
+                    }
+                }
+
+            }
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiation of king gray
-        AllDraw InitiateAStarGreedythKingGray(int iii, int jjjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+        AllDraw InitiateAStarGreedythKingGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -15052,52 +15326,70 @@ namespace RefrigtzDLL
                 Parallel.For(0, KingMidle, i =>
                 //for (var i = 0; i < KingMidle; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //If There is Not Current Object Continue Traversal Back.
-                        if (KingOnTable != null && KingOnTable[i] != null)
-                        {
-                            //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)(int)KingOnTable[i].Row;
-                            jj = (int)KingOnTable[i].Column;
-                            //Construction of Gray King Thinking Objects.
-                            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-                            //When There is Not Thinking Table Gray King Movments.
-                            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                            {
-                                //For All Possible Gray King Movments.
-                                ////Parallel.For(0, AllDraw.KingMovments, j =>
-                                {
-                                    //Thinking Of Gray King Operatins.
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        KingOnTable[i].KingThinking[0].ThinkingBegin = true;
-                                        KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                                        ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
-                                        tH.Add(array);
-
-                                        //ServeISSup(Order,6, i);
-                                    }
-                                }//);
-                            }
-                            else
-                            {
-                                KingOnTable[i].KingThinking[0].ThinkingBegin = false;
-                                KingOnTable[i].KingThinking[0].ThinkingFinished = true;
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedythKing(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return this;
+        }
+        AllDraw InitiateAStarGreedythKing(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+             )
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object oo = new Object();
+            lock (oo)
+            {
+                //var arr = Task.Factory.StartNew(() => ThinkingAllowedSemaphore(6));
+                //arr.Wait();
+
+                //For All Possible Gray King Objects.
+
+                Object O = new Object();
+                lock (O)
+                {
+
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //If There is Not Current Object Continue Traversal Back.
+                    if (KingOnTable != null && KingOnTable[i] != null)
+                    {
+                        //Initiate Local varibale By Global Objective Varibales.
+                        int ik = (int)(int)KingOnTable[i].Row;
+                        int jk = (int)KingOnTable[i].Column;
+                        //Construction of Gray King Thinking Objects.
+                        //if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+                            //KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ik, jk, a, CloneATable(Table), Order, false, i);
+                        //When There is Not Thinking Table Gray King Movments.
+                        if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+                        {
+                            //For All Possible Gray King Movments.
+                            ////Parallel.For(0, AllDraw.KingMovments, j =>
+                            {
+                                //Thinking Of Gray King Operatins.
+                                Object OOO = new Object();
+                                lock (OOO)
+                                {
+                                    KingOnTable[i].KingThinking[0].ThinkingBegin = true;
+                                    KingOnTable[i].KingThinking[0].ThinkingFinished = false;
+                                    ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
+
+                                    //ServeISSup(Order,6, i);
+                                }
+                            }//);
+                        }
+                        else
+                        {
+                            KingOnTable[i].KingThinking[0].ThinkingBegin = false;
+                            KingOnTable[i].KingThinking[0].ThinkingFinished = true;
+                        }
+                    }
+
+                }
+
+            }
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiation of soldier brown 
@@ -15115,56 +15407,12 @@ namespace RefrigtzDLL
                 Parallel.For(SodierMidle, SodierHigh, i =>
                 //for (var i = SodierMidle; i < SodierHigh; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //Wheen Brown King Object There is Not Continue Traversal Back.
-                        if (SolderesOnTable != null && SolderesOnTable[i] != null)
-                        {
-                            //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)SolderesOnTable[i].Row;
-                            jj = (int)SolderesOnTable[i].Column;
-                            //Construction of Thinking Brown Current Objects.
-                            if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                SolderesOnTable[i] = new DrawSoldier(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-                            {
-                                //When There is Current Brown Object Table List Thinking Objective Movments.
-                                if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                {
-                                    //For Each Brown Possible Movments. 
-                                    ////Parallel.For(0, AllDraw.SodierMovments, j =>
-                                    {
-                                        //Thinking Operations of Brown Current Objects.
-                                        Object OOO = new Object();
-                                        lock (OOO)
-                                        {
-                                            SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
-                                            SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
-                                            var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
-                                            tH.Add(array);
-                                            //ServeISSup(Order,1, i);
-                                        }
-                                    }//);
-
-                                }
-                                else
-                                {
-                                    SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = false;
-                                    SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = true;
-                                }
-
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedytSodler(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiation of elephant brown
@@ -15182,55 +15430,12 @@ namespace RefrigtzDLL
                 Parallel.For(ElefantMidle, ElefantHigh, i =>
                 //for (var i = ElefantMidle; i < ElefantHigh; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        if (ElephantOnTable != null && ElephantOnTable[i] != null)
-                        {
-                            //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)ElephantOnTable[i].Row;
-                            jj = (int)ElephantOnTable[i].Column;
-                            //Construction of Thinking Brown Current Objects.
-                            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                ElephantOnTable[i] = new DrawElefant(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-                            {
-                                //When There is Current Brown Object Table List Thinking Objective Movments.
-                                if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                {
-                                    //For Each Brown Possible Movments. 
-                                    ////Parallel.For(0, AllDraw.ElefantMovments, j =>
-                                    {
-                                        Object OOO = new Object();
-                                        lock (OOO)
-                                        {
-                                            //Thinking Operations of Brown Current Objects.
-                                            ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
-                                            ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
-                                            var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
-                                            tH.Add(array);
-
-                                            //ServeISSup(Order,2, i);
-                                        }
-                                    }//);
-                                }
-                                else
-                                {
-                                    ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = false;
-                                    ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = true;
-                                }
-
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedytElephant(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiation of hourse brown
@@ -15247,58 +15452,12 @@ namespace RefrigtzDLL
                 Parallel.For(HourseMidle, HourseHight, i =>
                 //for (var i = HourseMidle; i < HourseHight; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        if (HoursesOnTable != null && HoursesOnTable[i] != null)
-                        {
-                            //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)HoursesOnTable[i].Row;
-                            jj = (int)HoursesOnTable[i].Column;
-                            //Construction of Thinking Brown Current Objects.
-                            if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                HoursesOnTable[i] = new DrawHourse(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-
-                            {
-                                //When There is Current Brown Object Table List Thinking Objective Movments.
-                                if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                {
-                                    //For Each Brown Possible Movments. 
-                                    ////Parallel.For(0, AllDraw.HourseMovments, j =>
-                                    {
-                                        Object OOO = new Object();
-                                        lock (OOO)
-                                        {
-                                            //Thinking Operations of Brown Current Objects.
-                                            //HoursesOnTable[i].HourseThinking[0].TableT = HoursesOnTable[i].HourseThinking[0].TableT;
-                                            HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
-                                            HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                                            ;
-                                            var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
-                                            tH.Add(array);
-                                            //ServeISSup(Order,3, i);
-                                        }
-                                    }//);
-
-
-                                }
-                                else
-                                {
-                                    HoursesOnTable[i].HourseThinking[0].ThinkingBegin = false;
-                                    HoursesOnTable[i].HourseThinking[0].ThinkingFinished = true;
-                                }
-                            }
-
-                        }
-                    }
+                    InitiateAStarGreedythHourse(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiation of Castle brown
@@ -15315,56 +15474,12 @@ namespace RefrigtzDLL
                 Parallel.For(CastleMidle, CastleHigh, i =>
                 //for (var i = CastleMidle; i < CastleHigh; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        if (CastlesOnTable != null && CastlesOnTable[i] != null)
-
-                        {
-                            //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)CastlesOnTable[i].Row;
-                            jj = (int)CastlesOnTable[i].Column;
-                            //Construction of Thinking Brown Current Objects.
-                            if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                CastlesOnTable[i] = new DrawCastle(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-
-                            {
-                                //When There is Current Brown Object Table List Thinking Objective Movments.
-                                if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                                {
-                                    //For Each Brown Possible Movments. 
-                                    ////Parallel.For(0, AllDraw.CastleMovments, j =>
-                                    {
-                                        Object OOO = new Object();
-                                        lock (OOO)
-                                        {
-                                            //Thinking Operations of Brown Current Objects.
-                                            CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
-                                            CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-                                            var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
-                                            tH.Add(array); ;
-                                            //ServeISSup(Order,4, i);
-                                        }
-                                    }//);
-
-                                }
-                                else
-                                {
-                                    CastlesOnTable[i].CastleThinking[0].ThinkingBegin = false;
-                                    CastlesOnTable[i].CastleThinking[0].ThinkingFinished = true;
-                                }
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedythCastle(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return this;
         }
         //main initiatiob of minister brown
@@ -15382,53 +15497,11 @@ namespace RefrigtzDLL
                 Parallel.For(MinisterMidle, MinisterHigh, i =>
                 //for (var i = MinisterMidle; i < MinisterHigh; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        if (MinisterOnTable != null && MinisterOnTable[i] != null)
-                        {
-                            //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)MinisterOnTable[i].Row;
-                            jj = (int)MinisterOnTable[i].Column;
-                            //Construction of Thinking Brown Current Objects.
-                            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                MinisterOnTable[i] = new DrawMinister(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-
-                            //When There is Current Brown Object Table List Thinking Objective Movments.
-                            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                            {
-                                //For Each Brown Possible Movments. 
-                                ////Parallel.For(0, AllDraw.MinisterMovments, j =>
-                                {
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        //Thinking Operations of Brown Current Objects.
-                                        MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
-                                        MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
-                                        tH.Add(array);
-
-
-                                        //ServeISSup(Order,5, i);
-                                    }
-                                }//);
-                            }
-                            else
-                            {
-                                MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = false;
-                                MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = true;
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedythMinister(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             return this;
         }
@@ -15447,53 +15520,11 @@ namespace RefrigtzDLL
                 Parallel.For(KingMidle, KingHigh, i =>
                 //for (var i = KingMidle; i < KingHigh; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        if (KingOnTable != null && KingOnTable[i] != null)
-                        {
-                            //Initiate Local varibale By Global Objective Varibales.
-                            ii = (int)KingOnTable[i].Row;
-                            jj = (int)KingOnTable[i].Column;
-                            //Construction of Thinking Brown Current Objects.
-                            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                KingOnTable[i] = new DrawKing(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ii, jj, a, CloneATable(Table), Order, false, i);
-
-                            //When There is Current Brown Object Table List Thinking Objective Movments.
-                            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                            {
-                                //For Each Brown Possible Movments. 
-                                ////Parallel.For(0, AllDraw.KingMovments, j =>
-                                {
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        //Thinking Operations of Brown Current Objects.
-                                        KingOnTable[i].KingThinking[0].ThinkingBegin = true;
-                                        KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
-                                        tH.Add(array);
-                                        ;
-                                        //ServeISSup(Order,6, i);
-                                    }
-                                }//);
-
-                            }
-                            else
-                            {
-                                KingOnTable[i].KingThinking[0].ThinkingBegin = false;
-                                KingOnTable[i].KingThinking[0].ThinkingFinished = true;
-                            }
-                        }
-
-                    }
+                    InitiateAStarGreedythKing(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedythKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedythKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             return this;
         }
@@ -15522,7 +15553,7 @@ namespace RefrigtzDLL
                             continue;
                         if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15533,7 +15564,7 @@ namespace RefrigtzDLL
                             continue;
                         if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15544,7 +15575,7 @@ namespace RefrigtzDLL
                             continue;
                         if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15555,7 +15586,7 @@ namespace RefrigtzDLL
                             continue;
                         if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15566,7 +15597,7 @@ namespace RefrigtzDLL
                             continue;
                         if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15577,14 +15608,14 @@ namespace RefrigtzDLL
                             continue;
                         if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //when vicrory count satisfied
                     if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
                     {
-                        OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
+                        //OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
                         IS = true;
                     }
 
@@ -15598,7 +15629,7 @@ namespace RefrigtzDLL
                             continue;
                         if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15609,7 +15640,7 @@ namespace RefrigtzDLL
                             continue;
                         if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15620,7 +15651,7 @@ namespace RefrigtzDLL
                             continue;
                         if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15631,7 +15662,7 @@ namespace RefrigtzDLL
                             continue;
                         if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15642,7 +15673,7 @@ namespace RefrigtzDLL
                             continue;
                         if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15653,14 +15684,14 @@ namespace RefrigtzDLL
                             continue;
                         if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //when victory count satisfied
                     if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
                     {
-                        OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
+                        //OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
                         IS = true;
                     }
 
@@ -15669,7 +15700,7 @@ namespace RefrigtzDLL
                 if (((ThinkingChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
                     IS = true;
 
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullBoundryConditions:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return IS;
             }
         }
@@ -15691,62 +15722,59 @@ namespace RefrigtzDLL
                     Color aa = a;
 
                     var output = Task.Factory.StartNew(() =>
-                    Parallel.Invoke(() =>
                     {
-                        //For All Gray Soldier Objects.
-                        Object O = new Object();
-                        lock (O)
+                        //if (!feedCancellationTokenSource.IsCancellationRequested)
                         {
-                            this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        //For All Gray Elephant Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-                        //For All Gray Hourse Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
+                            Parallel.Invoke(() =>
+                            {
+                                //For All Gray Soldier Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }, () =>
+                            {
+                                //For All Gray Elephant Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }, () =>
+                            {
+                                //For All Gray Hourse Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }, () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }, () =>
+                            {
 
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
 
-                    }
-                    , () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }, () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            });
                         }
-                    })
-                    );
+                    });
                 }
                 else//Brown Order Considarations.
                 {
@@ -15758,66 +15786,63 @@ namespace RefrigtzDLL
                     //If Order is Gray.
 
                     var output = Task.Factory.StartNew(() =>
-                      Parallel.Invoke(() =>
-                      {
-                          //For All Gray Soldier Objects.
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                      ,
-                      () =>
-                      {
-                          //For All Gray Elephant Objects.
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                      , () =>
-                      {
-                          //For All Gray Hourse Objects.
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                      ,
-                      () =>
-                      {
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      }
-                      , () =>
-                      {
+                    {
+                        //if (!feedCancellationTokenSource.IsCancellationRequested)
+                        {
+                            Parallel.Invoke(() =>
+                            {
+                                //For All Gray Soldier Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }, () =>
+                            {
+                                //For All Gray Elephant Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }, () =>
+                            {
+                                //For All Gray Hourse Objects.
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }, () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            }, () =>
+                            {
 
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
 
-                      }
-                      , () =>
-                      {
-                          Object O = new Object();
-                          lock (O)
-                          {
-                              this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                          }
-                      })
-                     );
-                    output.Wait();
+                            }, () =>
+                            {
+                                Object O = new Object();
+                                lock (O)
+                                {
+                                    this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
+                                }
+                            });
+                        }
+                    });
+                    output.Wait(); output.Dispose();
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("AstarGreedyThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("AstarGreedyThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //initiation setdrawfounding tow stage computational method 
         public bool InitiateAStarGreedytCreationThinking(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
@@ -15831,7 +15856,6 @@ namespace RefrigtzDLL
                     ThinkingAllowed = new bool[12];
                 for (int iii = 0; iii < 12; iii++)
                     ThinkingAllowed[iii] = true;
-
                 int DummyOrder = new int();
                 DummyOrder = Order;
                 int DummyCurrentOrder = new int();
@@ -15849,151 +15873,177 @@ namespace RefrigtzDLL
                 //If Order is Gray.
                 if (Order == 1)
                 {
-                    int i1 = i, j1 = j;
-                    int[,] Tabl = CloneATable(Table);
-                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
-                    bool TB1 = TB;
-                    Color aa = a;
+                    var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinkingGray(DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, i, j, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
+                    //array1.ConfigureAwait(false);
+                    array1.Wait();
+                    array1.Dispose();
 
-
-                    var output = Task.Factory.StartNew(() =>
-                    Parallel.Invoke(() =>
-                    {
-                        //For All Gray Soldier Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        //For All Gray Elephant Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-                        //For All Gray Hourse Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-
-                    }
-                    , () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    })
-                    );
-                    output.Wait();
                 }
                 else//Brown Order Considarations.
                 {
-                    int i1 = i, j1 = j;
-                    int[,] Tabl = CloneATable(Table);
-                    int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
-                    bool TB1 = TB;
-                    Color aa = a;
-                    //If Order is Gray.
-
-
-                    var output = Task.Factory.StartNew(() =>
-                    Parallel.Invoke(() =>
-                    {
-                        //For All Gray Soldier Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        //For All Gray Elephant Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-                        //For All Gray Hourse Objects.
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    ,
-                    () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    }
-                    , () =>
-                    {
-
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-
-                    }
-                    , () =>
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-                            this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
-                        }
-                    })
-                );
-                    output.Wait();
+                    var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinkingBrown(DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, i, j, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
+                    //array1.ConfigureAwait(false);
+                    array1.Wait();
+                    array1.Dispose();
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytCreationThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytCreationThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return true;
+        }
+        public bool InitiateAStarGreedytCreationThinkingGray(int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj,int i,int j, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object o = new Object();
+            lock (o)
+            {
+                int i1 = i, j1 = j;
+                int[,] Tabl = CloneATable(Table);
+                int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
+                bool TB1 = TB;
+                Color aa = a;
+
+
+                var output = Task.Factory.StartNew(() =>
+                {
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
+                    {
+                        Parallel.Invoke(() =>
+                        {
+                                //For All Gray Soldier Objects.
+                                Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }, () =>
+                        {
+                                //For All Gray Elephant Objects.
+                                Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }, () =>
+                        {
+                                //For All Gray Hourse Objects.
+                                Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }, () =>
+                        {
+
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        });
+                    }
+                });
+                output.Wait(); output.Dispose();
+            }            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytCreationThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            return true;
+        }
+        public bool InitiateAStarGreedytCreationThinkingBrown(int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj,int i,int j, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
+)
+        {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+            Object o = new Object();
+            lock (o)
+            {
+
+                int i1 = i, j1 = j;
+                int[,] Tabl = CloneATable(Table);
+                int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
+                bool TB1 = TB;
+                Color aa = a;
+                //If Order is Gray.
+
+
+                var output = Task.Factory.StartNew(() =>
+                {
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
+                    {
+                        Parallel.Invoke(() =>
+                        {
+                                //For All Gray Soldier Objects.
+                                Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }, () =>
+                        {
+                                //For All Gray Elephant Objects.
+                                Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }, () =>
+                        {
+                                //For All Gray Hourse Objects.
+                                Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        }, () =>
+                        {
+
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tabl, Ord1, TB1, FOUND, LeafAStarGreedy);
+                            }
+                        });
+                    }
+                });
+                output.Wait(); output.Dispose();
+
+            }
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytCreationThinking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return true;
         }
         //computational initiation
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+              //long Time = TimeElapced.TimeNow();Spaces++;
             OrderP = Order;
             SetObjectNumbers(Tab);
 
@@ -16030,12 +16080,16 @@ namespace RefrigtzDLL
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    iAStarGreedy--;
+
+
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return null;
 
+                    if (LeafSemaphoreIndex)
+                        LeafAStarGreedy++;
+                    iAStarGreedy--;
                 }
                 CurrentAStarGredyMax = AStarGreedyiLevelMax - iAStarGreedy;
             }
@@ -16047,7 +16101,7 @@ namespace RefrigtzDLL
                 DepthIterative++;
                 lock (O)
                 {
-                    OutPut.Append("\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString());
+                    //OutPut.Append("\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString());
                 }
             }
 
@@ -16065,7 +16119,10 @@ namespace RefrigtzDLL
 
 
                     var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinking(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
+                    //array1.ConfigureAwait(false);
                     array1.Wait();
+                    array1.Dispose();
+                    //array1.Wait(); array1.Dispose();//TH.Add(array1);
 
                 }
 
@@ -16223,19 +16280,31 @@ namespace RefrigtzDLL
             ChessRules.CurrentOrder = DummyCurrentOrder;
 
             var array = Task.Factory.StartNew(() => Serve(Order));
+            //array.ConfigureAwait(false);
             array.Wait();
+            array.Dispose();
+            //tH.Add(array);
+            // //Parallel.ForEach(TH, items => Task.WaitAll(items));
+            //  tH.Clear();
 
             if (FOUND)
             {
                 Object O = new Object();
                 lock (O)
                 {
+                    FOUND = false;
+                    RefrigtzDLL.AllDraw Leaf = null;
                     Tabl = CloneATable(Table);
-                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy));
+                    int OrderLeaf = Order;
+                    var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, ref OrderLeaf, 0, 0, 0, 0));
+
+                    //array1.ConfigureAwait(false);
+
                     array1.Wait();
+                    array1.Dispose();
                     /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
-                    tFoundOfLeafDepenOfKindFullGame.Start();
-                    T.Add(tFoundOfLeafDepenOfKindFullGame);*/
+                tFoundOfLeafDepenOfKindFullGame.Start();
+                T.Add(tFoundOfLeafDepenOfKindFullGame);*/
                 }
             }
             else
@@ -16249,25 +16318,24 @@ namespace RefrigtzDLL
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
-                        //Parallel.Invoke(() =>
-                        {
-                            var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
-                            //tH.Add(array1);
-                            //array1.Wait();
-                            if (tH.Count > 0)
-                                Parallel.ForEach(tH, items => Task.WaitAll(items));
-                            else
-                                array1.Wait();
-                            /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
-                        tFullGameThinkingTree.Start();
-                        T.Add(tFullGameThinkingTree);*/
+
+                        var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
+                        //array1.ConfigureAwait(false);
+                        //array1.Wait();
+
+                        array1.Wait();
+                        array1.Dispose();
+
+                        /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
+                    tFullGameThinkingTree.Start();
+                    T.Add(tFullGameThinkingTree);*/
 
 
-                        }//);
                     }
                 }
-
             }
+
+            
 
             Object Om = new Object();
             lock (Om)
@@ -16277,9 +16345,9 @@ namespace RefrigtzDLL
                         MinThinkingTreeDepth = iAStarGreedy;
             }
 
+            tH.Clear();
 
-
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedyt:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Parallel.ForEach(T, items => Task.WaitAll(items));
             return this;
 
@@ -16345,7 +16413,7 @@ namespace RefrigtzDLL
                     DepthIterative++;
                     lock (O)
                     {
-                        OutPut.Append("\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString());
+                        //OutPut.Append("\r\nMinimum Level During Thinking Tree Creation is " + MaxDuringLevelThinkingCreation.ToString() + "at Iterative " + DepthIterative.ToString());
                     }
 
 
@@ -16399,7 +16467,7 @@ namespace RefrigtzDLL
                         if (iAStarGreedy < MinThinkingTreeDepth)
                             MinThinkingTreeDepth = iAStarGreedy;
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("InitiateAStarGreedytObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InitiateAStarGreedytObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return this;
             }
         }
@@ -16420,7 +16488,7 @@ namespace RefrigtzDLL
                 if (A.CheckGrayObjectDangour && ((!A.CheckBrownObjectDangour)))
                     IsDang = false;
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("KingDan:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("KingDan:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return IsDang;
 
         }
@@ -16562,23 +16630,27 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             return Is;
         }
         //when there is index notified deeper computational node
-        bool IsThereCalculatedAStarGreedyNode(int i)
+        bool IsThereCalculatedAStarGreedyNode(int i, int Kind)
         {
             bool Is = false;
             //soldier
-            if (SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null)
+            if (Kind == 1)
             {
-                if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
+                if (SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking != null && SolderesOnTable[i].SoldierThinking[0] != null && SolderesOnTable[i].SoldierThinking[0].TableListSolder != null)
                 {
-                    Is = true;
+                    if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count > 0)
+                    {
+                        Is = true;
+
+                    }
+                    else
+                        ClearAStarGreadyWhenListsAreEmpy(1, i);
+
 
                 }
-                else
-                    ClearAStarGreadyWhenListsAreEmpy(1, i);
-
-
             }
-            if (!Is)
+            else
+            if (Kind == 2)
             {
                 //elephant
                 if (ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[0] != null && ElephantOnTable[i].ElefantThinking[0].TableListElefant != null)
@@ -16594,7 +16666,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            if (!Is)
+            else
+            if (Kind == 3)
             {
                 //hourse
                 if (HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking != null && HoursesOnTable[i].HourseThinking[0] != null && HoursesOnTable[i].HourseThinking[0].TableListHourse != null)
@@ -16611,7 +16684,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            if (!Is)
+            else
+            if (Kind == 4)
             {
                 //Castle
                 if (CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[0] != null && CastlesOnTable[i].CastleThinking[0].TableListCastle != null)
@@ -16628,7 +16702,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            if (!Is)
+            else
+            if (Kind == 5)
             {
                 //minister
                 if (MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[0] != null && MinisterOnTable[i].MinisterThinking[0].TableListMinister != null)
@@ -16645,7 +16720,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            if (!Is)
+            else
+            if (Kind == 6)
             {
                 //king
                 if (KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking != null && KingOnTable[i].KingThinking[0] != null && KingOnTable[i].KingThinking[0].TableListKing != null)
@@ -16839,7 +16915,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //Elephant
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeSolderGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeSolderGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeElephantGray(ref int PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -16903,7 +16979,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeHourseGray(ref int PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -16968,7 +17044,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeCastleGray(ref int PreviousLessB, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17032,7 +17108,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeMinisterGray(ref int PreviousLessM, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17099,7 +17175,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeKingGray(ref int PreviousLessK, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17164,7 +17240,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameTreeCreationThinkingTreeSolder(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17183,12 +17259,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]]));
                     SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                    SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                     SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy[SolderesOnTable[Index[0]].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, SolderesOnTable[Index[0]].SoldierThinking[0].RowColumnSoldier[jIndex[0]][0], SolderesOnTable[Index[0]].SoldierThinking[0].RowColumnSoldier[jIndex[0]][1], a, SolderesOnTable[Index[0]].SoldierThinking[0].TableListSolder[jIndex[0]], Order, false, FOUND, LeafAStarGreedy);
 
                 }
             }
 
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeSolder:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeSolder:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameTreeCreationThinkingTreeElephant(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17206,11 +17283,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]]));
                     ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                    ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                     ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy[ElephantOnTable[Index[1]].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ElephantOnTable[Index[1]].ElefantThinking[0].RowColumnElefant[jIndex[1]][0], ElephantOnTable[Index[1]].ElefantThinking[0].RowColumnElefant[jIndex[1]][1], a, ElephantOnTable[Index[1]].ElefantThinking[0].TableListElefant[jIndex[1]], Order, false, FOUND, LeafAStarGreedy);
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameTreeCreationThinkingTreeHourse(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17228,11 +17306,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]]));
                     HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                    HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                     HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy[HoursesOnTable[Index[2]].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, HoursesOnTable[Index[2]].HourseThinking[0].RowColumnHourse[jIndex[2]][0], HoursesOnTable[Index[2]].HourseThinking[0].RowColumnHourse[jIndex[2]][1], a, HoursesOnTable[Index[2]].HourseThinking[0].TableListHourse[jIndex[2]], Order, false, FOUND, LeafAStarGreedy);
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameTreeCreationThinkingTreeCastle(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17250,11 +17329,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]]));
                     CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                    CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                     CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy[CastlesOnTable[Index[3]].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, CastlesOnTable[Index[3]].CastleThinking[0].RowColumnCastle[jIndex[3]][0], CastlesOnTable[Index[3]].CastleThinking[0].RowColumnCastle[jIndex[3]][1], a, CastlesOnTable[Index[3]].CastleThinking[0].TableListCastle[jIndex[3]], Order, false, FOUND, LeafAStarGreedy);
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameTreeCreationThinkingTreeMinister(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17272,11 +17352,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]]));
                     MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                    MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                     MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy[MinisterOnTable[Index[4]].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, MinisterOnTable[Index[4]].MinisterThinking[0].RowColumnMinister[jIndex[4]][0], MinisterOnTable[Index[4]].MinisterThinking[0].RowColumnMinister[jIndex[4]][1], a, MinisterOnTable[Index[4]].MinisterThinking[0].TableListMinister[jIndex[4]], Order, false, FOUND, LeafAStarGreedy);
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameTreeCreationThinkingTreeKing(Color a, int[] Index, int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17293,11 +17374,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
                     KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]]));
                     KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
+                    KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                     KingOnTable[Index[5]].KingThinking[0].AStarGreedy[KingOnTable[Index[5]].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, KingOnTable[Index[5]].KingThinking[0].RowColumnKing[jIndex[5]][0], KingOnTable[Index[5]].KingThinking[0].RowColumnKing[jIndex[5]][1], a, KingOnTable[Index[5]].KingThinking[0].TableListKing[jIndex[5]], Order, false, FOUND, LeafAStarGreedy);
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameTreeCreationThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeSolderBrown(ref int PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17312,15 +17394,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < SolderesOnTable[ik].SoldierThinking[0].HeuristicListSolder.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j]
                    )
                         continue;
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
+                        continue;
 
+                 
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
                         continue;
@@ -17359,7 +17441,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeSolderBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeSolderBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeElephantBrown(ref int PreviousLessE, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17374,15 +17456,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HeuristicListElefant.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j]
                  )
                         continue;
 
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
+                        continue;
+
+                  
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
                         continue;
@@ -17424,7 +17507,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeHourseBrown(ref int PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17439,15 +17522,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HeuristicListHourse.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j]
                     )
                         continue;
-                    //when node have kings dangoures ignore and continue.
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
+                        continue;
+
+                      //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
                         continue;
 
@@ -17487,7 +17570,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //main blitz for determination about best movment of every objects
         public int FullGameMakimgBlitz(ref int[] Index, ref int[] jIndex, int Order, int LeafAStarGreedy)
@@ -17559,7 +17642,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameMakimgBlitz:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameMakimgBlitz:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return System.Math.Abs(Kind);
         }
         //blitz for determination about best movment of every objects
@@ -17575,15 +17658,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HeuristicListCastle.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (CastlesOnTable[ik].CastleThinking[0].IsSupHu[j]
                     )
                         continue;
 
+                    //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
+                        continue;
+
+              
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
                         continue;
@@ -17629,7 +17713,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeMinisterBrown(ref int PreviousLessM, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17644,16 +17728,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HeuristicListMinister.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (MinisterOnTable[ik].MinisterThinking[0].IsSupHu[j]
                       )
                         continue;
 
-                    //when node have kings dangoures ignore and continue.
+     
+                        //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
+                        continue;
+
+                      //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
                         continue;
 
@@ -17691,7 +17776,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeKingBrown(ref int PreviousLessK, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
@@ -17706,15 +17791,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when there is computational lists
                 for (j = 0; j < KingOnTable[ik].KingThinking[0].HeuristicListKing.Count; j++)
                 {
-                    //when node is empty deeper and there is not computatiional node continue
-                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
-                        continue;
-
                     //when node is serving node continue
                     if (KingOnTable[ik].KingThinking[0].IsSupHu[j]
                      )
                         continue;
+                    
+                        //when node is empty deeper and there is not computatiional node continue
+                    if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
+                        continue;
 
+                   
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
                         continue;
@@ -17753,7 +17839,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         //blitz for determination about best movment of every objects
@@ -17997,7 +18083,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //calculate statistic move
         String Alphabet(int RowRealesed)
@@ -18027,7 +18113,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else
                                         if (RowRealesed == 7)
                 A = "h";
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Alphabet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Alphabet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return A;
 
 
@@ -18062,7 +18148,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             else
                                         if (ColumnRealeased == 0)
                 A = "7";
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Number:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Number:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return A;
 
 
@@ -18144,7 +18230,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Sum += A.KingOnTable[i].WinOcuuredatChiled;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SumOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SumOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Sum;
         }
         //victome transfer leafs to rooots chiled
@@ -18222,44 +18308,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Sum += A.KingOnTable[i].LoseOcuuredatChiled;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SumMinusOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SumMinusOfObjects:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Sum;
-        }
-        bool ReturnFullGameThinkingTreeIligalSemaphore(int ik, int kind)
-        {
-            if (kind == 1)
-            {
-                if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count == 0)
-                    return true;
-            }
-            else//elephant
-              if (kind == 2)
-            {
-                if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == 0)
-                    return true;
-            }
-            else if (kind == 3)//hourse
-            {
-                if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count == 0)
-                    return true;
-            }
-            else if (kind == 4)//Castle
-            {
-                if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == 0)
-                    return true;
-            }
-            else
-                if (kind == 5)//minister
-            {
-                if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == 0)
-                    return true;
-            }
-            else if (kind == 6)//king
-            {
-                if (KingOnTable[ik].KingThinking[0].TableListKing.Count == 0)
-                    return true;
-            }
-            return false;
         }
         //Semaphore determination about Thinking operational completed.
         bool ReturnFullGameThinkingTreeSemaphore(int ik, int kind)
@@ -18298,7 +18348,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (KingOnTable[ik].KingThinking[0].ThinkingBegin && (!KingOnTable[ik].KingThinking[0].ThinkingFinished))
                     return true;
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnFullGameThinkingTreeSemaphore:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnFullGameThinkingTreeSemaphore:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
         //determination about learning autamata semaphores permit of operational computational 
@@ -18377,7 +18427,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         return true;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return false;
         }
         //determiniation about deeper increamental of a part
@@ -18451,7 +18501,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //determiniation about deeper increamental of a part
         void BlitzNotValidFullGameThinkingTreePartTow(int ik, int Order, int kind)
@@ -18522,7 +18572,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 }
-            }    //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartTow:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            }    //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartTow:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //determiniation about deeper increamental of a part
         void BlitzNotValidFullGameThinkingTreePartThree(int ik, int Order, int kind)
@@ -18596,7 +18646,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartThree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BlitzNotValidFullGameThinkingTreePartThree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //operantinal of creation of current deeper node and set string making
         void FullGameThinkingTreeInitialization(int ik, int j, int Order, int kind)
@@ -18606,94 +18656,88 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             if (kind == 1)
             {
                 //when valid do create of deeper node and string making
-                if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count > SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count)
+                if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count == SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count)
                 {
                     if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 2)//elephant 
             {
                 //when valid do create of deeper node and string making
-                if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count > ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count)
+                if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count)
                 {
                     if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 3)//hourse
             {
                 //when valid do create of deeper node and string making
-                if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
+                if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count == HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
                 {
                     if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
                         HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].TableList.Clear();
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 4)//Castle
             {
                 //when valid do create of deeper node and string making
-                if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
+                if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
                 {
                     if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].TableList.Clear();
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 5)//minister
             {
                 //when valid do create of deeper node and string making
-                if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count > MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count)
+                if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count)
                 {
                     if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
                         MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
             else if (kind == 6)//king
             {
                 //when valid do create of deeper node and string making
-                if (KingOnTable[ik].KingThinking[0].TableListKing.Count > KingOnTable[ik].KingThinking[0].AStarGreedy.Count)
+                if (KingOnTable[ik].KingThinking[0].TableListKing.Count == KingOnTable[ik].KingThinking[0].AStarGreedy.Count)
                 {
                     if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
                         KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
-                    KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Clear();
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumn(0);
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].SetRowColumnFinishedWait();
-                    KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].TableList.Clear();
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].SetRowColumn(0);
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].SetRowColumnFinishedWait();
+                    KingOnTable[ik].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //main operation of full game deeper created compuational to deeper need.
         void OpOfFullGameThinkingTree(int ik, int j, int Order, int iAStarGreedy, int ii, int jj, Color a, int kind, bool FOUND, int LeafAStarGreedy)
@@ -18703,15 +18747,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             if (kind == 1)
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 1))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 1))
+                //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
-                if (Order == 1)
-                    OutPut.Append("\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
-                else
-                    OutPut.Append("\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //if (Order == 1)
+                //OutPut.Append("\r\nPerception Soldier AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //else
+                //OutPut.Append("\r\nPerception Soldier AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
 
                 //operational 
                 PerceptionCount++;
@@ -18722,20 +18766,21 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 int Ord = Order;
                 SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 var array1 = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Ord * -1, false, FOUND, LeafAStarGreedy));
-                TH.Add(array1);
+                //array1.ConfigureAwait(false);
+                array1.Wait(); array1.Dispose();//TH.Add(array1);
             }
             else if (kind == 2)//elephant 
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 2))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 2))
+                //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
-                if (Order == 1)
-                    OutPut.Append("\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
-                else
-                    OutPut.Append("\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //if (Order == 1)
+                //OutPut.Append("\r\nPerception Elephant AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //else
+                //OutPut.Append("\r\nPerception Elephant AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
 
                 //operational 
                 PerceptionCount++;
@@ -18747,21 +18792,22 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
                 var array1 = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
-                TH.Add(array1);
+                //array1.ConfigureAwait(false);
+                array1.Wait(); array1.Dispose();//TH.Add(array1);
 
             }
             else if (kind == 3)//hourse
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 3))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 3))
+                //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
-                if (Order == 1)
-                    OutPut.Append("\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
-                else
-                    OutPut.Append("\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //if (Order == 1)
+                //OutPut.Append("\r\nPerception Hourse AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //else
+                //OutPut.Append("\r\nPerception Hourse AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
 
                 //operational 
                 PerceptionCount++;
@@ -18772,22 +18818,23 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 int Ord = Order;
                 HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 var array1 = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
-                TH.Add(array1);
+                //array1.ConfigureAwait(false);
+                array1.Wait(); array1.Dispose();//TH.Add(array1);
 
 
             }
             else if (kind == 4)//Castle
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 4))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 4))
+                //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
-                if (Order == 1)
-                    OutPut.Append("\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
-                else
-                    OutPut.Append("\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //if (Order == 1)
+                //OutPut.Append("\r\nPerception Castle AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //else
+                //OutPut.Append("\r\nPerception Castle AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
 
                 //operational 
                 PerceptionCount++;
@@ -18798,21 +18845,22 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 int Ord = Order;
                 CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
                 var array1 = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
-                TH.Add(array1);
+                //array1.ConfigureAwait(false);
+                array1.Wait(); array1.Dispose();//TH.Add(array1);
 
             }
             else if (kind == 5)//minister
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 5))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 5))
+                //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
-                if (Order == 1)
-                    OutPut.Append("\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
-                else
-                    OutPut.Append("\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //if (Order == 1)
+                //OutPut.Append("\r\nPerception Minister AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //else
+                //OutPut.Append("\r\nPerception Minister AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
 
                 //operational 
                 PerceptionCount++;
@@ -18824,21 +18872,22 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
                 var array1 = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
-                TH.Add(array1);
+                //array1.ConfigureAwait(false);
+                array1.Wait(); array1.Dispose();//TH.Add(array1);
 
             }
             else if (kind == 6)//king
             {
                 //when verfied is not valied return
-                if (!IsNotAStarGreedyConanaied(ik, j, 6))
-                    return;
+                //if (!IsNotAStarGreedyConanaied(ik, j, 6))
+                //return;
 
                 //minitor
                 OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
-                if (Order == 1)
-                    OutPut.Append("\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
-                else
-                    OutPut.Append("\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //if (Order == 1)
+                //OutPut.Append("\r\nPerception King AstarGreedy By Bob at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
+                //else
+                //OutPut.Append("\r\nPerception King AstarGreedy By Alice at Level " + iAStarGreedy.ToString() + " By " + PerceptionCount.ToString() + "th Perception String " + OutPutAction);
 
                 //operational 
                 PerceptionCount++;
@@ -18848,14 +18897,53 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 int[,] Tab = CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]);
                 int Ord = Order;
                 KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                var array1 = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
-                TH.Add(array1);
+                var array1 = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                //array1.ConfigureAwait(false);
+
+                array1.Wait(); array1.Dispose();//TH.Add(array1);
 
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("OpOfFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("OpOfFullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+        bool ReturnFullGameThinkingTreeIligalSemaphore(int ik, int kind)
+        {
+            if (kind == 1)
+            {
+                if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count == 0)
+                    return true;
+            }
+            else//elephant
+              if (kind == 2)
+            {
+                if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == 0)
+                    return true;
+            }
+            else if (kind == 3)//hourse
+            {
+                if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count == 0)
+                    return true;
+            }
+            else if (kind == 4)//Castle
+            {
+                if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == 0)
+                    return true;
+            }
+            else
+                if (kind == 5)//minister
+            {
+                if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == 0)
+                    return true;
+            }
+            else if (kind == 6)//king
+            {
+                if (KingOnTable[ik].KingThinking[0].TableListKing.Count == 0)
+                    return true;
+            }
+            return false;
+        }
+
         //decicion for deeper satisfied boundry condition of full game methods group
         void ReturnFullGameThinkingTreeSemaphoreAs(int Order, int iAStarGreedy, int ik, int Kind)
         {
@@ -18866,6 +18954,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //main decistion
                 while (ReturnFullGameThinkingTreeSemaphore(ik, Kind))
                 {
+
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         break;
@@ -18885,9 +18974,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 1))
                     return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 1));
-                array.Wait();
+                //array.ConfigureAwait(false);
+                array.Wait(); array.Dispose();
 
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -18903,12 +18994,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //operational computation secxistence
                 for (var j = 0; j < SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count; j++)
                 {
+                    if (IsSupHuTrue(ik, j, 0, 1))
+                        continue;
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
 
-                        if (IsSupHuTrue(ik, j, 0, 1))
-                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -18958,6 +19049,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -18988,29 +19082,36 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             {
 
                                 //when do permite
-                                if (Index[0] != -1)
+                                //when blitz game (limited game)
+                                if (AllDraw.Blitz)
                                 {
-                                    //object kind semaphore
-                                    if (ik != Index[0])
+                                    //when do permite
+                                    if (Index[0] != -1)
                                     {
-                                        //satisfied of created deeper one
-                                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
-                                        continue;
+                                        //object kind semaphore
+                                        if (ik != Index[0])
+                                        {
+                                            //satisfied of created deeper one
+                                            BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
+                                            continue;
+                                        }
+                                        else//computational lists semaphore
+                                        if (j != jindex[0])
+                                        {
+                                            //satisfied of created deeper tow
+                                            BlitzNotValidFullGameThinkingTreePartTow(ik, Order, 1);
+                                            continue;
+                                        }
                                     }
                                     else
-                                        if (j != jindex[0])
                                     {
-                                        //satisfied of created deeper tow
-                                        BlitzNotValidFullGameThinkingTreePartTow(ik, Order, 1);
+                                        //satisfied of created deeper three
+                                        BlitzNotValidFullGameThinkingTreePartThree(ik, Order, 1);
                                         continue;
                                     }
                                 }
                                 else
-                                {
-                                    //satisfied of created deeper three
-                                    BlitzNotValidFullGameThinkingTreePartThree(ik, Order, 1);
-                                    continue;
-                                }
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19050,7 +19151,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
                 SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
             //Elephant
         }
@@ -19074,12 +19175,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
+
+
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeSoldierGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeSoldierGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeElephant(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -19089,12 +19193,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             Object O1 = new Object();
             lock (O1)
             {
+
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 2))
                     return false;
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 2));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -19172,6 +19277,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19229,6 +19337,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19267,7 +19378,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
                 ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -19291,12 +19402,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeElephantGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeHourse(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -19312,7 +19424,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 3));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
 
                 Object OOOO = new Object();
@@ -19392,6 +19504,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
+
 
                                 Object O3 = new Object();
                                 lock (O3)
@@ -19449,6 +19564,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             continue;
                                         }
                                     }
+                                    else
+                                        BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
+
+
 
                                     Object O3 = new Object();
                                     lock (O3)
@@ -19490,7 +19609,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
                 HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -19514,12 +19633,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
+
+
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeHourseGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeCastle(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -19533,10 +19655,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 4))
                     return false;
 
-
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 4));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
                 Object OOOO = new Object();
                 lock (OOOO)
@@ -19554,12 +19675,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //operational computation secxistence
                 for (var j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
                 {
+                    if (IsSupHuTrue(ik, j, 0, 4))
+                        continue;
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
 
-                        if (IsSupHuTrue(ik, j, 0, 4))
-                            continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
@@ -19612,6 +19733,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19669,6 +19793,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19711,7 +19838,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
             for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
                 CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order);
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -19735,12 +19862,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
+
+
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeMinister(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -19755,7 +19885,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 5));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
 
                 Object OOOO = new Object();
@@ -19837,6 +19967,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19897,6 +20030,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         continue;
                                     }
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -19937,7 +20073,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
                 MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -19961,12 +20097,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
+
+
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeMinisterGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         bool FullGameThinkingTreeKing(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -19981,7 +20120,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 6));
-                array.Wait();
+                array.Wait(); array.Dispose();
 
 
                 Object OOOO = new Object();
@@ -20063,6 +20202,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     }
 
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20120,6 +20262,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     }
 
                                 }
+                                else
+                                    BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -20156,7 +20301,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
                 KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20180,12 +20325,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
+
+
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeKingGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20209,12 +20357,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeSoldierBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20238,12 +20387,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeElephant(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeElephantBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20267,12 +20417,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeHourseBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20296,12 +20447,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20325,12 +20477,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
                         }
                     }
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeMinisterBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20355,13 +20508,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Object O = new Object();
                         lock (O)
                         {
-                            Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy);
+                            var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeKing(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
+                            array.Wait(); array.Dispose();//TH.Add(array);
                         }
                     }
 
                 });
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeKingBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         public bool FullGameThinkingTreeGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
@@ -20375,155 +20529,164 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    Parallel.Invoke(() =>
-
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
-                        Object O1 = new Object();
-                        lock (O1)
+                        Parallel.Invoke(() =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                            int Ord1 = OrderP;
-                            Color a1 = a;
-                            int iAStarGreedy1 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
-                            //array1.Start();
-                            //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                int Ord1 = OrderP;
+                                Color a1 = a;
+                                int iAStarGreedy1 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                                var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy));
+                                array1.Wait(); array1.Dispose();//TH.Add(array1);
+                                //array1.Start();
+                                //Object tttt1 = new Object(); lock (tttt1) { array1.Wait(); array1.Dispose();//TH.Add(array1); }
 
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
 
-                            int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                            int Ord2 = Order;
-                            Color a2 = a;
-                            int iAStarGreedy2 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                            //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
-                            //array2.Start();
-                            //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
+                                int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
+                                int Ord2 = Order;
+                                Color a2 = a;
+                                int iAStarGreedy2 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                                var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy));
+                                array2.Wait(); array2.Dispose();//TH.Add(array2);
+                                //array2.Start();
+                                //Object tttt2 = new Object(); lock (tttt2) { array2.Wait(); array2.Dispose();//TH.Add(array2); }
 
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                //Initiatye Variables.
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
 
-                            int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                            int Ord3 = Order;
-                            Color a3 = a;
-                            int iAStarGreedy3 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                            //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
-                            ///array3.Start();
-                            //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
+                                int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
+                                int Ord3 = Order;
+                                Color a3 = a;
+                                int iAStarGreedy3 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                                var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy));
+                                array3.Wait(); array3.Dispose();//TH.Add(array3);
+                                ///array3.Start();
+                                //Object tttt3 = new Object(); lock (tttt3) { array3.Wait(); array3.Dispose();//TH.Add(array3); }
 
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                //Initiatye Variables.
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
 
-                            int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                            int Ord4 = Order;
-                            Color a4 = a;
-                            int iAStarGreedy4 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                            //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
-                            //array4.Start();
-                            //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
+                                int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
+                                int Ord4 = Order;
+                                Color a4 = a;
+                                int iAStarGreedy4 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                                var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy));
+                                array4.Wait(); array4.Dispose();//TH.Add(array4);
+                                //array4.Start();
+                                //Object tttt4 = new Object(); lock (tttt4) { array4.Wait(); array4.Dispose();//TH.Add(array4); }
 
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                //Initiatye Variables.
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-                            int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                            int Ord5 = Order;
-                            Color a5 = a;
-                            int iAStarGreedy5 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                            //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
-                            //array5.Start();
-                            //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
+                                int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
+                                int Ord5 = Order;
+                                Color a5 = a;
+                                int iAStarGreedy5 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                                var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy));
+                                array5.Wait(); array5.Dispose();//TH.Add(array5);
+                                //array5.Start();
+                                //Object tttt5 = new Object(); lock (tttt5) { array5.Wait(); array5.Dispose();//TH.Add(array5); }
 
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                //Initiatye Variables.
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-                            int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                            int Ord6 = Order;
-                            Color a6 = a;
-                            int iAStarGreedy6 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                            //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
-                            //array6.Start();
-                            //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    });
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
+                                int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+                                int Ord6 = Order;
+                                Color a6 = a;
+                                int iAStarGreedy6 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                                var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy));
+                                array6.Wait(); array6.Dispose();//TH.Add(array6);
+                                //array6.Start();
+                                //Object tttt6 = new Object(); lock (tttt6) { array6.Wait(); array6.Dispose();//TH.Add(array6); }
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        });
+                    }
                 });
-
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
-                output.Wait();
+                output.Wait(); output.Dispose();//TH.Add(output);
+                //Parallel.ForEach(TH, items => Task.WaitAll(items));
+                //for (int g = 0; g < TH.Count; g++)
+                //TH[g].Dispose();
+                TH.Clear();
                 return Do;
             }
         }
@@ -20538,153 +20701,164 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 var output = Task.Factory.StartNew(() =>
                 {
-                    Parallel.Invoke(() =>
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
-                        Object O1 = new Object();
-                        lock (O1)
+                        Parallel.Invoke(() =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                            int Ord1 = OrderP;
-                            Color a1 = a;
-                            int iAStarGreedy1 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
-                            //array1.Start();
-                            //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                int Ord1 = OrderP;
+                                Color a1 = a;
+                                int iAStarGreedy1 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                                var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy));
+                                array1.Wait(); array1.Dispose();//TH.Add(array1);
+                                //array1.Start();
+                                //Object tttt1 = new Object(); lock (tttt1) { array1.Wait(); array1.Dispose();//TH.Add(array1); }
 
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
 
-                            int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                            int Ord2 = Order;
-                            Color a2 = a;
-                            int iAStarGreedy2 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                            //var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
-                            //array2.Start();
-                            //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
+                                int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
+                                int Ord2 = Order;
+                                Color a2 = a;
+                                int iAStarGreedy2 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                                var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy));
+                                array2.Wait(); array2.Dispose();//TH.Add(array2);
+                                //array2.Start();
+                                //Object tttt2 = new Object(); lock (tttt2) { array2.Wait(); array2.Dispose();//TH.Add(array2); }
 
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                //Initiatye Variables.
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
 
-                            int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                            int Ord3 = Order;
-                            Color a3 = a;
-                            int iAStarGreedy3 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                            //var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
-                            ///array3.Start();
-                            //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
+                                int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
+                                int Ord3 = Order;
+                                Color a3 = a;
+                                int iAStarGreedy3 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                                var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy));
+                                array3.Wait(); array3.Dispose();//TH.Add(array3);
+                                ///array3.Start();
+                                //Object tttt3 = new Object(); lock (tttt3) { array3.Wait(); array3.Dispose();//TH.Add(array3); }
 
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                //Initiatye Variables.
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
 
-                            int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                            int Ord4 = Order;
-                            Color a4 = a;
-                            int iAStarGreedy4 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                            //var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
-                            //array4.Start();
-                            //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
+                                int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
+                                int Ord4 = Order;
+                                Color a4 = a;
+                                int iAStarGreedy4 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                                var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy));
+                                array4.Wait(); array4.Dispose();//TH.Add(array4);
+                                //array4.Start();
+                                //Object tttt4 = new Object(); lock (tttt4) { array4.Wait(); array4.Dispose();//TH.Add(array4); }
 
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                //Initiatye Variables.
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-                            int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                            int Ord5 = Order;
-                            Color a5 = a;
-                            int iAStarGreedy5 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                            //var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
-                            //array5.Start();
-                            //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
+                                int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
+                                int Ord5 = Order;
+                                Color a5 = a;
+                                int iAStarGreedy5 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                                var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy));
+                                array5.Wait(); array5.Dispose();//TH.Add(array5);
+                                //array5.Start();
+                                //Object tttt5 = new Object(); lock (tttt5) { array5.Wait(); array5.Dispose();//TH.Add(array5); }
 
-                            //Initiatye Variables.
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    }, () =>
-                    {
-                        Object O1 = new Object();
-                        lock (O1)
+                                //Initiatye Variables.
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        }, () =>
                         {
-                            if (Order == 1)
-                                a = Color.Gray;
-                            else
-                                a = Color.Brown;
-                            //Order *= -1;
-                            //ChessRules.CurrentOrder *= -1;
-                            int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                            int Ord6 = Order;
-                            Color a6 = a;
-                            int iAStarGreedy6 = iAStarGreedy;
-                            Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                            //var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
-                            //array6.Start();
-                            //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
-                            Order = DummyOrder;
-                            ChessRules.CurrentOrder = DummyCurrentOrder;
-                        }
-                    });
+                            Object O1 = new Object();
+                            lock (O1)
+                            {
+                                if (Order == 1)
+                                    a = Color.Gray;
+                                else
+                                    a = Color.Brown;
+                                //Order *= -1;
+                                //ChessRules.CurrentOrder *= -1;
+                                int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+                                int Ord6 = Order;
+                                Color a6 = a;
+                                int iAStarGreedy6 = iAStarGreedy;
+                                //Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                                var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy));
+                                array6.Wait(); array6.Dispose();//TH.Add(array6);
+                                //array6.Start();
+                                //Object tttt6 = new Object(); lock (tttt6) { array6.Wait(); array6.Dispose();//TH.Add(array6); }
+                                Order = DummyOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
+                            }
+                        });
+                    }
                 });
-
-                Parallel.ForEach(TH, items => Task.WaitAll(items));
-                output.Wait();
+                output.Wait(); output.Dispose();//TH.Add(output);
+                //Parallel.ForEach(TH, items => Task.WaitAll(items));
+                //for (int g = 0; g < TH.Count; g++)
+                //TH[g].Dispose();
+                TH.Clear();
                 return Do;
             }
         }
@@ -20735,7 +20909,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy1 = iAStarGreedy;
                     var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                     //array1.Start();
-                    //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
+                    //Object tttt1 = new Object(); lock (tttt1) { array1.Wait(); array1.Dispose();//TH.Add(array1); }
 
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -20754,7 +20928,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy2 = iAStarGreedy;
                     var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                     //array2.Start();
-                   //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
+                   //Object tttt2 = new Object(); lock (tttt2) { array2.Wait(); array2.Dispose();//TH.Add(array2); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -20774,7 +20948,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy3 = iAStarGreedy;
                     var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                     ///array3.Start();
-                    //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
+                    //Object tttt3 = new Object(); lock (tttt3) { array3.Wait(); array3.Dispose();//TH.Add(array3); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -20794,7 +20968,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy4 = iAStarGreedy;
                     var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                     //array4.Start();
-                    //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
+                    //Object tttt4 = new Object(); lock (tttt4) { array4.Wait(); array4.Dispose();//TH.Add(array4); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -20813,7 +20987,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy5 = iAStarGreedy;
                     var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                     //array5.Start();
-                    //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
+                    //Object tttt5 = new Object(); lock (tttt5) { array5.Wait(); array5.Dispose();//TH.Add(array5); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -20832,7 +21006,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy6 = iAStarGreedy;
                     var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                     //array6.Start();
-                    //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
+                    //Object tttt6 = new Object(); lock (tttt6) { array6.Wait(); array6.Dispose();//TH.Add(array6); }
 
                 }
                 //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
@@ -20844,7 +21018,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy1 = iAStarGreedy;
                     var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
                     //array1.Start();
-                    //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
+                    //Object tttt1 = new Object(); lock (tttt1) { array1.Wait(); array1.Dispose();//TH.Add(array1); }
 
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
@@ -20863,7 +21037,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy2 = iAStarGreedy;
                     var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
                     //array2.Start();
-                   //Object tttt2 = new Object(); lock (tttt2) { TH.Add(array2); }
+                   //Object tttt2 = new Object(); lock (tttt2) { array2.Wait(); array2.Dispose();//TH.Add(array2); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -20883,7 +21057,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy3 = iAStarGreedy;
                     var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
                     ///array3.Start();
-                    //Object tttt3 = new Object(); lock (tttt3) { TH.Add(array3); }
+                    //Object tttt3 = new Object(); lock (tttt3) { array3.Wait(); array3.Dispose();//TH.Add(array3); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -20903,7 +21077,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy4 = iAStarGreedy;
                     var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
                     //array4.Start();
-                    //Object tttt4 = new Object(); lock (tttt4) { TH.Add(array4); }
+                    //Object tttt4 = new Object(); lock (tttt4) { array4.Wait(); array4.Dispose();//TH.Add(array4); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -20922,7 +21096,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy5 = iAStarGreedy;
                     var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
                     //array5.Start();
-                    //Object tttt5 = new Object(); lock (tttt5) { TH.Add(array5); }
+                    //Object tttt5 = new Object(); lock (tttt5) { array5.Wait(); array5.Dispose();//TH.Add(array5); }
 
                     //Initiatye Variables.
                     Order = DummyOrder;
@@ -20941,7 +21115,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     int iAStarGreedy6 = iAStarGreedy;
                     var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
                     //array6.Start();
-                    //Object tttt6 = new Object(); lock (tttt6) { TH.Add(array6); }
+                    //Object tttt6 = new Object(); lock (tttt6) { array6.Wait(); array6.Dispose();//TH.Add(array6); }
                 }
                 
             }
@@ -20956,7 +21130,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //Initiatye Variables.               
                 var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeGray(a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
                 //array.Start();
-                array.Wait();
+                array.Wait(); array.Dispose();
 
 
             }
@@ -20965,9 +21139,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeBrown(a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
                 // array.Start();
-                array.Wait();
+                array.Wait(); array.Dispose();
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //full game decicion making second method
@@ -20999,346 +21173,354 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             if (Order == 1)
             {
                 var output = Task.Factory.StartNew(() =>
-                Parallel.For(0, MaxGrayMidle(), i =>
                 {
-                    Parallel.Invoke(() =>
-
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
-                        Object ooo = new Object();
-                        lock (ooo)
+                        Parallel.For(0, MaxGrayMidle(), i =>
                         {
-                            if (i < SodierMidle)
-                            {
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                                    int Ord1 = OrderP;
-                                    Color a1 = a;
-                                    int iAStarGreedy1 = iAStarGreedy;
-                                    int i1 = i;
-                                    Do |= FullGameThinkingTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                                    //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
-                                    //array1.Start();
-                                    //Object tttt1 = new Object(); lock (tttt1) { TH.Add(array1); }
-
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                                }
-                            }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-
-                            if (i < ElefantMidle)
-                            {
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
-
-                                    int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                                    int Ord2 = Order;
-                                    Color a2 = a;
-                                    int iAStarGreedy2 = iAStarGreedy;
-                                    int i2 = i;
-                                    Do |= this.FullGameThinkingTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                                    //Initiatye Variables.
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                                }
-                            }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-
-                            if (i < HourseMidle)
-                            {
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
-
-                                    int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                                    int Ord3 = Order;
-                                    Color a3 = a;
-                                    int iAStarGreedy3 = iAStarGreedy;
-                                    int i3 = i;
-                                    Do |= this.FullGameThinkingTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                                    //Initiatye Variables.
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                                }
-                            }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-
-                            if (i < CastleMidle)
-                            {
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
-
-                                    int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                                    int Ord4 = Order;
-                                    Color a4 = a;
-                                    int iAStarGreedy4 = iAStarGreedy;
-                                    int i4 = i;
-                                    Do |= this.FullGameThinkingTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                                    //Initiatye Variables.
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                                }
-                            }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-
-                            if (i < MinisterMidle)
-                            {
-                                Object O1 = new Object();
-                                lock (O1)
-                                {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
-                                    int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                                    int Ord5 = Order;
-                                    Color a5 = a;
-                                    int iAStarGreedy5 = iAStarGreedy;
-                                    int i5 = i;
-                                    Do |= this.FullGameThinkingTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                                    //Initiatye Variables.
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
-                                }
-                            }
-                        }
-                    }, () =>
-                    {
-                        Object ooo = new Object();
-                        lock (ooo)
-                        {
-
-                            if (i < KingMidle)
+                            Parallel.Invoke(() =>
 
                             {
-                                Object O1 = new Object();
-                                lock (O1)
+                                Object ooo = new Object();
+                                lock (ooo)
                                 {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    //Order *= -1;
-                                    //ChessRules.CurrentOrder *= -1;
-                                    int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                                    int Ord6 = Order;
-                                    Color a6 = a;
-                                    int iAStarGreedy6 = iAStarGreedy;
-                                    int i6 = i;
-                                    Do |= this.FullGameThinkingTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    if (i < SodierMidle)
+                                    {
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            if (Order == 1)
+                                                a = Color.Gray;
+                                            else
+                                                a = Color.Brown;
+                                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                            int Ord1 = OrderP;
+                                            Color a1 = a;
+                                            int iAStarGreedy1 = iAStarGreedy;
+                                            int i1 = i;
+                                            Do |= FullGameThinkingTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                                            //var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
+                                            //array1.Start();
+                                            //Object tttt1 = new Object(); lock (tttt1) { array1.Wait(); array1.Dispose();//TH.Add(array1); }
+
+                                            Order = DummyOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    });
-                })
-                );
-                output.Wait();
+                            }, () =>
+                            {
+                                Object ooo = new Object();
+                                lock (ooo)
+                                {
+
+                                    if (i < ElefantMidle)
+                                    {
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            if (Order == 1)
+                                                a = Color.Gray;
+                                            else
+                                                a = Color.Brown;
+                                            //Order *= -1;
+                                            //ChessRules.CurrentOrder *= -1;
+
+                                            int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
+                                            int Ord2 = Order;
+                                            Color a2 = a;
+                                            int iAStarGreedy2 = iAStarGreedy;
+                                            int i2 = i;
+                                            Do |= this.FullGameThinkingTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                                            //Initiatye Variables.
+                                            Order = DummyOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                                        }
+                                    }
+                                }
+                            }, () =>
+                            {
+                                Object ooo = new Object();
+                                lock (ooo)
+                                {
+
+                                    if (i < HourseMidle)
+                                    {
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            if (Order == 1)
+                                                a = Color.Gray;
+                                            else
+                                                a = Color.Brown;
+                                            //Order *= -1;
+                                            //ChessRules.CurrentOrder *= -1;
+
+                                            int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
+                                            int Ord3 = Order;
+                                            Color a3 = a;
+                                            int iAStarGreedy3 = iAStarGreedy;
+                                            int i3 = i;
+                                            Do |= this.FullGameThinkingTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                                            //Initiatye Variables.
+                                            Order = DummyOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                                        }
+                                    }
+                                }
+                            }, () =>
+                            {
+                                Object ooo = new Object();
+                                lock (ooo)
+                                {
+
+                                    if (i < CastleMidle)
+                                    {
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            if (Order == 1)
+                                                a = Color.Gray;
+                                            else
+                                                a = Color.Brown;
+                                            //Order *= -1;
+                                            //ChessRules.CurrentOrder *= -1;
+
+                                            int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
+                                            int Ord4 = Order;
+                                            Color a4 = a;
+                                            int iAStarGreedy4 = iAStarGreedy;
+                                            int i4 = i;
+                                            Do |= this.FullGameThinkingTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                                            //Initiatye Variables.
+                                            Order = DummyOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                                        }
+                                    }
+                                }
+                            }, () =>
+                            {
+                                Object ooo = new Object();
+                                lock (ooo)
+                                {
+
+                                    if (i < MinisterMidle)
+                                    {
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            if (Order == 1)
+                                                a = Color.Gray;
+                                            else
+                                                a = Color.Brown;
+                                            //Order *= -1;
+                                            //ChessRules.CurrentOrder *= -1;
+                                            int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
+                                            int Ord5 = Order;
+                                            Color a5 = a;
+                                            int iAStarGreedy5 = iAStarGreedy;
+                                            int i5 = i;
+                                            Do |= this.FullGameThinkingTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                                            //Initiatye Variables.
+                                            Order = DummyOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                                        }
+                                    }
+                                }
+                            }, () =>
+                            {
+                                Object ooo = new Object();
+                                lock (ooo)
+                                {
+
+                                    if (i < KingMidle)
+
+                                    {
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            if (Order == 1)
+                                                a = Color.Gray;
+                                            else
+                                                a = Color.Brown;
+                                            //Order *= -1;
+                                            //ChessRules.CurrentOrder *= -1;
+                                            int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+                                            int Ord6 = Order;
+                                            Color a6 = a;
+                                            int iAStarGreedy6 = iAStarGreedy;
+                                            int i6 = i;
+                                            Do |= this.FullGameThinkingTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                                            Order = DummyOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                    }
+                });
+                output.Wait(); output.Dispose();
 
             }
             //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
             else
             {
                 var output = Task.Factory.StartNew(() =>
-                Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
                 {
-                    Parallel.Invoke(() =>
+                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                     {
-                        Object ooo = new Object();
-                        lock (ooo)
+                        Parallel.For(MinBrownMidle(), MaxGrayMidle(), i =>
                         {
-
-                            if (i >= SodierMidle && i < SodierHigh)
+                            Parallel.Invoke(() =>
                             {
-
-                                Object O1 = new Object();
-                                lock (O1)
+                                Object ooo = new Object();
+                                lock (ooo)
                                 {
-                                    if (Order == 1)
-                                        a = Color.Gray;
-                                    else
-                                        a = Color.Brown;
-                                    int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                                    int Ord1 = OrderP;
-                                    Color a1 = a;
-                                    int iAStarGreedy1 = iAStarGreedy;
-                                    int i1 = i;
-                                    Do |= this.FullGameThinkingTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
-                                    Order = DummyOrder;
-                                    ChessRules.CurrentOrder = DummyCurrentOrder;
+
+                                    if (i >= SodierMidle && i < SodierHigh)
+                                    {
+
+                                        Object O1 = new Object();
+                                        lock (O1)
+                                        {
+                                            if (Order == 1)
+                                                a = Color.Gray;
+                                            else
+                                                a = Color.Brown;
+                                            int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
+                                            int Ord1 = OrderP;
+                                            Color a1 = a;
+                                            int iAStarGreedy1 = iAStarGreedy;
+                                            int i1 = i;
+                                            Do |= this.FullGameThinkingTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
+                                            Order = DummyOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    }, () =>
-                    {
-                        if (i >= ElefantMidle && i < ElefantHigh)
-                        {
-                            Object ooo = new Object();
-                            lock (ooo)
+                            }, () =>
                             {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                                int Ord2 = Order;
-                                Color a2 = a;
-                                int iAStarGreedy2 = iAStarGreedy;
-                                int i2 = i;
-                                Do |= this.FullGameThinkingTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
-                                //Initiatye Variables.
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    }, () =>
-                    {
-                        if (i >= HourseMidle && i < HourseHight)
-                        {
-                            Object O1 = new Object();
-                            lock (O1)
+                                if (i >= ElefantMidle && i < ElefantHigh)
+                                {
+                                    Object ooo = new Object();
+                                    lock (ooo)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
+                                        int Ord2 = Order;
+                                        Color a2 = a;
+                                        int iAStarGreedy2 = iAStarGreedy;
+                                        int i2 = i;
+                                        Do |= this.FullGameThinkingTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
+                                        //Initiatye Variables.
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }, () =>
                             {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
+                                if (i >= HourseMidle && i < HourseHight)
+                                {
+                                    Object O1 = new Object();
+                                    lock (O1)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
 
-                                int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                                int Ord3 = Order;
-                                Color a3 = a;
-                                int iAStarGreedy3 = iAStarGreedy;
-                                int i3 = i;
-                                Do |= this.FullGameThinkingTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
-                                //Initiatye Variables.
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    }, () =>
-                    {
-                        if (i >= CastleMidle && i < CastleHigh)
-                        {
-                            Object ooo = new Object();
-                            lock (ooo)
+                                        int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
+                                        int Ord3 = Order;
+                                        Color a3 = a;
+                                        int iAStarGreedy3 = iAStarGreedy;
+                                        int i3 = i;
+                                        Do |= this.FullGameThinkingTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
+                                        //Initiatye Variables.
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }, () =>
                             {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                                int Ord4 = Order;
-                                Color a4 = a;
-                                int iAStarGreedy4 = iAStarGreedy;
-                                int i4 = i;
-                                Do |= this.FullGameThinkingTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
-                                //Initiatye Variables.
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    }, () =>
-                    {
-                        if (i >= MinisterMidle && i < MinisterHigh)
-                        {
-                            Object ooo = new Object();
-                            lock (ooo)
+                                if (i >= CastleMidle && i < CastleHigh)
+                                {
+                                    Object ooo = new Object();
+                                    lock (ooo)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
+                                        int Ord4 = Order;
+                                        Color a4 = a;
+                                        int iAStarGreedy4 = iAStarGreedy;
+                                        int i4 = i;
+                                        Do |= this.FullGameThinkingTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
+                                        //Initiatye Variables.
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            }, () =>
                             {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                                int Ord5 = Order;
-                                Color a5 = a;
-                                int iAStarGreedy5 = iAStarGreedy;
-                                int i5 = i;
-                                Do |= this.FullGameThinkingTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
-                                //Initiatye Variables.
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
+                                if (i >= MinisterMidle && i < MinisterHigh)
+                                {
+                                    Object ooo = new Object();
+                                    lock (ooo)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
+                                        int Ord5 = Order;
+                                        Color a5 = a;
+                                        int iAStarGreedy5 = iAStarGreedy;
+                                        int i5 = i;
+                                        Do |= this.FullGameThinkingTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
+                                        //Initiatye Variables.
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
 
-                    }, () =>
-                    {
-                        if (i >= KingMidle && i < KingHigh)
-                        {
-                            Object ooo = new Object();
-                            lock (ooo)
+                            }, () =>
                             {
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                if (Order == 1)
-                                    a = Color.Gray;
-                                else
-                                    a = Color.Brown;
-                                int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                                int Ord6 = Order;
-                                Color a6 = a;
-                                int iAStarGreedy6 = iAStarGreedy;
-                                int i6 = i;
-                                Do |= this.FullGameThinkingTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
-                                Order = DummyOrder;
-                                ChessRules.CurrentOrder = DummyCurrentOrder;
-                            }
-                        }
-                    });
-                })
-                );
-                output.Wait();
+                                if (i >= KingMidle && i < KingHigh)
+                                {
+                                    Object ooo = new Object();
+                                    lock (ooo)
+                                    {
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        if (Order == 1)
+                                            a = Color.Gray;
+                                        else
+                                            a = Color.Brown;
+                                        int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
+                                        int Ord6 = Order;
+                                        Color a6 = a;
+                                        int iAStarGreedy6 = iAStarGreedy;
+                                        int i6 = i;
+                                        Do |= this.FullGameThinkingTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
+                                        Order = DummyOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
+                                    }
+                                }
+                            });
+                        });
+                    }
+                });
+                output.Wait(); output.Dispose();
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FullGameThinkingTreeObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingTreeObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Do;
         }
         //clone a table
@@ -21349,7 +21531,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     Tabl[i, j] = Tab[i, j];
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Tabl;
         }
         //return maximum of six type values 
@@ -21374,7 +21556,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Value = i;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MaxOfSixHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MaxOfSixHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Value;
         }
         //return minimum pf six type values
@@ -21399,7 +21581,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Value = i;
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("MinOfSixHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MinOfSixHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Value;
         }
         //best movement indexes founder method.
@@ -21464,7 +21646,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 k.Add(MaxHeuristicAStarGreedytBackWard[0][24]);
                 p[5].Add(MaxHeuristicAStarGreedytBackWard[0][22]);
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("FoundOfBestMovments:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FoundOfBestMovments:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
             //not found
             return p;
@@ -21638,7 +21820,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CopyRemeiningItems:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CopyRemeiningItems:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //Return Constructed Tables.
             return Dummy;
 
@@ -21653,7 +21835,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 for (var j = 0; j < 8; j++)
                     if (Ta[i, j] != 0)
                         Zerro = false;
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("TableZero:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("TableZero:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return Zerro;
         }
         //operantional for victom learning autamata penalty make performing pbetter Heuristic values of current specific object
@@ -21676,7 +21858,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheckedMateConfiguratiionSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //operantional for victom learning autamata penalty make performing pbetter Heuristic values of current specific object
         void CheckedMateConfiguratiionElephant(int Order, int i, bool Regrad)
@@ -21698,7 +21880,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheckedMateConfiguratiionElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //operantional for victom learning autamata penalty make performing pbetter Heuristic values of current specific object
         void CheckedMateConfiguratiionHourse(int Order, int i, bool Regrad)
@@ -21720,7 +21902,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheckedMateConfiguratiionHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
 
         //operantional for victom learning autamata penalty make performing pbetter Heuristic values of current specific object
@@ -21743,7 +21925,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheckedMateConfiguratiionCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //operantional for victom learning autamata penalty make performing pbetter Heuristic values of current specific object
         void CheckedMateConfiguratiionMinister(int Order, int i, bool Regrad)
@@ -21765,7 +21947,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheckedMateConfiguratiionMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //operantional for victom learning autamata penalty make performing pbetter Heuristic values of current specific object
         void CheckedMateConfiguratiionking(int Order, int i, bool Regrad)
@@ -21787,7 +21969,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
 
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiionking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheckedMateConfiguratiionking:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //specific learning autamata network oparational
         void CheckedMateConfiguratiion(int Order)
@@ -21939,43 +22121,55 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CheckedMateConfiguratiion:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheckedMateConfiguratiion:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //monitor
         void SemaphoreExxedTime(int time, int Kind)
-        {
+        {/*
             //long Time = TimeElapced.TimeNow();Spaces++;
 
             if (time > 10000)
             {
                 if (Kind == 1)
-                    OutPut.Append("\r\nSolder Semaphre Full Game Exeede time");
+                    //OutPut.Append("\r\nSolder Semaphre Full Game Exeede time");
                 else
 if (Kind == 2)
-                    OutPut.Append("\r\nelephant Semaphre Full Game Exeede time");
+                    //OutPut.Append("\r\nelephant Semaphre Full Game Exeede time");
                 else
 if (Kind == 3)
-                    OutPut.Append("\r\nHourse Semaphre Full Game Exeede time");
+                    //OutPut.Append("\r\nHourse Semaphre Full Game Exeede time");
                 else
 if (Kind == 4)
-                    OutPut.Append("\r\nCastle Semaphre Full Game Exeede time");
+                    //OutPut.Append("\r\nCastle Semaphre Full Game Exeede time");
                 else
 if (Kind == 5)
-                    OutPut.Append("\r\nMinister Semaphre Full Game Exeede time");
+                    //OutPut.Append("\r\nMinister Semaphre Full Game Exeede time");
                 else if (Kind == 6)
-                    OutPut.Append("\r\nKing Semaphre Full Game Exeede time");
+                    //OutPut.Append("\r\nKing Semaphre Full Game Exeede time");
 
-            }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("SemaphoreExxedTime:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            }*/
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SemaphoreExxedTime:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Main Initiate Thinking Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
+
             Object o = new Object();
             lock (o)
             {
+                LeafSemaphoreIndex = false;
+
+                if (tH != null)
+                    tH.Clear();
+                else
+                    tH = new List<Task>();
+                if (TH != null)
+                    TH.Clear();
+                else
+                    TH = new List<Task>();
                 ThinkingChess.Colleralation = int.MinValue;
                 ThinkingChess.DeColleralation = int.MaxValue;
+
                 if (FOUND && (!FirstTraversalTree))
                     NumberOfLeafComputation = ThinkingChess.NumbersOfAllNode;
                 else
@@ -22027,8 +22221,8 @@ if (Kind == 5)
                     lock (On)
                     {
 
-                        OutPut.Append("\n\r=====================================================================================================================================================================<br/>");
-                        OutPut.Append("\n\rMovment Number: " + AllDraw.MovmentsNumber);
+                        //OutPut.Append("\n\r=====================================================================================================================================================================<br/>");
+                        //OutPut.Append("\n\rMovment Number: " + AllDraw.MovmentsNumber);
 
                     }
                     //Initiate Local and Global Variables.            
@@ -22092,14 +22286,15 @@ if (Kind == 5)
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
-                    if (MaxAStarGreedy == 0)
+                    //if (MaxAStarGreedy == 0)
                         MaxAStarGreedy = PlatformHelper.ProcessorCount;
                     MaxAStarGreedy1 = MaxAStarGreedy;
 
                     int[,] Tabl = CloneATable(Table);
                     Color aaa = a;
-                    var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
-                    array.Wait();
+                    //var array = Task.Factory.StartNew(() => InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy));
+                    //array.Wait(); array.Dispose();
+                    InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
                 }
                 Object Om = new Object();
                 lock (Om)
@@ -22114,7 +22309,7 @@ if (Kind == 5)
                 Object OO = new Object();
                 lock (OO)
                 {
-                    OutPut.Append("\r\nMinimum Thinking Tree Depth:" + MinThinkingTreeDepth.ToString() + "!");
+                    //OutPut.Append("\r\nMinimum Thinking Tree Depth:" + MinThinkingTreeDepth.ToString() + "!");
                 }
                 //Order = OrderP;
                 NumberOfLeafComputation = -1;
@@ -22128,7 +22323,7 @@ if (Kind == 5)
                     Object OOoOO = new Object();
                     lock (OOoOO)
                     {
-                        OutPut.Append("\r\nTable Zero.Possibly Full Penalty!");
+                        //OutPut.Append("\r\nTable Zero.Possibly Full Penalty!");
 
 
 
@@ -22150,54 +22345,53 @@ if (Kind == 5)
                 }
                 else
                 if ((TableHeuristic == null || ((TableZero(TableHeuristic)))))
-                    OutPut.Append("\r\nTable Zero.Possibly Full failed!");
+                    //OutPut.Append("\r\nTable Zero.Possibly Full failed!");
 
-                //If Table Found.
+                    //If Table Found.
 
-                if (TableHeuristic != null)
-                {
-                    Object OOOOO = new Object();
-                    lock (OOOOO)
+                    if (TableHeuristic != null)
                     {
-                        Ord = Order;
-                        if (Ord == 1)
+                        Object OOOOO = new Object();
+                        lock (OOOOO)
                         {
-                            OutPut.Append("\r\nHeuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Bob!");
+                            Ord = Order;
+                            if (Ord == 1)
+                            {
+                                //OutPut.Append("\r\nHeuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Bob!");
+                            }
+                            else
+                            {
+                                //OutPut.Append("\r\nHeuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Alice!");
+
+                            }
                         }
-                        else
+                        Order = DummyOrder;
+                        ChessRules.CurrentOrder = Current;
+                    }
+                    else
+                    {
+                        Object OOoOO = new Object();
+                        lock (OOoOO)
                         {
-                            OutPut.Append("\r\nHeuristic Find Best Movements AStarGreedy " + AStarGreedy.ToString() + " By Alice!");
+                            //Clear AStarGreedy Varibales.
+                            AllDraw.StoreADraw.Clear();
+                            TableCurrent.Clear();
+                            AStarGreedy = 0;
+                        }
 
+                        Order = DummyOrder;
+                        ChessRules.CurrentOrder = Current;
+                        //THISDummy.Dispose();
+                        Object Omm = new Object();
+                        lock (Omm)
+                        {
+                            DrawTable = true;
+                            FoundATable = true;
                         }
                     }
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = Current;
-                }
-                else
-                {
-                    Object OOoOO = new Object();
-                    lock (OOoOO)
-                    {
-                        //Clear AStarGreedy Varibales.
-                        AllDraw.StoreADraw.Clear();
-                        TableCurrent.Clear();
-                        AStarGreedy = 0;
-                    }
-
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = Current;
-                    //THISDummy.Dispose();
-                    Object Omm = new Object();
-                    lock (Omm)
-                    {
-                        DrawTable = true;
-                        FoundATable = true;
-                    }
-                }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Initiate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Initiate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return CloneATable(TableHeuristic);
             }
-
         }
         //Identification of Illegal AStarGreedy First and Common Hurist Movments.
         public bool IsEnemyThingsinStable(int[,] TableHeuristic, int[,] TableAction, int Order)
@@ -22526,7 +22720,7 @@ if (Kind == 5)
                     }
                 }
             }
-            //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsEnemyThingsinStable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsEnemyThingsinStable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             //If Gen Foundation is Valid. 
             if (((FindNumber == 1 || FindNumber == 2) && Find) || CastlesKing || AllDraw.SodierConversionOcuured)
                 return Find;
@@ -22564,7 +22758,7 @@ if (Kind == 5)
                         }
                     }
                 }
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("WhereNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("WhereNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
 
                 return TagList;
             }
@@ -22611,7 +22805,7 @@ if (Kind == 5)
                                   Tag = Tag.Replace("King", "<font Color=\"Silver\">" + "King" + "</font>");
               */
                 String R = "<font Color=\"Red\">" + Tag + "</font>";
-                //{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("CreateHtmlTag:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CreateHtmlTag:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return R;
             }
         }
@@ -22625,133 +22819,146 @@ if (Kind == 5)
                 AllDraw Node = this;
 
 
-                while (DummyFileStream.Position < DummyFileStream.Length)
+                if (DummyFileStream.Position >= DummyFileStream.Length)
+                    return;
+
+
+                ////Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
+
+                Formatters.Serialize(DummyFileStream, Node.SodierMidle);
+                Formatters.Serialize(DummyFileStream, Node.SodierHigh);
+                for (int i = 0; i < Node.SodierHigh; i++)
                 {
-
-                    Formatters.Serialize(DummyFileStream, Node);
-
-                    for (int i = 0; i < Node.SodierHigh; i++)
+                    if (Node.SolderesOnTable == null)
+                        continue;
+                    if (Node.SolderesOnTable[i] == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinking == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinking[0] == null)
+                        continue;
+                    if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
+                        continue;
+                    Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count);
+                    for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
                     {
-                        if (Node.SolderesOnTable == null)
-                            continue;
-                        if (Node.SolderesOnTable[i] == null)
-                            continue;
-                        if (Node.SolderesOnTable[i].SoldierThinking == null)
-                            continue;
-                        if (Node.SolderesOnTable[i].SoldierThinking[0] == null)
-                            continue;
-                        if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
-                            continue;
-                        Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count);
-                        for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
-                        {
-                            Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
+                        Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j]);
 
-                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
-                        }
-                    }
-                    for (int i = 0; i < Node.ElefantHigh; i++)
-                    {
-                        if (Node.ElephantOnTable == null)
-                            continue;
-                        if (Node.ElephantOnTable[i] == null)
-                            continue;
-                        if (Node.ElephantOnTable[i].ElefantThinking == null)
-                            continue;
-                        if (Node.ElephantOnTable[i].ElefantThinking[0] == null)
-                            continue;
-                        if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
-                            continue;
-                        Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count);
-                        for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
-                        {
-                            Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
-                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
-
-                        }
-                    }
-                    for (int i = 0; i < Node.HourseHight; i++)
-                    {
-                        if (Node.HoursesOnTable == null)
-                            continue;
-                        if (Node.HoursesOnTable[i] == null)
-                            continue;
-                        if (Node.HoursesOnTable[i].HourseThinking == null)
-                            continue;
-                        if (Node.HoursesOnTable[i].HourseThinking[0] == null)
-                            continue;
-                        if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
-                            continue;
-                        Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count);
-                        for (int j = 0; j < Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
-                        {
-                            Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
-                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
-                        }
-
-                    }
-                    for (int i = 0; i < Node.CastleHigh; i++)
-                    {
-                        if (Node.CastlesOnTable == null)
-                            continue;
-                        if (Node.CastlesOnTable[i] == null)
-                            continue;
-                        if (Node.CastlesOnTable[i].CastleThinking == null)
-                            continue;
-                        if (Node.CastlesOnTable[i].CastleThinking[0] == null)
-                            continue;
-                        if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
-                            continue;
-                        Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count);
-                        for (int j = 0; j < Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
-                        {
-                            Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
-                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
-                        }
-                    }
-
-                    for (int i = 0; i < Node.MinisterHigh; i++)
-                    {
-                        if (Node.MinisterOnTable == null)
-                            continue;
-                        if (Node.MinisterOnTable[i] == null)
-                            continue;
-                        if (Node.MinisterOnTable[i].MinisterThinking == null)
-                            continue;
-                        if (Node.MinisterOnTable[i].MinisterThinking[0] == null)
-                            continue;
-                        if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
-                            continue;
-                        Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count);
-                        for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
-                        {
-                            Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
-                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
-                        }
-
-                    }
-                    for (int i = 0; i < Node.KingHigh; i++)
-                    {
-                        if (Node.KingOnTable == null)
-                            continue;
-                        if (Node.KingOnTable[i] == null)
-                            continue;
-                        if (Node.KingOnTable[i].KingThinking == null)
-                            continue;
-                        if (Node.KingOnTable[i].KingThinking[0] == null)
-                            continue;
-                        if (Node.KingOnTable[i].KingThinking[0] == null)
-                            continue;
-                        if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
-                            continue;
-                        Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count);
-                        for (int j = 0; j < Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
-                        {
-                            Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
-                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
-                        }
+                        Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
                     }
                 }
+                Formatters.Serialize(DummyFileStream, Node.ElefantMidle);
+                Formatters.Serialize(DummyFileStream, Node.ElefantHigh);
+                for (int i = 0; i < Node.ElefantHigh; i++)
+                {
+                    if (Node.ElephantOnTable == null)
+                        continue;
+                    if (Node.ElephantOnTable[i] == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinking == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinking[0] == null)
+                        continue;
+                    if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
+                        continue;
+                    Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count);
+                    for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
+                    {
+                        Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j]);
+                        Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+
+                    }
+                }
+                Formatters.Serialize(DummyFileStream, Node.HourseMidle);
+                Formatters.Serialize(DummyFileStream, Node.HourseHight);
+                for (int i = 0; i < Node.HourseHight; i++)
+                {
+                    if (Node.HoursesOnTable == null)
+                        continue;
+                    if (Node.HoursesOnTable[i] == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinking == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinking[0] == null)
+                        continue;
+                    if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
+                        continue;
+                    Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count);
+                    for (int j = 0; j < Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
+                    {
+                        Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j]);
+                        Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                    }
+
+                }
+                Formatters.Serialize(DummyFileStream, Node.CastleMidle);
+                Formatters.Serialize(DummyFileStream, Node.CastleHigh);
+                for (int i = 0; i < Node.CastleHigh; i++)
+                {
+                    if (Node.CastlesOnTable == null)
+                        continue;
+                    if (Node.CastlesOnTable[i] == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinking == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinking[0] == null)
+                        continue;
+                    if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
+                        continue;
+                    Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count);
+                    for (int j = 0; j < Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
+                    {
+                        Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j]);
+                        Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                    }
+                }
+
+                Formatters.Serialize(DummyFileStream, Node.MinisterMidle);
+                Formatters.Serialize(DummyFileStream, Node.MinisterHigh);
+                for (int i = 0; i < Node.MinisterHigh; i++)
+                {
+                    if (Node.MinisterOnTable == null)
+                        continue;
+                    if (Node.MinisterOnTable[i] == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinking == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinking[0] == null)
+                        continue;
+                    if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
+                        continue;
+                    Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count);
+                    for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
+                    {
+                        Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j]);
+                        Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                    }
+
+                }
+                Formatters.Serialize(DummyFileStream, Node.KingMidle);
+                Formatters.Serialize(DummyFileStream, Node.KingHigh);
+                for (int i = 0; i < Node.KingHigh; i++)
+                {
+                    if (Node.KingOnTable == null)
+                        continue;
+                    if (Node.KingOnTable[i] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinking == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinking[0] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinking[0] == null)
+                        continue;
+                    if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
+                        continue;
+                    Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count);
+                    for (int j = 0; j < Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
+                    {
+                        Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinking[0].AStarGreedy[j]);
+                        Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].RewriteAllDrawRec(Formatters, DummyFileStream, Order * -1);
+                    }
+                }
+
             }
         }
         public AllDraw LoaderEC(bool Quantum, int Order, FileStream DummyFileStream, BinaryFormatter Formatters)
@@ -22760,7 +22967,7 @@ if (Kind == 5)
             lock (o)
             {
 
-                bool Act = false;
+                //bool Act = false;
                 AllDraw Node = this;
 
                 if (DummyFileStream.Position >= DummyFileStream.Length)
@@ -22770,7 +22977,8 @@ if (Kind == 5)
 
                 //Node = (AllDraw)Formatters.Deserialize(DummyFileStream);
 
-
+                Node.SodierMidle = (Int32)Formatters.Deserialize(DummyFileStream);
+                Node.SodierHigh = (Int32)Formatters.Deserialize(DummyFileStream);
                 for (int i = 0; i < Node.SodierHigh; i++)
                 {
                     if (Node.SolderesOnTable == null)
@@ -22791,11 +22999,13 @@ if (Kind == 5)
                         {
 
                             Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
                 }
+                Node.ElefantMidle = (Int32)Formatters.Deserialize(DummyFileStream);
+                Node.ElefantHigh = (Int32)Formatters.Deserialize(DummyFileStream);
                 for (int i = 0; i < Node.ElefantHigh; i++)
                 {
                     if (Node.ElephantOnTable == null)
@@ -22816,11 +23026,13 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }
                 }
+                Node.HourseMidle = (Int32)Formatters.Deserialize(DummyFileStream);
+                Node.HourseHight = (Int32)Formatters.Deserialize(DummyFileStream);
                 for (int i = 0; i < Node.HourseHight; i++)
                 {
                     if (Node.HoursesOnTable == null)
@@ -22840,12 +23052,14 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
 
                     }
                 }
+                Node.CastleMidle = (Int32)Formatters.Deserialize(DummyFileStream);
+                Node.CastleHigh = (Int32)Formatters.Deserialize(DummyFileStream);
                 for (int i = 0; i < Node.CastleHigh; i++)
                 {
                     if (Node.CastlesOnTable == null)
@@ -22865,12 +23079,14 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = Node;
 
                         }
                     }
                 }
+                Node.MinisterMidle = (Int32)Formatters.Deserialize(DummyFileStream);
+                Node.MinisterHigh = (Int32)Formatters.Deserialize(DummyFileStream);
                 for (int i = 0; i < Node.MinisterHigh; i++)
                 {
                     if (Node.MinisterOnTable == null)
@@ -22890,12 +23106,14 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
 
                     }
                 }
+                Node.KingMidle = (Int32)Formatters.Deserialize(DummyFileStream);
+                Node.KingHigh = (Int32)Formatters.Deserialize(DummyFileStream);
                 for (int i = 0; i < Node.KingHigh; i++)
                 {
                     if (Node.KingOnTable == null)
@@ -22917,7 +23135,7 @@ if (Kind == 5)
                         if (DummyFileStream.Position < DummyFileStream.Length)
                         {
                             Node.KingOnTable[i].KingThinking[0].AStarGreedy.Add((AllDraw)Formatters.Deserialize(DummyFileStream));
-                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoaderEC(Quantum, Order, DummyFileStream, Formatters);
+                            Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].LoaderEC(Quantum , Order * -1, DummyFileStream, Formatters);
                             Node.KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = Node;
                         }
                     }

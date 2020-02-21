@@ -23,7 +23,7 @@ namespace RefrigtzDLL
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     TableIsNextEnemyMovementForCheckedMate[i, j] = Tab[i, j];
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsNextEnemyMovementForCheckedMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextEnemyMovementForCheckedMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public IsNextEnemyMovementForCheckedMate(int Order, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, AllDraw THi,int[,] Tab)
             : base(Order, MovementsAStarGreedyHeuristicTFou, IgnoreSelfObject, UsePenaltyRegardMechnisa, BestMovment, PredictHurist, OnlySel, AStarGreedyHuris, Arrangments, THi)
@@ -32,7 +32,7 @@ namespace RefrigtzDLL
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
                     TableIsNextEnemyMovementForCheckedMate[i, j] = Tab[i, j];
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("IsNextEnemyMovementForCheckedMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextEnemyMovementForCheckedMate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         public bool Is()
         {
@@ -186,7 +186,7 @@ namespace RefrigtzDLL
              AllDraw.NextRow = A33;
              AllDraw.NoTableFound = A34;
              AllDraw.OrderPlate = A35;
-             AllDraw.OutPut.Append(A36);
+             //AllDraw.OutPut.Append(A36);
              AllDraw.Person = A37;
              AllDraw.RedrawTable = A38;
              AllDraw.RegardOccurred = A39;
@@ -248,7 +248,7 @@ namespace RefrigtzDLL
              ThinkingChess.NotSolvedKingDanger =B11;
              ThinkingChess.NumbersOfAllNode = B12;
              ThinkingChess.ThinkingRun = B13;
-            ////{ AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) AllDraw.OutPut.Append(Space);  AllDraw.OutPut.Append("Is:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Is:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return IS;
         }
     }

@@ -12,9 +12,9 @@ namespace Refrigtz
     [Serializable]
     public class TakeRoot
     {
-        bool WaitOnplay = false;
+        //bool WaitOnplay = false;
 
-        String path3 = @"temp";
+        readonly String path3 = @"temp";
         String AllDrawReplacement = "";
 
         public static int AllDrawKind = 0;//0,1,2,3,4,5,6
@@ -193,9 +193,9 @@ namespace Refrigtz
                     }
                 }
                 catch (Exception t) { Log(t); }
-                System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
-                ttt.Start();
-                ttt.Join();
+                //System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
+                //ttt.Start();
+                //ttt.Join();
 
                 return DrawDrawen;
             }
@@ -211,9 +211,9 @@ namespace Refrigtz
                         "Process", "% Processor Time", Process.GetCurrentProcess().ProcessName, true);
 
 
-                do { WaitOnplay = true; } while (myAppCpu.NextValue() != 0);
+                ///do { WaitOnplay = true; } while (myAppCpu.NextValue() != 0);
 
-                WaitOnplay = false;
+                //WaitOnplay = false;
             }
         }
 
@@ -222,9 +222,9 @@ namespace Refrigtz
             Object OO = new Object();
             lock (OO)
             {
-                System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
-                ttt.Start();
-                ttt.Join();
+                //System.Threading.Thread ttt = new System.Threading.Thread(new System.Threading.ThreadStart(Wait));
+                //ttt.Start();
+                //ttt.Join();
 
                 /*if (!Quantum)
                 {
@@ -251,6 +251,8 @@ namespace Refrigtz
                 */
                 try
                 {
+                    
+                   
                     if (!File.Exists(AllDrawKindString))
                     {
                         GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged
