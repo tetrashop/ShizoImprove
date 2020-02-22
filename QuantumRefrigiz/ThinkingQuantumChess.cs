@@ -95,6 +95,7 @@ namespace QuantumRefrigiz
         List<int[]> HeuristicAllMove = new List<int[]>();
         List<int[]> HeuristicAllReducedMove = new List<int[]>();
 
+        public static int NoOfMovableAllObjectMove = 1;
         public int DifOfNoOfSupporteAndReducedSupportGray = int.MinValue;
         public int DifOfNoOfSupporteAndReducedSupportBrown = int.MinValue;
         public static int ColleralationGray = int.MinValue;
@@ -12514,16 +12515,16 @@ namespace QuantumRefrigiz
         }
 
         public void CalculateHeuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-         , ref int HeuristicAttackValue
-             , ref int HeuristicMovementValue
-             , ref int HeuristicSelfSupportedValue
-             , ref int HeuristicReducedMovementValue
-            , ref int HeuristicReducedSupport
-             , ref int HeuristicReducedAttackValue
-             , ref int HeuristicDistributionValue
-         , ref int HeuristicKingSafe
-         , ref int HeuristicFromCenter
-         , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+       , ref int HeuristicAttackValue
+           , ref int HeuristicMovementValue
+           , ref int HeuristicSelfSupportedValue
+           , ref int HeuristicReducedMovementValue
+          , ref int HeuristicReducedSupport
+           , ref int HeuristicReducedAttackValue
+           , ref int HeuristicDistributionValue
+       , ref int HeuristicKingSafe
+       , ref int HeuristicFromCenter
+       , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -12557,6 +12558,7 @@ namespace QuantumRefrigiz
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
 
+
                 Object O1 = new Object();
                 lock (O1)
                 {
@@ -12576,58 +12578,64 @@ namespace QuantumRefrigiz
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-
-                        //Ignore of atack and checkedmate at first until all move
-                        bool A = false, B = false, C = false, D = false;
-                        if (Order == 1)
+                        if (Order == AllDraw.OrderPlate)
                         {
-                            A = ColleralationGray < 30;
-                            B = Killed > 0;
-                            C = HeuristicCheckedMate != 0;
-                            D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
-                        }
-                        else
-                        {
-                            A = ColleralationBrown < 30;
-                            B = Killed > 0;
-                            C = HeuristicCheckedMate != 0;
-                            D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
-                        }
-                        //Every objects one move at game begin
-                        if ((!((!A) || ((!B) && (!C) && (!D)))))
-                        {
-                            SetSupHuTrue();
-                        }
-                        //Empire more
-                        if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= 1 && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
-                        {
-                            SetSupHuTrue();
-                        }
-                        //Hourse before elephants
-                        if (A)
-                        {
-                            if (ColleralationGray < 32)
+                            //Ignore of atack and checkedmate at first until all move
+                            bool A = false, B = false, C = false;
+                            if (Order == 1)
                             {
-                                if (NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportGray)
-                                {
-                                    DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD);
-                                }
-                                else
-                                    SetSupHuTrue();
+                                A = ColleralationGray < 30;
+                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowS, ColS]);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
                             }
-                        }
-                        if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
-                        {
-                            if (((TableInitiation[1, 7] == TableS[1, 7] && TableS[1, 7] == 3) && TableInitiationPreventionOfMultipleMove[1, 7] == 0) || ((TableInitiation[6, 7] == TableS[6, 7] && TableS[6, 7] == 3) && TableInitiationPreventionOfMultipleMove[6, 7] == 0))
+                            else
                             {
-
+                                A = ColleralationBrown < 30;
+                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowS, ColS]);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                            }
+                            if (A && ((B) || (C)))
+                            {
                                 SetSupHuTrue();
                             }
-                        }
-                        //Disturbe on huge traversal exchange prevention 
-                        if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
-                            SetSupHuTrue();
+                            if (A && ((B) || (C)))
+                            {
+                                SetSupHuTrue();
+                            }
+                            //Every objects one move at game begin
+                            if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            {
+                                SetSupHuTrue();
+                            }
+                            //Empire more
+                            if (A)
+                            {
+                                if (ColleralationGray < 32)
+                                {
+                                    if (NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportGray)
+                                    {
+                                        DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD);
+                                    }
+                                    else
+                                        SetSupHuTrue();
+                                }
+                            }
+                            //Hourse before elephants
+                            if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
+                            {
+                                Color a = Color.Gray;
+                                if (Order == -1)
+                                    a = Color.Brown;
+                                if (((TableInitiation[1, 7] == TableS[1, 7] && TableS[1, 7] == 3) && TableInitiationPreventionOfMultipleMove[1, 7] == 0 && ObjectMovable(1, 7, TableS, Order, a)) || ((TableInitiation[6, 7] == TableS[6, 7] && TableS[6, 7] == 3) && TableInitiationPreventionOfMultipleMove[6, 7] == 0 && ObjectMovable(6, 7, TableS, Order, a)))
+                                {
 
+                                    SetSupHuTrue();
+                                }
+                            }
+                            //Disturbe on huge traversal exchange prevention 
+                            if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
+                                SetSupHuTrue();
+                        }
                     }
                     else
                     {
@@ -12643,60 +12651,85 @@ namespace QuantumRefrigiz
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
-                        //Ignore of atack and checkedmate at first until all move
-                        bool A = false, B = false, C = false, D = false;
-                        if (Order == 1)
-                        {
-                            A = ColleralationGray < 30;
-                            B = Killed > 0;
-                            C = HeuristicCheckedMate != 0;
-                            D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
-                        }
-                        else
-                        {
-                            A = ColleralationBrown < 30;
-                            B = Killed > 0;
-                            C = HeuristicCheckedMate != 0;
-                            D = NoOfExistInAttackList(RowS, ColS) > NoOfExistInReducedAttackList(RowD, ColD);
-                        }
-                        if ((!((!A) || ((!B) && (!C) && (!D)))))
-                        {
-                            SetSupHuTrue();
-                        }
-                        //Every objects one move at game begin
-                        if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= 1 && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
-                        {
-                            SetSupHuTrue();
-                        }
-                        //Empire more
-                        if (A)
-                        {
-                            if (ColleralationBrown < 32)
+                        if (Order == AllDraw.OrderPlate)
+                        { //Ignore of atack and checkedmate at first until all move
+                            bool A = false, B = false, C = false;
+                            if (Order == 1)
                             {
-                                if (NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportBrown)
-                                {
-                                    DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD);
-                                }
-                                else
-                                    SetSupHuTrue();
+                                A = ColleralationGray < 30;
+                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
                             }
-                        }
-                        //Hourse before elephants
-                        if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
-                        {
-                            if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == 3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0))
+                            else
                             {
-
+                                A = ColleralationBrown < 30;
+                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                            }
+                            if (A && ((B) || (C)))
+                            {
                                 SetSupHuTrue();
                             }
+                            //Every objects one move at game begin
+                            if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            {
+                                SetSupHuTrue();
+                            }
+                            //Empire more
+                            if (A)
+                            {
+                                if (ColleralationBrown < 32)
+                                {
+                                    if (NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportBrown)
+                                    {
+                                        DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD);
+                                    }
+                                    else
+                                        SetSupHuTrue();
+                                }
+                            }
+                            //Hourse before elephants
+                            if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
+                            {
+                                Color a = Color.Gray;
+                                if (Order == -1)
+                                    a = Color.Brown;
+                                if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0 && ObjectMovable(1, 0, TableS, Order, a)) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == 3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0 && ObjectMovable(6, 0, TableS, Order, a)))
+                                {
+
+                                    SetSupHuTrue();
+                                }
+                            }
+                            //Disturbe on huge traversal exchange prevention 
+                            if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
+                                SetSupHuTrue();
                         }
-                        //Disturbe on huge traversal exchange prevention 
-                        if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
-                            SetSupHuTrue();
                     }
                 }
             }
+
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CalculateHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+        }
+        bool ObjectMovable(int Row, int Col, int[,] Tab, int Order, Color a)
+        {
+            bool Is = false;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
+                    {
+                        return true;
+                    }
+                    if (Attack(CloneATable(Tab), Row, Col, i, j, a, Order))
+                    {
+                        return true;
+                    }
+
+                }
+            }
+            return Is;
+
         }
         //specific determination for ThinkingQuantum main method
         void CastleThinkingQuantumGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
@@ -14258,11 +14291,13 @@ namespace QuantumRefrigiz
                                 {
                                     FoundFirstSelfMating++;
                                     LoseOcuuredatChiled = -2;
+                                    IsThereMateOfSelf = true;
                                 }
                                 if ((AAA.CheckMateGray && AllDraw.OrderPlate == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == 1))
                                 {
                                     WinOcuuredatChiled = 3;
                                     FoundFirstMating++;
+                                    IsThereMateOfEnemy = true;
                                 }
                                 EndThread++;
                             }
