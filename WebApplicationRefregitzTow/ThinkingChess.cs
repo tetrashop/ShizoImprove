@@ -23,6 +23,8 @@ namespace RefrigtzW
         List<int[]> HeuristicAllMove = new List<int[]>();
         List<int[]> HeuristicAllReducedMove = new List<int[]>();
 
+        public static int NoOfBoardMovedGray = 0;
+        public static int NoOfBoardMovedBrown = 0;
         public static int NoOfMovableAllObjectMove = 1;
         public int DifOfNoOfSupporteAndReducedSupportGray = int.MinValue;
         public int DifOfNoOfSupporteAndReducedSupportBrown = int.MinValue;
@@ -11911,16 +11913,16 @@ namespace RefrigtzW
         }
 
         public void CalculateHeuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-         , ref int HeuristicAttackValue
-             , ref int HeuristicMovementValue
-             , ref int HeuristicSelfSupportedValue
-             , ref int HeuristicReducedMovementValue
-            , ref int HeuristicReducedSupport
-             , ref int HeuristicReducedAttackValue
-             , ref int HeuristicDistributionValue
-         , ref int HeuristicKingSafe
-         , ref int HeuristicFromCenter
-         , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+      , ref int HeuristicAttackValue
+          , ref int HeuristicMovementValue
+          , ref int HeuristicSelfSupportedValue
+          , ref int HeuristicReducedMovementValue
+         , ref int HeuristicReducedSupport
+          , ref int HeuristicReducedAttackValue
+          , ref int HeuristicDistributionValue
+      , ref int HeuristicKingSafe
+      , ref int HeuristicFromCenter
+      , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -11953,6 +11955,7 @@ namespace RefrigtzW
                 HFromCenter = Hu[10];
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
+
 
                 Object O1 = new Object();
                 lock (O1)
@@ -11998,7 +12001,10 @@ namespace RefrigtzW
                                 SetSupHuTrue();
                             }
                             //Every objects one move at game begin
-                            if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            int Total = -1;
+                            int Is = -1;
+                            NoOfObjectNotMovable(CloneATable(TableS), Order, Color.Brown, ref Total, ref Is);
+                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
                             }
@@ -12007,9 +12013,9 @@ namespace RefrigtzW
                             {
                                 if (ColleralationGray < 32)
                                 {
-                                    if (NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportGray)
+                                    if (NoOfExistInSupportList(RowS, ColS) + NoOfExistInMoveList(RowS, ColS) + NoOfExistInAttackList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) - NoOfExistInReducedMoveList(RowD, ColD) - NoOfExistInReducedAttackList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportGray)
                                     {
-                                        DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD);
+                                        DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(RowS, ColS) + NoOfExistInMoveList(RowS, ColS) + NoOfExistInAttackList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) - NoOfExistInReducedMoveList(RowD, ColD) - NoOfExistInReducedAttackList(RowD, ColD);
                                     }
                                     else
                                         SetSupHuTrue();
@@ -12028,7 +12034,7 @@ namespace RefrigtzW
                                 }
                             }
                             //Disturbe on huge traversal exchange prevention 
-                            if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
+                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
                                 SetSupHuTrue();
                         }
                     }
@@ -12066,7 +12072,10 @@ namespace RefrigtzW
                                 SetSupHuTrue();
                             }
                             //Every objects one move at game begin
-                            if (TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            int Total = -1;
+                            int Is = -1;
+                            NoOfObjectNotMovable(CloneATable(TableS), Order, Color.Brown, ref Total, ref Is);
+                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
                             }
@@ -12075,9 +12084,9 @@ namespace RefrigtzW
                             {
                                 if (ColleralationBrown < 32)
                                 {
-                                    if (NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportBrown)
+                                    if (NoOfExistInSupportList(RowS, ColS) + NoOfExistInMoveList(RowS, ColS) + NoOfExistInAttackList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) - NoOfExistInReducedMoveList(RowD, ColD) - NoOfExistInReducedAttackList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportBrown)
                                     {
-                                        DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD);
+                                        DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(RowS, ColS) + NoOfExistInMoveList(RowS, ColS) + NoOfExistInAttackList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) - NoOfExistInReducedMoveList(RowD, ColD) - NoOfExistInReducedAttackList(RowD, ColD);
                                     }
                                     else
                                         SetSupHuTrue();
@@ -12096,8 +12105,7 @@ namespace RefrigtzW
                                 }
                             }
                             //Disturbe on huge traversal exchange prevention 
-                            if (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed) && Killed != 0 && NoOfExistInReducedSupportList(RowD, ColD) > 0)
-                                SetSupHuTrue();
+                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0) SetSupHuTrue();
                         }
                     }
                 }
@@ -12123,6 +12131,87 @@ namespace RefrigtzW
 
                 }
             }
+            return Is;
+
+        }
+        int NoOfObjectNotMovable(int[,] Tab, int Order, Color a, ref int Total, ref int Is)
+        {
+            List<int[]> IsThere = new List<int[]>();
+            for (int Row = 0; Row < 8; Row++)
+            {
+                for (int Col = 0; Col < 8; Col++)
+                {
+                    if (Order == 1 && Tab[Row, Col] > 0)
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            for (int j = 0; j < 8; j++)
+                            {
+                                if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
+                                {
+                                    int[] ij = new int[2];
+                                    ij[0] = Row;
+                                    ij[1] = Col;
+                                    if (!IsThere.Contains(ij))
+                                    {
+                                        IsThere.Add(ij);
+                                        Is++;
+                                    }
+                                }
+                                if (Attack(CloneATable(Tab), Row, Col, i, j, a, Order))
+                                {
+                                    int[] ij = new int[2];
+                                    ij[0] = Row;
+                                    ij[1] = Col;
+                                    if (!IsThere.Contains(ij))
+                                    {
+                                        IsThere.Add(ij);
+                                        Is++;
+                                    }
+                                }
+
+                            }
+                        }
+                        Total++;
+                    }
+
+                    if (Order == -1 && Tab[Row, Col] < 0)
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            for (int j = 0; j < 8; j++)
+                            {
+                                if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
+                                {
+                                    int[] ij = new int[2];
+                                    ij[0] = Row;
+                                    ij[1] = Col;
+                                    if (!IsThere.Contains(ij))
+                                    {
+                                        IsThere.Add(ij);
+                                        Is++;
+                                    }
+                                }
+                                if (Attack(CloneATable(Tab), Row, Col, i, j, a, Order))
+                                {
+                                    int[] ij = new int[2];
+                                    ij[0] = Row;
+                                    ij[1] = Col;
+                                    if (!IsThere.Contains(ij))
+                                    {
+                                        IsThere.Add(ij);
+                                        Is++;
+                                    }
+                                }
+
+                            }
+                        }
+                        Total++;
+                    }
+                    
+                }
+            }
+            Is = Total - Is;
             return Is;
 
         }
