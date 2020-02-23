@@ -11172,8 +11172,6 @@ namespace RefrigtzDLL
             {
                 if (!Sup)
                 {
-                    TableInitiationPreventionOfMultipleMove[RowDestination, ColumnDestination]++;
-
                     if (Kind == 1)
                     {
                         Object A4 = new object();
@@ -11979,10 +11977,11 @@ namespace RefrigtzDLL
                         if (Order == AllDraw.OrderPlate)
                         {
                             //Disturbe on huge traversal exchange prevention 
-                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0&&NoOfExistInReducedAttackList(RowD,ColD)>0)
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0&&NoOfExistInReducedAttackList(RowD,ColD)>0)
                             {
                                 TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                                SetSupHuTrue();
+                                if (!Before)
+                                    SetSupHuTrue();
                             } //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
@@ -12007,9 +12006,9 @@ namespace RefrigtzDLL
                             }
                             //Every objects one move at game begin
                             int Total = 0;
-                            int Is = -1;
+                            int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] < NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
                             }
@@ -12057,12 +12056,13 @@ namespace RefrigtzDLL
 
                         if (Order == AllDraw.OrderPlate)
                         {   //Disturbe on huge traversal exchange prevention 
-                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0&&NoOfExistInReducedAttackList(RowD,ColD)>0)
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
                             {
                                 TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-
-                                SetSupHuTrue();
-                            }  //Ignore of atack and checkedmate at first until all move
+                                if (!Before)
+                                    SetSupHuTrue();
+                            }
+                            //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -12084,7 +12084,7 @@ namespace RefrigtzDLL
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] < NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
                             }
@@ -12141,6 +12141,21 @@ namespace RefrigtzDLL
             return Is;
 
         }
+        bool Exist(List<int[]> A, int[] s)
+        {
+            bool Is = false;
+            for (int h = 0; h < A.Count; h++)
+            {
+                if (A[h][0] == s[0] && A[h][1] == s[1])
+                {
+                    Is = true;
+                    break;
+                }
+            
+            }
+            return Is;
+        
+        }
         int NoOfObjectNotMovable(int[,] Tab, int Order, Color a, ref int Total, ref int Is)
         {
             List<int[]> IsThere = new List<int[]>();
@@ -12156,12 +12171,10 @@ namespace RefrigtzDLL
                             {
                                 if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
                                 {
-                                    int[] ij = new int[4];
+                                    int[] ij = new int[2];
                                     ij[0] = Row;
                                     ij[1] = Col;
-                                    ij[2] = i;
-                                    ij[3] = j;
-                                    if (!IsThere.Contains(ij))
+                                    if (!(Exist(IsThere, ij)))
                                     {
                                         IsThere.Add(ij);
                                         Is++;
@@ -12182,12 +12195,10 @@ namespace RefrigtzDLL
                             {
                                 if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
                                 {
-                                    int[] ij = new int[4];
+                                    int[] ij = new int[2];
                                     ij[0] = Row;
                                     ij[1] = Col;
-                                    ij[2] = i;
-                                    ij[3] = j;
-                                    if (!IsThere.Contains(ij))
+                                    if (!(Exist(IsThere,ij)))
                                     {
                                         IsThere.Add(ij);
                                         Is++;
@@ -12207,8 +12218,6 @@ namespace RefrigtzDLL
         }
 
         //specific determination for ThinkingQuantum main method
-
-        //specific determination for thinking main method
         void CastleThinkingGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;

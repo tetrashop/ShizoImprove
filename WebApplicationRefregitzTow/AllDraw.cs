@@ -6375,7 +6375,7 @@ namespace RefrigtzW
         //4 a star is not emplty and contaied computation
         int IsSuitableForInitiation(int i, int j, int Kind)
         {
-            int Is = -1;
+            int Is = 0;
             //determine deeper have right contained
             bool a = IsNotAStarGreedyConanaied(i, j, Kind);
             //determined deeper contained have computatinal list correctly.

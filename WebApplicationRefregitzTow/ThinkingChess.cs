@@ -43,7 +43,7 @@ namespace RefrigtzW
             { -4, -1, 0, 0, 0, 0, 1, 4 }
             };
 
-        public static int[,] TableInitiationPreventionOfMultipleMove ={
+        public static int[,] TableInitiationPreventionOfMultipleMove={
             { 0, 0, 0, 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -11173,8 +11173,7 @@ namespace RefrigtzW
             {
                 if (!Sup)
                 {
-                    TableInitiationPreventionOfMultipleMove[RowDestination, ColumnDestination]++;
-
+                  
                     if (Kind == 1)
                     {
                         Object A4 = new object();
@@ -11979,11 +11978,13 @@ namespace RefrigtzW
                         if (Order == AllDraw.OrderPlate)
                         {
                             //Disturbe on huge traversal exchange prevention 
-                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
                             {
                                 TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                                SetSupHuTrue();
-                            } //Ignore of atack and checkedmate at first until all move
+                                if (!Before)
+                                    SetSupHuTrue();
+                            }
+                            //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -12007,9 +12008,9 @@ namespace RefrigtzW
                             }
                             //Every objects one move at game begin
                             int Total = 0;
-                            int Is = -1;
+                            int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] < NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
                             }
@@ -12057,12 +12058,13 @@ namespace RefrigtzW
 
                         if (Order == AllDraw.OrderPlate)
                         {   //Disturbe on huge traversal exchange prevention 
-                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
                             {
                                 TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-
-                                SetSupHuTrue();
-                            }  //Ignore of atack and checkedmate at first until all move
+                                if (!Before)
+                                    SetSupHuTrue();
+                            }
+                            //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -12084,7 +12086,7 @@ namespace RefrigtzW
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] < NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
                             }
@@ -12141,6 +12143,21 @@ namespace RefrigtzW
             return Is;
 
         }
+        bool Exist(List<int[]> A, int[] s)
+        {
+            bool Is = false;
+            for (int h = 0; h < A.Count; h++)
+            {
+                if (A[h][0] == s[0] && A[h][1] == s[1])
+                {
+                    Is = true;
+                    break;
+                }
+
+            }
+            return Is;
+
+        }
         int NoOfObjectNotMovable(int[,] Tab, int Order, Color a, ref int Total, ref int Is)
         {
             List<int[]> IsThere = new List<int[]>();
@@ -12156,12 +12173,10 @@ namespace RefrigtzW
                             {
                                 if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
                                 {
-                                    int[] ij = new int[4];
+                                    int[] ij = new int[2];
                                     ij[0] = Row;
                                     ij[1] = Col;
-                                    ij[2] = i;
-                                    ij[3] = j;
-                                    if (!IsThere.Contains(ij))
+                                    if (!(Exist(IsThere,ij)))
                                     {
                                         IsThere.Add(ij);
                                         Is++;
@@ -12182,12 +12197,10 @@ namespace RefrigtzW
                             {
                                 if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
                                 {
-                                    int[] ij = new int[4];
+                                    int[] ij = new int[2];
                                     ij[0] = Row;
                                     ij[1] = Col;
-                                    ij[2] = i;
-                                    ij[3] = j;
-                                    if (!IsThere.Contains(ij))
+                                    if (!(Exist(IsThere,ij)))
                                     {
                                         IsThere.Add(ij);
                                         Is++;
