@@ -11978,7 +11978,12 @@ namespace RefrigtzW
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
                         if (Order == AllDraw.OrderPlate)
                         {
-                            //Ignore of atack and checkedmate at first until all move
+                            //Disturbe on huge traversal exchange prevention 
+                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            {
+                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                SetSupHuTrue();
+                            } //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -12001,10 +12006,10 @@ namespace RefrigtzW
                                 SetSupHuTrue();
                             }
                             //Every objects one move at game begin
-                            int Total = -1;
+                            int Total = 0;
                             int Is = -1;
-                            NoOfObjectNotMovable(CloneATable(TableS), Order, Color.Brown, ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
+                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] < NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
                             }
@@ -12033,9 +12038,7 @@ namespace RefrigtzW
                                     SetSupHuTrue();
                                 }
                             }
-                            //Disturbe on huge traversal exchange prevention 
-                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
-                                SetSupHuTrue();
+
                         }
                     }
                     else
@@ -12053,7 +12056,13 @@ namespace RefrigtzW
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
                         if (Order == AllDraw.OrderPlate)
-                        { //Ignore of atack and checkedmate at first until all move
+                        {   //Disturbe on huge traversal exchange prevention 
+                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            {
+                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+
+                                SetSupHuTrue();
+                            }  //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -12072,10 +12081,10 @@ namespace RefrigtzW
                                 SetSupHuTrue();
                             }
                             //Every objects one move at game begin
-                            int Total = -1;
-                            int Is = -1;
-                            NoOfObjectNotMovable(CloneATable(TableS), Order, Color.Brown, ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            int Total = 0;
+                            int Is = 0;
+                            NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
+                            if ((NoOfBoardMovedBrown + Is < Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] < NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
                             }
@@ -12104,8 +12113,6 @@ namespace RefrigtzW
                                     SetSupHuTrue();
                                 }
                             }
-                            //Disturbe on huge traversal exchange prevention 
-                            if ((!Before) && (System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0) SetSupHuTrue();
                         }
                     }
                 }
@@ -12149,26 +12156,18 @@ namespace RefrigtzW
                             {
                                 if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
                                 {
-                                    int[] ij = new int[2];
+                                    int[] ij = new int[4];
                                     ij[0] = Row;
                                     ij[1] = Col;
+                                    ij[2] = i;
+                                    ij[3] = j;
                                     if (!IsThere.Contains(ij))
                                     {
                                         IsThere.Add(ij);
                                         Is++;
                                     }
                                 }
-                                if (Attack(CloneATable(Tab), Row, Col, i, j, a, Order))
-                                {
-                                    int[] ij = new int[2];
-                                    ij[0] = Row;
-                                    ij[1] = Col;
-                                    if (!IsThere.Contains(ij))
-                                    {
-                                        IsThere.Add(ij);
-                                        Is++;
-                                    }
-                                }
+
 
                             }
                         }
@@ -12183,20 +12182,11 @@ namespace RefrigtzW
                             {
                                 if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
                                 {
-                                    int[] ij = new int[2];
+                                    int[] ij = new int[4];
                                     ij[0] = Row;
                                     ij[1] = Col;
-                                    if (!IsThere.Contains(ij))
-                                    {
-                                        IsThere.Add(ij);
-                                        Is++;
-                                    }
-                                }
-                                if (Attack(CloneATable(Tab), Row, Col, i, j, a, Order))
-                                {
-                                    int[] ij = new int[2];
-                                    ij[0] = Row;
-                                    ij[1] = Col;
+                                    ij[2] = i;
+                                    ij[3] = j;
                                     if (!IsThere.Contains(ij))
                                     {
                                         IsThere.Add(ij);
@@ -12208,7 +12198,7 @@ namespace RefrigtzW
                         }
                         Total++;
                     }
-                    
+
                 }
             }
             Is = Total - Is;
