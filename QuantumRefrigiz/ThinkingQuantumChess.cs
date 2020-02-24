@@ -12556,14 +12556,15 @@ namespace QuantumRefrigiz
                 int HExchangeInnovation = 0;
                 int HExchangeSupport = 0;
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
-
-                HeuristicAllAttackedMidel = HeuristicAllAttacked.Count;
-                HeuristicAllMoveMidel = HeuristicAllMove.Count;
-                HeuristicAllReducedAttackedMidel = HeuristicAllReducedAttacked.Count;
-                HeuristicAllReducedMoveMidel = HeuristicAllReducedMove.Count;
-                HeuristicAllReducedSupportMidel = HeuristicAllReducedSupport.Count;
-                HeuristicAllSupportMidel = HeuristicAllSupport.Count;
-
+                if (Before)
+                {
+                    HeuristicAllAttackedMidel = HeuristicAllAttacked.Count;
+                    HeuristicAllMoveMidel = HeuristicAllMove.Count;
+                    HeuristicAllReducedAttackedMidel = HeuristicAllReducedAttacked.Count;
+                    HeuristicAllReducedMoveMidel = HeuristicAllReducedMove.Count;
+                    HeuristicAllReducedSupportMidel = HeuristicAllReducedSupport.Count;
+                    HeuristicAllSupportMidel = HeuristicAllSupport.Count;
+                }
                 Heuristic[0] = Hu[0];
                 Heuristic[1] = Hu[1];
                 Heuristic[2] = Hu[2];
@@ -12649,7 +12650,7 @@ namespace QuantumRefrigiz
                                 }
                             }
                             //Hourse before elephants
-                            if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
+                            if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == TableConst[2, 7]&& TableConst[2, 7]==2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == TableConst[5, 7]&& TableConst[5, 7]==2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
                             {
                                 Color a = Color.Gray;
                                 if (Order == -1)
@@ -12731,7 +12732,7 @@ namespace QuantumRefrigiz
                                 }
                             }
                             //Hourse before elephants
-                            if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
+                            if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == TableConst[RowS, ColS] && TableConst[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == TableConst[RowS, ColS] && TableConst[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
                             {
                                 Color a = Color.Gray;
                                 if (Order == -1)
