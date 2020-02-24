@@ -6337,23 +6337,15 @@ namespace QuantumRefrigiz
                 {
                     if (Order == 1 && TabS > 0 && TabD == 0)
                         Per = true;
-                    else
-                        Per = false;
                     if (Order == -1 && TabS < 0 && TabD == 0)
                         Per = true;
-                    else
-                        Per = false;
                 }
                 else
                 {
                     if (Order == 1 && TabS > 0 && TabD > 0)
                         Per = true;
-                    else
-                        Per = false;
                     if (Order == -1 && TabS < 0 && TabD < 0)
                         Per = true;
-                    else
-                        Per = false;
                 }
             }
             else
@@ -6362,23 +6354,15 @@ namespace QuantumRefrigiz
                 {
                     if (Order == 1 && TabS > 0 && TabD <= 0)
                         Per = true;
-                    else
-                        Per = false;
                     if (Order == -1 && TabS < 0 && TabD >= 0)
                         Per = true;
-                    else
-                        Per = false;
                 }
                 else
                 {
                     if (Order == 1 && TabS > 0 && TabD < 0)
                         Per = true;
-                    else
-                        Per = false;
                     if (Order == -1 && TabS < 0 && TabD > 0)
                         Per = true;
-                    else
-                        Per = false;
                 }
             }
             return Per;
@@ -6915,31 +6899,33 @@ namespace QuantumRefrigiz
                 int[] Exchange = new int[6];
                 int[] ExchangeSeed = new int[3];
 
-                int DumOrder = Order;
-                int DummyOrder = Order;
-                int DummyCurrentOrder = ChessRules.CurrentOrder;
+                int DumOrd = Ord;
+                int DummyOrd = Ord;
+                int DummyCurrentOrd = ChessRules.CurrentOrder;
                 ///When AStarGreedy Exchange is Not Assigned.
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    var output = Task.Factory.StartNew(() =>
+
+                    Parallel.For(0, 8, RowS =>
                     {
-                        Parallel.For(0, 8, RowS =>
+                        Parallel.For(0, 8, ColS =>
                         {
-                            Parallel.For(0, 8, ColS =>
+                            Parallel.For(0, 8, RowD =>
                             {
-                                Parallel.For(0, 8, RowD =>
+                                Parallel.For(0, 8, ColD =>
                                 {
-                                    Parallel.For(0, 8, ColD =>
+                                    //if (!feedCancellationTokenSource.IsCancellationRequested)
                                     {
-                                        //if (!feedCancellationTokenSource.IsCancellationRequested)
+                                        var output = Task.Factory.StartNew(() =>
                                         {
                                             Parallel.Invoke(() =>
                                             {
+
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
-                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                     {
                                                         if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                         {
@@ -6957,7 +6943,7 @@ namespace QuantumRefrigiz
                                                         }
                                                     }
 
-                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
                                                     {
                                                         if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                         {
@@ -6975,7 +6961,7 @@ namespace QuantumRefrigiz
                                                         }
                                                     }
 
-                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
+                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, true))
                                                     {
                                                         if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                         {
@@ -6995,7 +6981,7 @@ namespace QuantumRefrigiz
                                                     }
 
 
-                                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
+                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                     {
                                                         if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
                                                         {
@@ -7014,7 +7000,7 @@ namespace QuantumRefrigiz
                                                     }
 
 
-                                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, false))
                                                     {
                                                         if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
                                                         {
@@ -7031,7 +7017,7 @@ namespace QuantumRefrigiz
                                                             }
                                                         }
                                                     }
-                                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
+                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, true))
                                                     {
                                                         if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
                                                         {
@@ -7052,14 +7038,17 @@ namespace QuantumRefrigiz
 
                                                 }
                                             });
-                                        }
-                                    });
+                                        });
+                                        //output.ConfigureAwait(false);
+
+                                        output.Wait(); output.Dispose();
+
+                                    }
                                 });
                             });
                         });
                     });
-                    //output.ConfigureAwait(false);
-                    output.Wait(); output.Dispose();
+
 
                 }
                 //When situation is closed
@@ -7072,7 +7061,7 @@ namespace QuantumRefrigiz
 
                 else//When reinforcment arrangments is Ok
                 {
-                    if (Order != AllDraw.OrderPlate)
+                    if (Ord != AllDraw.OrderPlate)
                     {
                         if (IKIsCentralPawnIsOk && Exchange[ReducedAttacked] == 0)
                         {
@@ -7147,19 +7136,19 @@ namespace QuantumRefrigiz
                 double Defen = (double)(RemobeActiveDenfesiveObjectsOfEnemy[Ros, Cos] - RemobeActiveDenfesiveObjectsOfEnemy[Rod, Cod]);
                 ExchangeSeed[2] += (int)(((double)(RationalRegard)) * (Defen / MAX) * 4);
 
-                ExchangeSeed[2] += HeuristicPromotion(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
+                ExchangeSeed[2] += HeuristicPromotion(CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
 
-                ExchangeSeed[2] += HeuristicElephantOpen(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
+                ExchangeSeed[2] += HeuristicElephantOpen(CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
 
-                ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(CloneATable(Table), Order, Ros, Cos, Rod, Cod);
+                ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
 
                 //Safty before Attack
                 ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Rod, Cod) + NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))) + (RationalRegard * (NoOfExistInMoveList(Ros, Cos) + NoOfExistInAttackList(Ros, Cos) + NoOfExistInSupportList(Ros, Cos)));
 
-                Order = DummyOrder;
-                ChessRules.CurrentOrder = DummyCurrentOrder;
-                Order = DumOrder;
-                //Initiate to Begin Call Orders.
+                Ord = DummyOrd;
+                ChessRules.CurrentOrder = DummyCurrentOrd;
+                Ord = DumOrd;
+                //Initiate to Begin Call Ords.
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ExchangeAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return ExchangeSeed;
 
@@ -12583,11 +12572,11 @@ namespace QuantumRefrigiz
                         if (Order == AllDraw.OrderPlate)
                         {
                             //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(System.Math.Abs(TableS[RowD, ColD]))) && NoOfExistInReducedAttackList(RowD, ColD) > 0)
                             {
-                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                                if (!Before)
-                                    SetSupHuTrue();
+                                //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                //if (!Before)
+                                SetSupHuTrue();
                             }
                             //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
@@ -12663,11 +12652,11 @@ namespace QuantumRefrigiz
 
                         if (Order == AllDraw.OrderPlate)
                         {   //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
                             {
-                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                                if (!Before)
-                                    SetSupHuTrue();
+                                //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                //if (!Before)
+                                SetSupHuTrue();
                             }
                             //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
