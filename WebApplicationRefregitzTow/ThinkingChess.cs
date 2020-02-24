@@ -16,12 +16,19 @@ namespace RefrigtzW
     public class ThinkingChess ////: IDisposable
     {
         bool IKIsCentralPawnIsOk = false;
+
         List<int[]> HeuristicAllSupport = new List<int[]>();
+        int HeuristicAllSupportMidel = -1;
         List<int[]> HeuristicAllReducedSupport = new List<int[]>();
+        int HeuristicAllReducedSupportMidel = -1;
         List<int[]> HeuristicAllAttacked = new List<int[]>();
+        int HeuristicAllAttackedMidel = -1;
         List<int[]> HeuristicAllReducedAttacked = new List<int[]>();
+        int HeuristicAllReducedAttackedMidel = -1;
         List<int[]> HeuristicAllMove = new List<int[]>();
+        int HeuristicAllMoveMidel = -1;
         List<int[]> HeuristicAllReducedMove = new List<int[]>();
+        int HeuristicAllReducedMoveMidel = -1;
 
         public static int NoOfBoardMovedGray = 0;
         public static int NoOfBoardMovedBrown = 0;
@@ -5688,7 +5695,7 @@ namespace RefrigtzW
         }
 
         //Distribution of Objects
-        public int HeuristicDistribution(int[,] Tab, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
+        public int HeuristicDistribution(bool Before,int[,] Tab, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object O = new Object();
@@ -5722,16 +5729,16 @@ namespace RefrigtzW
 
                     if ((Tab[3, 4] > ObjectGray && Tab[4, 3] > ObjectGray && Tab[3, 3] > ObjectGray && Tab[4, 4] > ObjectGray) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if ((Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
+                        if ((Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(Before,RowS, ColS) > 0))
                             Dis += RationalPenalty;
                         else
-                     if ((Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(RowD, ColD) > 0))
+                     if ((Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(Before,RowD, ColD) > 0))
                             Dis += RationalPenalty;
                         else
-                  if ((Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(RowS, ColS) == 0))
+                  if ((Tab[RowS, ColS] == 3) && (NoOfExistInReducedAttackList(Before,RowS, ColS) == 0))
                             Dis += RationalRegard;
                         else
-                  if ((Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(RowD, ColD) == 0))
+                  if ((Tab[RowD, ColD] == 3) && (NoOfExistInReducedAttackList(Before,RowD, ColD) == 0))
                             Dis += RationalRegard;
 
                     }
@@ -5755,16 +5762,16 @@ namespace RefrigtzW
                     }
 
 
-                    if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
+                    if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(Before,RowS, ColS) > 0))
                         Dis += RationalPenalty;
                     else
-              if ((Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(RowD, ColD) > 0))
+              if ((Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(Before,RowD, ColD) > 0))
                         Dis += RationalPenalty;
                     else
-           if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(RowS, ColS) == 0))
+           if ((Tab[RowS, ColS] > 0) && (NoOfExistInReducedAttackList(Before,RowS, ColS) == 0))
                         Dis += RationalRegard;
                     else
-           if ((Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(RowD, ColD) == 0))
+           if ((Tab[RowD, ColD] > 0) && (NoOfExistInReducedAttackList(Before,RowD, ColD) == 0))
                         Dis += RationalRegard;
 
 
@@ -5794,16 +5801,16 @@ namespace RefrigtzW
                     }
                     if ((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown) || (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
                     {
-                        if ((Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
+                        if ((Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(Before,RowS, ColS) > 0))
                             Dis += RationalPenalty;
                         else
-                              if ((Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(RowD, ColD) > 0))
+                              if ((Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(Before,RowD, ColD) > 0))
                             Dis += RationalPenalty;
                         else
-                           if ((Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(RowS, ColS) == 0))
+                           if ((Tab[RowS, ColS] == -3) && (NoOfExistInReducedAttackList(Before,RowS, ColS) == 0))
                             Dis += RationalRegard;
                         else
-                           if ((Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(RowD, ColD) == 0))
+                           if ((Tab[RowD, ColD] == -3) && (NoOfExistInReducedAttackList(Before,RowD, ColD) == 0))
                             Dis += RationalRegard;
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
@@ -5822,16 +5829,16 @@ namespace RefrigtzW
                         }
                     }
 
-                    if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(RowS, ColS) > 0))
+                    if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(Before,RowS, ColS) > 0))
                         Dis += RationalPenalty;
                     else
-                    if ((Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(RowD, ColD) > 0))
+                    if ((Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(Before,RowD, ColD) > 0))
                         Dis += RationalPenalty;
                     else
-                 if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(RowS, ColS) == 0))
+                 if ((Tab[RowS, ColS] < 0) && (NoOfExistInReducedAttackList(Before,RowS, ColS) == 0))
                         Dis += RationalRegard;
                     else
-                 if ((Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(RowD, ColD) == 0))
+                 if ((Tab[RowD, ColD] < 0) && (NoOfExistInReducedAttackList(Before,RowD, ColD) == 0))
                         Dis += RationalRegard;
 
                     if (!((Tab[3, 4] < ObjectBrown && Tab[4, 3] < ObjectBrown && Tab[3, 3] < ObjectBrown && Tab[4, 4] < ObjectBrown)) && (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 25)))
@@ -6494,73 +6501,146 @@ namespace RefrigtzW
 
             }
         }
-        int NoOfExistInMoveList(int Rows, int Cols)
+        int NoOfExistInMoveList(bool Before, int Rows, int Cols)
         {
             int Is = 0;
-            for (int i = 0; i < HeuristicAllMove.Count; i++)
+            if (Before)
             {
-                if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols)
-                    Is++;
+                for (int i = 0; i < HeuristicAllMove.Count; i++)
+                {
+                    if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols)
+                        Is++;
 
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllMoveMidel; i < HeuristicAllMove.Count; i++)
+                {
+                    if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols)
+                        Is++;
+
+                }
             }
             return Is;
         }
-        int NoOfExistInReducedMoveList(int Rows, int Cols)
+        int NoOfExistInReducedMoveList(bool Before, int Rows, int Cols)
         {
             int Is = 0;
-            for (int i = 0; i < HeuristicAllReducedMove.Count; i++)
-            {
-                if (HeuristicAllReducedMove[i][1] == Rows && HeuristicAllReducedMove[i][2] == Cols)
-                    Is++;
 
+            if (Before)
+            {
+                for (int i = 0; i < HeuristicAllReducedMove.Count; i++)
+                {
+                    if (HeuristicAllReducedMove[i][1] == Rows && HeuristicAllReducedMove[i][2] == Cols)
+                        Is++;
+
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllReducedMoveMidel; i < HeuristicAllReducedMove.Count; i++)
+                {
+                    if (HeuristicAllReducedMove[i][1] == Rows && HeuristicAllReducedMove[i][2] == Cols)
+                        Is++;
+
+                }
             }
             return Is;
         }
-        int NoOfExistInAttackList(int Rows, int Cols)
+        int NoOfExistInAttackList(bool Before, int Rows, int Cols)
         {
             int Is = 0;
-            for (int i = 0; i < HeuristicAllAttacked.Count; i++)
+            if (Before)
             {
-                if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols)
-                    Is++;
+                for (int i = 0; i < HeuristicAllAttacked.Count; i++)
+                {
+                    if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols)
+                        Is++;
 
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                {
+                    if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols)
+                        Is++;
+
+                }
             }
             return Is;
         }
-        int NoOfExistInReducedAttackList(int Rows, int Cols)
+        int NoOfExistInReducedAttackList(bool Before, int Rows, int Cols)
         {
             int Is = 0;
-            for (int i = 0; i < HeuristicAllReducedAttacked.Count; i++)
+            if (Before)
             {
-                if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols)
-                    Is++;
+                for (int i = 0; i < HeuristicAllReducedAttacked.Count; i++)
+                {
+                    if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols)
+                        Is++;
 
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                {
+                    if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols)
+                        Is++;
+
+                }
             }
             return Is;
         }
-        int NoOfExistInSupportList(int Rows, int Cols)
+        int NoOfExistInSupportList(bool Before, int Rows, int Cols)
         {
             int Is = 0;
-            for (int i = 0; i < HeuristicAllSupport.Count; i++)
+            if (Before)
             {
-                if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols)
-                    Is++;
+                for (int i = 0; i < HeuristicAllSupport.Count; i++)
+                {
+                    if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols)
+                        Is++;
 
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                {
+                    if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols)
+                        Is++;
+
+                }
             }
             return Is;
         }
-        int NoOfExistInReducedSupportList(int Rows, int Cols)
+        int NoOfExistInReducedSupportList(bool Before, int Rows, int Cols)
         {
             int Is = 0;
-            for (int i = 0; i < HeuristicAllReducedSupport.Count; i++)
+            if (Before)
             {
-                if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols)
-                    Is++;
+                for (int i = 0; i < HeuristicAllReducedSupport.Count; i++)
+                {
+                    if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols)
+                        Is++;
 
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                {
+                    if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols)
+                        Is++;
+
+                }
             }
             return Is;
         }
-        int HeuristicPromotion(int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
+        int HeuristicPromotion(bool Before,int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
             int HP = 0;
             if (Order == 1)
@@ -6569,7 +6649,7 @@ namespace RefrigtzW
                     return HP;
                 if (TableConst[Ros, Cos] == 1 && Tab[Rod, Cod] > 0)
                 {
-                    HP = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                    HP = ((RationalRegard) * (NoOfExistInAttackList(Before,Rod, Cod) + NoOfExistInSupportList(Before,Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before,Rod, Cod) + NoOfExistInReducedSupportList(Before,Rod, Cod))));
                 }
             }
             else
@@ -6578,12 +6658,12 @@ namespace RefrigtzW
                     return HP;
                 if (TableConst[Ros, Cos] == -1 && Tab[Rod, Cod] < 0)
                 {
-                    HP = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
+                    HP = ((RationalRegard) * (NoOfExistInAttackList(Before,Rod, Cod) + NoOfExistInSupportList(Before,Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before,Rod, Cod) + NoOfExistInReducedSupportList(Before,Rod, Cod))));
                 }
             }
             return HP;
         }
-        int HeuristicElephantOpen(int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
+        int HeuristicElephantOpen(bool Before,int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
             int HE = 0;
             if (Order == 1)
@@ -6591,9 +6671,9 @@ namespace RefrigtzW
 
                 if (TableConst[Ros, Cos] == 2 && Tab[Rod, Cod] <= 0)
                 {
-                    HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
-                    if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
-                        HE *= NoOfExistInMoveList(Rod, Cod);
+                    HE = ((RationalRegard) * (NoOfExistInAttackList(Before,Rod, Cod) + NoOfExistInSupportList(Before,Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before,Rod, Cod) + NoOfExistInReducedSupportList(Before,Rod, Cod))));
+                    if (NoOfExistInReducedAttackList(Before,Rod, Cod) == 0)
+                        HE *= NoOfExistInMoveList(Before,Rod, Cod);
                 }
             }
             else
@@ -6601,14 +6681,14 @@ namespace RefrigtzW
 
                 if (TableConst[Ros, Cos] == -2 && Tab[Rod, Cod] >= 0)
                 {
-                    HE = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))));
-                    if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
-                        HE *= NoOfExistInMoveList(Rod, Cod);
+                    HE = ((RationalRegard) * (NoOfExistInAttackList(Before,Rod, Cod) + NoOfExistInSupportList(Before,Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before,Rod, Cod) + NoOfExistInReducedSupportList(Before,Rod, Cod))));
+                    if (NoOfExistInReducedAttackList(Before,Rod, Cod) == 0)
+                        HE *= NoOfExistInMoveList(Before,Rod, Cod);
                 }
             }
             return HE;
         }
-        int HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
+        int HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(bool Before,int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
             int HH = 0;
             if (Order == 1)
@@ -6617,10 +6697,10 @@ namespace RefrigtzW
                 if (TableConst[Ros, Cos] == 3 && Tab[Rod, Cod] <= 0)
                 {
                     //Base of weak hourse is where is Home strong.
-                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Ros, Cos) + NoOfExistInReducedSupportList(Ros, Cos))));
+                    HH = ((RationalRegard) * (NoOfExistInAttackList(Before,Rod, Cod) + NoOfExistInSupportList(Before,Rod, Cod)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before,Ros, Cos) + NoOfExistInReducedSupportList(Before,Ros, Cos))));
                     //Hourse close
-                    if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
-                        HH *= (64 - NoOfExistInMoveList(Rod, Cod));
+                    if (NoOfExistInReducedAttackList(Before,Rod, Cod) == 0)
+                        HH *= (64 - NoOfExistInMoveList(Before,Rod, Cod));
                 }
             }
             else
@@ -6629,10 +6709,10 @@ namespace RefrigtzW
                 if (TableConst[Ros, Cos] == -3 && Tab[Rod, Cod] >= 0)
                 {
                     //Base of weak hourse is where is Home strong.
-                    HH = ((RationalRegard) * (NoOfExistInAttackList(Rod, Cod) + NoOfExistInSupportList(Rod, Cod)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Ros, Cos) + NoOfExistInReducedSupportList(Ros, Cos))));
+                    HH = ((RationalRegard) * (NoOfExistInAttackList(Before,Rod, Cod) + NoOfExistInSupportList(Before,Rod, Cod)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before,Ros, Cos) + NoOfExistInReducedSupportList(Before,Ros, Cos))));
                     //Hourse close
-                    if (NoOfExistInReducedAttackList(Rod, Cod) == 0)
-                        HH *= (64 - NoOfExistInMoveList(Rod, Cod));
+                    if (NoOfExistInReducedAttackList(Before,Rod, Cod) == 0)
+                        HH *= (64 - NoOfExistInMoveList(Before,Rod, Cod));
                 }
             }
             return HH;
@@ -6888,14 +6968,14 @@ namespace RefrigtzW
                 double Defen = (double)(RemobeActiveDenfesiveObjectsOfEnemy[Ros, Cos] - RemobeActiveDenfesiveObjectsOfEnemy[Rod, Cod]);
                 ExchangeSeed[2] += (int)(((double)(RationalRegard)) * (Defen / MAX) * 4);
 
-                ExchangeSeed[2] += HeuristicPromotion(CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
+                ExchangeSeed[2] += HeuristicPromotion(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
 
-                ExchangeSeed[2] += HeuristicElephantOpen(CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
+                ExchangeSeed[2] += HeuristicElephantOpen(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
 
-                ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
+                ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
 
                 //Safty before Attack
-                ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Rod, Cod) + NoOfExistInReducedAttackList(Rod, Cod) + NoOfExistInReducedSupportList(Rod, Cod))) + (RationalRegard * (NoOfExistInMoveList(Ros, Cos) + NoOfExistInAttackList(Ros, Cos) + NoOfExistInSupportList(Ros, Cos)));
+                ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Before,Rod, Cod) + NoOfExistInReducedAttackList(Before,Rod, Cod) + NoOfExistInReducedSupportList(Before,Rod, Cod))) + (RationalRegard * (NoOfExistInMoveList(Before,Ros, Cos) + NoOfExistInAttackList(Before,Ros, Cos) + NoOfExistInSupportList(Before,Ros, Cos)));
 
                 Ord = DummyOrd;
                 ChessRules.CurrentOrder = DummyCurrentOrd;
@@ -11815,7 +11895,7 @@ namespace RefrigtzW
                                         return;
                                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                                     int[,] TableSS = CloneATable(TableS);
-                                    HeuristicRemain[1] = HeuristicDistribution(TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicDistributionValue
+                                    HeuristicRemain[1] = HeuristicDistribution(Before, TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicDistributionValue
                                          );
                                 }
                             }
@@ -11902,7 +11982,14 @@ namespace RefrigtzW
         void SetSupHuTrue()
         {
             IsSupHu[IsSupHu.Count - 1] = true;
-            IsSup[IsSup.Count - 1] = true;
+        }
+        void ClearSupHuTrue()
+        {
+            if (IsSup[IsSup.Count - 1] != true)
+            {
+                IsSupHu[IsSupHu.Count - 1] = false;
+                IsSup[IsSup.Count - 1] = false;
+            }
         }
 
         public void CalculateHeuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
@@ -11934,6 +12021,13 @@ namespace RefrigtzW
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
 
 
+                HeuristicAllAttackedMidel = HeuristicAllAttacked.Count;
+                HeuristicAllMoveMidel = HeuristicAllMove.Count;
+                HeuristicAllReducedAttackedMidel = HeuristicAllReducedAttacked.Count;
+                HeuristicAllReducedMoveMidel = HeuristicAllReducedMove.Count;
+                HeuristicAllReducedSupportMidel = HeuristicAllReducedSupport.Count;
+                HeuristicAllSupportMidel = HeuristicAllSupport.Count;
+
                 Heuristic[0] = Hu[0];
                 Heuristic[1] = Hu[1];
                 Heuristic[2] = Hu[2];
@@ -11950,6 +12044,7 @@ namespace RefrigtzW
                 HExchangeSupport = Hu[14];
 
 
+                bool IsS = false;
                 Object O1 = new Object();
                 lock (O1)
                 {
@@ -11972,10 +12067,10 @@ namespace RefrigtzW
                         if (Order == AllDraw.OrderPlate)
                         {
                             //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before,RowD, ColD) > 0)
                             {
                                 //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                                //if (!Before)
+                                //if (Before)
                                 SetSupHuTrue();
                             }
                             //Ignore of atack and checkedmate at first until all move
@@ -11983,23 +12078,20 @@ namespace RefrigtzW
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
+                                B = NoOfExistInAttackList(Before,RowS, ColS) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
+                                B = NoOfExistInAttackList(Before,RowS, ColS) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
                                 SetSupHuTrue();
                             }
-                            if (A && ((B) || (C)))
-                            {
-                                SetSupHuTrue();
-                            }
+
                             //Every objects one move at game begin
                             int Total = 0;
                             int Is = 0;
@@ -12013,9 +12105,9 @@ namespace RefrigtzW
                             {
                                 if (ColleralationGray < 32)
                                 {
-                                    if (NoOfExistInSupportList(RowS, ColS) + NoOfExistInMoveList(RowS, ColS) + NoOfExistInAttackList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) - NoOfExistInReducedMoveList(RowD, ColD) - NoOfExistInReducedAttackList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportGray)
+                                    if (NoOfExistInSupportList(Before,RowS, ColS) + NoOfExistInMoveList(Before,RowS, ColS) + NoOfExistInAttackList(Before,RowS, ColS) - NoOfExistInReducedSupportList(Before,RowD, ColD) - NoOfExistInReducedMoveList(Before,RowD, ColD) - NoOfExistInReducedAttackList(Before,RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportGray)
                                     {
-                                        DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(RowS, ColS) + NoOfExistInMoveList(RowS, ColS) + NoOfExistInAttackList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) - NoOfExistInReducedMoveList(RowD, ColD) - NoOfExistInReducedAttackList(RowD, ColD);
+                                        DifOfNoOfSupporteAndReducedSupportGray = NoOfExistInSupportList(Before,RowS, ColS) + NoOfExistInMoveList(Before,RowS, ColS) + NoOfExistInAttackList(Before,RowS, ColS) - NoOfExistInReducedSupportList(Before,RowD, ColD) - NoOfExistInReducedMoveList(Before,RowD, ColD) - NoOfExistInReducedAttackList(Before,RowD, ColD);
                                     }
                                     else
                                         SetSupHuTrue();
@@ -12052,29 +12144,31 @@ namespace RefrigtzW
 
                         if (Order == AllDraw.OrderPlate)
                         {   //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before,RowD, ColD) > 0)
                             {
                                 //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                                //if (!Before)
+                                //if (Before)
                                 SetSupHuTrue();
+                                IsS = true;
                             }
                             //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
+                                B = NoOfExistInAttackList(Before,RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
+                                B = NoOfExistInAttackList(Before,RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
                                 SetSupHuTrue();
+                                IsS = true;
                             }
                             //Every objects one move at game begin
                             int Total = 0;
@@ -12083,18 +12177,22 @@ namespace RefrigtzW
                             if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
                             {
                                 SetSupHuTrue();
+                                IsS = true;
                             }
                             //Empire more
                             if (A)
                             {
                                 if (ColleralationBrown < 32)
                                 {
-                                    if (NoOfExistInSupportList(RowS, ColS) + NoOfExistInMoveList(RowS, ColS) + NoOfExistInAttackList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) - NoOfExistInReducedMoveList(RowD, ColD) - NoOfExistInReducedAttackList(RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportBrown)
+                                    if (NoOfExistInSupportList(Before,RowS, ColS) + NoOfExistInMoveList(Before,RowS, ColS) + NoOfExistInAttackList(Before,RowS, ColS) - NoOfExistInReducedSupportList(Before,RowD, ColD) - NoOfExistInReducedMoveList(Before,RowD, ColD) - NoOfExistInReducedAttackList(Before,RowD, ColD) >= DifOfNoOfSupporteAndReducedSupportBrown)
                                     {
-                                        DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(RowS, ColS) + NoOfExistInMoveList(RowS, ColS) + NoOfExistInAttackList(RowS, ColS) - NoOfExistInReducedSupportList(RowD, ColD) - NoOfExistInReducedMoveList(RowD, ColD) - NoOfExistInReducedAttackList(RowD, ColD);
+                                        DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(Before,RowS, ColS) + NoOfExistInMoveList(Before,RowS, ColS) + NoOfExistInAttackList(Before,RowS, ColS) - NoOfExistInReducedSupportList(Before,RowD, ColD) - NoOfExistInReducedMoveList(Before,RowD, ColD) - NoOfExistInReducedAttackList(Before,RowD, ColD);
                                     }
                                     else
+                                    {
                                         SetSupHuTrue();
+                                        IsS = true;
+                                    }
                                 }
                             }
                             //Hourse before elephants
@@ -12107,9 +12205,13 @@ namespace RefrigtzW
                                 {
 
                                     SetSupHuTrue();
+                                    IsS = true;
+
                                 }
                             }
                         }
+                        if (!IsS)
+                            ClearSupHuTrue();
                     }
                 }
             }
