@@ -158,6 +158,8 @@ namespace QuantumRefrigiz
         //Initiate Global and Static Variables. 
         public bool IsThereMateOfEnemy = false;
         public bool IsThereMateOfSelf = false;
+        public bool IsThereCheckOfEnemy = false;
+        public bool IsThereCheckOfSelf = false;
 #pragma warning disable CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
 #pragma warning restore CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
@@ -10933,9 +10935,7 @@ namespace QuantumRefrigiz
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemoveAtList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //learning autamata maib method
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         void PenaltyMechanisam(ref bool RETURN, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -10951,6 +10951,7 @@ namespace QuantumRefrigiz
                     {
                         RETURN = true;
                         AddAtList(kind, Current);
+
                         return;
 
                     }
@@ -11022,7 +11023,6 @@ namespace QuantumRefrigiz
                             Object A = new Object();
                             lock (A)
                             {
-                                IsThereMateOfSelf = true;
                                 FoundFirstSelfMating++;
                                 LoseOcuuredatChiled = -2;
                                 RemoveAtList(kind);
@@ -11035,6 +11035,7 @@ namespace QuantumRefrigiz
                         }
                         if (Order == 1 && AA.CheckMateBrown)
                         {
+                            IsThereCheckOfEnemy = true;
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
@@ -11042,6 +11043,7 @@ namespace QuantumRefrigiz
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
+                            IsThereCheckOfEnemy = true;
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
@@ -11049,14 +11051,14 @@ namespace QuantumRefrigiz
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
-
+                            IsThereMateOfSelf = true;
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
                             //RETURN = true; return;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
-
+                            IsThereMateOfSelf = true;
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
                             //RETURN = true; return;
@@ -11064,6 +11066,7 @@ namespace QuantumRefrigiz
 
                         if (Order == 1 && AA.CheckGray)
                         {
+                            IsThereCheckOfSelf = true;
                             KishSelf = true;
                             Object A = new object();
                             lock (A)
@@ -11076,6 +11079,7 @@ namespace QuantumRefrigiz
                         else
                             if (Order == -1 && AA.CheckBrown)
                         {
+                            IsThereCheckOfSelf = true;
                             KishSelf = true;
 
                             Object A = new object();
@@ -11088,6 +11092,7 @@ namespace QuantumRefrigiz
                         }
                         if (Order == 1 && AA.CheckBrown)
                         {
+                            IsThereCheckOfEnemy = true;
                             KishEnemy = true;
                             Object A = new object();
                             lock (A)
@@ -11097,9 +11102,9 @@ namespace QuantumRefrigiz
                             CheckedM = -1;
                             //RETURN = true; return;
                         }
-                        else
-                           if (Order == -1 && AA.CheckGray)
+                        if (Order == -1 && AA.CheckGray)
                         {
+                            IsThereCheckOfEnemy = true;
                             KishEnemy = true;
 
                             Object A = new object();
@@ -11113,77 +11118,10 @@ namespace QuantumRefrigiz
 
                         //if (FoundFirstSelfMating > 0)
                         {
-                            /*if ((new IsNextEnemyMovementForCheckedMate(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS)).Is())
-                            {
-                                IsThereMateOfSelf = true;
-                                FoundFirstSelfMating++;
-                                LoseOcuuredatChiled = -2;
-                                RemoveAtList(kind);
-                                Current.LearningAlgorithmPenalty();
-                                AddAtList(kind, Current);
-                                CheckedM = 3;
-                                //RETURN = true; return;
-                            }*/
+
                         }
 
-                        /* if (Order == 1 && AA.CheckMateBrown)
-                         {
-                             DoEnemySelf = false;
-                             EnemyCheckMateActionsString= true;
-                             CheckedM = -2;
-                             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             RETURN = true; return;
-                         }
-                         if (Order == -1 && AA.CheckMateGray)
-                         {
-                             DoEnemySelf = false;
-                             EnemyCheckMateActionsString= true;
-                             CheckedM = -2;
-                             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             RETURN = true; return;
-                         }
-                         if (Order == 1 && AA.CheckMateGray)
-                         {
 
-                             EnemyCheckMateActionsString = false;
-                             CheckedM = -2;
-                             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             RETURN = true; return;
-                         }
-                         if (Order == -1 && AA.CheckMateBrown)
-                         {
-
-                             EnemyCheckMateActionsString= false;
-                             CheckedM = -2;
-                             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             RETURN = true; return;
-                         }
-
-                         if (Order == 1 && AA.CheckGray)
-                         {
-                             //KishBefore = true;
-                             Object A = new object();
-                             lock (A)
-                             {
-                                 NumberOfPenalties++;
-                             }
-                             CheckedM = -1;
-                             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             RETURN = true; return;
-                         }
-                         else
-                             if (Order == -1 && AA.CheckBrown)
-                         {
-                             //KishBefore = true;
-                             Object A = new object();
-                             lock (A)
-                             {
-                                 NumberOfPenalties++;
-                             }
-                             CheckedM = -1;
-                             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                             RETURN = true; return;
-                         }*/
                     }
                     if (RETURN)
                         return;
@@ -11479,9 +11417,9 @@ namespace QuantumRefrigiz
                         }
                         else
                         {
-#pragma warning disable CS0219 // The variable 'Added' is ASsigned but its value is never used
+#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
                             bool Added = false;
-#pragma warning restore CS0219 // The variable 'Added' is ASsigned but its value is never used
+#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
                             Object OO1 = new Object();
                             lock (OO1)
                             {
@@ -12572,7 +12510,7 @@ namespace QuantumRefrigiz
                         if (Order == AllDraw.OrderPlate)
                         {
                             //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(System.Math.Abs(TableS[RowD, ColD]))) && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
                             {
                                 //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                                 //if (!Before)
@@ -12583,14 +12521,14 @@ namespace QuantumRefrigiz
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
@@ -12664,13 +12602,13 @@ namespace QuantumRefrigiz
                             {
                                 A = ColleralationGray < 30;
                                 B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
                                 B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
@@ -14392,12 +14330,28 @@ namespace QuantumRefrigiz
                     }
                     if (Order == 1 && AAA.CheckGray)
                     {
+                        IsThereCheckOfSelf = true;
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
                     }
                     if (Order == -1 && AAA.CheckBrown)
                     {
+                        IsThereCheckOfSelf = true;
+                        IgnoreObjectDangour = 0;
+                        IsCheck = true;
+                        DoEnemySelf = false;
+                    }
+                    if (Order == -1 && AAA.CheckGray)
+                    {
+                        IsThereCheckOfEnemy = true;
+                        IgnoreObjectDangour = 0;
+                        IsCheck = true;
+                        DoEnemySelf = false;
+                    }
+                    if (Order == 1 && AAA.CheckBrown)
+                    {
+                        IsThereCheckOfSelf = true;
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;

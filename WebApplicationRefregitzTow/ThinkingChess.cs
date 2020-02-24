@@ -87,6 +87,8 @@ namespace RefrigtzW
         //Initiate Global and Static Variables. 
         public bool IsThereMateOfEnemy = false;
         public bool IsThereMateOfSelf = false;
+        public bool IsThereCheckOfEnemy = false;
+        public bool IsThereCheckOfSelf = false;
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
         bool ThinkingAtRun = false;
         public static String ActionsString = "";
@@ -10532,7 +10534,6 @@ namespace RefrigtzW
                             Object A = new Object();
                             lock (A)
                             {
-                                IsThereMateOfSelf = true;
                                 FoundFirstSelfMating++;
                                 LoseOcuuredatChiled = -2;
                                 RemoveAtList(kind);
@@ -10545,6 +10546,7 @@ namespace RefrigtzW
                         }
                         if (Order == 1 && AA.CheckMateBrown)
                         {
+                            IsThereCheckOfEnemy = true;
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
@@ -10552,6 +10554,7 @@ namespace RefrigtzW
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
+                            IsThereCheckOfEnemy = true;
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
@@ -10559,14 +10562,14 @@ namespace RefrigtzW
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
-
+                            IsThereMateOfSelf = true;
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
                             //RETURN = true; return;
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
-
+                            IsThereMateOfSelf = true;
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
                             //RETURN = true; return;
@@ -10574,6 +10577,7 @@ namespace RefrigtzW
 
                         if (Order == 1 && AA.CheckGray)
                         {
+                            IsThereCheckOfSelf = true;
                             KishSelf = true;
                             Object A = new object();
                             lock (A)
@@ -10586,6 +10590,7 @@ namespace RefrigtzW
                         else
                             if (Order == -1 && AA.CheckBrown)
                         {
+                            IsThereCheckOfSelf = true;
                             KishSelf = true;
 
                             Object A = new object();
@@ -10598,6 +10603,7 @@ namespace RefrigtzW
                         }
                         if (Order == 1 && AA.CheckBrown)
                         {
+                            IsThereCheckOfEnemy = true;
                             KishEnemy = true;
                             Object A = new object();
                             lock (A)
@@ -10607,9 +10613,9 @@ namespace RefrigtzW
                             CheckedM = -1;
                             //RETURN = true; return;
                         }
-                        else
-                           if (Order == -1 && AA.CheckGray)
+                        if (Order == -1 && AA.CheckGray)
                         {
+                            IsThereCheckOfEnemy = true;
                             KishEnemy = true;
 
                             Object A = new object();
@@ -11966,7 +11972,7 @@ namespace RefrigtzW
                         if (Order == AllDraw.OrderPlate)
                         {
                             //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(System.Math.Abs(TableS[RowD, ColD]))) && NoOfExistInReducedAttackList(RowD, ColD) > 0)
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(RowD, ColD) > 0)
                             {
                                 //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                                 //if (!Before)
@@ -11977,14 +11983,14 @@ namespace RefrigtzW
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                B = NoOfExistInAttackList(RowS, ColS) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
@@ -12058,13 +12064,13 @@ namespace RefrigtzW
                             {
                                 A = ColleralationGray < 30;
                                 B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
                                 B = NoOfExistInAttackList(RowS, ColS) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy||IsThereCheckOfSelf||IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
@@ -13683,14 +13689,23 @@ namespace RefrigtzW
                             return;
                         }
                     }
-                    if (Order == 1 && AAA.CheckGray)
+                    if (Order == -1 && AAA.CheckBrown)
                     {
+                        IsThereCheckOfSelf = true;
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
                     }
-                    if (Order == -1 && AAA.CheckBrown)
+                    if (Order == -1 && AAA.CheckGray)
                     {
+                        IsThereCheckOfEnemy = true;
+                        IgnoreObjectDangour = 0;
+                        IsCheck = true;
+                        DoEnemySelf = false;
+                    }
+                    if (Order == 1 && AAA.CheckBrown)
+                    {
+                        IsThereCheckOfSelf = true;
                         IgnoreObjectDangour = 0;
                         IsCheck = true;
                         DoEnemySelf = false;
