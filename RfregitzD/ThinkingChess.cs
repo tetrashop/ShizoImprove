@@ -12016,17 +12016,17 @@ namespace RefrigtzDLL
 
             return Is;
         }
-        public void CalculateHeuristics(bool Before,int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-       , ref int HeuristicAttackValue
-           , ref int HeuristicMovementValue
-           , ref int HeuristicSelfSupportedValue
-           , ref int HeuristicReducedMovementValue
-          , ref int HeuristicReducedSupport
-           , ref int HeuristicReducedAttackValue
-           , ref int HeuristicDistributionValue
-       , ref int HeuristicKingSafe
-       , ref int HeuristicFromCenter
-       , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+        public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
+     , ref int HeuristicAttackValue
+         , ref int HeuristicMovementValue
+         , ref int HeuristicSelfSupportedValue
+         , ref int HeuristicReducedMovementValue
+        , ref int HeuristicReducedSupport
+         , ref int HeuristicReducedAttackValue
+         , ref int HeuristicDistributionValue
+     , ref int HeuristicKingSafe
+     , ref int HeuristicFromCenter
+     , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -12151,7 +12151,17 @@ namespace RefrigtzDLL
                                     SetSupHuTrue();
                                 }
                             }
-
+                            //when thre is most reduced support finding
+                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+                            //There is Attack to it;
+                            if (IsNo != null)
+                            {
+                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                {
+                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                        ClearSupHuTrue();
+                                }
+                            }
                         }
                     }
                     else
@@ -12212,7 +12222,7 @@ namespace RefrigtzDLL
                                     {
                                         DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS);
 
-                                     }
+                                    }
                                     else
                                     {
                                         SetSupHuTrue();
@@ -12233,7 +12243,7 @@ namespace RefrigtzDLL
                                     IsS = true;
 
                                 }
-                      
+
                             }
                             //Every objects one move at game begin
                             int Total = 0;
@@ -12244,7 +12254,17 @@ namespace RefrigtzDLL
                                 SetSupHuTrue();
                                 IsS = true;
                             }
-                     
+                            //when thre is most reduced support finding
+                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+                            //There is Attack to it;
+                            if (IsNo != null)
+                            {
+                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                {
+                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                        ClearSupHuTrue();
+                                }
+                            }
                         }
                         if (!IsS)
                             ClearSupHuTrue();
@@ -12253,6 +12273,69 @@ namespace RefrigtzDLL
             }
 
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CalculateHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+        }
+        int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
+        {
+            int[] IsNo = FindMostHeuristicAllReducedSupportIsCurrent(Before, RowS, ColS);
+
+
+            for (int ii = 0; ii < 8; ii++)
+            {
+                for (int jj = 0; jj < 8; jj++)
+                {
+                    int[] Is = FindMostHeuristicAllReducedSupportIsCurrent(Before, ii, jj);
+                    if (Is[0] > IsNo[0])
+                    {
+                        return null;
+                    }
+                }
+            }
+
+            return IsNo;
+        }
+        int[] FindMostHeuristicAllReducedSupportIsCurrent(bool Before, int RowS, int ColS)
+        {
+
+            int[] IsNo = new int[2];
+            if (!Before)
+            {
+                for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                {
+
+                    if (HeuristicAllReducedSupport[i][2] == RowS && HeuristicAllReducedSupport[i][3] == ColS)
+                    {
+                        for (int ii = 0; ii < 8; ii++)
+                        {
+                            for (int jj = 0; jj < 8; jj++)
+                            {
+                                IsNo[0] += NoOfExistInReducedSupportList(Before, RowS, ColS, ii, jj);
+                            }
+                        }
+                        IsNo[1] = i;
+                    }
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < HeuristicAllReducedSupport.Count; i++)
+                {
+
+                    if (HeuristicAllReducedSupport[i][2] == RowS && HeuristicAllReducedSupport[i][3] == ColS)
+                    {
+                        for (int ii = 0; ii < 8; ii++)
+                        {
+                            for (int jj = 0; jj < 8; jj++)
+                            {
+                                IsNo[0] += NoOfExistInReducedSupportList(Before, RowS, ColS, ii, jj);
+                            }
+                        }
+                        IsNo[1] = i;
+                    }
+
+                }
+            }
+            return IsNo;
         }
         bool ObjectMovable(int Row, int Col, int[,] Tab, int Order, Color a)
         {
