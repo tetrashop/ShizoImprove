@@ -12635,7 +12635,7 @@ namespace QuantumRefrigiz
                                 //if (Before)
                                 SetSupHuTrue();
                             }
-                            //Ignore of atack and checkedmate at first until all move
+                              //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -12676,7 +12676,7 @@ namespace QuantumRefrigiz
                                 }
                             }
                             //Hourse before elephants
-                            if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == TableConst[2, 7] && TableConst[2, 7] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == TableConst[5, 7] && TableConst[5, 7] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
+                            if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == TableS[2, 7] && TableS[2, 7] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == TableS[5, 7] && TableS[5, 7] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
                             {
                                 Color a = Color.Gray;
                                 if (Order == -1)
@@ -12714,6 +12714,9 @@ namespace QuantumRefrigiz
                                 SetSupHuTrue();
                                 IsS = true;
                             }
+                            else
+                              if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
+                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                             //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
@@ -12759,12 +12762,12 @@ namespace QuantumRefrigiz
                                 }
                             }
                             //Hourse before elephants
-                            if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == TableConst[RowS, ColS] && TableConst[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == TableConst[RowS, ColS] && TableConst[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
+                            if (((RowS == 2 && ColS == 0 && TableInitiation[RowS, ColS] == TableS[RowS, ColS] && TableS[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[2, 0] == 0) || ((RowS == 5 && ColS == 0 && TableInitiation[RowS, ColS] == TableS[RowS, ColS] && TableConst[RowS, ColS] == -2) && TableInitiationPreventionOfMultipleMove[5, 0] == 0))
                             {
                                 Color a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0 && ObjectMovable(1, 0, TableS, Order, a)) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == 3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0 && ObjectMovable(6, 0, TableS, Order, a)))
+                                if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0 && ObjectMovable(1, 0, TableS, Order, a)) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == -3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0 && ObjectMovable(6, 0, TableS, Order, a)))
                                 {
 
                                     SetSupHuTrue();
