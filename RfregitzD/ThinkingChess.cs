@@ -12200,15 +12200,9 @@ namespace RefrigtzDLL
                                 SetSupHuTrue();
                                 IsS = true;
                             }
-                            //Every objects one move at game begin
-                            int Total = 0;
-                            int Is = 0;
-                            NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
-                            {
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
+                            else
+                              if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
+                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                             //Empire more
                             if (A)
                             {
@@ -12217,7 +12211,8 @@ namespace RefrigtzDLL
                                     if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportBrown)
                                     {
                                         DifOfNoOfSupporteAndReducedSupportBrown = NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS);
-                                    }
+
+                                     }
                                     else
                                     {
                                         SetSupHuTrue();
@@ -12238,7 +12233,18 @@ namespace RefrigtzDLL
                                     IsS = true;
 
                                 }
+                      
                             }
+                            //Every objects one move at game begin
+                            int Total = 0;
+                            int Is = 0;
+                            NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
+                            if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            {
+                                SetSupHuTrue();
+                                IsS = true;
+                            }
+                     
                         }
                         if (!IsS)
                             ClearSupHuTrue();
