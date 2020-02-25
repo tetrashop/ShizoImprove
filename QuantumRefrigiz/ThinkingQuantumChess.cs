@@ -9525,7 +9525,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -9570,7 +9570,7 @@ namespace QuantumRefrigiz
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -9754,7 +9754,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -9797,7 +9797,7 @@ namespace QuantumRefrigiz
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -10328,7 +10328,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -10373,7 +10373,7 @@ namespace QuantumRefrigiz
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -10529,7 +10529,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -10573,7 +10573,7 @@ namespace QuantumRefrigiz
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -10727,7 +10727,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -10770,7 +10770,7 @@ namespace QuantumRefrigiz
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -12012,7 +12012,7 @@ namespace QuantumRefrigiz
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -12056,7 +12056,7 @@ namespace QuantumRefrigiz
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -12213,7 +12213,7 @@ namespace QuantumRefrigiz
                 {
                     ThinkingQuantumRun = true;
                 }
-                var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
                 Object A = new object();
@@ -12529,7 +12529,30 @@ namespace QuantumRefrigiz
             }
         }
 
-        public void CalculateHeuristics(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
+        bool DisturbeOnHugeTraversalExchangePrevention(bool Before, int[,] TableS, int Order)
+        {
+            bool Is = false;
+            if (!Before)
+            {
+                for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                {
+                    if (Order == 1)
+                    {
+                        if ((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]])) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] < 0)
+                            return true;
+                    }
+                    else
+                    {
+                        if ((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]])) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] > 0)
+                            return true;
+                    }
+
+                }
+            }
+
+            return Is;
+        }
+        public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
        , ref int HeuristicAttackValue
            , ref int HeuristicMovementValue
            , ref int HeuristicSelfSupportedValue
@@ -12556,6 +12579,7 @@ namespace QuantumRefrigiz
                 int HExchangeInnovation = 0;
                 int HExchangeSupport = 0;
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
+
                 if (Before)
                 {
                     HeuristicAllAttackedMidel = HeuristicAllAttacked.Count;
@@ -12565,6 +12589,7 @@ namespace QuantumRefrigiz
                     HeuristicAllReducedSupportMidel = HeuristicAllReducedSupport.Count;
                     HeuristicAllSupportMidel = HeuristicAllSupport.Count;
                 }
+
                 Heuristic[0] = Hu[0];
                 Heuristic[1] = Hu[1];
                 Heuristic[2] = Hu[2];
@@ -12579,6 +12604,7 @@ namespace QuantumRefrigiz
                 HFromCenter = Hu[10];
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
+
 
                 bool IsS = false;
                 Object O1 = new Object();
@@ -12650,7 +12676,7 @@ namespace QuantumRefrigiz
                                 }
                             }
                             //Hourse before elephants
-                            if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == TableConst[2, 7]&& TableConst[2, 7]==2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == TableConst[5, 7]&& TableConst[5, 7]==2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
+                            if (((RowS == 2 && ColS == 7 && TableInitiation[RowS, ColS] == TableConst[2, 7] && TableConst[2, 7] == 2) && TableInitiationPreventionOfMultipleMove[2, 7] == 0) || ((RowS == 5 && ColS == 7 && TableInitiation[RowS, ColS] == TableConst[5, 7] && TableConst[5, 7] == 2) && TableInitiationPreventionOfMultipleMove[5, 7] == 0))
                             {
                                 Color a = Color.Gray;
                                 if (Order == -1)
@@ -12680,7 +12706,8 @@ namespace QuantumRefrigiz
 
                         if (Order == AllDraw.OrderPlate)
                         {   //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                            //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                            if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
                             {
                                 //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                                 //if (Before)
@@ -12883,7 +12910,7 @@ namespace QuantumRefrigiz
                     ThinkingQuantumRun = true;
                 }
 
-                var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
 
@@ -12948,7 +12975,7 @@ namespace QuantumRefrigiz
                 //Calculate Movment Heuristic After Movments.
                 //Caused this for Stachostic results.
 
-                newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
 

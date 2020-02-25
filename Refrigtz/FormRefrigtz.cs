@@ -7158,7 +7158,7 @@ namespace Refrigtz
                 int HeuristicKingSafe = new int();
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int();int HeuristicCheckedMate = new int();
-                th1.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicReducedMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour,ref HeuristicCheckedMate);
+                th1.CalculateHeuristics(true,Order, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicReducedMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour,ref HeuristicCheckedMate);
 
 
                 return HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue + HeuristicReducedMovementValue +
@@ -7184,7 +7184,7 @@ namespace Refrigtz
                 int HeuristicKingSafe = new int();
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int(); int HeuristicCheckedMate = new int();
-                th.CalculateHeuristics(true, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicReducedMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour,ref HeuristicCheckedMate);
+                th.CalculateHeuristics(true,Order, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicReducedMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour,ref HeuristicCheckedMate);
 
                 return HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue + HeuristicReducedMovementValue +
               HeuristicSelfSupportedValue +
