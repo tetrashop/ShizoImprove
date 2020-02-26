@@ -33,7 +33,7 @@ namespace RefrigtzDLL
         int HeuristicAllReducedMoveMidel = -1;
 
         public static int NoOfBoardMovedGray = 0;
-        public static int NoOfBoardMovedBrown = 0;
+        public static int NoOfBoardMoved = 0;
         public static int NoOfMovableAllObjectMove = 1;
         public int DifOfNoOfSupporteAndReducedSupportGray = int.MinValue;
         public int DifOfNoOfSupporteAndReducedSupportBrown = int.MinValue;
@@ -12090,7 +12090,7 @@ namespace RefrigtzDLL
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-                        if (Order == AllDraw.OrderPlate)
+                        //if (Order == AllDraw.OrderPlate)
                         {
                             //Disturbe on huge traversal exchange prevention 
                             if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
@@ -12122,7 +12122,8 @@ namespace RefrigtzDLL
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A //&& System.Math.Abs(TableS[RowS, ColS]) != 1
+                            )
                             {
                                 SetSupHuTrue();
                             }
@@ -12178,7 +12179,7 @@ namespace RefrigtzDLL
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
-                        if (Order == AllDraw.OrderPlate)
+                        //if (Order == AllDraw.OrderPlate)
                         {   //Disturbe on huge traversal exchange prevention 
                             //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
@@ -12249,7 +12250,8 @@ namespace RefrigtzDLL
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMovedBrown + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1)
+                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A //&& System.Math.Abs(TableS[RowS, ColS]) != 1
+                            )
                             {
                                 SetSupHuTrue();
                                 IsS = true;
