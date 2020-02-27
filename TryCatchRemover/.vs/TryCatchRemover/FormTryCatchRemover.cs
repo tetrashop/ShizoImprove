@@ -472,11 +472,236 @@ namespace TryCatchRemover
                 }
 
 
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("for") != -1 && Contain[i].IndexOf("(") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("if") != -1 && Contain[i].IndexOf("(") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("while") != -1 && (Contain[i].Length == 5 && Contain[i].IndexOf("}") != -1) && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("do") != -1 && (Contain[i].IndexOf("{") != -1 || Contain[i].Length == 2) && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("Parallel.") != -1 && Contain[i].IndexOf("=>") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("var") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("int") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("double") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("float") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("char") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("string") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("String") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("Int32") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("Int64") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("Double") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("///") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("new") != -1 && (Contain[i].IndexOf("(") != -1 || Contain[i].IndexOf(")") != -1) && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("///");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("for") != -1 && Contain[i].IndexOf("(") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("if") != -1 && Contain[i].IndexOf("(") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("while") != -1 && (Contain[i].Length == 5 && Contain[i].IndexOf("}") != -1) && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("do") != -1 && (Contain[i].IndexOf("{") != -1 || Contain[i].Length == 2) && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("Parallel.") != -1 && Contain[i].IndexOf("=>") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("var") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("int") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("double") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("float") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("char") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("string") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("String") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("Int32") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("Int64") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("Double") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
+                if (Contain[i].IndexOf("////") != -1 && Contain[i].IndexOf("=") != -1 && Contain[i].IndexOf("new") != -1 && (Contain[i].IndexOf("(") != -1 || Contain[i].IndexOf(")") != -1) && Contain[i].IndexOf("/r") != -1)
+                {
+                    int ii = Contain[i].IndexOf("////");
+                    int jj = Contain[i].Length;
+                    if (jj > ii)
+                        Contain[i] = Contain[i].Replace(Contain[i].Substring(ii, jj - ii), "");
+                }
                 i++;
             } while (i < Contain.Length);
             saveFileDialogTryCatchRemover.ShowDialog();
             System.IO.File.WriteAllLines(saveFileDialogTryCatchRemover.FileName, Contain);
             MessageBox.Show("Done!");
         }
+       
     }
 }
