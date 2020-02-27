@@ -15549,7 +15549,9 @@ namespace RefrigtzDLL
                     //soldier
                     for (int ikk = 0; ikk < SodierMidle; ikk++)
                     {
-                        if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
+                        if (SolderesOnTable == null )
+                            continue;
+                        if (SolderesOnTable[ikk] == null)
                             continue;
                         if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15560,7 +15562,9 @@ namespace RefrigtzDLL
                     //elephant
                     for (int ikk = 0; ikk < ElefantMidle; ikk++)
                     {
-                        if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
+                        if (ElephantOnTable == null)
+                            continue;
+                        if (ElephantOnTable[ikk] == null)
                             continue;
                         if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15571,7 +15575,9 @@ namespace RefrigtzDLL
                     //hourse
                     for (int ikk = 0; ikk < HourseMidle; ikk++)
                     {
-                        if (HoursesOnTable == null || HoursesOnTable[ikk] == null)
+                        if (HoursesOnTable == null)
+                            continue;
+                        if (HoursesOnTable[ikk] == null)
                             continue;
                         if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15582,7 +15588,9 @@ namespace RefrigtzDLL
                     //Castle
                     for (int ikk = 0; ikk < CastleMidle; ikk++)
                     {
-                        if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
+                        if (CastlesOnTable == null)
+                            continue;
+                        if (CastlesOnTable[ikk] == null)
                             continue;
                         if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15593,7 +15601,9 @@ namespace RefrigtzDLL
                     //minister
                     for (int ikk = 0; ikk < MinisterMidle; ikk++)
                     {
-                        if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
+                        if (MinisterOnTable == null)
+                            continue;
+                        if (MinisterOnTable[ikk] == null)
                             continue;
                         if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15604,7 +15614,9 @@ namespace RefrigtzDLL
                     //king
                     for (int ikk = 0; ikk < KingMidle; ikk++)
                     {
-                        if (KingOnTable == null || KingOnTable[ikk] == null)
+                        if (KingOnTable == null)
+                            continue;
+                        if (KingOnTable[ikk] == null)
                             continue;
                         if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15625,7 +15637,9 @@ namespace RefrigtzDLL
                     //soldier
                     for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
                     {
-                        if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
+                        if (SolderesOnTable == null)
+                            continue;
+                        if (SolderesOnTable[ikk] == null)
                             continue;
                         if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15636,7 +15650,9 @@ namespace RefrigtzDLL
                     //elephant
                     for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
                     {
-                        if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
+                        if (ElephantOnTable == null)
+                            continue;
+                        if (ElephantOnTable[ikk] == null)
                             continue;
                         if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15658,7 +15674,9 @@ namespace RefrigtzDLL
                     //Castle
                     for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
                     {
-                        if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
+                        if (CastlesOnTable == null)
+                            continue;
+                        if (CastlesOnTable[ikk] == null)
                             continue;
                         if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15669,7 +15687,9 @@ namespace RefrigtzDLL
                     //minister
                     for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
                     {
-                        if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
+                        if (MinisterOnTable == null)
+                            continue;
+                        if (MinisterOnTable[ikk] == null)
                             continue;
                         if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
@@ -15680,7 +15700,9 @@ namespace RefrigtzDLL
                     //king
                     for (int ikk = KingMidle; ikk < KingHigh; ikk++)
                     {
-                        if (KingOnTable == null || KingOnTable[ikk] == null)
+                        if (KingOnTable == null)
+                            continue;
+                        if (KingOnTable[ikk] == null)
                             continue;
                         if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                         {

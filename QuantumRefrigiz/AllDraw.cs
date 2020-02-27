@@ -15553,13 +15553,14 @@ namespace QuantumRefrigiz
         //boundry condition determistic method for break
         bool FullBoundryConditions(int Current, int Order, int iAStarGreedy)
         {
+            //long Time = TimeElapced.TimeNow();Spaces++;
+
+
             Object O = new Object();
             lock (O)
-            {//long Time = TimeElapced.TimeNow();Spaces++;
-
-
+            {
                 bool IS = false;
-                if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingQuantumCreation
+                if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingCreation
                 )
                 {
                     IS = true;
@@ -15570,73 +15571,85 @@ namespace QuantumRefrigiz
                     //soldier
                     for (int ikk = 0; ikk < SodierMidle; ikk++)
                     {
-                        if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
+                        if (SolderesOnTable == null)
+                            continue;
+                        if (SolderesOnTable[ikk] == null)
                             continue;
                         if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //elephant
                     for (int ikk = 0; ikk < ElefantMidle; ikk++)
                     {
-                        if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
+                        if (ElephantOnTable == null)
+                            continue;
+                        if (ElephantOnTable[ikk] == null)
                             continue;
                         if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //hourse
                     for (int ikk = 0; ikk < HourseMidle; ikk++)
                     {
-                        if (HoursesOnTable == null || HoursesOnTable[ikk] == null)
+                        if (HoursesOnTable == null)
+                            continue;
+                        if (HoursesOnTable[ikk] == null)
                             continue;
                         if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //Castle
                     for (int ikk = 0; ikk < CastleMidle; ikk++)
                     {
-                        if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
+                        if (CastlesOnTable == null)
+                            continue;
+                        if (CastlesOnTable[ikk] == null)
                             continue;
                         if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //minister
                     for (int ikk = 0; ikk < MinisterMidle; ikk++)
                     {
-                        if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
+                        if (MinisterOnTable == null)
+                            continue;
+                        if (MinisterOnTable[ikk] == null)
                             continue;
                         if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //king
                     for (int ikk = 0; ikk < KingMidle; ikk++)
                     {
-                        if (KingOnTable == null || KingOnTable[ikk] == null)
+                        if (KingOnTable == null)
+                            continue;
+                        if (KingOnTable[ikk] == null)
                             continue;
                         if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //when vicrory count satisfied
                     if ((ThinkingQuantumChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
                     {
-                        //OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString());
+                        //OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
                         IS = true;
                     }
 
@@ -15646,22 +15659,26 @@ namespace QuantumRefrigiz
                     //soldier
                     for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
                     {
-                        if (SolderesOnTable == null || SolderesOnTable[ikk] == null)
+                        if (SolderesOnTable == null)
+                            continue;
+                        if (SolderesOnTable[ikk] == null)
                             continue;
                         if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //elephant
                     for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
                     {
-                        if (ElephantOnTable == null || ElephantOnTable[ikk] == null)
+                        if (ElephantOnTable == null)
+                            continue;
+                        if (ElephantOnTable[ikk] == null)
                             continue;
                         if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
@@ -15672,47 +15689,53 @@ namespace QuantumRefrigiz
                             continue;
                         if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //Castle
                     for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
                     {
-                        if (CastlesOnTable == null || CastlesOnTable[ikk] == null)
+                        if (CastlesOnTable == null)
+                            continue;
+                        if (CastlesOnTable[ikk] == null)
                             continue;
                         if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //minister
                     for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
                     {
-                        if (MinisterOnTable == null || MinisterOnTable[ikk] == null)
+                        if (MinisterOnTable == null)
+                            continue;
+                        if (MinisterOnTable[ikk] == null)
                             continue;
                         if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //king
                     for (int ikk = KingMidle; ikk < KingHigh; ikk++)
                     {
-                        if (KingOnTable == null || KingOnTable[ikk] == null)
+                        if (KingOnTable == null)
+                            continue;
+                        if (KingOnTable[ikk] == null)
                             continue;
                         if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
                         {
-                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstSelfMating.ToString());
+                            //OutPut.Append("\r\nCheckedMate SELF Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstSelfMating.ToString());
                             IS = true;
                         }
                     }
                     //when victory count satisfied
                     if ((ThinkingQuantumChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
                     {
-                        //OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingQuantumChess.FoundFirstMating.ToString());
+                        //OutPut.Append("\r\nCheckedMate Boundry Conditon in Leafs found at  " + ThinkingChess.FoundFirstMating.ToString());
                         IS = true;
                     }
 
@@ -15725,7 +15748,6 @@ namespace QuantumRefrigiz
                 return IS;
             }
         }
-        //AStarGreedy First Initiat ThinkingQuantum Main Method.
         void AStarGreedyThinkingQuantum(int Order, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int i, int j, int ii, int jj, int[,] Table, Color a, bool TB, bool FOUND, int LeafAStarGreedy)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
