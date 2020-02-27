@@ -1,73 +1,4 @@
-/****************************************************************************
- * ThinkingQuantum Operation class.*************************************************
- * Ramin Edjlal**************************************************************
- * Drived classess of Autamata Cellular  ThinkingQuantum Kernel**************
- * 1394/12/19****************************************************************
- * CrAShed with Stack Overflow Exception***************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Drives Caused Memory lack***************************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * New Version CASed Stack Overflow********************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Scanning Four Dimension Homes of Thing Existences Taking A lot Of Time******RS**0.12**4**Managements and Cuation Programing**********************(+)
- * All Data in This Scope From AllDraw Become Clear When Scope Changes*********RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Work but the Movements And Attack Method Doesn’t work*************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Probability Heuristic constant Table return*********************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Working Not Constant Immunity*************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Constant Result Mechanism*****************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Things Order and Virtualization Error***************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Misleading Things Order movement********************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Multi Movements (3 ) In Chess ThinkingQuantum**************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Location of Horse 'Bob' (Gray) After Killer Un logically UnSelfSupported***RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Check ThinkingQuantum 'Alice' Malfunction*******************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * 'CheckMate' By 'Bob' Have Not Been Recognized.***********************************RS**0.12**4**Managements and Cuation Programing*****************(+)
- * 'Check' By 'Bob' Not Recognized.*********************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * 'Check' 'Alice' Detected. No ActionsString WAS Done.********************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * 'Check' Mechanism Failure.***************************************************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * Strategy By 'Alice' Changed. 'Check' Not Recognized By 'Alice'.**************RS**0.12**4**Managements and Cuation Programing*********************(+)
- * Heuristic Loop**************************************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * 'Check' Mechanism For Penalty Regard Is Malfunction**************************RC**0.88**1**Risk Control*******************************************(*).
- * Things Location Failure. Row and Column of this Objects class Malfunction***RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Malfunction Of Operating Lists in this class.*******************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Some Movements of All Possible Movements is not Identified******************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Malfunction Clone Data To be Copied. List Will be erASed********************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * King Cannot Hit UnSelfSupported Enemy Things at Check.***********************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * ThinkingQuantum Time Taking al lot of time.****************************************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * There is No ReASon For Mal Function of ThinkingQuantum.****************************RS**0.12**4**Managements and Cuation Programing**********************[+]
- * Heuristic SelfSupported at horse Heuristic cal at table content malfunction.**RS**0.12**4**Managements and Cuation Programing**********************[+]
- * No ReASon for malfunctioning of table content at Heuristic SelfSupported.****RS**0.12**4**Managements and Cuation Programing**********************[+]
- * ThinkingQuantum Finished Misleading.bool Variable of Think Finished Not Work on.***RS**0.12**4**Managements and Cuation Programing**********************(+) 
- * A non Identified King Table List Alice is in List and Unhabitly ignored.****RS**0.12**4**Managements and Cuation Programing**********************(+)
- * The Location of Penalty Regard Mechansim is Misleading.*********************RS**0.12**4**Managements and Cuation Programing**********************(+)
- * Penalty Reagrd List is Empty.No Misleading List of Penalty Regard Mec.******RS**0.12**4**Managements and Cuation Programing**********************(+)
- * No Ilegal Non ObjectDanger and Check By 'Alice' at Current Game in PR Mech.********RS**0.12**4**Managements and Cuation Programing***************(+)
- * Mechansianm For Like Napeloonires KLish CheckMate is Incompletable.**************RC**0.88**1**Risk Control***************************************(*).
- * Ileegal Table Content Ignoring of Objects Kind.*****************************RC**0.88**1**Risk Control********************************************(*).
- * Tree Construction of AStarGready is Uncompleted.Some Nodes Become Empty.****RS**0.12**4**Managements and Cuation Programing**********************<+>
- * All Penalty Leads to 16 Objects Unmovable or Make Penalty But in Reality Non Penalty Exist.******************************************************(+)
- * All Self and Enemy CheckMate Mechanisam is Logical else Mislaeading.*************RC**0.88**1**Risk Control***************************************(*).QC-Ok.
- * Proccess of ThinkingQuantum Stop Misleading With Error.*********************************RC**0.88**1**Risk Control***************************************{*}.QC-Ok.
- * All List of this class make differncy at several runable state of one table board state.RC**0.88**1**Risk Control********************************{*}..
- * ThinkingQuantum Act Misleading.***************************************************************.RC**0.88**1**Risk Control********************************{*}.
- * The Achmaz Removing and maybe SelfNotSupported in Attacker conflict and thus Ignore.RC**0.88**1**Risk Control************************************(*).
- * The Self Supporter in Attacker somthime goes to misleading act.********************.RC**0.88**1**Risk Control************************************(*)QC-Ok.
- * Enemy Attacker Not Supported act Misleading.***************************************.RC**0.88**1**Risk Control************************************(*)QC_OK.
- * Heuristic proccesing dosne't haave any aim.****************************************.RC**0.88**1**Risk Control************************************(*).
- * Rating of Alice AS Computer Game is very weak AS compatitor of users.**************.RC**0.88**1**Risk Control************************************<*>QC_BAD.
- * ThinkingQuantum gone to take some part of stones.*****************************************.RC**0.88**1**Risk Control************************************<*>QC_BAD.
- * ThinkingQuantum failed becuASe of all possible movment penalties of first level**.********.RC**0.88**1**Risk Control************************************<*>QC_OK.
- * Object Dangour and Check is aditive of HeuristicCheckedand checked mated.**********.RC**0.88**1**Risk Control************************************<*>QC_OK.
- * Heuristics take some part of stone.************************************************.RC**0.88**1**Risk Control************************************<*>QC_OK.
- * Branch Dept at ThinkingQuantum Tree is low becuse of harware constraints and speed.*******.RC**0.88**1**Risk Control************************************<*>QC_BAD.
- * ThinkingQuantum falied becuASe of All Possible of Penalties movments.*********************.RC**0.88**1**Risk Control************************************<*>QC_OK.
- * Tow Confliction Misleading in Self Attacked and King Dangoure Separatedly.*********.RC**0.88**1**Risk Control************************************<*>QC_OK.
- * Conflict in Restoring UsePenaltyRegardMechanisam value during User false.**********.RC**0.88**1**Risk Control************************************<*>QC_OK.
- * Self Objects Movments Comes to Dangrous Location.**********************************.RC**0.88**1**Risk Control************************************(*).QC_OK
- * ThinkingQuantum Tree Construction wAS not Complition and have empty with no reASon.********RC**0.88**1**Risk Control************************************{*}QC_OK
- * Heuristic of 'Attack';'Movment';'Support';'CheckMate...' Undisiarable.**************RC**0.88**1**Risk Control************************************<*>QC _BAD
- * Heuristic and Learning regime work in worth state.***********************************RC**0.88**1**Risk Control************************************(*)QC_BAD
- * Mal Function in Boundray Conditions founding in Leaf Creation Tree.*****************RC**0.88**1**Risk Control************************************(*)QC_BAD
- * Index wAS out of range in same grope of ThinkingQuantum objects by hitting.****************RC**0.88**1**Risk Control************************************(*)QC_BAD
- * **************************************************************************(+:Sum(26)) (*:Sum(1)) 5:(+:Sum(3)) 6.(+:Sum0.12**4**Managements and Cuation Programing**********************(+)) 7.(:Sum(1))
- * **************************************************************************
- */
+
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -133,8 +64,8 @@ namespace QuantumRefrigiz
         int RationalRegard = 10;
         int RationalPenalty = -10;
 
-        //int RationalWin = 1000000;
-        //int RationalLosey = -1000000;
+        
+        
 
 
         public static bool FullGameAllow = false;
@@ -171,7 +102,7 @@ namespace QuantumRefrigiz
 #pragma warning restore CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
         bool ThinkingQuantumAtRun = false;
         public static String ActionsString = "";
-        // String OutPutAction = "";
+        
         int ThinkingQuantumLevel = 0;
         public List<bool[]> LearningVarsObject = new List<bool[]>();
         public static bool LearningVarsCheckedMateOccured;
@@ -191,19 +122,7 @@ namespace QuantumRefrigiz
         public int NumberOfPenalties = 0;
         static int NumbersOfCurrentBranchesPenalties = 0;
         public static int NumbersOfAllNode = 0;
-        /*public int SodierMidle = 8;
-        public int SodierHigh = 16;
-        public int ElefantMidle = 2;
-        public int ElefantHigh = 4;
-        public int HourseMidle = 2;
-        public int HourseHight = 4;
-        public int CastleMidle = 2;
-        public int CastleHigh = 4;
-        public int MinisterMidle = 1;
-        public int MinisterHigh = 2;
-        public int KingMidle = 1;
-        public int KingHigh = 2;
-        */
+        
         public int SodierMidle = 0;
         public int SodierHigh = 0;
         public int ElefantMidle = 0;
@@ -249,8 +168,8 @@ namespace QuantumRefrigiz
         public int IndexCastle = 0;
         public int IndexMinister = 0;
         public int IndexKing = 0;
-        //static public int Index = 0;
-        //static public int[,] RowColumn;
+        
+        
         public List<int[]> RowColumnSoldier = null;
         public List<int[]> RowColumnElefant = null;
         public List<int[]> RowColumnHourse = null;
@@ -301,10 +220,10 @@ namespace QuantumRefrigiz
         public Color color;
         public int Order;
         //[NonSerialized()]
-        //public Task t = null;
+        
         public List<AllDraw> AStarGreedy = new List<AllDraw>();
         int[,] Value = new int[8, 8];
-        //bool IgnoreFromCheckandMateHeuristic = false;
+        
         int CurrentAStarGredyMax = -1;
         List<int[,]> ObjectNumbers = new List<int[,]>();
 
@@ -317,7 +236,7 @@ namespace QuantumRefrigiz
             {
                 string stackTrace = ex.ToString();
                 //Write to File.
-                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); /// path of file where stack trace will be stored.
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
 
             }
 
@@ -325,7 +244,7 @@ namespace QuantumRefrigiz
         //create a tow dimension list of all object boundry
         void SetObjectNumbersInList(int[,] Tab)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             SetObjectNumbers(Tab);
 
             int[,] A = new int[2, 6];
@@ -352,12 +271,12 @@ namespace QuantumRefrigiz
             A[0, 5] = KingMidle;
             A[1, 5] = KingHigh;
             ObjectNumbers.Add(A);
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SetObjectNumbersInList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //distiguis object boundries 
         public void SetObjectNumbers(int[,] TabS)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object a = new Object();
             lock (a)
             {
@@ -435,7 +354,7 @@ namespace QuantumRefrigiz
                         }
                     }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SetObjectNumbers:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         [field: NonSerialized]
         private readonly CancellationTokenSource feedCancellationTokenSource =
@@ -447,25 +366,25 @@ namespace QuantumRefrigiz
         public void Dispose()
         {
             Dispose(true);
-            //GC.SuppressFinalize(this);
+            
         }
 
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
             {
-                //feedCancellationTokenSource.Cancel();
-                //feedTask.Wait();
+                
+                
 
-                //feedCancellationTokenSource.Dispose();
-                //feedTask.Dispose();
+                
+                
             }
         }
         //Constructor
         public ThinkingQuantumChess(int iInde, int KindO, int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            //Kind = Kin;
+            
+            
             Object O = new Object();
             lock (O)
             {
@@ -482,7 +401,7 @@ namespace QuantumRefrigiz
                 OnlySelfT = OnlySel;
                 AStarGreedyHeuristicT = AStarGreedyHuris;
                 ArrangmentsChanged = Arrangments;
-                //SetObjectNumbers(TableConst);
+                
                 Row = i;
                 Column = j;
                 //Clear Dearty Part.
@@ -542,51 +461,18 @@ namespace QuantumRefrigiz
                 AStarGreedy = new List<AllDraw>();
 
                 //Network  QuantumAtamata Book Initiate For Every Clone.
-                //ObjectValueCalculator(TableConst);
+                
 
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumChess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
 
-        /*int SetObjectValue(int[,] Tab, int Row, int Column)
-        {
-            Object o = new Object();
-            lock (o)
-            {
-                for (int h = 0; h < 8; h++)
-                for (int m = 0; m < 8; m++)
-                {
-                    //if (h != Row || m != Column)
-                    //return;
-                    Value[Row, Column] = 0;
-                    {
-                        if (Tab == null)
-                            return 0;
-                        else
-                            Value[Row, Column] += ObjectValueCalculator(Tab, Row, Column);
-                    }
-                }
-            }
-            return Value[Row, Column];
-        }
-        int SetObjectValue(int[,] Tab//, int Row, int Column
-            )
-        {
-                        Value[h, m] = 0;
-                        {
-                            if (Tab == null)
-                                return 0;
-                            else
-                                Value[h, m] += ObjectValueCalculator(Tab, h, m);
-                        }
-                    }
-            return Value[Row, Column];
-        }*/
+        
 
         //determine When Arrangment of Table Objects is Validated at Begin.
         bool BeginArragmentsOfOrderFinished(int[,] Table, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -630,7 +516,7 @@ namespace QuantumRefrigiz
                                     CH++;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("BeginArragmentsOfOrderFinished:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 if (CH <= 8)
                     return true;
                 return false;
@@ -640,7 +526,7 @@ namespace QuantumRefrigiz
         //Constructor
         public ThinkingQuantumChess(int iInde, int KindO, int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, int i, int j, Color a, int[,] Tab, int Ma, int Ord, bool ThinkingQuantumBeg, int CurA, int ThingN, int Kin)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -659,7 +545,7 @@ namespace QuantumRefrigiz
                 ArrangmentsChanged = Arrangments;
                 Kind = Kin;
                 SetObjectNumbers(Tab);
-                //THIS = TH);
+                
                 AStarGreedy = new List<AllDraw>();
                 ThingsNumber = ThingN;
                 CurrentArray = CurA;
@@ -724,7 +610,7 @@ namespace QuantumRefrigiz
                 color = a;
                 Max = Ma;
                 TableT = Tab;
-                //Index = 0;
+                
                 IndexSoldier = 0;
                 IndexElefant = 0;
                 IndexHourse = 0;
@@ -735,32 +621,17 @@ namespace QuantumRefrigiz
                 Order = Ord;
 
                 ThinkingQuantumBegin = ThinkingQuantumBeg;
-                //AStarGreedy = new List<AllDraw>();
-                /*Object o = new Object();
-                lock (o)
-                {
-                    for (int h = 0; h < 8; h++)
-                        for (int m = 0; m < 8; m++)
-                        {
-                            if (TableConst != null)
-                            {
-                                if (TableConst[h, m] == 0)
-                                    continue;
-                                Value[h, m] = ObjectValueCalculator(TableConst, Order, h, m);
-                            }
-
-                        }
-                }
-                */
-                //ObjectValueCalculator(TableConst, Row, Column);
-                //SetObjectNumbers(TableConst);
+                
+                
+                
+                
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumChess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //Clone A Table
         int[,] CloneATable(int[,] Tab)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -771,7 +642,7 @@ namespace QuantumRefrigiz
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Table;
             }
 
@@ -779,7 +650,7 @@ namespace QuantumRefrigiz
         //Clone A List.  
         int[] CloneAList(int[] Tab, int Count)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -789,41 +660,28 @@ namespace QuantumRefrigiz
                 for (var i = 0; i < Count; i++)
                     Table[i] = Tab[i];
                 //Retrun new Object.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneAList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Table;
             }
         }
         //Clone a copy of an array.
-        /*int[] CloneAList(int[] Tab, int Count)
-        {
-            Object O = new Object();
-            lock (O)
-            {
-                //Initiate New Object.
-                int[] Table = new int[Count];
-                //ASsigne to new Object.,
-                for (var i = 0; i < Count; i++)
-                    Table[i] = Tab[i];
-                //Return New Object.
-                return Table;
-            }
-        }*/
+        
         //Gwt Value of Book Netwrok  Atamtat at Every Need time form parameters index.
         int GetValue(int i, int j)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("GetValue:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Value[i, j];
-                //return 1;
+                
             }
         }
         ///Clone a Copy.
         public void Clone(ref ThinkingQuantumChess AA)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -873,7 +731,7 @@ namespace QuantumRefrigiz
                     //Add a Clone To Minister New index List.
                     AA.RowColumnMinister.Add(CloneAList(RowColumnMinister[j], 2));
                 //ASsgine thread.
-                //AA.t = t;
+                
                 //Create and Initiate new Table Object.
                 AA.TableT = new int[8, 8];
                 //Create and Initaite New Table Object.
@@ -950,7 +808,7 @@ namespace QuantumRefrigiz
                     for (var i = 0; i < PenaltyRegardListSolder.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
-                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        
                         //Add New Object Create to New Penalty Solder List.
                         AA.PenaltyRegardListSolder.Add(PenaltyRegardListSolder[i]);
                     }
@@ -964,11 +822,11 @@ namespace QuantumRefrigiz
                     for (var i = 0; i < PenaltyRegardListElefant.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
-                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        
                         //Clone a Copy Of Penalty Elephant.
                         AA.PenaltyRegardListElefant.Add(PenaltyRegardListElefant[i]);
                         //Add New Object Create to New Penalty Elephant List.
-                        //AA.PenaltyRegardListElefant.Add(Current);
+                        
                     }
 
                 }
@@ -984,7 +842,7 @@ namespace QuantumRefrigiz
                         //Initiate a new  QuantumAtamata Object
                         QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                         //Clone a Copy Of Penalty Hourse.
-                        //PenaltyRegardListHourse[i].Clone(ref Current);
+                        
                         //Add New Object Create to New Penalty Hourse List.
                         AA.PenaltyRegardListHourse.Add(PenaltyRegardListHourse[i]);
                     }
@@ -1000,9 +858,9 @@ namespace QuantumRefrigiz
                     for (var i = 0; i < PenaltyRegardListCastle.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
-                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        
                         //Clone a Copy Of Penalty Castles.
-                        //PenaltyRegardListCastle[i].Clone(ref Current);
+                        
                         //Add New Object Create to New Penalty Castles List.
                         AA.PenaltyRegardListCastle.Add(PenaltyRegardListCastle[i]);
                     }
@@ -1017,9 +875,9 @@ namespace QuantumRefrigiz
                     for (var i = 0; i < PenaltyRegardListMinister.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
-                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        
                         //Clone a Copy Of Penalty Minsiter.
-                        //PenaltyRegardListMinister[i].Clone(ref Current);
+                        
                         //Add New Object Create to New Penalty Minsietr List.
                         AA.PenaltyRegardListMinister.Add(PenaltyRegardListMinister[i]);
                     }
@@ -1034,9 +892,9 @@ namespace QuantumRefrigiz
                     for (var i = 0; i < PenaltyRegardListKing.Count; i++)
                     {
                         //Initiate a new  QuantumAtamata Object
-                        //QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
+                        
                         //Clone a Copy Of Penalty King.
-                        //PenaltyRegardListKing[i].Clone(ref Current);
+                        
                         //Add New Object Create to New Penalty King List.
                         AA.PenaltyRegardListKing.Add(PenaltyRegardListKing[i]);
                     }
@@ -1073,7 +931,7 @@ namespace QuantumRefrigiz
                 AA.ThinkingQuantumBegin = ThinkingQuantumBegin;
                 AA.ThinkingQuantumFinished = ThinkingQuantumFinished;
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         bool IsDistributedObjectAttackNonDistributedEnemyObject(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD)
         {
@@ -1090,7 +948,7 @@ namespace QuantumRefrigiz
         ///Heuristic of Attacker.
         int HeuristicAttack(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -1191,8 +1049,8 @@ namespace QuantumRefrigiz
 
                                         }
 
-                                    }//);
-                                }//);
+                                    }
+                                }
                                 if (SupportedS > 0 && Supported == 0)
                                     HA *= (int)System.Math.Pow(2, SupportedS);
                                 else
@@ -1233,7 +1091,7 @@ namespace QuantumRefrigiz
                     }
                     else
                         return HeuristicAttackValue;
-                    //int Supported = 0;
+                    
 
                     //For Attack Movments.
                     Object O2 = new Object();
@@ -1301,8 +1159,8 @@ namespace QuantumRefrigiz
 
                                         }
 
-                                    }//);
-                                }//);
+                                    }
+                                }
                                 if (SupportedS > 0 && Supported == 0)
                                     HA *= (int)System.Math.Pow(2, SupportedS);
                                 else
@@ -1317,7 +1175,7 @@ namespace QuantumRefrigiz
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
                 //Initiate to Begin Call Orders.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return 1 * HA;
             }
         }
@@ -1375,7 +1233,7 @@ namespace QuantumRefrigiz
         int HeuristicReducsedAttack(bool Before, int[,] Table, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
                   )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -1391,11 +1249,11 @@ namespace QuantumRefrigiz
                 bool MinisterOnAttack = false;
                 if (!AStarGreedyHeuristicT)
                 {
-                    //var RowS = RowSS, ColS = ColSS;
+                    
                     //For All Self
-                    //for (int RowD = 0; RowD < 8; RowD++)
+                    
                     {
-                        //for (int ColD = 0; ColD < 8; ColD++)
+                        
                         {
 
                             //For Current Object Lcation.
@@ -1414,11 +1272,11 @@ namespace QuantumRefrigiz
                             ///What is Supporte!
                             ///Ans:When [RowS,ColS] is Supporte [RowD,ColD] return true when Self is located in [RowD,ColD].
                             //if (Order == 1 && Table[RowD, ColD] >= 0)
-                            //continue;
+                            
                             //if (Order == -1 && Table[RowD, ColD] <= 0)
-                            //continue;
+                            
                             //if (!Scop(RowD, ColD, RowS, ColS, System.Math.Abs(Table[RowD, ColD])))
-                            //continue;
+                            
                             ///When Attack is true. means [RowD,ColD] is in Attacked  [RowS,ColS].
                             ///What is Attack!
                             ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] continue true when enemy is located in [RowD,ColD].
@@ -1497,8 +1355,8 @@ namespace QuantumRefrigiz
 
                                                 }
 
-                                            }//);
-                                        }//);
+                                            }
+                                        }
                                         if (SupportedS > 0 && Supported == 0)
                                             HA *= (int)System.Math.Pow(2, SupportedS);
                                         else
@@ -1521,13 +1379,13 @@ namespace QuantumRefrigiz
                 //For All Table Homes find Attack Heuristic.
                 else
                 {
-                    //for (var RowS = 0; RowS < 8; RowS++)
+                    
                     {
-                        //for (var ColS = 0; ColS < 8; ColS++)
+                        
                         {
-                            //for (int RowD = 0; RowD < 8; RowD++)
+                            
                             {
-                                //for (int ColD = 0; ColD < 8; ColD++)
+                                
                                 {
                                     int Order = new int();
                                     Color a = new Color();
@@ -1535,11 +1393,11 @@ namespace QuantumRefrigiz
                                     {
                                         //Ignore Current Home.
                                         //if (Order == 1 && Table[RowD, ColD] >= 0)
-                                        //continue;
+                                        
                                         //if (Order == -1 && Table[RowD, ColD] <= 0)
-                                        //continue;
+                                        
                                         //if (!Scop(RowD, ColD, RowS, ColS, System.Math.Abs(Table[RowD, ColD])))
-                                        //  continue;
+                                        
                                         ///When Attack is true. means [RowD,ColD] is in Attacked  [RowS,ColS].
                                         ///What is Attack!
                                         ///Ans:When [RowD,ColD] is Attacked [RowS,ColS] continue true when enemy is located in [RowD,ColD].
@@ -1617,8 +1475,8 @@ namespace QuantumRefrigiz
 
                                                             }
 
-                                                        }//);
-                                                    }//);
+                                                        }
+                                                    }
                                                     if (SupportedS > 0 && Supported == 0)
                                                         HA *= (int)System.Math.Pow(2, SupportedS);
                                                     else
@@ -1655,25 +1513,25 @@ namespace QuantumRefrigiz
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
                 //Add Local Heuristic to Global One.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicReducsedAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return HA;
             }
         }
         ///Value of Object method.
         int GetObjectValue(int[,] Tabl, int ii, int jj, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("GetObjectValue:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return System.Math.Abs(Tabl[ii, jj]);
             }
         }
         ///Heuristic of ObjectDanger.
         int HeuristicObjectDangour(int[,] Table, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -1774,13 +1632,13 @@ namespace QuantumRefrigiz
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Assignments of Global Heuristic with Local One.
                 //return Local Heuristic.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicObjectDangour:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return HA * 1;
             }
         }
         int HeuristicKiller(int Killed, int[,] Tabl, int RowS, int ColS, int RowD, int ColD, int Ord, Color aa, bool Hit)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -1843,14 +1701,14 @@ namespace QuantumRefrigiz
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicKiller:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return 1 * HA;
             }
         }
         //Attacks Of Enemy that is not Supported.QC_OK
         bool InAttackEnemyThatIsNotSupported(int Kilded, int[,] Table, int Order, Color a, int i, int j, int ii, int jj)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
 
             Object O = new Object();
             lock (O)
@@ -1858,7 +1716,7 @@ namespace QuantumRefrigiz
                 //Initiate Global Variables.                
                 int Ord = Order;
                 bool S = true;
-                //var i = iij, j = jji;
+                
                 bool EnemyNotSupported = true;
                 if (Kilded != 0)
                 {
@@ -1889,8 +1747,8 @@ namespace QuantumRefrigiz
                                     {
                                         Tab[ik, jk] = Table[ik, jk];
                                     }
-                                }//);
-                            }//);
+                                }
+                            }
                             Object O2 = new Object();
                             lock (O2)
                             {
@@ -1923,16 +1781,16 @@ namespace QuantumRefrigiz
                                     continue;
                                 }
                             }
-                        }//);
+                        }
                         if (!EnemyNotSupported)
                             continue;
-                    }//);
+                    }
 
                     if (EnemyNotSupported)
                         S = false;
 
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InAttackEnemyThatIsNotSupported:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 //When S is not valid there is one node in [EnemyNotSupported]
                 if (!S)
                 {
@@ -1947,7 +1805,7 @@ namespace QuantumRefrigiz
         //When at leASt one Attacked Self Object return true.
         bool InAttackEnemyThatIsNotSupportedAll(bool EnemyIsValuable, int[,] Table, int Order, Color a, int ij, int ji, int iij, int jji, ref List<int[]> ValuableEnemyNotSupported)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -1963,7 +1821,7 @@ namespace QuantumRefrigiz
                     bool S = true;
                     bool EnemyNotSupported = true;
                     bool InAttackedNotEnemySupported = false;
-                    //var i = iij, j = jji;
+                    
                     //For Current
                     for (var i = 0; i < 8; i++)
                     {
@@ -2053,7 +1911,7 @@ namespace QuantumRefrigiz
                         }
                     }
                     //When there is at leat tow enmy of attackment.
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InAttackEnemyThatIsNotSupportedAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     if (!S)
                     {
                         Order = Ord;
@@ -2068,7 +1926,7 @@ namespace QuantumRefrigiz
         //When  there is more than tow self object not supported on atacked by movement return true.
         int IsNotSafeToMoveAenemeyToAttackMoreThanTowObject(int AttackCount, int[,] Table, int Order, int i, int j, int ii, int jj)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
 
             //For All Enemie
             Object O1 = new Object();
@@ -2078,24 +1936,24 @@ namespace QuantumRefrigiz
                 //Ignore of Self
                 if (Order == 1 && Table[i, j] >= 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return 0;
                 }
                 if (Order == -1 && Table[i, j] <= 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return 0;
                 }
                 //For All Self and Empty.
                 //Ignore of Enemy.
                 if (Order == 1 && Table[ii, jj] < 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return 0;
                 }
                 if (Order == -1 && Table[ii, jj] > 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return 0;
                 }
                 ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order * -1, i, j);
@@ -2125,7 +1983,7 @@ namespace QuantumRefrigiz
                         ////Parallel.For(0, 8, RowS =>
                         {
                             //if (AttackCount > 1)
-                            //continue;
+                            
                             for (var ColS = 0; ColS < 8; ColS++)
                             ////Parallel.For(0, 8, ColS =>
                             {
@@ -2171,8 +2029,8 @@ namespace QuantumRefrigiz
                                                 Supporte = true;
                                                 continue;
                                             }
-                                        }//);
-                                    }//);
+                                        }
+                                    }
                                     if (!Supporte)
                                         AttackCount++;
                                 }
@@ -2180,18 +2038,18 @@ namespace QuantumRefrigiz
                                     continue;
                                 if (AttackCount > 1)
                                     continue;
-                            }//);
+                            }
                             if (AttackCount > 1)
                                 continue;
-                        }//);
+                        }
                     }
                     else
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return 0;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNotSafeToMoveAenemeyToAttackMoreThanTowObject:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
 
                 return AttackCount;
             }
@@ -2199,7 +2057,7 @@ namespace QuantumRefrigiz
         //Supported of Self that is Not Attacks.QC_BAD
         bool InAttackSelfThatNotSupported(int[,] TableS, int Order, Color a, int ij, int ji, int ii, int jj)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -2280,7 +2138,7 @@ namespace QuantumRefrigiz
                                     //When a source enemy object attack a destination source object 
                                     //a source object is greater than another source object. Is = -1 Is another object valuable.
                                     //a source object is less than or equal  than another source object.Is = 1 Is not another object valuable.
-                                    //IsObjDangerest = IsAnotherObjectMakeDangoure(TableS, Order, color, i, j, RowS, ColS);
+                                    
                                 }
                             }
                             if ((!SelfSupported && InAttackedNotSelfSupported) //|| IsObjDangerest
@@ -2309,10 +2167,10 @@ namespace QuantumRefrigiz
                     {
                         S = false;
                     }
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InAttackSelfThatNotSupported:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
 
                     Order = Ord;
-                    //When S is valid the any is not in [SelfNotSupported];Self is Supporeted.
+                    
                     if (S)
                         return false;
 
@@ -2323,7 +2181,7 @@ namespace QuantumRefrigiz
         //When there is at leASt on self object that is not safty.
         bool InAttackSelfThatNotSupportedAll(int[,] TableS, int Order, Color a, int i, int j, int RowS, int ColS, int ikk, int jkk, int iik, int jjk)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -2430,8 +2288,8 @@ namespace QuantumRefrigiz
                     }
                 }
                 Order = Ord;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InAttackSelfThatNotSupportedAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                //When S is valid the any is not in [SelfNotSupported];Self is Supporeted.
+                
+                
                 if (S)
                     return false;
                 return true;
@@ -2440,7 +2298,7 @@ namespace QuantumRefrigiz
         //Creation A Complete List of Attacked Self Object(s).
         bool InAttackSelfThatNotSupportedCalculateValuableAll(int[,] TableS, int Order, Color a, int ij, int ji, int ii, int jj, ref List<int[]> ValuableSelfSupported)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -2454,7 +2312,7 @@ namespace QuantumRefrigiz
                 bool InAttackedNotSelfSupported = false;
 
                 bool S = true;
-                //var i = ii, j = jj;
+                
                 //For Self
                 for (var i = 0; i < 8; i++)
                 {
@@ -2544,7 +2402,7 @@ namespace QuantumRefrigiz
                                         if (!S)
                                         {
                                             int[] Valuable = new int[3];
-                                            //First is Value;Second and Third is Row and Column.
+                                            
                                             Valuable[0] = TableS[i, j];
                                             Valuable[1] = i;
                                             Valuable[2] = j;
@@ -2559,7 +2417,7 @@ namespace QuantumRefrigiz
                     }
                 }
                 Order = Ord;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("InAttackSelfThatNotSupportedCalculateValuableAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 //When There is at Last tow SelfNotSupporeted Object.
                 if (ValuableSelfSupported.Count > 1)
                     return true;
@@ -2568,7 +2426,7 @@ namespace QuantumRefrigiz
         }
         bool ExistValuble(int[] Table, ref List<int[]> ValuableSelfSupported)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -2578,17 +2436,17 @@ namespace QuantumRefrigiz
 
                     if (ValuableSelfSupported[i][0] == Table[0] && ValuableSelfSupported[i][1] == Table[1] && ValuableSelfSupported[i][2] == Table[2])
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ExistValuble:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return true;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ExistValuble:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
         bool MaxObjecvts(List<int> Obj, int Max)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -2614,14 +2472,14 @@ namespace QuantumRefrigiz
                             MaxO = false;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MaxObjecvts:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return MaxO;
             }
         }
         //When Current Movment Take Supporte.QC_OK
         bool IsCurrentMoveTakeSupporte(int[,] Table, int Order, Color a, int i, int j, int ii, int jj)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -2651,14 +2509,14 @@ namespace QuantumRefrigiz
                             SelfSupported = true;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsCurrentMoveTakeSupporte:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return SelfSupported;
             }
         }
         int HeuristicKingSafety(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
               )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
 
             Object ol = new Object();
             lock (ol)
@@ -2739,25 +2597,12 @@ namespace QuantumRefrigiz
 
                     }
                 }
-                /*         int[,] Tabl = CloneATable(Tab);
-                         ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tabl[RowD, ColD], CloneATable(Tabl), Order * -1, RowD, ColD);
-                         A.ObjectDangourKingMove(Order, Tabl);
-                         Tabl = CloneATable(Tab);
-                         //When Before Move such situation is observed calculate Heuristic count.
-                         if (Order == 1 && A.CheckGrayObjectDangour)
-                             HA += (AllDraw.SignKingSafe *
-                                 (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
-                         else
-                         if (Order == -1 && A.CheckBrownObjectDangour)
-                             HA += (AllDraw.SignKingSafe *
-                                 (ObjectValueCalculator(CloneATable(Tabl), RowS, ColS, RowD, ColD)));
-
-                   */
+                
                 return HA;
 
             }
 
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicKingSafety:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         int HeuristicKingPreventionOfCheckedAtBegin(int[,] Tab, int Order, Color a, int CurrentAStarGredy, int RowS, int ColS, int RowD, int ColD
           )
@@ -2829,38 +2674,15 @@ namespace QuantumRefrigiz
                             HA += RationalPenalty;
                     }
                 }
-                /*  int[,] Table = CloneATable(Tab);
-                    ChessRules A = new ChessRules(CurrentAStarGredy, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[RowD, ColD], CloneATable(Table), Order * -1, RowD, ColD);
-                    A.ObjectDangourKingMove(Order, Table);
-                    Table = CloneATable(Tab);
-                    A.ObjectDangourKingMove(Order, Table);
-
-                    int[,] Table1 = new int[8, 8];
-
-                    //When Situation Observed Take Situation calcualte Heuristic.
-                    Object O4 = new Object();
-                    lock (O4)
-                    {
-                        if (Order == -1 && A.CheckGrayObjectDangour)
-                            HA +=// AllDraw.SignKingDangour *
-                            (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
-                        else
-                            if (Order == 1 && A.CheckBrownObjectDangour)
-                            HA +=// AllDraw.SignKingDangour *
-                            (ObjectValueCalculator(Table1, RowS, ColS, RowD, ColD));
-
-
-                    }
-
-                    */
+                
                 return HA;
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicKingPreventionOfCheckedAtBegin:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         int HeuristicSupported(int[,] Tab, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
           )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
 
             Object O = new Object();
             lock (O)
@@ -2885,7 +2707,7 @@ namespace QuantumRefrigiz
         int HeuristicSelfSupported(int[,] Tab, int Ord, Color aa, int RowS, int ColS, int RowD, int ColD
          )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -2900,11 +2722,11 @@ namespace QuantumRefrigiz
 
                 if (!AStarGreedyHeuristicT)
                 {
-                    //var RowS = RowSS, ColS = ColSS;
+                    
                     //For All Self
-                    //for (int RowD = 0; RowD < 8; RowD++)
+                    
                     {
-                        //for (int ColD = 0; ColD < 8; ColD++)
+                        
                         {
 
                             //For Current Object Lcation.
@@ -2923,11 +2745,11 @@ namespace QuantumRefrigiz
                             ///What is Supporte!
                             ///Ans:When [RowS,ColS] is Supporte [RowD,ColD] return true when Self is located in [RowD,ColD].
                             //if (Order == 1 && Tab[RowD, ColD] <= 0)
-                            //continue;
+                            
                             //if (Order == -1 && Tab[RowD, ColD] >= 0)
-                            //continue;
+                            
                             //if (!Scop(RowS, ColS, RowD, ColD, System.Math.Abs(Tab[RowS, ColS])))
-                            //continue;
+                            
                             if (Tab[RowD, ColD] < 0 && DummyOrder == -1 && Tab[RowS, ColS] <= 0)
                             {
                                 Order = -1;
@@ -2966,7 +2788,7 @@ namespace QuantumRefrigiz
                                 for (int g = 0; g < 8; g++)
                                 {
                                     //if (Supported)
-                                    //return;
+                                    
                                     ////Parallel.For(0, 8, h =>
                                     for (int h = 0; h < 8; h++)
                                     {
@@ -2974,7 +2796,7 @@ namespace QuantumRefrigiz
                                         lock (O2)
                                         {
                                             //if (Supported)
-                                            //return;
+                                            
                                             //Ignore Of Enemy Objects.
                                             if (Order == 1 && Tab[g, h] == 0)
                                                 continue;
@@ -3006,22 +2828,22 @@ namespace QuantumRefrigiz
                                             {
                                                 //Assgine variable.
                                                 Supported++;
-                                                //return;
+                                                
 
                                             }
                                             if (B)
                                             {
                                                 //Assgine variable.
                                                 SupportedE++;
-                                                //return;
+                                                
 
                                             }
                                         }
-                                    }//);
+                                    }
 
                                     // if (Supported)
-                                    //   return;
-                                }//);
+                                    
+                                }
 
                                 Object O1 = new Object();
                                 lock (O1)
@@ -3043,13 +2865,13 @@ namespace QuantumRefrigiz
                 //For All Homes Table.
                 else
                 {
-                    //for (var RowS = 0; RowS < 8; RowS++)
+                    
                     {
-                        //for (var ColS = 0; ColS < 8; ColS++)
+                        
                         {
-                            //for (int RowD = 0; RowD < 8; RowD++)
+                            
                             {
-                                //for (int ColD = 0; ColD < 8; ColD++)
+                                
                                 {
                                     int Order = new int();
                                     Color a = new Color();
@@ -3065,7 +2887,7 @@ namespace QuantumRefrigiz
                                         ///What is Supporte!
                                         ///Ans:When [RowS,ColS] is Supporte [RowD,ColD] return true when Self is located in [RowD,ColD].
                                         //if (!Scop(RowS, ColS, RowD, ColD, System.Math.Abs(Tab[RowS, ColS])))
-                                        //  continue;
+                                        
                                         if (Tab[RowD, ColD] < 0 && DummyOrder == -1 && Tab[RowS, ColS] <= 0)
                                         {
                                             Order = -1;
@@ -3104,7 +2926,7 @@ namespace QuantumRefrigiz
                                             for (int g = 0; g < 8; g++)
                                             {
                                                 //if (Supported)
-                                                //return;
+                                                
                                                 ////Parallel.For(0, 8, h =>
                                                 for (int h = 0; h < 8; h++)
                                                 {
@@ -3112,7 +2934,7 @@ namespace QuantumRefrigiz
                                                     lock (O2)
                                                     {
                                                         //if (Supported)
-                                                        //return;
+                                                        
                                                         //Ignore Of Enemy Objects.
                                                         if (Order == 1 && Tab[g, h] == 0)
                                                             continue;
@@ -3144,22 +2966,22 @@ namespace QuantumRefrigiz
                                                         {
                                                             //Assgine variable.
                                                             Supported++;
-                                                            //return;
+                                                            
 
                                                         }
                                                         if (B)
                                                         {
                                                             //Assgine variable.
                                                             SupportedE++;
-                                                            //return;
+                                                            
 
                                                         }
                                                     }
-                                                }//);
+                                                }
 
                                                 // if (Supported)
-                                                //   return;
-                                            }//);
+                                                
+                                            }
 
                                             Object O1 = new Object();
                                             lock (O1)
@@ -3185,7 +3007,7 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicSelfSupported:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return HA * 1;
             }
         }        ///Identification of Equality
@@ -3193,7 +3015,7 @@ namespace QuantumRefrigiz
         int HeuristicEnemySupported(int[,] Tab, int Ord, Color aa, int RowD, int ColD, int RowS, int ColS
           )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -3208,11 +3030,11 @@ namespace QuantumRefrigiz
 
                 if (!AStarGreedyHeuristicT)
                 {
-                    //var RowS = RowSS, ColS = ColSS;
+                    
                     //For All Self
-                    //for (int RowD = 0; RowD < 8; RowD++)
+                    
                     {
-                        //for (int ColD = 0; ColD < 8; ColD++)
+                        
                         {
 
                             //For Current Object Lcation.
@@ -3231,11 +3053,11 @@ namespace QuantumRefrigiz
                             ///What is Supporte!
                             ///Ans:When [RowS,ColS] is Supporte [RowD,ColD] return true when Self is located in [RowD,ColD].
                             //if (Order == 1 && Tab[RowD, ColD] <= 0)
-                            //continue;
+                            
                             //if (Order == -1 && Tab[RowD, ColD] >= 0)
-                            //continue;
+                            
                             //if (!Scop(RowS, ColS, RowD, ColD, System.Math.Abs(Tab[RowS, ColS])))
-                            //continue;
+                            
                             if (Tab[RowD, ColD] < 0 && DummyOrder == -1 && Tab[RowS, ColS] <= 0)
                             {
                                 Order = -1;
@@ -3274,7 +3096,7 @@ namespace QuantumRefrigiz
                                 for (int g = 0; g < 8; g++)
                                 {
                                     //if (Supported)
-                                    //return;
+                                    
                                     ////Parallel.For(0, 8, h =>
                                     for (int h = 0; h < 8; h++)
                                     {
@@ -3282,7 +3104,7 @@ namespace QuantumRefrigiz
                                         lock (O2)
                                         {
                                             //if (Supported)
-                                            //return;
+                                            
                                             //Ignore Of Enemy Objects.
                                             if (Order == 1 && Tab[g, h] == 0)
                                                 continue;
@@ -3314,22 +3136,22 @@ namespace QuantumRefrigiz
                                             {
                                                 //Assgine variable.
                                                 Supported++;
-                                                //return;
+                                                
 
                                             }
                                             if (B)
                                             {
                                                 //Assgine variable.
                                                 SupportedE++;
-                                                //return;
+                                                
 
                                             }
                                         }
-                                    }//);
+                                    }
 
                                     // if (Supported)
-                                    //   return;
-                                }//);
+                                    
+                                }
 
                                 Object O1 = new Object();
                                 lock (O1)
@@ -3351,13 +3173,13 @@ namespace QuantumRefrigiz
                 //For All Homes Table.
                 else
                 {
-                    //for (var RowS = 0; RowS < 8; RowS++)
+                    
                     {
-                        //for (var ColS = 0; ColS < 8; ColS++)
+                        
                         {
-                            //for (int RowD = 0; RowD < 8; RowD++)
+                            
                             {
-                                //for (int ColD = 0; ColD < 8; ColD++)
+                                
                                 {
                                     int Order = new int();
                                     Color a = new Color();
@@ -3373,7 +3195,7 @@ namespace QuantumRefrigiz
                                         ///What is Supporte!
                                         ///Ans:When [RowS,ColS] is Supporte [RowD,ColD] return true when Self is located in [RowD,ColD].
                                         //if (!Scop(RowS, ColS, RowD, ColD, System.Math.Abs(Tab[RowS, ColS])))
-                                        //  continue;
+                                        
                                         if (Tab[RowD, ColD] < 0 && DummyOrder == -1 && Tab[RowS, ColS] <= 0)
                                         {
                                             Order = -1;
@@ -3412,7 +3234,7 @@ namespace QuantumRefrigiz
                                             for (int g = 0; g < 8; g++)
                                             {
                                                 //if (Supported)
-                                                //return;
+                                                
                                                 ////Parallel.For(0, 8, h =>
                                                 for (int h = 0; h < 8; h++)
                                                 {
@@ -3420,7 +3242,7 @@ namespace QuantumRefrigiz
                                                     lock (O2)
                                                     {
                                                         //if (Supported)
-                                                        //return;
+                                                        
                                                         //Ignore Of Enemy Objects.
                                                         if (Order == 1 && Tab[g, h] == 0)
                                                             continue;
@@ -3452,22 +3274,22 @@ namespace QuantumRefrigiz
                                                         {
                                                             //Assgine variable.
                                                             Supported++;
-                                                            //return;
+                                                            
 
                                                         }
                                                         if (B)
                                                         {
                                                             //Assgine variable.
                                                             SupportedE++;
-                                                            //return;
+                                                            
 
                                                         }
                                                     }
-                                                }//);
+                                                }
 
                                                 // if (Supported)
-                                                //   return;
-                                            }//);
+                                                
+                                            }
 
                                             Object O1 = new Object();
                                             lock (O1)
@@ -3493,14 +3315,14 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 Order = DumOrder;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicSelfSupported:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return HA * 1;
             }
         }        ///Identification of Equality
                  ///Identification of Equality
         public static bool TableEqual(int[,] Tab1, int[,] Tab2)
         {
-            //long Time = TimeElapced.TimeNow();
+            
             Object O = new Object();
             lock (O)
             {
@@ -3512,11 +3334,11 @@ namespace QuantumRefrigiz
                         //When there is different values in same location of tow Table return non equality.
                         if (Tab1[i, j] != Tab2[i, j])
                         {
-                            ////AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+                            
                             return false;
                         }
                     }
-                ////AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+                
                 //Else return equlity.
                 return true;
 
@@ -3525,7 +3347,7 @@ namespace QuantumRefrigiz
         //If tow int Objects is equal.
         public static bool TableEqual(int Tab1, int Tab2)
         {
-            //long Time = TimeElapced.TimeNow();
+            
             Object O = new Object();
             lock (O)
             {
@@ -3533,10 +3355,10 @@ namespace QuantumRefrigiz
                 //When there is different values in same location of tow Table return non equality.
                 if (Tab1 != Tab2)
                 {
-                    ////AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+                    
                     return false;
                 }
-                ////AllDraw.OutPut.Append("\r\nTableEqual:" + (TimeElapced.TimeNow() - Time).ToString());
+                
                 //Else return equlity.
                 return true;
 
@@ -3545,7 +3367,7 @@ namespace QuantumRefrigiz
         //Deterimination of Existance of Table in List..
         static public bool ExistTableInList(int[,] Tab, List<int[,]> List, int Index)
         {
-            //long Time = TimeElapced.TimeNow();
+            
             Object O = new Object();
             lock (O)
             {
@@ -3565,7 +3387,7 @@ namespace QuantumRefrigiz
                     }
                     Exist |= Eq;
                 }
-                ////AllDraw.OutPut.Append("\r\nExistTableInList:" + (TimeElapced.TimeNow() - Time).ToString());
+                
                 //return Equality Local value of all lists.
                 return Exist;
             }
@@ -3573,7 +3395,7 @@ namespace QuantumRefrigiz
         ///Move Determination.
         public bool Movable(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -3584,7 +3406,7 @@ namespace QuantumRefrigiz
                 //Initiate Local Variables.
                 int Store = Table[ii, jj];
                 ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j);
-                ///Table[ii, jj] = 0;
+                
                 //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                 if (Order == 1 & Table[i, j] > 0 && Table[ii, jj] == 0)
                 {
@@ -3603,57 +3425,8 @@ namespace QuantumRefrigiz
 
                     }
                 }
-                /* //Initiate Movments.
-                 Table[ii, jj] = Table[i, j];
-                 Table[i, j] = 0;
-                 //Default Order Assignments.
-                 int Ord = 1;
-                 //Brown Order Consideration.
-                 if (Table[ii, jj] < 0)
-                     Ord = -1;
-                 //Store of Local Order Assignments in Global Assignments.
-                 int DummyOrder = Order;
-                 int DummyCurrentOrder = ChessRules.CurrentOrder;
-                 //Consider Global Check Variables.
-                 ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[ii, jj], CloneATable(Table), Ord, ii, jj);
-                 AA.Check(CloneATable(Table), Ord);
-                 //Reaasignment of Premitive Variables.
-                 Order = DummyOrder;
-                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                 //Reassignments of Table Content and Consider CheckMate Specific Order.
-                 Table[i, j] = Table[ii, jj];
-                 //When Gray.
-                 if (Table[i, j] > 0)
-                 {
-                     //And CheckedMated is Occured for gray. return false.
-                     Table[ii, jj] = Store;
-                     if (AA.CheckMateGray)
-                     {
-                         ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                         return false;
-                     }
-                     ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-
-                     return true;
-                 }
-
-                 //When Brown.
-                 if (Table[i, j] < 0)
-                 {
-                     Table[ii, jj] = Store;
-                     //When CheckedMated occured for Brown return false.
-                     if (AA.CheckMateBrown)
-                     {
-                         ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                         return false;
-                     }
-                     ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                     return true;
-                 }
-             }
-             Table[ii, jj] = Store;
-             */
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Movable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
+                
                 return false;
             }
         }
@@ -3661,7 +3434,7 @@ namespace QuantumRefrigiz
         //When Oredrs of OrderPalte and Calculation Order is not equal return negative one and else return one.
         int SignOrderToPlate(int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -3673,7 +3446,7 @@ namespace QuantumRefrigiz
                     //When Order is Opposite Sign Negative.
                     if (Order != AllDraw.OrderPlate)
                     Sign = -1;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SignOrderToPlate:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Sign;
             }
 
@@ -3681,7 +3454,7 @@ namespace QuantumRefrigiz
         //Remove Penalties of Unnesserily Nodes.
         public bool RemovePenalty(int[,] Tab, int Order, int i, int j)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -3694,12 +3467,12 @@ namespace QuantumRefrigiz
                     //When there is Current Checked or Objects Danger return false.
                     if (Order == 1 && (AA.CheckGray || AA.CheckGrayObjectDangour))
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return Remove;
                     }
                     if (Order == -1 && (AA.CheckBrown || AA.CheckBrownObjectDangour))
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return Remove;
                     }
                 }
@@ -3787,40 +3560,40 @@ namespace QuantumRefrigiz
                                                             }
                                                             else
                                                             {
-                                                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                                                
                                                                 return Remove;
                                                             }
                                                         }
                                                         else
                                                         {
-                                                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                                            
                                                             return Remove;
                                                         }
                                                     }
                                             }
                                             else
                                             {
-                                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                                
                                                 return Remove;
                                             }
                                         }
                                         else
                                         {
-                                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                            
                                             return Remove;
                                         }
                                     }
                             }
                         }
                     }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemovePenalty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Remove;
             }
         }
         //Dangouring of current movment fo current Order.
         bool IsCurrentStateIsDangreousForCurrentOrder(int[,] Tabl, int Order, Color a, int ii, int jj)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -3891,7 +3664,7 @@ namespace QuantumRefrigiz
                                                                         //restore and return true.
                                                                         Order = DummyOrder;
                                                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                                                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsCurrentStateIsDangreousForCurrentOrder:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                                                        
                                                                         return true;
                                                                     }
                                                                 }
@@ -3973,7 +3746,7 @@ namespace QuantumRefrigiz
                                                                         //restore and return true.
                                                                         Order = DummyOrder;
                                                                         ChessRules.CurrentOrder = DummyCurrentOrder;
-                                                                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsCurrentStateIsDangreousForCurrentOrder:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                                                        
                                                                         return true;
                                                                     }
                                                                 }
@@ -3992,7 +3765,7 @@ namespace QuantumRefrigiz
                             }
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsCurrentStateIsDangreousForCurrentOrder:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 //return false.
                 return false;
             }
@@ -4001,7 +3774,7 @@ namespace QuantumRefrigiz
         //When Next Movements is Checked.QC_OK.
         int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte, int OrderPalteMulMinuse, int Depth, bool KindCheckedSelf)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -4041,7 +3814,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //if (A.CheckMateBrown)
-                                    //return Is;
+                                    
                                 }
                             }
                             //When Order is Brown.
@@ -4056,7 +3829,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //if (A.CheckMateGray)
-                                    //return Is;
+                                    
                                 }
                             }
 
@@ -4072,7 +3845,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //if (A.CheckMateBrown)
-                                    //return Is;
+                                    
                                 }
                             }
                             //When Order * -1 is Brown
@@ -4087,7 +3860,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //if (A.CheckMateGray)
-                                    //return Is;
+                                    
                                 }
                             }
 
@@ -4099,7 +3872,7 @@ namespace QuantumRefrigiz
                         else
                             color = Color.Brown;
                         //if (Tab2[iki, jki] == 0)
-                        //return Is;
+                        
                         //For Movements.
                         int Ord = Order * -1;
                         int[,] Tab = CloneATable(Tab2);
@@ -4123,14 +3896,14 @@ namespace QuantumRefrigiz
                         Is[3] = IS[3];
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
         //When Next Movements is Checked.QC_OK.
         bool IsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet(int Order, int[,] Tabl, int ik, int jk, int iki, int jki, int OrderPalte)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -4157,7 +3930,7 @@ namespace QuantumRefrigiz
                             {
                                 if (A.CheckMateBrown)
                                 {
-                                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                    
                                     return Is;
                                 }
                             }
@@ -4172,7 +3945,7 @@ namespace QuantumRefrigiz
                             {
                                 if (A.CheckMateGray)
                                 {
-                                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                    
                                     return Is;
                                 }
                             }
@@ -4191,7 +3964,7 @@ namespace QuantumRefrigiz
                             {
                                 if (A.CheckMateBrown)
                                 {
-                                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                    
                                     return Is;
                                 }
                             }
@@ -4206,20 +3979,20 @@ namespace QuantumRefrigiz
                             {
                                 if (A.CheckMateGray)
                                 {
-                                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                    
                                     return Is;
                                 }
                             }
                         }
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovmentOnCurrentMovemnet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
         int[] IsNextMovmentIsCheckOrCheckMateForCurrentMovment(int[,] Tabl, int Order, Color a, int Depth, int OrderPalte, int OrderPalteMinusPluse, bool KindCheckedSelf)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -4235,7 +4008,7 @@ namespace QuantumRefrigiz
                     int DummyCurrentOrder = ChessRules.CurrentOrder;
                     if (Depth >= AllDraw.MaxAStarGreedy)
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovment:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return Is;
                     }
                     //For All Enemies.
@@ -4282,7 +4055,7 @@ namespace QuantumRefrigiz
                                         }
 
                                     }
-                                //));
+                                
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 2)
@@ -4316,7 +4089,7 @@ namespace QuantumRefrigiz
                                         Is[1] = Is[1]; Is[3] = IS[3];
                                     }
 
-                                }//);
+                                }
                                  //For Current Home
                                  ////Parallel.For(0, 8, iki =>
                                 for (var iki = 0; iki < 8; iki++)
@@ -4344,7 +4117,7 @@ namespace QuantumRefrigiz
                                         if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                         Is[1] = Is[1]; Is[3] = IS[3];
                                     }
-                                }//);
+                                }
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 3)
@@ -4376,7 +4149,7 @@ namespace QuantumRefrigiz
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
-                                    }//));
+                                    }
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 4)
@@ -4408,7 +4181,7 @@ namespace QuantumRefrigiz
                                         if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                         Is[1] = Is[1]; Is[3] = IS[3];
                                     }
-                                }//);
+                                }
                                  //For Current Home
                                  ////Parallel.For(0, 8, jki =>
                                 for (var jki = 0; jki < 8; jki++)
@@ -4436,7 +4209,7 @@ namespace QuantumRefrigiz
                                         if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                         Is[1] = Is[1]; Is[3] = IS[3];
                                     }
-                                }//);
+                                }
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 5)
@@ -4470,7 +4243,7 @@ namespace QuantumRefrigiz
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
-                                    }//));
+                                    }
                             }
                             else
                             if (System.Math.Abs(Tabl[ik, jk]) == 6)
@@ -4504,13 +4277,13 @@ namespace QuantumRefrigiz
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
-                                    }//));
+                                    }
                             }
-                        }//));
+                        }
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsNextMovmentIsCheckOrCheckMateForCurrentMovment:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
 
             }
@@ -4518,7 +4291,7 @@ namespace QuantumRefrigiz
         //When Current Movements is in dangrous and is not movable.
         bool IsGardForCurrentMovmentsAndIsNotMovable(int[,] Tab, int Order, Color a, int ii, int jj, int RowS, int ColS)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -4534,13 +4307,13 @@ namespace QuantumRefrigiz
                     //Ignore of Self Objects.
                     if (Order == 1 && Tab[ii, jj] >= 0)
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return false;
                     }
                     else
                         if (Order == -1 && Tab[ii, jj] <= 0)
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return false;
                     }
                     //Restore
@@ -4551,13 +4324,13 @@ namespace QuantumRefrigiz
                     //Ignore of Enemy Objects.
                     if (Order == 1 && Tab[RowS, ColS] < 0)
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return false;
                     }
                     else
                         if (Order == -1 && Tab[RowS, ColS] > 0)
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return false;
                     }         //For Enemy Order.
                     ChessRules.CurrentOrder = Order * -1;
@@ -4590,7 +4363,7 @@ namespace QuantumRefrigiz
                             for (int ColD = 0; ColD < 8; ColD++)
                             {
                                 if (!Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
-                                    //continue;//Ignore Enmy Objects.
+                                    
                                     if (Order == 1 && Tab[RowD, ColD] <= 0)
                                         continue;
                                     else
@@ -4621,20 +4394,20 @@ namespace QuantumRefrigiz
                                                 continue;
                                             }
                                         }
-                                    }//);
+                                    }
                                     if (!Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
                                         continue;
-                                }//);
+                                }
                                 if (Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
                                     continue;
-                            }//);
+                            }
                             if (Attacked || NumberOfCurrentEnemyAttackSuchObject > 1)
                                 continue;
-                        }//);
+                        }
                     }
                     else
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return false;
                     }
                 }
@@ -4644,7 +4417,7 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsGardForCurrentMovmentsAndIsNotMovable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 //continue Variable when true show an object is not movable or one enemy object attack more than one current Object.
                 return Attacked || NumberOfCurrentEnemyAttackSuchObject > 1;
             }
@@ -4653,13 +4426,13 @@ namespace QuantumRefrigiz
         ///when current movments gards enemy with higer priority at movment.QC_OK
         bool IsCurrentCanGardHighPriorityEnemy(int Depth, int[,] Table, int Order, Color a, int ij, int ji, int iij, int jji, int OrderPlate)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
                 if (Depth >= CurrentAStarGredyMax)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsCurrentCanGardHighPriorityEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 Object O4 = new Object();
@@ -4721,7 +4494,7 @@ namespace QuantumRefrigiz
                         }
                 }
 
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsCurrentCanGardHighPriorityEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return IsGardHighPriority;
             }
         }
@@ -5375,7 +5148,7 @@ namespace QuantumRefrigiz
         ///Heuristic of Check and CheckMate.
         public int HeuristicCheckAndCheckMate(int RowS, int ColS, int RowD, int ColD, int[,] Table, Color a)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -5406,7 +5179,7 @@ namespace QuantumRefrigiz
         //Veryfy and detect Object Value.
         int VeryFye(int[,] Table, int Order, Color a)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -5430,7 +5203,7 @@ namespace QuantumRefrigiz
                 //When King.
                 else if (System.Math.Abs(Object) == 6)
                     HA = 10;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("VeryFye:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return HA;
             }
         }
@@ -5438,7 +5211,7 @@ namespace QuantumRefrigiz
         //Numbers of Supporting Current Objects method.
         int SupporterCount(int[,] Table, int Order, Color a, int ii, int jj)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -5466,14 +5239,14 @@ namespace QuantumRefrigiz
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SupporterCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
         //Attacks on Enemies.
         int AttackerCount(int[,] Table, int Order, Color a, int i, int j)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -5503,14 +5276,14 @@ namespace QuantumRefrigiz
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("AttackerCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
         //Attackers of Enemies.QC_OK.
         int EnemyAttackerCount(int[,] Table, int Order, Color a, int ii, int jj)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -5541,7 +5314,7 @@ namespace QuantumRefrigiz
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("EnemyAttackerCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
@@ -5945,7 +5718,7 @@ namespace QuantumRefrigiz
         //Distribution of Objects
         public int HeuristicDistribution(bool Before, int[,] Tab, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -6273,7 +6046,7 @@ namespace QuantumRefrigiz
         }
         public int HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -6324,7 +6097,7 @@ namespace QuantumRefrigiz
 
 
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return HA;
 
             }
@@ -6405,8 +6178,8 @@ namespace QuantumRefrigiz
         }
         public int[] HeuristicAll(bool Before, int Killed, int[,] Table, Color aa, int Ord)
         {
-            //long Time = TimeElapced.TimeNow();Spaces
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
+            
             Object O = new Object();
             lock (O)
             {
@@ -6453,7 +6226,7 @@ namespace QuantumRefrigiz
                                                         {
                                                             if (HeuristicA[0] == 0)
                                                                 HeuristicA[0] = RationalPenalty;
-                                                            HeuristicB[0] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
+                                                            HeuristicB[0] += RationalPenalty;
                                                         }
                                                     }
 
@@ -6463,24 +6236,18 @@ namespace QuantumRefrigiz
                                                         {
                                                             if (HeuristicA[2] == 0)
                                                                 HeuristicA[2] = RationalPenalty;
-                                                            HeuristicB[2] += RationalPenalty;// (RationalPenalty * DiffSupport(Table[RowD, ColD], Table[RowS, ColS]));
+                                                            HeuristicB[2] += RationalPenalty;
                                                         }
                                                     }
 
-                                                    /*     if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, true))
-                                                         {
-                                                             if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                                 HeuristicB[5] += RationalPenalty;// (RationalPenalty * Diff(Table[RowD, ColD], Table[RowS, ColS]));
-                                                         }
-
-                                                        */
+                                                    
                                                     if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                     {
                                                         if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
                                                         {
                                                             if (HeuristicA[1] == 0)
                                                                 HeuristicA[1] = RationalRegard;
-                                                            HeuristicB[1] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                            HeuristicB[1] += RationalRegard;
                                                         }
                                                     }
 
@@ -6490,17 +6257,11 @@ namespace QuantumRefrigiz
                                                         {
                                                             if (HeuristicA[3] == 0)
                                                                 HeuristicA[3] = RationalRegard;
-                                                            HeuristicB[3] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
+                                                            HeuristicB[3] += RationalRegard;
                                                         }
                                                     }
 
-                                                    /*
-                                                         if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, true))
-                                                         {
-                                                             if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                                 HeuristicB[4] += RationalRegard;// (RationalRegard * Diff(Table[RowS, ColS], Table[RowD, ColD], false));
-                                                         }                                                    
-    */
+                                                    
 
                                                 }
                                             });
@@ -6514,242 +6275,15 @@ namespace QuantumRefrigiz
                         });
                     });
                     });
-                    //output.ConfigureAwait(false);
+                    
 
                     output.Wait(); output.Dispose();
 
                 }
 
-                /*
-                 if (HeuristicA[0] != 0 && HeuristicA[1] != 0 && HeuristicA[2] != 0 && HeuristicA[3] != 0)
-                     return HeuristicB;
-
-                 //when theres is at least one reducedattacked meaningful for regard.
-                 if (HeuristicA[0] != 0)
-                 {
-                     HeuristicA[1] = 0;
-                     HeuristicA[3] = 0;
-                 }
-
-                 Order = DummyOrder;
-                 ChessRules.CurrentOrder = DummyCurrentOrder;
-                 Order = DumOrder;
-                 //Initiate to Begin Call Orders.
-                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                 return HeuristicA;
-
- */
+                
                 return HeuristicB;
-                /*          Object O = new Ob
-
-                /*          Object O = new Object();
-                          lock (O)
-                          {
-                              int[] Heuristic = new int[6];
-                              //Initiate Local Variable.
-
-                              //var RowS = RowD, ColS = ColS;
-                              int DummyOrder = Order;
-                              int DummyCurrentOrder = ChessRules.CurrentOrder;
-                              ///When AStarGreedy Heuristic is Not Assigned.
-
-                              if (!AStarGreedyHeuristicT)
-                              {
-                                  //For Current Objects.
-                                  //Parallel.For(0, 8, RowS =>
-                                  {
-                                      ////Parallel.For(0, 8, ColS =>
-                                      {
-                                          var output = Task.Factory.StartNew(() =>
-                                 Parallel.Invoke(() =>
-                                 {
-                                     Object O1 = new Object();
-                                     lock (O1)
-                                     {
-                                         int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
-                                         int[,] Table1 = CloneATable(Table);
-                                         int Ord1 = Ord;
-                                         Color aa1 = aa;
-                                         int HAA1 = HeuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
-                                         if (HAA1 != 0)
-                                             HeuristicB[0] += HAA1;
-                                     }
-                                 }
-
-                                 , () =>
-                                 {
-                                     Object O1 = new Object();
-                                     lock (O1)
-                                     {
-                                         int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
-                                         int[,] Table2 = CloneATable(Table);
-                                         int Ord2 = Ord;
-                                         Color aa2 = aa;
-                                         int Killed1 = Killed;
-                                         int HAA2 = HeuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
-                                         if (HAA2 != 0)
-                                             HeuristicB[1] += HAA2;
-                                     }
-                                 }
-                                  , () =>
-                                  {
-                                      Object O1 = new Object();
-                                      lock (O1)
-                                      {
-                                          int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
-                                          int[,] Table3 = CloneATable(Table);
-                                          int Ord3 = Ord;
-                                          Color aa3 = aa;
-                                          int HAA3 = HeuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
-                                          if (HAA3 != 0)
-                                              HeuristicB[2] += HAA3;
-                                      }
-                                  },
-                                  () =>
-                                  {
-                                      Object O1 = new Object();
-                                      lock (O1)
-                                      {
-                                          int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
-                                          int[,] Table4 = CloneATable(Table);
-                                          int Ord4 = Ord;
-                                          Color aa4 = aa;
-                                          int HAA4 = HeuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
-                                          if (HAA4 != 0)
-                                              HeuristicB[3] += HAA4;
-                                      }
-
-                                  },
-                                  () =>
-                                  {
-                                      Object O1 = new Object();
-                                      lock (O1)
-                                      {
-                                          int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
-                                          int[,] Table5 = CloneATable(Table);
-                                          int Ord5 = Ord;
-                                          Color aa5 = aa;
-                                          int HAA5 = HeuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
-                                              );
-                                          if (HAA5 != 0)
-                                              HeuristicB[4] += HAA5;
-                                      }
-                                  },
-                                  () =>
-                                  {
-                                      Object O1 = new Object();
-                                      lock (O1)
-                                      {
-                                          int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
-                                          int[,] Table6 = CloneATable(Table);
-                                          int Ord6 = Ord;
-                                          Color aa6 = aa;
-                                          int HAA6 = HeuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
-                                                  );
-                                          if (HAA6 != 0)
-                                              HeuristicB[5] += HAA6;
-                                      }
-                                  }
-                                 ));
-                                          output.Wait(); output.Dispose();
-
-                                      }//);
-                                  }//);
-                              }
-                              //For All Homes Table.
-                              else
-                              {
-                                  ////Parallel.For(0, 8, RowS =>
-                                  {
-                                      ////Parallel.For(0, 8, ColS =>
-                                      {
-                                          ////Parallel.For(0, 8, ii =>
-                                          for (var ii = 0; ii < 8; ii++)
-                                          {
-                                              ////Parallel.For(0, 8, jj =>
-                                              for (var jj = 0; jj < 8; jj++)
-                                              {
-                                                  var output = Task.Factory.StartNew(() =>
-                                 Parallel.Invoke(() =>
-                                 {
-                                     Object O1 = new Object();
-                                     lock (O1)
-                                     {
-                                         int i1 = RowS, j1 = ColS, iiii1 = RowD, jjjj1 = ColD;
-                                         int[,] Table1 = CloneATable(Table);
-                                         int Ord1 = Ord;
-                                         Color aa1 = aa;
-                                         int HAA1 = HeuristicAttack(Before, Table1, Ord1, aa1, i1, j1, iiii1, jjjj1);
-                                         HeuristicB[0] += HAA1;
-                                     }
-                                 }, () =>
-                                 {
-                                     int i2 = RowS, j2 = ColS, iiii2 = RowD, jjjj2 = ColD;
-                                     int[,] Table2 = CloneATable(Table);
-                                     int Ord2 = Ord;
-                                     Color aa2 = aa;
-                                     int Killed1 = Killed;
-                                     int HAA2 = HeuristicKiller(Killed1, Table2, i2, j2, iiii2, jjjj2, Ord2, aa2, false);
-                                     HeuristicB[1] += HAA2;
-                                 }, () =>
-                                 {
-                                     int i3 = RowS, j3 = ColS, iiii3 = RowD, jjjj3 = ColD;
-                                     int[,] Table3 = CloneATable(Table);
-                                     int Ord3 = Ord;
-                                     Color aa3 = aa;
-                                     int HAA3 = HeuristicMovment(Before, Table3, aa3, Ord3, i3, j3, iiii3, jjjj3);
-                                     HeuristicB[2] += HAA3;
-                                 }, () =>
-                                 {
-                                     int i4 = RowS, j4 = ColS, iiii4 = RowD, jjjj4 = ColD;
-                                     int[,] Table4 = CloneATable(Table);
-                                     int Ord4 = Ord;
-                                     Color aa4 = aa;
-                                     int HAA4 = HeuristicObjectDangour(Table4, Ord4, aa4, i4, j4, iiii4, jjjj4);
-                                     HeuristicB[3] += HAA4;
-                                 }, () =>
-                                 {
-                                     int i5 = RowS, j5 = ColS, iiii5 = RowD, jjjj5 = ColD;
-                                     int[,] Table5 = CloneATable(Table);
-                                     int Ord5 = Ord;
-                                     Color aa5 = aa;
-                                     int HAA5 = HeuristicReducsedAttack(Before, Table5, Ord5, aa5, i5, j5, iiii5, jjjj5
-                                         );
-                                     HeuristicB[4] += HAA5;
-                                 }, () =>
-                                 {
-                                     int i6 = RowS, j6 = ColS, iiii6 = RowD, jjjj6 = ColD;
-                                     int[,] Table6 = CloneATable(Table);
-                                     int Ord6 = Ord;
-                                     Color aa6 = aa;
-                                     int HAA6 = HeuristicSelfSupported(Table6, Ord6, aa6, i6, j6, iiii6, jjjj6
-                                        );
-                                     HeuristicB[5] += HAA6;
-                                 }));
-                                                  output.Wait(); output.Dispose();
-                                              }
-                                          }//);
-                                      }//);
-                                  }//);
-                              }//);
-
-
-
-                              //Reassignments of Begin Call Global Orders.
-                              Order = DummyOrder;
-                              ChessRules.CurrentOrder = DummyCurrentOrder;
-                              //Store Local Heuristic in Global One.
-                              //HeuristicB[0] = (HeuristicB[0]* SignOrderToPlate(Order));
-                              //HeuristicB[1] = (HeuristicB[1]* SignOrderToPlate(Order));
-                              //HeuristicB[2] = (HeuristicB[2]* SignOrderToPlate(Order));
-                              //HeuristicB[3] = (HeuristicB[3]* SignOrderToPlate(Order));
-                              //HeuristicB[4] = (HeuristicB[4]* SignOrderToPlate(Order));
-                              //HeuristicB[5] = (HeuristicB[5]* SignOrderToPlate(Order));
-                              //Return Local Heuristic.
-                              ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAll:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
-                              return Heuristic;
-                          }
-                   */
+                
 
 
             }
@@ -6974,8 +6508,8 @@ namespace QuantumRefrigiz
 
         public int[] HeuristicExchange(bool Before, int Killed, int[,] Table, Color aa, int Ord, int Ros, int Cos, int Rod, int Cod)
         {
-            //long Time = TimeElapced.TimeNow();Spaces
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
+            
             Object O = new Object();
             lock (O)
             {
@@ -7124,7 +6658,7 @@ namespace QuantumRefrigiz
                                                 }
                                             });
                                         });
-                                        //output.ConfigureAwait(false);
+                                        
 
                                         output.Wait(); output.Dispose();
 
@@ -7234,7 +6768,7 @@ namespace QuantumRefrigiz
                 ChessRules.CurrentOrder = DummyCurrentOrd;
                 Ord = DumOrd;
                 //Initiate to Begin Call Ords.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ExchangeAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return ExchangeSeed;
 
 
@@ -7288,7 +6822,7 @@ namespace QuantumRefrigiz
         ///Heuristic of Movments.
         public int HeuristicMovment(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -7309,7 +6843,7 @@ namespace QuantumRefrigiz
         }
         public int HeuristicMovmentSelf(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -7407,9 +6941,9 @@ namespace QuantumRefrigiz
                                             continue;
                                         }
                                     }
-                                }//);
+                                }
 
-                            }//);
+                            }
                             Object O1 = new Object();
                             lock (O1)
                             {
@@ -7512,9 +7046,9 @@ namespace QuantumRefrigiz
                                             continue;
                                         }
                                     }
-                                }//);
+                                }
 
-                            }//);
+                            }
                             Object O1 = new Object();
                             lock (O1)
                             {
@@ -7536,13 +7070,13 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Store Local Heuristic in Global One.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicMovment:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return HA * 1;
             }
         }
         public int HeuristicMovmentEnemy(bool Before, int[,] Table, Color aa, int Ord, int RowD, int ColD, int RowS, int ColS)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -7640,9 +7174,9 @@ namespace QuantumRefrigiz
                                             continue;
                                         }
                                     }
-                                }//);
+                                }
 
-                            }//);
+                            }
                             Object O1 = new Object();
                             lock (O1)
                             {
@@ -7746,9 +7280,9 @@ namespace QuantumRefrigiz
                                             continue;
                                         }
                                     }
-                                }//);
+                                }
 
-                            }//);
+                            }
                             Object O1 = new Object();
                             lock (O1)
                             {
@@ -7771,14 +7305,14 @@ namespace QuantumRefrigiz
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Store Local Heuristic in Global One.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicMovment:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return HA * 1;
             }
         }
         ///Attack Determination.QC_Ok
         public bool Attack(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -7798,18 +7332,18 @@ namespace QuantumRefrigiz
 
                 {
                     ChessRules.CurrentOrder = CCurentOrder;
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Attack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return true;
                 }
                 ChessRules.CurrentOrder = CCurentOrder;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Attack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return false;
             }
         }
         //Object Danger Determination.
         public bool ObjectDanger(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -7842,13 +7376,13 @@ namespace QuantumRefrigiz
                         //Return ObjectDanger.
                         if ((AA.CheckGrayObjectDangour) && Order == 1)
                         {
-                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            
                             return true;
                         }
                         else
                             if ((AA.CheckBrownObjectDangour) && Order == -1)
                         {
-                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            
                             return true;
                         }
                     }
@@ -7858,13 +7392,13 @@ namespace QuantumRefrigiz
                         //Return ObjectDanger.
                         if ((AA.CheckGray || AA.CheckMateGray) && Order == 1)
                         {
-                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            
                             return true;
                         }
                         else
                             if ((AA.CheckBrown || AA.CheckMateBrown) && Order == -1)
                         {
-                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            
                             return true;
                         }
                     }
@@ -7876,7 +7410,7 @@ namespace QuantumRefrigiz
 
                 ChessRules.CurrentOrder = CCurrentOrder;
 
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDanger:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 //return Non ObjectDanger.
                 return false;
             }
@@ -7884,7 +7418,7 @@ namespace QuantumRefrigiz
         ///Supportation Determination.QC_OK
         public bool Support(int[,] Tab, int i, int j, int ii, int jj, Color a, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -7901,7 +7435,7 @@ namespace QuantumRefrigiz
                     ///When [i,j] Supporte [ii,jj].
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false) && SameSign(Table[i, j], Table[ii, jj]))
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return true;
                     }
                 }
@@ -7911,12 +7445,12 @@ namespace QuantumRefrigiz
                     {  ///When [i,j] Supporte [ii,jj].
                         if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Table[i, j], false) && SameSign(Table[i, j], Table[ii, jj]))
                         {
-                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            
                             return true;
                         }
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Support:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return false;
             }
         }
@@ -7924,7 +7458,7 @@ namespace QuantumRefrigiz
         //Return Msx Huiristic of Child Level.
         public bool MaxHeuristic(ref int j, int Kin, ref int Less, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8327,7 +7861,7 @@ namespace QuantumRefrigiz
                         }
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MaxHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Found;
             }
         }
@@ -8335,7 +7869,7 @@ namespace QuantumRefrigiz
         //Count of Solders on Table.
         int SolderOnTableCount(ref DrawSoldierQ[] So, bool Mi, int MaxCount)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8366,14 +7900,14 @@ namespace QuantumRefrigiz
                     i++;
 
                 };
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SolderOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
         //Elepahnt On Table Count.
         int ElefantOnTableCount(ref DrawElefantQ[] So, bool Mi, int MaxCount)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8404,14 +7938,14 @@ namespace QuantumRefrigiz
 
                     i++;
                 };
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ElefantOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
         //Calculate Hourse on table.
         int HourseOnTableCount(ref DrawHourseQ[] So, bool Mi, int MaxCount)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8441,14 +7975,14 @@ namespace QuantumRefrigiz
 
                     i++;
                 };
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HourseOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
         //Calculate Castles Count.
         int CastleOnTableCount(ref DrawCastleQ[] So, bool Mi, int MaxCount)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8478,14 +8012,14 @@ namespace QuantumRefrigiz
 
                     i++;
                 };
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CastleOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
         //Calculate Minsiter Count.
         int MinisterOnTableCount(ref DrawMinisterQ[] So, bool Mi, int MaxCount)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8514,14 +8048,14 @@ namespace QuantumRefrigiz
 
                     i++;
                 };
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MinisterOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
         //Calculate King on Table.
         int KingOnTableCount(ref DrawKingQ[] So, bool Mi, int MaxCount)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8550,20 +8084,20 @@ namespace QuantumRefrigiz
 
                     i++;
                 };
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("KingOnTableCount:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Count;
             }
         }
         //Return Heuristic.
         public int ReturnHeuristic(int ii, int j, int Order, bool AA, ref int HaveKilled)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
                 AllDraw.OutPut = new System.Text.StringBuilder("");
-                //AllDraw.ActionStringReady = false;
-                //NumbersOfCurrentBranchesPenalties = 0;
+                
+                
                 //calculation of Heuristic methos and storing value retured.
                 int Hur = new int();
                 Object O1 = new Object();
@@ -8582,10 +8116,10 @@ namespace QuantumRefrigiz
                     //Optimization depend of numbers of unpealties nodes quefficient.  
                     if (UsePenaltyRegardMechnisamT)
                     {
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return Hur * ((int)(NumbersOfAllNode - NumbersOfCurrentBranchesPenalties) / (int)(NumbersOfAllNode));
                     }
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
 
                     return Hur;
 
@@ -8595,7 +8129,7 @@ namespace QuantumRefrigiz
         //statstical html 
         String Alphabet(int RowRealesed)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8623,7 +8157,7 @@ namespace QuantumRefrigiz
                 else
                                             if (RowRealesed == 7)
                     A = "h";
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Alphabet:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
 
                 return A;
             }
@@ -8631,7 +8165,7 @@ namespace QuantumRefrigiz
         //statstical html 
         String Number(int ColumnRealeASed)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -8660,7 +8194,7 @@ namespace QuantumRefrigiz
                 else
                                             if (ColumnRealeASed == 0)
                     A = "7";
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Number:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return A;
             }
         }
@@ -8707,11 +8241,11 @@ namespace QuantumRefrigiz
                     {
                         if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
                         {
-                            //ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnSoldier[j][0]) + Number(RowColumnSoldier[j][1]);
+                            
                             //if (Order == 1)
-                            //AllDraw.OutPut.Append("\r\nHeuristic Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                             // else
-                            //AllDraw.OutPut.Append("\r\nHeuristic Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                         }
                     }
 
@@ -8736,11 +8270,11 @@ namespace QuantumRefrigiz
                     {
                         if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
                         {
-                            //ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnElefant[j][0]) + Number(RowColumnElefant[j][1]);
+                            
                             //if (Order == 1)
-                            //AllDraw.OutPut.Append("\r\nHeuristic Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                             //else
-                            //AllDraw.OutPut.Append("\r\nHeuristic Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                         }
                     }
 
@@ -8765,11 +8299,11 @@ namespace QuantumRefrigiz
                     {
                         if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
                         {
-                            //ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnHourse[j][0]) + Number(RowColumnHourse[j][1]);
+                            
                             //if (Order == 1)
-                            //AllDraw.OutPut.Append("\r\nHeuristic Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                             //else
-                            //AllDraw.OutPut.Append("\r\nHeuristic Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                         }
 
                     }
@@ -8795,11 +8329,11 @@ namespace QuantumRefrigiz
                     {
                         if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
                         {
-                            //ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnCastle[j][0]) + Number(RowColumnCastle[j][1]);
+                            
                             //if (Order == 1)
-                            //AllDraw.OutPut.Append("\r\nHeuristic Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                             //else
-                            //AllDraw.OutPut.Append("\r\nHeuristic Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                         }
                     }
 
@@ -8823,11 +8357,11 @@ namespace QuantumRefrigiz
                     {
                         if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
                         {
-                            //ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnMinister[j][0]) + Number(RowColumnMinister[j][1]);
+                            
                             //if (Order == 1)
-                            //AllDraw.OutPut.Append("\r\nHeuristic Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                             //else
-                            //AllDraw.OutPut.Append("\r\nHeuristic Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                            
                         }
                     }
 
@@ -8852,11 +8386,11 @@ namespace QuantumRefrigiz
                         {
                             if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
                             {
-                                //ActionsString = " " + Alphabet(Row) + Number(Column) + Alphabet(RowColumnKing[j][0]) + Number(RowColumnKing[j][1]);
+                                
                                 //if (Order == 1)
-                                //AllDraw.OutPut.Append("\r\nHeuristic King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                                
                                 //else
-                                //AllDraw.OutPut.Append("\r\nHeuristic King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level " + iAStarGready.ToString() + " By Action String " + ActionsString);
+                                
                             }
                         }
 
@@ -8972,13 +8506,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].KingOnTable == null || AStarGreedy[k].KingOnTable[m] == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0] == null || AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].TableListKing == null)
                 return Heuristic;
-            /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
-            {
-                if (Order == 1)
-                    //AllDraw.OutPut.Append("\r\nHeuristic Deep Learning King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
-                else
-                    //AllDraw.OutPut.Append("\r\nHeuristic Deap Learning King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }*/
+            
             for (var jj = 0; jj < AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].TableListKing.Count; jj++)
                 Heuristic += AStarGreedy[k].KingOnTable[m].KingThinkingQuantum[0].ReturnHeuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -8992,13 +8520,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].MinisterOnTable == null || AStarGreedy[k].MinisterOnTable[m] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0] == null || AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].TableListMinister == null)
                 return Heuristic;
-            /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
-            {
-                if (Order == 1)
-                    //AllDraw.OutPut.Append("\r\nHeuristic Deep Learning Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
-                else
-                    //AllDraw.OutPut.Append("\r\nHeuristic Deap Learning Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }*/
+            
             for (var jj = 0; jj < AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].TableListMinister.Count; jj++)
                 Heuristic += AStarGreedy[k].MinisterOnTable[m].MinisterThinkingQuantum[0].ReturnHeuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -9012,13 +8534,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].CastlesOnTable == null || AStarGreedy[k].CastlesOnTable[m] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0] == null || AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].TableListCastle == null)
                 return Heuristic;
-            /* if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
-             {
-                 if (Order == 1)
-                     //AllDraw.OutPut.Append("\r\nHeuristic Deep Learning Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
-                 else
-                     //AllDraw.OutPut.Append("\r\nHeuristic Deap Learning Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-             }*/
+            
             for (var jj = 0; jj < AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].TableListCastle.Count; jj++)
                 Heuristic += AStarGreedy[k].CastlesOnTable[m].CastleThinkingQuantum[0].ReturnHeuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -9033,13 +8549,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].HoursesOnTable == null || AStarGreedy[k].HoursesOnTable[m] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0] == null || AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].TableListHourse == null)
                 return Heuristic;
-            /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
-            {
-                if (Order == 1)
-                    //AllDraw.OutPut.Append("\r\nHeuristic Deep Learning Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
-                else
-                    //AllDraw.OutPut.Append("\r\nHeuristic Deap Learning Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }*/
+            
             for (var jj = 0; jj < AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].TableListHourse.Count; jj++)
                 Heuristic += AStarGreedy[k].HoursesOnTable[m].HourseThinkingQuantum[0].ReturnHeuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -9055,13 +8565,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].ElephantOnTable == null || AStarGreedy[k].ElephantOnTable[m] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0] == null || AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].TableListElefant == null)
                 return Heuristic;
-            /*if (AllDraw.NumberOfLeafComputation == -1&&AllDraw.FirstTraversalTree)
-            {
-                if (Order == 1)
-                    //AllDraw.OutPut.Append("\r\nHeuristic Deep Learning Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
-                else
-                    //AllDraw.OutPut.Append("\r\nHeuristic Deap Learning Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-            }*/
+            
             for (var jj = 0; jj < AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].TableListElefant.Count; jj++)
                 Heuristic += AStarGreedy[k].ElephantOnTable[m].ElefantThinkingQuantum[0].ReturnHeuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -9078,13 +8582,7 @@ namespace QuantumRefrigiz
 
             if (AStarGreedy[k].SolderesOnTable == null || AStarGreedy[k].SolderesOnTable[m] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0] == null || AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].TableListSolder == null)
                 return Heuristic;
-            /* if (AllDraw.NumberOfLeafComputation == -1 && AllDraw.FirstTraversalTree)
-             {
-                 if (Order == 1)
-                         //AllDraw.OutPut.Append("\r\nHeuristic Deep Learning Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at Level ");
-                     else
-                         //AllDraw.OutPut.Append("\r\nHeuristic Deap Learning Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at Level ");
-                 }*/
+            
             for (var jj = 0; jj < AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].TableListSolder.Count; jj++)
                 Heuristic += AStarGreedy[k].SolderesOnTable[m].SoldierThinkingQuantum[0].ReturnHeuristicCalculartor(++iAStarGready, ii, jj, Order * -1, ref HaveKilled);
 
@@ -9194,11 +8692,11 @@ namespace QuantumRefrigiz
                 if (Order == AllDraw.OrderPlate)
                 {
                     BOUND = -1;
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (double l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnHeuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                 }
                 else
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (double l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnHeuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     BOUND = 1;
                 }
             }
@@ -9208,8 +8706,8 @@ namespace QuantumRefrigiz
         public int ReturnHeuristicCalculartor(int iAStarGready, int ii, int j, int Order, ref int HaveKilled)
         {
             int BOUND = 0;
-            //long Time = TimeElapced.TimeNow();Spaces++;
-            //bool ActionStringSetting = false;
+            
+            
             Object O = new Object();
             lock (O)
             {
@@ -9217,7 +8715,7 @@ namespace QuantumRefrigiz
                 //when deeper there is not or level exceed
                 if (AStarGreedy == null && iAStarGready != 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (double l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnHeuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return 0;
                 }
                 NumbersOfCurrentBranchesPenalties += NumberOfPenalties;
@@ -9245,7 +8743,7 @@ namespace QuantumRefrigiz
                     if (BOUND > 0)
                     Heuristic = int.MaxValue;
 
-                ////{ //AllDraw.OutPut.Append("\r\n");for (double l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnHeuristicCalculartor:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Heuristic;
             }
         }
@@ -9253,7 +8751,7 @@ namespace QuantumRefrigiz
         //Scope of Every Objects Movments.
         bool Scop(int i, int j, int ii, int jj, int Kind)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -9262,42 +8760,42 @@ namespace QuantumRefrigiz
                 //Scope of index out of range.
                 if (i < 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 if (j < 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 if (ii < 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 if (jj < 0)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 if (i > 7)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 if (j > 7)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 if (ii > 7)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 if (jj > 7)
                 {
-                    ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                    
                     return false;
                 }
                 bool Validity = false;
@@ -9310,7 +8808,7 @@ namespace QuantumRefrigiz
                         {
                             if (j <= jj)
                             {
-                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                
                                 return false;
                             }
                         }
@@ -9318,7 +8816,7 @@ namespace QuantumRefrigiz
                         {
                             if (j >= jj)
                             {
-                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                
                                 return false;
                             }
                         }
@@ -9329,7 +8827,7 @@ namespace QuantumRefrigiz
                         {
                             if (j <= jj)
                             {
-                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                
                                 return false;
                             }
                         }
@@ -9337,7 +8835,7 @@ namespace QuantumRefrigiz
                         {
                             if (j >= jj)
                             {
-                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                
                                 return false;
                             }
                         }
@@ -9383,14 +8881,14 @@ namespace QuantumRefrigiz
                         Validity = true;
                 }
 
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Scop:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Validity;
             }
         }
         //Calculate Maximum of Six Max Heuristic of Six Kind Objects.
         int MaxOfSixHeuristic(int[] Less)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -9404,14 +8902,14 @@ namespace QuantumRefrigiz
                         Value = i;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MaxOfSixHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Value;
             }
         }
         //Calculate Minimum of Six Min Heuristic of Six Kind Objects.note the enemy Heuristic are negative.
         int MinOfSixHeuristic(int[] Less)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -9425,7 +8923,7 @@ namespace QuantumRefrigiz
                         Value = i;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MinOfSixHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Value;
             }
         }
@@ -9460,30 +8958,30 @@ namespace QuantumRefrigiz
         void HuMethodSup(ref int[] Hu)
         {
             Hu[0] = HeuristicAttackValueSup;
-            //HeuristicAttackValueSup = 0;
+            
             Hu[1] = HeuristicMovementValueSup;
-            //HeuristicMovementValueSup = 0;
+            
             Hu[2] = HeuristicSelfSupportedValueSup;
-            //HeuristicSelfSupportedValueSup = 0;
+            
             Hu[3] = HeuristicReducedMovementValueSup;
-            //HeuristicReducedMovementValueSup = 0;
+            
             Hu[4] = HeuristicReducedSupportSup;
-            //HeuristicReducedSupportSup = 0;
+            
             Hu[5] = HeuristicReducedAttackValueSup;
-            //HeuristicReducedAttackValueSup = 0;
+            
             Hu[6] = HeuristicDistributionValueSup;
-            //HeuristicDistributionValueSup = 0;
+            
             Hu[7] = HeuristicKingSafeSup;
-            //HeuristicKingSafeSup = 0;
+            
             Hu[8] = HeuristicFromCenterSup;
-            //HeuristicFromCenterSup = 0;
+            
             Hu[9] = HeuristicKingDangourSup;
             return;
         }
         //specific determination for ThinkingQuantum main method
         void KingThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -9509,7 +9007,7 @@ namespace QuantumRefrigiz
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -9530,7 +9028,7 @@ namespace QuantumRefrigiz
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
@@ -9540,7 +9038,7 @@ namespace QuantumRefrigiz
                     }
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -9556,15 +9054,15 @@ namespace QuantumRefrigiz
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
-                            //{ ThinkingQuantumAtRun = false; return; }
+                            
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
@@ -9575,7 +9073,7 @@ namespace QuantumRefrigiz
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
 
                         }
@@ -9591,57 +9089,24 @@ namespace QuantumRefrigiz
                             int[] Hu = new int[10];
                             //if (!(IsSup[j]))
                             {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
+                                
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                ////HeuristicCheckedMate = 0;
+                                
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                //newTask1.ConfigureAwait(false);
+                                
                                 newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                                 HeuristicListKing.Add(Hu);
                             }
-                            /*else
-                            {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
-                                //if (IgnoreFromCheckandMateHeuristic)
-                                    ////HeuristicCheckedMate = 0;
-                                Hu[0] += HeuristicAttackValue + HeuristicAttackValueSup;
-                                HeuristicAttackValueSup = 0;
-                                Hu[1] += HeuristicMovementValue + HeuristicMovementValueSup;
-                                HeuristicMovementValueSup = 0;
-                                Hu[2] += HeuristicSelfSupportedValue + HeuristicSelfSupportedValueSup;
-                                HeuristicSelfSupportedValueSup = 0;
-                                Hu[3] += HeuristicReducedMovementValue + HeuristicReducedMovementValueSup;
-                                HeuristicReducedMovementValueSup = 0;
-                                Hu[4] += HeuristicReducedSupport + HeuristicReducedSupportSup;
-                                HeuristicReducedSupportSup = 0;
-                                Hu[5] += HeuristicReducedAttackValue + HeuristicReducedAttackValueSup;
-                                HeuristicReducedAttackValueSup = 0;
-                                Hu[6] += HeuristicDistributionValue + HeuristicDistributionValueSup;
-                                HeuristicDistributionValueSup = 0;
-                                Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
-                                HeuristicKingSafeSup = 0;
-                                Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
-                                HeuristicFromCenterSup = 0;
-                                Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
-                                HeuristicKingDangourSup = 0;
-                                H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                HeuristicListKing.Add(Hu);
-                                IsSup = false;
-                            }*/
+                            
                         }
                         Object O4 = new Object();
                         lock (O4)
                         {
-                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                            if (Order == 1)
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            else
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            */
+                            
                             ThinkingQuantumLevel++;
                             ThinkingQuantumAtRun = false;
                         }
@@ -9649,29 +9114,24 @@ namespace QuantumRefrigiz
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
-                        //HeuristicKingDangourSup = 0;
+                        
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
 
-                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                            if (Order == 1)
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            else
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum King AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            */
+                        
                         ThinkingQuantumAtRun = false;
                     }
 
@@ -9681,13 +9141,13 @@ namespace QuantumRefrigiz
             }
             ThinkingQuantumAtRun = false;
 
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("KingThinkingQuantumChess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
 
         }
         //monitor
         String CheM(int A)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             String AA = "";
             if (A <= -1 && A < 0)
                 AA = "+SelfChecked ";
@@ -9706,14 +9166,14 @@ namespace QuantumRefrigiz
 
             if (A >= 3 && A > 0)
                 AA = "++EnemeyFinsished ";
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheM:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
             return AA;
         }
 
         //specific determination for ThinkingQuantum main method
         void MinisterThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O11 = new Object();
             lock (O11)
             {
@@ -9739,7 +9199,7 @@ namespace QuantumRefrigiz
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     if (!Sup)
@@ -9759,7 +9219,7 @@ namespace QuantumRefrigiz
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
@@ -9769,7 +9229,7 @@ namespace QuantumRefrigiz
                     }
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -9783,15 +9243,15 @@ namespace QuantumRefrigiz
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
-                            //{ ThinkingQuantumAtRun = false; return; }
+                            
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
@@ -9802,7 +9262,7 @@ namespace QuantumRefrigiz
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
 
                         }
@@ -9818,56 +9278,23 @@ namespace QuantumRefrigiz
                             int[] Hu = new int[10];
                             //if (!(IsSup[j]))
                             {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
+                                
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                ////HeuristicCheckedMate = 0;
+                                
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                //newTask1.ConfigureAwait(false);
+                                
                                 newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListMinister.Add(Hu);
                             }
-                            /*else
-                            {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
-                                //if (IgnoreFromCheckandMateHeuristic)
-                                    ////HeuristicCheckedMate = 0;
-                                Hu[0] += HeuristicAttackValue + HeuristicAttackValueSup;
-                                //HeuristicAttackValueSup = 0;
-                                Hu[1] += HeuristicMovementValue + HeuristicMovementValueSup;
-                                //HeuristicMovementValueSup = 0;
-                                Hu[2] += HeuristicSelfSupportedValue + HeuristicSelfSupportedValueSup;
-                                //HeuristicSelfSupportedValueSup = 0;
-                                Hu[3] += HeuristicReducedMovementValue + HeuristicReducedMovementValueSup;
-                                //HeuristicReducedMovementValueSup = 0;
-                                Hu[4] += HeuristicReducedSupport + HeuristicReducedSupportSup;
-                                //HeuristicReducedSupportSup = 0;
-                                Hu[5] += HeuristicReducedAttackValue + HeuristicReducedAttackValueSup;
-                                //HeuristicReducedAttackValueSup = 0;
-                                Hu[6] += HeuristicDistributionValue + HeuristicDistributionValueSup;
-                                //HeuristicDistributionValueSup = 0;
-                                Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
-                                //HeuristicKingSafeSup = 0;
-                                Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
-                                //HeuristicFromCenterSup = 0;
-                                Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
-                                //HeuristicKingDangourSup = 0;
-                                H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                HeuristicListMinister.Add(Hu);
-                                IsSup = false;
-                            }*/
+                            
                         }
                         Object O4 = new Object();
                         lock (O4)
                         {
-                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                            if (Order == 1)
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            else
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            */
+                            
                             ThinkingQuantumLevel++;
                             ThinkingQuantumAtRun = false;
                         }
@@ -9876,28 +9303,23 @@ namespace QuantumRefrigiz
                     {
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
-                        //HeuristicKingDangourSup = 0;
+                        
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
-                        /*
-                        if (Order == 1)
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Minister AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            else
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Minster AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            */
+                        
                         ThinkingQuantumAtRun = false;
                     }
 
@@ -9905,12 +9327,12 @@ namespace QuantumRefrigiz
                 }
             }
             ThinkingQuantumAtRun = false;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MinisterThinkingQuantumChess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //determination for kinmgs for stage of movment befor act
         bool IsPrviousMovemntIsDangrousForCurrent(int[,] TableS, int Order)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -9990,14 +9412,14 @@ namespace QuantumRefrigiz
                     if (BREAK == 1)
                         Dang = true;
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsPrviousMovemntIsDangrousForCurrent:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Dang;
             }
         }
         //When There is not valuable Object in List Greater than Target Self Object return true.        
         bool IsObjectValaubleObjectSelf(int i, int j, int Object, ref List<int[]> ValuableSelfSupported)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -10018,7 +9440,7 @@ namespace QuantumRefrigiz
                     if (Is == false)
                         break;
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsObjectValaubleObjectSelf:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
@@ -10026,7 +9448,7 @@ namespace QuantumRefrigiz
         //When There is not valuable Object in List Greater than Target enemy Object return true.        
         bool IsObjectValaubleObjectEnemy(int i, int j, int Object, ref List<int[]> ValuableEnemyNotSupported)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -10038,14 +9460,14 @@ namespace QuantumRefrigiz
                         Is = false;
                         break;
                     }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("IsObjectValaubleObjectEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
         //a machine learning of learning autamata surface scan
         bool[] SomeLearningVarsCalculator(int[,] TableS, int ik, int jk, int iik, int jjk)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O22 = new Object();
             lock (O22)
             {
@@ -10112,21 +9534,21 @@ namespace QuantumRefrigiz
                                                 LearningV[2] = LearningV[2] || IsGardForCurrentMovmentsAndIsNotMovable(TableS, Order, color, i, j, RowS, ColS//, ii, jj, RowD, ColD
                                                     );
                                         }
-                                    }//);
-                                }//);
+                                    }
+                                }
 
-                            }//);
-                        }//);
-                    }//);
+                            }
+                        }
+                    }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SomeLearningVarsCalculator:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return LearningV;
             }
         }
         //learning autamata main section
         bool[] CalculateLearningVars(int Killed, int[,] TableS, int i, int j, int ii, int jj)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -10167,7 +9589,7 @@ namespace QuantumRefrigiz
                     int SelfChackedMateDepth = 0;
                     int EnemyCheckedMateDepth = 0;
 
-                    IsDangerous = false;//No Needed.
+                    IsDangerous = false;
                                         //For All Current
                     bool[] LearningVars = SomeLearningVarsCalculator(TableS, ii, jj, i, j);
                     Object O4 = new Object();
@@ -10267,24 +9689,24 @@ namespace QuantumRefrigiz
                         LearningV[12] = IsGardForCurrentMovmentsAndIsNotMova;
                         LearningV[13] = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj;
                         //if (IsNextMovemntIsCheckOrCheckMateForCurrent)
-                        //IgnoreFromCheckandMateHeuristic = true;
-                        CanKillerAnUnSupportedEnemy = Support || EnemyNotSupported || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;//B
-                        P = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj || IsGardForCurrentMovmentsAndIsNotMova || IsPrviousMovemntIsDangrousForCurr || SelfNotSupported || IsDangerous || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;//C
-                        R = CanKillerAnUnSupportedEnemy;//D
+                        
+                        CanKillerAnUnSupportedEnemy = Support || EnemyNotSupported || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;
+                        P = IsNotSafeToMoveAenemeyToAttackMoreThanTowObj || IsGardForCurrentMovmentsAndIsNotMova || IsPrviousMovemntIsDangrousForCurr || SelfNotSupported || IsDangerous || IsCurrentCanGardHighPriorityEne || IsNextMovemntIsCheckOrCheckMateForEnemy || IsNextMovemntIsCheckOrCheckMateForCurrent;
+                        R = CanKillerAnUnSupportedEnemy;
                         InDangrousUnSupported = P && (!R);
                         PDo = P & (!R);
                         //B+C
                         RDo = R && (!P);
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CalculateLearningVars:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return LearningV;
             }
         }
         void CastlesThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle
         )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O22 = new Object();
             lock (O22)
             {
@@ -10312,7 +9734,7 @@ namespace QuantumRefrigiz
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -10333,7 +9755,7 @@ namespace QuantumRefrigiz
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
@@ -10344,7 +9766,7 @@ namespace QuantumRefrigiz
 
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -10359,15 +9781,15 @@ namespace QuantumRefrigiz
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
-                            //{ ThinkingQuantumAtRun = false; return; }
+                            
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
@@ -10378,7 +9800,7 @@ namespace QuantumRefrigiz
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
 
                         }
@@ -10394,57 +9816,22 @@ namespace QuantumRefrigiz
                             int[] Hu = new int[10];
                             //if (!(IsSup[j]))
                             {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
+                                
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                ////HeuristicCheckedMate = 0;
+                                
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                //newTask1.ConfigureAwait(false);
+                                
                                 newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListCastle.Add(Hu);
                             }
-                            /*else
-                            {
-                                {
-                                    //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
-                                    //if (IgnoreFromCheckandMateHeuristic)
-                                        ////HeuristicCheckedMate = 0;
-                                    Hu[0] += HeuristicAttackValue + HeuristicAttackValueSup;
-                                    //HeuristicAttackValueSup = 0;
-                                    Hu[1] += HeuristicMovementValue + HeuristicMovementValueSup;
-                                    //HeuristicMovementValueSup = 0;
-                                    Hu[2] += HeuristicSelfSupportedValue + HeuristicSelfSupportedValueSup;
-                                    //HeuristicSelfSupportedValueSup = 0;
-                                    Hu[3] += HeuristicReducedMovementValue + HeuristicReducedMovementValueSup;
-                                    //HeuristicReducedMovementValueSup = 0;
-                                    Hu[4] += HeuristicReducedSupport + HeuristicReducedSupportSup;
-                                    //HeuristicReducedSupportSup = 0;
-                                    Hu[5] += HeuristicReducedAttackValue + HeuristicReducedAttackValueSup;
-                                    //HeuristicReducedAttackValueSup = 0;
-                                    Hu[6] += HeuristicDistributionValue + HeuristicDistributionValueSup;
-                                    //HeuristicDistributionValueSup = 0;
-                                    Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
-                                    //HeuristicKingSafeSup = 0;
-                                    Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
-                                    //HeuristicFromCenterSup = 0;
-                                    Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
-                                    //HeuristicKingDangourSup = 0;
-                                    H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                    HeuristicListCastle.Add(Hu);
-                                    IsSup = false;
-                                }
-                            }*/
+                            
                             Object O4 = new Object();
                             lock (O4)
                             {
-                                /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                                if (Order == 1)
-                                    //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                else
-                                    //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                */
+                                
                                 ThinkingQuantumLevel++;
                                 ThinkingQuantumAtRun = false;
                             }
@@ -10453,40 +9840,35 @@ namespace QuantumRefrigiz
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
-                        //HeuristicKingDangourSup = 0;
+                        
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
-                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                 if (Order == 1)
-                     //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                 else
-                     //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-            */
+                        
                         ThinkingQuantumAtRun = false;
                     }
 
                 }
             }
             ThinkingQuantumAtRun = false;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CastlesThinkingQuantumChess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         void HourseThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object OO = new Object();
             lock (OO)
             {
@@ -10514,7 +9896,7 @@ namespace QuantumRefrigiz
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     if (!Sup)
@@ -10534,7 +9916,7 @@ namespace QuantumRefrigiz
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
@@ -10545,7 +9927,7 @@ namespace QuantumRefrigiz
 
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -10559,15 +9941,15 @@ namespace QuantumRefrigiz
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
-                            //{ ThinkingQuantumAtRun = false; return; }
+                            
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
@@ -10578,7 +9960,7 @@ namespace QuantumRefrigiz
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
 
                         }
@@ -10594,57 +9976,22 @@ namespace QuantumRefrigiz
                             int[] Hu = new int[10];
                             //if (!(IsSup[j]))
                             {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
+                                
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                ////HeuristicCheckedMate = 0;
+                                
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                //newTask1.ConfigureAwait(false);
+                                
                                 newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListHourse.Add(Hu);
                             }
-                            /*else
-                            {
-                                {
-                                    //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
-                                    //if (IgnoreFromCheckandMateHeuristic)
-                                        ////HeuristicCheckedMate = 0;
-                                    Hu[0] += HeuristicAttackValue + HeuristicAttackValueSup;
-                                    //HeuristicAttackValueSup = 0;
-                                    Hu[1] += HeuristicMovementValue + HeuristicMovementValueSup;
-                                    //HeuristicMovementValueSup = 0;
-                                    Hu[2] += HeuristicSelfSupportedValue + HeuristicSelfSupportedValueSup;
-                                    //HeuristicSelfSupportedValueSup = 0;
-                                    Hu[3] += HeuristicReducedMovementValue + HeuristicReducedMovementValueSup;
-                                    //HeuristicReducedMovementValueSup = 0;
-                                    Hu[4] += HeuristicReducedSupport + HeuristicReducedSupportSup;
-                                    //HeuristicReducedSupportSup = 0;
-                                    Hu[5] += HeuristicReducedAttackValue + HeuristicReducedAttackValueSup;
-                                    //HeuristicReducedAttackValueSup = 0;
-                                    Hu[6] += HeuristicDistributionValue + HeuristicDistributionValueSup;
-                                    //HeuristicDistributionValueSup = 0;
-                                    Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
-                                    //HeuristicKingSafeSup = 0;
-                                    Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
-                                    //HeuristicFromCenterSup = 0;
-                                    Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
-                                    //HeuristicKingDangourSup = 0;
-                                    H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                    HeuristicListHourse.Add(Hu);
-                                    IsSup = false;
-                                }
-                            }*/
+                            
                             Object O4 = new Object();
                             lock (O4)
                             {
-                                /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                                if (Order == 1)
-                                    //AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                else
-                                    //AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                */
+                                
                                 ThinkingQuantumLevel++;
                                 ThinkingQuantumAtRun = false;
                             }
@@ -10653,40 +10000,35 @@ namespace QuantumRefrigiz
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
-                        //HeuristicKingDangourSup = 0;
+                        
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
-                        /*
-                        if (Order == 1)
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            else
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                */
+                        
                         ThinkingQuantumAtRun = false;
                     }
 
                 }
             }
             ThinkingQuantumAtRun = false;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HourseThinkingQuantumChess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         //specific determination for ThinkingQuantum main method
         void ElephantThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object OO = new Object();
             lock (OO)
             {
@@ -10712,7 +10054,7 @@ namespace QuantumRefrigiz
 
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     if (!Sup)
@@ -10732,7 +10074,7 @@ namespace QuantumRefrigiz
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
@@ -10742,7 +10084,7 @@ namespace QuantumRefrigiz
                     }
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -10756,15 +10098,15 @@ namespace QuantumRefrigiz
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
-                            //{ ThinkingQuantumAtRun = false; return; }
+                            
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
@@ -10775,7 +10117,7 @@ namespace QuantumRefrigiz
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
 
                         }
@@ -10791,57 +10133,22 @@ namespace QuantumRefrigiz
                             int[] Hu = new int[10];
                             //if (!(IsSup[j]))
                             {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
+                                
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                ////HeuristicCheckedMate = 0;
+                                
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                //newTask1.ConfigureAwait(false);
+                                
                                 newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListElefant.Add(Hu);
                             }
-                            /*else
-                            {
-                                {
-                                    //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
-                                    //if (IgnoreFromCheckandMateHeuristic)
-                                        ////HeuristicCheckedMate = 0;
-                                    Hu[0] += HeuristicAttackValue + HeuristicAttackValueSup;
-                                    //HeuristicAttackValueSup = 0;
-                                    Hu[1] += HeuristicMovementValue + HeuristicMovementValueSup;
-                                    //HeuristicMovementValueSup = 0;
-                                    Hu[2] += HeuristicSelfSupportedValue + HeuristicSelfSupportedValueSup;
-                                    //HeuristicSelfSupportedValueSup = 0;
-                                    Hu[3] += HeuristicReducedMovementValue + HeuristicReducedMovementValueSup;
-                                    //HeuristicReducedMovementValueSup = 0;
-                                    Hu[4] += HeuristicReducedSupport + HeuristicReducedSupportSup;
-                                    //HeuristicReducedSupportSup = 0;
-                                    Hu[5] += HeuristicReducedAttackValue + HeuristicReducedAttackValueSup;
-                                    //HeuristicReducedAttackValueSup = 0;
-                                    Hu[6] += HeuristicDistributionValue + HeuristicDistributionValueSup;
-                                    //HeuristicDistributionValueSup = 0;
-                                    Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
-                                    //HeuristicKingSafeSup = 0;
-                                    Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
-                                    //HeuristicFromCenterSup = 0;
-                                    Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
-                                    //HeuristicKingDangourSup = 0;
-                                    H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                    HeuristicListElefant.Add(Hu);
-                                    IsSup = false;
-                                }
-                            }*/
+                            
                             Object O4 = new Object();
                             lock (O4)
                             {
-                                /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                                if (Order == 1)
-                                    //AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                else
-                                    //AllDraw.OutPut.Append("\r\nThinkingQuantum Hourse AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                */
+                                
                                 ThinkingQuantumLevel++;
                                 ThinkingQuantumAtRun = false;
                             }
@@ -10850,41 +10157,36 @@ namespace QuantumRefrigiz
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
-                        //HeuristicKingDangourSup = 0;
+                        
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
 
-                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                            if (Order == 1)
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            else
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Elephant AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            */
+                        
                         ThinkingQuantumAtRun = false;
                     }
 
                 }
             }
             ThinkingQuantumAtRun = false;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ElephantThinkingQuantumChess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //healthy of lists in learning auatama
         bool EqualitTow(bool PenRegStrore, int kind)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -10906,7 +10208,7 @@ namespace QuantumRefrigiz
                 else
                                     if (kind == 6 && PenRegStrore && UsePenaltyRegardMechnisamT && PenaltyRegardListKing.Count == TableListKing.Count)
                     Equality = true;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("EqualitTow:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Equality;
             }
         }
@@ -10915,7 +10217,7 @@ namespace QuantumRefrigiz
         bool EqualitOne(QuantumAtamata Current, int kind)
 #pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -10940,7 +10242,7 @@ namespace QuantumRefrigiz
                 else
                                      if (kind == 6 && Current.IsPenaltyAction() != 0 && UsePenaltyRegardMechnisamT && PenaltyRegardListKing != null && PenaltyRegardListKing.Count == TableListKing.Count)
                     Equality = true;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("EqualitOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Equality;
             }
         }
@@ -10949,7 +10251,7 @@ namespace QuantumRefrigiz
         void AddAtList(int kind, QuantumAtamata Current)
 #pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -10979,13 +10281,13 @@ namespace QuantumRefrigiz
                     //King.
                     PenaltyRegardListKing.Add(Current);
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("AddAtList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
 
         }
         //remove list
         void RemoveAtList(int kind)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -11015,12 +10317,12 @@ namespace QuantumRefrigiz
                     //King.
                     PenaltyRegardListKing.RemoveAt(PenaltyRegardListKing.Count - 1);
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RemoveAtList:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //learning autamata maib method
         void PenaltyMechanisam(ref bool RETURN, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object OO = new Object();
             lock (OO)
             {
@@ -11055,7 +10357,7 @@ namespace QuantumRefrigiz
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                
                                 RETURN = true; return;
                             }
 
@@ -11075,7 +10377,7 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmRegard();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                
                                 RETURN = true; return;
                             }
                         }
@@ -11093,7 +10395,7 @@ namespace QuantumRefrigiz
                                 RemoveAtList(kind);
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                
                                 RETURN = true; return;
                             }
 
@@ -11112,7 +10414,7 @@ namespace QuantumRefrigiz
                                 Current.LearningAlgorithmPenalty();
                                 AddAtList(kind, Current);
                                 CheckedM = 3;
-                                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                                
                                 RETURN = true; return;
                             }
                         }
@@ -11122,7 +10424,7 @@ namespace QuantumRefrigiz
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
-                            //RETURN = true; return;
+                            
                         }
                         if (Order == -1 && AA.CheckMateGray)
                         {
@@ -11130,21 +10432,21 @@ namespace QuantumRefrigiz
                             DoEnemySelf = false;
                             EnemyCheckMateActionsString = true;
                             CheckedM = -2;
-                            //RETURN = true; return;
+                            
                         }
                         if (Order == 1 && AA.CheckMateGray)
                         {
                             IsThereMateOfSelf = true;
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
-                            //RETURN = true; return;
+                            
                         }
                         if (Order == -1 && AA.CheckMateBrown)
                         {
                             IsThereMateOfSelf = true;
                             EnemyCheckMateActionsString = false;
                             CheckedM = -2;
-                            //RETURN = true; return;
+                            
                         }
 
                         if (Order == 1 && AA.CheckGray)
@@ -11157,7 +10459,7 @@ namespace QuantumRefrigiz
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //RETURN = true; return;
+                            
                         }
                         else
                             if (Order == -1 && AA.CheckBrown)
@@ -11171,7 +10473,7 @@ namespace QuantumRefrigiz
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //RETURN = true; return;
+                            
                         }
                         if (Order == 1 && AA.CheckBrown)
                         {
@@ -11183,7 +10485,7 @@ namespace QuantumRefrigiz
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //RETURN = true; return;
+                            
                         }
                         if (Order == -1 && AA.CheckGray)
                         {
@@ -11196,7 +10498,7 @@ namespace QuantumRefrigiz
                                 NumberOfPenalties++;
                             }
                             CheckedM = -1;
-                            //RETURN = true; return;
+                            
                         }
 
                         //if (FoundFirstSelfMating > 0)
@@ -11611,7 +10913,7 @@ namespace QuantumRefrigiz
                         }
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("PenaltyMechanisam:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return;
             }
         }
@@ -11619,7 +10921,7 @@ namespace QuantumRefrigiz
         {
             Object O = new Object();
             lock (O)
-            {   //long Time = TimeElapced.TimeNow();Spaces++;
+            {   
 
                 t.ConvertOperation((int)RowSource, (int)ColumnSource, color, CloneATable(TableS), Order, false, 0);
 
@@ -11641,15 +10943,9 @@ namespace QuantumRefrigiz
                     if (Order == -1)
                         TableS[RowDestination, ColumnDestination] *= -1;
 
-                    /*for (int ik = 0; ik < 8; ik++)
-                    {
-                        for (int jk = 0; jk < 8; jk++)
-                        {
-                            TableCon[ik, jk] = TableS[ik, jk];
-                        }
-                    }*/
+                    
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SoldierConversion:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
             }
         }
         int KilledBool(int row1, int col1, int row2, int col2, int[,] tab)
@@ -11755,9 +11051,9 @@ namespace QuantumRefrigiz
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnSoldier.Add(AS);
-                            //RowColumn[Index, 0] = RowDestination;
-                            //RowColumn[Index, 1] = ColumnDestination;
-                            //Index+=1;
+                            
+                            
+                            
                             TableListSolder.Add(CloneATable(TableS));
                             IndexSoldier++;
                         }
@@ -11772,9 +11068,9 @@ namespace QuantumRefrigiz
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnElefant.Add(AS);
-                            //RowColumn[Index, 0] = RowDestination;
-                            //RowColumn[Index, 1] = ColumnDestination;
-                            //Index+=1;
+                            
+                            
+                            
                             TableListElefant.Add(CloneATable(TableS));
                             IndexElefant++;
                         }
@@ -11789,9 +11085,9 @@ namespace QuantumRefrigiz
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnHourse.Add(AS);
-                            //RowColumn[Index, 0] = RowDestination;
-                            //RowColumn[Index, 1] = ColumnDestination;
-                            //Index+=1;
+                            
+                            
+                            
                             TableListHourse.Add(CloneATable(TableS));
                             IndexHourse++;
                         }
@@ -11806,9 +11102,9 @@ namespace QuantumRefrigiz
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnCastle.Add(AS);
-                            //RowColumn[Index, 0] = RowDestination;
-                            //RowColumn[Index, 1] = ColumnDestination;
-                            //Index+=1;
+                            
+                            
+                            
                             TableListCastle.Add(CloneATable(TableS));
                             IndexCastle++;
                         }
@@ -11822,9 +11118,9 @@ namespace QuantumRefrigiz
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnMinister.Add(AS);
-                            //RowColumn[Index, 0] = RowDestination;
-                            //RowColumn[Index, 1] = ColumnDestination;
-                            //Index+=1;
+                            
+                            
+                            
                             TableListMinister.Add(CloneATable(TableS));
                             IndexMinister++;
                         }
@@ -11839,9 +11135,9 @@ namespace QuantumRefrigiz
                             AS[0] = RowDestination;
                             AS[1] = ColumnDestination;
                             RowColumnKing.Add(AS);
-                            //RowColumn[Index, 0] = RowDestination;
-                            //RowColumn[Index, 1] = ColumnDestination;
-                            //Index+=1;
+                            
+                            
+                            
                             TableListKing.Add(CloneATable(TableS));
                             IndexKing++;
                         }
@@ -11860,9 +11156,9 @@ namespace QuantumRefrigiz
                     AS[0] = RowDestination;
                     AS[1] = ColumnDestination;
                     RowColumnSoldier.Add(AS);
-                    //RowColumn[Index, 0] = RowDestination;
-                    //RowColumn[Index, 1] = ColumnDestination;
-                    //Index+=1;
+                    
+                    
+                    
                     TableListSolder.Add(CloneATable(TableS));
                     IndexSoldier++;
 
@@ -11877,9 +11173,9 @@ namespace QuantumRefrigiz
                     AS[0] = RowDestination;
                     AS[1] = ColumnDestination;
                     RowColumnElefant.Add(AS);
-                    //RowColumn[Index, 0] = RowDestination;
-                    //RowColumn[Index, 1] = ColumnDestination;
-                    //Index+=1;
+                    
+                    
+                    
                     TableListElefant.Add(CloneATable(TableS));
                     IndexElefant++;
 
@@ -11894,9 +11190,9 @@ namespace QuantumRefrigiz
                     AS[0] = RowDestination;
                     AS[1] = ColumnDestination;
                     RowColumnHourse.Add(AS);
-                    //RowColumn[Index, 0] = RowDestination;
-                    //RowColumn[Index, 1] = ColumnDestination;
-                    //Index+=1;
+                    
+                    
+                    
                     TableListHourse.Add(CloneATable(TableS));
                     IndexHourse++;
 
@@ -11911,9 +11207,9 @@ namespace QuantumRefrigiz
                     AS[0] = RowDestination;
                     AS[1] = ColumnDestination;
                     RowColumnCastle.Add(AS);
-                    //RowColumn[Index, 0] = RowDestination;
-                    //RowColumn[Index, 1] = ColumnDestination;
-                    //Index+=1;
+                    
+                    
+                    
                     TableListCastle.Add(CloneATable(TableS));
                     IndexCastle++;
 
@@ -11928,9 +11224,9 @@ namespace QuantumRefrigiz
                     AS[0] = RowDestination;
                     AS[1] = ColumnDestination;
                     RowColumnMinister.Add(AS);
-                    //RowColumn[Index, 0] = RowDestination;
-                    //RowColumn[Index, 1] = ColumnDestination;
-                    //Index+=1;
+                    
+                    
+                    
                     TableListMinister.Add(CloneATable(TableS));
                     IndexSoldier++;
 
@@ -11945,9 +11241,9 @@ namespace QuantumRefrigiz
                     AS[0] = RowDestination;
                     AS[1] = ColumnDestination;
                     RowColumnKing.Add(AS);
-                    //RowColumn[Index, 0] = RowDestination;
-                    //RowColumn[Index, 1] = ColumnDestination;
-                    //Index+=1;
+                    
+                    
+                    
                     TableListKing.Add(CloneATable(TableS));
                     IndexKing++;
 
@@ -11967,7 +11263,7 @@ namespace QuantumRefrigiz
         }
         void SolderThinkingQuantumChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -11994,14 +11290,14 @@ namespace QuantumRefrigiz
                     ThinkingQuantumAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
                     bool Sup = false;
                     var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
                     if (!Sup)
                     {
                         newTask1 = Task.Factory.StartNew(() => SoldierConversion(ref t, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
                         ///Add Table to List of Private.
                         HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
@@ -12017,7 +11313,7 @@ namespace QuantumRefrigiz
                     lock (A)
                     {
                         newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
                     }
                     Object A1 = new object();
@@ -12029,7 +11325,7 @@ namespace QuantumRefrigiz
 
                     int Killed = 0;
                     newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS, t));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -12042,15 +11338,15 @@ namespace QuantumRefrigiz
                             PenaltyVCar = false;
                             int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
-                            //{ ThinkingQuantumAtRun = false; return; }
+                            
                         }
                     }
 
                     ///Store of Indexes Changes and Table in specific List.
                     newTask1 = Task.Factory.StartNew(() => ObjectIndexes(Kind, Sup, RowDestination, ColumnDestination, TableS));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     ///Wehn Predict of Operation Do operate a Predict of this movments.
@@ -12061,7 +11357,7 @@ namespace QuantumRefrigiz
                         if (!Sup)
                         {
                             newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                            //newTask1.ConfigureAwait(false);
+                            
                             newTask1.Wait(); newTask1.Dispose();
 
                         }
@@ -12077,56 +11373,23 @@ namespace QuantumRefrigiz
                             int[] Hu = new int[10];
                             //if (!(IsSup[j]))
                             {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
+                                
                                 //if (IgnoreFromCheckandMateHeuristic)
-                                ////HeuristicCheckedMate = 0;
+                                
 
                                 newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                                //newTask1.ConfigureAwait(false);
+                                
                                 newTask1.Wait(); newTask1.Dispose();
 
                                 H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
                                 HeuristicListSolder.Add(Hu);
                             }
-                            /*else
-                            {
-                                //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
-                                //if (IgnoreFromCheckandMateHeuristic)
-                                    ////HeuristicCheckedMate = 0;
-                                Hu[0] += HeuristicAttackValue + HeuristicAttackValueSup;
-                                HeuristicAttackValueSup = 0;
-                                Hu[1] += HeuristicMovementValue + HeuristicMovementValueSup;
-                                HeuristicMovementValueSup = 0;
-                                Hu[2] += HeuristicSelfSupportedValue + HeuristicSelfSupportedValueSup;
-                                HeuristicSelfSupportedValueSup = 0;
-                                Hu[3] += HeuristicReducedMovementValue + HeuristicReducedMovementValueSup;
-                                HeuristicReducedMovementValueSup = 0;
-                                Hu[4] += HeuristicReducedSupport + HeuristicReducedSupportSup;
-                                HeuristicReducedSupportSup = 0;
-                                Hu[5] += HeuristicReducedAttackValue + HeuristicReducedAttackValueSup;
-                                HeuristicReducedAttackValueSup = 0;
-                                Hu[6] += HeuristicDistributionValue + HeuristicDistributionValueSup;
-                                HeuristicDistributionValueSup = 0;
-                                Hu[7] += HeuristicKingSafe + HeuristicKingSafeSup;
-                                HeuristicKingSafeSup = 0;
-                                Hu[8] = HeuristicFromCenter + HeuristicFromCenterSup;
-                                HeuristicFromCenterSup = 0;
-                                Hu[9] = HeuristicKingDangour + HeuristicKingDangourSup;
-                                HeuristicKingDangourSup = 0;
-                                H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
-                                HeuristicListSolder.Add(Hu);
-                                IsSup = false;
-                            }*/
+                            
                         }
                         Object O4 = new Object();
                         lock (O4)
                         {
-                            /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                            if (Order == 1)
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            else
-                                //AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                            */
+                            
                             ThinkingQuantumLevel++;
                             ThinkingQuantumAtRun = false;
                         }
@@ -12134,28 +11397,23 @@ namespace QuantumRefrigiz
                     else
                     {
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
                         int[] Hu = new int[10];
 
                         newTask1 = Task.Factory.StartNew(() => HuMethodSup(ref Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
-                        //HeuristicKingDangourSup = 0;
+                        
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
                         newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
-                        //newTask1.ConfigureAwait(false);
+                        
                         newTask1.Wait(); newTask1.Dispose();
 
-                        /*OutPutAction = " " + Alphabet(RowSource) + Number(ColumnSource) + Alphabet(RowDestination) + Number(ColumnDestination) + CheM(CheckedM) + " With Heuristic " + H);
-                                           if (Order == 1)
-                                               //AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                           else
-                                               //AllDraw.OutPut.Append("\r\nThinkingQuantum Soldier AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + OutPutAction;
-                                           */
+                        
                         ThinkingQuantumAtRun = false;
                     }
 
@@ -12163,12 +11421,12 @@ namespace QuantumRefrigiz
                 }
             }
             ThinkingQuantumAtRun = false;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SolderThinkingQuantumChess:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         void CastleThinkingQuantumBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -12190,25 +11448,25 @@ namespace QuantumRefrigiz
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 //When is Brown Castles King.
 
-                //bool Sup = false;
+                
                 if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                 {
                     IsSup.Add(true);
                     IsSupHu.Add(true);
-                    //Sup = true;
+                    
                 }
                 else
              if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                 {
                     IsSup.Add(true);
                     IsSupHu.Add(true);
-                    // Sup = true;
+                    
                 }
                 else
                 {
                     IsSup.Add(false);
                     IsSupHu.Add(false);
-                    //Sup = false;
+                    
                 }
 
                 //Calcuilate Heuristic Before Movment.
@@ -12218,7 +11476,7 @@ namespace QuantumRefrigiz
                     ThinkingQuantumRun = true;
                 }
                 var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                //newTask1.ConfigureAwait(false);
+                
                 newTask1.Wait(); newTask1.Dispose();
                 Object A = new object();
                 lock (A)
@@ -12231,7 +11489,7 @@ namespace QuantumRefrigiz
                     TableS[RowSource - 1, ColumnDestination] = -4;
                     TableS[RowSource - 2, ColumnDestination] = -6;
                     TableS[RowSource, ColumnSource] = 0;
-                    //TableS[0, ColumnSource] = 0;
+                    
 
                 }
 
@@ -12240,17 +11498,17 @@ namespace QuantumRefrigiz
                     TableS[RowSource + 1, ColumnDestination] = -4;
                     TableS[RowSource + 2, ColumnDestination] = -6;
                     TableS[RowSource, ColumnSource] = 0;
-                    //TableS[7, ColumnSource] = 0;
+                    
 
                 }
 
                 PenaltyVCar = false;
                 int tmpL = LoseOcuuredatChiled, tmpP = WinOcuuredatChiled;
                 newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
-                //newTask1.ConfigureAwait(false);
+                
                 newTask1.Wait(); newTask1.Dispose();
 
-                //{ ThinkingQuantumAtRun = false; return; }
+                
                 //Store Movments Items. 
                 int[] AS = new int[2];
                 AS[0] = RowDestination;
@@ -12263,12 +11521,12 @@ namespace QuantumRefrigiz
                 Object A6 = new Object();
                 lock (A6)
                 {
-                    //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
+                    
                     //if (IgnoreFromCheckandMateHeuristic)
-                    ////HeuristicCheckedMate = 0;
+                    
 
                     newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
                     H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
@@ -12282,27 +11540,27 @@ namespace QuantumRefrigiz
                     if (RowDestination < RowSource)
                     {
                         if (Order == 1)
-                            //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Heuristic " + H);
+                            
                             //else
-                            //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Heuristic " + H);
+                            
                             ThinkingQuantumLevel++;
                     }
                     else
                     {
                         if (Order == 1)
-                            //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Heuristic " + H);
+                            
                             //else
-                            //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Heuristic " + H);
+                            
                             ThinkingQuantumLevel++;
                     }
-                    //HeuristicListKing.Add(Hu);
+                    
 
                     ThinkingQuantumAtRun = false;
                 }
 
             }
             ThinkingQuantumAtRun = false;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CastleThinkingQuantumBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
 
         }
 
@@ -12400,7 +11658,7 @@ namespace QuantumRefrigiz
                         });
                     }
                 });
-                //output.ConfigureAwait(false);
+                
 
                 output.Wait(); output.Dispose();
 
@@ -12499,7 +11757,7 @@ namespace QuantumRefrigiz
                      });
                     }
                 });
-                //output1.ConfigureAwait(false);
+                
 
                 output1.Wait(); output1.Dispose();
                 //Central control befor attack
@@ -12568,7 +11826,7 @@ namespace QuantumRefrigiz
        , ref int HeuristicFromCenter
        , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object OO = new Object();
             lock (OO)
             {
@@ -12613,8 +11871,8 @@ namespace QuantumRefrigiz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    //HDistance /= 10;
-                    //HFromCenter /= 10;
+                    
+                    
                     if (Before)
                     {
 
@@ -12634,7 +11892,7 @@ namespace QuantumRefrigiz
                             //Disturbe on huge traversal exchange prevention 
                             if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             {
-                                //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                
                                 //if (Before)
                                 SetSupHuTrue();
                             }
@@ -12693,7 +11951,7 @@ namespace QuantumRefrigiz
                             }
                             //when thre is most reduced support finding
                             int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-                            //There is Attack to it;
+                            
                             if (IsNo != null)
                             {
                                 if (IsNo[1] < HeuristicAllReducedSupport.Count)
@@ -12723,7 +11981,7 @@ namespace QuantumRefrigiz
                             //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
                             {
-                                //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                
                                 //if (Before)
                                 SetSupHuTrue();
                                 IsS = true;
@@ -12797,7 +12055,7 @@ namespace QuantumRefrigiz
                             }
                             //when thre is most reduced support finding
                             int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-                            //There is Attack to it;
+                            
                             if (IsNo != null)
                             {
                                 if (IsNo[1] < HeuristicAllReducedSupport.Count)
@@ -12813,7 +12071,7 @@ namespace QuantumRefrigiz
                 }
             }
 
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CalculateHeuristics:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
         {
@@ -12980,7 +12238,7 @@ namespace QuantumRefrigiz
         //specific determination for ThinkingQuantum main method
         void CastleThinkingQuantumGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13009,7 +12267,7 @@ namespace QuantumRefrigiz
                 }
 
                 var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                //newTask1.ConfigureAwait(false);
+                
                 newTask1.Wait(); newTask1.Dispose();
 
                 Object A = new object();
@@ -13017,25 +12275,25 @@ namespace QuantumRefrigiz
                 {
                     NumbersOfAllNode++;
                 }
-                // bool Sup = false;
+                
                 if (TableS[RowDestination, ColumnDestination] > 0 && TableS[RowSource, ColumnSource] > 0)
                 {
                     IsSup.Add(true);
                     IsSupHu.Add(true);
-                    //Sup = true;
+                    
                 }
                 else
              if (TableS[RowDestination, ColumnDestination] < 0 && TableS[RowSource, ColumnSource] < 0)
                 {
                     IsSup.Add(true);
                     IsSupHu.Add(true);
-                    //Sup = true;
+                    
                 }
                 else
                 {
                     IsSup.Add(false);
                     IsSupHu.Add(false);
-                    //Sup = false;
+                    
                 }
 
                 int Killed = 0;
@@ -13044,7 +12302,7 @@ namespace QuantumRefrigiz
                     TableS[RowSource - 1, ColumnDestination] = 4;
                     TableS[RowSource - 2, ColumnDestination] = 6;
                     TableS[RowSource, ColumnSource] = 0;
-                    //TableS[0, ColumnSource] = 0;
+                    
 
                 }
 
@@ -13053,7 +12311,7 @@ namespace QuantumRefrigiz
                     TableS[RowSource + 1, ColumnDestination] = 4;
                     TableS[RowSource + 2, ColumnDestination] = 6;
                     TableS[RowSource, ColumnSource] = 0;
-                    //TableS[7, ColumnSource] = 0;
+                    
 
                 }
                 PenaltyVCar = false;
@@ -13061,7 +12319,7 @@ namespace QuantumRefrigiz
                 newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
                 newTask1.Wait(); newTask1.Dispose();
 
-                //{ ThinkingQuantumAtRun = false; return; }
+                
 
                 //Store Movments Items.
                 int[] AS = new int[2];
@@ -13074,7 +12332,7 @@ namespace QuantumRefrigiz
                 //Caused this for Stachostic results.
 
                 newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
-                //newTask1.ConfigureAwait(false);
+                
                 newTask1.Wait(); newTask1.Dispose();
 
                 String H = "";
@@ -13082,12 +12340,12 @@ namespace QuantumRefrigiz
                 Object A6 = new Object();
                 lock (A6)
                 {
-                    //HeuristicPenaltyValuePerform(Current, Order, ref HeuristicAttackValue);
+                    
                     //if (IgnoreFromCheckandMateHeuristic)
-                    ////HeuristicCheckedMate = 0;
+                    
 
                     newTask1 = Task.Factory.StartNew(() => HuMethod(ref Hu, HeuristicAttackValue, HeuristicMovementValue, HeuristicSelfSupportedValue, HeuristicReducedMovementValue, HeuristicReducedSupport, HeuristicReducedAttackValue, HeuristicDistributionValue, HeuristicKingSafe, HeuristicFromCenter, HeuristicKingDangour, HeuristicCheckedMate));
-                    //newTask1.ConfigureAwait(false);
+                    
                     newTask1.Wait(); newTask1.Dispose();
 
 
@@ -13100,17 +12358,17 @@ namespace QuantumRefrigiz
                     if (RowDestination < RowSource)
                     {
                         //if (Order == 1)
-                        //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Heuristic " + H);
+                        
                         //else
-                        //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O-O" + " With Heuristic " + H);
+                        
                         ThinkingQuantumLevel++;
                     }
                     else
                     {
                         //if (Order == 1)
-                        //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Bob at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Heuristic " + H);
+                        
                         //else
-                        //AllDraw.OutPut.Append("\r\nThinkingQuantum Castle AStarGreedy By Level " + CurrentAStarGredyMax.ToString() + " Alice at " + ThinkingQuantumLevel.ToString() + "th ThinkingQuantum String " + "O-O" + " With Heuristic " + H);
+                        
                         ThinkingQuantumLevel++;
                     }
                     HeuristicListKing.Add(Hu);
@@ -13119,13 +12377,13 @@ namespace QuantumRefrigiz
                 }
             }
             ThinkingQuantumAtRun = false;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CastleThinkingQuantumGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
 #pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public void HeuristicPenaltyValuePerform(QuantumAtamata Current, int Order, ref int HeuristicAttackValue, bool AllDrawclass = false)
 #pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
 
             Object O1 = new Object();
             lock (O1)
@@ -13135,27 +12393,27 @@ namespace QuantumRefrigiz
                     if (AllDraw.OrderPlate == Order)
                     {
                         if (Current.IsPenaltyAction() == 0)
-                            //HeuristicAttackValue += (-300 / DivisionPenaltyRegardHeuristicQueficient);
+                            
                             HeuristicAttackValue--;
                     }
                     else
                         if (AllDraw.OrderPlate != Order)
                     {
                         if (Current.IsPenaltyAction() == 0)
-                            //HeuristicAttackValue += (300 / DivisionPenaltyRegardHeuristicQueficient);
+                            
                             HeuristicAttackValue++;
                     }
                     if (AllDraw.OrderPlate == Order)
                     {
                         if (Current.IsRewardAction() == 1)
-                            //HeuristicAttackValue += (300 / DivisionPenaltyRegardHeuristicQueficient);
+                            
                             HeuristicAttackValue++;
                     }
                     else
                         if (AllDraw.OrderPlate != Order)
                     {
                         if (Current.IsRewardAction() == 1)
-                            //HeuristicAttackValue += (-300 / DivisionPenaltyRegardHeuristicQueficient);
+                            
                             HeuristicAttackValue++;
                     }
                 }
@@ -13166,38 +12424,38 @@ namespace QuantumRefrigiz
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (Current.IsPenaltyAction() == 0)
-                                //HeuristicAttackValue += (-1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                
                                 HeuristicAttackValue -= 2;
                         }
                         else
                           if (AllDraw.OrderPlate != Order)
                         {
                             if (Current.IsPenaltyAction() == 0)
-                                //HeuristicAttackValue += (1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                
                                 HeuristicAttackValue += 2;
                         }
                         if (AllDraw.OrderPlate == Order)
                         {
                             if (Current.IsRewardAction() == 1)
-                                //HeuristicAttackValue += (1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                
                                 HeuristicAttackValue += 2;
                         }
                         else
                             if (AllDraw.OrderPlate != Order)
                         {
                             if (Current.IsRewardAction() == 1)
-                                //    HeuristicAttackValue += (-1000000 / DivisionPenaltyRegardHeuristicQueficient);
+                                
                                 HeuristicAttackValue -= 2;
                         }
                     }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicPenaltyValuePerform:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumSoldierbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -13215,16 +12473,16 @@ namespace QuantumRefrigiz
 
                     int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => SolderThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
-                    //newTask.ConfigureAwait(false);
-                    //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                    //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                    //oSerialiser.Serialize(oStream, newTask);   
+                    
+                    
+                    
+                    
                     newTask.Wait(); newTask.Dispose();
                     LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                    //oStream.Close();
+                    
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumSoldierbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         void ThinkWait()
         {
@@ -13237,7 +12495,7 @@ namespace QuantumRefrigiz
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumSoldier(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13263,27 +12521,27 @@ namespace QuantumRefrigiz
                                     }
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldierbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                                //newTask.ConfigureAwait(false);
-                                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                                //oSerialiser.Serialize(oStream, newTask);
+                                
+                                
+                                
+                                
                                 newTask.Wait(); newTask.Dispose();
                                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                                //oStream.Close();
-                                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                                
+                                
                             }
 
                         }
 
-                    }//);
-                }//);
+                    }
+                }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumSoldier:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumElephantbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13304,23 +12562,23 @@ namespace QuantumRefrigiz
                         Order = ord;
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ElephantThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
-                        //newTask.ConfigureAwait(false);
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumElephantbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
 
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumElephant(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O2 = new Object();
             lock (O2)
             {
@@ -13341,18 +12599,18 @@ namespace QuantumRefrigiz
                             {
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumElephantbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                                //newTask.ConfigureAwait(false);
-                                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                                //oSerialiser.Serialize(oStream, newTask);
+                                
+                                
+                                
+                                
                                 newTask.Wait(); newTask.Dispose();
                                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                                //oStream.Close();
-                                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                                
+                                
                             }
 
                         }
-                    }//);
+                    }
                     //==================
                     ////Parallel.For(0, 8, i =>
                     for (var i = 0; i < 8; i++)
@@ -13365,20 +12623,20 @@ namespace QuantumRefrigiz
                             if (Scop(ii, jj, i, j, 2))
                             {
                                 ThinkingQuantumElephantbase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-                                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                                
                             }
 
                             ThinkingQuantumAtRun = false;
                         }
-                    }//);
+                    }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumElephant:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourseOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13399,22 +12657,22 @@ namespace QuantumRefrigiz
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle));
-                        //newTask.ConfigureAwait(false);
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourseOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourseTwo(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13434,22 +12692,22 @@ namespace QuantumRefrigiz
                 {
                     int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj - 1, Castle));
-                    //newTask.ConfigureAwait(false);
-                    //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                    //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                    //oSerialiser.Serialize(oStream, newTask);
+                    
+                    
+                    
+                    
                     newTask.Wait(); newTask.Dispose();
                     LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                    //oStream.Close();
+                    
                 }
 
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourseTwo:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourseThree(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13470,22 +12728,22 @@ namespace QuantumRefrigiz
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle));
-                        //newTask.ConfigureAwait(false);
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourseThree:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourseFour(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13504,21 +12762,21 @@ namespace QuantumRefrigiz
                 {
                     int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle));
-                    //newTask.ConfigureAwait(false);
-                    //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                    //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                    //oSerialiser.Serialize(oStream, newTask);
+                    
+                    
+                    
+                    
                     newTask.Wait(); newTask.Dispose();
                     LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                    //oStream.Close();
+                    
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourseFour:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourseFive(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13542,22 +12800,22 @@ namespace QuantumRefrigiz
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj + 2, Castle));
-                        //newTask.ConfigureAwait(false);
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourseFive:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourseSix(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13580,22 +12838,22 @@ namespace QuantumRefrigiz
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle));
-                        //newTask.ConfigureAwait(false);
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourseSix:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourseSeven(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -13619,22 +12877,22 @@ namespace QuantumRefrigiz
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle));
-                        //newTask.ConfigureAwait(false);
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourseSeven:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourseEight(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O111 = new Object();
             lock (O111)
             {
@@ -13656,39 +12914,39 @@ namespace QuantumRefrigiz
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle));
-                        //newTask.ConfigureAwait(false);
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
 
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourseEight:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
 
 
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumHourse(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
 
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseOne(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask.ConfigureAwait(false);
-                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                //oSerialiser.Serialize(oStream, newTask);
+                
+                
+                
+                
                 newTask.Wait(); newTask.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                //oStream.Close();
-                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                
+                
             }
             Object O1 = new Object();
             lock (O1)
@@ -13696,14 +12954,14 @@ namespace QuantumRefrigiz
 
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseTwo(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask.ConfigureAwait(false);
-                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                //oSerialiser.Serialize(oStream, newTask);
+                
+                
+                
+                
                 newTask.Wait(); newTask.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                //oStream.Close();
-                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                
+                
             }
             Object O2 = new Object();
             lock (O2)
@@ -13711,14 +12969,14 @@ namespace QuantumRefrigiz
 
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseThree(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask.ConfigureAwait(false);
-                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                //oSerialiser.Serialize(oStream, newTask);
+                
+                
+                
+                
                 newTask.Wait(); newTask.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                //oStream.Close();
-                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                
+                
             }
             Object O3 = new Object();
             lock (O3)
@@ -13726,14 +12984,14 @@ namespace QuantumRefrigiz
 
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseFour(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask.ConfigureAwait(false);
-                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                //oSerialiser.Serialize(oStream, newTask);
+                
+                
+                
+                
                 newTask.Wait(); newTask.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                //oStream.Close();
-                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                
+                
             }
             Object O4 = new Object();
             lock (O4)
@@ -13741,14 +12999,14 @@ namespace QuantumRefrigiz
 
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseFive(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask.ConfigureAwait(false);
-                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                //oSerialiser.Serialize(oStream, newTask);
+                
+                
+                
+                
                 newTask.Wait(); newTask.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                //oStream.Close();
-                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                
+                
             }
             Object O5 = new Object();
             lock (O5)
@@ -13756,13 +13014,13 @@ namespace QuantumRefrigiz
 
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseSix(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                //oSerialiser.Serialize(oStream, newTask);
+                
+                
+                
                 newTask.Wait(); newTask.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                //oStream.Close();
-                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                
+                
             }
             Object O6 = new Object();
             lock (O6)
@@ -13770,14 +13028,14 @@ namespace QuantumRefrigiz
 
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseSeven(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask.ConfigureAwait(false);
-                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                //oSerialiser.Serialize(oStream, newTask);
+                
+                
+                
+                
                 newTask.Wait(); newTask.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                //oStream.Close();
-                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                
+                
             }
             Object O7 = new Object();
             lock (O7)
@@ -13785,21 +13043,21 @@ namespace QuantumRefrigiz
 
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingQuantumHourseEight(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask.ConfigureAwait(false);
-                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                //oSerialiser.Serialize(oStream, newTask);
+                
+                
+                
+                
                 newTask.Wait(); newTask.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                //oStream.Close();
-                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                
+                
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumHourse:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumCastleOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
 
             Object O1 = new Object();
             lock (O1)
@@ -13822,27 +13080,27 @@ namespace QuantumRefrigiz
 
                         if (Scop(ii, jj, i, j, 4) && System.Math.Abs(TableS[ii, jj]) == 4 && System.Math.Abs(Kind) == 4)
                         {
-                            //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                            
                             Order = ord;
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
-                            //newTask.ConfigureAwait(false);
-                            //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                            //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            //oSerialiser.Serialize(oStream, newTask);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
                             LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                            //oStream.Close();
+                            
                         }
                     }
-                }//);
+                }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumCastleOne:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumCastleTow(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             //==================
             Object O1 = new Object();
             lock (O1)
@@ -13866,7 +13124,7 @@ namespace QuantumRefrigiz
 
                         if (Scop(ii, jj, i, j, 4) && System.Math.Abs(TableS[ii, jj]) == 4 && System.Math.Abs(Kind) == 4)
                         {
-                            //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                            
                             Order = ord;
                             CastlesThinkingQuantumChess(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle
     );
@@ -13874,35 +13132,35 @@ namespace QuantumRefrigiz
 
                     }
 
-                }//);
+                }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumCastleTow:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumCastle(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
 
             Object O = new Object();
             lock (O)
             {
                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                 var newTask1 = Task.Factory.StartNew(() => ThinkingQuantumCastleOne(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask1.ConfigureAwait(false);
+                
                 newTask1.Wait(); newTask1.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 var newTask2 = Task.Factory.StartNew(() => ThinkingQuantumCastleTow(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                //newTask2.ConfigureAwait(false);
+                
                 newTask2.Wait(); newTask2.Dispose();
                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
             }
 
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumMinisterbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13918,33 +13176,33 @@ namespace QuantumRefrigiz
                 Object O = new Object();
                 lock (O)
                 {
-                    //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                    
 
 
                     if (Scop(ii, jj, i, j, 5) && System.Math.Abs(TableS[ii, jj]) == 5 && System.Math.Abs(Kind) == 5)
                     {
-                        //Thread ss = new Thread(new ThreadStart(ThinkWait)); ss.Start(); ss.Join();
+                        
                         Order = ord;
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => MinisterThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        //newTask.ConfigureAwait(false);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
 
                     }
 
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumMinisterbase:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumMinister(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -13965,31 +13223,31 @@ namespace QuantumRefrigiz
                         {
                             int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => ThinkingQuantumMinisterbase(ref tmpL, ref tmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                            //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            //oSerialiser.Serialize(oStream, newTask);
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
                             LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                            //oStream.Close();
+                            
 
 
                         }
-                    }//);
-                }//);
+                    }
+                }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumCastleGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
                 for (var i = ii - 2; i < ii + 2; i++)
                 {
-                    //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                    
 
 
 
@@ -14004,30 +13262,30 @@ namespace QuantumRefrigiz
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => CastleThinkingQuantumBrown(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        //newTask.ConfigureAwait(false);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
                     ThinkingQuantumAtRun = false;
                 }
             }
 
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumCastleGray:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumCastleBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
                 for (var i = ii - 2; i < ii + 2; i++)
                 {
-                    //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                    
 
 
                     ///Initiate a Local Variables.
@@ -14040,24 +13298,24 @@ namespace QuantumRefrigiz
                     {
                         int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => CastleThinkingQuantumGray(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle));
-                        //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                        //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                        //oSerialiser.Serialize(oStream, newTask);
-                        //newTask.ConfigureAwait(false);
+                        
+                        
+                        
+                        
                         newTask.Wait(); newTask.Dispose();
                         LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                        //oStream.Close();
+                        
                     }
                     ThinkingQuantumAtRun = false;
                 }
 
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumCastleBrown:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //specific determination for ThinkingQuantum main method
         public void ThinkingQuantumKing(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O1 = new Object();
             lock (O1)
             {
@@ -14086,25 +13344,25 @@ namespace QuantumRefrigiz
                                 }
                             if (Scop(ii, jj, i, j, 6) && System.Math.Abs(TableS[ii, jj]) == 6 && System.Math.Abs(Kind) == 6)
                             {
-                                //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
+                                
                                 Order = ord;
 
                                 int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => KingThinkingQuantumChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
-                                //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                                //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                                //oSerialiser.Serialize(oStream, newTask);
-                                //newTask.ConfigureAwait(false);
+                                
+                                
+                                
+                                
                                 newTask.Wait(); newTask.Dispose();
                                 LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
-                                //oStream.Close();
+                                
 
                             }
-                        }//);
-                    }//);
+                        }
+                    }
                 }
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumKing:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         ///Kernel of ThinkingQuantum
         //specific ThinkingQuantum main method
@@ -14118,13 +13376,13 @@ namespace QuantumRefrigiz
                     if (AllDraw.NumberOfLeafComputation != -1)
                         break;
 
-                }// S += 2; if (AllDraw.Blitz) { if (S > ThresholdBlitz)break; } else { if (S > ThresholdFullGame)break; } }
+                }
             }
         }
         //operantinal of creation of current deeper node and set string making
         void FullGameThinkingQuantumTreeInitialization(AllDraw THIS, int ik, int j, int Order, int kind)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             //soldier
             if (kind == 1)
             {
@@ -14210,7 +13468,7 @@ namespace QuantumRefrigiz
                     AStarGreedy[AStarGreedy.Count - 1].AStarGreedyString = THIS;
                 }
             }
-            //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("FullGameThinkingQuantumTreeInitialization:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //Deeper than deeper
         void ThinkingQuantumFullGame(int iAStarGreedy, AllDraw THIS)
@@ -14325,97 +13583,11 @@ namespace QuantumRefrigiz
 
                 }
 
-                /* if (AStarGreedy == null)
-                      AStarGreedy = new List<AllDraw>();
-                  if (Kind == 1)
-                      {
-                          if (AStarGreedy.Count != TableListSolder.Count)
-
-                          {
-                          AStarGreedy.Clear();
-                          IndexSoldier = 0;
-                              RowColumnSoldier.Clear();
-                              TableListSolder.Clear();
-                              HeuristicListSolder.Clear();
-                              HitNumberSoldier.Clear();
-                          ThinkingQuantumAtRun = false;
-                      }
-                  }
-                      else
-                        if (Kind == 2)
-                      {
-                          if (AStarGreedy.Count != TableListElefant.Count)
-                          {
-                          AStarGreedy.Clear();
-                          IndexElefant = 0;
-                              RowColumnElefant.Clear();
-                              TableListElefant.Clear();
-                              HeuristicListElefant.Clear();
-                              HitNumberElefant.Clear();
-                          ThinkingQuantumAtRun = false;
-                      }
-                  }
-                      else
-                    if (Kind == 3)
-                      {
-                          if (AStarGreedy.Count != TableListHourse.Count)
-                          {
-                          AStarGreedy.Clear();
-                          IndexHourse = 0;
-                              RowColumnHourse.Clear();
-                              TableListHourse.Clear();
-                              HeuristicListHourse.Clear();
-                              HitNumberHourse.Clear();
-                          ThinkingQuantumAtRun = false;
-                      }
-                  }
-
-                      else
-                      if (Kind == 4)
-                      {
-                          if (AStarGreedy.Count != TableListCastle.Count)
-                          {
-                          AStarGreedy.Clear();
-                          IndexCastle = 0;
-                              RowColumnCastle.Clear();
-                              TableListCastle.Clear();
-                              HeuristicListCastle.Clear();
-                              HitNumberCastle.Clear();
-                          ThinkingQuantumAtRun = false;
-                      }
-                  }
-                      else
-                    if (Kind == 5)
-                      {
-                          if (AStarGreedy.Count != TableListMinister.Count)
-                          {
-                          AStarGreedy.Clear();
-                          IndexMinister = 0;
-                              RowColumnMinister.Clear();
-                              TableListMinister.Clear();
-                              HeuristicListMinister.Clear();
-                              HitNumberMinister.Clear();
-                          ThinkingQuantumAtRun = false;
-                      }
-                  }
-                  if (Kind == 6)
-                  {
-                      if (AStarGreedy.Count != TableListKing.Count)
-                      {
-                          AStarGreedy.Clear();
-                          IndexKing = 0;
-                          RowColumnKing.Clear();
-                          TableListKing.Clear();
-                          HeuristicListKing.Clear();
-                          HitNumberKing.Clear();
-                          ThinkingQuantumAtRun = false;
-                      }
-
-                  }*/
+                
 
 
 
-                //long Time = TimeElapced.TimeNow();Spaces++;
+                
 
                 int ord = Order;
                 Object O = new Object();
@@ -14426,7 +13598,7 @@ namespace QuantumRefrigiz
                         ThinkingQuantumBegin = false;
 
                         ThinkingQuantumFinished = true;
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return;
                     }
                     Thread t = new Thread(new ThreadStart(ThinkingQuantumWaite));
@@ -14438,7 +13610,7 @@ namespace QuantumRefrigiz
                     SetObjectNumbers(CloneATable(TableConst));
                     bool PenRegStrore = true;
                     // if (Order == AllDraw.OrderPlate)
-                    //  PenRegStrore = false;
+                    
 
 
                     Object O1 = new Object();
@@ -14446,7 +13618,7 @@ namespace QuantumRefrigiz
                     {
                         BeginThread++;
                     }
-                    //bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA) { ASS = AllDraw.Blitz; }  if (!ASS)
+                    
                     {
                         if (//CheckMateOcuured || 
                             FoundFirstSelfMating > AllDraw.MaxAStarGreedy
@@ -14455,12 +13627,12 @@ namespace QuantumRefrigiz
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                //AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " Checkmate SELF");
+                                
                                 ThinkingQuantumBegin = false;
                                 ThinkingQuantumFinished = true;
                                 EndThread++;
                             }
-                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            
                             return;
                         }
                         if (//CheckMateOcuured || 
@@ -14470,12 +13642,12 @@ namespace QuantumRefrigiz
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                //AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate ENEY");
+                                
                                 ThinkingQuantumBegin = false;
                                 ThinkingQuantumFinished = true;
                                 EndThread++;
                             }
-                            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                            
                             return;
                         }
 
@@ -14493,12 +13665,7 @@ namespace QuantumRefrigiz
                     ///"Inizialization of This New class (Current is Dynamic class Object) is MalFunction (Constant Variable Count).
                     ///Most Dot Net FrameWork Hot Path
                     ///Create A Clone of Current Table Constant in ThinkingQuantumChess Object TASble.
-                    /* for (var RowS = 0; RowS < 8; RowS++)
-                         for (var ColS = 0; ColS < 8; ColS++)
-                         {
-                             TableS[RowS, ColS] = TableConst[RowS, ColS];
-                         }
-                     */
+                    
                     ///For Stored Location of Objects.
                     var ii = Row;
                     var jj = Column;
@@ -14510,12 +13677,12 @@ namespace QuantumRefrigiz
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            //AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate ENEMY");
+                            
                             ThinkingQuantumFinished = true;
                             ThinkingQuantumBegin = false;
                             EndThread++;
                         }
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return;
                     }
                     if (//CheckMateOcuured ||
@@ -14526,12 +13693,12 @@ namespace QuantumRefrigiz
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            //AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstSelfMating.ToString() + " Checkmate SLEF");
+                            
                             ThinkingQuantumFinished = true;
                             ThinkingQuantumBegin = false;
                             EndThread++;
                         }
-                        ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                        
                         return;
                     }
                     IgnoreObjectDangour = -1;
@@ -14548,7 +13715,7 @@ namespace QuantumRefrigiz
                         }
                     ///Deterimine for Castle King Wrongly Desision.
                     bool Castle = false;
-                    //ExistInDestinationEnemy = false;
+                    
                     bool DoEnemySelf = true;
                     ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
                     if (AAA.CheckMate(TableS, AllDraw.OrderPlate))
@@ -14558,7 +13725,7 @@ namespace QuantumRefrigiz
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                //AllDraw.OutPut.Append("\r\nBoundry Condition at ThinkingQuantum at " + ThinkingQuantumChess.FoundFirstMating.ToString() + " Checkmate");
+                                
                                 ThinkingQuantumFinished = true;
                                 CheckMateOcuured = true;
                                 if ((AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
@@ -14623,96 +13790,96 @@ namespace QuantumRefrigiz
                     {
                         case 7:
 
-                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            
                             var newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleBrown(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            //XmlSerializer oSerialiser = new XmlSerializer(typeof(Task));
-                            //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            //oSerialiser.Serialize(oStream, newTask);   
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
-                            //oStream.Close();
+                            
                             break;
                         case -7:
 
-                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            
                             newTask = Task.Factory.StartNew(() => this.ThinkingQuantumCastleGray(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            //oSerialiser = new XmlSerializer(typeof(Task));
-                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            //oSerialiser.Serialize(oStream, newTask);
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
-                            //oStream.Close();
+                            
                             break;
                         case 1:///For Soldier Thinking
 
-                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            
                             newTask = Task.Factory.StartNew(() => ThinkingQuantumSoldier(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            //oSerialiser = new XmlSerializer(typeof(Task));
-                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            ///oSerialiser.Serialize(oStream, newTask);
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
-                            //oStream.Close();
+                            
                             break;
                         case 2:///For Elephant Thinking
 
-                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            
                             newTask = Task.Factory.StartNew(() => ThinkingQuantumElephant(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            //oSerialiser = new XmlSerializer(typeof(Task));
-                            // oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            // oSerialiser.Serialize(oStream, newTask);
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
-                            //oStream.Close();
+                            
                             break;
 
                         case 3:///For Hourse Thinking
 
-                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            
                             newTask = Task.Factory.StartNew(() => ThinkingQuantumHourse(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            //oSerialiser = new XmlSerializer(typeof(Task));
-                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            //oSerialiser.Serialize(oStream, newTask);
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
-                            //oStream.Close();
+                            
                             break;
 
                         ///Else For Castles Thinking.
 
                         case 4:///For Castle Thinking
-                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            
                             newTask = Task.Factory.StartNew(() => ThinkingQuantumCastle(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            //oSerialiser = new XmlSerializer(typeof(Task));
-                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            //oSerialiser.Serialize(oStream, newTask);
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
-                            // oStream.Close();
+                            
                             break;
                         ///Else for Minister Thinkings.
 
                         case 5:///For Minister Thinking
 
-                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            
                             newTask = Task.Factory.StartNew(() => ThinkingQuantumMinister(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            //oSerialiser = new XmlSerializer(typeof(Task));
-                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            ///oSerialiser.Serialize(oStream, newTask);
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
-                            //oStream.Close();
+                            
                             break;
                         ///Else For Kings Thinkings.
                         case 6:///For King Thinking
-                            //int tmpL = LoseOcuuredatChiled, tmpW = WinOcuuredatChiled;
+                            
                             newTask = Task.Factory.StartNew(() => ThinkingQuantumKing(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
-                            // oSerialiser = new XmlSerializer(typeof(Task));
-                            //oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
-                            ///oSerialiser.Serialize(oStream, newTask);
-                            //newTask.ConfigureAwait(false);
+                            
+                            
+                            
+                            
                             newTask.Wait(); newTask.Dispose();
-                            //oStream.Close();
+                            
                             break;
 
                     }
@@ -14729,7 +13896,7 @@ namespace QuantumRefrigiz
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         EndThread++;
                     }
-                    //UsePenaltyRegardMechnisamT = PenRegStrore;
+                    
                     //
                     ///Return at End.
                 }
@@ -14744,20 +13911,20 @@ namespace QuantumRefrigiz
                 ThinkingQuantumFinished = true;
                 ThinkingQuantumAtRun = false;
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantum:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
             return;
         }
         //objects value main method
         int RetrunValValue(int RowS, int ColS, int RowO, int ColO, int[,] Tab, int Sign)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             int O = 0;
             if (RowO == -1 && ColO == -1)
                 O = System.Math.Abs(Tab[RowS, ColS]);
             else
                 O = System.Math.Abs(Tab[RowS, ColS]) + System.Math.Abs(Tab[RowO, ColO]);
             O *= Sign;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("RetrunValValue:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
             return O;
         }
 
@@ -14765,112 +13932,9 @@ namespace QuantumRefrigiz
         int ObjectValueCalculator(int[,] Table//, int Order
             , int RowS, int ColS, int RowO, int ColumnO)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             int Val = 1;
-            /*
-            ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[RowS, ColS], CloneATable(Table), Order, RowS, ColS);
-            Object O1 = new Object();
-            lock (O1)
-            {
-
-                //if (BeginArragmentsOfOrderFinished(Tabl, Order))
-                {
-
-
-                    Color a = Color.Gray;
-                    Color aa = Color.Gray;
-                    if (Order == -1)
-                        a = Color.Brown;
-                    if (Order * -1 == -1)
-                        aa = Color.Brown;
-                    ////Parallel.For(0, 8, RowO =>
-                    //for (int RowO = 0; RowO < 8; RowO++)
-
-                    ////Parallel.For(0, 8, ColumnO =>
-                    //for (int ColumnO = 0; ColumnO < 8; ColumnO++)
-                    {
-                        //for (var RowS = 0; RowS < 8; RowS++)
-                        ////Parallel.For(0, 8, RowS =>
-                        {
-                            /////Parallel.For(0, 8, ColS =>
-                            //for (var ColS = 0; ColS < 8; ColS++)
-                            {
-
-
-                                Object O = new Object();
-                                lock (O)
-                                {
-
-
-                                    if (Scop(RowS, ColS, RowO, ColumnO, System.Math.Abs(Table[RowS, ColS])))
-                                    {
-                                        Color AAB = Color.Gray;
-                                        int Ord = 0;
-                                          if (SignEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
-                                        {
-                                            if (Support(CloneATable(Table), RowS, ColS, RowO, ColumnO, AAB, Ord))
-                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, CloneATable(Table), 1));
-                                            //else
-                                                //Val--;
-                                        }
-                                        else
-                                        if (SignNotEqualSelf(Table[RowS, ColS], Table[RowO, ColumnO], Order, ref Ord, ref AAB))
-                                        {
-                                            if (Attack(CloneATable(Table), RowS, ColS, RowO, ColumnO, AAB, Ord))
-                                                Val++;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, CloneATable(Table), 1));
-                                            //else
-                                                //Val--;
-                                        }//when there is self support inc.                                                                                            
-                                    }
-                                    else
-                                    if (Scop(RowO, ColumnO, RowS, ColS, System.Math.Abs(Table[RowO, ColumnO])))
-                                    {
-                                        Color AAB = Color.Gray;
-                                        int Ord = 0;
-                                        if (SignEnemyEmpty(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
-                                        {
-                                            if (Support(CloneATable(Table), RowO, ColumnO, RowS, ColS, AAB, Ord))
-                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, CloneATable(Table), 1));
-                                            //else
-                                                //Val--;
-                                        }
-                                        else
-                                            if (SignNotEqualEnemy(Table[RowO, ColumnO], Table[RowS, ColS], Order, ref Ord, ref AAB))
-                                        {
-                                            if (Attack(CloneATable(Table), RowO, ColumnO, RowS, ColS, AAB, Ord))
-                                                Val--;//Val += (Val + RetrunValValue(RowS, ColS, RowO, ColumnO, CloneATable(Table), 1));
-                                            //else
-                                                //Val++;
-                                        }//when there is self support inc.                                                                                            else
-                                    }
-                                }
-                            }
-
-                        }//);
-                    }//)/\;
-                }//));
-                A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[RowS, ColS], CloneATable(Table), Order, RowS, ColS);
-                if (A.ObjectDangourKingMove(Order, CloneATable(Table), false,RowS,ColS))
-                {
-                    if (Order == 1 && A.CheckGrayObjectDangour)
-                        Val--;
-                    //else
-                        //Val++;
-                    if (Order == -1 && A.CheckBrownObjectDangour)
-                        Val--;
-                    //else
-                        //Val++;
-                    if (Order == -1 && A.CheckGrayObjectDangour)
-                        Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, CloneATable(Table), 1);
-                    //else
-                        ///Val--;
-                    if (Order == 1 && A.CheckBrownObjectDangour)
-                        Val++;//Val += RetrunValValue(RowS, ColS, -1, -1, CloneATable(Table), 1);
-                    ///else
-                        //Val--;
-                    
-                }
-               */
+            
             if (Table[RowS, ColS] / Order > 0)
             {
                 if (System.Math.Abs(Table[RowS, ColS]) == 2)
@@ -14928,42 +13992,13 @@ namespace QuantumRefrigiz
             }
             //}
             //       if (Val < 0)
-            //         Val = 0;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectValueCalculator:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
+            
             return Val;
 
 
 
-            /*if (System.Math.Abs(Table[RowS, ColS]) == 1)
-            {
-                Val = 1;
-            }
-            else
-            if (System.Math.Abs(Table[RowS, ColS]) == 2)
-            {
-                Val = 3;
-            }
-            else
-                        if (System.Math.Abs(Table[RowS, ColS]) == 3)
-            {
-                Val = 3;
-            }
-            else
-                            if (System.Math.Abs(Table[RowS, ColS]) == 4)
-            {
-                Val = 5;
-            }
-            else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 5)
-            {
-                Val = 9;
-            }
-            else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 6)
-            {
-                Val = 10;
-            }
-            return Val;*/
+            
 
 
         }
@@ -14971,7 +14006,7 @@ namespace QuantumRefrigiz
         int ObjectValueCalculator(int[,] Table//, int Order
             , int RowS, int ColS)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             int Val = 1;
 
 
@@ -15005,13 +14040,13 @@ namespace QuantumRefrigiz
             {
                 Val = 10;
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectValueCalculator:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
             return Val;
         }
         //objects value main method determination
         bool SignSelfEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -15035,14 +14070,14 @@ namespace QuantumRefrigiz
                         Ord = -1;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SignSelfEmpty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
         //objects value main method determination
         bool SignEnemyEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -15066,14 +14101,14 @@ namespace QuantumRefrigiz
                         Ord = 1;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SignEnemyEmpty:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
         //objects value main method determination
         bool SignNotEqualEnemy(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -15098,14 +14133,14 @@ namespace QuantumRefrigiz
                         Ord = 1;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SignNotEqualEnemy:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
         //objects value main method determination
         bool SignEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -15130,14 +14165,14 @@ namespace QuantumRefrigiz
                         Ord = -1;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SignEqualSelf:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }
         //objects value main method determination
         bool SignNotEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -15160,7 +14195,7 @@ namespace QuantumRefrigiz
                         Ord = -1;
                     }
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SignNotEqualSelf:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Is;
             }
         }

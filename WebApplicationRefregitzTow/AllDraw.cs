@@ -1,149 +1,4 @@
-/*******************************************************************************************
- * Initiate and Decision making class.******************************************************
- * Ramin Edjlal*****************************************************************************
- * Call Of Constructor From Constructor***************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * The Storing AllDraw Object in Self Constructor Caused Stack Overflow*******************0.12**4**Managements and Cuation Programing**********************(+)
- * Link List Of Storing String Caused A Stack Over Flow***********************************0.12**4**Managements and Cuation Programing**********************(+)
- * Wait For Finished Current AStarGreedy Caused To Long Time*************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Need To Heuristic (Arvin) Function(s) to Manage Cell in Form1**************************0.12**4**Managements and Cuation Programing**********************(+)
- * First Scanning Movements of Things Anomaly*********************************************0.12**4**Managements and Cuation Programing**********************(+)
- * In Current Version of Heuristic Table Doesn’t Reached(Zero)****************************0.12**4**Managements and Cuation Programing**********************(+)
- * In Current Version InitiateForEveryThisngsHome Dosn't Work*****************************0.12**4**Managements and Cuation Programing**********************(+)
- * In This Version Thinking Taking A LotofTime(AStarGreedyt Array Tree)**********************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Work In AStarGreedys. But Scanning Dosen’t Works************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Adding Clone Caused To Stack Overflow**************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Clone Caused To StackOverFlow**********************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Row And Column Become Zero in Virtualization*******************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Initiate Error*************************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Seems To Be Logical Drawing ***********************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * int Suddenly Changing****************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * AllDraw Object Sub Objects List When Return from local Scope Become Zero.**************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Dosn't Work*******************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * int Order Of Visualization Changed Suddenly******************************************0.12**4**Managements and Cuation Programing**********************(+)
- * int Changes with no movement*********************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Table Not Gate (Inversion of Table List) Doesn’t help to do Normally*******************0.12**4**Managements and Cuation Programing**********************(+)
- * Literally Errors Correction************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * From Arrangements of Things Reaches Suddenly Things Location OccuRS********************0.12**4**Managements and Cuation Programing**********************(+)
- * The Arrangements is Logical************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * The int changes and the arrangements changes are not clearly obvious*****************0.12**4**Managements and Cuation Programing**********************(+)
- * int Changes Solved. no movements*****************************************************0.12**4**Managements and Cuation Programing**********************(+)(-+)
- * Things movements Anomally**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Chess Rules Anomally*******************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Function Not Work************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Work But the Table is Empty**************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Table is Not Empty But the Movement is Not Logical*************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Clear Dirty Part.**********************************************************************0.88**1**Risk Control********************************************(*)QC-OK.
- * Need to Restricted Approval. Taking a lot of time Thinking Computation*****************0.12**4**Managements and Cuation Programing**********************(+)
- * No movements In Virtualization*********************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Chess Rules Abnormal Thinking movements. No movement greater than 2********************0.12**4**Managements and Cuation Programing**********************(+)
- * Problem For Drawing of Thinking Things*************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Constant Result**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * One movements Right .Heuristic Remaining Constant Results******************************0.12**4**Managements and Cuation Programing**********************(+)
- * Constant Heuristic Result**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Need To Add A Heuristic Useful Another*************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Function Does’ Work Allis suddenly Become Zero that Previously Working*******0.12**4**Managements and Cuation Programing**********************(+)
- * No Movement Greater than one order in Computer 'Alice'*********************************0.12**4**Managements and Cuation Programing**********************(+)
- * Tow movements in Computer 'Alice' Of two Different Order int*************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Not Work Greater than 3 Length Count of A************************************0.12**4**Managements and Cuation Programing**********************(+)
- * 'They Don't Really Take care about us'. Misleading in Heuristic King Supported*********0.12**4**Managements and Cuation Programing**********************(+)
- * Non Order Movments*********************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Misleading at Stage three. no illegal movement greater than three**********************0.12**4**Managements and Cuation Programing**********************(+)
- * Thinking Order Misleading**************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Hit Mechanism Malfunctional************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Tow movements At One 'Alice' Order time************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Computer By Computer 'Alice' by 'Bob' Caused to Loop Heuristic.**************0.12**4**Managements and Cuation Programing**********************(+)
- * Learning Automata of  also leads to re loop heuristic***************************0.88**1**Risk Control********************************************(*)QC-OK.
- * Heuristic Learning Automata 'Alice' By 'Bob' Leads to Re loop**************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Things Loop 'Alice' By 'Bob'*************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Self 'Check' Detection Failure By 'Alice'***********************************************0.12**4**Managements and Cuation Programing**********************(+)
- * 'Penalty' Value Of All Become zero althouth the one should be non Penalty**************0.88**1**Risk Control********************************************(*)
- * Clone Dosn't Copy All Content of AllDraw Dummy*****************************************0.12**4**Managements and Cuation Programing**********************(+)
- * CheckRemovable By Self King Solved.Penalty Action Misleading****************************0.88**1**Risk Control********************************************(-*)QC-OK.
- * 'Check' Detection Failure***************************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Mechanisam Of Order in Predict Failed.*************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * 'Alice' King Virtualization or Table Content of King Misleading************************0.12**4**Managements and Cuation Programing**********************(+)
- * With The All Things Heuristic Signing Mechnisam Some Movments become null Table.********0.12**4**Managements and Cuation Programing**********************(+)
- * AStarGreedy First Search Not Working. Misleading MalFunction Virtualization.******************0.12**4**Managements and Cuation Programing**********************(+)
- * AStarGreedy First Table is Null at Bob Order.*************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * AStarGreedy First SetVirtualization and Table Misleading By Alice.****************************0.12**4**Managements and Cuation Programing**********************(+)
- * No Reason Logically For MalFunction  Refrigtz.Timer AStarGreedy First Dynamic Refrigtz.Timer.*******************0.12**4**Managements and Cuation Programing**********************(+)
- * AStarGreedyt Thinking Taking a lot of time.***********************************************0.12**4**Managements and Cuation Programing**********************([+]
- * AStarGreedy First Not Work.*******************************************************************0.12**4**Managements and Cuation Programing**********************[+]
- * AStarGreedy First Not Work.Refrigtz.Timer Stop At Greater than 2,3,4,5,6,7 Movments.*******************0.12**4**Managements and Cuation Programing**********************[+]
- * No Reason For MalFunction of AStarGreedytNotFoundHeuristicAStarGreedyt.***********************0.12**4**Managements and Cuation Programing**********************[+]
- * Problem Solved.No Reason to NullExeption of AStarGreedytHeuristic Algorithm.***************0.88**1**Risk Control********************************************[-*]QC-OK.
- * Function Evaluation Disabled .At Initiate AStarGreedytGenetic Found Sysntax.**************0.88**1**Risk Control********************************************[*]
- * Index Was Out Of Range Exeption Was Not Handled.Colud Not Be Handle.*******************0.12**4**Managements and Cuation Programing**********************{+}
- * No Logical Mechanism To Reconstructe Current AllDraw Objects.**************************0.12**4**Managements and Cuation Programing**********************{+}
- * AStarGreedy First Sysntax is legal and The table is constant table.***************************0.12**4**Managements and Cuation Programing**********************{+}
- * Table Content Empty. No Syntax Exist.**************************************************0.12**4**Managements and Cuation Programing**********************{+}
- * Game Begin From First When the Soldiers Move Ordinary Complete in AStarGreedy First***********0.88**1**Risk Control********************************************{*}QC-OK.
- * New Instatnt Of Program Cuase to Begin Fron First.*************************************0.12**4**Managements and Cuation Programing**********************<+>
- * No Logically Reason For New Game Of Program. New Instatnt Not Detected.****************0.12**4**Managements and Cuation Programing**********************<+>
- * Internal New Instatnt Of FormeRefregitz is MalFunction.********************************0.12**4**Managements and Cuation Programing**********************<+>
- * AStarGreedy First CC Changes to CC Normal Game.***********************************************0.12**4**Managements and Cuation Programing**********************<+>
- * Game CC UnContoroled.******************************************************************0.12**4**Managements and Cuation Programing**********************<+>
- * MalFunction of Syntax and Movments.By Alice and Bob.***********************************0.12**4**Managements and Cuation Programing**********************<+>
- * Threading Solved! The OutOfRangeIndex Not Work.****************************************0.12**4**Managements and Cuation Programing**********************[-+]
- * Vituallization error!No Best Matches between Truth of table content and irtualization**0.12**4**Managements and Cuation Programing**********************[+]
- * Dynamic Programming for Stroring ADraw THISDummy Adraw Value MalFunction.**************0.12**4**Managements and Cuation Programing**********************(+)
- * Order is Constant in Dynamic Programming.**********************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Table MalFunction at Dynamic Programming.At Step 3.************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Some Movments are MalFuncational at Dynamic Programming.*******************************0.12**4**Managements and Cuation Programing**********************(+)
- * Heuristic Overlay Tow Part of ADraw and StoreADraw Sections at Different levels Tab Cal.0.12**4**Managements and Cuation Programing**********************(+)
- * Not to be needing again calculation. MalFunction is depend of tow part.****************0.12**4**Managements and Cuation Programing**********************(+)
- * BackWard Loos of Things AllDraw Mechnisam.*********************************************0.88**1**Risk Control********************************************(*)QC-OK.
- * Some Dynamic Programming MalFunction Movments.*****************************************0.88**1**Risk Control********************************************(*)QC-OK.
- * Syntax and Forward and Backward Movments Syntax is MalFunction.************************0.12**4**Managements and Cuation Programing**********************<+>
- * Database and Virtualization Forward and Backward MalFunction***************************0.12**4**Managements and Cuation Programing**********************<+>
- * Reproduction of Thinfs Missleading.****************************************************0.88**1**Risk Control********************************************<*>QC-OK.
- * Reproduction of Some Things are MalFunction Movments.**********************************0.12**4**Managements and Cuation Programing**********************{+}
- * AStarGreedy Count of Dynamic Programming Misleadig.AStarGreedy Operation Count Mal Function.*********0.88**1**Risk Control********************************************(*)QC-OK.
- * Heuristic By Alice is MalFunction.******************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * ObjectDanger Identification By Alice is MalFunction.*****************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Check Identification By Alice is MalFunction.*******************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Check Recognized But CheckMate Not Recognized!***********************************************0.12**4**Managements and Cuation Programing**********************(_+)
- * Penalty Regard Mechanism Misleading.***************************************************0.12**4**Managements and Cuation Programing**********************{+}
- * Inhereted LearningAtamata Caused to Shared Parent Allocated Variable.******************0.12**4**Managements and Cuation Programing**********************{+}
- * 'Check' By 'Alice' Not Removed Unreasonably.********************************************0.88**1**Risk Control********************************************{*}QC-OK.
- * AStarGreedyt Heuristic Found MalFunction at Check Alice.************************************0.12**4**Managements and Cuation Programing**********************{+}
- * Sortments of ADRAW and Construction is MalFunction at AStarGreedy Dynamic Programming.********0.12**4**Managements and Cuation Programing**********************{+}
- * Heuristic AStarGreedy First were Worked Out Unreasonably such Situation(Golden Sword Magic).***0.88**1**Risk Control********************************************{*}QC-OK.
- * Converted 'King' of 'Alice' to 'Elephant' UnReasonably.********************************0.12**4**Managements and Cuation Programing**********************(+)
- * 'Long Game' ; But MalFunction of Game.*************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * 'Always' in Current game is 'Bob'.*****************************************************0.12**4**Managements and Cuation Programing**********************(+)
- * Current Table of ADRAW is Correct Table But the Game is MalFunction.*******************0.12**4**Managements and Cuation Programing**********************(+)
- * Move of Current Table AStarGreedy First Heuristic found ;found an ovelay in 'Bob' and 'Alice'**0.12**4**Managements and Cuation Programing**********************(+)
- * Current Table in High Level Become Null and prevent of 'LongGame' Strategy.************0.12**4**Managements and Cuation Programing**********************(+)
- * 'LongGame' Become short Undetectably Unreasonably;Clear Store Non Detectably.**********0.88**1**Risk Control********************************************(*)QC-OK.
- * All Draw AStarGreedy First section some movments have not been accurred considerably.*********0.88**1**Risk Control********************************************(*)QC-OK.
- * 'Long Game' Breaks Suddendly without Monitor Caused.***********************************0.12**4**Managements and Cuation Programing**********************{+}
- * Overlay Some Movments of 'Long Game' Breaked.Caused Probability to break.**************0.12**4**Managements and Cuation Programing**********************{+}
- * SomeTimes All Situation of Current Games Become Cleared and No Table Founded.**********0.12**4**Managements and Cuation Programing**********************{+}
- * Gray Soldeir is Only Movmnets and Converts in Heuristic and No Move are detectable.*****0.12**4**Managements and Cuation Programing**********************{+}
- * DEEPLY Recursive Tree of Second Version Become in Some Null At Hurristic Finsished.****0.12**4**Managements and Cuation Programing**********************{+}
- * AStarGreedy Heuristic Content is Zero. No Calculation of AStarGreedy Heuristic Calculation.************0.12**4**Managements and Cuation Programing**********************{+}
- * MalFunction of Dep Heuristic Person and MalFunction Movments of CC AStarGreedy Heuristic********0.88**1**Risk Control********************************************{*}QC-OK.
- * Mal Function of Reconstruction of AStarGreedy Objects In Initiate AStarGreedy First.*****************0.12**4**Managements and Cuation Programing**********************<+>
- * Hurisic Operantional Have Mal Function Behaviour.**************************************0.12**4**Managements and Cuation Programing**********************<+>
- * Table Zero of AStarGreedy First Heuristic Mal Function.****************************************0.12**4**Managements and Cuation Programing**********************<+>
- * AStarGreedy First Initiate Method Result Object Content Mal Function.*************************0.12**4**Managements and Cuation Programing**********************<+>
- * Table Nopt Found Of AStarGreedy First Heuristic.Mal Function of Initiate and Heuristic.*********0.12**4**Managements and Cuation Programing**********************<+>
- * Table Foundation Successfule. Traversaling of All Tree Not Successfule.****************0.12**4**Managements and Cuation Programing**********************<+>
- * Table Some Movments Intiaiazation Mal Function.****************************************0.12**4**Managements and Cuation Programing**********************{+}
- * BackWard Max Check CheckMate Mechanism For Best Heuristic is Unknown**************************0.12**4**Managements and Cuation Programing**********************{+}
- * Minister After Calculation AStarGreedyHeuristic At AStarGreedyHeuristic becomes Null.******************0.88**1**Risk Control********************************************(*)QC-OK
- * All Objects Possible Movments Not calculating During AStarGreedytsearch Method.***********0.88**1**Risk Control********************************************{*}QC_OK
- * Mechanisam olf AStarGreedytHeuristic and Hurisistic is QC-Ok. But Table foundation Illegal.0.88**1**Risk Control********************************************<*>QC-OK
- * Full Game Indexing Parameters Misleading UnLogically.*************************************0.88**1**Risk Control********************************************(*)QC_OK
- * Index out of Range Unlogically at Full Game Soldier Order Brown.**************************0.88**1**Risk Control********************************************<*>QC_OK
- * Execution make zero table but trace make valid table.*************************************0.88**1**Risk Control********************************************{*}Qc-OK.
- * Virtualization need to more hardware capabilities gone to malfunction virtualization.******0.88**1**Risk Control*******************************************{*}QC-BAD.
- * MalFunction on AllDraw Hadeling of Draw Midle Target Motion Graphics.**********************0.88**1**Risk Control*******************************************{*}QC-BAD.
- * ********************************************************************************************************************************************************(+:Sum(63)) 
- * 1394/12/19**********************************************************************************************************************************************(*:Sum(4))
- * ********************************************************************************************************************************************************(-:sum(2)) (_:Sum(0)):2:(+:Sum(3)) (-:Sum(1)) (*:Sum(2)) 3: (+:Sum(4)) (*:Sum(1)) 4:(+:Sum(6))  5:(+:Sum(2)) (-:Sum(1)) 6:(+:Sum(6)) (*:Sum(2)) 7.(+:Sum(2)) (*:Sum(1)) 8.(+:Sum(1)) 9.(+:Sum(4)) (*:Sum(1)) (-:Sum(1)) 10.(+:Sum(4)) (*:Sum(2)) 11.(+:Sum(4)) 12.(+:Sum(2)) (*:Sum(2)) 13.(+:Sum(4)) 14.(+:Sum(2)) (*:Sum(1)) 15.(+:Sum(6)) 16.(+:Sum(2)) 17.(QC-OK.:Sum(13))
- */
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -276,19 +131,7 @@ namespace RefrigtzW
         public static int CastleMovments = 1;
         public static int MinisterMovments = 1;
         public static int KingMovments = 1;
-        /*public int SodierMidle = 8;
-        public int SodierHigh = 16;
-        public int ElefantMidle = 2;
-        public int ElefantHigh = 4;
-        public int HourseMidle = 2;
-        public int HourseHight = 4;
-        public int CastleMidle = 2;
-        public int CastleHigh = 4;
-        public int MinisterMidle = 1;
-        public int MinisterHigh = 2;
-        public int KingMidle = 1;
-        public int KingHigh = 2;
-        */
+        
         public int SodierMidle = 0;
         public int SodierHigh = 0;
         public int ElefantMidle = 0;
@@ -624,18 +467,7 @@ namespace RefrigtzW
                 CastleMovments = 1;
                 MinisterMovments = 1;
                 KingMovments = 1;
-                /*SodierMidle = 8;
-                SodierHigh = 16;
-                ElefantMidle = 2;
-                ElefantHigh = 4;
-                HourseMidle = 2;
-                HourseHight = 4;
-                CastleMidle = 2;
-                CastleHigh = 4;
-                MinisterMidle = 1;
-                MinisterHigh = 2;
-                KingMidle = 1;
-                KingHigh = 2;*/
+                
                 //APredict = null;
                 RW = 0;
                 CL = 0;
@@ -921,13 +753,7 @@ namespace RefrigtzW
                 //MouseClick = 0;
                 AStarGreedyIndex = new int[20];
                 AStarGreedy = 0;
-                /*SolderesOnTable = null;
-                ElephantOnTable = null;
-                HoursesOnTable = null;
-                CastlesOnTable = null;
-                MinisterOnTable = null;
-                KingOnTable = null;
-                */
+                
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
@@ -1034,12 +860,7 @@ namespace RefrigtzW
                         for (int Column = 0; Column < 8; Column++)
                             for (int Row = 0; Row < 8; Row++)
                             {
-                                /* if (!TableZero(Tabl))
-                                 {
-
-                                     if (TableEqual(CloneATable(TableList[index]), Tabl))
-                                         return;
-                                 }*/
+                                
                                 if (CloneATable(TableList[index])[Row, Column] == 0)
                                     continue;
                                 //When Things are Soldiers.
@@ -1454,12 +1275,7 @@ namespace RefrigtzW
                         for (int Column = 0; Column < 8; Column++)
                             for (int Row = 0; Row < 8; Row++)
                             {
-                                /* if (!TableZero(Tabl))
-                                 {
-
-                                     if (TableEqual(CloneATable(TableList[index]), Tabl))
-                                         return;
-                                 }*/
+                                
                                 if (CloneATable(TableList[index])[Row, Column] == 0)
                                     continue;
                                 //When Things are Soldiers.
@@ -1875,12 +1691,7 @@ namespace RefrigtzW
                     for (int Column = 0; Column < 8; Column++)
                         for (int Row = 0; Row < 8; Row++)
                         {
-                            /* if (!TableZero(Tabl))
-                             {
-
-                                 if (TableEqual(CloneATable(TableList[0]), Tabl))
-                                     return;
-                             }*/
+                            
                             if (CloneATable(TableList[0])[Row, Column] == 0)
                                 continue;
                             //When Things are Soldiers.
@@ -5248,13 +5059,7 @@ namespace RefrigtzW
             {
                 if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count > j)
                 {
-                    /*if (!SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(1, Order))
-                    {
-                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
-                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]));
-                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].SetRowColumn(0);
-                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }*/
+                    
                     THIS = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5341,13 +5146,7 @@ namespace RefrigtzW
             {
                 if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j)
                 {
-                    /*if (!ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(2, Order))
-                    {
-                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
-                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]));
-                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].SetRowColumn(0);
-                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }*/
+                    
                     THIS = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5437,13 +5236,7 @@ namespace RefrigtzW
             {
                 if (HoursesOnTable[i].HourseThinking[0].AStarGreedy != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j)
                 {
-                   /* if (!HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(3, Order))
-                    {
-                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Clear();
-                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]));
-                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].SetRowColumn(0);
-                        HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }*/
+                   
 
                     THIS = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                     Found = true;
@@ -5533,13 +5326,7 @@ namespace RefrigtzW
             {
                 if (CastlesOnTable[i].CastleThinking[0].AStarGreedy != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j)
                 {
-                    /*if (!CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(4, Order))
-                    {
-                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Clear();
-                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]));
-                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].SetRowColumn(0);
-                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }*/
+                    
                     THIS = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
 
                     Found = true;
@@ -5629,13 +5416,7 @@ namespace RefrigtzW
             {
                 if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j)
                 {
-                    /*if (!MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(5, Order))
-                    {
-                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
-                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]));
-                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].SetRowColumn(0);
-                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }*/
+                    
                     THIS = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5722,13 +5503,7 @@ namespace RefrigtzW
             {
                 if (KingOnTable[i].KingThinking[0].AStarGreedy != null && KingOnTable[i].KingThinking[0].AStarGreedy.Count > j)
                 {
-                    /*if (!KingOnTable[i].KingThinking[0].AStarGreedy[j].IsAstargreedyHaveNode(6, Order))
-                    {
-                        KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Clear();
-                        KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]));
-                        KingOnTable[i].KingThinking[0].AStarGreedy[j].SetRowColumn(0);
-                        KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
-                    }*/
+                    
                     THIS = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -13239,10 +13014,7 @@ namespace RefrigtzW
                             //Thinking of Gray Solder Operation.
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
-                                            SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
-                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
+                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);
                         }
                         else if (ASS)
                         //If There is A Soldeir Movments.                                   
@@ -13251,10 +13023,7 @@ namespace RefrigtzW
                             //Thinking of Gray Soldeir Operations.
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
-                                            SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
-                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                    { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
+                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);
                         }
 
                     }
@@ -13274,10 +13043,7 @@ namespace RefrigtzW
                             //Operational Thinking Gray Elephant. 
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
-                                            ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
-                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
+                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);
                         }//If There is Movment Thinking Gary Elphant Object List.
                         else if (ASS)
                         {
@@ -13285,10 +13051,7 @@ namespace RefrigtzW
                             //Gray Elephant Object Thinking Operations.
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
-                                            ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
-                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                    { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
+                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);
                         }
 
                     }
@@ -13308,10 +13071,7 @@ namespace RefrigtzW
                             //Thinking of Gray Hourse Oprational.
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingBegin = true;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
-                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
-                                            HoursesOnTable[iIndex].HourseThinking[0].t.Start();
-                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
-                                                { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
+                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
                         }
                         else if (ASS)//If Table List Exist int The Thinking.
                         {
@@ -13320,10 +13080,7 @@ namespace RefrigtzW
                             HoursesOnTable[iIndex].HourseThinking[0].TableT = HoursesOnTable[iIndex].HourseThinking[0].TableListHourse[j];
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingBegin = true;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
-                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
-                                            HoursesOnTable[iIndex].HourseThinking[0].t.Start();
-                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                    { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
+                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
                         }
 
                     }
@@ -13343,10 +13100,7 @@ namespace RefrigtzW
                             //Thinking of Gray Castles Operational.
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingBegin = true;
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
-                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
-                                            CastlesOnTable[iIndex].CastleThinking[0].t.Start();
-                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
+                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);
 
                         }
                         else if (ASS)
@@ -13356,10 +13110,7 @@ namespace RefrigtzW
                             CastlesOnTable[iIndex].CastleThinking[0].TableT = CastlesOnTable[iIndex].CastleThinking[0].TableListCastle[j];
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingBegin = true;
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
-                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
-                                            CastlesOnTable[iIndex].CastleThinking[0].t.Start();
-                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                    { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
+                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);
                         }
 
                     }
@@ -13375,10 +13126,7 @@ namespace RefrigtzW
                          //Thinking of Gray Minister Operational.
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingBegin = true;
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
-                                            MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
-                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
+                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
                         }
                         else if (ASS)//When There is Table Gray Minister Count of Thinking.
                         {
@@ -13386,10 +13134,7 @@ namespace RefrigtzW
                             MinisterOnTable[iIndex].Table = MinisterOnTable[iIndex].MinisterThinking[0].TableListMinister[j];
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingBegin = true;
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
-                                            MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
-                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                    { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
+                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
                         }
 
                     }
@@ -13407,20 +13152,14 @@ namespace RefrigtzW
                          //Thinking Of Gray King Operatins.
                             KingOnTable[iIndex].KingThinking[0].ThinkingBegin = true;
                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
-                            KingOnTable[iIndex].KingThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
-                                            KingOnTable[iIndex].KingThinking[0].t.Start();
-                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
+                            KingOnTable[iIndex].KingThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
                         }
                         else if (ASS)//When Thinking Gray King Count of Existing Operations.
                         {
                             //Gray King Thinking Operations.                                        
                             KingOnTable[iIndex].KingThinking[0].ThinkingBegin = true;
                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
-                            KingOnTable[iIndex].KingThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
-                                            KingOnTable[iIndex].KingThinking[0].t.Start();
-                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
+                            KingOnTable[iIndex].KingThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
                         }
 
                     }
@@ -13441,10 +13180,7 @@ namespace RefrigtzW
                             //Thinking Operations of Brown Current Objects.
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
-                                            SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
-                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
+                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);
 
                         }
 
@@ -13453,10 +13189,7 @@ namespace RefrigtzW
                             //Thinking of Thinking Brown CurrentTable Objective Operations.
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingBegin = true;
                             SolderesOnTable[iIndex].SoldierThinking[0].ThinkingFinished = false;
-                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(SolderesOnTable[iIndex].SoldierThinking[0].Thinking));
-                                            SolderesOnTable[iIndex].SoldierThinking[0].t.Start();
-                                            if (SolderesOnTable[iIndex].SoldierThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(SolderesOnTable[iIndex].SoldierThinking[0].t); } }*/
+                            SolderesOnTable[iIndex].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[iIndex].LoseOcuuredatChiled, ref SolderesOnTable[iIndex].WinOcuuredatChiled);
 
                         }
 
@@ -13473,10 +13206,7 @@ namespace RefrigtzW
                             //Thinking Operations of Brown Current Objects.
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
-                                            ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
-                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
+                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
@@ -13484,10 +13214,7 @@ namespace RefrigtzW
                             //Thinking of Thinking Brown CurrentTable Objective Operations.                                                   
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
-                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(ElephantOnTable[iIndex].ElefantThinking[0].Thinking));
-                                            ElephantOnTable[iIndex].ElefantThinking[0].t.Start();
-                                            if (ElephantOnTable[iIndex].ElefantThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(ElephantOnTable[iIndex].ElefantThinking[0].t); } }*/
+                            ElephantOnTable[iIndex].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[iIndex].LoseOcuuredatChiled, ref ElephantOnTable[iIndex].WinOcuuredatChiled);
                         }
 
                     }
@@ -13506,10 +13233,7 @@ namespace RefrigtzW
                          //HoursesOnTable[iIndex].HourseThinking[0].TableT = HoursesOnTable[iIndex].HourseThinking[0].TableT;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingBegin = true;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
-                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
-                                            HoursesOnTable[iIndex].HourseThinking[0].t.Start();
-                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
+                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
 
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
@@ -13517,10 +13241,7 @@ namespace RefrigtzW
                             //Thinking of Thinking Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinking[0].Table = SolderesOnTable[iIndex].SoldierThinking[0].TableListSolder[j];
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingBegin = true;
                             HoursesOnTable[iIndex].HourseThinking[0].ThinkingFinished = false;
-                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(HoursesOnTable[iIndex].HourseThinking[0].Thinking));
-                                            HoursesOnTable[iIndex].HourseThinking[0].t.Start();
-                                            if (HoursesOnTable[iIndex].HourseThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
-                                                    { tH.Add(HoursesOnTable[iIndex].HourseThinking[0].t); } }*/
+                            HoursesOnTable[iIndex].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[iIndex].LoseOcuuredatChiled, ref HoursesOnTable[iIndex].WinOcuuredatChiled);
 
 
                         }
@@ -13543,20 +13264,14 @@ namespace RefrigtzW
                          //Thinking Operations of Brown Current Objects.
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingBegin = true;
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
-                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
-                                            CastlesOnTable[iIndex].CastleThinking[0].t.Start();
-                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
+                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
                             //Thinking of Thinking Brown CurrentTable Objective Operations.        
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingBegin = true;
                             CastlesOnTable[iIndex].CastleThinking[0].ThinkingFinished = false;
-                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(CastlesOnTable[iIndex].CastleThinking[0].Thinking));
-                                            CastlesOnTable[iIndex].CastleThinking[0].t.Start();
-                                            if (CastlesOnTable[iIndex].CastleThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
-                                                    { tH.Add(CastlesOnTable[iIndex].CastleThinking[0].t); } }*/
+                            CastlesOnTable[iIndex].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[iIndex].LoseOcuuredatChiled, ref CastlesOnTable[iIndex].WinOcuuredatChiled);
                         }
 
                     }
@@ -13573,20 +13288,14 @@ namespace RefrigtzW
                          //Thinking Operations of Brown Current Objects.
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingBegin = true;
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
-                                            MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
-                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt)
-                                                { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
+                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
                         {
                             //Thinking of Thinking Brown CurrentTable Objective Operations.                                          SolderesOnTable[iIndex].SoldierThinking[0].Table = SolderesOnTable[iIndex].SoldierThinking[0].TableListSolder[j];
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingBegin = true;
                             MinisterOnTable[iIndex].MinisterThinking[0].ThinkingFinished = false;
-                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(MinisterOnTable[iIndex].MinisterThinking[0].Thinking));
-                                            MinisterOnTable[iIndex].MinisterThinking[0].t.Start();
-                                            if (MinisterOnTable[iIndex].MinisterThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                    { tH.Add(MinisterOnTable[iIndex].MinisterThinking[0].t); } }*/
+                            MinisterOnTable[iIndex].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[iIndex].LoseOcuuredatChiled, ref MinisterOnTable[iIndex].WinOcuuredatChiled);
 
                         }
 
@@ -13605,10 +13314,7 @@ namespace RefrigtzW
                          //Thinking Operations of Brown Current Objects.
                             KingOnTable[iIndex].KingThinking[0].ThinkingBegin = true;
                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
-                            KingOnTable[iIndex].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
-                                            KingOnTable[iIndex].KingThinking[0].t.Start();
-                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
+                            KingOnTable[iIndex].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);
 
                         }
                         else if (ASS)//When There is Current Brown Existing Objective Thinking Movments.
@@ -13617,10 +13323,7 @@ namespace RefrigtzW
                             KingOnTable[iIndex].KingThinking[0].TableT = KingOnTable[iIndex].KingThinking[0].TableListKing[j];
                             KingOnTable[iIndex].KingThinking[0].ThinkingBegin = true;
                             KingOnTable[iIndex].KingThinking[0].ThinkingFinished = false;
-                            KingOnTable[iIndex].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);/*.t = new Task(new Action(KingOnTable[iIndex].KingThinking[0].Thinking));
-                                            KingOnTable[iIndex].KingThinking[0].t.Start();
-                                            if (KingOnTable[iIndex].KingThinking[0].t != null) { Object tttt = new Object(); lock (tttt) 
-                                                { tH.Add(KingOnTable[iIndex].KingThinking[0].t); } }*/
+                            KingOnTable[iIndex].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[iIndex].LoseOcuuredatChiled, ref KingOnTable[iIndex].WinOcuuredatChiled);
 
 
                         }
@@ -16147,154 +15850,7 @@ namespace RefrigtzW
 
                 }
 
-                /*
-
-                if (!FOUND)
-                {
-                    //Initiate Of Local Variables.
-
-
-                    Object o = new Object();
-                    lock (o)
-                    {
-
-                        //If Order is Gray.
-                        if (Order== 1)
-                        {
-                            int i1 = i, j1 = j;
-                            int[,] Tabl = CloneATable(Table);
-                            int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
-                            bool TB1 = TB;
-                            Color aa = a;
-
-
-                            //Parallel.Invoke(() =>
-                            {
-                                //For All Gray Soldier Objects.
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedytSodlerGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                            //,
-                           // () =>
-                            {
-                                //For All Gray Elephant Objects.
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedytElephantGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                            //, () =>
-                            {
-                                //For All Gray Hourse Objects.
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythHourseGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                           // ,
-                           // () =>
-                            {
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythCastleGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                           // , () =>
-                            {
-
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythMinisterGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-
-                            }
-                            //, () =>
-                            {
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythKingGray(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                           // );
-                        }
-                        else//Brown Order Considarations.
-                        {
-                            int i1 = i, j1 = j;
-                            int[,] Tabl = CloneATable(Table);
-                            int DummyOrder1 = DummyOrder, DummyCurrentOrder1 = DummyCurrentOrder, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, Ord1 = OrderP;
-                            bool TB1 = TB;
-                            Color aa = a;
-                            //If Order is Gray.
-
-
-                            //Parallel.Invoke(() =>
-                            {
-                                //For All Gray Soldier Objects.
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythSoldierBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                           // ,
-                           // () =>
-                            {
-                                //For All Gray Elephant Objects.
-                                Object O = new Object();
-                               lock (O)
-                                {
-                                    this.InitiateAStarGreedythElephantBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                            //, () =>
-                            {
-                                //For All Gray Hourse Objects.
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythHourseBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                           // ,
-                            //() =>
-                            {
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythCastleBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                            //, () =>
-                            {
-
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythMinisterBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-
-                            }
-                            //, () =>
-                            {
-                                Object O = new Object();
-                                lock (O)
-                                {
-                                    this.InitiateAStarGreedythKingBrown(i1, j1, Tabl, DummyOrder1, DummyCurrentOrder1, iAStarGreedy1, ii1, jj1, aa, Tab, Ord1, TB1, FOUND, LeafAStarGreedy);
-                                }
-                            }
-                           // );
-                        }
-                    }
-                }
-                */
+                
 
             }
             Order = DummyOrder;
@@ -16323,9 +15879,7 @@ namespace RefrigtzW
 
                     array1.Wait();
                     array1.Dispose();
-                    /*tFoundOfLeafDepenOfKindFullGame = new Task(new Action(() => FoundOfLeafDepenOfKindFullGame(Tabl, Order, iAStarGreedy, ii, jj, ik, j, FOUND, LeafAStarGreedy)));
-                tFoundOfLeafDepenOfKindFullGame.Start();
-                T.Add(tFoundOfLeafDepenOfKindFullGame);*/
+                    
                 }
             }
             else
@@ -16347,9 +15901,7 @@ namespace RefrigtzW
                         array1.Wait();
                         array1.Dispose();
 
-                        /*tFullGameThinkingTree = new Task(new Action(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy)));
-                    tFullGameThinkingTree.Start();
-                    T.Add(tFullGameThinkingTree);*/
+                        
 
 
                     }
@@ -19839,12 +19391,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                     }
                 }//);
-                /*if (tHA.Count > 1)
-                {
-                    var array = Task.Factory.StartNew(() => Parallel.ForEach(tHA, items => Task.WaitAll(items)));
-                    //array.Start();
-                    Task.WaitAll(array);
-                }*/
+                
                 Object O2 = new Object();
                 lock (O2)
                 {
@@ -20912,232 +20459,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 if (AllDraw.Blitz)
                     FullGameMakimgBlitz(ref Index, ref jindex, Order, LeafAStarGreedy);
             }
-            /*Object OO = new Object();
-            lock (OO)
-            {
-
-                if (Order == -1)
-                {
-                    //Index[0] = -1;
-                    //Soldeir
-                    //Initiatye Variables.
-                    int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                    int Ord1 = OrderP;
-                    Color a1 = a;
-                    int iAStarGreedy1 = iAStarGreedy;
-                    var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierGray(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
-                    //array1.Start();
-                    //Object tttt1 = new Object(); lock (tttt1) { array1.Wait(); array1.Dispose();//TH.Add(array1); }
-
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-
-                    int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                    int Ord2 = Order;
-                    Color a2 = a;
-                    int iAStarGreedy2 = iAStarGreedy;
-                    var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantGray(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
-                    //array2.Start();
-                   //Object tttt2 = new Object(); lock (tttt2) { array2.Wait(); array2.Dispose();//TH.Add(array2); }
-
-                    //Initiatye Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-
-                    int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                    int Ord3 = Order;
-                    Color a3 = a;
-                    int iAStarGreedy3 = iAStarGreedy;
-                    var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseGray(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
-                    ///array3.Start();
-                    //Object tttt3 = new Object(); lock (tttt3) { array3.Wait(); array3.Dispose();//TH.Add(array3); }
-
-                    //Initiatye Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-
-                    int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                    int Ord4 = Order;
-                    Color a4 = a;
-                    int iAStarGreedy4 = iAStarGreedy;
-                    var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleGray(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
-                    //array4.Start();
-                    //Object tttt4 = new Object(); lock (tttt4) { array4.Wait(); array4.Dispose();//TH.Add(array4); }
-
-                    //Initiatye Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-                    int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                    int Ord5 = Order;
-                    Color a5 = a;
-                    int iAStarGreedy5 = iAStarGreedy;
-                    var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterGray(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
-                    //array5.Start();
-                    //Object tttt5 = new Object(); lock (tttt5) { array5.Wait(); array5.Dispose();//TH.Add(array5); }
-
-                    //Initiatye Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-                    int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                    int Ord6 = Order;
-                    Color a6 = a;
-                    int iAStarGreedy6 = iAStarGreedy;
-                    var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingGray(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
-                    //array6.Start();
-                    //Object tttt6 = new Object(); lock (tttt6) { array6.Wait(); array6.Dispose();//TH.Add(array6); }
-
-                }
-                //For Brown Order Blitz Game Calculate Maximum Table Inclusive AStarGreedy First Game Search.
-                else
-                {
-                    int ii1 = ii, jj1 = jj, ik11 = ik1, j11 = j1;
-                    int Ord1 = OrderP;
-                    Color a1 = a;
-                    int iAStarGreedy1 = iAStarGreedy;
-                    var array1 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeSoldierBrown(a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND));
-                    //array1.Start();
-                    //Object tttt1 = new Object(); lock (tttt1) { array1.Wait(); array1.Dispose();//TH.Add(array1); }
-
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-
-                    int ii2 = ii, jj2 = jj, ik12 = ik1, j12 = j1;
-                    int Ord2 = Order;
-                    Color a2 = a;
-                    int iAStarGreedy2 = iAStarGreedy;
-                    var array2 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeElephantBrown(a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND));
-                    //array2.Start();
-                   //Object tttt2 = new Object(); lock (tttt2) { array2.Wait(); array2.Dispose();//TH.Add(array2); }
-
-                    //Initiatye Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-
-                    int ii3 = ii, jj3 = jj, ik13 = ik1, j13 = j1;
-                    int Ord3 = Order;
-                    Color a3 = a;
-                    int iAStarGreedy3 = iAStarGreedy;
-                    var array3 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeHourseBrown(a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND));
-                    ///array3.Start();
-                    //Object tttt3 = new Object(); lock (tttt3) { array3.Wait(); array3.Dispose();//TH.Add(array3); }
-
-                    //Initiatye Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-
-                    int ii4 = ii, jj4 = jj, ik14 = ik1, j14 = j1;
-                    int Ord4 = Order;
-                    Color a4 = a;
-                    int iAStarGreedy4 = iAStarGreedy;
-                    var array4 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeCastleBrown(a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND));
-                    //array4.Start();
-                    //Object tttt4 = new Object(); lock (tttt4) { array4.Wait(); array4.Dispose();//TH.Add(array4); }
-
-                    //Initiatye Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-                    int ii5 = ii, jj5 = jj, ik15 = ik1, j15 = j1;
-                    int Ord5 = Order;
-                    Color a5 = a;
-                    int iAStarGreedy5 = iAStarGreedy;
-                    var array5 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeMinisterBrown(a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND));
-                    //array5.Start();
-                    //Object tttt5 = new Object(); lock (tttt5) { array5.Wait(); array5.Dispose();//TH.Add(array5); }
-
-                    //Initiatye Variables.
-                    Order = DummyOrder;
-                    ChessRules.CurrentOrder = DummyCurrentOrder;
-
-
-                    if (Order== 1)
-                        a = Color.Gray;
-                    else
-                        a = Color.Brown;
-                    //Order *= -1;
-                    //ChessRules.CurrentOrder *= -1;
-                    int ii6 = ii, jj6 = jj, ik16 = ik1, j16 = j1;
-                    int Ord6 = Order;
-                    Color a6 = a;
-                    int iAStarGreedy6 = iAStarGreedy;
-                    var array6 = Task.Factory.StartNew(() => Do |= this.FullGameThinkingTreeKingBrown(a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND));
-                    //array6.Start();
-                    //Object tttt6 = new Object(); lock (tttt6) { array6.Wait(); array6.Dispose();//TH.Add(array6); }
-                }
-                
-            }
-            */
+            
             if (TH == null)
                 TH = new List<Task>();
 
@@ -22143,29 +21465,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         }
         //monitor
         void SemaphoreExxedTime(int time, int Kind)
-        {/*
-            //long Time = TimeElapced.TimeNow();Spaces++;
-
-            if (time > 10000)
-            {
-                if (Kind == 1)
-                    //OutPut.Append("\r\nSolder Semaphre Full Game Exeede time");
-                else
-if (Kind == 2)
-                    //OutPut.Append("\r\nelephant Semaphre Full Game Exeede time");
-                else
-if (Kind == 3)
-                    //OutPut.Append("\r\nHourse Semaphre Full Game Exeede time");
-                else
-if (Kind == 4)
-                    //OutPut.Append("\r\nCastle Semaphre Full Game Exeede time");
-                else
-if (Kind == 5)
-                    //OutPut.Append("\r\nMinister Semaphre Full Game Exeede time");
-                else if (Kind == 6)
-                    //OutPut.Append("\r\nKing Semaphre Full Game Exeede time");
-
-            }*/
+        {
             //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("SemaphoreExxedTime:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Main Initiate Thinking Method.
@@ -22804,24 +22104,7 @@ if (Kind == 5)
                     Tag = Tag.Replace("AstarGreedy ", "<font Color=\"Yellow\">" + "AstarGreedy " + "</font>");
                 if (Tag.Contains("Level"))
                     Tag = Tag.Replace("Level", "<font Color=\"Blue\">" + "Level" + "</Font>");
-                /*              if (Tag.Contains("Soldeir"))
-                                  Tag = Tag.Replace("Soldeir", "<font Color=\"Silver\">" + "Soldeir" + "</font>");
-                              else
-                              if (Tag.Contains("Elephant"))
-                                  Tag = Tag.Replace("Elephant", "<font Color=\"Silver\">" + "Elephant" + "</font>");
-                              else
-                              if (Tag.Contains("Hourse"))
-                                  Tag = Tag.Replace("Hourse", "<font Color=\"Silver\">" + "Hourse" + "</font>");
-                              else
-                              if (Tag.Contains("Castle"))
-                                  Tag = Tag.Replace("Castle", "<font Color=\"Silver\">" + "Castle" + "</font>");
-                              else
-                              if (Tag.Contains("Minister"))
-                                  Tag = Tag.Replace("Minister", "<font Color=\"Silver\">" + "Minister" + "</font>");
-                              else
-                              if (Tag.Contains("King"))
-                                  Tag = Tag.Replace("King", "<font Color=\"Silver\">" + "King" + "</font>");
-              */
+                
                 String R = "<font Color=\"Red\">" + Tag + "</font>";
                 //{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CreateHtmlTag:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return R;

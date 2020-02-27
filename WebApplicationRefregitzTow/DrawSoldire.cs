@@ -94,19 +94,7 @@ namespace RefrigtzW
             return a;
         }
         //Constructor 1.
-        /* public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-         {
-             CurrentAStarGredyMax = CurrentAStarGredy;
-             MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
-             IgnoreSelfObjectsT = IgnoreSelfObject;
-             UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-             BestMovmentsT = BestMovment;
-             PredictHeuristicT = PredictHurist;
-             OnlySelfT = OnlySel;
-             AStarGreedyHeuristicT = AStarGreedyHuris;
-             ArrangmentsChanged = Arrangments;
-         }
-         */
+        
         //Constructor 2.
         public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             ) :

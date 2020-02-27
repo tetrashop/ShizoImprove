@@ -19,8 +19,8 @@ namespace RefrigtzW
 
 
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
-        //private readonly object balancelock = new object();
-        //private readonly object balancelockS = new object();
+        
+        
         public static Image[] M = new Image[2];
         //Initiate Global Variable.
         List<int[]> ValuableSelfSupported = new List<int[]>();
@@ -49,21 +49,21 @@ namespace RefrigtzW
             lock (a)
             {
                 string stackTrace = ex.ToString();
-                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
             }
 
         }
         public void Dispose()
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             ValuableSelfSupported = null;
             M = null;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Dispose:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
 
         public bool MaxFound(ref bool MaxNotFound)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             int a = ReturnHeuristic();
             if (MaxHeuristicxM < a)
             {
@@ -75,44 +75,32 @@ namespace RefrigtzW
                         ThinkingChess.MaxHeuristicx = a;
                     MaxHeuristicxM = a;
                 }
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return true;
             }
 
             MaxNotFound = true;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("MaxFound:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
             return false;
         }
         public int ReturnHeuristic()
         {
             int HaveKilled = 0;
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             int a = 0;
             for (var ii = 0; ii < AllDraw.MinisterMovments; ii++)
 
                 a += MinisterThinking[ii].ReturnHeuristic(-1, -1, Order, false,ref HaveKilled);
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ReturnHeuristic:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
             return a;
         }
         //constructor 1.
-        /*public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments)
-        {
-            CurrentAStarGredyMax = CurrentAStarGredy;
-            MovementsAStarGreedyHeuristicFoundT = MovementsAStarGreedyHeuristicTFou;
-            IgnoreSelfObjectsT = IgnoreSelfObject;
-            UsePenaltyRegardMechnisamT = UsePenaltyRegardMechnisa;
-            BestMovmentsT = BestMovment;
-            PredictHeuristicT = PredictHurist;
-            OnlySelfT = OnlySel;
-            AStarGreedyHeuristicT = AStarGreedyHuris;
-            ArrangmentsChanged = Arrangments;
-        }
-        */
+        
         //Constructor 2.
         public DrawMinister(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             object balancelock = new object();
             lock (balancelock)
             {
@@ -140,11 +128,11 @@ namespace RefrigtzW
                 Current = Cur;
                 Order = Ord;
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("DrawMinister:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         int[,] CloneATable(int[,] Tab)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -155,14 +143,14 @@ namespace RefrigtzW
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Table;
             }
 
         }
         bool[,] CloneATable(bool[,] Tab)
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             Object O = new Object();
             lock (O)
             {
@@ -173,7 +161,7 @@ namespace RefrigtzW
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
                 //Return New Object.
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CloneATable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                
                 return Table;
             }
 
@@ -182,7 +170,7 @@ namespace RefrigtzW
         public void Clone(ref DrawMinister AA//, ref AllDraw. THIS
             )
         {
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             int[,] Tab = new int[8, 8];
             for (var i = 0; i < 8; i++)
                 for (var j = 0; j < 8; j++)
@@ -207,14 +195,14 @@ namespace RefrigtzW
             AA.Order = Order;
             AA.Current = Current;
             AA.color = color;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("Clone:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
         //Draw an Mnister on the Table.
         public void DrawMinisterOnTable(ref Graphics g, int CellW, int CellH)
         {
             if (g == null)
                 return;
-            //long Time = TimeElapced.TimeNow();Spaces++;
+            
             try
             {
                 object balancelockS = new object();
@@ -254,7 +242,7 @@ namespace RefrigtzW
             {
                 Log(t);
             }
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("DrawMinisterOnTable:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            
         }
     }
 }
