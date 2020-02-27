@@ -6270,6 +6270,7 @@ namespace RefrigtzW
 
                 }
 
+                /*
                 if (HeuristicA[0] != 0 && HeuristicA[1] != 0 && HeuristicA[2] != 0 && HeuristicA[3] != 0)
                     return HeuristicB;
 
@@ -6286,6 +6287,10 @@ namespace RefrigtzW
                 //Initiate to Begin Call Orders.
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("HeuristicAttack:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return HeuristicA;
+
+*/
+                return HeuristicB;
+                /*          Object O = new Ob
 
 
                 /*          Object O = new Object();
@@ -12104,13 +12109,13 @@ namespace RefrigtzW
                             {
                                 A = ColleralationGray < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
-                                C = (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
-                                C = (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
@@ -12197,13 +12202,13 @@ namespace RefrigtzW
                             {
                                 A = ColleralationGray < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 || (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
