@@ -12121,7 +12121,7 @@ namespace RefrigtzW
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A //&& System.Math.Abs(TableS[RowS, ColS]) != 1
+                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1
                             )
                             {
                                 SetSupHuTrue();
@@ -12249,7 +12249,7 @@ namespace RefrigtzW
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A //&& System.Math.Abs(TableS[RowS, ColS]) != 1
+                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1
                             )
                             {
                                 SetSupHuTrue();
@@ -12676,6 +12676,7 @@ namespace RefrigtzW
                     //oSerialiser.Serialize(oStream, newTask);   
                     //newTask.ConfigureAwait(false);
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
             }
@@ -12724,6 +12725,7 @@ namespace RefrigtzW
                                 //oSerialiser.Serialize(oStream, newTask);
                                 //newTask.ConfigureAwait(false);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
@@ -12764,6 +12766,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -12800,6 +12803,7 @@ namespace RefrigtzW
                                 //oSerialiser.Serialize(oStream, newTask);
                                 //newTask.ConfigureAwait(false);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
@@ -12857,6 +12861,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -12891,6 +12896,7 @@ namespace RefrigtzW
                     //oSerialiser.Serialize(oStream, newTask);
                     //newTask.ConfigureAwait(false);
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
 
@@ -12927,6 +12933,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -12960,6 +12967,7 @@ namespace RefrigtzW
                     //oSerialiser.Serialize(oStream, newTask);
                     //newTask.ConfigureAwait(false);
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
             }
@@ -12995,6 +13003,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13031,6 +13040,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13068,6 +13078,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13103,6 +13114,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
 
@@ -13127,6 +13139,7 @@ namespace RefrigtzW
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13141,6 +13154,7 @@ namespace RefrigtzW
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13155,6 +13169,7 @@ namespace RefrigtzW
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13169,6 +13184,7 @@ namespace RefrigtzW
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13183,6 +13199,7 @@ namespace RefrigtzW
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13197,6 +13214,7 @@ namespace RefrigtzW
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13211,6 +13229,7 @@ namespace RefrigtzW
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13225,6 +13244,7 @@ namespace RefrigtzW
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13265,6 +13285,7 @@ namespace RefrigtzW
                             //oSerialiser.Serialize(oStream, newTask);
                             //newTask.ConfigureAwait(false);
                             newTask.Wait(); newTask.Dispose();
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                             //oStream.Close();
                         }
                     }
@@ -13305,6 +13326,7 @@ namespace RefrigtzW
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
                             //newTask.ConfigureAwait(false);
                             newTask.Wait(); newTask.Dispose();
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         }
 
                     }
@@ -13325,9 +13347,11 @@ namespace RefrigtzW
                 var newTask1 = Task.Factory.StartNew(() => ThinkingCastleOne(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 var newTask2 = Task.Factory.StartNew(() => ThinkingCastleTow(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //newTask2.ConfigureAwait(false);
                 newTask2.Wait(); newTask2.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
             }
 
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13364,6 +13388,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
 
                     }
@@ -13401,6 +13426,7 @@ namespace RefrigtzW
                             //oSerialiser.Serialize(oStream, newTask);
                             //newTask.ConfigureAwait(false);
                             newTask.Wait(); newTask.Dispose();
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                             //oStream.Close();
 
 
@@ -13441,6 +13467,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                     ThinkingAtRun = false;
@@ -13478,6 +13505,7 @@ namespace RefrigtzW
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                     ThinkingAtRun = false;
@@ -13524,6 +13552,7 @@ namespace RefrigtzW
                                 //oSerialiser.Serialize(oStream, newTask);
                                 //newTask.ConfigureAwait(false);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
 
                             }
@@ -14039,6 +14068,7 @@ namespace RefrigtzW
                             break;
 
                     }
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     Object O3 = new Object();
                     lock (O3)
                     {

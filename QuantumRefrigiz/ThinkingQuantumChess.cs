@@ -12657,7 +12657,7 @@ namespace QuantumRefrigiz
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A //&& System.Math.Abs(TableS[RowS, ColS]) != 1
+                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1
                             )
                             {
                                 SetSupHuTrue();
@@ -12785,7 +12785,7 @@ namespace QuantumRefrigiz
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A //&& System.Math.Abs(TableS[RowS, ColS]) != 1
+                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1
                             )
                             {
                                 SetSupHuTrue();
@@ -13216,6 +13216,7 @@ namespace QuantumRefrigiz
                     //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                     //oSerialiser.Serialize(oStream, newTask);   
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
             }
@@ -13263,6 +13264,7 @@ namespace QuantumRefrigiz
                                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                                 //oSerialiser.Serialize(oStream, newTask);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
@@ -13303,6 +13305,7 @@ namespace QuantumRefrigiz
                         //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13339,6 +13342,7 @@ namespace QuantumRefrigiz
                                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                                 //oSerialiser.Serialize(oStream, newTask);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
@@ -13396,6 +13400,7 @@ namespace QuantumRefrigiz
                         //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13430,6 +13435,7 @@ namespace QuantumRefrigiz
                     //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                     //oSerialiser.Serialize(oStream, newTask);
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
 
@@ -13465,6 +13471,7 @@ namespace QuantumRefrigiz
                         //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13498,6 +13505,7 @@ namespace QuantumRefrigiz
                     //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                     //oSerialiser.Serialize(oStream, newTask);
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
             }
@@ -13535,6 +13543,7 @@ namespace QuantumRefrigiz
                         //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13572,6 +13581,7 @@ namespace QuantumRefrigiz
                         //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13610,6 +13620,7 @@ namespace QuantumRefrigiz
                         //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13646,6 +13657,7 @@ namespace QuantumRefrigiz
                         //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                         //oSerialiser.Serialize(oStream, newTask);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
 
@@ -13670,6 +13682,7 @@ namespace QuantumRefrigiz
                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13684,6 +13697,7 @@ namespace QuantumRefrigiz
                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13698,6 +13712,7 @@ namespace QuantumRefrigiz
                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13712,6 +13727,7 @@ namespace QuantumRefrigiz
                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13726,6 +13742,7 @@ namespace QuantumRefrigiz
                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13739,6 +13756,7 @@ namespace QuantumRefrigiz
                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13753,6 +13771,7 @@ namespace QuantumRefrigiz
                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13767,6 +13786,7 @@ namespace QuantumRefrigiz
                 //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                 //oSerialiser.Serialize(oStream, newTask);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13807,6 +13827,7 @@ namespace QuantumRefrigiz
                             //Stream oStream = new FileStream(@"xmlFile.xml", FileMode.Create);
                             //oSerialiser.Serialize(oStream, newTask);
                             newTask.Wait(); newTask.Dispose();
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                             //oStream.Close();
                         }
                     }
@@ -13865,9 +13886,11 @@ namespace QuantumRefrigiz
                 var newTask1 = Task.Factory.StartNew(() => ThinkingQuantumCastleOne(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 var newTask2 = Task.Factory.StartNew(() => ThinkingQuantumCastleTow(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //newTask2.ConfigureAwait(false);
                 newTask2.Wait(); newTask2.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
             }
 
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingQuantumCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13905,6 +13928,7 @@ namespace QuantumRefrigiz
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
 
                     }
@@ -13942,6 +13966,7 @@ namespace QuantumRefrigiz
                             //oSerialiser.Serialize(oStream, newTask);
                             //newTask.ConfigureAwait(false);
                             newTask.Wait(); newTask.Dispose();
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                             //oStream.Close();
 
 
@@ -13980,6 +14005,7 @@ namespace QuantumRefrigiz
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                     ThinkingQuantumAtRun = false;
@@ -14015,6 +14041,7 @@ namespace QuantumRefrigiz
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                     ThinkingQuantumAtRun = false;
@@ -14065,6 +14092,7 @@ namespace QuantumRefrigiz
                                 //oSerialiser.Serialize(oStream, newTask);
                                 //newTask.ConfigureAwait(false);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
 
                             }
@@ -14684,6 +14712,7 @@ namespace QuantumRefrigiz
                             break;
 
                     }
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     Object O3 = new Object();
                     lock (O3)
                     {

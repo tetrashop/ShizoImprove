@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using LearningMachine;
 using System.IO;
 using System.Threading;
+using LearningMachine;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text;
@@ -6752,125 +6752,125 @@ namespace RefrigtzDLL
                                         var output = Task.Factory.StartNew(() =>
                                         {
                                             Parallel.Invoke(() =>
-                                        {
-
-                                            Object OO = new Object();
-                                            lock (OO)
                                             {
 
-                                                if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
+                                                Object OO = new Object();
+                                                lock (OO)
                                                 {
-                                                    if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+
+                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                     {
-                                                        Object OOO = new Object();
-                                                        lock (OOO)
+                                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                         {
-                                                            int[] A = new int[4];
-                                                            A[0] = RowD;
-                                                            A[1] = ColD;
-                                                            A[2] = RowS;
-                                                            A[3] = ColS;
-                                                            HeuristicAllReducedAttacked.Add(A);
-                                                            Exchange[ReducedAttacked]++;
+                                                            Object OOO = new Object();
+                                                            lock (OOO)
+                                                            {
+                                                                int[] A = new int[4];
+                                                                A[0] = RowD;
+                                                                A[1] = ColD;
+                                                                A[2] = RowS;
+                                                                A[3] = ColS;
+                                                                HeuristicAllReducedAttacked.Add(A);
+                                                                Exchange[ReducedAttacked]++;
+                                                            }
                                                         }
                                                     }
-                                                }
 
-                                                if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
-                                                {
-                                                    if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
                                                     {
-                                                        Object OOO = new Object();
-                                                        lock (OOO)
+                                                        if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                         {
-                                                            int[] A = new int[4];
-                                                            A[0] = RowD;
-                                                            A[1] = ColD;
-                                                            A[2] = RowS;
-                                                            A[3] = ColS;
-                                                            HeuristicAllReducedSupport.Add(A);
-                                                            Exchange[ReducedSupport]++;
+                                                            Object OOO = new Object();
+                                                            lock (OOO)
+                                                            {
+                                                                int[] A = new int[4];
+                                                                A[0] = RowD;
+                                                                A[1] = ColD;
+                                                                A[2] = RowS;
+                                                                A[3] = ColS;
+                                                                HeuristicAllReducedSupport.Add(A);
+                                                                Exchange[ReducedSupport]++;
+                                                            }
                                                         }
                                                     }
-                                                }
 
-                                                if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, true))
-                                                {
-                                                    if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                    if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], true, true))
                                                     {
-                                                        Object OOO = new Object();
-                                                        lock (OOO)
+                                                        if (Movable(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                         {
-                                                            int[] A = new int[4];
-                                                            A[0] = RowD;
-                                                            A[1] = ColD;
-                                                            A[2] = RowS;
-                                                            A[3] = ColS;
-                                                            HeuristicAllReducedMove.Add(A);
-                                                            Exchange[ReducedMove]++;
-                                                        }
+                                                            Object OOO = new Object();
+                                                            lock (OOO)
+                                                            {
+                                                                int[] A = new int[4];
+                                                                A[0] = RowD;
+                                                                A[1] = ColD;
+                                                                A[2] = RowS;
+                                                                A[3] = ColS;
+                                                                HeuristicAllReducedMove.Add(A);
+                                                                Exchange[ReducedMove]++;
+                                                            }
 
-                                                    }
-                                                }
-
-
-                                                if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], false, false))
-                                                {
-                                                    if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                    {
-                                                        Object OOO = new Object();
-                                                        lock (OOO)
-                                                        {
-                                                            int[] A = new int[4];
-                                                            A[0] = RowS;
-                                                            A[1] = ColS;
-                                                            A[2] = RowD;
-                                                            A[3] = ColD;
-                                                            HeuristicAllAttacked.Add(A);
-                                                            Exchange[ToAttacked]++;
                                                         }
                                                     }
-                                                }
 
 
-                                                if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, false))
-                                                {
-                                                    if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                     {
-                                                        Object OOO = new Object();
-                                                        lock (OOO)
+                                                        if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
                                                         {
-                                                            int[] A = new int[4];
-                                                            A[0] = RowS;
-                                                            A[1] = ColS;
-                                                            A[2] = RowD;
-                                                            A[3] = ColD;
-                                                            HeuristicAllSupport.Add(A);
-                                                            Exchange[ToSupport]++;
+                                                            Object OOO = new Object();
+                                                            lock (OOO)
+                                                            {
+                                                                int[] A = new int[4];
+                                                                A[0] = RowS;
+                                                                A[1] = ColS;
+                                                                A[2] = RowD;
+                                                                A[3] = ColD;
+                                                                HeuristicAllAttacked.Add(A);
+                                                                Exchange[ToAttacked]++;
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, true))
-                                                {
-                                                    if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+
+
+                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, false))
                                                     {
-                                                        Object OOO = new Object();
-                                                        lock (OOO)
+                                                        if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
                                                         {
-                                                            int[] A = new int[4];
-                                                            A[0] = RowS;
-                                                            A[1] = ColS;
-                                                            A[2] = RowD;
-                                                            A[3] = ColD;
-                                                            HeuristicAllMove.Add(A);
-                                                            Exchange[ToMoved]++;
+                                                            Object OOO = new Object();
+                                                            lock (OOO)
+                                                            {
+                                                                int[] A = new int[4];
+                                                                A[0] = RowS;
+                                                                A[1] = ColS;
+                                                                A[2] = RowD;
+                                                                A[3] = ColD;
+                                                                HeuristicAllSupport.Add(A);
+                                                                Exchange[ToSupport]++;
+                                                            }
                                                         }
                                                     }
+                                                    if (Permit(Ord, Table[RowS, ColS], Table[RowD, ColD], true, true))
+                                                    {
+                                                        if (Movable(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                        {
+                                                            Object OOO = new Object();
+                                                            lock (OOO)
+                                                            {
+                                                                int[] A = new int[4];
+                                                                A[0] = RowS;
+                                                                A[1] = ColS;
+                                                                A[2] = RowD;
+                                                                A[3] = ColD;
+                                                                HeuristicAllMove.Add(A);
+                                                                Exchange[ToMoved]++;
+                                                            }
+                                                        }
+                                                    }
+
+
                                                 }
-
-
-                                            }
-                                        });
+                                            });
                                         });
                                         //output.ConfigureAwait(false);
 
@@ -7046,11 +7046,11 @@ namespace RefrigtzDLL
                     HAS = HeuristicMovmentSelf(Before, CloneATable(Table), aa, Ord, RowS, ColS, RowD, ColD);
                 }
                 , () =>
-                 {
-                     HAE = HeuristicMovmentEnemy(Before, CloneATable(Table), aa, Ord, RowS, ColS, RowD, ColD);
+                {
+                    HAE = HeuristicMovmentEnemy(Before, CloneATable(Table), aa, Ord, RowS, ColS, RowD, ColD);
 
 
-                 });
+                });
                 return HAS + (HAE);
             }
         }
@@ -9238,7 +9238,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -9283,7 +9283,7 @@ namespace RefrigtzDLL
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -9429,7 +9429,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -9472,7 +9472,7 @@ namespace RefrigtzDLL
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -9965,7 +9965,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -10010,7 +10010,7 @@ namespace RefrigtzDLL
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -10126,7 +10126,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -10170,7 +10170,7 @@ namespace RefrigtzDLL
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -10284,7 +10284,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -10327,7 +10327,7 @@ namespace RefrigtzDLL
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             //newTask1.ConfigureAwait(false);
                             newTask1.Wait(); newTask1.Dispose();
 
@@ -11518,7 +11518,7 @@ namespace RefrigtzDLL
                     Object A = new object();
                     lock (A)
                     {
-                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                         //newTask1.ConfigureAwait(false);
                         newTask1.Wait(); newTask1.Dispose();
                     }
@@ -11562,7 +11562,7 @@ namespace RefrigtzDLL
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             newTask1.Wait(); newTask1.Dispose();
 
                         }
@@ -11679,7 +11679,7 @@ namespace RefrigtzDLL
                 {
                     ThinkingRun = true;
                 }
-                var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
                 Object A = new object();
@@ -11885,79 +11885,79 @@ namespace RefrigtzDLL
                                 }
                             }
                         }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             //if (SubOfHeuristicAllIsPositive(Heuristic))
-                             {
-                                 if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                     return;
-                                 int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                                 int[,] TableSS = CloneATable(TableS);
-                                 HeuristicRemain[1] = HeuristicDistribution(Before, TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicDistributionValue
-                                      );
-                             }
-                         }
-                     }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                 return;
-                             int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                             int[,] TableSS = CloneATable(TableS);
-                             HeuristicRemain[2] = HeuristicKingSafety(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
-                                  );
-                         }
-                     }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                 return;
-                             int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                             int[,] TableSS = CloneATable(TableS);
-                             HeuristicRemain[3] = HeuristicKingPreventionOfCheckedAtBegin(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
-                             );
-                         }
-                     }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             //if (SubOfHeuristicAllIsPositive(Heuristic))
-                             {
-                                 if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                     return;
-                                 int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                                 int[,] TableSS = CloneATable(TableS);
-                                 HeuristicRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD);
-                             }
-                         }
-                     }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             //if (SubOfHeuristicAllIsPositive(Heuristic))
-                             {
-                                 if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                     return;
-                                 int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                                 int[,] TableSS = CloneATable(TableS);
-                                 Color colorE = Color.Gray;
-                                 if (Order == -1)
-                                     colorE = Color.Gray;
-                                 else
-                                     colorE = Color.Brown;
-                                 HeuristicRemain[5] = HeuristicBetterSpace(TableSS, color, colorE, Order, Order * -1);
-                             }
-                         }
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                //if (SubOfHeuristicAllIsPositive(Heuristic))
+                                {
+                                    if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                        return;
+                                    int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                    int[,] TableSS = CloneATable(TableS);
+                                    HeuristicRemain[1] = HeuristicDistribution(Before, TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicDistributionValue
+                                         );
+                                }
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                    return;
+                                int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                int[,] TableSS = CloneATable(TableS);
+                                HeuristicRemain[2] = HeuristicKingSafety(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
+                                     );
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                    return;
+                                int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                int[,] TableSS = CloneATable(TableS);
+                                HeuristicRemain[3] = HeuristicKingPreventionOfCheckedAtBegin(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
+                                );
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                //if (SubOfHeuristicAllIsPositive(Heuristic))
+                                {
+                                    if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                        return;
+                                    int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                    int[,] TableSS = CloneATable(TableS);
+                                    HeuristicRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD);
+                                }
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                //if (SubOfHeuristicAllIsPositive(Heuristic))
+                                {
+                                    if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                        return;
+                                    int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                    int[,] TableSS = CloneATable(TableS);
+                                    Color colorE = Color.Gray;
+                                    if (Order == -1)
+                                        colorE = Color.Gray;
+                                    else
+                                        colorE = Color.Brown;
+                                    HeuristicRemain[5] = HeuristicBetterSpace(TableSS, color, colorE, Order, Order * -1);
+                                }
+                            }
 
-                     });
+                        });
                     }
                 });
                 //output1.ConfigureAwait(false);
@@ -12017,16 +12017,16 @@ namespace RefrigtzDLL
             return Is;
         }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-     , ref int HeuristicAttackValue
-         , ref int HeuristicMovementValue
-         , ref int HeuristicSelfSupportedValue
-         , ref int HeuristicReducedMovementValue
-        , ref int HeuristicReducedSupport
-         , ref int HeuristicReducedAttackValue
-         , ref int HeuristicDistributionValue
-     , ref int HeuristicKingSafe
-     , ref int HeuristicFromCenter
-     , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+       , ref int HeuristicAttackValue
+           , ref int HeuristicMovementValue
+           , ref int HeuristicSelfSupportedValue
+           , ref int HeuristicReducedMovementValue
+          , ref int HeuristicReducedSupport
+           , ref int HeuristicReducedAttackValue
+           , ref int HeuristicDistributionValue
+       , ref int HeuristicKingSafe
+       , ref int HeuristicFromCenter
+       , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             Object OO = new Object();
@@ -12122,7 +12122,7 @@ namespace RefrigtzDLL
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A //&& System.Math.Abs(TableS[RowS, ColS]) != 1
+                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1
                             )
                             {
                                 SetSupHuTrue();
@@ -12250,7 +12250,7 @@ namespace RefrigtzDLL
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A //&& System.Math.Abs(TableS[RowS, ColS]) != 1
+                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1
                             )
                             {
                                 SetSupHuTrue();
@@ -12467,7 +12467,7 @@ namespace RefrigtzDLL
                     ThinkingRun = true;
                 }
 
-                var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true,Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
 
@@ -12533,7 +12533,7 @@ namespace RefrigtzDLL
                 //Calculate Movment Heuristic After Movments.
                 //Caused this for Stachostic results.
 
-                newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false,Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
 
@@ -12677,6 +12677,7 @@ namespace RefrigtzDLL
                     //oSerialiser.Serialize(oStream, newTask);   
                     //newTask.ConfigureAwait(false);
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
             }
@@ -12725,6 +12726,7 @@ namespace RefrigtzDLL
                                 //oSerialiser.Serialize(oStream, newTask);
                                 //newTask.ConfigureAwait(false);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
@@ -12765,6 +12767,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -12801,6 +12804,7 @@ namespace RefrigtzDLL
                                 //oSerialiser.Serialize(oStream, newTask);
                                 //newTask.ConfigureAwait(false);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
                                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
                             }
@@ -12858,6 +12862,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -12892,6 +12897,7 @@ namespace RefrigtzDLL
                     //oSerialiser.Serialize(oStream, newTask);
                     //newTask.ConfigureAwait(false);
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
 
@@ -12928,6 +12934,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -12961,6 +12968,7 @@ namespace RefrigtzDLL
                     //oSerialiser.Serialize(oStream, newTask);
                     //newTask.ConfigureAwait(false);
                     newTask.Wait(); newTask.Dispose();
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     //oStream.Close();
                 }
             }
@@ -12996,6 +13004,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13032,6 +13041,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13069,6 +13079,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                 }
@@ -13104,6 +13115,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
 
@@ -13128,6 +13140,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13142,6 +13155,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13156,6 +13170,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13170,6 +13185,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13184,6 +13200,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13198,6 +13215,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13212,6 +13230,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13226,6 +13245,7 @@ namespace RefrigtzDLL
                 //oSerialiser.Serialize(oStream, newTask);
                 //newTask.ConfigureAwait(false);
                 newTask.Wait(); newTask.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 //oStream.Close();
                 //Thread s = new Thread(new ThreadStart(ThinkWait)); s.Start(); s.Join();
             }
@@ -13266,6 +13286,7 @@ namespace RefrigtzDLL
                             //oSerialiser.Serialize(oStream, newTask);
                             //newTask.ConfigureAwait(false);
                             newTask.Wait(); newTask.Dispose();
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                             //oStream.Close();
                         }
                     }
@@ -13306,6 +13327,7 @@ namespace RefrigtzDLL
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingChess(ref tmpL, ref tmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
                             //newTask.ConfigureAwait(false);
                             newTask.Wait(); newTask.Dispose();
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         }
 
                     }
@@ -13326,9 +13348,11 @@ namespace RefrigtzDLL
                 var newTask1 = Task.Factory.StartNew(() => ThinkingCastleOne(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //newTask1.ConfigureAwait(false);
                 newTask1.Wait(); newTask1.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                 var newTask2 = Task.Factory.StartNew(() => ThinkingCastleTow(ref tmpL, ref tmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
                 //newTask2.ConfigureAwait(false);
                 newTask2.Wait(); newTask2.Dispose();
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
             }
 
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThinkingCastle:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
@@ -13365,6 +13389,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
 
                     }
@@ -13402,6 +13427,7 @@ namespace RefrigtzDLL
                             //oSerialiser.Serialize(oStream, newTask);
                             //newTask.ConfigureAwait(false);
                             newTask.Wait(); newTask.Dispose();
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                             //oStream.Close();
 
 
@@ -13442,6 +13468,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                     ThinkingAtRun = false;
@@ -13479,6 +13506,7 @@ namespace RefrigtzDLL
                         //oSerialiser.Serialize(oStream, newTask);
                         //newTask.ConfigureAwait(false);
                         newTask.Wait(); newTask.Dispose();
+                        LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                         //oStream.Close();
                     }
                     ThinkingAtRun = false;
@@ -13525,6 +13553,7 @@ namespace RefrigtzDLL
                                 //oSerialiser.Serialize(oStream, newTask);
                                 //newTask.ConfigureAwait(false);
                                 newTask.Wait(); newTask.Dispose();
+                                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                                 //oStream.Close();
 
                             }
@@ -14040,6 +14069,7 @@ namespace RefrigtzDLL
                             break;
 
                     }
+                    LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpW;
                     Object O3 = new Object();
                     lock (O3)
                     {
