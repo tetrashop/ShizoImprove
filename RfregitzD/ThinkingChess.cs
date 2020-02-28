@@ -11886,7 +11886,7 @@ namespace RefrigtzDLL
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1
+                            if (((NoOfBoardMoved + Is == Total) || TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) //&& A && System.Math.Abs(TableS[RowS, ColS]) != 1
                             )
                             {
                                 SetSupHuTrue();
@@ -12014,7 +12014,7 @@ namespace RefrigtzDLL
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if ((NoOfBoardMoved + Is != Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove && A && System.Math.Abs(TableS[RowS, ColS]) != 1
+                            if (((NoOfBoardMoved + Is == Total) || TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) //&& A && System.Math.Abs(TableS[RowS, ColS]) != 1
                             )
                             {
                                 SetSupHuTrue();

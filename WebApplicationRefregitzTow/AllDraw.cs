@@ -15229,200 +15229,420 @@ namespace RefrigtzW
             return this;
         }
         //boundry condition determistic method for break
-        bool FullBoundryConditions(int Current, int Order, int iAStarGreedy)
+        bool FullBoundryConditionsSoldierIgnore(int ikk, int Current, int Order, int iAStarGreedy)
         {
-            
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+                try
+                {
+                    if (SolderesOnTable == null)
+                        return true;
+                    if (SolderesOnTable[ikk] == null)
+                        return true;
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsElephantIgnore(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+                    if (ElephantOnTable == null)
+                        return true;
+                    if (ElephantOnTable[ikk] == null)
+                        return true;
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsHourseIgnore(int ikk, int Current, int Order, int iAStarGreedy)
+        {
 
 
             Object O = new Object();
             lock (O)
             {
                 bool IS = false;
-                if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingCreation
-                )
+
+                try
                 {
-                    IS = true;
+
+                    if (HoursesOnTable == null)
+                        return true;
+                    if (HoursesOnTable[ikk] == null)
+                        return true;
+
                 }
-                //gray
-                if (Order == 1)
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsCastleIgnore(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
                 {
-                    //soldier
-                    for (int ikk = 0; ikk < SodierMidle; ikk++)
+
+                    if (CastlesOnTable == null)
+                        return true;
+                    if (CastlesOnTable[ikk] == null)
+                        return true;
+
+
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsMinisterIgnore(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+                    if (MinisterOnTable == null)
+                        return true;
+                    if (MinisterOnTable[ikk] == null)
+                        return true;
+
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsKingIgnore(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+
+                    if (KingOnTable == null)
+                        return true;
+                    if (KingOnTable[ikk] == null)
+                        return true;
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsSoldier(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+                try
+                {
+
+
+
+                    if (FullBoundryConditionsSoldierIgnore(ikk, Current, Order, iAStarGreedy))
+                        return false;
+                    if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        if (SolderesOnTable == null)
-                            continue;
-                        if (SolderesOnTable[ikk] == null)
-                            continue;
-                        if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
+
+                        IS = true;
                     }
-                    //elephant
-                    for (int ikk = 0; ikk < ElefantMidle; ikk++)
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsElephant(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+
+
+
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+                    if (FullBoundryConditionsElephantIgnore(ikk, Current, Order, iAStarGreedy))
+                        return false;
+                    if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
                     {
-                        if (ElephantOnTable == null)
-                            continue;
-                        if (ElephantOnTable[ikk] == null)
-                            continue;
-                        if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
-                    }
-                    //hourse
-                    for (int ikk = 0; ikk < HourseMidle; ikk++)
-                    {
-                        if (HoursesOnTable == null)
-                            continue;
-                        if (HoursesOnTable[ikk] == null)
-                            continue;
-                        if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
-                    }
-                    //Castle
-                    for (int ikk = 0; ikk < CastleMidle; ikk++)
-                    {
-                        if (CastlesOnTable == null)
-                            continue;
-                        if (CastlesOnTable[ikk] == null)
-                            continue;
-                        if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
-                    }
-                    //minister
-                    for (int ikk = 0; ikk < MinisterMidle; ikk++)
-                    {
-                        if (MinisterOnTable == null)
-                            continue;
-                        if (MinisterOnTable[ikk] == null)
-                            continue;
-                        if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
-                    }
-                    //king
-                    for (int ikk = 0; ikk < KingMidle; ikk++)
-                    {
-                        if (KingOnTable == null)
-                            continue;
-                        if (KingOnTable[ikk] == null)
-                            continue;
-                        if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
-                    }
-                    //when vicrory count satisfied
-                    if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
-                    {
-                        
+
                         IS = true;
                     }
 
                 }
-                else
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsHourse(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+
+
+
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
                 {
+
+                    if (FullBoundryConditionsHourseIgnore(ikk, Current, Order, iAStarGreedy))
+                        return false;
+                    if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
+                    {
+
+                        IS = true;
+                    }
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsCastle(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+
+                    if (FullBoundryConditionsCastleIgnore(ikk, Current, Order, iAStarGreedy))
+                        return false;
+                    if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
+                    {
+
+                        IS = true;
+                    }
+
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsMinister(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+                    if (FullBoundryConditionsMinisterIgnore(ikk, Current, Order, iAStarGreedy))
+                        return false;
+                    if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
+                    {
+
+                        IS = true;
+                    }
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsKing(int ikk, int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+
+                    if (FullBoundryConditionsKingIgnore(ikk, Current, Order, iAStarGreedy))
+                        return false;
+                    if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
+                    {
+
+                        IS = true;
+                    }
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditions(int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+                    if (iAStarGreedy < 0 //&& iAStarGreedy < MaxDuringLevelThinkingCreation
+                   )
+                    {
+                        IS = true;
+                    }
+                    //gray
+                    if (Order == 1)
+                    {
+                        IS = IS || FullBoundryConditionsGray(Current, Order, iAStarGreedy);
+
+                        //when vicrory count satisfied
+                        if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                        {
+
+                            IS = true;
+                        }
+
+                    }
+                    else
+                    {
+                        IS = IS || FullBoundryConditionsBrown(Current, Order, iAStarGreedy);
+
+                        //when victory count satisfied
+                        if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                        {
+
+                            IS = true;
+                        }
+
+                    }
+                    //when nu,bers of computational leafs satisfied 
+                    if (((ThinkingChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
+                        IS = true;
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsBrown(int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+
                     //soldier
                     for (int ikk = SodierMidle; ikk < SodierHigh; ikk++)
                     {
-                        if (SolderesOnTable == null)
-                            continue;
-                        if (SolderesOnTable[ikk] == null)
-                            continue;
-                        if (SolderesOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
+                        IS = IS || FullBoundryConditionsSoldier(ikk, Current, Order, iAStarGreedy);
                     }
                     //elephant
                     for (int ikk = ElefantMidle; ikk < ElefantHigh; ikk++)
                     {
-                        if (ElephantOnTable == null)
-                            continue;
-                        if (ElephantOnTable[ikk] == null)
-                            continue;
-                        if (ElephantOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
+                        IS = IS || FullBoundryConditionsElephant(ikk, Current, Order, iAStarGreedy);
                     }
                     //hourse
                     for (int ikk = HourseMidle; ikk < HourseHight; ikk++)
                     {
-                        if (HoursesOnTable == null || HoursesOnTable[ikk] == null)
-                            continue;
-                        if (HoursesOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
+                        IS = IS || FullBoundryConditionsHourse(ikk, Current, Order, iAStarGreedy);
                     }
                     //Castle
                     for (int ikk = CastleMidle; ikk < CastleHigh; ikk++)
                     {
-                        if (CastlesOnTable == null)
-                            continue;
-                        if (CastlesOnTable[ikk] == null)
-                            continue;
-                        if (CastlesOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
+                        IS = IS || FullBoundryConditionsCastle(ikk, Current, Order, iAStarGreedy);
                     }
                     //minister
                     for (int ikk = MinisterMidle; ikk < MinisterHigh; ikk++)
                     {
-                        if (MinisterOnTable == null)
-                            continue;
-                        if (MinisterOnTable[ikk] == null)
-                            continue;
-                        if (MinisterOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
+                        IS = IS || FullBoundryConditionsMinister(ikk, Current, Order, iAStarGreedy);
                     }
                     //king
                     for (int ikk = KingMidle; ikk < KingHigh; ikk++)
                     {
-                        if (KingOnTable == null)
-                            continue;
-                        if (KingOnTable[ikk] == null)
-                            continue;
-                        if (KingOnTable[ikk].LoseOcuuredatChiled < -1)
-                        {
-                            
-                            IS = true;
-                        }
+                        IS = IS || FullBoundryConditionsKing(ikk, Current, Order, iAStarGreedy);
                     }
                     //when victory count satisfied
                     if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
                     {
-                        
+
                         IS = true;
                     }
 
-                }
-                //when nu,bers of computational leafs satisfied 
-                if (((ThinkingChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
-                    IS = true;
 
-                
+                }
+                catch (Exception t) { Log(t); IS = true; }
+                return IS;
+            }
+        }
+        bool FullBoundryConditionsGray(int Current, int Order, int iAStarGreedy)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                bool IS = false;
+
+                try
+                {
+
+                    //soldier
+                    for (int ikk = 0; ikk < SodierMidle; ikk++)
+                    {
+                        IS = IS || FullBoundryConditionsSoldier(ikk, Current, Order, iAStarGreedy);
+                    }
+                    //elephant
+                    for (int ikk = 0; ikk < ElefantMidle; ikk++)
+                    {
+                        IS = IS || FullBoundryConditionsElephant(ikk, Current, Order, iAStarGreedy);
+                    }
+                    //hourse
+                    for (int ikk = 0; ikk < HourseMidle; ikk++)
+                    {
+                        IS = IS || FullBoundryConditionsHourse(ikk, Current, Order, iAStarGreedy);
+                    }
+                    //Castle
+                    for (int ikk = 0; ikk < CastleMidle; ikk++)
+                    {
+                        IS = IS || FullBoundryConditionsCastle(ikk, Current, Order, iAStarGreedy);
+                    }
+                    //minister
+                    for (int ikk = 0; ikk < MinisterMidle; ikk++)
+                    {
+                        IS = IS || FullBoundryConditionsMinister(ikk, Current, Order, iAStarGreedy);
+                    }
+                    //king
+                    for (int ikk = 0; ikk < KingMidle; ikk++)
+                    {
+                        IS = IS || FullBoundryConditionsKing(ikk, Current, Order, iAStarGreedy);
+                    }
+                    //when vicrory count satisfied
+                    if ((ThinkingChess.FoundFirstMating > (MaxAStarGreedy))) //|| (SetDeptIgnore))
+                    {
+
+                        IS = true;
+                    }
+
+
+
+                }
+                catch (Exception t) { Log(t); IS = true; }
                 return IS;
             }
         }

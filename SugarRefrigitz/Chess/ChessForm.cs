@@ -680,20 +680,21 @@ namespace Chess
                 {
 
 
+                    Helper.WaitOnUsed("output.txt");
                     if (File.Exists("output.txt"))
                     {
-                        Helper.WaitOnUsed("output.txt");
                         Next = File.ReadAllText("output.txt");
                     }
                     if (Preveios == Next || Next.Length < 1)
                         return true;
+
                 }
                 catch (Exception t)
                 {
                     Log(t);
-                    
-                    
-                }
+
+                }   
+                
                 if (Preveios == Next || Next.Length < 1)
                     return true;
                 
