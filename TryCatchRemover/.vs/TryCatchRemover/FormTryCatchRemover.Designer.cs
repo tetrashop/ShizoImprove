@@ -40,6 +40,7 @@
             this.buttonRewmoveStarComment = new System.Windows.Forms.Button();
             this.buttonComment = new System.Windows.Forms.Button();
             this.buttonCodeComment = new System.Windows.Forms.Button();
+            this.buttonSpaceLine = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenFileDialogTryCatchRemover
@@ -132,9 +133,20 @@
             this.buttonCodeComment.UseVisualStyleBackColor = true;
             this.buttonCodeComment.Click += new System.EventHandler(this.buttonCodeComment_Click);
             // 
+            // buttonSpaceLine
+            // 
+            this.buttonSpaceLine.Location = new System.Drawing.Point(46, 207);
+            this.buttonSpaceLine.Name = "buttonSpaceLine";
+            this.buttonSpaceLine.Size = new System.Drawing.Size(169, 23);
+            this.buttonSpaceLine.TabIndex = 5;
+            this.buttonSpaceLine.Text = "Space Line";
+            this.buttonSpaceLine.UseVisualStyleBackColor = true;
+            this.buttonSpaceLine.Click += new System.EventHandler(this.buttonSpaceLine_Click);
+            // 
             // FormTryCatchRemover
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.buttonSpaceLine);
             this.Controls.Add(this.buttonCodeComment);
             this.Controls.Add(this.buttonRewmoveStarComment);
             this.Controls.Add(this.CheckBoxVarConvertOnly);
@@ -161,6 +173,7 @@
         private System.Windows.Forms.Button buttonRewmoveStarComment;
         private System.Windows.Forms.Button buttonComment;
         private System.Windows.Forms.Button buttonCodeComment;
+        private System.Windows.Forms.Button buttonSpaceLine;
     }
 }
 

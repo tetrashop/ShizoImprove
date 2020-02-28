@@ -702,6 +702,38 @@ namespace TryCatchRemover
             System.IO.File.WriteAllLines(saveFileDialogTryCatchRemover.FileName, Contain);
             MessageBox.Show("Done!");
         }
-       
+        String[] Remove(String[] In, int i)
+        {
+            String[] Re = new String[In.Length - 1];
+            for (int o = 0; o < i; o++)
+                Re[o] = In[o];
+            for (int o = i; o < In.Length - 1; o++)
+                Re[o] = In[o + 1];
+            return Re;
+        }
+        private void buttonSpaceLine_Click(object sender, EventArgs e)
+        {
+            OpenFileDialogTryCatchRemover.ShowDialog();
+            String A = OpenFileDialogTryCatchRemover.FileName;
+            String[] Contain = System.IO.File.ReadAllLines(A);
+            int i = 0;
+            do
+            {
+                if (Contain[i].Length != 0)
+                {
+                    
+                    i++;
+                    continue;
+                }
+                
+                Contain = Remove(Contain, i);
+                i++;
+            } while (i < Contain.Length);
+            saveFileDialogTryCatchRemover.ShowDialog();
+            System.IO.File.WriteAllLines(saveFileDialogTryCatchRemover.FileName, Contain);
+            MessageBox.Show("Done!");
+
+
+        }
     }
 }
