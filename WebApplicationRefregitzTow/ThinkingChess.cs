@@ -11885,15 +11885,21 @@ namespace RefrigtzW
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if (((NoOfBoardMoved + Is == Total) || TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) //&& A && System.Math.Abs(TableS[RowS, ColS]) != 1
-                            )
+                            if (Order == 1)
                             {
-                                SetSupHuTrue();
+                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] > 0 && TableS[RowD, ColD] <= 0)
+                                    SetSupHuTrue();
+
+                            }
+                            else
+                            {
+                                if (((NoOfBoardMoved + Is >= Total)&& TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0)
+                                    SetSupHuTrue();
                             }
                             //Empire more
                             if (A)
                             {
-                                if (ColleralationGray < 32)
+                                if (ColleralationGray < 16)
                                 {
                                     if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportGray)
                                     {
@@ -11980,7 +11986,7 @@ namespace RefrigtzW
                             //Empire more
                             if (A)
                             {
-                                if (ColleralationBrown < 32)
+                                if (ColleralationBrown < 16)
                                 {
                                     if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportBrown)
                                     {
@@ -12013,14 +12019,25 @@ namespace RefrigtzW
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if (((NoOfBoardMoved + Is == Total) || TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) //&& A && System.Math.Abs(TableS[RowS, ColS]) != 1
-                            )
+                            if (Order == 1)
                             {
-                                SetSupHuTrue();
-                                IsS = true;
+                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] > 0)
+                                {
+                                    IsS = true;
+                                    SetSupHuTrue();
+                                }
+
+                            }
+                            else
+                            {
+                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] < 0)
+                                {
+                                    IsS = true;
+                                    SetSupHuTrue();
+                                }
                             }
                             //when thre is most reduced support finding
-                            /* int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+                             int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
 
                              if (IsNo != null)
                              {
@@ -12029,10 +12046,10 @@ namespace RefrigtzW
                                      if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
                                          ClearSupHuTrue();
                                  }
-                             }*/
+                             }
                         }
-                        //if (!IsS)
-                        //ClearSupHuTrue();
+                        if (!IsS)
+                            ClearSupHuTrue();
                     }
                 }
             }

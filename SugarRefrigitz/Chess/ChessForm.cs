@@ -1450,6 +1450,24 @@ namespace Chess
                 }
             }
         }
+        void ClearTableInitiationPreventionOfMultipleMove()
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (Table[i, j] == 0)
+                    {
+
+                        if (RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j] != 0)
+                            RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j] = RefrigtzDLL.ThinkingChess.NoOfMovableAllObjectMove - 1;
+                    }
+                }
+            }
+
+
+
+        }
         void P() { Play(-1, -1); }
         void ClickedSimAtClOne(int i, int j)
         {
@@ -2732,6 +2750,7 @@ namespace Chess
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[x1, y1]++;
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j]++;
 
+                                ClearTableInitiationPreventionOfMultipleMove();
 
                                 MovmentsNumber++;
                                 
@@ -2829,8 +2848,8 @@ namespace Chess
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[x1, y1]++;
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j]++;
 
+                                ClearTableInitiationPreventionOfMultipleMove();
 
-                                
                                 MovmentsNumber++;
 
 

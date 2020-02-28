@@ -11871,8 +11871,8 @@ namespace QuantumRefrigiz
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    
-                    
+
+
                     if (Before)
                     {
 
@@ -11892,7 +11892,7 @@ namespace QuantumRefrigiz
                             //Disturbe on huge traversal exchange prevention 
                             if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             {
-                                
+
                                 //if (Before)
                                 SetSupHuTrue();
                             }
@@ -11919,15 +11919,21 @@ namespace QuantumRefrigiz
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if (((NoOfBoardMoved + Is == Total) || TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) //&& A && System.Math.Abs(TableS[RowS, ColS]) != 1
-                            )
+                            if (Order == 1)
                             {
-                                SetSupHuTrue();
+                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] > 0 && TableS[RowD, ColD] <= 0)
+                                    SetSupHuTrue();
+
+                            }
+                            else
+                            {
+                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0)
+                                    SetSupHuTrue();
                             }
                             //Empire more
                             if (A)
                             {
-                                if (ColleralationGray < 32)
+                                if (ColleralationGray < 16)
                                 {
                                     if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportGray)
                                     {
@@ -11951,7 +11957,7 @@ namespace QuantumRefrigiz
                             }
                             //when thre is most reduced support finding
                             int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-                            
+
                             if (IsNo != null)
                             {
                                 if (IsNo[1] < HeuristicAllReducedSupport.Count)
@@ -11981,7 +11987,7 @@ namespace QuantumRefrigiz
                             //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
                             {
-                                
+
                                 //if (Before)
                                 SetSupHuTrue();
                                 IsS = true;
@@ -12014,7 +12020,7 @@ namespace QuantumRefrigiz
                             //Empire more
                             if (A)
                             {
-                                if (ColleralationBrown < 32)
+                                if (ColleralationBrown < 16)
                                 {
                                     if (NoOfExistInSupportList(Before, RowS, ColS, RowD, ColD) + NoOfExistInMoveList(Before, RowS, ColS, RowD, ColD) + NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) - NoOfExistInReducedSupportList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedMoveList(Before, RowD, ColD, RowS, ColS) - NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) >= DifOfNoOfSupporteAndReducedSupportBrown)
                                     {
@@ -12047,31 +12053,42 @@ namespace QuantumRefrigiz
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
-                            if (((NoOfBoardMoved + Is == Total) || TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) //&& A && System.Math.Abs(TableS[RowS, ColS]) != 1
-                            )
+                            if (Order == 1)
                             {
-                                SetSupHuTrue();
-                                IsS = true;
+                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] > 0)
+                                {
+                                    IsS = true;
+                                    SetSupHuTrue();
+                                }
+
+                            }
+                            else
+                            {
+                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] < 0)
+                                {
+                                    IsS = true;
+                                    SetSupHuTrue();
+                                }
                             }
                             //when thre is most reduced support finding
-                            /* int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
 
-                             if (IsNo != null)
-                             {
-                                 if (IsNo[1] < HeuristicAllReducedSupport.Count)
-                                 {
-                                     if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                         ClearSupHuTrue();
-                                 }
-                             }*/
+                            if (IsNo != null)
+                            {
+                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                {
+                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                        ClearSupHuTrue();
+                                }
+                            }
                         }
-                        //if (!IsS)
-                        //ClearSupHuTrue();
+                        if (!IsS)
+                            ClearSupHuTrue();
                     }
                 }
             }
 
-            
+
         }
         int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
         {
