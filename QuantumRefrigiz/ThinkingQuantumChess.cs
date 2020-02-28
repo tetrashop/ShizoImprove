@@ -12054,19 +12054,19 @@ namespace QuantumRefrigiz
                                 IsS = true;
                             }
                             //when thre is most reduced support finding
-                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-                            
-                            if (IsNo != null)
-                            {
-                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
-                                {
-                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                        ClearSupHuTrue();
-                                }
-                            }
+                            /* int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+
+                             if (IsNo != null)
+                             {
+                                 if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                 {
+                                     if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                         ClearSupHuTrue();
+                                 }
+                             }*/
                         }
-                        if (!IsS)
-                            ClearSupHuTrue();
+                        //if (!IsS)
+                        //ClearSupHuTrue();
                     }
                 }
             }
@@ -13902,7 +13902,30 @@ namespace QuantumRefrigiz
                 }
 
                 ThinkingQuantumFullGame(iAStarGreedy, THIS);
-
+                
+                Object OI = new Object();
+                lock (OI)
+                {
+                    bool IsSup = true;
+                    for (int i = 0; i < IsSupHu.Count; i++)
+                        IsSup = IsSup && IsSupHu[i];
+                    if (IsSup)
+                    {
+                        if (LoseOcuuredatChiled == 0)
+                            LoseOcuuredatChiled = -4;
+                    }
+                    /*else
+                    {
+                        IsSup = false;
+                        for (int i = 0; i < IsSupHu.Count; i++)
+                            IsSup = IsSup || IsSupHu[i];
+                        if (!IsSup)
+                        {
+                            if (WinOcuuredatChiled == 0)
+                                WinOcuuredatChiled = 4;
+                        }
+                    }*/
+                }
             }
             catch (Exception t)
             {

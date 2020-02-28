@@ -11781,18 +11781,18 @@ namespace RefrigtzW
             return Is;
         }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-       , ref int HeuristicAttackValue
-           , ref int HeuristicMovementValue
-           , ref int HeuristicSelfSupportedValue
-           , ref int HeuristicReducedMovementValue
-          , ref int HeuristicReducedSupport
-           , ref int HeuristicReducedAttackValue
-           , ref int HeuristicDistributionValue
-       , ref int HeuristicKingSafe
-       , ref int HeuristicFromCenter
-       , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+      , ref int HeuristicAttackValue
+          , ref int HeuristicMovementValue
+          , ref int HeuristicSelfSupportedValue
+          , ref int HeuristicReducedMovementValue
+         , ref int HeuristicReducedSupport
+          , ref int HeuristicReducedAttackValue
+          , ref int HeuristicDistributionValue
+      , ref int HeuristicKingSafe
+      , ref int HeuristicFromCenter
+      , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
-            
+
             Object OO = new Object();
             lock (OO)
             {
@@ -11833,13 +11833,12 @@ namespace RefrigtzW
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
 
-
                 bool IsS = false;
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    
-                    
+
+
                     if (Before)
                     {
 
@@ -11859,7 +11858,7 @@ namespace RefrigtzW
                             //Disturbe on huge traversal exchange prevention 
                             if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             {
-                                
+
                                 //if (Before)
                                 SetSupHuTrue();
                             }
@@ -11918,7 +11917,7 @@ namespace RefrigtzW
                             }
                             //when thre is most reduced support finding
                             int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-                            
+
                             if (IsNo != null)
                             {
                                 if (IsNo[1] < HeuristicAllReducedSupport.Count)
@@ -11948,7 +11947,7 @@ namespace RefrigtzW
                             //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
                             {
-                                
+
                                 //if (Before)
                                 SetSupHuTrue();
                                 IsS = true;
@@ -12021,24 +12020,24 @@ namespace RefrigtzW
                                 IsS = true;
                             }
                             //when thre is most reduced support finding
-                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-                            
-                            if (IsNo != null)
-                            {
-                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
-                                {
-                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                        ClearSupHuTrue();
-                                }
-                            }
+                            /* int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+
+                             if (IsNo != null)
+                             {
+                                 if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                 {
+                                     if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                         ClearSupHuTrue();
+                                 }
+                             }*/
                         }
-                        if (!IsS)
-                            ClearSupHuTrue();
+                        //if (!IsS)
+                        //ClearSupHuTrue();
                     }
                 }
             }
 
-            
+
         }
         int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
         {
@@ -13853,6 +13852,29 @@ namespace RefrigtzW
 
                 ThinkingFullGame(iAStarGreedy, THIS);
 
+                Object OI = new Object();
+                lock (OI)
+                {
+                    bool IsSup = true;
+                    for (int i = 0; i < IsSupHu.Count; i++)
+                        IsSup = IsSup && IsSupHu[i];
+                    if (IsSup)
+                    {
+                        if (LoseOcuuredatChiled == 0)
+                            LoseOcuuredatChiled = -4;
+                    }
+                   /* else
+                    {
+                        IsSup = false;
+                        for (int i = 0; i < IsSupHu.Count; i++)
+                            IsSup = IsSup || IsSupHu[i];
+                        if (!IsSup)
+                        {
+                            if (WinOcuuredatChiled == 0)
+                                WinOcuuredatChiled = 4;
+                        }
+                    }*/
+                }
             }
             catch (Exception t)
             {
