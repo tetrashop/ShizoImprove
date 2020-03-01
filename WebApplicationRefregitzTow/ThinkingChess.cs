@@ -12755,33 +12755,34 @@ namespace RefrigtzW
         bool Acmaz(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             bool Is = false;
+            if (System.Math.Abs(Table[RowS, ColS]) == 2 || System.Math.Abs(Table[RowD, ColD]) == 2)
+            {
+
+                List<List<int[]>> EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                EleRedAchmaz = CollectionSortation(EleRedAchmaz);
+
+                List<List<int[]>> EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                EleAchmaz = CollectionSortation(EleAchmaz);
+            }
+            
+            if (System.Math.Abs(Table[RowS, ColS]) == 4 || System.Math.Abs(Table[RowD, ColD]) == 4)
+            {
+                List<List<int[]>> CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                CastRedAchmaz = CollectionSortation(CastRedAchmaz);
+
+                List<List<int[]>> CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                CastAchmaz = CollectionSortation(CastAchmaz);
+            }
+            
+            if (System.Math.Abs(Table[RowS, ColS]) == 5 || System.Math.Abs(Table[RowD, ColD]) == 5)
+            {
+                List<List<int[]>> MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                MiniRedAchmaz = CollectionSortation(MiniRedAchmaz);
 
 
-            List<List<int[]>> EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-
-
-            EleRedAchmaz = CollectionSortation(EleRedAchmaz);
-
-            List<List<int[]>> EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-
-            EleAchmaz = CollectionSortation(EleAchmaz);
-
-            List<List<int[]>> CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-
-            CastRedAchmaz = CollectionSortation(CastRedAchmaz);
-
-            List<List<int[]>> CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-
-            CastAchmaz = CollectionSortation(CastAchmaz);
-
-            List<List<int[]>> MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-
-            MiniRedAchmaz = CollectionSortation(MiniRedAchmaz);
-
-            List<List<int[]>> MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-
-            MiniAchmaz = CollectionSortation(MiniAchmaz);
-
+                List<List<int[]>> MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                MiniAchmaz = CollectionSortation(MiniAchmaz);
+            }
             return Is;
         }
         List<List<int[]>> CollectionSortation(List<List<int[]>> A)
