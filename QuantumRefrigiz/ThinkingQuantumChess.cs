@@ -12788,34 +12788,37 @@ namespace QuantumRefrigiz
         bool Acmaz(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             bool Is = false;
+            List<List<int[]>> EleRedAchmaz = null, EleAchmaz = null, CastRedAchmaz = null, CastAchmaz = null, MiniRedAchmaz = null, MiniAchmaz = null;
             if (System.Math.Abs(Table[RowS, ColS]) == 2 || System.Math.Abs(Table[RowD, ColD]) == 2)
             {
 
-                List<List<int[]>> EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
                 EleRedAchmaz = CollectionSortation(EleRedAchmaz);
 
-                List<List<int[]>> EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
                 EleAchmaz = CollectionSortation(EleAchmaz);
             }
-            
+
             if (System.Math.Abs(Table[RowS, ColS]) == 4 || System.Math.Abs(Table[RowD, ColD]) == 4)
             {
-                List<List<int[]>> CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
                 CastRedAchmaz = CollectionSortation(CastRedAchmaz);
 
-                List<List<int[]>> CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
                 CastAchmaz = CollectionSortation(CastAchmaz);
             }
 
             if (System.Math.Abs(Table[RowS, ColS]) == 5 || System.Math.Abs(Table[RowD, ColD]) == 5)
             {
-                List<List<int[]>> MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
                 MiniRedAchmaz = CollectionSortation(MiniRedAchmaz);
 
 
-                List<List<int[]>> MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+                MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
                 MiniAchmaz = CollectionSortation(MiniAchmaz);
             }
+            List<List<int[]>> AcMaz = CollectionSummation(EleAchmaz, CastAchmaz, MiniAchmaz);
+            List<List<int[]>> AcMazReduced = CollectionSummation(EleRedAchmaz, CastRedAchmaz, MiniRedAchmaz);
             return Is;
         }
         List<List<int[]>> CollectionSortation(List<List<int[]>> A)
@@ -12824,103 +12827,143 @@ namespace QuantumRefrigiz
 
 
             List<int[]> Co = new List<int[]>();
-            for (int i = 0; i < A.Count; i++)
-            {
-                for (int j = 0; j < A[i].Count; j++)
-                {
-                    if (A[i][j][4] == -4)
-                        Co.Add(A[i][j]);
 
-                }
-            }
+            CollectionSummation(A, -4, ref Co);
+
             if (Co.Count > 0) Col.Add(Co);
 
             Co = new List<int[]>();
-            for (int i = 0; i < A.Count; i++)
-            {
-                for (int j = 0; j < A[i].Count; j++)
-                {
-                    if (A[i][j][4] == -3)
-                        Co.Add(A[i][j]);
 
-                }
-            }
+            CollectionSummation(A, -3, ref Co);
+
             if (Co.Count > 0) Col.Add(Co);
 
             Co = new List<int[]>();
-            for (int i = 0; i < A.Count; i++)
-            {
-                for (int j = 0; j < A[i].Count; j++)
-                {
-                    if (A[i][j][4] == -2)
-                        Co.Add(A[i][j]);
 
-                }
-            }
+            CollectionSummation(A, -2, ref Co);
+
             if (Co.Count > 0) Col.Add(Co);
 
             Co = new List<int[]>();
-            for (int i = 0; i < A.Count; i++)
-            {
-                for (int j = 0; j < A[i].Count; j++)
-                {
-                    if (A[i][j][4] == -1)
-                        Co.Add(A[i][j]);
 
-                }
-            }
+            CollectionSummation(A, -1, ref Co);
+
             if (Co.Count > 0) Col.Add(Co);
 
             Co = new List<int[]>();
-            for (int i = 0; i < A.Count; i++)
-            {
-                for (int j = 0; j < A[i].Count; j++)
-                {
-                    if (A[i][j][4] == 1)
-                        Co.Add(A[i][j]);
 
-                }
-            }
+            CollectionSummation(A, 1, ref Co);
+
             if (Co.Count > 0) Col.Add(Co);
 
 
             Co = new List<int[]>();
-            for (int i = 0; i < A.Count; i++)
-            {
-                for (int j = 0; j < A[i].Count; j++)
-                {
-                    if (A[i][j][4] == 2)
-                        Co.Add(A[i][j]);
 
-                }
-            }
+            CollectionSummation(A, 2, ref Co);
+
             if (Co.Count > 0) Col.Add(Co);
 
 
             Co = new List<int[]>();
-            for (int i = 0; i < A.Count; i++)
-            {
-                for (int j = 0; j < A[i].Count; j++)
-                {
-                    if (A[i][j][4] == 3)
-                        Co.Add(A[i][j]);
 
-                }
-            }
+            CollectionSummation(A, 3, ref Co);
+
             if (Co.Count > 0) Col.Add(Co);
 
 
 
             Co = new List<int[]>();
+
+            CollectionSummation(A, 4, ref Co);
+
+            if (Co.Count > 0) Col.Add(Co);
+
+            return Col;
+        }
+        void CollectionSummation(List<List<int[]>> A, int Sum, ref List<int[]> Co)
+        {
             for (int i = 0; i < A.Count; i++)
             {
                 for (int j = 0; j < A[i].Count; j++)
                 {
-                    if (A[i][j][4] == 4)
+                    if (A[i][j][4] == Sum)
                         Co.Add(A[i][j]);
 
                 }
             }
+        }
+
+        List<List<int[]>> CollectionSummation(List<List<int[]>> A, List<List<int[]>> B, List<List<int[]>> C)
+        {
+            List<List<int[]>> Col = new List<List<int[]>>();
+
+
+            List<int[]> Co = new List<int[]>();
+
+            CollectionSummation(A, -4, ref Co);
+            CollectionSummation(B, -4, ref Co);
+            CollectionSummation(C, -4, ref Co);
+
+            if (Co.Count > 0) Col.Add(Co);
+
+            Co = new List<int[]>();
+
+            CollectionSummation(A, -3, ref Co);
+            CollectionSummation(B, -3, ref Co);
+            CollectionSummation(C, -3, ref Co);
+
+            if (Co.Count > 0) Col.Add(Co);
+
+            Co = new List<int[]>();
+
+            CollectionSummation(A, -2, ref Co);
+            CollectionSummation(B, -2, ref Co);
+            CollectionSummation(C, -2, ref Co);
+
+            if (Co.Count > 0) Col.Add(Co);
+
+            Co = new List<int[]>();
+
+            CollectionSummation(A, -1, ref Co);
+            CollectionSummation(B, -1, ref Co);
+            CollectionSummation(C, -1, ref Co);
+
+            if (Co.Count > 0) Col.Add(Co);
+
+            Co = new List<int[]>();
+
+            CollectionSummation(A, 1, ref Co);
+            CollectionSummation(B, 1, ref Co);
+            CollectionSummation(C, 1, ref Co);
+
+            if (Co.Count > 0) Col.Add(Co);
+
+
+            Co = new List<int[]>();
+
+            CollectionSummation(A, 2, ref Co);
+            CollectionSummation(B, 2, ref Co);
+            CollectionSummation(C, 2, ref Co);
+
+            if (Co.Count > 0) Col.Add(Co);
+
+
+            Co = new List<int[]>();
+
+            CollectionSummation(A, 3, ref Co);
+            CollectionSummation(B, 3, ref Co);
+            CollectionSummation(C, 3, ref Co);
+
+            if (Co.Count > 0) Col.Add(Co);
+
+
+
+            Co = new List<int[]>();
+
+            CollectionSummation(A, 4, ref Co);
+            CollectionSummation(B, 4, ref Co);
+            CollectionSummation(C, 4, ref Co);
+
             if (Co.Count > 0) Col.Add(Co);
 
             return Col;
