@@ -12760,29 +12760,29 @@ namespace RefrigtzDLL
             {
 
                 EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                EleRedAchmaz = CollectionSortation(EleRedAchmaz);
+                //EleRedAchmaz = CollectionSortation(EleRedAchmaz);
 
                 EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                EleAchmaz = CollectionSortation(EleAchmaz);
+                //EleAchmaz = CollectionSortation(EleAchmaz);
             }
 
             if (System.Math.Abs(Table[RowS, ColS]) == 4 || System.Math.Abs(Table[RowD, ColD]) == 4)
             {
                 CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                CastRedAchmaz = CollectionSortation(CastRedAchmaz);
+                //CastRedAchmaz = CollectionSortation(CastRedAchmaz);
 
                 CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                CastAchmaz = CollectionSortation(CastAchmaz);
+                //CastAchmaz = CollectionSortation(CastAchmaz);
             }
 
             if (System.Math.Abs(Table[RowS, ColS]) == 5 || System.Math.Abs(Table[RowD, ColD]) == 5)
             {
                 MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                MiniRedAchmaz = CollectionSortation(MiniRedAchmaz);
+                //MiniRedAchmaz = CollectionSortation(MiniRedAchmaz);
 
 
                 MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                MiniAchmaz = CollectionSortation(MiniAchmaz);
+                //MiniAchmaz = CollectionSortation(MiniAchmaz);
             }
             List<List<int[]>> AcMaz = CollectionSummation(EleAchmaz, CastAchmaz, MiniAchmaz);
             List<List<int[]>> AcMazReduced = CollectionSummation(EleRedAchmaz, CastRedAchmaz, MiniRedAchmaz);
