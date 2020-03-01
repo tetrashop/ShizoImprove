@@ -6366,8 +6366,15 @@ namespace RefrigtzW
                 for (int i = 0; i < HeuristicAllReducedAttacked.Count; i++)
                 {
                     if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
-                        Is.Add(HeuristicAllReducedAttacked[i]);
-
+                    {
+                        int[] I = new int[4];
+                        I[0] = HeuristicAllAttacked[i][0];
+                        I[1] = HeuristicAllAttacked[i][1];
+                        I[2] = HeuristicAllAttacked[i][2];
+                        I[3] = HeuristicAllAttacked[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
                 }
             }
             else
@@ -6375,8 +6382,15 @@ namespace RefrigtzW
                 for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
                 {
                     if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
-                        Is.Add(HeuristicAllReducedAttacked[i]);
-
+                    {
+                        int[] I = new int[4];
+                        I[0] = HeuristicAllAttacked[i][0];
+                        I[1] = HeuristicAllAttacked[i][1];
+                        I[2] = HeuristicAllAttacked[i][2];
+                        I[3] = HeuristicAllAttacked[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
                 }
             }
             return Is;
@@ -6389,7 +6403,15 @@ namespace RefrigtzW
                 for (int i = 0; i < HeuristicAllAttacked.Count; i++)
                 {
                     if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
-                        Is.Add(HeuristicAllAttacked[i]);
+                    {
+                        int[] I = new int[4];
+                        I[0] = HeuristicAllAttacked[i][0];
+                        I[1] = HeuristicAllAttacked[i][1];
+                        I[2] = HeuristicAllAttacked[i][2];
+                        I[3] = HeuristicAllAttacked[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
 
                 }
             }
@@ -6398,8 +6420,15 @@ namespace RefrigtzW
                 for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
                 {
                     if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
-                        Is.Add(HeuristicAllAttacked[i]);
-
+                    {
+                        int[] I = new int[4];
+                        I[0] = HeuristicAllAttacked[i][0];
+                        I[1] = HeuristicAllAttacked[i][1];
+                        I[2] = HeuristicAllAttacked[i][2];
+                        I[3] = HeuristicAllAttacked[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
                 }
             }
             return Is;
@@ -11855,7 +11884,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -11864,7 +11893,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -11876,7 +11905,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
                             }
 
@@ -11907,7 +11936,7 @@ namespace RefrigtzW
                             }
                             else
                             {
-                                int[] I = new int[4];
+                                int[] I = new int[5];
                                 if (Order == 1)
                                 {
                                     if (Tabl[i, j] < 0 && IsT < 2)
@@ -11916,7 +11945,7 @@ namespace RefrigtzW
                                         I[3] = RowD;
                                         I[0] = i;
                                         I[1] = j;
-                                        Exi.Add(I); IsT++;
+                                        I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                     }
 
                                 }
@@ -11928,7 +11957,7 @@ namespace RefrigtzW
                                         I[3] = RowD;
                                         I[0] = i;
                                         I[1] = j;
-                                        Exi.Add(I); IsT++;
+                                        I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                     }
                                 }
 
@@ -11977,7 +12006,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -11986,7 +12015,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -11998,7 +12027,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
                             }
 
@@ -12032,7 +12061,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -12041,7 +12070,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -12053,7 +12082,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
                             }
 
@@ -12099,7 +12128,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -12108,7 +12137,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -12120,7 +12149,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
                             }
 
@@ -12154,7 +12183,7 @@ namespace RefrigtzW
                             }
                             else
                             {
-                                int[] I = new int[4];
+                                int[] I = new int[5];
                                 if (Order == 1)
                                 {
                                     if (Tabl[i, j] < 0 && IsT < 2)
@@ -12163,7 +12192,7 @@ namespace RefrigtzW
                                         I[1] = RowD;
                                         I[2] = i;
                                         I[3] = j;
-                                        Exi.Add(I); IsT++;
+                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                     }
 
                                 }
@@ -12175,7 +12204,7 @@ namespace RefrigtzW
                                         I[1] = RowD;
                                         I[2] = i;
                                         I[3] = j;
-                                        Exi.Add(I); IsT++;
+                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                     }
                                 }
 
@@ -12225,7 +12254,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -12234,7 +12263,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -12246,7 +12275,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
                             }
 
@@ -12280,7 +12309,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -12289,7 +12318,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -12301,7 +12330,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
                             }
 
@@ -12348,7 +12377,7 @@ namespace RefrigtzW
                             }
                             else
                             {
-                                int[] I = new int[4];
+                                int[] I = new int[5];
                                 if (Order == 1)
                                 {
                                     if (Tabl[i, j] < 0 && IsT < 2)
@@ -12357,7 +12386,7 @@ namespace RefrigtzW
                                         I[1] = RowD;
                                         I[2] = i;
                                         I[3] = j;
-                                        Exi.Add(I); IsT++;
+                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                     }
 
                                 }
@@ -12369,7 +12398,7 @@ namespace RefrigtzW
                                         I[1] = RowD;
                                         I[2] = i;
                                         I[3] = j;
-                                        Exi.Add(I); IsT++;
+                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                     }
                                 }
 
@@ -12402,7 +12431,7 @@ namespace RefrigtzW
                                 }
                                 else
                                 {
-                                    int[] I = new int[4];
+                                    int[] I = new int[5];
                                     if (Order == 1)
                                     {
                                         if (Tabl[i, j] < 0 && IsT < 2)
@@ -12411,7 +12440,7 @@ namespace RefrigtzW
                                             I[1] = RowD;
                                             I[2] = i;
                                             I[3] = j;
-                                            Exi.Add(I); IsT++;
+                                            I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                         }
 
                                     }
@@ -12423,7 +12452,7 @@ namespace RefrigtzW
                                             I[1] = RowD;
                                             I[2] = i;
                                             I[3] = j;
-                                            Exi.Add(I); IsT++;
+                                            I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                         }
                                     }
 
@@ -12456,7 +12485,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -12465,7 +12494,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -12477,7 +12506,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
                             }
 
@@ -12511,7 +12540,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -12520,7 +12549,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -12532,7 +12561,7 @@ namespace RefrigtzW
                                     I[1] = RowD;
                                     I[2] = i;
                                     I[3] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
                                 }
                             }
 
@@ -12578,7 +12607,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -12587,7 +12616,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -12599,7 +12628,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
                             }
                         }
@@ -12631,7 +12660,7 @@ namespace RefrigtzW
                             }
                             else
                             {
-                                int[] I = new int[4];
+                                int[] I = new int[5];
                                 if (Order == 1)
                                 {
                                     if (Tabl[i, j] < 0 && IsT < 2)
@@ -12640,7 +12669,7 @@ namespace RefrigtzW
                                         I[3] = RowD;
                                         I[0] = i;
                                         I[1] = j;
-                                        Exi.Add(I); IsT++;
+                                        I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                     }
 
                                 }
@@ -12652,7 +12681,7 @@ namespace RefrigtzW
                                         I[3] = RowD;
                                         I[0] = i;
                                         I[1] = j;
-                                        Exi.Add(I); IsT++;
+                                        I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                     }
                                 }
                             }
@@ -12688,7 +12717,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            int[] I = new int[4];
+                            int[] I = new int[5];
                             if (Order == 1)
                             {
                                 if (Tabl[i, j] < 0 && IsT < 2)
@@ -12697,7 +12726,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
 
                             }
@@ -12709,7 +12738,7 @@ namespace RefrigtzW
                                     I[3] = RowD;
                                     I[0] = i;
                                     I[1] = j;
-                                    Exi.Add(I); IsT++;
+                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
                                 }
                             }
                         }
@@ -12721,6 +12750,35 @@ namespace RefrigtzW
             if (Exi.Count >= 1)
                 Existence.Add(Exi);
             return Existence;
+        }
+
+        int SignBeforNext(int Row, int Col, int i, int j)
+        {
+            int Sign = 0;
+
+            if (Row > i && Col > j)
+                Sign = -4;
+            if (Row > i && Col > j)
+                Sign = 4;
+
+            if (Row > i && Col < j)
+                Sign = 3;
+            if (Row < i && Col > j)
+                Sign = -3;
+
+
+            if (Row == i && Col < j)
+                Sign = -2;
+            if (Row == i && Col > j)
+                Sign = 2;
+
+            if (Row > i && Col == j)
+                Sign = 1;
+            if (Row < i && Col == j)
+                Sign = -1;
+
+            return Sign;
+
         }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
       , ref int HeuristicAttackValue
