@@ -16,8 +16,8 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ThinkingQuantumChess//: IDisposable
     {
-        public List<List<List<int[]>>> AcMazPure = new List<List<List<int[]>>>();
-        public List<List<List<int[]>>> AcMazReduced = new List<List<List<int[]>>>();
+        public List<List<List<int[]>>> AchmazPure = new List<List<List<int[]>>>();
+        public List<List<List<int[]>>> AchmazReduced = new List<List<List<int[]>>>();
         
         
 
@@ -12790,10 +12790,9 @@ namespace QuantumRefrigiz
                 Existence.Add(Exi);
             return Existence;
         }
-        bool Acmaz(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        void Achmaz(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
-            bool Is = false;
-            List<List<int[]>> EleRedAchmaz = null, EleAchmaz = null, CastRedAchmaz = null, CastAchmaz = null, MiniRedAchmaz = null, MiniAchmaz = null;
+             List<List<int[]>> EleRedAchmaz = null, EleAchmaz = null, CastRedAchmaz = null, CastAchmaz = null, MiniRedAchmaz = null, MiniAchmaz = null;
             if (System.Math.Abs(Table[RowS, ColS]) == 2 || System.Math.Abs(Table[RowD, ColD]) == 2)
             {
 
@@ -12821,9 +12820,8 @@ namespace QuantumRefrigiz
                 MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
                 //MiniAchmaz = CollectionSortation(MiniAchmaz);
             }
-            AcMazPure.Add(CollectionSummation(EleAchmaz, CastAchmaz, MiniAchmaz));
-            AcMazReduced.Add(CollectionSummation(EleRedAchmaz, CastRedAchmaz, MiniRedAchmaz));
-            return Is;
+            AchmazPure.Add(CollectionSummation(EleAchmaz, CastAchmaz, MiniAchmaz));
+            AchmazReduced.Add(CollectionSummation(EleRedAchmaz, CastRedAchmaz, MiniRedAchmaz));
         }
         List<List<int[]>> CollectionSortation(List<List<int[]>> A)
         {
@@ -12886,6 +12884,8 @@ namespace QuantumRefrigiz
         }
         void CollectionSummation(List<List<int[]>> A, int Sum, ref List<int[]> Co)
         {
+            if (A == null)
+                return;
             for (int i = 0; i < A.Count; i++)
             {
                 for (int j = 0; j < A[i].Count; j++)
@@ -13004,17 +13004,82 @@ namespace QuantumRefrigiz
 
         }
 
+        int SumAbsSrcPure(int[,] Tab)
+        {
+            int Sum = 0;
+            if (AchmazPure.Count == 1)
+            {
+                for (int i = 0; i < AchmazPure[0].Count; i++)
+                {
+                    for (int j = 0; j < AchmazPure[0][i].Count; j++)
+                    {
+                        Sum += System.Math.Abs(Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]]);
+                    }
+                }
+
+            }
+            return Sum;
+
+        }
+        int SumAbsSrcReduced(int[,] Tab)
+        {
+            int Sum = 0;
+            if (AchmazReduced.Count == 1)
+            {
+                for (int i = 0; i < AchmazReduced[0].Count; i++)
+                {
+                    for (int j = 0; j < AchmazReduced[0][i].Count; j++)
+                    {
+                        Sum += System.Math.Abs(Tab[AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]]);
+                    }
+                }
+            }
+            return Sum;
+        }
+        int SumAbsDesPure(int[,] Tab)
+        {
+            int Sum = 0;
+            if (AchmazPure.Count == 2)
+            {
+                for (int i = 0; i < AchmazPure[1].Count; i++)
+                {
+                    for (int j = 0; j < AchmazPure[1][i].Count; j++)
+                    {
+                        Sum += System.Math.Abs(Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]]);
+                    }
+                }
+
+            }
+            return Sum;
+
+        }
+        int SumAbsDesReduced(int[,] Tab)
+        {
+            int Sum = 0;
+            if (AchmazReduced.Count == 2)
+            {
+                for (int i = 0; i < AchmazReduced[1].Count; i++)
+                {
+                    for (int j = 0; j < AchmazReduced[1][i].Count; j++)
+                    {
+                        Sum += System.Math.Abs(Tab[AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1]]);
+                    }
+                }
+            }
+            return Sum;
+        }
+
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-       , ref int HeuristicAttackValue
-           , ref int HeuristicMovementValue
-           , ref int HeuristicSelfSupportedValue
-           , ref int HeuristicReducedMovementValue
-          , ref int HeuristicReducedSupport
-           , ref int HeuristicReducedAttackValue
-           , ref int HeuristicDistributionValue
-       , ref int HeuristicKingSafe
-       , ref int HeuristicFromCenter
-       , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+     , ref int HeuristicAttackValue
+         , ref int HeuristicMovementValue
+         , ref int HeuristicSelfSupportedValue
+         , ref int HeuristicReducedMovementValue
+        , ref int HeuristicReducedSupport
+         , ref int HeuristicReducedAttackValue
+         , ref int HeuristicDistributionValue
+     , ref int HeuristicKingSafe
+     , ref int HeuristicFromCenter
+     , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
 
             Object OO = new Object();
@@ -13031,6 +13096,9 @@ namespace QuantumRefrigiz
                 int HExchangeInnovation = 0;
                 int HExchangeSupport = 0;
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
+
+                if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0)
+                    Achmaz(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
 
                 if (Before)
                 {
@@ -13056,7 +13124,16 @@ namespace QuantumRefrigiz
                 HFromCenter = Hu[10];
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
+                int HAchmaz = 0;
+                if (Before)
+                {
+                    HAchmaz = (RationalPenalty * (SumAbsSrcReduced(CloneATable(TableS)))) + (RationalRegard * (SumAbsSrcPure(CloneATable(TableS))));
+                }
+                else
+                {
+                    HAchmaz = (RationalPenalty * (SumAbsDesReduced(CloneATable(TableS)))) + (RationalRegard * (SumAbsDesPure(CloneATable(TableS))));
 
+                }
                 bool IsS = false;
                 Object O1 = new Object();
                 lock (O1)
@@ -13072,8 +13149,8 @@ namespace QuantumRefrigiz
                         HeuristicSelfSupportedValue = (Heuristic[3] * SignOrderToPlate(Order));
                         HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
                         HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                        HeuristicCheckedMate = ((HCheck * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue = (HDistance * SignOrderToPlate(Order));
+                        HeuristicCheckedMate = (((HCheck ) * SignOrderToPlate(Order)));
+                        HeuristicDistributionValue  = ((HDistance+HAchmaz) * SignOrderToPlate(Order));
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
@@ -13159,6 +13236,7 @@ namespace QuantumRefrigiz
                                         ClearSupHuTrue();
                                 }
                             }
+
                         }
                     }
                     else
@@ -13169,8 +13247,8 @@ namespace QuantumRefrigiz
                         HeuristicSelfSupportedValue += (Heuristic[3] * SignOrderToPlate(Order));
                         HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
                         HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                        HeuristicCheckedMate += ((HCheck * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue += (HDistance * SignOrderToPlate(Order));
+                        HeuristicCheckedMate += (((HCheck) * SignOrderToPlate(Order)));
+                        HeuristicDistributionValue += ((HDistance + HAchmaz) * SignOrderToPlate(Order));
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
@@ -13281,12 +13359,13 @@ namespace QuantumRefrigiz
                                 }
                                 if (!IsS)
                                     ClearSupHuTrue();
-
                             }
                         }
                     }
                 }
             }
+
+
         }
         int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
         {
