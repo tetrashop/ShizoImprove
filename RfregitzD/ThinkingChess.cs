@@ -12759,17 +12759,137 @@ namespace RefrigtzDLL
 
             List<List<int[]>> EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
 
+
+            EleRedAchmaz = CollectionSortation(EleRedAchmaz);
+
             List<List<int[]>> EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+
+            EleAchmaz = CollectionSortation(EleAchmaz);
 
             List<List<int[]>> CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
 
+            CastRedAchmaz = CollectionSortation(CastRedAchmaz);
+
             List<List<int[]>> CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+
+            CastAchmaz = CollectionSortation(CastAchmaz);
 
             List<List<int[]>> MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
 
+            MiniRedAchmaz = CollectionSortation(MiniRedAchmaz);
+
             List<List<int[]>> MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
 
+            MiniAchmaz = CollectionSortation(MiniAchmaz);
+
             return Is;
+        }
+        List<List<int[]>> CollectionSortation(List<List<int[]>> A)
+        {
+            List<List<int[]>> Col = new List<List<int[]>>();
+
+
+            List<int[]> Co = new List<int[]>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < A[i].Count; j++)
+                {
+                    if (A[i][j][4] == -4)
+                        Co.Add(A[i][j]);
+
+                }
+            }
+            if (Co.Count > 0) Col.Add(Co);
+
+            Co = new List<int[]>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < A[i].Count; j++)
+                {
+                    if (A[i][j][4] == -3)
+                        Co.Add(A[i][j]);
+
+                }
+            }
+            if (Co.Count > 0) Col.Add(Co);
+
+            Co = new List<int[]>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < A[i].Count; j++)
+                {
+                    if (A[i][j][4] == -2)
+                        Co.Add(A[i][j]);
+
+                }
+            }
+            if (Co.Count > 0) Col.Add(Co);
+
+            Co = new List<int[]>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < A[i].Count; j++)
+                {
+                    if (A[i][j][4] == -1)
+                        Co.Add(A[i][j]);
+
+                }
+            }
+            if (Co.Count > 0) Col.Add(Co);
+
+            Co = new List<int[]>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < A[i].Count; j++)
+                {
+                    if (A[i][j][4] == 1)
+                        Co.Add(A[i][j]);
+
+                }
+            }
+            if (Co.Count > 0) Col.Add(Co);
+
+
+            Co = new List<int[]>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < A[i].Count; j++)
+                {
+                    if (A[i][j][4] == 2)
+                        Co.Add(A[i][j]);
+
+                }
+            }
+            if (Co.Count > 0) Col.Add(Co);
+
+
+            Co = new List<int[]>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < A[i].Count; j++)
+                {
+                    if (A[i][j][4] == 3)
+                        Co.Add(A[i][j]);
+
+                }
+            }
+            if (Co.Count > 0) Col.Add(Co);
+
+
+
+            Co = new List<int[]>();
+            for (int i = 0; i < A.Count; i++)
+            {
+                for (int j = 0; j < A[i].Count; j++)
+                {
+                    if (A[i][j][4] == 4)
+                        Co.Add(A[i][j]);
+
+                }
+            }
+            if (Co.Count > 0) Col.Add(Co);
+
+            return Col;
         }
         int SignBeforNext(int Row, int Col, int i, int j)
         {
