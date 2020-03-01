@@ -12751,7 +12751,25 @@ namespace RefrigtzW
                 Existence.Add(Exi);
             return Existence;
         }
+        bool Acmaz(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        {
+            bool Is = false;
 
+
+            List<List<int[]>> EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+
+            List<List<int[]>> EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+
+            List<List<int[]>> CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+
+            List<List<int[]>> CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+
+            List<List<int[]>> MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+
+            List<List<int[]>> MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
+
+            return Is;
+        }
         int SignBeforNext(int Row, int Col, int i, int j)
         {
             int Sign = 0;
