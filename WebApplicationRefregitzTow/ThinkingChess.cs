@@ -15,6 +15,11 @@ namespace RefrigtzW
     [Serializable]
     public class ThinkingChess//: IDisposable
     {
+        public List<List<List<int[]>>> AcMazPure = new List<List<List<int[]>>>();
+        public List<List<List<int[]>>> AcMazReduced = new List<List<List<int[]>>>();
+        
+        
+
         bool IKIsCentralPawnIsOk = false;
 
 
@@ -12784,8 +12789,8 @@ namespace RefrigtzW
                 MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
                 //MiniAchmaz = CollectionSortation(MiniAchmaz);
             }
-            List<List<int[]>> AcMaz = CollectionSummation(EleAchmaz, CastAchmaz, MiniAchmaz);
-            List<List<int[]>> AcMazReduced = CollectionSummation(EleRedAchmaz, CastRedAchmaz, MiniRedAchmaz);
+            AcMazPure.Add(CollectionSummation(EleAchmaz, CastAchmaz, MiniAchmaz));
+            AcMazReduced.Add(CollectionSummation(EleRedAchmaz, CastRedAchmaz, MiniRedAchmaz));
             return Is;
         }
         List<List<int[]>> CollectionSortation(List<List<int[]>> A)
