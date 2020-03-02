@@ -6372,7 +6372,7 @@ namespace RefrigtzW
                 {
                     if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
                     {
-                        int[] I = new int[4];
+                        int[] I = new int[5];
                         I[0] = HeuristicAllAttacked[i][0];
                         I[1] = HeuristicAllAttacked[i][1];
                         I[2] = HeuristicAllAttacked[i][2];
@@ -6388,7 +6388,7 @@ namespace RefrigtzW
                 {
                     if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
                     {
-                        int[] I = new int[4];
+                        int[] I = new int[5];
                         I[0] = HeuristicAllAttacked[i][0];
                         I[1] = HeuristicAllAttacked[i][1];
                         I[2] = HeuristicAllAttacked[i][2];
@@ -6409,7 +6409,7 @@ namespace RefrigtzW
                 {
                     if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
                     {
-                        int[] I = new int[4];
+                        int[] I = new int[5];
                         I[0] = HeuristicAllAttacked[i][0];
                         I[1] = HeuristicAllAttacked[i][1];
                         I[2] = HeuristicAllAttacked[i][2];
@@ -6426,7 +6426,7 @@ namespace RefrigtzW
                 {
                     if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
                     {
-                        int[] I = new int[4];
+                        int[] I = new int[5];
                         I[0] = HeuristicAllAttacked[i][0];
                         I[1] = HeuristicAllAttacked[i][1];
                         I[2] = HeuristicAllAttacked[i][2];
@@ -6447,7 +6447,7 @@ namespace RefrigtzW
                 {
                     if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
                     {
-                        int[] I = new int[4];
+                        int[] I = new int[5];
                         I[0] = HeuristicAllSupport[i][0];
                         I[1] = HeuristicAllSupport[i][1];
                         I[2] = HeuristicAllSupport[i][2];
@@ -6464,7 +6464,7 @@ namespace RefrigtzW
                 {
                     if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
                     {
-                        int[] I = new int[4];
+                        int[] I = new int[5];
                         I[0] = HeuristicAllSupport[i][0];
                         I[1] = HeuristicAllSupport[i][1];
                         I[2] = HeuristicAllSupport[i][2];
@@ -13193,13 +13193,13 @@ namespace RefrigtzW
                             {
                                 A = ColleralationGray < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
@@ -13296,13 +13296,13 @@ namespace RefrigtzW
                             {
                                 A = ColleralationGray < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
