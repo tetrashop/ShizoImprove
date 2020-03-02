@@ -17,8 +17,8 @@ namespace RefrigtzW
     {
         public List<List<List<int[]>>> AchmazPure = new List<List<List<int[]>>>();
         public List<List<List<int[]>>> AchmazReduced = new List<List<List<int[]>>>();
-        
-        
+
+
 
         bool IKIsCentralPawnIsOk = false;
 
@@ -6363,7 +6363,7 @@ namespace RefrigtzW
             }
             return Is;
         }
-        List<int[]> ListOfExistInReducedAttackList(bool Before, int Rows, int Cols, int Rowd, int Cold)
+         List<int[]> ListOfExistInReducedAttackList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
             List<int[]> Is = new List<int[]>();
             if (Before)
@@ -6431,6 +6431,44 @@ namespace RefrigtzW
                         I[1] = HeuristicAllAttacked[i][1];
                         I[2] = HeuristicAllAttacked[i][2];
                         I[3] = HeuristicAllAttacked[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
+                }
+            }
+            return Is;
+        }
+        List<int[]> ListOfExistInSupportList(bool Before, int RowS, int ColS, int RowD, int ColD)
+        {
+            List<int[]> Is = new List<int[]>();
+            if (Before)
+            {
+                for (int i = 0; i < HeuristicAllSupport.Count; i++)
+                {
+                    if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
+                    {
+                        int[] I = new int[4];
+                        I[0] = HeuristicAllSupport[i][0];
+                        I[1] = HeuristicAllSupport[i][1];
+                        I[2] = HeuristicAllSupport[i][2];
+                        I[3] = HeuristicAllSupport[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
+
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                {
+                    if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
+                    {
+                        int[] I = new int[4];
+                        I[0] = HeuristicAllSupport[i][0];
+                        I[1] = HeuristicAllSupport[i][1];
+                        I[2] = HeuristicAllSupport[i][2];
+                        I[3] = HeuristicAllSupport[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
@@ -13033,6 +13071,26 @@ namespace RefrigtzW
             return Sum;
         }
 
+        int DoubleDefense(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        {
+            int DD = 0;
+            if (Order == AllDraw.OrderPlate)
+            {
+                List<int[]> DDE = ListOfExistInAttackList(Before, RowS, ColS, RowD, ColD);
+                for (int i = 0; i < DDE.Count; i++)
+                    DD += System.Math.Abs(Table[DDE[i][2], DDE[i][3]]);
+                DD= (RationalRegard) * (DD);
+            }
+            else
+            {
+                List<int[]> DDE = ListOfExistInSupportList(Before, RowS, ColS, RowD, ColD);
+                for (int i = 0; i < DDE.Count; i++)
+                    DD += System.Math.Abs(Table[DDE[i][2], DDE[i][3]]);
+               DD= (RationalPenalty) * (DD);
+
+            }
+            return DD;
+        }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
      , ref int HeuristicAttackValue
          , ref int HeuristicMovementValue
@@ -13089,6 +13147,7 @@ namespace RefrigtzW
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
                 int HAchmaz = 0;
+                int HDoubleDefense = 0;
                 if (Before)
                 {
                     HAchmaz = (RationalPenalty * (SumAbsSrcReduced(CloneATable(TableS)))) + (RationalRegard * (SumAbsSrcPure(CloneATable(TableS))));
@@ -13098,6 +13157,7 @@ namespace RefrigtzW
                     HAchmaz = (RationalPenalty * (SumAbsDesReduced(CloneATable(TableS)))) + (RationalRegard * (SumAbsDesPure(CloneATable(TableS))));
 
                 }
+                HDoubleDefense = DoubleDefense(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 bool IsS = false;
                 Object O1 = new Object();
                 lock (O1)
@@ -13113,8 +13173,8 @@ namespace RefrigtzW
                         HeuristicSelfSupportedValue = (Heuristic[3] * SignOrderToPlate(Order));
                         HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
                         HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
-                        HeuristicCheckedMate = (((HCheck+HAchmaz) * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue  = ((HDistance+HAchmaz) * SignOrderToPlate(Order));
+                        HeuristicCheckedMate = (((HCheck + HAchmaz) * SignOrderToPlate(Order)));
+                        HeuristicDistributionValue = ((HDistance + HAchmaz + HDoubleDefense) * SignOrderToPlate(Order));
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
@@ -13212,7 +13272,7 @@ namespace RefrigtzW
                         HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
                         HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
                         HeuristicCheckedMate += (((HCheck) * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue += ((HDistance+HAchmaz) * SignOrderToPlate(Order));
+                        HeuristicDistributionValue += ((HDistance + HAchmaz + HDoubleDefense) * SignOrderToPlate(Order));
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
@@ -14467,11 +14527,7 @@ namespace RefrigtzW
                     ////Parallel.For(0, 8, j =>
                     for (var j = 0; j < 8; j++)
                     {
-                        for (var RowS = 0; RowS < 8; RowS++)
-                            for (var ColS = 0; ColS < 8; ColS++)
-                            {
-                                TableS[RowS, ColS] = TableConst[RowS, ColS];
-                            }
+                        TableS = CloneATable(TableConst);
                         Object O = new Object();
                         lock (O)
                         {
@@ -15465,5 +15521,4 @@ namespace RefrigtzW
 
     }
 }
-
 //End of Documentation.
