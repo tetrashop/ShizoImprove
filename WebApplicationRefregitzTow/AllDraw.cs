@@ -208,7 +208,7 @@ namespace RefrigtzW
             lock (a)
             {
                 string stackTrace = ex.ToString();
-                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
+                Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
             }
             
         }
@@ -14593,166 +14593,260 @@ namespace RefrigtzW
         AllDraw InitiateAStarGreedytSodlerGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            
+
             Object oo = new Object();
             lock (oo)
             {
-                
-                
+
+
 
                 //For Gray Soldeirs Objects. 
                 Parallel.For(0, SodierMidle, i =>
-                
+
                 {
                     InitiateAStarGreedytSodler(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
 
             }
-            
+
             return this;
+        }
+        bool InitiateAStarGreedyt(int i, int Kind)
+        {
+            bool Is = false;
+
+            try
+            {
+                if (Kind == 1)
+                {
+                    Is = Is || InitiateAStarGreedytSoldier(i, Kind);
+                }
+                else
+ if (Kind == 2)
+                {
+                    Is = Is || InitiateAStarGreedytElephant(i, Kind);
+                }
+                else
+ if (Kind == 3)
+                {
+                    Is = Is || InitiateAStarGreedytHourse(i, Kind);
+                }
+                else
+ if (Kind == 4)
+                {
+                    Is = Is || InitiateAStarGreedytCastle(i, Kind);
+                }
+                else
+ if (Kind == 5)
+                {
+                    Is = Is || InitiateAStarGreedytMinidter(i, Kind);
+                }
+                else
+ if (Kind == 6)
+                {
+                    Is = Is || InitiateAStarGreedytKing(i, Kind);
+                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytSoldier(int i, int Kind)
+        {
+
+
+            if (SolderesOnTable != null)
+                if (SolderesOnTable[i] != null)
+                    return true;
+
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytElephant(int i, int Kind)
+        {
+
+
+            if (ElephantOnTable != null)
+                if (ElephantOnTable[i] != null)
+                    return true;
+
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytHourse(int i, int Kind)
+        {
+
+
+            if (HoursesOnTable != null)
+                if (HoursesOnTable[i] != null)
+                    return true;
+
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytCastle(int i, int Kind)
+        {
+
+
+            if (CastlesOnTable != null)
+                if (CastlesOnTable[i] != null)
+                    return true;
+
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytMinidter(int i, int Kind)
+        {
+
+
+            if (MinisterOnTable != null)
+                if (MinisterOnTable[i] != null)
+                    return true;
+
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytKing(int i, int Kind)
+        {
+
+
+            if (KingOnTable != null)
+                if (KingOnTable[i] != null)
+                    return true;
+
+            return false;
+
+
+
         }
         AllDraw InitiateAStarGreedytSodler(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
              )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For Gray Soldeirs Objects. 
-                
-                    Object O = new Object();
-                    lock (O)
+                Object O = new Object();
+                lock (O)
+                {
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //If Solders Not Exist Continue and Traversal Back.
+                    if (InitiateAStarGreedyt(i, 1))
                     {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //If Solders Not Exist Continue and Traversal Back.
-                        if (SolderesOnTable != null && SolderesOnTable[i] != null)
+                        //Initiate of Local Variables By Global Objective Gray Current Solder.
+                        int ik = (int)SolderesOnTable[i].Row;
+                        int jk = (int)SolderesOnTable[i].Column;
+                        //Construction of Thinking Gray Soldier By Local Variables.
+                        //if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
+                        //If There is no Thinking Movments on Current Object  
+                        if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
                         {
-                            //Initiate of Local Variables By Global Objective Gray Current Solder.
-                            int ik = (int)SolderesOnTable[i].Row;
-                            int jk = (int)SolderesOnTable[i].Column;
-                            //Construction of Thinking Gray Soldier By Local Variables.
-                            //if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
-                                
-                            //If There is no Thinking Movments on Current Object  
-
-                            if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count == 0)
+                            //For All Movable Gray Solders.
+                            ////Parallel.For(0, AllDraw.SodierMovments, j =>
                             {
-                                //For All Movable Gray Solders.
-                                ////Parallel.For(0, AllDraw.SodierMovments, j =>
+                                //Thinking of Gray Solder Operation.
+                                Object OOO = new Object();
+                                lock (OOO)
                                 {
-                                    //Thinking of Gray Solder Operation.
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
-                                        SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
-                                        array.Wait(); array.Dispose();
-                                        
-                                    }
-
+                                    SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = true;
+                                    SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
+                                    var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
                                 }
                             }
-                            else
-                            {
-                                SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = false;
-                                SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = true;
-                            }
                         }
-
+                        else
+                        {
+                            SolderesOnTable[i].SoldierThinking[0].ThinkingBegin = false;
+                            SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = true;
+                        }
                     }
-               
-
+                }
 
             }
-            
             return this;
         }
         //main initiation of elephant gray
         AllDraw InitiateAStarGreedytElephantGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 Parallel.For(0, ElefantMidle, i =>
-                
                 {
                     InitiateAStarGreedytElephant(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
-
             }
-            
 
             return this;
         }
         AllDraw InitiateAStarGreedytElephant(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
              )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
-                
-                    Object O = new Object();
-                    lock (O)
+
+                Object O = new Object();
+                lock (O)
+                {
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //Ignore of Non Exist Current Elephant Gray Objects.
+                    if (InitiateAStarGreedyt(i, 2))
                     {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //Ignore of Non Exist Current Elephant Gray Objects.
-                        if (ElephantOnTable != null && ElephantOnTable[i] != null)
+                        //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
+                        int ik = (int)ElephantOnTable[i].Row;
+                        int jk = (int)ElephantOnTable[i].Column;
+                        //Construction of Thinking Objects By Local Varibales.
+                        //if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
+                        //If There is Not Thinking Objetive List Elephant Gray. 
+                        if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
                         {
-                            //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
-                            int ik = (int)ElephantOnTable[i].Row;
-                            int jk = (int)ElephantOnTable[i].Column;
-                            //Construction of Thinking Objects By Local Varibales.
-                            //if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
-                                
-                            //If There is Not Thinking Objetive List Elephant Gray. 
-                            if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count == 0)
+                            //For All Possible Movments.
+                            ////Parallel.For(0, AllDraw.ElefantMovments, j =>
                             {
-                                //For All Possible Movments.
-                                ////Parallel.For(0, AllDraw.ElefantMovments, j =>
+                                //Operational Thinking Gray Elephant. 
+                                Object OOO = new Object();
+                                lock (OOO)
                                 {
-                                    //Operational Thinking Gray Elephant. 
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
-                                        ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+                                    ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = true;
+                                    ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = false;
+                                    var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
 
-                                        var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
-                                        array.Wait(); array.Dispose();
-                                        
-
-                                    }
                                 }
                             }
-                            else
-                            {
-                                ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = false;
-                                ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = true;
-                            }
                         }
-
+                        else
+                        {
+                            ElephantOnTable[i].ElefantThinking[0].ThinkingBegin = false;
+                            ElephantOnTable[i].ElefantThinking[0].ThinkingFinished = true;
+                        }
                     }
-                
+                }
             }
-            
 
             return this;
         }
@@ -14760,139 +14854,108 @@ namespace RefrigtzW
         AllDraw InitiateAStarGreedythHourseGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For All Gray Hourse Objects.
                 Parallel.For(0, HourseMidle, i =>
-                
                 {
                     InitiateAStarGreedythHourse(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
-
             }
-            
             return this;
         }
         AllDraw InitiateAStarGreedythHourse(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For All Gray Hourse Objects.
-                
-                    Object O = new Object();
-                    lock (O)
+                Object O = new Object();
+                lock (O)
+                {
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //Ignore of Non Exist Current Gray Hourse Objects.
+                    if (InitiateAStarGreedyt(i, 3))
                     {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //Ignore of Non Exist Current Gray Hourse Objects.
-                        if (HoursesOnTable != null && HoursesOnTable[i] != null)
+                        //Initiate of Local Variables By Global Gray Hourse Objectives.
+                        int ik = (int)HoursesOnTable[i].Row;
+                        int jk = (int)HoursesOnTable[i].Column;
+                        //Construction of Gray Hourse Thinking Objects..
+                        //if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
+                        //When There is Not HourseList Count. 
+                        if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
                         {
-                            //Initiate of Local Variables By Global Gray Hourse Objectives.
-                            int ik = (int)HoursesOnTable[i].Row;
-                            int jk = (int)HoursesOnTable[i].Column;
-                            //Construction of Gray Hourse Thinking Objects..
-                            //if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
-                                
-                            //When There is Not HourseList Count. 
-                            if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count == 0)
+                            //For All Possible Movments.
+                            ////Parallel.For(0, AllDraw.HourseMovments, j =>
                             {
-                                //For All Possible Movments.
-                                ////Parallel.For(0, AllDraw.HourseMovments, j =>
+                                //Thinking of Gray Hourse Oprational.
+                                Object OOO = new Object();
+                                lock (OOO)
                                 {
-                                    //Thinking of Gray Hourse Oprational.
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
-                                        HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
-                                        var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
-                                        array.Wait(); array.Dispose();
-
-                                        
+                                    HoursesOnTable[i].HourseThinking[0].ThinkingBegin = true;
+                                    HoursesOnTable[i].HourseThinking[0].ThinkingFinished = false;
+                                    var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
 
 
-
-                                    }
                                 }
                             }
-                            else
-                            {
-                                HoursesOnTable[i].HourseThinking[0].ThinkingBegin = false;
-                                HoursesOnTable[i].HourseThinking[0].ThinkingFinished = true;
-                            }
                         }
-
+                        else
+                        {
+                            HoursesOnTable[i].HourseThinking[0].ThinkingBegin = false;
+                            HoursesOnTable[i].HourseThinking[0].ThinkingFinished = true;
+                        }
                     }
-            
+                }
 
             }
-            
             return this;
         }
         //main initiation of Castle gray
-
         AllDraw InitiateAStarGreedythCastleGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
        )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For All Possible Gray Castles Objects.
                 Parallel.For(0, CastleMidle, i =>
-                
                 {
                     InitiateAStarGreedythCastle(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
 
-
             }
-            
             return this;
         }
         AllDraw InitiateAStarGreedythCastle(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
        )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For All Possible Gray Castles Objects.
-
                 Object O = new Object();
                 lock (O)
                 {
-
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //When Current Castles Gray Not Exist Continue Traversal Back.
-                    if (CastlesOnTable != null && CastlesOnTable[i] != null)
+                    if (InitiateAStarGreedyt(i, 4))
                     {
                         //Initaiate of Local Varibales By Global Varoiables.
                         int ik = (int)CastlesOnTable[i].Row;
                         int jk = (int)CastlesOnTable[i].Column;
                         //Construction of Thinking Variables By Local Variables.
                         //if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
-                            
                         //When Count of Table Castles of Thinking Not Exist Do Operational.
                         if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count == 0)
                         {
@@ -14905,14 +14968,11 @@ namespace RefrigtzW
                                     //Thinking of Gray Castles Operational.
                                     CastlesOnTable[i].CastleThinking[0].ThinkingBegin = true;
                                     CastlesOnTable[i].CastleThinking[0].ThinkingFinished = false;
-
                                     var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
-                                    
 
                                 }
                             }
-
                         }
                         else
                         {
@@ -14920,176 +14980,139 @@ namespace RefrigtzW
                             CastlesOnTable[i].CastleThinking[0].ThinkingFinished = true;
                         }
                     }
-
                 }
-
             }
-            
             return this;
         }
         //main initiation of minister gray
         AllDraw InitiateAStarGreedythMinisterGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For All Possible Gray Minister Movments.
                 Parallel.For(0, MinisterMidle, i =>
-                
                 {
-
                     InitiateAStarGreedythMinister(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
-
                 });
-
             }
-            
             return this;
         }
         AllDraw InitiateAStarGreedythMinister(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For All Possible Gray Minister Movments.
-                
 
-                    Object O = new Object();
-                    lock (O)
+                Object O = new Object();
+                lock (O)
+                {
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //For Each Non Exist Gray Minister Objectives.
+                    if (InitiateAStarGreedyt(i, 5))
                     {
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //For Each Non Exist Gray Minister Objectives.
-                        if (MinisterOnTable != null && MinisterOnTable[i] != null)
+                        //Inititate Local Variables By Global Varibales.
+                        int ik = (int)MinisterOnTable[i].Row;
+                        int jk = (int)MinisterOnTable[i].Column;
+                        //Construction of Thinking Objects Gray Minister.
+                        //if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+                        //If There is Not Minister Of Gray In The Thinking Table List.   
+                        if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
                         {
-                            //Inititate Local Variables By Global Varibales.
-                            int ik = (int)MinisterOnTable[i].Row;
-                            int jk = (int)MinisterOnTable[i].Column;
-                            //Construction of Thinking Objects Gray Minister.
-                            //if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
-                                
-                            //If There is Not Minister Of Gray In The Thinking Table List.   
-                            if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count == 0)
+                            //For All Possible Movments.
+                            // //Parallel.For(0, AllDraw.MinisterMovments, j =>
                             {
-                                //For All Possible Movments.
-                                // //Parallel.For(0, AllDraw.MinisterMovments, j =>
+                                //Thinking of Gray Minister Operational.
+                                Object OOO = new Object();
+                                lock (OOO)
                                 {
-                                    //Thinking of Gray Minister Operational.
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
-                                        MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+                                    MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = true;
+                                    MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = false;
+                                    var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
 
-                                        var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
-                                        array.Wait(); array.Dispose();
-                                        
-
-                                    }
                                 }
-
-                            }
-                            else
-                            {
-                                MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = false;
-                                MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = true;
                             }
                         }
+                        else
+                        {
+                            MinisterOnTable[i].MinisterThinking[0].ThinkingBegin = false;
+                            MinisterOnTable[i].MinisterThinking[0].ThinkingFinished = true;
+                        }
                     }
-
+                }
             }
-            
             return this;
         }
         //main initiation of king gray
         AllDraw InitiateAStarGreedythKingGray(int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For All Possible Gray King Objects.
                 Parallel.For(0, KingMidle, i =>
-                
                 {
                     InitiateAStarGreedythKing(i, iii, jjj, Table, DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy);
                 });
-
             }
-            
             return this;
         }
         AllDraw InitiateAStarGreedythKing(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
              )
         {
-            
             Object oo = new Object();
             lock (oo)
             {
-                
-                
 
                 //For All Possible Gray King Objects.
-                
-                    Object O = new Object();
-                    lock (O)
+                Object O = new Object();
+                lock (O)
+                {
+                    Order = DummyOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
+                    //If There is Not Current Object Continue Traversal Back.
+                    if (InitiateAStarGreedyt(i, 6))
                     {
-
-                        Order = DummyOrder;
-                        ChessRules.CurrentOrder = DummyCurrentOrder;
-                        //If There is Not Current Object Continue Traversal Back.
-                        if (KingOnTable != null && KingOnTable[i] != null)
+                        //Initiate Local varibale By Global Objective Varibales.
+                        int ik = (int)(int)KingOnTable[i].Row;
+                        int jk = (int)KingOnTable[i].Column;
+                        //Construction of Gray King Thinking Objects.
+                        //if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+                        //When There is Not Thinking Table Gray King Movments.
+                        if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
                         {
-                            //Initiate Local varibale By Global Objective Varibales.
-                            int ik = (int)(int)KingOnTable[i].Row;
-                            int jk = (int)KingOnTable[i].Column;
-                            //Construction of Gray King Thinking Objects.
-                            //if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
-                                
-                            //When There is Not Thinking Table Gray King Movments.
-                            if (KingOnTable[i].KingThinking[0].TableListKing.Count == 0)
+                            //For All Possible Gray King Movments.
+                            ////Parallel.For(0, AllDraw.KingMovments, j =>
                             {
-                                //For All Possible Gray King Movments.
-                                ////Parallel.For(0, AllDraw.KingMovments, j =>
+                                //Thinking Of Gray King Operatins.
+                                Object OOO = new Object();
+                                lock (OOO)
                                 {
-                                    //Thinking Of Gray King Operatins.
-                                    Object OOO = new Object();
-                                    lock (OOO)
-                                    {
-                                        KingOnTable[i].KingThinking[0].ThinkingBegin = true;
-                                        KingOnTable[i].KingThinking[0].ThinkingFinished = false;
-                                        ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
-                                        array.Wait(); array.Dispose();
+                                    KingOnTable[i].KingThinking[0].ThinkingBegin = true;
+                                    KingOnTable[i].KingThinking[0].ThinkingFinished = false;
+                                    ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
+                                    array.Wait(); array.Dispose();
 
-                                        
-                                    }
                                 }
                             }
-                            else
-                            {
-                                KingOnTable[i].KingThinking[0].ThinkingBegin = false;
-                                KingOnTable[i].KingThinking[0].ThinkingFinished = true;
-                            }
                         }
-
+                        else
+                        {
+                            KingOnTable[i].KingThinking[0].ThinkingBegin = false;
+                            KingOnTable[i].KingThinking[0].ThinkingFinished = true;
+                        }
                     }
-                
+                }
             }
-            
             return this;
         }
         //main initiation of soldier brown 

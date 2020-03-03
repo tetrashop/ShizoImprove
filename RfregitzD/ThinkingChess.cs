@@ -229,7 +229,7 @@ namespace RefrigtzDLL
             {
                 string stackTrace = ex.ToString();
                 //Write to File.
-                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
+                Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
 
             }
 
@@ -6401,6 +6401,43 @@ namespace RefrigtzDLL
             }
             return Is;
         }
+        List<int[]> ListOfExistInReducedSupportList(bool Before, int Rows, int Cols, int Rowd, int Cold)
+        {
+            List<int[]> Is = new List<int[]>();
+            if (Before)
+            {
+                for (int i = 0; i < HeuristicAllReducedSupport.Count; i++)
+                {
+                    if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
+                    {
+                        int[] I = new int[5];
+                        I[0] = HeuristicAllAttacked[i][0];
+                        I[1] = HeuristicAllAttacked[i][1];
+                        I[2] = HeuristicAllAttacked[i][2];
+                        I[3] = HeuristicAllAttacked[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                {
+                    if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
+                    {
+                        int[] I = new int[5];
+                        I[0] = HeuristicAllAttacked[i][0];
+                        I[1] = HeuristicAllAttacked[i][1];
+                        I[2] = HeuristicAllAttacked[i][2];
+                        I[3] = HeuristicAllAttacked[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
+                }
+            }
+            return Is;
+        }
         List<int[]> ListOfExistInSupportList(bool Before, int RowS, int ColS, int RowD, int ColD)
         {
             List<int[]> Is = new List<int[]>();
@@ -11900,6 +11937,34 @@ namespace RefrigtzDLL
 
             return Is;
         }
+
+        bool DisturbeOnNonSupportedTraversalExchangePrevention(int Killded, bool Before, int[,] TableS, int Order)
+        {
+            bool Is = false;
+            if (!Before)
+            {
+                for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                {
+                    if (Order == 1)
+                    {
+                        List<int[]> Valuable = new List<int[]>();
+                        bool DD = InAttackEnemyThatIsNotSupported(Killded, CloneATable(TableS), Order, OrderColor(Order), HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1], HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]);
+                        if (DD || (System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]]) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] < 0))
+                            return true;
+                    }
+                    else
+                    {
+                        List<int[]> Valuable = new List<int[]>();
+                        bool DD = InAttackEnemyThatIsNotSupported(Killded, CloneATable(TableS), Order, OrderColor(Order), HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1], HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]);
+                        if (DD || (System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]]) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] > 0))
+                            return true;
+                    }
+
+                }
+            }
+
+            return Is;
+        }
         List<List<int[]>> AchMazReducedElephasnt(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
@@ -13213,13 +13278,20 @@ namespace RefrigtzDLL
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
                             if (Order == 1)
                             {
-                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] > 0 && TableS[RowD, ColD] <= 0)
-                                    SetSupHuTrue();
+                                if (
+                                        //((NoOfBoardMoved + Is >= Total) && 
+                                        TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
+                                //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
+                                ) SetSupHuTrue();
 
                             }
                             else
                             {
-                                if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0)
+                                if (
+                                        //((NoOfBoardMoved + Is >= Total) && 
+                                        TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
+                                //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
+                                )
                                     SetSupHuTrue();
                             }
                             //Empire more
@@ -13281,6 +13353,13 @@ namespace RefrigtzDLL
                         //if (Order == AllDraw.OrderPlate)
                         {   //Disturbe on huge traversal exchange prevention 
                             //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                            if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
+                            {
+
+                                //if (Before)
+                                SetSupHuTrue();
+                                IsS = true;
+                            }
                             if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
                             {
 
@@ -13289,7 +13368,7 @@ namespace RefrigtzDLL
                                 IsS = true;
                             }
                             else
-                              if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
+                                  if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
                                 TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                             //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
@@ -13312,8 +13391,8 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
-                                    TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                //if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
+                                    //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                                 //Empire more
                                 if (A)
                                 {
@@ -13355,7 +13434,11 @@ namespace RefrigtzDLL
                                 NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
                                 if (Order == 1)
                                 {
-                                    if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] > 0)
+                                    if (
+                                         //((NoOfBoardMoved + Is >= Total) && 
+                                         TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
+                                 //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
+                                 )
                                     {
                                         IsS = true;
                                         SetSupHuTrue();
@@ -13364,7 +13447,11 @@ namespace RefrigtzDLL
                                 }
                                 else
                                 {
-                                    if (((NoOfBoardMoved + Is >= Total) && TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove) && A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] < 0)
+                                    if (
+                                          //((NoOfBoardMoved + Is >= Total) && 
+                                          TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
+                                  //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
+                                  )
                                     {
                                         IsS = true;
                                         SetSupHuTrue();

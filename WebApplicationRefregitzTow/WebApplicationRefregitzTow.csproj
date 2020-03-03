@@ -383,6 +383,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="LearningAtamata.cs" />
     <Compile Include="NetworkQuantumLearningKrinskyAtamata.cs" />
     <Compile Include="NewotoonInterpolate.cs" />

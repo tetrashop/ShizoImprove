@@ -195,7 +195,8 @@ namespace RefrigtzDLL
             lock (a)
             {
                 string stackTrace = ex.ToString();
-                File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
+                Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
+               
             }
         }
         //Determine when a MoveOccured.
@@ -12705,6 +12706,129 @@ namespace RefrigtzDLL
             }
             return this;
         }
+        bool InitiateAStarGreedyt(int i, int Kind)
+        {
+            bool Is = false;
+
+            try
+            {
+                if (Kind == 1)
+                {
+                    Is = Is || InitiateAStarGreedytSoldier(i, Kind);
+                }
+                else
+ if (Kind == 2)
+                {
+                    Is = Is || InitiateAStarGreedytElephant(i, Kind);
+                }
+                else
+ if (Kind == 3)
+                {
+                    Is = Is || InitiateAStarGreedytHourse(i, Kind);
+                }
+                else
+ if (Kind == 4)
+                {
+                    Is = Is || InitiateAStarGreedytCastle(i, Kind);
+                }
+                else
+ if (Kind == 5)
+                {
+                    Is = Is || InitiateAStarGreedytMinidter(i, Kind);
+                }
+                else
+ if (Kind == 6)
+                {
+                    Is = Is || InitiateAStarGreedytKing(i, Kind);
+                }
+            }
+            catch (Exception t)
+            {
+                Log(t);
+            }
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytSoldier(int i, int Kind)
+        {
+
+           
+                if (SolderesOnTable != null)
+                    if (SolderesOnTable[i] != null)
+                        return true;
+
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytElephant(int i, int Kind)
+        {
+
+
+                if (ElephantOnTable != null)
+                    if (ElephantOnTable[i] != null)
+                        return true;
+
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytHourse(int i, int Kind)
+        {
+
+
+                if (HoursesOnTable != null)
+                    if (HoursesOnTable[i] != null)
+                        return true;
+
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytCastle(int i, int Kind)
+        {
+
+
+                if (CastlesOnTable != null)
+                    if (CastlesOnTable[i] != null)
+                        return true;
+           
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytMinidter(int i, int Kind)
+        {
+
+
+                if (MinisterOnTable != null)
+                    if (MinisterOnTable[i] != null)
+                        return true;
+            
+            return false;
+
+
+
+        }
+        bool InitiateAStarGreedytKing(int i, int Kind)
+        {
+
+            
+                if (KingOnTable != null)
+                    if (KingOnTable[i] != null)
+                        return true;
+         
+            return false;
+
+
+
+        }
         AllDraw InitiateAStarGreedytSodler(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
              )
         {
@@ -12719,7 +12843,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If Solders Not Exist Continue and Traversal Back.
-                    if (SolderesOnTable != null && SolderesOnTable[i] != null)
+                    if (InitiateAStarGreedyt(i, 1))
                     {
                         //Initiate of Local Variables By Global Objective Gray Current Solder.
                         int ik = (int)SolderesOnTable[i].Row;
@@ -12784,7 +12908,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Elephant Gray Objects.
-                    if (ElephantOnTable != null && ElephantOnTable[i] != null)
+                    if (InitiateAStarGreedyt(i, 2))
                     {
                         //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
                         int ik = (int)ElephantOnTable[i].Row;
@@ -12851,7 +12975,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Gray Hourse Objects.
-                    if (HoursesOnTable != null && HoursesOnTable[i] != null)
+                    if (InitiateAStarGreedyt(i, 3))
                     {
                         //Initiate of Local Variables By Global Gray Hourse Objectives.
                         int ik = (int)HoursesOnTable[i].Row;
@@ -12919,7 +13043,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //When Current Castles Gray Not Exist Continue Traversal Back.
-                    if (CastlesOnTable != null && CastlesOnTable[i] != null)
+                    if (InitiateAStarGreedyt(i, 4))
                     {
                         //Initaiate of Local Varibales By Global Varoiables.
                         int ik = (int)CastlesOnTable[i].Row;
@@ -12985,7 +13109,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //For Each Non Exist Gray Minister Objectives.
-                    if (MinisterOnTable != null && MinisterOnTable[i] != null)
+                    if (InitiateAStarGreedyt(i, 5))
                     {
                         //Inititate Local Variables By Global Varibales.
                         int ik = (int)MinisterOnTable[i].Row;
@@ -13050,7 +13174,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If There is Not Current Object Continue Traversal Back.
-                    if (KingOnTable != null && KingOnTable[i] != null)
+                    if (InitiateAStarGreedyt(i, 6))
                     {
                         //Initiate Local varibale By Global Objective Varibales.
                         int ik = (int)(int)KingOnTable[i].Row;

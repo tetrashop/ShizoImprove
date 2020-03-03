@@ -1511,7 +1511,7 @@ namespace Chess
             lock (a)
             {
                 string stackTrace = ex.ToString();
-                System.IO.File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
+                Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
             }
             
         }
@@ -2623,6 +2623,8 @@ namespace Chess
 
                                         Table = brd.GetTable();
 
+                                        ClearTableInitiationPreventionOfMultipleMove();
+
 
                                         System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                         tt.Start();
@@ -2718,7 +2720,9 @@ namespace Chess
                                         
                                         MovmentsNumber++;
 
+                                        Table = brd.GetTable();
 
+                                        ClearTableInitiationPreventionOfMultipleMove();
 
                                         System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                         tt.Start();
@@ -2750,12 +2754,13 @@ namespace Chess
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[x1, y1]++;
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j]++;
 
-                                ClearTableInitiationPreventionOfMultipleMove();
-
+                           
                                 MovmentsNumber++;
                                 
 
                                 Table = brd.GetTable();
+
+                                ClearTableInitiationPreventionOfMultipleMove();
 
 
                                 System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
