@@ -196,7 +196,7 @@ namespace RefrigtzDLL
             {
                 string stackTrace = ex.ToString();
                 Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
-               
+
             }
         }
         //Determine when a MoveOccured.
@@ -12171,11 +12171,11 @@ namespace RefrigtzDLL
             if (Order == -1 && i >= SodierHigh)
                 return true;
             if (SolderesOnTable == null)
-                    return true;
-                if (SolderesOnTable[i] == null)
-                    return true;
+                return true;
+            if (SolderesOnTable[i] == null)
+                return true;
 
-            
+
             return false;
 
 
@@ -12188,10 +12188,10 @@ namespace RefrigtzDLL
             if (Order == -1 && i >= ElefantHigh)
                 return true;
             if (ElephantOnTable == null)
-                    return true;
-                if (ElephantOnTable[i] == null)
-                    return true;
-            
+                return true;
+            if (ElephantOnTable[i] == null)
+                return true;
+
             return false;
 
 
@@ -12204,10 +12204,10 @@ namespace RefrigtzDLL
                 return true;
 
             if (HoursesOnTable == null)
-                    return true;
-                if (HoursesOnTable[i] == null)
-                    return true;
-            
+                return true;
+            if (HoursesOnTable[i] == null)
+                return true;
+
             return false;
 
 
@@ -12220,10 +12220,10 @@ namespace RefrigtzDLL
                 return true;
 
             if (CastlesOnTable == null)
-                    return true;
-                if (CastlesOnTable[i] == null)
-                    return true;
-            
+                return true;
+            if (CastlesOnTable[i] == null)
+                return true;
+
             return false;
 
 
@@ -12236,10 +12236,10 @@ namespace RefrigtzDLL
                 return true;
 
             if (MinisterOnTable == null)
-                    return true;
-                if (MinisterOnTable[i] == null)
-                    return true;
-             return false;
+                return true;
+            if (MinisterOnTable[i] == null)
+                return true;
+            return false;
 
 
         }
@@ -12251,10 +12251,10 @@ namespace RefrigtzDLL
                 return true;
 
             if (KingOnTable == null)
-                    return true;
-                if (KingOnTable[i] == null)
-                    return true;
-              return false;
+                return true;
+            if (KingOnTable[i] == null)
+                return true;
+            return false;
 
 
         }
@@ -12882,7 +12882,7 @@ namespace RefrigtzDLL
 
 
         }
-        bool InitiateAStarGreedytSoldier(int i, int Kind,int Order)
+        bool InitiateAStarGreedytSoldier(int i, int Kind, int Order)
         {
 
             if (Order == 1 && i >= SodierMidle)
@@ -12890,15 +12890,15 @@ namespace RefrigtzDLL
             if (Order == -1 && i >= SodierHigh)
                 return false;
             if (SolderesOnTable != null)
-                    if (SolderesOnTable[i] != null)
-                        return true;
+                if (SolderesOnTable[i] != null)
+                    return true;
 
             return false;
 
 
 
         }
-        bool InitiateAStarGreedytElephant(int i, int Kind,int Order)
+        bool InitiateAStarGreedytElephant(int i, int Kind, int Order)
         {
 
             if (Order == 1 && i >= ElefantMidle)
@@ -12907,15 +12907,15 @@ namespace RefrigtzDLL
                 return false;
 
             if (ElephantOnTable != null)
-                    if (ElephantOnTable[i] != null)
-                        return true;
+                if (ElephantOnTable[i] != null)
+                    return true;
 
             return false;
 
 
 
         }
-        bool InitiateAStarGreedytHourse(int i, int Kind,int Order)
+        bool InitiateAStarGreedytHourse(int i, int Kind, int Order)
         {
             if (Order == 1 && i >= HourseMidle)
                 return false;
@@ -12924,15 +12924,15 @@ namespace RefrigtzDLL
 
 
             if (HoursesOnTable != null)
-                    if (HoursesOnTable[i] != null)
-                        return true;
+                if (HoursesOnTable[i] != null)
+                    return true;
 
             return false;
 
 
 
         }
-        bool InitiateAStarGreedytCastle(int i, int Kind,int Order)
+        bool InitiateAStarGreedytCastle(int i, int Kind, int Order)
         {
             if (Order == 1 && i >= CastleMidle)
                 return false;
@@ -12941,15 +12941,15 @@ namespace RefrigtzDLL
 
 
             if (CastlesOnTable != null)
-                    if (CastlesOnTable[i] != null)
-                        return true;
-           
+                if (CastlesOnTable[i] != null)
+                    return true;
+
             return false;
 
 
 
         }
-        bool InitiateAStarGreedytMinidter(int i, int Kind,int Order)
+        bool InitiateAStarGreedytMinidter(int i, int Kind, int Order)
         {
 
             if (Order == 1 && i >= MinisterMidle)
@@ -12959,15 +12959,15 @@ namespace RefrigtzDLL
 
 
             if (MinisterOnTable != null)
-                    if (MinisterOnTable[i] != null)
-                        return true;
-            
+                if (MinisterOnTable[i] != null)
+                    return true;
+
             return false;
 
 
 
         }
-        bool InitiateAStarGreedytKing(int i, int Kind,int Order)
+        bool InitiateAStarGreedytKing(int i, int Kind, int Order)
         {
             if (Order == 1 && i >= KingMidle)
                 return false;
@@ -12976,9 +12976,9 @@ namespace RefrigtzDLL
 
 
             if (KingOnTable != null)
-                    if (KingOnTable[i] != null)
-                        return true;
-         
+                if (KingOnTable[i] != null)
+                    return true;
+
             return false;
 
 
@@ -12998,7 +12998,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If Solders Not Exist Continue and Traversal Back.
-                    if (InitiateAStarGreedyt(i, 1,Order))
+                    if (InitiateAStarGreedyt(i, 1, Order))
                     {
                         //Initiate of Local Variables By Global Objective Gray Current Solder.
                         int ik = (int)SolderesOnTable[i].Row;
@@ -13063,7 +13063,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Elephant Gray Objects.
-                    if (InitiateAStarGreedyt(i, 2,Order))
+                    if (InitiateAStarGreedyt(i, 2, Order))
                     {
                         //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
                         int ik = (int)ElephantOnTable[i].Row;
@@ -13130,7 +13130,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Gray Hourse Objects.
-                    if (InitiateAStarGreedyt(i, 3,Order))
+                    if (InitiateAStarGreedyt(i, 3, Order))
                     {
                         //Initiate of Local Variables By Global Gray Hourse Objectives.
                         int ik = (int)HoursesOnTable[i].Row;
@@ -13198,7 +13198,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //When Current Castles Gray Not Exist Continue Traversal Back.
-                    if (InitiateAStarGreedyt(i, 4,Order))
+                    if (InitiateAStarGreedyt(i, 4, Order))
                     {
                         //Initaiate of Local Varibales By Global Varoiables.
                         int ik = (int)CastlesOnTable[i].Row;
@@ -13264,7 +13264,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //For Each Non Exist Gray Minister Objectives.
-                    if (InitiateAStarGreedyt(i, 5,Order))
+                    if (InitiateAStarGreedyt(i, 5, Order))
                     {
                         //Inititate Local Variables By Global Varibales.
                         int ik = (int)MinisterOnTable[i].Row;
@@ -13329,7 +13329,7 @@ namespace RefrigtzDLL
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If There is Not Current Object Continue Traversal Back.
-                    if (InitiateAStarGreedyt(i, 6,Order))
+                    if (InitiateAStarGreedyt(i, 6, Order))
                     {
                         //Initiate Local varibale By Global Objective Varibales.
                         int ik = (int)(int)KingOnTable[i].Row;
@@ -19961,6 +19961,250 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 return Node;
             }
         }
+        public void UpdateLoseAndWinDepenOfKindSoldier(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+
+                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 1))
+                        continue;
+
+
+                    //deeper
+                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count ; ii++)
+                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (SolderesOnTable[i].WinOcuuredatChiled == 0)
+                    {    //non learning autamata victory leafs
+                        for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
+                            SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (SolderesOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
+                            SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindElephant(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+
+                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 2))
+                        continue;
+
+                    //deeper
+                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count ; ii++)
+                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (ElephantOnTable[i].WinOcuuredatChiled == 0)
+                    {    //non learning autamata victory leafs
+                        for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
+                            ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (ElephantOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
+                            ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[h], Order);
+
+                    }
+                }
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindHourse(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 3))
+                        continue;
+
+                    if (HoursesOnTable[i].WinOcuuredatChiled == 0)
+                        //deeper
+                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count ; ii++)
+                            HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    {   //non learning autamata victory leafs
+                        for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
+                            HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (HoursesOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
+                            HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindCastle(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 4))
+                        continue;
+
+
+                    //deeper
+                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count ; ii++)
+                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (CastlesOnTable[i].WinOcuuredatChiled == 0)
+                    { //non learning autamata victory leafs
+                        for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
+                            CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (CastlesOnTable[i].LoseOcuuredatChiled == 0)
+                    {
+                        for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
+                            CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindMinister(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 5))
+                        continue;
+                    //deeper
+                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count ; ii++)
+                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (MinisterOnTable[i].WinOcuuredatChiled == 0)
+                    {  //non learning autamata victory leafs
+                        for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
+                            MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (MinisterOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
+                            MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindKing(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 6))
+                        continue;
+                    //deeper
+                    for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count ; ii++)
+                        KingOnTable[i].KingThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (KingOnTable[i].WinOcuuredatChiled == 0)
+                    {
+                        //non learning autamata victory leafs
+                        for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
+                            KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (KingOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
+                            KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+            }
+        }
+        //found of leadfs of created tree depend of orderic 
+        public void UpdateLoseAndWinDepenOfKind(int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                //gray
+                if (Order == 1)
+                {
+                    for (var i = 0; i < SodierMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindSoldier(i, Order);
+                    }
+                    for (var i = 0; i < ElefantMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindElephant(i, Order);
+                    }
+                    for (var i = 0; i < HourseMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindHourse(i, Order);
+                    }
+                    for (var i = 0; i < CastleMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindCastle(i, Order);
+                    }
+                    for (var i = 0; i < MinisterMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindMinister(i, Order);
+                    }
+                    for (var i = 0; i < KingMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindKing(i, Order);
+                    }
+                }
+                else
+                {
+                    for (var i = SodierMidle; i < SodierHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindSoldier(i, Order);
+                    }
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindElephant(i, Order);
+                    }
+                    for (var i = HourseMidle; i < HourseHight; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindHourse(i, Order);
+                    }
+                    for (var i = CastleMidle; i < CastleHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindCastle(i, Order);
+                    }
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindMinister(i, Order);
+                    }
+                    for (var i = KingMidle; i < KingHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindKing(i, Order);
+                    }
+                }
+            }
+        }
+
+
     }
 }
 //End of Documentation.

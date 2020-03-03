@@ -19116,7 +19116,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
                 SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order);
-            
+
             return Do;
             //Elephant
         }
@@ -19343,7 +19343,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
                 ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order);
-            
+
             return Do;
         }
         //collection objects calling full game specific game 
@@ -19574,7 +19574,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
                 HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order);
-            
+
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20033,7 +20033,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
                 MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order);
-            
+
             return Do;
         }
         //collection objects calling full game specific game 
@@ -20261,7 +20261,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //non learning autamata victom leafs
             for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
                 KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order);
-            
+
             return Do;
         }
         //collection objects calling full game specific game 
@@ -22847,6 +22847,249 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 
             }
         }
+        public void UpdateLoseAndWinDepenOfKindSoldier(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+
+                for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 1))
+                        continue;
+
+
+                    //deeper
+                    for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
+                        SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (SolderesOnTable[i].WinOcuuredatChiled == 0)
+                    {    //non learning autamata victory leafs
+                        for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
+                            SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (SolderesOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
+                            SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindElephant(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+
+                for (var j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && j < ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 2))
+                        continue;
+
+                    //deeper
+                    for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                        ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (ElephantOnTable[i].WinOcuuredatChiled == 0)
+                    {    //non learning autamata victory leafs
+                        for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
+                            ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (ElephantOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
+                            ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[h], Order);
+
+                    }
+                }
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindHourse(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                for (var j = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && j < HoursesOnTable[i].HourseThinking[0].TableListHourse.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 3))
+                        continue;
+
+                    if (HoursesOnTable[i].WinOcuuredatChiled == 0)
+                        //deeper
+                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
+                            HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    {   //non learning autamata victory leafs
+                        for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
+                            HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (HoursesOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
+                            HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindCastle(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                for (var j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && j < CastlesOnTable[i].CastleThinking[0].TableListCastle.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 4))
+                        continue;
+
+
+                    //deeper
+                    for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
+                        CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (CastlesOnTable[i].WinOcuuredatChiled == 0)
+                    { //non learning autamata victory leafs
+                        for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
+                            CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (CastlesOnTable[i].LoseOcuuredatChiled == 0)
+                    {
+                        for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
+                            CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindMinister(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                for (var j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && j < MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 5))
+                        continue;
+                    //deeper
+                    for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
+                        MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (MinisterOnTable[i].WinOcuuredatChiled == 0)
+                    {  //non learning autamata victory leafs
+                        for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
+                            MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (MinisterOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
+                            MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+            }
+        }
+        public void UpdateLoseAndWinDepenOfKindKing(int i, int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                for (var j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && j < KingOnTable[i].KingThinking[0].TableListKing.Count; j++)
+                {
+                    if (IsSupHuTrue(i, j, 0, 6))
+                        continue;
+                    //deeper
+                    for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
+                        KingOnTable[i].KingThinking[0].AStarGreedy[ii].UpdateLoseAndWinDepenOfKind(Order * -1);
+
+                    if (KingOnTable[i].WinOcuuredatChiled == 0)
+                    {
+                        //non learning autamata victory leafs
+                        for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
+                            KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinking[0].AStarGreedy[h], Order);
+                    }
+                    if (KingOnTable[i].LoseOcuuredatChiled == 0)
+                    {   //non learning autamata victom leafs
+                        for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
+                            KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinking[0].AStarGreedy[h], Order);
+                    }
+                }
+
+            }
+        }
+        //found of leadfs of created tree depend of orderic 
+        public void UpdateLoseAndWinDepenOfKind(int Order)
+        {
+            Object a = new Object();
+            lock (a)
+            {
+                //when found return recursive
+                //gray
+                if (Order == 1)
+                {
+                    for (var i = 0; i < SodierMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindSoldier(i, Order);
+                    }
+                    for (var i = 0; i < ElefantMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindElephant(i, Order);
+                    }
+                    for (var i = 0; i < HourseMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindHourse(i, Order);
+                    }
+                    for (var i = 0; i < CastleMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindCastle(i, Order);
+                    }
+                    for (var i = 0; i < MinisterMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindMinister(i, Order);
+                    }
+                    for (var i = 0; i < KingMidle; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindKing(i, Order);
+                    }
+                }
+                else
+                {
+                    for (var i = SodierMidle; i < SodierHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindSoldier(i, Order);
+                    }
+                    for (var i = ElefantMidle; i < ElefantHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindElephant(i, Order);
+                    }
+                    for (var i = HourseMidle; i < HourseHight; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindHourse(i, Order);
+                    }
+                    for (var i = CastleMidle; i < CastleHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindCastle(i, Order);
+                    }
+                    for (var i = MinisterMidle; i < MinisterHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindMinister(i, Order);
+                    }
+                    for (var i = KingMidle; i < KingHigh; i++)
+                    {
+                        UpdateLoseAndWinDepenOfKindKing(i, Order);
+                    }
+                }
+            }
+        }
+
     }
 }
 //End of Documentation.
