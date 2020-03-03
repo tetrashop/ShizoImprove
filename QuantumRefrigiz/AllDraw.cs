@@ -13953,102 +13953,230 @@ namespace QuantumRefrigiz
 
             return Is;
         }
+        bool ServeBoundryConditions(int i, int Kind, int Order)
+        {
+            bool Is = false;
+            if (Kind == 1)
+            {
+                Is = Is || ServeBoundryConditionsSoldier(i, Kind, Order);
+
+            }
+            else;
+            if (Kind == 2)
+            {
+                Is = Is || ServeBoundryConditionsElephant(i, Kind, Order);
+            }
+            else;
+            if (Kind == 3)
+            {
+                Is = Is || ServeBoundryConditionsHourse(i, Kind, Order);
+            }
+            else;
+            if (Kind == 4)
+            {
+                Is = Is || ServeBoundryConditionsCastle(i, Kind, Order);
+            }
+            else;
+            if (Kind == 5)
+            {
+                Is = Is || ServeBoundryConditionsMinister(i, Kind, Order);
+            }
+            else;
+            if (Kind == 6)
+            {
+                Is = Is || ServeBoundryConditionsKing(i, Kind, Order);
+            }
+            return Is;
+
+
+        }
+        bool ServeBoundryConditionsSoldier(int i, int Kind, int Order)
+        {
+            if (Order == 1 && i >= SodierMidle)
+                return true;
+            if (Order == -1 && i >= SodierHigh)
+                return true;
+            if (SolderesOnTable == null)
+                return true;
+            if (SolderesOnTable[i] == null)
+                return true;
+
+
+            return false;
+
+
+        }
+        bool ServeBoundryConditionsElephant(int i, int Kind, int Order)
+        {
+
+            if (Order == 1 && i >= ElefantHigh)
+                return true;
+            if (Order == -1 && i >= ElefantHigh)
+                return true;
+            if (ElephantOnTable == null)
+                return true;
+            if (ElephantOnTable[i] == null)
+                return true;
+
+            return false;
+
+
+        }
+        bool ServeBoundryConditionsHourse(int i, int Kind, int Order)
+        {
+            if (Order == 1 && i >= HourseMidle)
+                return true;
+            if (Order == -1 && i >= HourseHight)
+                return true;
+
+            if (HoursesOnTable == null)
+                return true;
+            if (HoursesOnTable[i] == null)
+                return true;
+
+            return false;
+
+
+        }
+        bool ServeBoundryConditionsCastle(int i, int Kind, int Order)
+        {
+            if (Order == 1 && i >= CastleMidle)
+                return true;
+            if (Order == -1 && i >= CastleHigh)
+                return true;
+
+            if (CastlesOnTable == null)
+                return true;
+            if (CastlesOnTable[i] == null)
+                return true;
+
+            return false;
+
+
+        }
+        bool ServeBoundryConditionsMinister(int i, int Kind, int Order)
+        {
+            if (Order == 1 && i >= MinisterMidle)
+                return true;
+            if (Order == -1 && i >= MinisterHigh)
+                return true;
+
+            if (MinisterOnTable == null)
+                return true;
+            if (MinisterOnTable[i] == null)
+                return true;
+            return false;
+
+
+        }
+        bool ServeBoundryConditionsKing(int i, int Kind, int Order)
+        {
+            if (Order == 1 && i >= KingMidle)
+                return true;
+            if (Order == -1 && i >= KingHigh)
+                return true;
+
+            if (KingOnTable == null)
+                return true;
+            if (KingOnTable[i] == null)
+                return true;
+            return false;
+
+
+        }
         //support of objects by self object regard by values named served
         void Serve(int Order)
         {
-
             //gray
             if (Order == 1)
             {
                 //sodier
                 for (var i = 0; i < SodierMidle; i++)
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 1, Order))
                         continue;
                     ServeISSup(Order, 1, i);
                 }
                 //elephant
                 for (var i = 0; i < ElefantMidle; i++)
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 2, Order))
                         continue;
                     ServeISSup(Order, 2, i);
                 }
                 //hourse
                 for (var i = 0; i < HourseMidle; i++)
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 3, Order))
                         continue;
                     ServeISSup(Order, 3, i);
                 }
                 //Castle
                 for (var i = 0; i < CastleMidle; i++)
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 4, Order))
                         continue;
                     ServeISSup(Order, 4, i);
                 }
                 //minister
                 for (var i = 0; i < MinisterMidle; i++)
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 5, Order))
                         continue;
                     ServeISSup(Order, 5, i);
                 }
                 //king
                 for (var i = 0; i < KingMidle; i++)
                 {
-                    if (KingOnTable == null || KingOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 6, Order))
                         continue;
                     ServeISSup(Order, 6, i);
                 }
-
             }//brown
             else
             {   //soldier
                 for (var i = SodierMidle; i < SodierHigh; i++)
                 {
-                    if (SolderesOnTable == null || SolderesOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 1, Order))
                         continue;
                     ServeISSup(Order, 1, i);
                 }
                 //elephant
                 for (var i = ElefantMidle; i < ElefantHigh; i++)
                 {
-                    if (ElephantOnTable == null || ElephantOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 2, Order))
                         continue;
                     ServeISSup(Order, 2, i);
                 }
                 ///hourse
                 for (var i = HourseMidle; i < HourseHight; i++)
                 {
-                    if (HoursesOnTable == null || HoursesOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 3, Order))
                         continue;
                     ServeISSup(Order, 3, i);
                 }
                 //Castle
                 for (var i = CastleMidle; i < CastleHigh; i++)
                 {
-                    if (CastlesOnTable == null || CastlesOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 4, Order))
                         continue;
                     ServeISSup(Order, 4, i);
                 }
                 //minister
                 for (var i = MinisterMidle; i < MinisterHigh; i++)
                 {
-                    if (MinisterOnTable == null || MinisterOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 5, Order))
                         continue;
                     ServeISSup(Order, 5, i);
                 }
                 //king
                 for (var i = KingMidle; i < KingHigh; i++)
                 {
-                    if (KingOnTable == null || KingOnTable[i] == null)
+                    if (ServeBoundryConditions(i, 6, Order))
                         continue;
                     ServeISSup(Order, 6, i);
                 }
             }
-
         }
 
         //served mechaisam core
@@ -14646,7 +14774,7 @@ namespace QuantumRefrigiz
             {
                 Log(t);
             }
-            return false;
+            return Is;
 
 
 
