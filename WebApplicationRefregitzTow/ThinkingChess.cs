@@ -4508,6 +4508,9 @@ namespace RefrigtzW
                     {
                         IsN++;
                     }
+                    else
+                    if (Table[k, ColK] != 0)
+                        IsN = 0;
                     for (int p = 0; p < 8; p++)
                     {
                         if (p == ColK)
@@ -4516,6 +4519,9 @@ namespace RefrigtzW
                         {
                             IsN++;
                         }
+                        else
+                    if (Table[k, p] != 0)
+                            IsN = 0;
                     }
                 }
 
@@ -4532,6 +4538,10 @@ namespace RefrigtzW
                     {
                         IsN++;
                     }
+                    else
+                    if (Table[RowK, 0] != 0)
+                        IsN = 0;
+
                     for (int p = 0; p < 8; p++)
                     {
                         if (p == RowK)
@@ -4540,6 +4550,9 @@ namespace RefrigtzW
                         {
                             IsN++;
                         }
+                        else
+                    if (Table[p, k] != 0)
+                            IsN = 0;
                     }
                 }
 
@@ -4645,36 +4658,36 @@ namespace RefrigtzW
                 , PawnBrownObj = -1;
                 if (Order == 1)
                 {
-                    if (Rowk == 0)
+                    if (ColK == 0)
                     {
-                        if (Table[Rowk + 1, ColK] == ElepahantGrayObj)
+                        if (Table[Rowk, ColK + 1] == ElepahantGrayObj)
                         {
-                            if (Table[Rowk + 2, ColK] == CastleGrayObj)
+                            if (Table[Rowk, ColK + 2] == CastleGrayObj)
                             {
-                                if ((Table[Rowk + 1, ColK - 1] == PawnGrayObj) || (Table[Rowk + 1, ColK + 1] == PawnGrayObj))
+                                if ((Table[Rowk - 1, ColK + 1] == PawnGrayObj) || (Table[Rowk + 1, ColK + 1] == PawnGrayObj))
                                 {
                                     Is = true;
                                 }
                             }
-                            if (Table[Rowk + 2, ColK + 1] == CastleGrayObj)
+                            if (Table[Rowk + 1, ColK + 2] == CastleGrayObj)
                             {
-                                if ((Table[Rowk + 1, ColK - 1] == MinisteGrayObj) || (Table[Rowk + 1, ColK + 1] == MinisteGrayObj))
+                                if ((Table[Rowk - 1, ColK + 1] == MinisteGrayObj) || (Table[Rowk + 1, ColK + 1] == MinisteGrayObj))
                                 {
                                     Is = true;
                                 }
                             }
                         }
 
-                        if (Table[Rowk + 1, ColK] == PawnGrayObj)
+                        if (Table[Rowk, ColK + 1] == PawnGrayObj)
                         {
-                            if (Table[Rowk + 2, ColK + 1] == MinisteGrayObj)
+                            if (Table[Rowk + 1, ColK + 2] == MinisteGrayObj)
                             {
-                                if (Table[Rowk + 2, ColK - 1] == PawnGrayObj)
+                                if (Table[Rowk - 1, ColK + 2] == PawnGrayObj)
                                     Is = true;
                             }
-                            if (Table[Rowk + 2, ColK + 1] == MinisteGrayObj)
+                            if (Table[Rowk + 1, ColK + 2] == MinisteGrayObj)
                             {
-                                if (Table[Rowk + 2, ColK - 1] == PawnGrayObj)
+                                if (Table[Rowk - 2, ColK + 2] == PawnGrayObj)
                                     Is = true;
                             }
                         }
@@ -4682,36 +4695,36 @@ namespace RefrigtzW
                 }
                 else
                 {
-                    if (Rowk == 7)
+                    if (ColK == 7)
                     {
-                        if (Table[Rowk - 1, ColK] == ElepahantGrayObj)
+                        if (Table[Rowk, ColK - 1] == ElepahantGrayObj)
                         {
-                            if (Table[Rowk - 2, ColK] == CastleBrownObj)
+                            if (Table[Rowk, ColK - 2] == CastleBrownObj)
                             {
-                                if ((Table[Rowk - 1, ColK - 1] == PawnBrownObj) || (Table[Rowk - 1, ColK + 1] == PawnBrownObj))
+                                if ((Table[Rowk - 1, ColK - 1] == PawnBrownObj) || (Table[Rowk + 1, ColK - 1] == PawnBrownObj))
                                 {
                                     Is = true;
                                 }
                             }
-                            if (Table[Rowk - 2, ColK - 1] == CastleBrownObj)
+                            if (Table[Rowk - 1, ColK - 2] == CastleBrownObj)
                             {
-                                if ((Table[Rowk - 1, ColK - 1] == MinisteBrownObj) || (Table[Rowk - 1, ColK + 1] == MinisteBrownObj))
+                                if ((Table[Rowk - 1, ColK - 1] == MinisteBrownObj) || (Table[Rowk + 1, ColK - 1] == MinisteBrownObj))
                                 {
                                     Is = true;
                                 }
                             }
                         }
 
-                        if (Table[Rowk - 1, ColK] == PawnBrownObj)
+                        if (Table[Rowk, ColK - 1] == PawnBrownObj)
                         {
-                            if (Table[Rowk - 2, ColK - 1] == MinisteBrownObj)
+                            if (Table[Rowk - 1, ColK - 2] == MinisteBrownObj)
                             {
-                                if (Table[Rowk - 2, ColK + 1] == PawnBrownObj)
+                                if (Table[Rowk + 1, ColK - 2] == PawnBrownObj)
                                     Is = true;
                             }
-                            if (Table[Rowk - 2, ColK - 1] == MinisteBrownObj)
+                            if (Table[Rowk - 1, ColK - 2] == MinisteBrownObj)
                             {
-                                if (Table[Rowk - 2, ColK + 1] == PawnBrownObj)
+                                if (Table[Rowk + 1, ColK - 2] == PawnBrownObj)
                                     Is = true;
                             }
                         }
@@ -5063,25 +5076,25 @@ namespace RefrigtzW
             {
                 if (Table[7, 2] == ElephantGray)
                 {
-                    if (RowS == 6 && ColS == 1)
+                    if (ColS == 6 && RowS == 1)
                         Is = true;
-                    if (RowS == 6 && ColS == 3)
+                    if (ColS == 6 && RowS == 3)
                         Is = true;
                 }
                 if (Table[7, 5] == ElephantGray)
                 {
-                    if (RowS == 6 && ColS == 4)
+                    if (ColS == 6 && RowS == 4)
                         Is = true;
-                    if (RowS == 6 && ColS == 6)
+                    if (ColS == 6 && RowS == 6)
                         Is = true;
                 }
                 if (Table[7, 3] == MinisterGray)
                 {
-                    if (RowS == 6 && ColS == 2)
+                    if (ColS == 6 && RowS == 2)
                         Is = true;
-                    if (RowS == 6 && ColS == 3)
+                    if (ColS == 6 && RowS == 3)
                         Is = true;
-                    if (RowS == 6 && ColS == 4)
+                    if (ColS == 6 && RowS == 4)
                         Is = true;
                 }
 
@@ -5090,25 +5103,25 @@ namespace RefrigtzW
             {
                 if (Table[0, 2] == ElephantBrown)
                 {
-                    if (RowS == 1 && ColS == 1)
+                    if (ColS == 1 && RowS == 1)
                         Is = true;
-                    if (RowS == 1 && ColS == 3)
+                    if (ColS == 1 && RowS == 3)
                         Is = true;
                 }
                 if (Table[0, 5] == ElephantBrown)
                 {
-                    if (RowS == 1 && ColS == 4)
+                    if (ColS == 1 && RowS == 4)
                         Is = true;
-                    if (RowS == 1 && ColS == 6)
+                    if (ColS == 1 && RowS == 6)
                         Is = true;
                 }
                 if (Table[0, 3] == MinisterBrown)
                 {
-                    if (RowS == 1 && ColS == 2)
+                    if (ColS == 1 && RowS == 2)
                         Is = true;
-                    if (RowS == 1 && ColS == 3)
+                    if (ColS == 1 && RowS == 3)
                         Is = true;
-                    if (RowS == 1 && ColS == 4)
+                    if (ColS == 1 && RowS == 4)
                         Is = true;
                 }
             }
