@@ -5878,49 +5878,45 @@ namespace RefrigtzW
             bool Is = false;
             if (Order == 1)
             {
-                if (RowS < 5)
+                if (ColS < 5)
                 {
-                    for (int k = 0; k < 8; k++)
+                    /*for (int k = 0; k < 8; k++)
                     {
                         if (k == RowS || k == RowD)
                             continue;
                         if (Table[RowS, ColS] == 1)
                         {
-                            if (Table[k, ColS] == 1)
-                                Is = true;
-                            bool A = true;
-                            bool B = true;
-                            if (RowS >= 1 && ColS >= 1)
-                                A = (Table[RowS - 1, ColS - 1] == 1);
-                            if (RowS + 1 < 8 && ColS >= 1)
-                                B = (Table[RowS + 1, ColS - 1] == 1);
-                            if (!(A || B))
+                            if (Table[RowS, k] == 1)
                                 Is = true;
                         }
                         if (Table[RowD, ColD] == 1)
                         {
                             if (Table[k, ColD] == 1)
                                 Is = true;
-                            bool A = true;
-                            bool B = true;
-                            if (RowD >= 1 && ColD >= 1)
-                                A = (Table[RowD - 1, ColD - 1] == 1);
-                            if (RowD + 1 < 8 && ColD >= 1)
-                                B = (Table[RowD + 1, ColD - 1] == 1);
-                            if (!(A || B))
-                                Is = true;
                         }
 
 
+                    }*/
+                    if (!Is)
+                    {
+                        bool A = true;
+                        bool B = true;
+                        if (RowD >= 1 && ColD >= 1)
+                            A = (Table[RowD - 1, ColD - 1] == 1);
+                        if (RowD + 1 < 8 && ColD >= 1)
+                            B = (Table[RowD + 1, ColD - 1] == 1);
+                        if (!(A || B))
+                            Is = true;
                     }
+
                 }
 
             }
             else
             {
-                if (RowS > 2)
+                if (ColS > 2)
                 {
-                    for (int k = 0; k < 8; k++)
+                    /*for (int k = 0; k < 8; k++)
                     {
                         if (k == RowS || k == RowD)
                             continue;
@@ -5928,29 +5924,24 @@ namespace RefrigtzW
                         {
                             if (Table[k, ColS] == -1)
                                 Is = true;
-                            bool A = true;
-                            bool B = true;
-                            if (RowS >= 1 && ColS + 1 < 8)
-                                A = (Table[RowS - 1, ColS + 1] == -1);
-                            if (RowS + 1 < 8 && ColS + 1 > 8)
-                                B = (Table[RowS + 1, ColS + 1] == -1);
-                            if (!(A || B))
-                                Is = true;
 
                         }
                         if (Table[RowD, ColD] == -1)
                         {
                             if (Table[k, ColD] == -1)
                                 Is = true;
-                            bool A = true;
-                            bool B = true;
-                            if (RowD >= 1 && ColD + 1 < 8)
-                                A = (Table[RowD - 1, ColD + 1] == -1);
-                            if (RowD + 1 < 8 && ColD + 1 > 8)
-                                B = (Table[RowD + 1, ColD + 1] == -1);
-                            if (!(A || B))
-                                Is = true;
                         }
+                    }*/
+                    if (!Is)
+                    {
+                        bool A = true;
+                        bool B = true;
+                        if (RowS >= 1 && ColS + 1 < 8)
+                            A = (Table[RowS - 1, ColS + 1] == -1);
+                        if (RowS + 1 < 8 && ColS + 1 > 8)
+                            B = (Table[RowS + 1, ColS + 1] == -1);
+                        if (!(A || B))
+                            Is = true;
                     }
                 }
             }
@@ -5958,40 +5949,42 @@ namespace RefrigtzW
             {
                 if (Order == 1)
                 {
-                    if (RowS + 1 < 8)
+                    if (ColS + 1 < 8)
                     {
-                        if ((Table[RowS + 1, ColS] == 1 && Table[RowS, ColS] == 1))
-                            Is = true;
+                        if ((Table[RowS, ColS + 1] == 1 && Table[RowS, ColS] == 1))
+                            Is = false;
 
                     }
                     else
-                    if (RowS - 1 >= 0)
+                    if (ColS - 1 >= 0)
                     {
-                        if ((Table[RowS - 1, ColS] == 1 && Table[RowS, ColS] == 1))
-                            Is = true;
+                        if ((Table[RowS, ColS - 1] == 1 && Table[RowS, ColS] == 1))
+                            Is = false;
 
                     }
                 }
                 else
                 {
-                    if (RowS + 1 < 8)
+                    if (ColS + 1 < 8)
                     {
-                        if ((Table[RowS + 1, ColS] == -1 && Table[RowS, ColS] == -1))
-                            Is = true;
+                        if ((Table[RowS, ColS + 1] == -1 && Table[RowS, ColS] == -1))
+                            Is = false;
 
                     }
                     else
-                  if (RowS - 1 >= 0)
+                  if (ColS - 1 >= 0)
                     {
-                        if ((Table[RowS - 1, ColS] == -1 && Table[RowS, ColS] == -1))
-                            Is = true;
+                        if ((Table[RowS, ColS - 1] == -1 && Table[RowS, ColS] == -1))
+                            Is = false;
 
                     }
                 }
             }
+
             if (!Is)
             {
                 bool IsSuported = false;
+
                 for (int i = 0; i < 8; i++)
                 {
 
