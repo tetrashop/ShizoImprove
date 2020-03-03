@@ -13181,7 +13181,7 @@ namespace RefrigtzW
                 if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0)
                     Achmaz(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
 
-                if (Before)
+                if (!Before)
                 {
                     HeuristicAllAttackedMidel = HeuristicAllAttacked.Count;
                     HeuristicAllMoveMidel = HeuristicAllMove.Count;
