@@ -14606,7 +14606,7 @@ namespace QuantumRefrigiz
 
             return this;
         }
-        bool InitiateAStarGreedyt(int i, int Kind)
+        bool InitiateAStarGreedyt(int i, int Kind,int Order)
         {
             bool Is = false;
 
@@ -14614,32 +14614,32 @@ namespace QuantumRefrigiz
             {
                 if (Kind == 1)
                 {
-                    Is = Is || InitiateAStarGreedytSoldier(i, Kind);
+                    Is = Is || InitiateAStarGreedytSoldier(i, Kind, Order);
                 }
                 else
  if (Kind == 2)
                 {
-                    Is = Is || InitiateAStarGreedytElephant(i, Kind);
+                    Is = Is || InitiateAStarGreedytElephant(i, Kind, Order);
                 }
                 else
  if (Kind == 3)
                 {
-                    Is = Is || InitiateAStarGreedytHourse(i, Kind);
+                    Is = Is || InitiateAStarGreedytHourse(i, Kind, Order);
                 }
                 else
  if (Kind == 4)
                 {
-                    Is = Is || InitiateAStarGreedytCastle(i, Kind);
+                    Is = Is || InitiateAStarGreedytCastle(i, Kind, Order);
                 }
                 else
  if (Kind == 5)
                 {
-                    Is = Is || InitiateAStarGreedytMinidter(i, Kind);
+                    Is = Is || InitiateAStarGreedytMinidter(i, Kind, Order);
                 }
                 else
  if (Kind == 6)
                 {
-                    Is = Is || InitiateAStarGreedytKing(i, Kind);
+                    Is = Is || InitiateAStarGreedytKing(i, Kind, Order);
                 }
             }
             catch (Exception t)
@@ -14651,10 +14651,13 @@ namespace QuantumRefrigiz
 
 
         }
-        bool InitiateAStarGreedytSoldier(int i, int Kind)
+        bool InitiateAStarGreedytSoldier(int i, int Kind, int Order)
         {
 
-
+            if (Order == 1 && i >= SodierMidle)
+                return false;
+            if (Order == -1 && i >= SodierHigh)
+                return false;
             if (SolderesOnTable != null)
                 if (SolderesOnTable[i] != null)
                     return true;
@@ -14664,9 +14667,13 @@ namespace QuantumRefrigiz
 
 
         }
-        bool InitiateAStarGreedytElephant(int i, int Kind)
+        bool InitiateAStarGreedytElephant(int i, int Kind, int Order)
         {
 
+            if (Order == 1 && i >= ElefantMidle)
+                return false;
+            if (Order == -1 && i >= ElefantHigh)
+                return false;
 
             if (ElephantOnTable != null)
                 if (ElephantOnTable[i] != null)
@@ -14677,8 +14684,12 @@ namespace QuantumRefrigiz
 
 
         }
-        bool InitiateAStarGreedytHourse(int i, int Kind)
+        bool InitiateAStarGreedytHourse(int i, int Kind, int Order)
         {
+            if (Order == 1 && i >= HourseMidle)
+                return false;
+            if (Order == -1 && i >= HourseHight)
+                return false;
 
 
             if (HoursesOnTable != null)
@@ -14690,8 +14701,12 @@ namespace QuantumRefrigiz
 
 
         }
-        bool InitiateAStarGreedytCastle(int i, int Kind)
+        bool InitiateAStarGreedytCastle(int i, int Kind, int Order)
         {
+            if (Order == 1 && i >= CastleMidle)
+                return false;
+            if (Order == -1 && i >= CastleHigh)
+                return false;
 
 
             if (CastlesOnTable != null)
@@ -14703,8 +14718,13 @@ namespace QuantumRefrigiz
 
 
         }
-        bool InitiateAStarGreedytMinidter(int i, int Kind)
+        bool InitiateAStarGreedytMinidter(int i, int Kind, int Order)
         {
+
+            if (Order == 1 && i >= MinisterMidle)
+                return false;
+            if (Order == -1 && i >= MinisterHigh)
+                return false;
 
 
             if (MinisterOnTable != null)
@@ -14716,8 +14736,12 @@ namespace QuantumRefrigiz
 
 
         }
-        bool InitiateAStarGreedytKing(int i, int Kind)
+        bool InitiateAStarGreedytKing(int i, int Kind, int Order)
         {
+            if (Order == 1 && i >= KingMidle)
+                return false;
+            if (Order == -1 && i >= KingHigh)
+                return false;
 
 
             if (KingOnTable != null)
@@ -14743,7 +14767,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If Solders Not Exist Continue and Traversal Back.
-                    if (InitiateAStarGreedyt(i, 1))
+                    if (InitiateAStarGreedyt(i, 1,Order))
                     {
                         //Initiate of Local Variables By Global Objective Gray Current Solder.
                         int ik = (int)SolderesOnTable[i].Row;
@@ -14808,7 +14832,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Elephant Gray Objects.
-                    if (InitiateAStarGreedyt(i, 2))
+                    if (InitiateAStarGreedyt(i, 2,Order))
                     {
                         //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
                         int ik = (int)ElephantOnTable[i].Row;
@@ -14875,7 +14899,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Gray Hourse Objects.
-                    if (InitiateAStarGreedyt(i, 3))
+                    if (InitiateAStarGreedyt(i, 3,Order))
                     {
                         //Initiate of Local Variables By Global Gray Hourse Objectives.
                         int ik = (int)HoursesOnTable[i].Row;
@@ -14943,7 +14967,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //When Current Castles Gray Not Exist Continue Traversal Back.
-                    if (InitiateAStarGreedyt(i, 4))
+                    if (InitiateAStarGreedyt(i, 4,Order))
                     {
                         //Initaiate of Local Varibales By Global Varoiables.
                         int ik = (int)CastlesOnTable[i].Row;
@@ -15009,7 +15033,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //For Each Non Exist Gray Minister Objectives.
-                    if (InitiateAStarGreedyt(i, 5))
+                    if (InitiateAStarGreedyt(i, 5,Order))
                     {
                         //Inititate Local Variables By Global Varibales.
                         int ik = (int)MinisterOnTable[i].Row;
@@ -15074,7 +15098,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If There is Not Current Object Continue Traversal Back.
-                    if (InitiateAStarGreedyt(i, 6))
+                    if (InitiateAStarGreedyt(i, 6,Order))
                     {
                         //Initiate Local varibale By Global Objective Varibales.
                         int ik = (int)(int)KingOnTable[i].Row;
