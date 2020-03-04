@@ -12135,35 +12135,43 @@ namespace RefrigtzDLL
         bool ServeBoundryConditions(int i, int Kind, int Order)
         {
             bool Is = false;
-            if (Kind == 1)
-            {
-                Is = Is || ServeBoundryConditionsSoldier(i, Kind, Order);
 
-            }
-            else;
-            if (Kind == 2)
+            try
             {
-                Is = Is || ServeBoundryConditionsElephant(i, Kind, Order);
+                if (Kind == 1)
+                {
+                    Is = Is || ServeBoundryConditionsSoldier(i, Kind, Order);
+
+                }
+                else;
+                if (Kind == 2)
+                {
+                    Is = Is || ServeBoundryConditionsElephant(i, Kind, Order);
+                }
+                else;
+                if (Kind == 3)
+                {
+                    Is = Is || ServeBoundryConditionsHourse(i, Kind, Order);
+                }
+                else;
+                if (Kind == 4)
+                {
+                    Is = Is || ServeBoundryConditionsCastle(i, Kind, Order);
+                }
+                else;
+                if (Kind == 5)
+                {
+                    Is = Is || ServeBoundryConditionsMinister(i, Kind, Order);
+                }
+                else;
+                if (Kind == 6)
+                {
+                    Is = Is || ServeBoundryConditionsKing(i, Kind, Order);
+                }
             }
-            else;
-            if (Kind == 3)
+            catch (Exception t)
             {
-                Is = Is || ServeBoundryConditionsHourse(i, Kind, Order);
-            }
-            else;
-            if (Kind == 4)
-            {
-                Is = Is || ServeBoundryConditionsCastle(i, Kind, Order);
-            }
-            else;
-            if (Kind == 5)
-            {
-                Is = Is || ServeBoundryConditionsMinister(i, Kind, Order);
-            }
-            else;
-            if (Kind == 6)
-            {
-                Is = Is || ServeBoundryConditionsKing(i, Kind, Order);
+                Is = true;
             }
             return Is;
 
@@ -12880,7 +12888,7 @@ namespace RefrigtzDLL
             }
             catch (Exception t)
             {
-                Log(t);
+
             }
             return Is;
 
@@ -14716,13 +14724,102 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             return (!Is);
         }
+        bool BlitzGameThinkingTreeBoundryConditions(int ik, int Kind)
+        {
+            if (Kind == 1)
+            {
+                if (SolderesOnTable == null)
+                    return true;
+                if (SolderesOnTable[ik] == null)
+                    return true;
+                if (SolderesOnTable[ik].SoldierThinking == null)
+                    return true;
+                if (SolderesOnTable[ik].SoldierThinking[0] == null)
+                    return true;
+                if (SolderesOnTable[ik].SoldierThinking[0].HeuristicListSolder == null)
+                    return true;
+            }
+            else
+            if (Kind == 2)
+            {
+                if (ElephantOnTable == null)
+                    return true;
+                if (ElephantOnTable[ik] == null)
+                    return true;
+                if (ElephantOnTable[ik].ElefantThinking == null)
+                    return true;
+                if (ElephantOnTable[ik].ElefantThinking[0] == null)
+                    return true;
+                if (ElephantOnTable[ik].ElefantThinking[0].HeuristicListElefant == null)
+                    return true;
+            }
+            else
+            if (Kind == 3)
+            {
+                if (HoursesOnTable == null)
+                    return true;
+                if (HoursesOnTable[ik] == null)
+                    return true;
+                if (HoursesOnTable[ik].HourseThinking == null)
+                    return true;
+                if (HoursesOnTable[ik].HourseThinking[0] == null)
+                    return true;
+                if (HoursesOnTable[ik].HourseThinking[0].HeuristicListHourse == null)
+                    return true;
+            }
+            else
+            if (Kind == 4)
+            {
+                if (CastlesOnTable == null)
+                    return true;
+                if (CastlesOnTable[ik] == null)
+                    return true;
+                if (CastlesOnTable[ik].CastleThinking == null)
+                    return true;
+                if (CastlesOnTable[ik].CastleThinking[0] == null)
+                    return true;
+                if (CastlesOnTable[ik].CastleThinking[0].HeuristicListCastle == null)
+                    return true;
+            }
+            else
+            if (Kind == 5)
+            {
+                if (MinisterOnTable == null)
+                    return true;
+                if (MinisterOnTable[ik] == null)
+                    return true;
+                if (MinisterOnTable[ik].MinisterThinking == null)
+                    return true;
+                if (MinisterOnTable[ik].MinisterThinking[0] == null)
+                    return true;
+                if (MinisterOnTable[ik].MinisterThinking[0].HeuristicListMinister == null)
+                    return true;
+            }
+            else
+            if (Kind == 6)
+            {
+                if (KingOnTable == null)
+                    return true;
+                if (KingOnTable[ik] == null)
+                    return true;
+                if (KingOnTable[ik].KingThinking == null)
+                    return true;
+                if (KingOnTable[ik].KingThinking[0] == null)
+                    return true;
+                if (KingOnTable[ik].KingThinking[0].HeuristicListKing == null)
+                    return true;
+            }
+            
+                return false;
+        }
+
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingTreeSolderGray(ref int PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
             //Soldeir
             for (ik = 0; ik < SodierMidle; ik++)
             {
-                if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null || SolderesOnTable[ik].SoldierThinking[0].HeuristicListSolder == null
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 1)
                     )
                     continue;
                 //when there is computational lists
@@ -14779,8 +14876,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //Elephant
             for (ik = 0; ik < ElefantMidle; ik++)
             {
-                if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null || ElephantOnTable[ik].ElefantThinking[0].HeuristicListElefant == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 2))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HeuristicListElefant.Count; j++)
@@ -14836,8 +14932,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //Hourse.
             for (ik = 0; ik < HourseMidle; ik++)
             {
-                if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null || HoursesOnTable[ik].HourseThinking[0].HeuristicListHourse == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 3))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HeuristicListHourse.Count; j++)
@@ -14892,8 +14987,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //Castle.
             for (ik = 0; ik < CastleMidle; ik++)
             {
-                if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinking == null || CastlesOnTable[ik].CastleThinking[0] == null || CastlesOnTable[ik].CastleThinking[0].HeuristicListCastle == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 4))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HeuristicListCastle.Count; j++)
@@ -14948,8 +15042,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //Minister.
             for (ik = 0; ik < MinisterMidle; ik++)
             {
-                if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null || MinisterOnTable[ik].MinisterThinking[0].HeuristicListMinister == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 5))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HeuristicListMinister.Count; j++)
@@ -15006,8 +15099,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //King.
             for (ik = 0; ik < KingMidle; ik++)
             {
-                if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinking == null || KingOnTable[ik].KingThinking[0] == null || KingOnTable[ik].KingThinking[0].HeuristicListKing == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 6))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < KingOnTable[ik].KingThinking[0].HeuristicListKing.Count; j++)
@@ -15181,8 +15273,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         {
             for (ik = SodierMidle; ik < SodierHigh; ik++)
             {
-                if (SolderesOnTable == null || SolderesOnTable[ik] == null || SolderesOnTable[ik].SoldierThinking == null || SolderesOnTable[ik].SoldierThinking[0] == null || SolderesOnTable[ik].SoldierThinking[0].HeuristicListSolder == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 1))
                     continue;
                 //Soldier.
                 //when there is computational lists
@@ -15236,8 +15327,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //Elephant
             for (ik = ElefantMidle; ik < ElefantHigh; ik++)
             {
-                if (ElephantOnTable == null || ElephantOnTable[ik] == null || ElephantOnTable[ik].ElefantThinking == null || ElephantOnTable[ik].ElefantThinking[0] == null || ElephantOnTable[ik].ElefantThinking[0].HeuristicListElefant == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 2))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < ElephantOnTable[ik].ElefantThinking[0].HeuristicListElefant.Count; j++)
@@ -15290,8 +15380,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //Hourse.
             for (ik = HourseMidle; ik < HourseHight; ik++)
             {
-                if (HoursesOnTable == null || HoursesOnTable[ik] == null || HoursesOnTable[ik].HourseThinking == null || HoursesOnTable[ik].HourseThinking[0] == null || HoursesOnTable[ik].HourseThinking[0].HeuristicListHourse == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 3))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < HoursesOnTable[ik].HourseThinking[0].HeuristicListHourse.Count; j++)
@@ -15408,8 +15497,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //Castles.
             for (ik = CastleMidle; ik < CastleHigh; ik++)
             {
-                if (CastlesOnTable == null || CastlesOnTable[ik] == null || CastlesOnTable[ik].CastleThinking == null || CastlesOnTable[ik].CastleThinking[0] == null || CastlesOnTable[ik].CastleThinking[0].HeuristicListCastle == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 4))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < CastlesOnTable[ik].CastleThinking[0].HeuristicListCastle.Count; j++)
@@ -15464,8 +15552,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //Minister.
             for (ik = MinisterMidle; ik < MinisterHigh; ik++)
             {
-                if (MinisterOnTable == null || MinisterOnTable[ik] == null || MinisterOnTable[ik].MinisterThinking == null || MinisterOnTable[ik].MinisterThinking[0] == null || MinisterOnTable[ik].MinisterThinking[0].HeuristicListMinister == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 5))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < MinisterOnTable[ik].MinisterThinking[0].HeuristicListMinister.Count; j++)
@@ -15519,8 +15606,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             //King.
             for (ik = KingMidle; ik < KingHigh; ik++)
             {
-                if (KingOnTable == null || KingOnTable[ik] == null || KingOnTable[ik].KingThinking == null || KingOnTable[ik].KingThinking[0] == null || KingOnTable[ik].KingThinking[0].HeuristicListKing == null
-                    )
+                if (BlitzGameThinkingTreeBoundryConditions(ik, 6))
                     continue;
                 //when there is computational lists
                 for (j = 0; j < KingOnTable[ik].KingThinking[0].HeuristicListKing.Count; j++)

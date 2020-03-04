@@ -6318,11 +6318,14 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllMoveMidel; i < HeuristicAllMove.Count; i++)
+                if (HeuristicAllMoveMidel > 0 && HeuristicAllMoveMidel < HeuristicAllMove.Count)
                 {
-                    if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols && HeuristicAllMove[i][2] == Rowd && HeuristicAllMove[i][3] == Cold)
-                        Is++;
+                    for (int i = HeuristicAllMoveMidel; i < HeuristicAllMove.Count; i++)
+                    {
+                        if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols && HeuristicAllMove[i][2] == Rowd && HeuristicAllMove[i][3] == Cold)
+                            Is++;
 
+                    }
                 }
             }
             return Is;
@@ -6342,12 +6345,17 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllReducedMoveMidel; i < HeuristicAllReducedMove.Count; i++)
-                {
-                    if (HeuristicAllReducedMove[i][2] == Rows && HeuristicAllReducedMove[i][3] == Cols && HeuristicAllReducedMove[i][0] == Rowd && HeuristicAllReducedMove[i][1] == Cols)
-                        Is++;
 
+                if (HeuristicAllReducedMoveMidel > 0 && HeuristicAllReducedMoveMidel < HeuristicAllReducedMove.Count)
+                {
+                    for (int i = HeuristicAllReducedMoveMidel; i < HeuristicAllReducedMove.Count; i++)
+                    {
+                        if (HeuristicAllReducedMove[i][2] == Rows && HeuristicAllReducedMove[i][3] == Cols && HeuristicAllReducedMove[i][0] == Rowd && HeuristicAllReducedMove[i][1] == Cols)
+                            Is++;
+
+                    }
                 }
+
             }
             return Is;
         }
@@ -6365,11 +6373,14 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                if (HeuristicAllAttackedMidel > 0 && HeuristicAllAttackedMidel < HeuristicAllAttacked.Count)
                 {
-                    if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols && HeuristicAllAttacked[i][2] == Rowd && HeuristicAllAttacked[i][3] == Cold)
-                        Is++;
+                    for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                    {
+                        if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols && HeuristicAllAttacked[i][2] == Rowd && HeuristicAllAttacked[i][3] == Cold)
+                            Is++;
 
+                    }
                 }
             }
             return Is;
@@ -6388,11 +6399,14 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                if (HeuristicAllReducedAttackedMidel > 0 && HeuristicAllReducedAttackedMidel < HeuristicAllReducedAttacked.Count)
                 {
-                    if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][0] == Cold)
-                        Is++;
+                    for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                    {
+                        if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][0] == Cold)
+                            Is++;
 
+                    }
                 }
             }
             return Is;
@@ -6562,11 +6576,14 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                if (HeuristicAllSupportMidel > 0 && HeuristicAllSupportMidel < HeuristicAllSupport.Count)
                 {
-                    if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols && HeuristicAllSupport[i][2] == Rowd && HeuristicAllSupport[i][3] == Cold)
-                        Is++;
+                    for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                    {
+                        if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols && HeuristicAllSupport[i][2] == Rowd && HeuristicAllSupport[i][3] == Cold)
+                            Is++;
 
+                    }
                 }
             }
             return Is;
@@ -6585,11 +6602,14 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                if (HeuristicAllReducedSupportMidel > 0 && HeuristicAllReducedSupportMidel < HeuristicAllReducedSupport.Count)
                 {
-                    if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
-                        Is++;
+                    for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                    {
+                        if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
+                            Is++;
 
+                    }
                 }
             }
             return Is;
