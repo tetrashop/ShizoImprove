@@ -5373,11 +5373,11 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-                //MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull();
+                MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull();
 
                 bool Is = false;
 
-                if (TableInitiationPreventionOfMultipleMove[Row, Col] <= NoOfMovableAllObjectMove - 1)
+                     if (TableInitiationPreventionOfMultipleMove[Row, Col] ==0)
                 {
                     return true;
 
@@ -5403,9 +5403,9 @@ namespace QuantumRefrigiz
                         {
                             if (Tab[i, j] == 1)
                                 NoOfPawn++;
-                            if (i + 1 < 8 && j - 1 >= 0)
+                            if (i - 1 >= 0 && j + 1 < 8)
                             {
-                                if (Tab[i + 1, j - 1] == 1)
+                                if (Tab[i - 1, j + 1] == 1)
                                     NoOfSupport++;
                             }
                             if (i - 1 >= 0 && j - 1 >= 0)
@@ -5437,7 +5437,6 @@ namespace QuantumRefrigiz
 
             }
         }
-
         public bool CenrtrallnControlByTraversal(int[,] Tab, Color a, int Order, int RowS, int ColS, int RowD, int ColD)
         {
             Object O = new Object();
@@ -5633,20 +5632,20 @@ namespace QuantumRefrigiz
             {
                 if (Tab[RowD, ColD] == 4)
                 {
-                    if (RowD == 7)
+                    if (ColD == 7)
                     {
-                        for (int Col = 0; Col < 8; Col++)
+                        for (int Row = 0; Row < 8; Row++)
                         {
-                            if (Tab[6, Col] == 4)
+                            if (Tab[Row, 6] == 4)
                                 Ex = true;
                         }
                     }
                     else
-                    if (RowD == 6)
+                    if (ColD == 6)
                     {
-                        for (int Col = 0; Col < 8; Col++)
+                        for (int Row = 0; Row < 8; Row++)
                         {
-                            if (Tab[7, Col] == 4)
+                            if (Tab[Row, 7] == 4)
                                 Ex = true;
                         }
                     }
@@ -5660,20 +5659,20 @@ namespace QuantumRefrigiz
 
                         if (Tab[RowD, ColD] == 4)
                         {
-                            if (RowD == 7)
+                            if (ColD == 7)
                             {
-                                for (int Col = 0; Col < 8; Col++)
+                                for (int Row = 0; Row < 8; Row++)
                                 {
-                                    if (Tab[6, Col] == 4)
+                                    if (Tab[Row, 6] == 4)
                                         Ex = true;
                                 }
                             }
                             else
-                     if (RowD == 6)
+                            if (ColD == 6)
                             {
-                                for (int Col = 0; Col < 8; Col++)
+                                for (int Row = 0; Row < 8; Row++)
                                 {
-                                    if (Tab[7, Col] == 4)
+                                    if (Tab[Row, 7] == 4)
                                         Ex = true;
                                 }
                             }
@@ -5685,20 +5684,20 @@ namespace QuantumRefrigiz
             {
                 if (Tab[RowD, ColD] == -4)
                 {
-                    if (RowD == 0)
+                    if (ColD == 0)
                     {
-                        for (int Col = 0; Col < 8; Col++)
+                        for (int Row = 0; Row < 8; Row++)
                         {
-                            if (Tab[1, Col] == -4)
+                            if (Tab[Row, 1] == -4)
                                 Ex = true;
                         }
                     }
                     else
-                    if (RowD == 1)
+                    if (ColD == 1)
                     {
-                        for (int Col = 0; Col < 8; Col++)
+                        for (int Row = 0; Row < 8; Row++)
                         {
-                            if (Tab[0, Col] == -4)
+                            if (Tab[Row, 0] == -4)
                                 Ex = true;
                         }
                     }
@@ -5712,20 +5711,20 @@ namespace QuantumRefrigiz
 
                         if (Tab[RowD, ColD] == -4)
                         {
-                            if (RowD == 0)
+                            if (ColD == 0)
                             {
-                                for (int Col = 0; Col < 8; Col++)
+                                for (int Row = 0; Row < 8; Row++)
                                 {
-                                    if (Tab[1, Col] == -4)
+                                    if (Tab[Row, 1] == -4)
                                         Ex = true;
                                 }
                             }
                             else
-                    if (RowD == 1)
+                            if (ColD == 1)
                             {
-                                for (int Col = 0; Col < 8; Col++)
+                                for (int Row = 0; Row < 8; Row++)
                                 {
-                                    if (Tab[0, Col] == -4)
+                                    if (Tab[Row, 0] == -4)
                                         Ex = true;
                                 }
                             }
@@ -5736,9 +5735,7 @@ namespace QuantumRefrigiz
 
             return Ex;
 
-        }
-
-        //Distribution of Objects
+        }       //Distribution of Objects
         public int HeuristicDistribution(bool Before, int[,] Tab, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
         {
 
@@ -5764,8 +5761,8 @@ namespace QuantumRefrigiz
 
                 if (Order == 1)
                 {
-                    //castle in row 7 8
-                    if (RowD == 6 || RowD == 7)
+                    //castle in col 7 8
+                    if (ColD == 6 || ColD == 7)
                     {
                         if (Tab[RowS, ColS] == 4 || Tab[RowD, ColD] == 4)
                             Dis += RationalRegard;
@@ -5837,8 +5834,8 @@ namespace QuantumRefrigiz
                 }
                 else
                 {
-                    //castle in row 0 1
-                    if (RowD == 1 || RowD == 0)
+                    //castle in col 7 8
+                    if (ColD == 1 || ColD == 0)
                     {
                         if (Tab[RowS, ColS] == -4 || Tab[RowD, ColD] == -4)
                             Dis += RationalRegard;
@@ -5910,7 +5907,6 @@ namespace QuantumRefrigiz
                 return Dis;
             }
         }
-
         bool IsPawnIsolatedOrDoubleBackAwayOrHung(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
         {
 
