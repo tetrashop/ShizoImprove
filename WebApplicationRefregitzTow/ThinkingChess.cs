@@ -6399,10 +6399,10 @@ namespace RefrigtzW
                     if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
                     {
                         int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
+                        I[0] = HeuristicAllReducedAttacked[i][0];
+                        I[1] = HeuristicAllReducedAttacked[i][1];
+                        I[2] = HeuristicAllReducedAttacked[i][2];
+                        I[3] = HeuristicAllReducedAttacked[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
@@ -6415,48 +6415,10 @@ namespace RefrigtzW
                     if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
                     {
                         int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
-                    }
-                }
-            }
-            return Is;
-        }
-        List<int[]> ListOfExistInAttackList(bool Before, int RowS, int ColS, int RowD, int ColD)
-        {
-            List<int[]> Is = new List<int[]>();
-            if (Before)
-            {
-                for (int i = 0; i < HeuristicAllAttacked.Count; i++)
-                {
-                    if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
-                    {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
-                    }
-
-                }
-            }
-            else
-            {
-                for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
-                {
-                    if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
-                    {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
+                        I[0] = HeuristicAllReducedAttacked[i][0];
+                        I[1] = HeuristicAllReducedAttacked[i][1];
+                        I[2] = HeuristicAllReducedAttacked[i][2];
+                        I[3] = HeuristicAllReducedAttacked[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
@@ -6474,10 +6436,10 @@ namespace RefrigtzW
                     if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
                     {
                         int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
+                        I[0] = HeuristicAllReducedSupport[i][0];
+                        I[1] = HeuristicAllReducedSupport[i][1];
+                        I[2] = HeuristicAllReducedSupport[i][2];
+                        I[3] = HeuristicAllReducedSupport[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
@@ -6490,10 +6452,10 @@ namespace RefrigtzW
                     if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
                     {
                         int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
+                        I[0] = HeuristicAllReducedSupport[i][0];
+                        I[1] = HeuristicAllReducedSupport[i][1];
+                        I[2] = HeuristicAllReducedSupport[i][2];
+                        I[3] = HeuristicAllReducedSupport[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
@@ -6532,6 +6494,45 @@ namespace RefrigtzW
                         I[1] = HeuristicAllSupport[i][1];
                         I[2] = HeuristicAllSupport[i][2];
                         I[3] = HeuristicAllSupport[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
+                }
+            }
+            return Is;
+        }
+
+        List<int[]> ListOfExistInAttackList(bool Before, int RowS, int ColS, int RowD, int ColD)
+        {
+            List<int[]> Is = new List<int[]>();
+            if (Before)
+            {
+                for (int i = 0; i < HeuristicAllAttacked.Count; i++)
+                {
+                    if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
+                    {
+                        int[] I = new int[5];
+                        I[0] = HeuristicAllAttacked[i][0];
+                        I[1] = HeuristicAllAttacked[i][1];
+                        I[2] = HeuristicAllAttacked[i][2];
+                        I[3] = HeuristicAllAttacked[i][3];
+                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                        Is.Add(I);
+                    }
+
+                }
+            }
+            else
+            {
+                for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                {
+                    if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
+                    {
+                        int[] I = new int[5];
+                        I[0] = HeuristicAllAttacked[i][0];
+                        I[1] = HeuristicAllAttacked[i][1];
+                        I[2] = HeuristicAllAttacked[i][2];
+                        I[3] = HeuristicAllAttacked[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }

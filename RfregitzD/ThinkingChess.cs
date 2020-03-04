@@ -6397,10 +6397,10 @@ namespace RefrigtzDLL
                     if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
                     {
                         int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
+                        I[0] = HeuristicAllReducedAttacked[i][0];
+                        I[1] = HeuristicAllReducedAttacked[i][1];
+                        I[2] = HeuristicAllReducedAttacked[i][2];
+                        I[3] = HeuristicAllReducedAttacked[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
@@ -6413,10 +6413,10 @@ namespace RefrigtzDLL
                     if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
                     {
                         int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
+                        I[0] = HeuristicAllReducedAttacked[i][0];
+                        I[1] = HeuristicAllReducedAttacked[i][1];
+                        I[2] = HeuristicAllReducedAttacked[i][2];
+                        I[3] = HeuristicAllReducedAttacked[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
@@ -6434,10 +6434,10 @@ namespace RefrigtzDLL
                     if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
                     {
                         int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
+                        I[0] = HeuristicAllReducedSupport[i][0];
+                        I[1] = HeuristicAllReducedSupport[i][1];
+                        I[2] = HeuristicAllReducedSupport[i][2];
+                        I[3] = HeuristicAllReducedSupport[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
@@ -6450,10 +6450,10 @@ namespace RefrigtzDLL
                     if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
                     {
                         int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
+                        I[0] = HeuristicAllReducedSupport[i][0];
+                        I[1] = HeuristicAllReducedSupport[i][1];
+                        I[2] = HeuristicAllReducedSupport[i][2];
+                        I[3] = HeuristicAllReducedSupport[i][3];
                         I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                         Is.Add(I);
                     }
