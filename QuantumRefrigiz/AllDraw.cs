@@ -220,14 +220,19 @@ namespace QuantumRefrigiz
         //Error Handling
         static void Log(Exception ex)
         {
-            long Time = TimeElapced.TimeNow();
-            Object a = new Object();
-            lock (a)
-            {
-                string stackTrace = ex.ToString();
-                Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
-            }
 
+            try
+            {
+                Object a = new Object();
+                lock (a)
+                {
+                    string stackTrace = ex.ToString();
+                    //Write to File.
+                    Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
+
+                }
+            }
+            catch (Exception t) { }
         }
         //Determine when a MoveOccured.
         //Note for before move.At most one  moves.

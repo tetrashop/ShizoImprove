@@ -45,13 +45,18 @@ namespace RefrigtzDLL
         static void Log(Exception ex)
         {
 
-            Object a = new Object();
-            lock (a)
+            try
             {
-                string stackTrace = ex.ToString();
-                Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); 
-            }
+                Object a = new Object();
+                lock (a)
+                {
+                    string stackTrace = ex.ToString();
+                    //Write to File.
+                    Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
 
+                }
+            }
+            catch (Exception t) { }
         }
         public void Dispose()
         {

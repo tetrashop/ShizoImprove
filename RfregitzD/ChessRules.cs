@@ -76,14 +76,19 @@ namespace RefrigtzDLL
         int CurrentAStarGredyMax = -1;
         static void Log(Exception ex)
         {
-            
+
+            try
+            {
                 Object a = new Object();
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
-                    Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                    //Write to File.
+                    Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
+
                 }
-           
+            }
+            catch (Exception t) { }
         }
         public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
         {

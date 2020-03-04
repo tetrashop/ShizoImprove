@@ -224,15 +224,18 @@ namespace RefrigtzDLL
         static void Log(Exception ex)
         {
 
-            Object a = new Object();
-            lock (a)
+            try
             {
-                string stackTrace = ex.ToString();
-                //Write to File.
-                Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
+                Object a = new Object();
+                lock (a)
+                {
+                    string stackTrace = ex.ToString();
+                    //Write to File.
+                    Helper.WaitOnUsed(AllDraw.Root + "\\ErrorProgramRun.txt"); File.AppendAllText(AllDraw.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString());
 
+                }
             }
-
+            catch (Exception t) { }
         }
         //create a tow dimension list of all object boundry
         void SetObjectNumbersInList(int[,] Tab)
@@ -5352,11 +5355,11 @@ namespace RefrigtzDLL
             Object O = new Object();
             lock (O)
             {
-                MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull();
+                //MakeEmptyTableInitiationPreventionOfMultipleMoveWhenAllIsFull();
 
                 bool Is = false;
 
-                if (TableInitiationPreventionOfMultipleMove[Row, Col] == 0)
+                if (TableInitiationPreventionOfMultipleMove[Row, Col] <= NoOfMovableAllObjectMove - 1)
                 {
                     return true;
 
@@ -5381,9 +5384,9 @@ namespace RefrigtzDLL
                         {
                             if (Tab[i, j] == 1)
                                 NoOfPawn++;
-                            if (i - 1 >= 0 && j + 1 < 8)
+                            if (i + 1 < 8 && j - 1 >= 0)
                             {
-                                if (Tab[i - 1, j + 1] == 1)
+                                if (Tab[i + 1, j - 1] == 1)
                                     NoOfSupport++;
                             }
                             if (i - 1 >= 0 && j - 1 >= 0)
@@ -5610,20 +5613,20 @@ namespace RefrigtzDLL
             {
                 if (Tab[RowD, ColD] == 4)
                 {
-                    if (ColD == 7)
+                    if (RowD == 7)
                     {
-                        for (int Row = 0; Row < 8; Row++)
+                        for (int Col = 0; Col < 8; Col++)
                         {
-                            if (Tab[Row, 6] == 4)
+                            if (Tab[6, Col] == 4)
                                 Ex = true;
                         }
                     }
                     else
-                    if (ColD == 6)
+                    if (RowD == 6)
                     {
-                        for (int Row = 0; Row < 8; Row++)
+                        for (int Col = 0; Col < 8; Col++)
                         {
-                            if (Tab[Row, 7] == 4)
+                            if (Tab[7, Col] == 4)
                                 Ex = true;
                         }
                     }
@@ -5637,20 +5640,20 @@ namespace RefrigtzDLL
 
                         if (Tab[RowD, ColD] == 4)
                         {
-                            if (ColD == 7)
+                            if (RowD == 7)
                             {
-                                for (int Row = 0; Row < 8; Row++)
+                                for (int Col = 0; Col < 8; Col++)
                                 {
-                                    if (Tab[Row, 6] == 4)
+                                    if (Tab[6, Col] == 4)
                                         Ex = true;
                                 }
                             }
                             else
-                            if (ColD == 6)
+                     if (RowD == 6)
                             {
-                                for (int Row = 0; Row < 8; Row++)
+                                for (int Col = 0; Col < 8; Col++)
                                 {
-                                    if (Tab[Row, 7] == 4)
+                                    if (Tab[7, Col] == 4)
                                         Ex = true;
                                 }
                             }
@@ -5662,20 +5665,20 @@ namespace RefrigtzDLL
             {
                 if (Tab[RowD, ColD] == -4)
                 {
-                    if (ColD == 0)
+                    if (RowD == 0)
                     {
-                        for (int Row = 0; Row < 8; Row++)
+                        for (int Col = 0; Col < 8; Col++)
                         {
-                            if (Tab[Row, 1] == -4)
+                            if (Tab[1, Col] == -4)
                                 Ex = true;
                         }
                     }
                     else
-                    if (ColD == 1)
+                    if (RowD == 1)
                     {
-                        for (int Row = 0; Row < 8; Row++)
+                        for (int Col = 0; Col < 8; Col++)
                         {
-                            if (Tab[Row, 0] == -4)
+                            if (Tab[0, Col] == -4)
                                 Ex = true;
                         }
                     }
@@ -5689,20 +5692,20 @@ namespace RefrigtzDLL
 
                         if (Tab[RowD, ColD] == -4)
                         {
-                            if (ColD == 0)
+                            if (RowD == 0)
                             {
-                                for (int Row = 0; Row < 8; Row++)
+                                for (int Col = 0; Col < 8; Col++)
                                 {
-                                    if (Tab[Row, 1] == -4)
+                                    if (Tab[1, Col] == -4)
                                         Ex = true;
                                 }
                             }
                             else
-                            if (ColD == 1)
+                    if (RowD == 1)
                             {
-                                for (int Row = 0; Row < 8; Row++)
+                                for (int Col = 0; Col < 8; Col++)
                                 {
-                                    if (Tab[Row, 0] == -4)
+                                    if (Tab[0, Col] == -4)
                                         Ex = true;
                                 }
                             }
@@ -5741,8 +5744,8 @@ namespace RefrigtzDLL
 
                 if (Order == 1)
                 {
-                    //castle in col 7 8
-                    if (ColD == 6 || ColD == 7)
+                    //castle in row 7 8
+                    if (RowD == 6 || RowD == 7)
                     {
                         if (Tab[RowS, ColS] == 4 || Tab[RowD, ColD] == 4)
                             Dis += RationalRegard;
@@ -5814,8 +5817,8 @@ namespace RefrigtzDLL
                 }
                 else
                 {
-                    //castle in col 7 8
-                    if (ColD == 1 || ColD == 0)
+                    //castle in row 0 1
+                    if (RowD == 1 || RowD == 0)
                     {
                         if (Tab[RowS, ColS] == -4 || Tab[RowD, ColD] == -4)
                             Dis += RationalRegard;
