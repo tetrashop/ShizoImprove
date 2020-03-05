@@ -17,6 +17,7 @@ namespace RefrigtzDLL
     public class ThinkingChess//: IDisposable
     {
 
+        bool MidIndex = false;
         public List<List<List<int[]>>> AchmazPure = new List<List<List<int[]>>>();
         public List<List<List<int[]>>> AchmazReduced = new List<List<List<int[]>>>();
 
@@ -13185,17 +13186,36 @@ namespace RefrigtzDLL
             }
             return DD;
         }
+        bool MidleIndex()
+        {
+            bool Is = true;
+            if (HeuristicAllAttackedMidel != 0)
+                return false;
+            if (HeuristicAllMoveMidel != 0)
+                return false;
+            if (HeuristicAllReducedAttackedMidel != 0)
+                return false;
+            if (HeuristicAllReducedMoveMidel != 0)
+                return false;
+            if (HeuristicAllReducedSupportMidel != 0)
+                return false;
+            if (HeuristicAllSupportMidel != 0)
+                return false;
+
+            return Is;
+
+        }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-     , ref int HeuristicAttackValue
-         , ref int HeuristicMovementValue
-         , ref int HeuristicSelfSupportedValue
-         , ref int HeuristicReducedMovementValue
-        , ref int HeuristicReducedSupport
-         , ref int HeuristicReducedAttackValue
-         , ref int HeuristicDistributionValue
-     , ref int HeuristicKingSafe
-     , ref int HeuristicFromCenter
-     , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+      , ref int HeuristicAttackValue
+          , ref int HeuristicMovementValue
+          , ref int HeuristicSelfSupportedValue
+          , ref int HeuristicReducedMovementValue
+         , ref int HeuristicReducedSupport
+          , ref int HeuristicReducedAttackValue
+          , ref int HeuristicDistributionValue
+      , ref int HeuristicKingSafe
+      , ref int HeuristicFromCenter
+      , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
 
             Object OO = new Object();
@@ -13211,12 +13231,7 @@ namespace RefrigtzDLL
                 int HFromCenter = 0;
                 int HExchangeInnovation = 0;
                 int HExchangeSupport = 0;
-                int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
-
-                if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0)
-                    Achmaz(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
-
-                if (!Before)
+                if (!Before && MidleIndex())
                 {
                     HeuristicAllAttackedMidel = HeuristicAllAttacked.Count;
                     HeuristicAllMoveMidel = HeuristicAllMove.Count;
@@ -13225,6 +13240,12 @@ namespace RefrigtzDLL
                     HeuristicAllReducedSupportMidel = HeuristicAllReducedSupport.Count;
                     HeuristicAllSupportMidel = HeuristicAllSupport.Count;
                 }
+                int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
+
+                if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0)
+                    Achmaz(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
+
+
 
                 Heuristic[0] = Hu[0];
                 Heuristic[1] = Hu[1];
@@ -13420,7 +13441,7 @@ namespace RefrigtzDLL
                             else
                             {
                                 //if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
-                                    //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                                 //Empire more
                                 if (A)
                                 {
