@@ -16,7 +16,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess//: IDisposable
     {
-
+     
         static bool GoldenFinished = false;
 
         public List<List<List<int[]>>> AchmazPure = new List<List<List<int[]>>>();
@@ -28,17 +28,17 @@ namespace RefrigtzDLL
 
 
         List<int[]> HeuristicAllSupport = new List<int[]>();
-        int HeuristicAllSupportMidel = -1;
+        int HeuristicAllSupportMidel = 0;
         List<int[]> HeuristicAllReducedSupport = new List<int[]>();
-        int HeuristicAllReducedSupportMidel = -1;
+        int HeuristicAllReducedSupportMidel = 0;
         List<int[]> HeuristicAllAttacked = new List<int[]>();
-        int HeuristicAllAttackedMidel = -1;
+        int HeuristicAllAttackedMidel = 0;
         List<int[]> HeuristicAllReducedAttacked = new List<int[]>();
-        int HeuristicAllReducedAttackedMidel = -1;
+        int HeuristicAllReducedAttackedMidel = 0;
         List<int[]> HeuristicAllMove = new List<int[]>();
-        int HeuristicAllMoveMidel = -1;
+        int HeuristicAllMoveMidel = 0;
         List<int[]> HeuristicAllReducedMove = new List<int[]>();
-        int HeuristicAllReducedMoveMidel = -1;
+        int HeuristicAllReducedMoveMidel = 0;
 
         public static int NoOfBoardMovedGray = 0;
         public static int NoOfBoardMovedBrown = 0;
@@ -13246,16 +13246,16 @@ namespace RefrigtzDLL
             return DD;
         }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-       , ref int HeuristicAttackValue
-           , ref int HeuristicMovementValue
-           , ref int HeuristicSelfSupportedValue
-           , ref int HeuristicReducedMovementValue
-          , ref int HeuristicReducedSupport
-           , ref int HeuristicReducedAttackValue
-           , ref int HeuristicDistributionValue
-       , ref int HeuristicKingSafe
-       , ref int HeuristicFromCenter
-       , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+        , ref int HeuristicAttackValue
+            , ref int HeuristicMovementValue
+            , ref int HeuristicSelfSupportedValue
+            , ref int HeuristicReducedMovementValue
+           , ref int HeuristicReducedSupport
+            , ref int HeuristicReducedAttackValue
+            , ref int HeuristicDistributionValue
+        , ref int HeuristicKingSafe
+        , ref int HeuristicFromCenter
+        , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
 
             Object OO = new Object();
@@ -13348,14 +13348,15 @@ namespace RefrigtzDLL
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
 
-                        //Disturbe on huge traversal exchange prevention 
-                        if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                        {
+                        if (!GoldenFinished)
+                        {  //Disturbe on huge traversal exchange prevention 
+                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                            {
 
-                            //if (Before)
-                            SetSupHuTrue();
-                        }
-                          //Ignore of atack and checkedmate at first until all move
+                                //if (Before)
+                                SetSupHuTrue();
+                            }
+                            //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -13374,9 +13375,8 @@ namespace RefrigtzDLL
                                 SetSupHuTrue();
                             }
 
-                        //Every objects one move at game begin
-                        if (!GoldenFinished)
-                        {
+                            //Every objects one move at game begin
+
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
@@ -13426,20 +13426,20 @@ namespace RefrigtzDLL
                                     SetSupHuTrue();
                                 }
                             }
-                        }
-                        //when thre is most reduced support finding
-                        int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
 
-                        if (IsNo != null)
-                        {
-                            if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                            //when thre is most reduced support finding
+                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+
+                            if (IsNo != null)
                             {
-                                if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                    ClearSupHuTrue();
+                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                {
+                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                        ClearSupHuTrue();
+                                }
                             }
+
                         }
-
-
                     }
                     else
                     {
@@ -13455,26 +13455,27 @@ namespace RefrigtzDLL
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
-                        //Disturbe on huge traversal exchange prevention 
-                        //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                        if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
-                        {
+                        if (!GoldenFinished)
+                        {   //Disturbe on huge traversal exchange prevention 
+                            //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                            if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
+                            {
 
-                            //if (Before)
-                            SetSupHuTrue();
-                            IsS = true;
-                        }
-                        if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
-                        {
+                                //if (Before)
+                                SetSupHuTrue();
+                                IsS = true;
+                            }
+                            if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
+                            {
 
-                            //if (Before)
-                            SetSupHuTrue();
-                            IsS = true;
-                        }
-                        else
-                              if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
-                            TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                         //Ignore of atack and checkedmate at first until all move
+                                //if (Before)
+                                SetSupHuTrue();
+                                IsS = true;
+                            }
+                            else
+                                  if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
+                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                            //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -13495,11 +13496,10 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                            //if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
-                            //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                            //Empire more
-                            if (!GoldenFinished)
-                            {
+                                //if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
+                                //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                //Empire more
+
                                 if (A)
                                 {
                                     if (ColleralationBrown < 16)
@@ -13563,23 +13563,23 @@ namespace RefrigtzDLL
                                         SetSupHuTrue();
                                     }
                                 }
-                            }
-                            //when thre is most reduced support finding
-                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
 
-                            if (IsNo != null)
-                            {
-                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                //when thre is most reduced support finding
+                                int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+
+                                if (IsNo != null)
                                 {
-                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                        ClearSupHuTrue();
+                                    if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                    {
+                                        if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                            ClearSupHuTrue();
+                                    }
+
                                 }
-
+                                if (!IsS)
+                                    ClearSupHuTrue();
                             }
-                            if (!IsS)
-                                ClearSupHuTrue();
                         }
-
                     }
                 }
             }
