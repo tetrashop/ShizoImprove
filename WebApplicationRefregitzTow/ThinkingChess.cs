@@ -13249,7 +13249,7 @@ namespace RefrigtzW
             }
             return DD;
         }
-      public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
+        public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
       , ref int HeuristicAttackValue
           , ref int HeuristicMovementValue
           , ref int HeuristicSelfSupportedValue
@@ -13352,14 +13352,14 @@ namespace RefrigtzW
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
 
+                        if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                        {
+
+                            //if (Before)
+                            SetSupHuTrue();
+                        }
                         if (!GoldenFinished)
                         {  //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                            {
-
-                                //if (Before)
-                                SetSupHuTrue();
-                            }
                             //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
@@ -13430,20 +13430,21 @@ namespace RefrigtzW
                                     SetSupHuTrue();
                                 }
                             }
-
-                            //when thre is most reduced support finding
-                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-
-                            if (IsNo != null)
-                            {
-                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
-                                {
-                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                        ClearSupHuTrue();
-                                }
-                            }
-
                         }
+
+                        //when thre is most reduced support finding
+                        int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+
+                        if (IsNo != null)
+                        {
+                            if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                            {
+                                if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                    ClearSupHuTrue();
+                            }
+                        }
+
+
                     }
                     else
                     {
@@ -13459,27 +13460,27 @@ namespace RefrigtzW
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
+                        //Disturbe on huge traversal exchange prevention 
+                        //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                        if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
+                        {
+
+                            //if (Before)
+                            SetSupHuTrue();
+                            IsS = true;
+                        }
+                        if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
+                        {
+
+                            //if (Before)
+                            SetSupHuTrue();
+                            IsS = true;
+                        }
+                        else
+                              if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
+                            TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                         if (!GoldenFinished)
-                        {   //Disturbe on huge traversal exchange prevention 
-                            //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                            if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
-                            {
-
-                                //if (Before)
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
-                            {
-
-                                //if (Before)
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            else
-                                  if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
-                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                            //Ignore of atack and checkedmate at first until all move
+                        {   //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
                             if (Order == 1)
                             {
@@ -13567,22 +13568,23 @@ namespace RefrigtzW
                                         SetSupHuTrue();
                                     }
                                 }
-
-                                //when thre is most reduced support finding
-                                int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-
-                                if (IsNo != null)
-                                {
-                                    if (IsNo[1] < HeuristicAllReducedSupport.Count)
-                                    {
-                                        if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                            ClearSupHuTrue();
-                                    }
-
-                                }
-                                if (!IsS)
-                                    ClearSupHuTrue();
                             }
+
+                            //when thre is most reduced support finding
+                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+
+                            if (IsNo != null)
+                            {
+                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                {
+                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                        ClearSupHuTrue();
+                                }
+
+                            }
+                            if (!IsS)
+                                ClearSupHuTrue();
+
                         }
                     }
                 }
@@ -13590,7 +13592,8 @@ namespace RefrigtzW
 
 
         }
-     int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
+
+        int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
         {
             int[] IsNo = FindMostHeuristicAllReducedSupportIsCurrent(Before, RowS, ColS);
 
