@@ -1709,7 +1709,7 @@ namespace Chess
                             if (RefrigtzDLL.AllDraw.OrderPlate == 1)
                                 RefrigtzDLL.ThinkingChess.NoOfBoardMovedGray++;
                             else
-                                RefrigtzDLL.ThinkingChess.NoOfBoardMoved++;
+                                RefrigtzDLL.ThinkingChess.NoOfBoardMovedBrown++;
                         }
                         else
                         {
@@ -2676,7 +2676,7 @@ namespace Chess
                                             if (RefrigtzDLL.AllDraw.OrderPlate == 1)
                                                 RefrigtzDLL.ThinkingChess.NoOfBoardMovedGray++;
                                             else
-                                                RefrigtzDLL.ThinkingChess.NoOfBoardMoved++;
+                                                RefrigtzDLL.ThinkingChess.NoOfBoardMovedBrown++;
 
                                             Play(i, j);
                                         }
@@ -2813,7 +2813,7 @@ namespace Chess
                                     if (RefrigtzDLL.AllDraw.OrderPlate == 1)
                                         RefrigtzDLL.ThinkingChess.NoOfBoardMovedGray++;
                                     else
-                                        RefrigtzDLL.ThinkingChess.NoOfBoardMoved++;
+                                        RefrigtzDLL.ThinkingChess.NoOfBoardMovedBrown++;
 
                                     Play(i, j);
                                 }

@@ -10,7 +10,7 @@ namespace ImageTextDeepLearning
     public class Colleralation
     {
         static double Threshold = 0.2;
-        public static int GetCorrelationScore(bool[,] seriesA, bool[,] seriesB, int n)
+        public static int GetCorrelationScore(bool[,] seriesA, bool[,] seriesB, int n, int Order)
         {
             int correlationScore = 0;
 
@@ -20,17 +20,29 @@ namespace ImageTextDeepLearning
                 bool A = true;
                 for (var j = 0; j < n; j++)
                 {
-                    A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), Threshold
+                    if (Order == 1 && seriesA[i, j])
+                    {
+                        A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), Threshold
                         );
-                    if (A)
-                        correlationScore++;
+                        if (A)
+                            correlationScore++;
+                    }
                     else
-                        correlationScore--;
+                    {
+                        if (Order == -1 && (!seriesA[i, j]))
+                        {
+                            A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), Threshold
+                           );
+                            if (A)
+                                correlationScore++;
+                            correlationScore--;
+                        }
+                    }
                 }
             }
             return correlationScore;
         }
-        public static int GetCorrelationScore(int[,] seriesA, int[,] seriesB, int n)
+        public static int GetCorrelationScore(int[,] seriesA, int[,] seriesB, int n, int Order)
         {
             int correlationScore = 0;
 
@@ -40,16 +52,28 @@ namespace ImageTextDeepLearning
                 bool A = true;
                 for (var j = 0; j < n; j++)
                 {
-                    A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), Threshold
-                        );
-                    if (A)
-                        correlationScore++;
+                    if (Order == 1 && seriesA[i, j] > 0)
+                    {
+                        A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), Threshold
+                            );
+                        if (A)
+                            correlationScore++;
+                    }
                     else
-                        correlationScore--;
+                    {
+                        if (Order == -1 && seriesA[i, j] < 0)
+                        {
+                            A = areEqual(System.Convert.ToDouble(seriesA[i, j]), System.Convert.ToDouble(seriesB[i, j]), Threshold
+                            );
+                            if (A)
+                                correlationScore++;
+                        }
+                    }
                 }
             }
             return correlationScore;
         }
+
 
         static bool areEqual(double value1, double value2, double allowedVariance)
         {

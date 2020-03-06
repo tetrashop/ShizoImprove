@@ -16,7 +16,8 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ThinkingQuantumChess//: IDisposable
     {
-        bool MidIndex = false;
+        static bool GoldenFinished = false;
+
         public List<List<List<int[]>>> AchmazPure = new List<List<List<int[]>>>();
         public List<List<List<int[]>>> AchmazReduced = new List<List<List<int[]>>>();
 
@@ -39,13 +40,13 @@ namespace QuantumRefrigiz
         int HeuristicAllReducedMoveMidel = -1;
 
         public static int NoOfBoardMovedGray = 0;
-        public static int NoOfBoardMoved = 0;
+        public static int NoOfBoardMovedBrown = 0;
         public static int NoOfMovableAllObjectMove = 1;
         public int DifOfNoOfSupporteAndReducedSupportGray = int.MinValue;
         public int DifOfNoOfSupporteAndReducedSupportBrown = int.MinValue;
-        public static int ColleralationGray = int.MinValue;
-        public static int ColleralationBrown = int.MinValue;
-        public static int Colleralation = int.MinValue;
+        public static int ColleralationGray = int.MaxValue;
+        public static int ColleralationBrown = int.MaxValue;
+        public static int Colleralation = int.MaxValue;
         public static int DeColleralation = int.MinValue;
         public static int[,] TableInitiation ={
             { -4, -1, 0, 0, 0, 0, 1, 4 },
@@ -5018,7 +5019,7 @@ namespace QuantumRefrigiz
 
                     }
                 }
-                if (ObjN < Threashold)
+                if (ObjN <= Threashold)
                     return true;
                 return false;
             }
@@ -5736,7 +5737,8 @@ namespace QuantumRefrigiz
 
             return Ex;
 
-        }       //Distribution of Objects
+        }
+        //Distribution of Objects
         public int HeuristicDistribution(bool Before, int[,] Tab, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
         {
 
@@ -5787,14 +5789,14 @@ namespace QuantumRefrigiz
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
 
-                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order);
                         if (Cor > Colleralation)
                         {
                             Colleralation = Cor;
                             Dis += RationalRegard;
 
                         }
-                        if (Cor > ColleralationGray && Tab[RowS, ColS] > 0)
+                        if (Cor < ColleralationGray && Tab[RowS, ColS] > 0&&(Cor>0))
                         {
                             ColleralationGray = Cor;
 
@@ -5822,7 +5824,7 @@ namespace QuantumRefrigiz
 
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order);
                             if (Cor < DeColleralation)
                             {
                                 DeColleralation = Cor;
@@ -5857,14 +5859,14 @@ namespace QuantumRefrigiz
                     }
                     if (IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                     {
-                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                        int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order);
                         if (Cor > Colleralation)
                         {
                             Colleralation = Cor;
                             Dis += RationalRegard;
 
                         }
-                        if (Cor > ColleralationBrown && Tab[RowS, ColS] < 0)
+                        if (Cor < ColleralationBrown && Tab[RowS, ColS] < 0 && (Cor >= 0))
                         {
                             ColleralationBrown = Cor;
 
@@ -5887,7 +5889,7 @@ namespace QuantumRefrigiz
                     {
                         if (!IsNumberOfObjecttIsLessThanThreashold(CloneATable(Tab), 32))
                         {
-                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8);
+                            int Cor = ImageTextDeepLearning.Colleralation.GetCorrelationScore(TableInitiation, CloneATable(Tab), 8, Order);
                             if (Cor < DeColleralation)
                             {
                                 DeColleralation = Cor;
@@ -6429,17 +6431,20 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                if (HeuristicAllReducedAttackedMidel > 0 && HeuristicAllReducedAttackedMidel < HeuristicAllReducedAttacked.Count)
                 {
-                    if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
+                    for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
                     {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllReducedAttacked[i][0];
-                        I[1] = HeuristicAllReducedAttacked[i][1];
-                        I[2] = HeuristicAllReducedAttacked[i][2];
-                        I[3] = HeuristicAllReducedAttacked[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
+                        if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
+                        {
+                            int[] I = new int[5];
+                            I[0] = HeuristicAllReducedAttacked[i][0];
+                            I[1] = HeuristicAllReducedAttacked[i][1];
+                            I[2] = HeuristicAllReducedAttacked[i][2];
+                            I[3] = HeuristicAllReducedAttacked[i][3];
+                            I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                            Is.Add(I);
+                        }
                     }
                 }
             }
@@ -6466,17 +6471,20 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                if (HeuristicAllReducedSupportMidel > 0 && HeuristicAllReducedSupportMidel < HeuristicAllReducedSupport.Count)
                 {
-                    if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
+                    for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
                     {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllReducedSupport[i][0];
-                        I[1] = HeuristicAllReducedSupport[i][1];
-                        I[2] = HeuristicAllReducedSupport[i][2];
-                        I[3] = HeuristicAllReducedSupport[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
+                        if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
+                        {
+                            int[] I = new int[5];
+                            I[0] = HeuristicAllReducedSupport[i][0];
+                            I[1] = HeuristicAllReducedSupport[i][1];
+                            I[2] = HeuristicAllReducedSupport[i][2];
+                            I[3] = HeuristicAllReducedSupport[i][3];
+                            I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                            Is.Add(I);
+                        }
                     }
                 }
             }
@@ -6504,17 +6512,20 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                if (HeuristicAllSupportMidel > 0 && HeuristicAllSupportMidel < HeuristicAllSupport.Count)
                 {
-                    if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
+                    for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
                     {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllSupport[i][0];
-                        I[1] = HeuristicAllSupport[i][1];
-                        I[2] = HeuristicAllSupport[i][2];
-                        I[3] = HeuristicAllSupport[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
+                        if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
+                        {
+                            int[] I = new int[5];
+                            I[0] = HeuristicAllSupport[i][0];
+                            I[1] = HeuristicAllSupport[i][1];
+                            I[2] = HeuristicAllSupport[i][2];
+                            I[3] = HeuristicAllSupport[i][3];
+                            I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                            Is.Add(I);
+                        }
                     }
                 }
             }
@@ -6543,17 +6554,20 @@ namespace QuantumRefrigiz
             }
             else
             {
-                for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                if (HeuristicAllAttackedMidel > 0 && HeuristicAllAttackedMidel < HeuristicAllAttacked.Count)
                 {
-                    if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
+                    for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
                     {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
+                        if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
+                        {
+                            int[] I = new int[5];
+                            I[0] = HeuristicAllAttacked[i][0];
+                            I[1] = HeuristicAllAttacked[i][1];
+                            I[2] = HeuristicAllAttacked[i][2];
+                            I[3] = HeuristicAllAttacked[i][3];
+                            I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                            Is.Add(I);
+                        }
                     }
                 }
             }
@@ -11980,46 +11994,54 @@ namespace QuantumRefrigiz
             bool Is = false;
             if (!Before)
             {
-                for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                if (HeuristicAllReducedAttackedMidel > 0 && HeuristicAllReducedAttackedMidel < HeuristicAllReducedAttacked.Count)
                 {
-                    if (Order == 1)
+                    for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
                     {
-                        if ((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]])) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] < 0)
-                            return true;
-                    }
-                    else
-                    {
-                        if ((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]])) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] > 0)
-                            return true;
-                    }
+                        if (Order == 1)
+                        {
+                            if ((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]])) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] < 0)
+                                return true;
+                        }
+                        else
+                        {
+                            if ((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]])) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] > 0)
+                                return true;
+                        }
 
+                    }
                 }
             }
 
             return Is;
         }
+
         bool DisturbeOnNonSupportedTraversalExchangePrevention(int Killded, bool Before, int[,] TableS, int Order)
         {
             bool Is = false;
             if (!Before)
             {
-                for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
-                {
-                    if (Order == 1)
-                    {
-                        List<int[]> Valuable = new List<int[]>();
-                        bool DD = InAttackEnemyThatIsNotSupported(Killded, CloneATable(TableS), Order, OrderColor(Order), HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1], HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]);
-                        if (DD || (System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]]) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] < 0))
-                            return true;
-                    }
-                    else
-                    {
-                        List<int[]> Valuable = new List<int[]>();
-                        bool DD = InAttackEnemyThatIsNotSupported(Killded, CloneATable(TableS), Order, OrderColor(Order), HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1], HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]);
-                        if (DD || (System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]]) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] > 0))
-                            return true;
-                    }
 
+                if (HeuristicAllReducedAttackedMidel > 0 && HeuristicAllReducedAttackedMidel < HeuristicAllReducedAttacked.Count)
+                {
+                    for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                    {
+                        if (Order == 1)
+                        {
+                            List<int[]> Valuable = new List<int[]>();
+                            bool DD = InAttackEnemyThatIsNotSupported(Killded, CloneATable(TableS), Order, OrderColor(Order), HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1], HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]);
+                            if (DD || (System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]]) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] < 0))
+                                return true;
+                        }
+                        else
+                        {
+                            List<int[]> Valuable = new List<int[]>();
+                            bool DD = InAttackEnemyThatIsNotSupported(Killded, CloneATable(TableS), Order, OrderColor(Order), HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1], HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]);
+                            if (DD || (System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]]) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] > 0))
+                                return true;
+                        }
+
+                    }
                 }
             }
 
@@ -13201,7 +13223,7 @@ namespace QuantumRefrigiz
             return Sum;
         }
 
-        int DoubleDefense(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        int DoubleAttack(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             int DD = 0;
             if (Order == AllDraw.OrderPlate)
@@ -13239,6 +13261,26 @@ namespace QuantumRefrigiz
 
             return Is;
 
+        }
+        int DoubleDefence(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        {
+            int DD = 0;
+            if (Order == AllDraw.OrderPlate)
+            {
+                List<int[]> DDE = ListOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS);
+                for (int i = 0; i < DDE.Count; i++)
+                    DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
+                DD = (RationalPenalty) * (DD);
+            }
+            else
+            {
+                List<int[]> DDE = ListOfExistInSupportList(Before, RowS, ColS, RowD, ColD);
+                for (int i = 0; i < DDE.Count; i++)
+                    DD += System.Math.Abs(Table[DDE[i][2], DDE[i][3]]);
+                DD = (RationalPenalty) * (DD);
+
+            }
+            return DD;
         }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
       , ref int HeuristicAttackValue
@@ -13297,17 +13339,31 @@ namespace QuantumRefrigiz
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
                 int HAchmaz = 0;
-                int HDoubleDefense = 0;
+                int HDoubleAttack = 0, HDoubleDefense = 0;
+
                 if (Before)
                 {
+                    int TotalS = 0;
+                    int IsSC = 0;
+                    NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
+
+                    if ((16 - ColleralationGray) + IsSC >= TotalS)
+                        GoldenFinished = true;
                     HAchmaz = (RationalPenalty * (SumAbsSrcReduced(CloneATable(TableS)))) + (RationalRegard * (SumAbsSrcPure(CloneATable(TableS))));
                 }
                 else
                 {
+                    int TotalS = 0;
+                    int IsSC = 0;
+                    NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
+
+                    if ((16 - ColleralationBrown) + IsSC >= TotalS)
+                        GoldenFinished = true;
                     HAchmaz = (RationalPenalty * (SumAbsDesReduced(CloneATable(TableS)))) + (RationalRegard * (SumAbsDesPure(CloneATable(TableS))));
 
                 }
-                HDoubleDefense = DoubleDefense(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
+                HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
+                HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 bool IsS = false;
                 Object O1 = new Object();
                 lock (O1)
@@ -13324,39 +13380,40 @@ namespace QuantumRefrigiz
                         HeuristicMovementValue = (Heuristic[4] * SignOrderToPlate(Order));
                         HeuristicReducedMovementValue = ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
                         HeuristicCheckedMate = (((HCheck + HAchmaz) * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue = ((HDistance + HAchmaz + HDoubleDefense) * SignOrderToPlate(Order));
+                        HeuristicDistributionValue = ((HDistance + HAchmaz + HDoubleAttack + HDoubleDefense) * SignOrderToPlate(Order));
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-                        //if (Order == AllDraw.OrderPlate)
+
+                        //Disturbe on huge traversal exchange prevention 
+                        if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                         {
-                            //Disturbe on huge traversal exchange prevention 
-                            if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                            {
 
-                                //if (Before)
-                                SetSupHuTrue();
-                            }
-                            //Ignore of atack and checkedmate at first until all move
-                            bool A = false, B = false, C = false;
-                            if (Order == 1)
-                            {
-                                A = ColleralationGray < 30;
-                                B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
-                            }
-                            else
-                            {
-                                A = ColleralationBrown < 30;
-                                B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
-                            }
-                            if (A && ((B) || (C)))
-                            {
-                                SetSupHuTrue();
-                            }
+                            //if (Before)
+                            SetSupHuTrue();
+                        }
+                        //Ignore of atack and checkedmate at first until all move
+                        bool A = false, B = false, C = false;
+                        if (Order == 1)
+                        {
+                            A = ColleralationGray < 30;
+                            B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                            C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                        }
+                        else
+                        {
+                            A = ColleralationBrown < 30;
+                            B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                            C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                        }
+                        if (A && ((B) || (C)))
+                        {
+                            SetSupHuTrue();
+                        }
 
-                            //Every objects one move at game begin
+                        //Every objects one move at game begin
+                        if (!GoldenFinished)
+                        {
                             int Total = 0;
                             int Is = 0;
                             NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref Total, ref Is);
@@ -13406,19 +13463,20 @@ namespace QuantumRefrigiz
                                     SetSupHuTrue();
                                 }
                             }
-                            //when thre is most reduced support finding
-                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-
-                            if (IsNo != null)
-                            {
-                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
-                                {
-                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                        ClearSupHuTrue();
-                                }
-                            }
-
                         }
+                        //when thre is most reduced support finding
+                        int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+
+                        if (IsNo != null)
+                        {
+                            if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                            {
+                                if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                    ClearSupHuTrue();
+                            }
+                        }
+
+
                     }
                     else
                     {
@@ -13429,55 +13487,56 @@ namespace QuantumRefrigiz
                         HeuristicMovementValue += (Heuristic[4] * SignOrderToPlate(Order));
                         HeuristicReducedMovementValue += ((Heuristic[5] + HExchangeInnovation + HExchangeSupport) * SignOrderToPlate(Order));
                         HeuristicCheckedMate += (((HCheck) * SignOrderToPlate(Order)));
-                        HeuristicDistributionValue += ((HDistance + HAchmaz + HDoubleDefense) * SignOrderToPlate(Order));
+                        HeuristicDistributionValue += ((HDistance + HAchmaz + HDoubleAttack) * SignOrderToPlate(Order));
                         HeuristicKingSafe += (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour += (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
 
-                        //if (Order == AllDraw.OrderPlate)
-                        {   //Disturbe on huge traversal exchange prevention 
-                            //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                            if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
-                            {
+                        //Disturbe on huge traversal exchange prevention 
+                        //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
+                        if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
+                        {
 
-                                //if (Before)
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
-                            {
+                            //if (Before)
+                            SetSupHuTrue();
+                            IsS = true;
+                        }
+                        if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
+                        {
 
-                                //if (Before)
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            else
-                                  if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
-                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                            //Ignore of atack and checkedmate at first until all move
-                            bool A = false, B = false, C = false;
-                            if (Order == 1)
+                            //if (Before)
+                            SetSupHuTrue();
+                            IsS = true;
+                        }
+                        else
+                              if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
+                            TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                        //Ignore of atack and checkedmate at first until all move
+                        bool A = false, B = false, C = false;
+                        if (Order == 1)
+                        {
+                            A = ColleralationGray < 30;
+                            B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
+                            C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                        }
+                        else
+                        {
+                            A = ColleralationBrown < 30;
+                            B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
+                            C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                        }
+                        if (A && ((B) || (C)))
+                        {
+                            SetSupHuTrue();
+                            IsS = true;
+                        }
+                        else
+                        {
+                            //if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
+                            //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                            //Empire more
+                            if (!GoldenFinished)
                             {
-                                A = ColleralationGray < 30;
-                                B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
-                            }
-                            else
-                            {
-                                A = ColleralationBrown < 30;
-                                B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
-                            }
-                            if (A && ((B) || (C)))
-                            {
-                                SetSupHuTrue();
-                                IsS = true;
-                            }
-                            else
-                            {
-                                //if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
-                                //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
-                                //Empire more
                                 if (A)
                                 {
                                     if (ColleralationBrown < 16)
@@ -13521,7 +13580,7 @@ namespace QuantumRefrigiz
                                     if (
                                          //((NoOfBoardMoved + Is >= Total) && 
                                          TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
-                                 //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
+                                 //)&& A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] > 0
                                  )
                                     {
                                         IsS = true;
@@ -13534,29 +13593,30 @@ namespace QuantumRefrigiz
                                     if (
                                           //((NoOfBoardMoved + Is >= Total) && 
                                           TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
-                                  //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
+                                  //)&& A && TableS[RowS, ColS] == 0 && TableS[RowD, ColD] < 0
                                   )
                                     {
                                         IsS = true;
                                         SetSupHuTrue();
                                     }
                                 }
-                                //when thre is most reduced support finding
-                                int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
-
-                                if (IsNo != null)
-                                {
-                                    if (IsNo[1] < HeuristicAllReducedSupport.Count)
-                                    {
-                                        if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
-                                            ClearSupHuTrue();
-                                    }
-
-                                }
-                                if (!IsS)
-                                    ClearSupHuTrue();
                             }
+                            //when thre is most reduced support finding
+                            int[] IsNo = MostOfFindMostHeuristicAllReducedSupportInList(Before, RowD, ColD);
+
+                            if (IsNo != null)
+                            {
+                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+                                {
+                                    if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
+                                        ClearSupHuTrue();
+                                }
+
+                            }
+                            if (!IsS)
+                                ClearSupHuTrue();
                         }
+
                     }
                 }
             }
@@ -13588,21 +13648,24 @@ namespace QuantumRefrigiz
             int[] IsNo = new int[2];
             if (!Before)
             {
-                for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                if (HeuristicAllReducedSupportMidel > 0 && HeuristicAllReducedSupportMidel < HeuristicAllReducedSupport.Count)
                 {
-
-                    if (HeuristicAllReducedSupport[i][2] == RowS && HeuristicAllReducedSupport[i][3] == ColS)
+                    for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
                     {
-                        for (int ii = 0; ii < 8; ii++)
-                        {
-                            for (int jj = 0; jj < 8; jj++)
-                            {
-                                IsNo[0] += NoOfExistInReducedSupportList(Before, RowS, ColS, ii, jj);
-                            }
-                        }
-                        IsNo[1] = i;
-                    }
 
+                        if (HeuristicAllReducedSupport[i][2] == RowS && HeuristicAllReducedSupport[i][3] == ColS)
+                        {
+                            for (int ii = 0; ii < 8; ii++)
+                            {
+                                for (int jj = 0; jj < 8; jj++)
+                                {
+                                    IsNo[0] += NoOfExistInReducedSupportList(Before, RowS, ColS, ii, jj);
+                                }
+                            }
+                            IsNo[1] = i;
+                        }
+
+                    }
                 }
             }
             else
