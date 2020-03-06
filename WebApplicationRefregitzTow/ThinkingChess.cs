@@ -13193,21 +13193,12 @@ namespace RefrigtzW
         int DoubleAttack(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             int DD = 0;
-            if (Order == AllDraw.OrderPlate)
-            {
-                List<int[]> DDE = ListOfExistInAttackList(Before, RowS, ColS, RowD, ColD);
-                for (int i = 0; i < DDE.Count; i++)
-                    DD += System.Math.Abs(Table[DDE[i][2], DDE[i][3]]);
-                DD= (RationalRegard) * (DD);
-            }
-            else
-            {
-                List<int[]> DDE = ListOfExistInSupportList(Before, RowS, ColS, RowD, ColD);
-                for (int i = 0; i < DDE.Count; i++)
-                    DD += System.Math.Abs(Table[DDE[i][2], DDE[i][3]]);
-               DD= (RationalPenalty) * (DD);
 
-            }
+            List<int[]> DDE = ListOfExistInAttackList(Before, RowS, ColS, RowD, ColD);
+            for (int i = 0; i < DDE.Count; i++)
+                DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
+            DD = (RationalRegard) * (DD);
+
             return DD;
         }
         bool MidleIndex()
@@ -13229,24 +13220,16 @@ namespace RefrigtzW
             return Is;
         
         }
+
         int DoubleDefence(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             int DD = 0;
-            if (Order == AllDraw.OrderPlate)
-            {
-                List<int[]> DDE = ListOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS);
-                for (int i = 0; i < DDE.Count; i++)
-                    DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
-                DD = (RationalPenalty) * (DD);
-            }
-            else
-            {
-                List<int[]> DDE = ListOfExistInSupportList(Before, RowS, ColS, RowD, ColD);
-                for (int i = 0; i < DDE.Count; i++)
-                    DD += System.Math.Abs(Table[DDE[i][2], DDE[i][3]]);
-                DD = (RationalPenalty) * (DD);
 
-            }
+            List<int[]> DDE = ListOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD);
+            for (int i = 0; i < DDE.Count; i++)
+                DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
+            DD = (RationalPenalty) * (DD);
+
             return DD;
         }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
