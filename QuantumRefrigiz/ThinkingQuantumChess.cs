@@ -5381,7 +5381,7 @@ namespace QuantumRefrigiz
 
                 bool Is = false;
 
-                     if (TableInitiationPreventionOfMultipleMove[Row, Col] ==0)
+                if (TableInitiationPreventionOfMultipleMove[Row, Col] == 0)
                 {
                     return true;
 
@@ -5390,7 +5390,6 @@ namespace QuantumRefrigiz
                 return Is;
             }
         }
-
         public bool IsCentralPawnIsOk(int[,] Tab, int Order)
         {
             Object O = new Object();
@@ -5629,116 +5628,119 @@ namespace QuantumRefrigiz
         }
         bool ExistCastleInDouble(int Order, int[,] Table, int RowS, int ColS, int RowD, int ColD)
         {
-            bool Ex = false;
-            int[,] Tab = CloneATable(Table);
-
-            if (Order == 1)
+            Object O = new Object();
+            lock (O)
             {
-                if (Tab[RowD, ColD] == 4)
-                {
-                    if (ColD == 7)
-                    {
-                        for (int Row = 0; Row < 8; Row++)
-                        {
-                            if (Tab[Row, 6] == 4)
-                                Ex = true;
-                        }
-                    }
-                    else
-                    if (ColD == 6)
-                    {
-                        for (int Row = 0; Row < 8; Row++)
-                        {
-                            if (Tab[Row, 7] == 4)
-                                Ex = true;
-                        }
-                    }
-                }
-                if (!Ex)
-                {
-                    if (Tab[RowS, ColS] == 4 && Tab[RowD, ColD] <= 0)
-                    {
-                        Tab[RowD, ColD] = Tab[RowS, ColS];
-                        Tab[RowS, ColS] = 0;
+                bool Ex = false;
+                int[,] Tab = CloneATable(Table);
 
-                        if (Tab[RowD, ColD] == 4)
+                if (Order == 1)
+                {
+                    if (Tab[RowD, ColD] == 4)
+                    {
+                        if (ColD == 7)
                         {
-                            if (ColD == 7)
+                            for (int Row = 0; Row < 8; Row++)
                             {
-                                for (int Row = 0; Row < 8; Row++)
-                                {
-                                    if (Tab[Row, 6] == 4)
-                                        Ex = true;
-                                }
+                                if (Tab[Row, 6] == 4)
+                                    Ex = true;
                             }
-                            else
-                            if (ColD == 6)
+                        }
+                        else
+                        if (ColD == 6)
+                        {
+                            for (int Row = 0; Row < 8; Row++)
                             {
-                                for (int Row = 0; Row < 8; Row++)
+                                if (Tab[Row, 7] == 4)
+                                    Ex = true;
+                            }
+                        }
+                    }
+                    if (!Ex)
+                    {
+                        if (Tab[RowS, ColS] == 4 && Tab[RowD, ColD] <= 0)
+                        {
+                            Tab[RowD, ColD] = Tab[RowS, ColS];
+                            Tab[RowS, ColS] = 0;
+
+                            if (Tab[RowD, ColD] == 4)
+                            {
+                                if (ColD == 7)
                                 {
-                                    if (Tab[Row, 7] == 4)
-                                        Ex = true;
+                                    for (int Row = 0; Row < 8; Row++)
+                                    {
+                                        if (Tab[Row, 6] == 4)
+                                            Ex = true;
+                                    }
+                                }
+                                else
+                                if (ColD == 6)
+                                {
+                                    for (int Row = 0; Row < 8; Row++)
+                                    {
+                                        if (Tab[Row, 7] == 4)
+                                            Ex = true;
+                                    }
                                 }
                             }
                         }
                     }
                 }
+                else
+                {
+                    if (Tab[RowD, ColD] == -4)
+                    {
+                        if (ColD == 0)
+                        {
+                            for (int Row = 0; Row < 8; Row++)
+                            {
+                                if (Tab[Row, 1] == -4)
+                                    Ex = true;
+                            }
+                        }
+                        else
+                        if (ColD == 1)
+                        {
+                            for (int Row = 0; Row < 8; Row++)
+                            {
+                                if (Tab[Row, 0] == -4)
+                                    Ex = true;
+                            }
+                        }
+                    }
+                    if (!Ex)
+                    {
+                        if (Tab[RowS, ColS] == -4 && Tab[RowD, ColD] <= 0)
+                        {
+                            Tab[RowD, ColD] = Tab[RowS, ColS];
+                            Tab[RowS, ColS] = 0;
+
+                            if (Tab[RowD, ColD] == -4)
+                            {
+                                if (ColD == 0)
+                                {
+                                    for (int Row = 0; Row < 8; Row++)
+                                    {
+                                        if (Tab[Row, 1] == -4)
+                                            Ex = true;
+                                    }
+                                }
+                                else
+                                if (ColD == 1)
+                                {
+                                    for (int Row = 0; Row < 8; Row++)
+                                    {
+                                        if (Tab[Row, 0] == -4)
+                                            Ex = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return Ex;
             }
-            else
-            {
-                if (Tab[RowD, ColD] == -4)
-                {
-                    if (ColD == 0)
-                    {
-                        for (int Row = 0; Row < 8; Row++)
-                        {
-                            if (Tab[Row, 1] == -4)
-                                Ex = true;
-                        }
-                    }
-                    else
-                    if (ColD == 1)
-                    {
-                        for (int Row = 0; Row < 8; Row++)
-                        {
-                            if (Tab[Row, 0] == -4)
-                                Ex = true;
-                        }
-                    }
-                }
-                if (!Ex)
-                {
-                    if (Tab[RowS, ColS] == -4 && Tab[RowD, ColD] <= 0)
-                    {
-                        Tab[RowD, ColD] = Tab[RowS, ColS];
-                        Tab[RowS, ColS] = 0;
-
-                        if (Tab[RowD, ColD] == -4)
-                        {
-                            if (ColD == 0)
-                            {
-                                for (int Row = 0; Row < 8; Row++)
-                                {
-                                    if (Tab[Row, 1] == -4)
-                                        Ex = true;
-                                }
-                            }
-                            else
-                            if (ColD == 1)
-                            {
-                                for (int Row = 0; Row < 8; Row++)
-                                {
-                                    if (Tab[Row, 0] == -4)
-                                        Ex = true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            return Ex;
-
         }
         //Distribution of Objects
         public int HeuristicDistribution(bool Before, int[,] Tab, int Order, Color a, int RowS, int ColS, int RowD, int ColD)
@@ -5798,7 +5800,7 @@ namespace QuantumRefrigiz
                             Dis += RationalRegard;
 
                         }
-                        if (Cor < ColleralationGray && Tab[RowS, ColS] > 0&&(Cor>0))
+                        if (Cor < ColleralationGray && Tab[RowS, ColS] > 0 && (Cor >= 0))
                         {
                             ColleralationGray = Cor;
 
@@ -5915,151 +5917,154 @@ namespace QuantumRefrigiz
         bool IsPawnIsolatedOrDoubleBackAwayOrHung(int RowS, int ColS, int RowD, int ColD, int[,] Table, int Order)
         {
 
-            bool Is = false;
-            if (Order == 1)
+            Object O = new Object();
+            lock (O)
             {
-                if (ColS < 5)
-                {
-                    /*for (int k = 0; k < 8; k++)
-                    {
-                        if (k == RowS || k == RowD)
-                            continue;
-                        if (Table[RowS, ColS] == 1)
-                        {
-                            if (Table[RowS, k] == 1)
-                                Is = true;
-                        }
-                        if (Table[RowD, ColD] == 1)
-                        {
-                            if (Table[k, ColD] == 1)
-                                Is = true;
-                        }
-
-
-                    }*/
-                    if (!Is)
-                    {
-                        bool A = true;
-                        bool B = true;
-                        if (RowD >= 1 && ColD >= 1)
-                            A = (Table[RowD - 1, ColD - 1] == 1);
-                        if (RowD + 1 < 8 && ColD >= 1)
-                            B = (Table[RowD + 1, ColD - 1] == 1);
-                        if (!(A || B))
-                            Is = true;
-                    }
-
-                }
-
-            }
-            else
-            {
-                if (ColS > 2)
-                {
-                    /*for (int k = 0; k < 8; k++)
-                    {
-                        if (k == RowS || k == RowD)
-                            continue;
-                        if (Table[RowS, ColS] == -1)
-                        {
-                            if (Table[k, ColS] == -1)
-                                Is = true;
-
-                        }
-                        if (Table[RowD, ColD] == -1)
-                        {
-                            if (Table[k, ColD] == -1)
-                                Is = true;
-                        }
-                    }*/
-                    if (!Is)
-                    {
-                        bool A = true;
-                        bool B = true;
-                        if (RowS >= 1 && ColS + 1 < 8)
-                            A = (Table[RowS - 1, ColS + 1] == -1);
-                        if (RowS + 1 < 8 && ColS + 1 > 8)
-                            B = (Table[RowS + 1, ColS + 1] == -1);
-                        if (!(A || B))
-                            Is = true;
-                    }
-                }
-            }
-            if (!Is)
-            {
+                bool Is = false;
                 if (Order == 1)
                 {
-                    if (ColS + 1 < 8)
+                    if (ColS < 5)
                     {
-                        if ((Table[RowS, ColS + 1] == 1 && Table[RowS, ColS] == 1))
-                            Is = false;
+                        /*for (int k = 0; k < 8; k++)
+                        {
+                            if (k == RowS || k == RowD)
+                                continue;
+                            if (Table[RowS, ColS] == 1)
+                            {
+                                if (Table[RowS, k] == 1)
+                                    Is = true;
+                            }
+                            if (Table[RowD, ColD] == 1)
+                            {
+                                if (Table[k, ColD] == 1)
+                                    Is = true;
+                            }
+
+
+                        }*/
+                        if (!Is)
+                        {
+                            bool A = true;
+                            bool B = true;
+                            if (RowD >= 1 && ColD >= 1)
+                                A = (Table[RowD - 1, ColD - 1] == 1);
+                            if (RowD + 1 < 8 && ColD >= 1)
+                                B = (Table[RowD + 1, ColD - 1] == 1);
+                            if (!(A || B))
+                                Is = true;
+                        }
 
                     }
-                    else
-                    if (ColS - 1 >= 0)
-                    {
-                        if ((Table[RowS, ColS - 1] == 1 && Table[RowS, ColS] == 1))
-                            Is = false;
 
-                    }
                 }
                 else
                 {
-                    if (ColS + 1 < 8)
+                    if (ColS > 2)
                     {
-                        if ((Table[RowS, ColS + 1] == -1 && Table[RowS, ColS] == -1))
-                            Is = false;
+                        /*for (int k = 0; k < 8; k++)
+                        {
+                            if (k == RowS || k == RowD)
+                                continue;
+                            if (Table[RowS, ColS] == -1)
+                            {
+                                if (Table[k, ColS] == -1)
+                                    Is = true;
 
-                    }
-                    else
-                  if (ColS - 1 >= 0)
-                    {
-                        if ((Table[RowS, ColS - 1] == -1 && Table[RowS, ColS] == -1))
-                            Is = false;
-
+                            }
+                            if (Table[RowD, ColD] == -1)
+                            {
+                                if (Table[k, ColD] == -1)
+                                    Is = true;
+                            }
+                        }*/
+                        if (!Is)
+                        {
+                            bool A = true;
+                            bool B = true;
+                            if (RowS >= 1 && ColS + 1 < 8)
+                                A = (Table[RowS - 1, ColS + 1] == -1);
+                            if (RowS + 1 < 8 && ColS + 1 > 8)
+                                B = (Table[RowS + 1, ColS + 1] == -1);
+                            if (!(A || B))
+                                Is = true;
+                        }
                     }
                 }
-            }
-            
-            if (!Is)
-            {
-                bool IsSuported = false;
-
-                for (int i = 0; i < 8; i++)
+                if (!Is)
                 {
-
-                    for (int j = 0; j < 8; j++)
+                    if (Order == 1)
                     {
-                        if (Order == 1 && Table[i, j] <= 0)
-                            continue;
-                        if (Order == -1 && Table[i, j] >= 0)
-                            continue;
-                        if (Math.Abs(Table[RowS, ColS]) == 1 && SameSign(Table[RowS, ColS], Table[i, j]))
+                        if (ColS + 1 < 8)
                         {
-                            if (Support(CloneATable(Table), i, j, RowS, ColS, color, Order))
-                            {
-                                IsSuported = true;
-                                break;
-                            }
+                            if ((Table[RowS, ColS + 1] == 1 && Table[RowS, ColS] == 1))
+                                Is = false;
+
                         }
                         else
-                        if (Math.Abs(Table[RowD, ColD]) == 1 && SameSign(Table[RowD, ColD], Table[i, j]))
+                        if (ColS - 1 >= 0)
                         {
-                            if (Support(CloneATable(Table), i, j, RowD, ColD, color, Order))
-                            {
-                                IsSuported = true;
-                                break;
-                            }
+                            if ((Table[RowS, ColS - 1] == 1 && Table[RowS, ColS] == 1))
+                                Is = false;
+
                         }
                     }
-                    if (IsSuported)
-                        break;
+                    else
+                    {
+                        if (ColS + 1 < 8)
+                        {
+                            if ((Table[RowS, ColS + 1] == -1 && Table[RowS, ColS] == -1))
+                                Is = false;
+
+                        }
+                        else
+                      if (ColS - 1 >= 0)
+                        {
+                            if ((Table[RowS, ColS - 1] == -1 && Table[RowS, ColS] == -1))
+                                Is = false;
+
+                        }
+                    }
                 }
-                Is = (!IsSuported);
+
+                if (!Is)
+                {
+                    bool IsSuported = false;
+
+                    for (int i = 0; i < 8; i++)
+                    {
+
+                        for (int j = 0; j < 8; j++)
+                        {
+                            if (Order == 1 && Table[i, j] <= 0)
+                                continue;
+                            if (Order == -1 && Table[i, j] >= 0)
+                                continue;
+                            if (Math.Abs(Table[RowS, ColS]) == 1 && SameSign(Table[RowS, ColS], Table[i, j]))
+                            {
+                                if (Support(CloneATable(Table), i, j, RowS, ColS, color, Order))
+                                {
+                                    IsSuported = true;
+                                    break;
+                                }
+                            }
+                            else
+                            if (Math.Abs(Table[RowD, ColD]) == 1 && SameSign(Table[RowD, ColD], Table[i, j]))
+                            {
+                                if (Support(CloneATable(Table), i, j, RowD, ColD, color, Order))
+                                {
+                                    IsSuported = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (IsSuported)
+                            break;
+                    }
+                    Is = (!IsSuported);
+                }
+
+                return Is;
             }
-
-            return Is;
-
         }
         public int HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(int[,] Table, Color aa, int Ord, int ii, int jj, int i, int j)
         {
@@ -6077,7 +6082,7 @@ namespace QuantumRefrigiz
 
                     }
                     else
-                       if ((i == 3 || i == 4) && (j == 3 || j == 4) && HeuristicAllReducedAttacked.Count != 0)
+                    if ((i == 3 || i == 4) && (j == 3 || j == 4) && HeuristicAllReducedAttacked.Count != 0)
                         HA = RationalPenalty;
                     if (HA == 0)
                     {
@@ -6121,76 +6126,89 @@ namespace QuantumRefrigiz
         }
         Color OrderColor(int Ord)
         {
-            Color a = Color.Gray;
-            if (Ord == -1)
-                a = Color.Brown;
-            return a;
+            Object O = new Object();
+            lock (O)
+            {
+                Color a = Color.Gray;
+                if (Ord == -1)
+                    a = Color.Brown;
+                return a;
+            }
         }
         bool Permit(int Order, int TabS, int TabD, bool Self = true, bool Move = false)
         {
-            bool Per = false;
-            if (Self)
+            Object O = new Object();
+            lock (O)
             {
-                if (Move)
+                bool Per = false;
+                if (Self)
                 {
-                    if (Order == 1 && TabS > 0 && TabD == 0)
-                        Per = true;
-                    if (Order == -1 && TabS < 0 && TabD == 0)
-                        Per = true;
+                    if (Move)
+                    {
+                        if (Order == 1 && TabS > 0 && TabD == 0)
+                            Per = true;
+                        if (Order == -1 && TabS < 0 && TabD == 0)
+                            Per = true;
+                    }
+                    else
+                    {
+                        if (Order == 1 && TabS > 0 && TabD > 0)
+                            Per = true;
+                        if (Order == -1 && TabS < 0 && TabD < 0)
+                            Per = true;
+                    }
                 }
                 else
                 {
-                    if (Order == 1 && TabS > 0 && TabD > 0)
-                        Per = true;
-                    if (Order == -1 && TabS < 0 && TabD < 0)
-                        Per = true;
+                    if (Move)
+                    {
+                        if (Order == 1 && TabS > 0 && TabD <= 0)
+                            Per = true;
+                        if (Order == -1 && TabS < 0 && TabD >= 0)
+                            Per = true;
+                    }
+                    else
+                    {
+                        if (Order == 1 && TabS > 0 && TabD < 0)
+                            Per = true;
+                        if (Order == -1 && TabS < 0 && TabD > 0)
+                            Per = true;
+                    }
                 }
+                return Per;
             }
-            else
-            {
-                if (Move)
-                {
-                    if (Order == 1 && TabS > 0 && TabD <= 0)
-                        Per = true;
-                    if (Order == -1 && TabS < 0 && TabD >= 0)
-                        Per = true;
-                }
-                else
-                {
-                    if (Order == 1 && TabS > 0 && TabD < 0)
-                        Per = true;
-                    if (Order == -1 && TabS < 0 && TabD > 0)
-                        Per = true;
-                }
-            }
-            return Per;
         }
         int Diff(int Obj1, int Obj2, bool Penalty = true)
         {
-            int df = Obj1 - Obj2;
-            if (Penalty)
+            Object O = new Object();
+            lock (O)
             {
-                if (Math.Abs(Obj1) > Math.Abs(Obj2))
-                    return 10 - Math.Abs(df) + 1;
+                int df = Obj1 - Obj2;
+                if (Penalty)
+                {
+                    if (Math.Abs(Obj1) > Math.Abs(Obj2))
+                        return 12 - Math.Abs(df) + 1;
+                    else
+                        return Math.Abs(df) + 1;
+                }
                 else
-                    return Math.Abs(df) + 1;
+                {
+                    if (Math.Abs(Obj1) > Math.Abs(Obj2))
+                        return Math.Abs(df) + 1;
+                    else
+                        return 12 - Math.Abs(df) + 1;
+                }
             }
-            else
-            {
-                if (Math.Abs(Obj1) > Math.Abs(Obj2))
-                    return Math.Abs(df) + 1;
-                else
-                    return 10 - Math.Abs(df) + 1;
-            }
-
-
         }
         int DiffSupport(int Obj1, int Obj2)
         {
-            int df = Obj1 - Obj2;
+            Object O = new Object();
+            lock (O)
+            {
+                int df = Obj1 - Obj2;
 
-            return Math.Abs(df) + 1;
-
+                return Math.Abs(df) + 1;
+            }
 
         }
         public int[] HeuristicAll(bool Before, int Killed, int[,] Table, Color aa, int Ord)
@@ -6215,89 +6233,88 @@ namespace QuantumRefrigiz
                     var output = Task.Factory.StartNew(() =>
                     {
                         Parallel.For(0, 8, RowS =>
-                    {
-                        Parallel.For(0, 8, ColS =>
                         {
-                            Parallel.For(0, 8, RowD =>
+                            Parallel.For(0, 8, ColS =>
                             {
-                                Parallel.For(0, 8, ColD =>
+                                Parallel.For(0, 8, RowD =>
                                 {
-                                    if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
-                                        HA += RationalPenalty;
-                                    else
+                                    Parallel.For(0, 8, ColD =>
                                     {
-
-
-                                        //if (!feedCancellationTokenSource.IsCancellationRequested)
+                                        if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
+                                            HA += RationalPenalty;
+                                        else
                                         {
-                                            Parallel.Invoke(() =>
+
+
+                                            //if (!feedCancellationTokenSource.IsCancellationRequested)
                                             {
-                                                Object OO = new Object();
-                                                lock (OO)
+                                                Parallel.Invoke(() =>
                                                 {
-
-
-                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
+                                                    Object OO = new Object();
+                                                    lock (OO)
                                                     {
-                                                        if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+
+
+                                                        if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                         {
-                                                            if (HeuristicA[0] == 0)
-                                                                HeuristicA[0] = RationalPenalty;
-                                                            HeuristicB[0] += RationalPenalty;
+                                                            if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                            {
+                                                                if (HeuristicA[0] == 0)
+                                                                    HeuristicA[0] = RationalPenalty;
+                                                                HeuristicB[0] += RationalPenalty;
+                                                            }
                                                         }
-                                                    }
 
-                                                    if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
-                                                    {
-                                                        if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                        if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
                                                         {
-                                                            if (HeuristicA[2] == 0)
-                                                                HeuristicA[2] = RationalPenalty;
-                                                            HeuristicB[2] += RationalPenalty;
+                                                            if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                            {
+                                                                if (HeuristicA[2] == 0)
+                                                                    HeuristicA[2] = RationalPenalty;
+                                                                HeuristicB[2] += RationalPenalty;
+                                                            }
                                                         }
-                                                    }
 
 
-                                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
-                                                    {
-                                                        if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                        if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
                                                         {
-                                                            if (HeuristicA[1] == 0)
-                                                                HeuristicA[1] = RationalRegard;
-                                                            HeuristicB[1] += RationalRegard;
+                                                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                            {
+                                                                if (HeuristicA[1] == 0)
+                                                                    HeuristicA[1] = RationalRegard;
+                                                                HeuristicB[1] += RationalRegard;
+                                                            }
                                                         }
-                                                    }
 
-                                                    if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
-                                                    {
-                                                        if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                        if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
                                                         {
-                                                            if (HeuristicA[3] == 0)
-                                                                HeuristicA[3] = RationalRegard;
-                                                            HeuristicB[3] += RationalRegard;
+                                                            if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                            {
+                                                                if (HeuristicA[3] == 0)
+                                                                    HeuristicA[3] = RationalRegard;
+                                                                HeuristicB[3] += RationalRegard;
+                                                            }
                                                         }
+
+
+
                                                     }
-
-
-
-                                                }
-                                            });
+                                                });
+                                            }
                                         }
-                                    }
+                                    });
+
+
+
                                 });
-
-
-
                             });
                         });
-                    });
                     });
 
 
                     output.Wait(); output.Dispose();
 
                 }
-
 
                 return HeuristicB;
 
@@ -6307,135 +6324,136 @@ namespace QuantumRefrigiz
         }
         int NoOfExistInMoveList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
-            int Is = 0;
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllMove.Count; i++)
+                int Is = 0;
+                if (Before)
                 {
-                    if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols && HeuristicAllMove[i][2] == Rowd && HeuristicAllMove[i][3] == Cold)
-                        Is++;
-
-                }
-            }
-            else
-            {
-                if (HeuristicAllMoveMidel > 0 && HeuristicAllMoveMidel < HeuristicAllMove.Count)
-                {
-                    for (int i = HeuristicAllMoveMidel; i < HeuristicAllMove.Count; i++)
+                    for (int i = 0; i < HeuristicAllMove.Count; i++)
                     {
                         if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols && HeuristicAllMove[i][2] == Rowd && HeuristicAllMove[i][3] == Cold)
                             Is++;
 
                     }
                 }
+                else
+                {
+                    if (HeuristicAllMoveMidel > 0 && HeuristicAllMoveMidel < HeuristicAllMove.Count)
+                    {
+                        for (int i = HeuristicAllMoveMidel; i < HeuristicAllMove.Count; i++)
+                        {
+                            if (HeuristicAllMove[i][0] == Rows && HeuristicAllMove[i][1] == Cols && HeuristicAllMove[i][2] == Rowd && HeuristicAllMove[i][3] == Cold)
+                                Is++;
+
+                        }
+                    }
+                }
+                return Is;
             }
-            return Is;
         }
         int NoOfExistInReducedMoveList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
-            int Is = 0;
-
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllReducedMove.Count; i++)
-                {
-                    if (HeuristicAllReducedMove[i][2] == Rows && HeuristicAllReducedMove[i][3] == Cols && HeuristicAllReducedMove[i][0] == Rowd && HeuristicAllReducedMove[i][1] == Cols)
-                        Is++;
+                int Is = 0;
 
-                }
-            }
-            else
-            {
-
-                if (HeuristicAllReducedMoveMidel > 0 && HeuristicAllReducedMoveMidel < HeuristicAllReducedMove.Count)
+                if (Before)
                 {
-                    for (int i = HeuristicAllReducedMoveMidel; i < HeuristicAllReducedMove.Count; i++)
+                    for (int i = 0; i < HeuristicAllReducedMove.Count; i++)
                     {
                         if (HeuristicAllReducedMove[i][2] == Rows && HeuristicAllReducedMove[i][3] == Cols && HeuristicAllReducedMove[i][0] == Rowd && HeuristicAllReducedMove[i][1] == Cols)
                             Is++;
 
                     }
                 }
+                else
+                {
 
+                    if (HeuristicAllReducedMoveMidel > 0 && HeuristicAllReducedMoveMidel < HeuristicAllReducedMove.Count)
+                    {
+                        for (int i = HeuristicAllReducedMoveMidel; i < HeuristicAllReducedMove.Count; i++)
+                        {
+                            if (HeuristicAllReducedMove[i][2] == Rows && HeuristicAllReducedMove[i][3] == Cols && HeuristicAllReducedMove[i][0] == Rowd && HeuristicAllReducedMove[i][1] == Cols)
+                                Is++;
+
+                        }
+                    }
+
+                }
+                return Is;
             }
-            return Is;
         }
         int NoOfExistInAttackList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
-            int Is = 0;
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllAttacked.Count; i++)
+                int Is = 0;
+                if (Before)
                 {
-                    if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols && HeuristicAllAttacked[i][2] == Rowd && HeuristicAllAttacked[i][3] == Cold)
-                        Is++;
-
-                }
-            }
-            else
-            {
-                if (HeuristicAllAttackedMidel > 0 && HeuristicAllAttackedMidel < HeuristicAllAttacked.Count)
-                {
-                    for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                    for (int i = 0; i < HeuristicAllAttacked.Count; i++)
                     {
                         if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols && HeuristicAllAttacked[i][2] == Rowd && HeuristicAllAttacked[i][3] == Cold)
                             Is++;
 
                     }
                 }
+                else
+                {
+                    if (HeuristicAllAttackedMidel > 0 && HeuristicAllAttackedMidel < HeuristicAllAttacked.Count)
+                    {
+                        for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                        {
+                            if (HeuristicAllAttacked[i][0] == Rows && HeuristicAllAttacked[i][1] == Cols && HeuristicAllAttacked[i][2] == Rowd && HeuristicAllAttacked[i][3] == Cold)
+                                Is++;
+
+                        }
+                    }
+                }
+                return Is;
             }
-            return Is;
         }
         int NoOfExistInReducedAttackList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
-            int Is = 0;
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllReducedAttacked.Count; i++)
+                int Is = 0;
+                if (Before)
                 {
-                    if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
-                        Is++;
-
-                }
-            }
-            else
-            {
-                if (HeuristicAllReducedAttackedMidel > 0 && HeuristicAllReducedAttackedMidel < HeuristicAllReducedAttacked.Count)
-                {
-                    for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                    for (int i = 0; i < HeuristicAllReducedAttacked.Count; i++)
                     {
                         if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
                             Is++;
 
                     }
                 }
+                else
+                {
+                    if (HeuristicAllReducedAttackedMidel > 0 && HeuristicAllReducedAttackedMidel < HeuristicAllReducedAttacked.Count)
+                    {
+                        for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                        {
+                            if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
+                                Is++;
+
+                        }
+                    }
+                }
+                return Is;
             }
-            return Is;
         }
         List<int[]> ListOfExistInReducedAttackList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
-            List<int[]> Is = new List<int[]>();
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllReducedAttacked.Count; i++)
+                List<int[]> Is = new List<int[]>();
+                if (Before)
                 {
-                    if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
-                    {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllReducedAttacked[i][0];
-                        I[1] = HeuristicAllReducedAttacked[i][1];
-                        I[2] = HeuristicAllReducedAttacked[i][2];
-                        I[3] = HeuristicAllReducedAttacked[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
-                    }
-                }
-            }
-            else
-            {
-                if (HeuristicAllReducedAttackedMidel > 0 && HeuristicAllReducedAttackedMidel < HeuristicAllReducedAttacked.Count)
-                {
-                    for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                    for (int i = 0; i < HeuristicAllReducedAttacked.Count; i++)
                     {
                         if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
                         {
@@ -6449,8 +6467,27 @@ namespace QuantumRefrigiz
                         }
                     }
                 }
+                else
+                {
+                    if (HeuristicAllReducedAttackedMidel > 0 && HeuristicAllReducedAttackedMidel < HeuristicAllReducedAttacked.Count)
+                    {
+                        for (int i = HeuristicAllReducedAttackedMidel; i < HeuristicAllReducedAttacked.Count; i++)
+                        {
+                            if (HeuristicAllReducedAttacked[i][2] == Rows && HeuristicAllReducedAttacked[i][3] == Cols && HeuristicAllReducedAttacked[i][0] == Rowd && HeuristicAllReducedAttacked[i][1] == Cold)
+                            {
+                                int[] I = new int[5];
+                                I[0] = HeuristicAllReducedAttacked[i][0];
+                                I[1] = HeuristicAllReducedAttacked[i][1];
+                                I[2] = HeuristicAllReducedAttacked[i][2];
+                                I[3] = HeuristicAllReducedAttacked[i][3];
+                                I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                                Is.Add(I);
+                            }
+                        }
+                    }
+                }
+                return Is;
             }
-            return Is;
         }
         List<int[]> ListOfExistInReducedSupportList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
@@ -6494,29 +6531,13 @@ namespace QuantumRefrigiz
         }
         List<int[]> ListOfExistInSupportList(bool Before, int RowS, int ColS, int RowD, int ColD)
         {
-            List<int[]> Is = new List<int[]>();
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllSupport.Count; i++)
+                List<int[]> Is = new List<int[]>();
+                if (Before)
                 {
-                    if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
-                    {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllSupport[i][0];
-                        I[1] = HeuristicAllSupport[i][1];
-                        I[2] = HeuristicAllSupport[i][2];
-                        I[3] = HeuristicAllSupport[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
-                    }
-
-                }
-            }
-            else
-            {
-                if (HeuristicAllSupportMidel > 0 && HeuristicAllSupportMidel < HeuristicAllSupport.Count)
-                {
-                    for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                    for (int i = 0; i < HeuristicAllSupport.Count; i++)
                     {
                         if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
                         {
@@ -6528,37 +6549,41 @@ namespace QuantumRefrigiz
                             I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                             Is.Add(I);
                         }
+
                     }
                 }
+                else
+                {
+                    if (HeuristicAllSupportMidel > 0 && HeuristicAllSupportMidel < HeuristicAllSupport.Count)
+                    {
+                        for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                        {
+                            if (HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD && HeuristicAllSupport[i][0] == RowS && HeuristicAllSupport[i][1] == ColS)
+                            {
+                                int[] I = new int[5];
+                                I[0] = HeuristicAllSupport[i][0];
+                                I[1] = HeuristicAllSupport[i][1];
+                                I[2] = HeuristicAllSupport[i][2];
+                                I[3] = HeuristicAllSupport[i][3];
+                                I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                                Is.Add(I);
+                            }
+                        }
+                    }
+                }
+                return Is;
             }
-            return Is;
         }
 
         List<int[]> ListOfExistInAttackList(bool Before, int RowS, int ColS, int RowD, int ColD)
         {
-            List<int[]> Is = new List<int[]>();
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllAttacked.Count; i++)
+                List<int[]> Is = new List<int[]>();
+                if (Before)
                 {
-                    if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
-                    {
-                        int[] I = new int[5];
-                        I[0] = HeuristicAllAttacked[i][0];
-                        I[1] = HeuristicAllAttacked[i][1];
-                        I[2] = HeuristicAllAttacked[i][2];
-                        I[3] = HeuristicAllAttacked[i][3];
-                        I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
-                        Is.Add(I);
-                    }
-
-                }
-            }
-            else
-            {
-                if (HeuristicAllAttackedMidel > 0 && HeuristicAllAttackedMidel < HeuristicAllAttacked.Count)
-                {
-                    for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                    for (int i = 0; i < HeuristicAllAttacked.Count; i++)
                     {
                         if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
                         {
@@ -6570,139 +6595,179 @@ namespace QuantumRefrigiz
                             I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
                             Is.Add(I);
                         }
+
                     }
                 }
+                else
+                {
+                    if (HeuristicAllAttackedMidel > 0 && HeuristicAllAttackedMidel < HeuristicAllAttacked.Count)
+                    {
+                        for (int i = HeuristicAllAttackedMidel; i < HeuristicAllAttacked.Count; i++)
+                        {
+                            if (HeuristicAllAttacked[i][2] == RowD && HeuristicAllAttacked[i][3] == ColD && HeuristicAllAttacked[i][0] == RowS && HeuristicAllAttacked[i][1] == ColS)
+                            {
+                                int[] I = new int[5];
+                                I[0] = HeuristicAllAttacked[i][0];
+                                I[1] = HeuristicAllAttacked[i][1];
+                                I[2] = HeuristicAllAttacked[i][2];
+                                I[3] = HeuristicAllAttacked[i][3];
+                                I[4] = SignBeforNext(I[0], I[1], I[2], I[3]);
+                                Is.Add(I);
+                            }
+                        }
+                    }
+                }
+                return Is;
             }
-            return Is;
         }
         int NoOfExistInSupportList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
-            int Is = 0;
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllSupport.Count; i++)
+                int Is = 0;
+                if (Before)
                 {
-                    if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols && HeuristicAllSupport[i][2] == Rowd && HeuristicAllSupport[i][3] == Cold)
-                        Is++;
-
-                }
-            }
-            else
-            {
-                if (HeuristicAllSupportMidel > 0 && HeuristicAllSupportMidel < HeuristicAllSupport.Count)
-                {
-                    for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                    for (int i = 0; i < HeuristicAllSupport.Count; i++)
                     {
                         if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols && HeuristicAllSupport[i][2] == Rowd && HeuristicAllSupport[i][3] == Cold)
                             Is++;
 
                     }
                 }
+                else
+                {
+                    if (HeuristicAllSupportMidel > 0 && HeuristicAllSupportMidel < HeuristicAllSupport.Count)
+                    {
+                        for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                        {
+                            if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols && HeuristicAllSupport[i][2] == Rowd && HeuristicAllSupport[i][3] == Cold)
+                                Is++;
+
+                        }
+                    }
+                }
+                return Is;
             }
-            return Is;
         }
         int NoOfExistInReducedSupportList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
-            int Is = 0;
-            if (Before)
+            Object O = new Object();
+            lock (O)
             {
-                for (int i = 0; i < HeuristicAllReducedSupport.Count; i++)
+                int Is = 0;
+                if (Before)
                 {
-                    if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
-                        Is++;
-
-                }
-            }
-            else
-            {
-                if (HeuristicAllReducedSupportMidel > 0 && HeuristicAllReducedSupportMidel < HeuristicAllReducedSupport.Count)
-                {
-                    for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                    for (int i = 0; i < HeuristicAllReducedSupport.Count; i++)
                     {
                         if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
                             Is++;
 
                     }
                 }
+                else
+                {
+                    if (HeuristicAllReducedSupportMidel > 0 && HeuristicAllReducedSupportMidel < HeuristicAllReducedSupport.Count)
+                    {
+                        for (int i = HeuristicAllReducedSupportMidel; i < HeuristicAllReducedSupport.Count; i++)
+                        {
+                            if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
+                                Is++;
+
+                        }
+                    }
+                }
+                return Is;
             }
-            return Is;
         }
         int HeuristicPromotion(bool Before, int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
-            int HP = 0;
-            if (Order == 1)
+            Object O = new Object();
+            lock (O)
             {
-                if (Cod != 0)
-                    return HP;
-                if (TableConst[Ros, Cos] == 1 && Tab[Rod, Cod] > 0)
+                int HP = 0;
+                if (Order == 1)
                 {
-                    HP = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
+                    if (Cod != 0)
+                        return HP;
+                    if (TableConst[Ros, Cos] == 1 && Tab[Rod, Cod] > 0)
+                    {
+                        HP = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
+                    }
                 }
-            }
-            else
-            {
-                if (Cod != 7)
-                    return HP;
-                if (TableConst[Ros, Cos] == -1 && Tab[Rod, Cod] < 0)
+                else
                 {
-                    HP = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
+                    if (Cod != 7)
+                        return HP;
+                    if (TableConst[Ros, Cos] == -1 && Tab[Rod, Cod] < 0)
+                    {
+                        HP = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
+                    }
                 }
+                return HP;
             }
-            return HP;
         }
         int HeuristicElephantOpen(bool Before, int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
-            int HE = 0;
-            if (Order == 1)
+            Object O = new Object();
+            lock (O)
             {
-
-                if (TableConst[Ros, Cos] == 2 && Tab[Rod, Cod] <= 0)
+                int HE = 0;
+                if (Order == 1)
                 {
-                    HE = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
-                    if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
-                        HE *= NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos);
-                }
-            }
-            else
-            {
 
-                if (TableConst[Ros, Cos] == -2 && Tab[Rod, Cod] >= 0)
-                {
-                    HE = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
-                    if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
-                        HE *= NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos);
+                    if (TableConst[Ros, Cos] == 2 && Tab[Rod, Cod] <= 0)
+                    {
+                        HE = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
+                        if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
+                            HE *= NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos);
+                    }
                 }
+                else
+                {
+
+                    if (TableConst[Ros, Cos] == -2 && Tab[Rod, Cod] >= 0)
+                    {
+                        HE = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
+                        if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
+                            HE *= NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos);
+                    }
+                }
+                return HE;
             }
-            return HE;
         }
         int HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(bool Before, int[,] Tab, int Order, int Ros, int Cos, int Rod, int Cod)
         {
-            int HH = 0;
-            if (Order == 1)
+            Object O = new Object();
+            lock (O)
             {
-
-                if (TableConst[Ros, Cos] == 3 && Tab[Rod, Cod] <= 0)
+                int HH = 0;
+                if (Order == 1)
                 {
-                    //Base of weak hourse is where is Home strong.
-                    HH = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
-                    //Hourse close
-                    if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
-                        HH *= (64 - NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos));
-                }
-            }
-            else
-            {
 
-                if (TableConst[Ros, Cos] == -3 && Tab[Rod, Cod] >= 0)
-                {
-                    //Base of weak hourse is where is Home strong.
-                    HH = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
-                    //Hourse close
-                    if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
-                        HH *= (64 - NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos));
+                    if (TableConst[Ros, Cos] == 3 && Tab[Rod, Cod] <= 0)
+                    {
+                        //Base of weak hourse is where is Home strong.
+                        HH = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
+                        //Hourse close
+                        if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
+                            HH *= (64 - NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos));
+                    }
                 }
+                else
+                {
+
+                    if (TableConst[Ros, Cos] == -3 && Tab[Rod, Cod] >= 0)
+                    {
+                        //Base of weak hourse is where is Home strong.
+                        HH = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
+                        //Hourse close
+                        if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
+                            HH *= (64 - NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos));
+                    }
+                }
+                return HH;
             }
-            return HH;
         }
 
 
@@ -6744,6 +6809,7 @@ namespace QuantumRefrigiz
                                                 Object OO = new Object();
                                                 lock (OO)
                                                 {
+
                                                     if (Permit(Ord * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                     {
                                                         if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
@@ -6976,49 +7042,63 @@ namespace QuantumRefrigiz
         }
         bool IsObjectSourceLessThanDestination(int RowS, int ColS, int RowD, int ColD, int[,] TabS)
         {
-            bool Is = false;
-            if (TabS[RowS, ColS] < TabS[RowD, ColD])
-                Is = true;
-            return Is;
+            Object O = new Object();
+            lock (O)
+            {
+                bool Is = false;
+                if (TabS[RowS, ColS] < TabS[RowD, ColD])
+                    Is = true;
+                return Is;
+            }
 
         }
         int IsSupportLessThanReducedSupport(int Support, int ReducedSupport)
         {
-            if (Support == 0)
+            Object O = new Object();
+            lock (O)
+            {
+                if (Support == 0)
+                    return 0;
+
+                if (Support < ReducedSupport)
+                    return 1;
+                else
+                    if (Support > ReducedSupport)
+                    return -1;
                 return 0;
 
-            if (Support < ReducedSupport)
-                return 1;
-            else
-                if (Support > ReducedSupport)
-                return -1;
-            return 0;
-
+            }
         }
         int IsAttackLessThanReducedAttack(int Attack, int ReducedAttack)
         {
-            if (Attack == 0)
+            Object O = new Object();
+            lock (O)
+            {
+                if (Attack == 0)
+                    return 0;
+                if (Attack < ReducedAttack)
+                    return 1;
+                else
+                     if (Attack > ReducedAttack)
+                    return -1;
                 return 0;
-            if (Attack < ReducedAttack)
-                return 1;
-            else
-                 if (Attack > ReducedAttack)
-                return -1;
-            return 0;
+            }
         }
         int IsMoveLessThanReducedMove(int Move, int ReducedMove)
         {
-            if (Move == 0)
+            Object O = new Object();
+            lock (O)
+            {
+                if (Move == 0)
+                    return 0;
+                if (Move < ReducedMove)
+                    return 1;
+                else
+            if (Move > ReducedMove)
+                    return -1;
                 return 0;
-            if (Move < ReducedMove)
-                return 1;
-            else
-        if (Move > ReducedMove)
-                return -1;
-            return 0;
-
+            }
         }
-
         ///Heuristic of Movments.
         public int HeuristicMovment(bool Before, int[,] Table, Color aa, int Ord, int RowS, int ColS, int RowD, int ColD)
         {
