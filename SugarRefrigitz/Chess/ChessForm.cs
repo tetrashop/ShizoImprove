@@ -3458,6 +3458,7 @@ namespace Chess
                             }
                             else
                             {
+                                FOUND = false;
                                 if (Draw.IsAtLeastAllObjectIsNull())
                                 {
                                     Draw.TableList.Clear();
@@ -3473,7 +3474,7 @@ namespace Chess
                             //while (Draw.AStarGreedyString != null)
                             
                             FOUND = false;
-                            if (!First)
+                            if (!First && (RefrigtzDLL.AllDraw.TableListAction.Count > 2))
                             {
                                 Ord = OrderPlate * -1;
                                 AllDraw.OrderPlate = Ord;

@@ -15431,7 +15431,7 @@ namespace RefrigtzW
                     if (SolderesOnTable[ikk] == null)
                         return true;
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15450,7 +15450,7 @@ namespace RefrigtzW
                         return true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15472,7 +15472,7 @@ namespace RefrigtzW
                         return true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15494,7 +15494,7 @@ namespace RefrigtzW
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15514,7 +15514,7 @@ namespace RefrigtzW
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15534,7 +15534,7 @@ namespace RefrigtzW
                         return true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15557,7 +15557,7 @@ namespace RefrigtzW
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15582,7 +15582,7 @@ namespace RefrigtzW
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15608,7 +15608,7 @@ namespace RefrigtzW
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15632,7 +15632,7 @@ namespace RefrigtzW
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15654,7 +15654,7 @@ namespace RefrigtzW
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15676,7 +15676,7 @@ namespace RefrigtzW
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15724,7 +15724,7 @@ namespace RefrigtzW
                         IS = true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15777,7 +15777,7 @@ namespace RefrigtzW
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15831,7 +15831,7 @@ namespace RefrigtzW
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }

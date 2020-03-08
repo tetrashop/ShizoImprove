@@ -13491,7 +13491,7 @@ namespace RefrigtzDLL
                     if (SolderesOnTable[ikk] == null)
                         return true;
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13508,7 +13508,7 @@ namespace RefrigtzDLL
                     if (ElephantOnTable[ikk] == null)
                         return true;
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13526,7 +13526,7 @@ namespace RefrigtzDLL
                     if (HoursesOnTable[ikk] == null)
                         return true;
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13544,7 +13544,7 @@ namespace RefrigtzDLL
                         return true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13562,7 +13562,7 @@ namespace RefrigtzDLL
                         return true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13579,7 +13579,7 @@ namespace RefrigtzDLL
                     if (KingOnTable[ikk] == null)
                         return true;
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13599,7 +13599,7 @@ namespace RefrigtzDLL
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13619,7 +13619,7 @@ namespace RefrigtzDLL
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13639,7 +13639,7 @@ namespace RefrigtzDLL
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13659,7 +13659,7 @@ namespace RefrigtzDLL
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13678,7 +13678,7 @@ namespace RefrigtzDLL
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13697,7 +13697,7 @@ namespace RefrigtzDLL
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13737,7 +13737,7 @@ namespace RefrigtzDLL
                     if (((ThinkingChess.NumbersOfAllNode - AllDraw.NumberOfLeafComputation) > 100) && AllDraw.NumberOfLeafComputation != -1)
                         IS = true;
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13786,7 +13786,7 @@ namespace RefrigtzDLL
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -13835,7 +13835,7 @@ namespace RefrigtzDLL
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }

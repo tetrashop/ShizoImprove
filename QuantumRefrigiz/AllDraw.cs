@@ -15425,7 +15425,7 @@ namespace QuantumRefrigiz
                     if (SolderesOnTable[ikk] == null)
                         return true;
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15444,7 +15444,7 @@ namespace QuantumRefrigiz
                         return true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15466,7 +15466,7 @@ namespace QuantumRefrigiz
                         return true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15488,7 +15488,7 @@ namespace QuantumRefrigiz
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15508,7 +15508,7 @@ namespace QuantumRefrigiz
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15528,7 +15528,7 @@ namespace QuantumRefrigiz
                         return true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15551,7 +15551,7 @@ namespace QuantumRefrigiz
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15576,7 +15576,7 @@ namespace QuantumRefrigiz
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15602,7 +15602,7 @@ namespace QuantumRefrigiz
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15626,7 +15626,7 @@ namespace QuantumRefrigiz
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15648,7 +15648,7 @@ namespace QuantumRefrigiz
                     }
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15670,7 +15670,7 @@ namespace QuantumRefrigiz
                         IS = true;
                     }
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15718,7 +15718,7 @@ namespace QuantumRefrigiz
                         IS = true;
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15771,7 +15771,7 @@ namespace QuantumRefrigiz
 
 
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }
@@ -15825,7 +15825,7 @@ namespace QuantumRefrigiz
                    
                    
                 }
-                catch (Exception t) { Log(t); IS = true; }
+                catch (Exception t) { Log(t); }
                 return IS;
             }
         }

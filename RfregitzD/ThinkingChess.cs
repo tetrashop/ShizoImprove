@@ -13317,15 +13317,19 @@ namespace RefrigtzDLL
             int DD = 0;
 
             List<int[]> DDE = ListOfExistInAttackList(Before, RowS, ColS, RowD, ColD);
-            for (int i = 0; i < DDE.Count; i++)
-                DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
-            DD = (RationalRegard) * (DD);
+            if (DDE.Count > 1)
+            {
+                for (int i = 0; i < DDE.Count; i++)
+                    DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
+                DD = (RationalRegard) * (DD);
+            }
 
             return DD;
         }
         bool MidleIndex()
         {
             bool Is = true;
+
             if (HeuristicAllAttackedMidel != 0)
                 return false;
             if (HeuristicAllMoveMidel != 0)
@@ -13347,23 +13351,25 @@ namespace RefrigtzDLL
             int DD = 0;
 
             List<int[]> DDE = ListOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD);
-            for (int i = 0; i < DDE.Count; i++)
-                DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
-            DD = (RationalPenalty) * (DD);
-
+            if (DDE.Count > 1)
+            {
+                for (int i = 0; i < DDE.Count; i++)
+                    DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
+                DD = (RationalPenalty) * (DD);
+            }
             return DD;
         }
         public void CalculateHeuristics(bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-       , ref int HeuristicAttackValue
-           , ref int HeuristicMovementValue
-           , ref int HeuristicSelfSupportedValue
-           , ref int HeuristicReducedMovementValue
-          , ref int HeuristicReducedSupport
-           , ref int HeuristicReducedAttackValue
-           , ref int HeuristicDistributionValue
-       , ref int HeuristicKingSafe
-       , ref int HeuristicFromCenter
-       , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
+             , ref int HeuristicAttackValue
+                 , ref int HeuristicMovementValue
+                 , ref int HeuristicSelfSupportedValue
+                 , ref int HeuristicReducedMovementValue
+                , ref int HeuristicReducedSupport
+                 , ref int HeuristicReducedAttackValue
+                 , ref int HeuristicDistributionValue
+             , ref int HeuristicKingSafe
+             , ref int HeuristicFromCenter
+             , ref int HeuristicKingDangour, ref int HeuristicCheckedMate)
         {
 
             Object OO = new Object();
@@ -13439,6 +13445,11 @@ namespace RefrigtzDLL
                 HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 bool IsS = false;
+                if (HDoubleDefense < 0)
+                {
+                    SetSupHuTrue();
+                    IsS = true;
+                }
                 Object O1 = new Object();
                 lock (O1)
                 {
@@ -13463,6 +13474,7 @@ namespace RefrigtzDLL
 
                             //if (Before)
                             SetSupHuTrue();
+                            IsS = true;
                         }
                         if (!GoldenFinished)
                         {  //Disturbe on huge traversal exchange prevention 
@@ -13483,6 +13495,7 @@ namespace RefrigtzDLL
                             if (A && ((B) || (C)))
                             {
                                 SetSupHuTrue();
+                                IsS = true;
                             }
 
                             //Every objects one move at game begin
@@ -13496,7 +13509,11 @@ namespace RefrigtzDLL
                                         //((NoOfBoardMoved + Is >= Total) && 
                                         TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
                                 //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
-                                ) SetSupHuTrue();
+                                )
+                                {
+                                    IsS = true;
+                                    SetSupHuTrue();
+                                }
 
                             }
                             else
@@ -13506,7 +13523,10 @@ namespace RefrigtzDLL
                                         TableInitiationPreventionOfMultipleMove[RowS, ColS] >= NoOfMovableAllObjectMove
                                 //)&& A && TableS[RowS, ColS] < 0 && TableS[RowD, ColD] >= 0
                                 )
+                                {
+                                    IsS = true;
                                     SetSupHuTrue();
+                                }
                             }
                             //Empire more
                             if (A)
@@ -13520,6 +13540,8 @@ namespace RefrigtzDLL
                                     else
                                     if (DifOfNoOfSupporteAndReducedSupportGray < 64)
                                     {
+                                        IsS = true;
+
                                         SetSupHuTrue();
                                     }
                                 }
@@ -13532,6 +13554,7 @@ namespace RefrigtzDLL
                                     a = Color.Brown;
                                 if (((TableInitiation[1, 7] == TableS[1, 7] && TableS[1, 7] == 3) && TableInitiationPreventionOfMultipleMove[1, 7] == 0 && ObjectMovable(1, 7, TableS, Order, a)) || ((TableInitiation[6, 7] == TableS[6, 7] && TableS[6, 7] == 3) && TableInitiationPreventionOfMultipleMove[6, 7] == 0 && ObjectMovable(6, 7, TableS, Order, a)))
                                 {
+                                    IsS = true;
 
                                     SetSupHuTrue();
                                 }
@@ -13582,8 +13605,13 @@ namespace RefrigtzDLL
                             IsS = true;
                         }
                         else
-                              if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1])
-                            TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                        {
+                            if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && IsS)
+                            {
+                                TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
+                                IsS = false;
+                            }
+                        }
                         if (!GoldenFinished)
                         {   //Ignore of atack and checkedmate at first until all move
                             bool A = false, B = false, C = false;
@@ -13591,13 +13619,13 @@ namespace RefrigtzDLL
                             {
                                 A = ColleralationGray < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);// || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             else
                             {
                                 A = ColleralationBrown < 30;
                                 B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
-                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);// || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                             }
                             if (A && ((B) || (C)))
                             {
@@ -13680,13 +13708,15 @@ namespace RefrigtzDLL
 
                             if (IsNo != null)
                             {
-                                if (IsNo[1] < HeuristicAllReducedSupport.Count)
+
+                                if (IsNo[1] < HeuristicAllReducedSupport.Count && IsNo[1] >= HeuristicAllReducedSupportMidel)
                                 {
                                     if (NoOfExistInAttackList(Before, RowS, ColS, HeuristicAllReducedSupport[IsNo[1]][0], HeuristicAllReducedSupport[IsNo[1]][1]) > 0)
                                         ClearSupHuTrue();
                                 }
-
                             }
+
+
                             if (!IsS)
                                 ClearSupHuTrue();
 
@@ -13699,6 +13729,7 @@ namespace RefrigtzDLL
 
         }
         int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
+
         {
             int[] IsNo = FindMostHeuristicAllReducedSupportIsCurrent(Before, RowS, ColS);
 
@@ -13813,7 +13844,7 @@ namespace RefrigtzDLL
                         {
                             for (int j = 0; j < 8; j++)
                             {
-                                if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
+                                if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order) && ((TableInitiationPreventionOfMultipleMove[Row, Col] == 0 && TableInitiation[Row, Col] == Tab[Row, Col])))
                                 {
                                     int[] ij = new int[2];
                                     ij[0] = Row;
@@ -13837,7 +13868,7 @@ namespace RefrigtzDLL
                         {
                             for (int j = 0; j < 8; j++)
                             {
-                                if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order))
+                                if (Movable(CloneATable(Tab), Row, Col, i, j, a, Order) && ((TableInitiationPreventionOfMultipleMove[Row, Col] == 0 && TableInitiation[Row, Col] == Tab[Row, Col])))
                                 {
                                     int[] ij = new int[2];
                                     ij[0] = Row;
