@@ -6566,11 +6566,11 @@ namespace QuantumRefrigiz
                         for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
                         {
                             SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                            SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                            SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
                         }
 
                         for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                            SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                            SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
                     }
                     else
@@ -6598,9 +6598,9 @@ namespace QuantumRefrigiz
                                 SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
                             for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                                SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                                SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
                         }
                         else if (Is == 3)//when deeper is suitable and  computational not
@@ -6628,10 +6628,10 @@ namespace QuantumRefrigiz
                                 for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
                                 {
                                     SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                                    SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                                    SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
                                 }
                                 for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                                    SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                                    SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             }
 
                         }
@@ -6732,10 +6732,10 @@ namespace QuantumRefrigiz
                         for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
                         {
                             ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                            ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                            ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
                         }
                         for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                            ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                            ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     else
                     {
@@ -6762,9 +6762,9 @@ namespace QuantumRefrigiz
                             }
 
                             for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                                ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                                ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
                         }
                         else if (Is == 3)//when is suitable for deeper
@@ -6791,11 +6791,11 @@ namespace QuantumRefrigiz
                                 for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
                                 {
                                     ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                                    ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                                    ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
                                 }
 
                                 for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                                    ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                                    ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             }
 
                         }
@@ -6878,11 +6878,11 @@ namespace QuantumRefrigiz
                         for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
                         {
                             HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                            HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                            HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
                         }
 
                         for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                            HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                            HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     else
                     {
@@ -6909,9 +6909,9 @@ namespace QuantumRefrigiz
                             }
 
                             for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                                HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                                HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
                         }
                         else if (Is == 3)//when is suitable for deeper
@@ -6938,10 +6938,10 @@ namespace QuantumRefrigiz
                                 for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
                                 {
                                     HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                                    HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                                    HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
                                 }
                                 for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                                    HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                                    HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             }
 
                         }
@@ -7028,11 +7028,11 @@ namespace QuantumRefrigiz
                         for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
                         {
                             CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                            CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                            CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
                         }
 
                         for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                            CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                            CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     else
                     {
@@ -7061,9 +7061,9 @@ namespace QuantumRefrigiz
                             }
 
                             for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                                CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                                CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
                         }
                         else if (Is == 3)  //when is suitable for leafer 
@@ -7089,10 +7089,10 @@ namespace QuantumRefrigiz
                                 for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
                                 {
                                     CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                                    CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                                    CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
                                 }
                                 for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                                    CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                                    CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             }
 
                         }
@@ -7180,10 +7180,10 @@ namespace QuantumRefrigiz
                         for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
                         {
                             MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                            MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                            MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
                         }
                         for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                            MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                            MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     else
                     {
@@ -7211,9 +7211,9 @@ namespace QuantumRefrigiz
                             }
 
                             for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                                MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                                MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
                         }
                         else if (Is == 3)//when is suitable for deeper
@@ -7236,11 +7236,11 @@ namespace QuantumRefrigiz
                             for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
                             {
                                 MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                                MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                                MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             }
 
                             for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                                MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                                MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
 
                         }
@@ -7326,10 +7326,10 @@ namespace QuantumRefrigiz
                         for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
                         {
                             KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                            KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                            KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
                         }
                         for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                            KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                            KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     else
                     {
@@ -7357,9 +7357,9 @@ namespace QuantumRefrigiz
                             }
 
                             for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                                KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                                KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
 
                         }
@@ -7388,10 +7388,10 @@ namespace QuantumRefrigiz
                                 for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
                                 {
                                     KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h].AStarGreedyString = this;
-                                    KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                                    KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
                                 }
                                 for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                                    KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                                    KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
                             }
 
                         }
@@ -19159,10 +19159,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             }
             //non learning autamata victory leafs
             for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
             //non learning autamata victom leafs
             for (int h = 0; h < SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
             return Do;
             //Elephant
@@ -19384,10 +19384,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             }
             //non learning autamata victory leafs
             for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
             //non learning autamata victom leafs
             for (int h = 0; h < ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
             return Do;
         }
@@ -19616,10 +19616,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             }
             //non learning autamata victory leafs
             for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
             //non learning autamata victom leafs
             for (int h = 0; h < HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
             return Do;
         }
@@ -19844,9 +19844,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             }
             //non learning autamata victory leafs
             for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
             for (int h = 0; h < CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
             return Do;
         }
@@ -20078,10 +20078,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             }
             //non learning autamata victory leafs
             for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
             //non learning autamata victom leafs
             for (int h = 0; h < MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
             return Do;
         }
@@ -20307,10 +20307,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             }
             //non learning autamata victory leafs
             for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
             //non learning autamata victom leafs
             for (int h = 0; h < KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
             return Do;
         }
@@ -22943,12 +22943,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (SolderesOnTable[i].WinOcuuredatChiled == 0)
                     {    //non learning autamata victory leafs
                         for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                            SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                            SolderesOnTable[i].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     if (SolderesOnTable[i].LoseOcuuredatChiled == 0)
                     {   //non learning autamata victom leafs
                         for (int h = 0; h < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null; h++)
-                            SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order);
+                            SolderesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                 }
 
@@ -22973,12 +22973,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (ElephantOnTable[i].WinOcuuredatChiled == 0)
                     {    //non learning autamata victory leafs
                         for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                            ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                            ElephantOnTable[i].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     if (ElephantOnTable[i].LoseOcuuredatChiled == 0)
                     {   //non learning autamata victom leafs
                         for (int h = 0; h < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null; h++)
-                            ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order);
+                            ElephantOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[h], Order * -1);
 
                     }
                 }
@@ -23002,12 +23002,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                     {   //non learning autamata victory leafs
                         for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                            HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                            HoursesOnTable[i].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     if (HoursesOnTable[i].LoseOcuuredatChiled == 0)
                     {   //non learning autamata victom leafs
                         for (int h = 0; h < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null; h++)
-                            HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order);
+                            HoursesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                 }
 
@@ -23033,12 +23033,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (CastlesOnTable[i].WinOcuuredatChiled == 0)
                     { //non learning autamata victory leafs
                         for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                            CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                            CastlesOnTable[i].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     if (CastlesOnTable[i].LoseOcuuredatChiled == 0)
                     {
                         for (int h = 0; h < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null; h++)
-                            CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order);
+                            CastlesOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                 }
 
@@ -23061,12 +23061,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (MinisterOnTable[i].WinOcuuredatChiled == 0)
                     {  //non learning autamata victory leafs
                         for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                            MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                            MinisterOnTable[i].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     if (MinisterOnTable[i].LoseOcuuredatChiled == 0)
                     {   //non learning autamata victom leafs
                         for (int h = 0; h < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null; h++)
-                            MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order);
+                            MinisterOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                 }
 
@@ -23090,12 +23090,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     {
                         //non learning autamata victory leafs
                         for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                            KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                            KingOnTable[i].WinOcuuredatChiled += SumOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                     if (KingOnTable[i].LoseOcuuredatChiled == 0)
                     {   //non learning autamata victom leafs
                         for (int h = 0; h < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null; h++)
-                            KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order);
+                            KingOnTable[i].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[h], Order * -1);
                     }
                 }
 
