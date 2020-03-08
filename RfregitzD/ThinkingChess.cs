@@ -10610,7 +10610,7 @@ namespace RefrigtzDLL
                         RETURN = true;
                         AddAtList(kind, Current);
 
-                        return;
+                        //return;
 
                     }
                     //Consideration to go to Check.  
@@ -10627,9 +10627,12 @@ namespace RefrigtzDLL
                                 FoundFirstMating++;
                                 if (LoseOcuuredatChiled == 0)
                                     WinOcuuredatChiled = 2;
-                                Current.LearningAlgorithmRegard();
-                                RemoveAtList(kind);
-                                AddAtList(kind, Current);
+                                if (!(!UsePenaltyRegardMechnisamT || (GoldenFinished)))
+                                {
+                                    Current.LearningAlgorithmRegard();
+                                    RemoveAtList(kind);
+                                    AddAtList(kind, Current);
+                                }
                                 CheckedM = 3;
 
                                 RETURN = true; return;
@@ -10648,9 +10651,12 @@ namespace RefrigtzDLL
                                 FoundFirstMating++;
                                 if (LoseOcuuredatChiled == 0)
                                     WinOcuuredatChiled = 2;
-                                RemoveAtList(kind);
-                                Current.LearningAlgorithmRegard();
-                                AddAtList(kind, Current);
+                                if (!(!UsePenaltyRegardMechnisamT || (GoldenFinished)))
+                                {
+                                    RemoveAtList(kind);
+                                    Current.LearningAlgorithmRegard();
+                                    AddAtList(kind, Current);
+                                }
                                 CheckedM = 3;
 
                                 RETURN = true; return;
@@ -10667,9 +10673,12 @@ namespace RefrigtzDLL
                                 FoundFirstSelfMating++;
                                 if (WinOcuuredatChiled == 0)
                                     LoseOcuuredatChiled = -2;
-                                Current.LearningAlgorithmPenalty();
-                                RemoveAtList(kind);
-                                AddAtList(kind, Current);
+                                if (!(!UsePenaltyRegardMechnisamT || (GoldenFinished)))
+                                {
+                                    Current.LearningAlgorithmPenalty();
+                                    RemoveAtList(kind);
+                                    AddAtList(kind, Current);
+                                }
                                 CheckedM = 3;
 
                                 RETURN = true; return;
@@ -10687,9 +10696,13 @@ namespace RefrigtzDLL
                                 FoundFirstSelfMating++;
                                 if (WinOcuuredatChiled == 0)
                                     LoseOcuuredatChiled = -2;
-                                RemoveAtList(kind);
-                                Current.LearningAlgorithmPenalty();
-                                AddAtList(kind, Current);
+                                if (!(!UsePenaltyRegardMechnisamT || (GoldenFinished)))
+                                {
+                                    RemoveAtList(kind);
+                                    Current.LearningAlgorithmPenalty();
+                                    AddAtList(kind, Current);
+                                }
+
                                 CheckedM = 3;
 
                                 RETURN = true; return;
