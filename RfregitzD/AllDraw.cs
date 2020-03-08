@@ -14148,15 +14148,18 @@ namespace RefrigtzDLL
         }
         //computational initiation
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
-            )
+           )
         {
+
 
             OrderP = Order;
             SetObjectNumbers(Tab);
+
             int[,] Table = new int[8, 8];
             for (var iii = 0; iii < 8; iii++)
                 for (var jjj = 0; jjj < 8; jjj++)
                     Table[iii, jjj] = Tab[iii, jjj];
+
             Object oo = new Object();
             lock (oo)
             {
@@ -14177,6 +14180,7 @@ namespace RefrigtzDLL
             else
                 a = Color.Brown;
             var j = 0;
+
             //Fairness conditions for perposive astar greedy search.
             Object Omm = new Object();
             lock (Omm)
@@ -14185,9 +14189,12 @@ namespace RefrigtzDLL
                 lock (OOOO)
                 {
 
+
+
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return null;
+
                     if (LeafSemaphoreIndex)
                         LeafAStarGreedy++;
                     iAStarGreedy--;
@@ -14202,11 +14209,14 @@ namespace RefrigtzDLL
                 DepthIterative++;
                 lock (O)
                 {
+
                 }
             }
 
+
             if (tH == null)
                 tH = new List<Task>();
+
 
             if (!FOUND)
             {
@@ -14215,19 +14225,28 @@ namespace RefrigtzDLL
                 lock (o)
                 {
 
+
                     var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinking(iAStarGreedy, ii, jj, a, Tab, Order, TB, FOUND, LeafAStarGreedy));
+
 
                     array1.Wait();
                     array1.Dispose();
 
+
                 }
+
+
 
             }
             Order = DummyOrder;
             ChessRules.CurrentOrder = DummyCurrentOrder;
+
             var array = Task.Factory.StartNew(() => Serve(Order));
+
             array.Wait();
             array.Dispose();
+
+
 
 
             if (FOUND)
@@ -14241,8 +14260,11 @@ namespace RefrigtzDLL
                     int OrderLeaf = Order;
                     var array1 = Task.Factory.StartNew(() => FoundOfLeafDepenOfKind(ref Leaf, ref FOUND, Order, ref OrderLeaf, 0, 0, 0, 0));
 
+
+
                     array1.Wait();
                     array1.Dispose();
+
                 }
             }
             else
@@ -14256,15 +14278,25 @@ namespace RefrigtzDLL
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
+
                         var array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
+
+
+
 
                         array1.Wait();
                         array1.Dispose();
+
+                        var array11 = Task.Factory.StartNew(() => FullGameThinkingTreeWinLose(Order));
+                        array11.Wait();
+                        array11.Dispose();
+
 
 
                     }
                 }
             }
+
             Object Om = new Object();
             lock (Om)
             {
@@ -14272,9 +14304,13 @@ namespace RefrigtzDLL
                     if (iAStarGreedy < MinThinkingTreeDepth)
                         MinThinkingTreeDepth = iAStarGreedy;
             }
+
             tH.Clear();
 
+
+
             return this;
+
         }
         //computational second object
         public AllDraw InitiateAStarGreedytObject(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
@@ -16755,25 +16791,185 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
             }
         }
+        public void FullGameThinkingTreeWinLose(int Order)
+        {
+            if (Order == 1)
+            {
+                for (int ik = 0; ik < SodierMidle; ik++)
+                {
+                    if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null
+                                )
+                    {   //non learning autamata victory leafs
+                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                            SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                            SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+                for (int ik = 0; ik < ElefantMidle; ik++)
+                {
+                    if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null
+                              )
+                    {      //non learning autamata victory leafs
+                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                            ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order * -1);
+
+                    }
+                }
+                for (int ik = 0; ik < HourseMidle; ik++)
+                {
+                    if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null
+                  )
+                    {     //non learning autamata victory leafs
+                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                            HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                            HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+                for (int ik = 0; ik < CastleMidle; ik++)
+                {
+                    if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null
+           )
+                    {      //non learning autamata victory leafs
+                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                            CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order * -1);
+                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                            CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+                for (int ik = 0; ik < MinisterMidle; ik++)
+                {
+                    if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null
+           )
+                    {      //non learning autamata victory leafs
+                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                            MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                            MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+                for (int ik = 0; ik < KingMidle; ik++)
+                {
+                    if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null
+)
+                    {    //non learning autamata victory leafs
+                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                            KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                            KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+            }
+            else
+            {
+                for (int ik = SodierMidle; ik < SodierHigh; ik++)
+                {
+                    if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null
+                         )
+                    {   //non learning autamata victory leafs
+                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                            SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
+                            SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+                for (int ik = ElefantMidle; ik < ElefantMidle; ik++)
+                {
+                    if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null
+                          )
+                    {      //non learning autamata victory leafs
+                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                            ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
+                            ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order * -1);
+
+                    }
+                }
+                for (int ik = HourseMidle; ik < HourseHight; ik++)
+                {
+                    if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null
+              )
+                    {     //non learning autamata victory leafs
+                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                            HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
+                            HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+                for (int ik = CastleMidle; ik < CastleHigh; ik++)
+                {
+                    if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null
+       )
+                    {      //non learning autamata victory leafs
+                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                            CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order * -1);
+                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
+                            CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+                for (int ik = KingMidle; ik < KingHigh; ik++)
+                {
+                    if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null
+       )
+                    {      //non learning autamata victory leafs
+                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                            MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
+                            MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+                for (int ik = 0; ik < KingMidle; ik++)
+                {
+                    if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null
+)
+                    {    //non learning autamata victory leafs
+                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                            KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order * -1);
+                        //non learning autamata victom leafs
+                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
+                            KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order * -1);
+                    }
+                }
+            }
+        }
         //deeper for soldier
         bool FullGameThinkingTreeSoldier(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 1))
                     return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 1));
+
                 array.Wait(); array.Dispose();
+
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
+
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return false;
+
                 }
+
                 //Parallel.For(0, SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count, j =>
                 //operational computation secxistence
                 for (var j = 0; j < SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count; j++)
@@ -16783,9 +16979,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
+
                     }
                     Object ooo = new Object();
                     lock (ooo)
@@ -16833,6 +17031,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 1);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
@@ -16843,10 +17042,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count > 0)
                                 {
                                     Object O = new Object();
+
                                     lock (O)
                                     {
                                         //do deeper
                                         OpOfFullGameThinkingTree(ik, j, Order, iAStarGreedy, ii, jj, a, 1, FOUND, LeafAStarGreedy);
+
                                         Do = true;
                                     }
                                 }
@@ -16856,8 +17057,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 1, false, j)
+
                             )
                             {
+
                                 //when do permite
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
@@ -16899,43 +17102,45 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count > 0)
                                 {
                                     Object O = new Object();
+
                                     lock (O)
                                     {
                                         //do deeper
                                         OpOfFullGameThinkingTree(ik, j, Order, iAStarGreedy, ii, jj, a, 1, FOUND, LeafAStarGreedy);
+
                                         Do = true;
                                     }
                                 }
 
+
                             }
                         }
+
                     }
                 }
+
                 Object O2 = new Object();
                 lock (O2)
                 {
                     TaskEnd++;
                 }
             }
-            //non learning autamata victory leafs
-            for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
-                SolderesOnTable[ik].WinOcuuredatChiled += SumOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order * -1);
-            //non learning autamata victom leafs
-            for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
-                SolderesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h], Order * -1);
             return Do;
             //Elephant
         }
         //collection objects calling full game specific game 
         bool FullGameThinkingTreeSoldierGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
                 ThinkingAllowed[0] = true;
 
+
                 Parallel.For(0, SodierMidle, ik =>
+
                 {
                     if (SolderesOnTable != null && SolderesOnTable[ik] != null && SolderesOnTable[ik].SoldierThinking != null && SolderesOnTable[ik].SoldierThinking[0] != null
                         )
@@ -16946,32 +17151,42 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeSoldier(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
                             array.Wait(); array.Dispose();
 
+
                         }
                     }
                 });
             }
+
             return Do;
         }
         bool FullGameThinkingTreeElephant(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
+
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 2))
                     return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 2));
                 array.Wait(); array.Dispose();
+
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
+
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return false;
 
+
+
                 }
+
                 ////Parallel.For(0, ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count, j =>
                 //operational computation secxistence
                 for (var j = 0; j < ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count; j++)
@@ -16979,11 +17194,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+
                         if (IsSupHuTrue(ik, j, 0, 2))
                             continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
+
                     }
                     Object ooo = new Object();
                     lock (ooo)
@@ -16991,9 +17208,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         //when node have kings dangoures ignore and continue.
                         if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
                             continue;
+
                         //sereved continuce
                         if (ElephantOnTable[ik].ElefantThinking[0].IsSupHu[j])
                             continue;
+
                         //self do
                         if (AllDraw.OrderPlate == Order)
                         {
@@ -17001,12 +17220,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 2, true, j)
                             )
                             {
+
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
                                 {
                                     //when do permite
                                     if (Index[1] != -1)
                                     {
+
                                         //object kind semaphore
                                         if (ik != Index[1])
                                         {
@@ -17031,11 +17252,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
                                     FullGameThinkingTreeInitialization(ik, j, Order, 2);
+
                                     //when deeper is valid
                                     if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count > 0)
                                     {
@@ -17054,14 +17277,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 2, false, j)
+
                             )
                             {
+
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
                                 {
                                     //when do permite
                                     if (Index[1] != -1)
                                     {
+
                                         //object kind semaphore
                                         if (ik != Index[1])
                                         {
@@ -17086,11 +17312,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 2);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
                                     FullGameThinkingTreeInitialization(ik, j, Order, 2);
+
                                     //when deeper is valid
                                     if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count > 0)
                                     {
@@ -17102,11 +17330,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             Do = true;
                                         }
                                     }
+
                                 }
                             }
                         }
+
                     }
                 }
+
 
                 Object O2 = new Object();
                 lock (O2)
@@ -17114,24 +17345,23 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            //non learning autamata victory leafs
-            for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
-                ElephantOnTable[ik].WinOcuuredatChiled += SumOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order * -1);
-            //non learning autamata victom leafs
-            for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
-                ElephantOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h], Order * -1);
+
             return Do;
         }
         //collection objects calling full game specific game 
         bool FullGameThinkingTreeElephantGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
                 ThinkingAllowed[1] = true;
+
                 //Elephant
+
                 Parallel.For(0, ElefantMidle, ik =>
+
                 {
                     if (ElephantOnTable != null && ElephantOnTable[ik] != null && ElephantOnTable[ik].ElefantThinking != null && ElephantOnTable[ik].ElefantThinking[0] != null
                         )
@@ -17145,10 +17375,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 });
             }
+
             return Do;
         }
         bool FullGameThinkingTreeHourse(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
 
             bool Do = false;
             Object O1 = new Object();
@@ -17156,19 +17388,24 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 3))
                     return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 3));
                 array.Wait(); array.Dispose();
+
 
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
 
+
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return false;
 
+
                 }
+
                 ////Parallel.For(0, HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count, j =>
                 //operational computation secxistence
                 for (var j = 0; j < HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count; j++)
@@ -17176,11 +17413,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+
                         if (IsSupHuTrue(ik, j, 0, 3))
                             continue;
+
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
+
                     }
                     Object ooo = new Object();
                     lock (ooo)
@@ -17188,9 +17428,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         //when node have kings dangoures ignore and continue.
                         if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
                             continue;
+
                         //sereved continuce
                         if (HoursesOnTable[ik].HourseThinking[0].IsSupHu[j])
                             continue;
+
 
                         //self do
                         if (AllDraw.OrderPlate == Order)
@@ -17199,12 +17441,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 3, true, j)
                             )
                             {
+
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
                                 {
                                     //when do permite
                                     if (Index[2] != -1)
                                     {
+
                                         //object kind semaphore
                                         if (ik != Index[2])
                                         {
@@ -17230,11 +17474,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
 
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     FullGameThinkingTreeInitialization(ik, j, Order, 3);
                                 }
+
 
                                 if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count > 0)
                                 {
@@ -17246,19 +17492,23 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         Do = true;
                                     }
                                 }
+
                             }
                             else
                             {
                                 //when certification for continued of code satisfied
                                 if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 3, false, j)
+
                                 )
                                 {
+
                                     //when blitz game (limited game)
                                     if (AllDraw.Blitz)
                                     {
                                         //when do permite
                                         if (Index[2] != -1)
                                         {
+
                                             //object kind semaphore
                                             if (ik != Index[2])
                                             {
@@ -17284,12 +17534,15 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     else
                                         BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 3);
 
+
+
                                     Object O3 = new Object();
                                     lock (O3)
                                     {
                                         //initiate for satisfied full game primary conditions
                                         FullGameThinkingTreeInitialization(ik, j, Order, 3);
                                     }
+
 
                                     //when deeper is valid
                                     if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count > 0)
@@ -17302,11 +17555,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             Do = true;
                                         }
                                     }
+
                                 }
                             }
                         }
+
                     }
                 }
+
 
                 Object O2 = new Object();
                 lock (O2)
@@ -17314,24 +17570,23 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            //non learning autamata victory leafs
-            for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
-                HoursesOnTable[ik].WinOcuuredatChiled += SumOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order * -1);
-            //non learning autamata victom leafs
-            for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
-                HoursesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h], Order * -1);
+
             return Do;
         }
         //collection objects calling full game specific game 
         bool FullGameThinkingTreeHourseGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
                 ThinkingAllowed[2] = true;
+
                 //Hourse.
+
                 Parallel.For(0, HourseMidle, ik =>
+
                 {
                     if (HoursesOnTable != null && HoursesOnTable[ik] != null && HoursesOnTable[ik].HourseThinking != null && HoursesOnTable[ik].HourseThinking[0] != null
                         )
@@ -17342,14 +17597,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeHourse(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
                             array.Wait(); array.Dispose();
 
+
                         }
                     }
                 });
             }
+
             return Do;
         }
         bool FullGameThinkingTreeCastle(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
 
             bool Do = false;
             Object O1 = new Object();
@@ -17357,18 +17615,23 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 4))
                     return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 4));
                 array.Wait(); array.Dispose();
+
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
+
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return false;
 
+
                 }
+
                 ////Parallel.For(0, CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count, j =>
                 //operational computation secxistence
                 for (var j = 0; j < CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count; j++)
@@ -17378,19 +17641,23 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
+
                     }
                     //when node have kings dangoures ignore and continue.
                     if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
                         continue;
+
                     //sereved continuce
                     if (CastlesOnTable[ik].CastleThinking[0].IsSupHu[j])
                         continue;
                     Object ooo = new Object();
                     lock (ooo)
                     {
+
                         //self do
                         if (AllDraw.OrderPlate == Order)
                         {
@@ -17398,6 +17665,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 4, true, j)
                             )
                             {
+
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
                                 {
@@ -17428,12 +17696,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
                                     FullGameThinkingTreeInitialization(ik, j, Order, 4);
                                 }
+
 
                                 //when deeper is valid
                                 if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count > 0)
@@ -17452,8 +17722,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 4, false, j)
+
                             )
                             {
+
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
                                 {
@@ -17484,12 +17756,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 4);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
                                     FullGameThinkingTreeInitialization(ik, j, Order, 4);
                                 }
+
 
                                 //when deeper is valid
                                 if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count > 0)
@@ -17502,33 +17776,36 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         Do = true;
                                     }
                                 }
+
                             }
                         }
+
                     }
                 }
+
                 Object O2 = new Object();
                 lock (O2)
                 {
                     TaskEnd++;
                 }
             }
-            //non learning autamata victory leafs
-            for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
-                CastlesOnTable[ik].WinOcuuredatChiled += SumOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order * -1);
-            for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
-                CastlesOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h], Order * -1);
+
             return Do;
         }
         //collection objects calling full game specific game 
         bool FullGameThinkingTreeCastleGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
                 ThinkingAllowed[3] = true;
+
                 //Castle.
+
                 Parallel.For(0, CastleMidle, ik =>
+
                 {
                     if (CastlesOnTable != null && CastlesOnTable[ik] != null && CastlesOnTable[ik].CastleThinking != null && CastlesOnTable[ik].CastleThinking[0] != null
                         )
@@ -17539,33 +17816,42 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeCastle(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
                             array.Wait(); array.Dispose();
 
+
                         }
                     }
                 });
             }
+
             return Do;
         }
         bool FullGameThinkingTreeMinister(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 5))
                     return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 5));
                 array.Wait(); array.Dispose();
+
 
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
 
+
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return false;
 
+
+
                 }
+
                 ////Parallel.For(0, MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count, j =>
                 //operational computation secxistence
                 for (var j = 0; j < MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count; j++)
@@ -17573,11 +17859,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+
                         if (IsSupHuTrue(ik, j, 0, 5))
                             continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
+
                     }
                     Object ooo = new Object();
                     lock (ooo)
@@ -17585,9 +17873,12 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         //when node have kings dangoures ignore and continue.
                         if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
                             continue;
+
                         //sereved continuce
                         if (MinisterOnTable[ik].MinisterThinking[0].IsSupHu[j])
                             continue;
+
+
 
 
                         //self do
@@ -17597,6 +17888,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 5, true, j)
                             )
                             {
+
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
                                 {
@@ -17612,6 +17904,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         }
                                         else
                                              if (j != jindex[4])
+
                                         {
                                             //satisfied of created deeper tow
                                             BlitzNotValidFullGameThinkingTreePartTow(ik, Order, 5);
@@ -17627,12 +17920,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
                                     FullGameThinkingTreeInitialization(ik, j, Order, 5);
                                 }
+
 
                                 //when deeper is valid
                                 if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count > 0)
@@ -17643,7 +17938,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         //do deeper
                                         OpOfFullGameThinkingTree(ik, j, Order, iAStarGreedy, ii, jj, a, 5, FOUND, LeafAStarGreedy);
                                         Do = true;
+
                                     }
+
                                 }
                             }
                         }
@@ -17651,8 +17948,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 5, false, j)
+
                             )
                             {
+
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
                                 {
@@ -17668,6 +17967,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         }
                                         else
                                              if (j != jindex[4])
+
                                         {
                                             //satisfied of created deeper tow
                                             BlitzNotValidFullGameThinkingTreePartTow(ik, Order, 5);
@@ -17683,12 +17983,14 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 5);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
                                     FullGameThinkingTreeInitialization(ik, j, Order, 5);
                                 }
+
 
                                 if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count > 0)
                                 {
@@ -17698,12 +18000,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         //do deeper
                                         OpOfFullGameThinkingTree(ik, j, Order, iAStarGreedy, ii, jj, a, 5, FOUND, LeafAStarGreedy);
                                         Do = true;
+
                                     }
+
                                 }
+
                             }
                         }
+
                     }
                 }
+
 
                 Object O2 = new Object();
                 lock (O2)
@@ -17711,24 +18018,23 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            //non learning autamata victory leafs
-            for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
-                MinisterOnTable[ik].WinOcuuredatChiled += SumOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order * -1);
-            //non learning autamata victom leafs
-            for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
-                MinisterOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h], Order * -1);
+
             return Do;
         }
         //collection objects calling full game specific game 
         bool FullGameThinkingTreeMinisterGray(Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
                 ThinkingAllowed[4] = true;
+
                 //Minister.
+
                 Parallel.For(0, MinisterMidle, ik =>
+
                 {
                     if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null
                         )
@@ -17739,34 +18045,43 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             var array = Task.Factory.StartNew(() => Do = FullGameThinkingTreeMinister(ik, a, Order, iAStarGreedy, ii, jj, ik1, j1, FOUND, LeafAStarGreedy));
                             array.Wait(); array.Dispose();
 
+
                         }
                     }
                 });
             }
+
             return Do;
         }
         bool FullGameThinkingTreeKing(int ik, Color a, int Order, int iAStarGreedy, int ii, int jj, int ik1, int j1, bool FOUND, int LeafAStarGreedy)
         {
+
             bool Do = false;
             Object O1 = new Object();
             lock (O1)
             {
                 if (ReturnFullGameThinkingTreeIligalSemaphore(ik, 6))
                     return false;
+
                 //semaphore
                 var array = Task.Factory.StartNew(() => ReturnFullGameThinkingTreeSemaphoreAs(Order, iAStarGreedy, ik, 6));
                 array.Wait(); array.Dispose();
 
+
                 Object OOOO = new Object();
                 lock (OOOO)
                 {
+
 
                     //when search finished stop and return
                     if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                         return false;
 
 
+
+
                 }
+
                 if (KingOnTable[ik].KingThinking[0].TableListKing.Count == 0)
                     return Do;
                 // //Parallel.For(0, KingOnTable[ik].KingThinking[0].TableListKing.Count, j =>
@@ -17776,11 +18091,13 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Object OOOOO = new Object();
                     lock (OOOOO)
                     {
+
                         if (IsSupHuTrue(ik, j, 0, 6))
                             continue;
                         //when search finished stop and return
                         if (FullBoundryConditions(CurrentAStarGredyMax, Order, iAStarGreedy))
                             return false;
+
                     }
                     Object ooo = new Object();
                     lock (ooo)
@@ -17788,9 +18105,11 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         //when node have kings dangoures ignore and continue.
                         if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
                             continue;
+
                         //sereved continuce
                         if (KingOnTable[ik].KingThinking[0].IsSupHu[j])
                             continue;
+
                         //when is self
                         if (AllDraw.OrderPlate == Order)
                         {
@@ -17801,6 +18120,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 //when blitz game (limited game)
                                 if (AllDraw.Blitz)
                                 {
+
                                     //when do permite
                                     if (Index[5] != -1)
                                     {
@@ -17825,15 +18145,18 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         BlitzNotValidFullGameThinkingTreePartThree(ik, Order, 6);
                                         continue;
                                     }
+
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
                                     FullGameThinkingTreeInitialization(ik, j, Order, 6);
                                 }
+
 
                                 //when deeper is valid
                                 if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count > 0)
@@ -17852,6 +18175,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingTree(ik, 6, false, j)
+
                             )
                             {
                                 //when blitz game (limited game)
@@ -17881,15 +18205,18 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         BlitzNotValidFullGameThinkingTreePartThree(ik, Order, 6);
                                         continue;
                                     }
+
                                 }
                                 else
                                     BlitzNotValidFullGameThinkingTreePartOne(ik, Order, 6);
+
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
                                     FullGameThinkingTreeInitialization(ik, j, Order, 6);
                                 }
+
 
                                 if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count > 0)
                                 {
@@ -17902,8 +18229,10 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 }
                             }
                         }
+
                     }
                 }
+
 
                 Object O2 = new Object();
                 lock (O2)
@@ -17911,12 +18240,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     TaskEnd++;
                 }
             }
-            //non learning autamata victory leafs
-            for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
-                KingOnTable[ik].WinOcuuredatChiled += SumOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order * -1);
-            //non learning autamata victom leafs
-            for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
-                KingOnTable[ik].LoseOcuuredatChiled += SumMinusOfObjects(KingOnTable[ik].KingThinking[0].AStarGreedy[h], Order * -1);
+
             return Do;
         }
         //collection objects calling full game specific game 
