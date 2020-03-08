@@ -15988,10 +15988,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             }
             return Sum;
         }
-        //victome transfer leafs to rooots chiled
-        int SumMinusOfObjects(AllDraw A, int Order)
+        bool IsAtleastAWin(AllDraw A, int Order)
         {
-            int Sum = 0;
+            bool Sum = false;
             if (A == null)
                 return Sum;
             if (Order == 1)
@@ -15999,32 +15998,38 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 for (var i = 0; i < A.SodierMidle; i++)
                 {
                     if (A.SolderesOnTable != null && A.SolderesOnTable[i] != null)
-                        Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
+                        if (A.SolderesOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = 0; i < A.ElefantMidle; i++)
                 {
                     if (A.ElephantOnTable != null && A.ElephantOnTable[i] != null)
-                        Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
+                        if (A.ElephantOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = 0; i < A.HourseMidle; i++)
                 {
                     if (A.HoursesOnTable != null && A.HoursesOnTable[i] != null)
-                        Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
+                        if (A.HoursesOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = 0; i < A.CastleMidle; i++)
                 {
                     if (A.CastlesOnTable != null && A.CastlesOnTable[i] != null)
-                        Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
+                        if (A.CastlesOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = 0; i < A.MinisterMidle; i++)
                 {
                     if (A.MinisterOnTable != null && A.MinisterOnTable[i] != null)
-                        Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
+                        if (A.MinisterOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = 0; i < A.KingMidle; i++)
                 {
                     if (A.KingOnTable != null && A.KingOnTable[i] != null)
-                        Sum += A.KingOnTable[i].LoseOcuuredatChiled;
+                        if (A.KingOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
             }
             else
@@ -16032,35 +16037,119 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 for (var i = A.SodierMidle; i < A.SodierHigh; i++)
                 {
                     if (A.SolderesOnTable != null && A.SolderesOnTable[i] != null)
-                        Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
+                        if (A.SolderesOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = A.ElefantMidle; i < A.ElefantHigh; i++)
                 {
                     if (A.ElephantOnTable != null && A.ElephantOnTable[i] != null)
-                        Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
+                        if (A.ElephantOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = A.HourseMidle; i < A.HourseHight; i++)
                 {
                     if (A.HoursesOnTable != null && A.HoursesOnTable[i] != null)
-                        Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
+                        if (A.HoursesOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = A.CastleMidle; i < A.CastleHigh; i++)
                 {
                     if (A.CastlesOnTable != null && A.CastlesOnTable[i] != null)
-                        Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
+                        if (A.CastlesOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = A.MinisterMidle; i < A.MinisterHigh; i++)
                 {
                     if (A.MinisterOnTable != null && A.MinisterOnTable[i] != null)
-                        Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
+                        if (A.MinisterOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
                 for (var i = A.KingMidle; i < A.KingHigh; i++)
                 {
                     if (A.KingOnTable != null && A.KingOnTable[i] != null)
-                        Sum += A.KingOnTable[i].LoseOcuuredatChiled;
+                        if (A.KingOnTable[i].WinOcuuredatChiled != 0)
+                            Sum = true;
                 }
             }
             return Sum;
+        }
+        //victome transfer leafs to rooots chiled
+        int SumMinusOfObjects(AllDraw A, int Order)
+        {
+            int Sum = 0;
+            if (!IsAtleastAWin(A, Order))
+            {
+                if (A == null)
+                    return Sum;
+                if (Order == 1)
+                {
+                    for (var i = 0; i < A.SodierMidle; i++)
+                    {
+                        if (A.SolderesOnTable != null && A.SolderesOnTable[i] != null)
+                            Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = 0; i < A.ElefantMidle; i++)
+                    {
+                        if (A.ElephantOnTable != null && A.ElephantOnTable[i] != null)
+                            Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = 0; i < A.HourseMidle; i++)
+                    {
+                        if (A.HoursesOnTable != null && A.HoursesOnTable[i] != null)
+                            Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = 0; i < A.CastleMidle; i++)
+                    {
+                        if (A.CastlesOnTable != null && A.CastlesOnTable[i] != null)
+                            Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = 0; i < A.MinisterMidle; i++)
+                    {
+                        if (A.MinisterOnTable != null && A.MinisterOnTable[i] != null)
+                            Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = 0; i < A.KingMidle; i++)
+                    {
+                        if (A.KingOnTable != null && A.KingOnTable[i] != null)
+                            Sum += A.KingOnTable[i].LoseOcuuredatChiled;
+                    }
+                }
+                else
+                {
+                    for (var i = A.SodierMidle; i < A.SodierHigh; i++)
+                    {
+                        if (A.SolderesOnTable != null && A.SolderesOnTable[i] != null)
+                            Sum += A.SolderesOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = A.ElefantMidle; i < A.ElefantHigh; i++)
+                    {
+                        if (A.ElephantOnTable != null && A.ElephantOnTable[i] != null)
+                            Sum += A.ElephantOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = A.HourseMidle; i < A.HourseHight; i++)
+                    {
+                        if (A.HoursesOnTable != null && A.HoursesOnTable[i] != null)
+                            Sum += A.HoursesOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = A.CastleMidle; i < A.CastleHigh; i++)
+                    {
+                        if (A.CastlesOnTable != null && A.CastlesOnTable[i] != null)
+                            Sum += A.CastlesOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = A.MinisterMidle; i < A.MinisterHigh; i++)
+                    {
+                        if (A.MinisterOnTable != null && A.MinisterOnTable[i] != null)
+                            Sum += A.MinisterOnTable[i].LoseOcuuredatChiled;
+                    }
+                    for (var i = A.KingMidle; i < A.KingHigh; i++)
+                    {
+                        if (A.KingOnTable != null && A.KingOnTable[i] != null)
+                            Sum += A.KingOnTable[i].LoseOcuuredatChiled;
+                    }
+                }
+             }
+            return Sum;
+
         }
         //Semaphore determination about Thinking operational completed.
         bool ReturnFullGameThinkingTreeSemaphore(int ik, int kind)
