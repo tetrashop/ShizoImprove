@@ -9575,14 +9575,52 @@ namespace RefrigtzW
             }
             
         }
+        bool RegardLessOptimized(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
+        { //soldier
+            if (Kind == 1)
+            {
+                if (Less < SolderesOnTable[i].SoldierThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//elephant
+        if (Kind == 2)
+            {
+                if (Less < ElephantOnTable[i].ElefantThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//hourse
+        if (Kind == 3)
+            {
+                if (Less < HoursesOnTable[i].HourseThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//Castle
+        if (Kind == 4)
+            {
+                if (Less < CastlesOnTable[i].CastleThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//minister
+        if (Kind == 5)
+            {
+                if (Less < MinisterOnTable[i].MinisterThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//king
+        if (Kind == 6)
+            {
+                if (Less < KingOnTable[i].KingThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            return false;
+        }
+
         //regard section of main Heuristic in learning autamata section
         bool HeuristicRegardSection(int i, int j, int k, ref bool Act, ref int[,] TableHeuristic, ref bool AA, Color a, int Kind, ref int Do, int AStarGreedyi, int Order)
         {
-            
             bool continued = false;
             if (IsSupHuTrue(i, j, k, Kind))
                 return true;
-
             //soldier
             if (Kind == 1)
             {
@@ -9593,30 +9631,25 @@ namespace RefrigtzW
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 1);
-
                         SaveTableHeuristic(i, j, k, 1, ref TableHeuristic);
-
                         SaveLess(i, j, k, 1, ref Less, AA, Order);
                     }
-
                     Object O = new Object();
                     lock (O)
                     {
                         ThingsConverter.ActOfClickEqualTow = true;
                     }
-
                     SolderesOnTable[i].ConvertOperation(SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1], a, SolderesOnTable[i].SoldierThinking[k].TableListSolder[j], Order, false, i);
-
                     int Sign = 1;
                     if (a == Color.Brown)
                         Sign = -1;
 
-
                     //If there is Soldier Convert.
                     if (SolderesOnTable[i].Convert)
                     {
-
                         if (SolderesOnTable[i].ConvertedToMinister)
                             TableHeuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 5 * Sign;
                         else if (SolderesOnTable[i].ConvertedToCastle)
@@ -9625,39 +9658,29 @@ namespace RefrigtzW
                             TableHeuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 3 * Sign;
                         else if (SolderesOnTable[i].ConvertedToElefant)
                             TableHeuristic[SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[k].RowColumnSoldier[j][1]] = 2 * Sign;
-
                     }
-
                     RegardOccurred = true;
-
                     StringHeuristics(1, 2, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
-
                     continued = true;
                 }
-
             }
             else//elephant
             if (Kind == 2)
             {
                 if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                 {
-
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 2);
-
                         SaveTableHeuristic(i, j, k, 2, ref TableHeuristic);
-
                         SaveLess(i, j, k, 2, ref Less, AA, Order);
                     }
-
                     StringHeuristics(2, 2, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
-
                     RegardOccurred = true;
-
                     continued = true;
-
                 }
             }
             else//hourse
@@ -9668,41 +9691,33 @@ namespace RefrigtzW
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 3);
-
                         SaveTableHeuristic(i, j, k, 3, ref TableHeuristic);
-
                         SaveLess(i, j, k, 3, ref Less, AA, Order);
                     }
-
                     RegardOccurred = true;
-
                     StringHeuristics(3, 2, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
-
                     continued = true;
-
                 }
-
             }
             else//Castle
             if (Kind == 4)
             {
                 if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                 {
-
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 4);
-
                         SaveTableHeuristic(i, j, k, 4, ref TableHeuristic);
-
                         SaveLess(i, j, k, 4, ref Less, AA, Order);
                     }
-
                     RegardOccurred = true;
                     StringHeuristics(4, 2, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
-
                     continued = true;
                 }
             }
@@ -9711,21 +9726,18 @@ namespace RefrigtzW
             {
                 if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                 {
-
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 5);
-
                         SaveTableHeuristic(i, j, k, 5, ref TableHeuristic);
-
                         SaveLess(i, j, k, 5, ref Less, AA, Order);
                     }
-
                     TableHeuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
                     RegardOccurred = true;
                     StringHeuristics(5, 2, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
-
                     continued = true;
                 }
             }
@@ -9737,30 +9749,24 @@ namespace RefrigtzW
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 6);
-
                         SaveTableHeuristic(i, j, k, 6, ref TableHeuristic);
-
                         SaveLess(i, j, k, 6, ref Less, AA, Order);
                     }
-
                     RegardOccurred = true;
                     StringHeuristics(6, 2, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
-
                     //if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
-                    
-
 
 
                     //if (((Do == 1 || AA)&&UsePenaltyRegardMechnisamT))
-                    
                     continued = true;
                 }
             }
-            
             return continued;
         }
-        //initiate deterministic vars of orderic Heuristic value
+      //initiate deterministic vars of orderic Heuristic value
         void InitiateVars(int i, int j, int k, int Kind)
         {
             

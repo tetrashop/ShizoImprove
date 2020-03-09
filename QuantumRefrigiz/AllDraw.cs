@@ -9570,14 +9570,52 @@ namespace QuantumRefrigiz
             }
 
         }
+        bool RegardLessOptimized(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
+        { //soldier
+            if (Kind == 1)
+            {
+                if (Less < SolderesOnTable[i].SoldierThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//elephant
+        if (Kind == 2)
+            {
+                if (Less < ElephantOnTable[i].ElefantThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//hourse
+        if (Kind == 3)
+            {
+                if (Less < HoursesOnTable[i].HourseThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//Castle
+        if (Kind == 4)
+            {
+                if (Less < CastlesOnTable[i].CastleThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//minister
+        if (Kind == 5)
+            {
+                if (Less < MinisterOnTable[i].MinisterThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//king
+        if (Kind == 6)
+            {
+                if (Less < KingOnTable[i].KingThinkingQuantum[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            return false;
+        }
+
         //regard section of main Heuristic in learning autamata section
         bool HeuristicRegardSection(int i, int j, int k, ref bool Act, ref int[,] TableHeuristic, ref bool AA, Color a, int Kind, ref int Do, int AStarGreedyi, int Order)
         {
-
             bool continued = false;
             if (IsSupHuTrue(i, j, k, Kind))
                 return true;
-
             //soldier
             if (Kind == 1)
             {
@@ -9588,30 +9626,25 @@ namespace QuantumRefrigiz
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 1);
-
                         SaveTableHeuristic(i, j, k, 1, ref TableHeuristic);
-
                         SaveLess(i, j, k, 1, ref Less, AA, Order);
                     }
-
                     Object O = new Object();
                     lock (O)
                     {
                         ThingsConverter.ActOfClickEqualTow = true;
                     }
-
                     SolderesOnTable[i].ConvertOperation(SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][1], a, SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder[j], Order, false, i);
-
                     int Sign = 1;
                     if (a == Color.Brown)
                         Sign = -1;
 
-
                     //If there is Soldier Convert.
                     if (SolderesOnTable[i].Convert)
                     {
-
                         if (SolderesOnTable[i].ConvertedToMinister)
                             TableHeuristic[SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][1]] = 5 * Sign;
                         else if (SolderesOnTable[i].ConvertedToCastle)
@@ -9620,39 +9653,29 @@ namespace QuantumRefrigiz
                             TableHeuristic[SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][1]] = 3 * Sign;
                         else if (SolderesOnTable[i].ConvertedToElefant)
                             TableHeuristic[SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinkingQuantum[k].RowColumnSoldier[j][1]] = 2 * Sign;
-
                     }
-
                     RegardOccurred = true;
-
                     StringHeuristics(1, 2, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
-
                     continued = true;
                 }
-
             }
             else//elephant
             if (Kind == 2)
             {
                 if ((ElephantOnTable[i].ElefantThinkingQuantum[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinkingQuantum[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                 {
-
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 2);
-
                         SaveTableHeuristic(i, j, k, 2, ref TableHeuristic);
-
                         SaveLess(i, j, k, 2, ref Less, AA, Order);
                     }
-
                     StringHeuristics(2, 2, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
-
                     RegardOccurred = true;
-
                     continued = true;
-
                 }
             }
             else//hourse
@@ -9663,41 +9686,33 @@ namespace QuantumRefrigiz
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 3);
-
                         SaveTableHeuristic(i, j, k, 3, ref TableHeuristic);
-
                         SaveLess(i, j, k, 3, ref Less, AA, Order);
                     }
-
                     RegardOccurred = true;
-
                     StringHeuristics(3, 2, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
-
                     continued = true;
-
                 }
-
             }
             else//Castle
             if (Kind == 4)
             {
                 if ((CastlesOnTable[i].CastleThinkingQuantum[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinkingQuantum[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                 {
-
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 4);
-
                         SaveTableHeuristic(i, j, k, 4, ref TableHeuristic);
-
                         SaveLess(i, j, k, 4, ref Less, AA, Order);
                     }
-
                     RegardOccurred = true;
                     StringHeuristics(4, 2, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
-
                     continued = true;
                 }
             }
@@ -9706,21 +9721,18 @@ namespace QuantumRefrigiz
             {
                 if ((MinisterOnTable[i].MinisterThinkingQuantum[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinkingQuantum[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                 {
-
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 5);
-
                         SaveTableHeuristic(i, j, k, 5, ref TableHeuristic);
-
                         SaveLess(i, j, k, 5, ref Less, AA, Order);
                     }
-
                     TableHeuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j];
                     RegardOccurred = true;
                     StringHeuristics(5, 2, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
-
                     continued = true;
                 }
             }
@@ -9732,27 +9744,21 @@ namespace QuantumRefrigiz
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 6);
-
                         SaveTableHeuristic(i, j, k, 6, ref TableHeuristic);
-
                         SaveLess(i, j, k, 6, ref Less, AA, Order);
                     }
-
                     RegardOccurred = true;
                     StringHeuristics(6, 2, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
-
                     //if (KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
 
 
-
-
                     //if (((Do == 1 || AA)&&UsePenaltyRegardMechnisamT))
-
                     continued = true;
                 }
             }
-
             return continued;
         }
         //initiate deterministic vars of orderic Heuristic value

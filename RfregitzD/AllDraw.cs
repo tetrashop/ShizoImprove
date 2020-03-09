@@ -8307,7 +8307,7 @@ namespace RefrigtzDLL
                 Is = KingOnTable[i].KingThinking[0].IsSupHu[j];
             return Is;
         }
-        //method for return index base calculated Heuristic specified and clear
+           //method for return index base calculated Heuristic specified and clear
         void SaveLess(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
         {
             //soldier
@@ -8427,13 +8427,53 @@ namespace RefrigtzDLL
                 AllDraw.NextColumn = KingOnTable[i].KingThinking[k].RowColumnKing[j][1];
             }
         }
+        bool RegardLessOptimized(int i, int j, int k, int Kind, ref int Less, bool AA, int Order)
+        { //soldier
+            if (Kind == 1)
+            {
+                if (Less < SolderesOnTable[i].SoldierThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//elephant
+        if (Kind == 2)
+            {
+                if (Less < ElephantOnTable[i].ElefantThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//hourse
+        if (Kind == 3)
+            {
+                if (Less < HoursesOnTable[i].HourseThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//Castle
+        if (Kind == 4)
+            {
+                if (Less < CastlesOnTable[i].CastleThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//minister
+        if (Kind == 5)
+            {
+                if (Less < MinisterOnTable[i].MinisterThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            else//king
+        if (Kind == 6)
+            {
+                if (Less < KingOnTable[i].KingThinking[k].ReturnHeuristic(i, j, Order, AA, ref HaveKilled))
+                    return true;
+            }
+            return false;
+        }
+
         //regard section of main Heuristic in learning autamata section
         bool HeuristicRegardSection(int i, int j, int k, ref bool Act, ref int[,] TableHeuristic, ref bool AA, Color a, int Kind, ref int Do, int AStarGreedyi, int Order)
         {
             bool continued = false;
             if (IsSupHuTrue(i, j, k, Kind))
                 return true;
-            //soldier
+             //soldier
             if (Kind == 1)
             {
                 if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((((Do == 1 || AA) && UsePenaltyRegardMechnisamT)) && UsePenaltyRegardMechnisamT) || SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
@@ -8443,6 +8483,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 1);
                         SaveTableHeuristic(i, j, k, 1, ref TableHeuristic);
                         SaveLess(i, j, k, 1, ref Less, AA, Order);
@@ -8482,6 +8524,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 2);
                         SaveTableHeuristic(i, j, k, 2, ref TableHeuristic);
                         SaveLess(i, j, k, 2, ref Less, AA, Order);
@@ -8516,6 +8560,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 4);
                         SaveTableHeuristic(i, j, k, 4, ref TableHeuristic);
                         SaveLess(i, j, k, 4, ref Less, AA, Order);
@@ -8533,6 +8579,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 5);
                         SaveTableHeuristic(i, j, k, 5, ref TableHeuristic);
                         SaveLess(i, j, k, 5, ref Less, AA, Order);
@@ -8551,6 +8599,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
+                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            return true;
                         SaveBeginEndLocation(i, j, k, 6);
                         SaveTableHeuristic(i, j, k, 6, ref TableHeuristic);
                         SaveLess(i, j, k, 6, ref Less, AA, Order);
