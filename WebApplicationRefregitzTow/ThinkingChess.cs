@@ -9312,7 +9312,7 @@ namespace RefrigtzW
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpP;
                         }
                     }
 
@@ -9501,7 +9501,7 @@ namespace RefrigtzW
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpP;
                         }
                     }
 
@@ -10058,7 +10058,7 @@ namespace RefrigtzW
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpP;
                         }
                     }
 
@@ -10218,7 +10218,7 @@ namespace RefrigtzW
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpP;
                         }
                     }
 
@@ -10375,7 +10375,7 @@ namespace RefrigtzW
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpP;
                         }
                     }
 
@@ -11650,7 +11650,7 @@ namespace RefrigtzW
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-
+                            LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpP;
                         }
                     }
 
@@ -11815,7 +11815,7 @@ namespace RefrigtzW
                 newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref tmpL, ref tmpP, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                 newTask1.Wait(); newTask1.Dispose();
-
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpP;
 
                 //Store Movments Items. 
                 int[] AS = new int[2];
@@ -14015,7 +14015,7 @@ namespace RefrigtzW
 
                 newTask1.Wait(); newTask1.Dispose();
 
-
+                LoseOcuuredatChiled += tmpL; WinOcuuredatChiled += tmpP;
 
                 //Store Movments Items.
                 int[] AS = new int[2];
