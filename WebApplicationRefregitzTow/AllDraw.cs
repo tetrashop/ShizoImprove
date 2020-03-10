@@ -9621,8 +9621,12 @@ namespace RefrigtzW
             bool continued = false;
             if (IsSupHuTrue(i, j, k, Kind))
                 return true;
-            if (WinPerformLoop(Kind, i, j))
-                return WinReturn(Kind, i, j);
+            bool A = WinReturnValue(Kind, i, j);
+            bool B = WinPerfromeRegardMethod(Kind, i, j);
+
+            continued = A;
+            if (!B)
+                return continued;
             //soldier
             if (Kind == 1)
             {
@@ -10485,153 +10489,163 @@ namespace RefrigtzW
 
             return Is;
         }
-        bool WinPerformLoop(int Kind, int i, int j)
+        bool WinReturnValue(int Kind, int i, int j)
         {
             bool Is = false;
 
             if (Kind == 1)
             {
-                bool A = false;
-                for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].WinChiled.Count; k++)
-                    A = A || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 3;
+                //    bool A = false;
+                //  for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].WinChiled.Count; k++)
+                //     A = A || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 3;
 
                 bool B = SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = A && B;
+                Is = B;
             }
             else
 
       if (Kind == 2)
             {
-                bool A = false;
-                for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].WinChiled.Count; k++)
-                    A = A || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 3;
+                //   bool A = false;
+                //   for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].WinChiled.Count; k++)
+                //       A = A || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 3;
 
                 bool B = ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = A && B;
+                Is = B;
             }
             else
 
       if (Kind == 3)
             {
-                bool A = false;
-                for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].WinChiled.Count; k++)
-                    A = A || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 3;
+                //   bool A = false;
+                //   for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].WinChiled.Count; k++)
+                //      A = A || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 3;
 
                 bool B = HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = A && B;
+                Is = B;
             }
             else
 
       if (Kind == 4)
             {
-                bool A = false;
-                for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].WinChiled.Count; k++)
-                    A = A || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 3;
+                //  bool A = false;
+                //  for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].WinChiled.Count; k++)
+                //      A = A || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 3;
 
                 bool B = CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = A && B;
+                Is = B;
             }
             else
 
       if (Kind == 5)
             {
-                bool A = false;
-                for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].WinChiled.Count; k++)
-                    A = A || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 3;
+                //   bool A = false;
+                //   for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].WinChiled.Count; k++)
+                //      A = A || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 3;
 
                 bool B = MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = A && B;
+                Is = B;
             }
             else
 
       if (Kind == 6)
             {
-                bool A = false;
-                for (int k = 0; k < KingOnTable[i].KingThinking[0].WinChiled.Count; k++)
-                    A = A || KingOnTable[i].KingThinking[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 3;
+                //  bool A = false;
+                //  for (int k = 0; k < KingOnTable[i].KingThinking[0].WinChiled.Count; k++)
+                //      A = A || KingOnTable[i].KingThinking[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 3;
 
                 bool B = KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3;
-                Is = A && B;
+                Is = B;
             }
             return Is;
         }
-        bool WinReturn(int Kind, int i, int j)
+        bool WinPerfromeRegardMethod(int Kind, int i, int j)
         {
             bool Is = false;
 
             if (Kind == 1)
             {
                 bool A = false;
-                for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].WinChiled.Count; k++)
-                    A = A || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 3;
+                //for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].WinChiled.Count; k++)
+                A = A || SolderesOnTable[i].SoldierThinking[0].WinChiled[j] >= 1 || SolderesOnTable[i].SoldierThinking[0].WinChiled[j] >= 2 || SolderesOnTable[i].SoldierThinking[0].WinChiled[j] >= 3;
 
-                bool B = SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3;
+                //bool B = SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = !(A||B);
+                Is = A; //|| B);
             }
             else
 
     if (Kind == 2)
             {
                 bool A = false;
-                for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].WinChiled.Count; k++)
-                    A = A || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 3;
+                //for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].WinChiled.Count; k++)
+                A = A || ElephantOnTable[i].ElefantThinking[0].WinChiled[j] >= 1 || ElephantOnTable[i].ElefantThinking[0].WinChiled[j] >= 2 || ElephantOnTable[i].ElefantThinking[0].WinChiled[j] >= 3;
 
-                bool B = ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3;
+                //bool B = ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = !(A||B);
+                Is = A; //|| B);
+
+
             }
             else
 
     if (Kind == 3)
             {
                 bool A = false;
-                for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].WinChiled.Count; k++)
-                    A = A || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 3;
+                //for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].WinChiled.Count; k++)
+                A = A || HoursesOnTable[i].HourseThinking[0].WinChiled[j] >= 1 || HoursesOnTable[i].HourseThinking[0].WinChiled[j] >= 2 || HoursesOnTable[i].HourseThinking[0].WinChiled[j] >= 3;
 
-                bool B = HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3;
+                // bool B = HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = !(A||B);
+                Is = A; //|| B);
+
+
             }
             else
 
     if (Kind == 4)
             {
                 bool A = false;
-                for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].WinChiled.Count; k++)
-                    A = A || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 3;
+                //for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].WinChiled.Count; k++)
+                A = A || CastlesOnTable[i].CastleThinking[0].WinChiled[j] >= 1 || CastlesOnTable[i].CastleThinking[0].WinChiled[j] >= 2 || CastlesOnTable[i].CastleThinking[0].WinChiled[j] >= 3;
 
-                bool B = CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3;
+                //bool B = CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = !(A||B);
+                Is = A; //|| B);
+
+
             }
             else
 
     if (Kind == 5)
             {
                 bool A = false;
-                for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].WinChiled.Count; k++)
-                    A = A || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 3;
+                //for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].WinChiled.Count; k++)
+                A = A || MinisterOnTable[i].MinisterThinking[0].WinChiled[j] >= 1 || MinisterOnTable[i].MinisterThinking[0].WinChiled[j] >= 2 || MinisterOnTable[i].MinisterThinking[0].WinChiled[j] >= 3;
 
-                bool B = MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3;
+                //bool B = MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3;
 
-                Is = !(A || B);
+                Is = A; //|| B);
+
+
             }
             else
 
     if (Kind == 6)
             {
                 bool A = false;
-                for (int k = 0; k < KingOnTable[i].KingThinking[0].WinChiled.Count; k++)
-                    A = A || KingOnTable[i].KingThinking[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 3;
+                //for (int k = 0; k < KingOnTable[i].KingThinking[0].WinChiled.Count; k++)
+                A = A || KingOnTable[i].KingThinking[0].WinChiled[j] >= 1 || KingOnTable[i].KingThinking[0].WinChiled[j] >= 2 || KingOnTable[i].KingThinking[0].WinChiled[j] >= 3;
 
-                bool B = KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3;
-                Is = !(A||B);
+                //bool B = KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3;
+                Is = A; //|| B);
+
+
             }
             return Is;
         }
