@@ -40,8 +40,8 @@ namespace QuantumRefrigiz
         bool RingHalf = false;
         public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
         //Iniatate Global Variables.
-        
-        
+
+
         List<int[]> ValuableSelfSupported = new List<int[]>();
 
         

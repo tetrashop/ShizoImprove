@@ -1,14 +1,13 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
-using System.Diagnostics;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.ComponentModel;
 
 namespace QuantumRefrigiz
 {
@@ -9616,6 +9615,9 @@ namespace QuantumRefrigiz
             bool continued = false;
             if (IsSupHuTrue(i, j, k, Kind))
                 return true;
+            if (WinPerformLoop(Kind, i, j))
+                return WinReturn(Kind, i, j);
+
             //soldier
             if (Kind == 1)
             {
@@ -10418,6 +10420,216 @@ namespace QuantumRefrigiz
         {
             return ((ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw) || (!(HaveKiller > 0)));
         }
+
+        bool Lose(int Kind, int i, int j)
+        {
+            bool Is = false;
+
+            if (Kind == 1)
+            {
+                if (SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -1 || SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -2 || SolderesOnTable[i].SoldierThinkingQuantum[0].LoseChiled[j] <= -3)
+                    return true;
+                if (SolderesOnTable[i].LoseOcuuredatChiled <= -1 || SolderesOnTable[i].LoseOcuuredatChiled <= -2 || SolderesOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 2)
+            {
+                if (ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -1 || ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -2 || ElephantOnTable[i].ElefantThinkingQuantum[0].LoseChiled[j] <= -3)
+                    return true;
+                if (ElephantOnTable[i].LoseOcuuredatChiled <= -1 || ElephantOnTable[i].LoseOcuuredatChiled <= -2 || ElephantOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 3)
+            {
+                if (HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -1 || HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -2 || HoursesOnTable[i].HourseThinkingQuantum[0].LoseChiled[j] <= -3)
+                    return true;
+                if (HoursesOnTable[i].LoseOcuuredatChiled <= -1 || HoursesOnTable[i].LoseOcuuredatChiled <= -2 || HoursesOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 4)
+            {
+                if (CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -1 || CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -2 || CastlesOnTable[i].CastleThinkingQuantum[0].LoseChiled[j] <= -3)
+                    return true;
+                if (CastlesOnTable[i].LoseOcuuredatChiled <= -1 || CastlesOnTable[i].LoseOcuuredatChiled <= -2 || CastlesOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 5)
+            {
+                if (MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -1 || MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -2 || MinisterOnTable[i].MinisterThinkingQuantum[0].LoseChiled[j] <= -3)
+                    return true;
+                if (MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled <= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 6)
+            {
+                if (KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -1 || KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -2 || KingOnTable[i].KingThinkingQuantum[0].LoseChiled[j] <= -3)
+                    return true;
+                if (KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled <= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+
+            return Is;
+        }
+        bool WinPerformLoop(int Kind, int i, int j)
+        {
+            bool Is = false;
+
+            if (Kind == 1)
+            {
+                bool A = false;
+                for (int k = 0; k < SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 2)
+            {
+                bool A = false;
+                for (int k = 0; k < ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 3)
+            {
+                bool A = false;
+                for (int k = 0; k < HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 4)
+            {
+                bool A = false;
+                for (int k = 0; k < CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 5)
+            {
+                bool A = false;
+                for (int k = 0; k < MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 6)
+            {
+                bool A = false;
+                for (int k = 0; k < KingOnTable[i].KingThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3;
+                Is = A && B;
+            }
+            return Is;
+        }
+        bool WinReturn(int Kind, int i, int j)
+        {
+            bool Is = false;
+
+            if (Kind == 1)
+            {
+                bool A = false;
+                for (int k = 0; k < SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 2)
+            {
+                bool A = false;
+                for (int k = 0; k < ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 3)
+            {
+                bool A = false;
+                for (int k = 0; k < HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 4)
+            {
+                bool A = false;
+                for (int k = 0; k < CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 5)
+            {
+                bool A = false;
+                for (int k = 0; k < MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 6)
+            {
+                bool A = false;
+                for (int k = 0; k < KingOnTable[i].KingThinkingQuantum[0].WinChiled.Count; k++)
+                    A = A || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 3;
+
+                bool B = KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3;
+                Is = !(A || B);
+            }
+            return Is;
+        }
         //soldier Heuristic
         int[,] HeuristicAStarGreadySearchSoldier(ref int[,] TableHeuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
@@ -10465,8 +10677,7 @@ namespace QuantumRefrigiz
 
 
                             StringHeuristics(1, 1, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
-
-                            if (SolderesOnTable[i].LoseOcuuredatChiled <= -1 || SolderesOnTable[i].LoseOcuuredatChiled <= -2 || SolderesOnTable[i].LoseOcuuredatChiled <= -3)
+                            if (Lose(1, i, j))
                                 continue;
 
                             Order = COrder;
@@ -10552,7 +10763,7 @@ namespace QuantumRefrigiz
             {
                 if (0 != ElefantMidle)
                 {
-                    //Do For Remaining Objects same AS Soldeir Documentation.
+                    //Do For Remaining Objects same as Soldeir Documentation.
                     for (var i = 0; i < ElefantMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchElephant(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
@@ -10572,7 +10783,7 @@ namespace QuantumRefrigiz
 
                 if (ElefantHigh != ElefantMidle)
                 {
-                    //Do For Remaining Objects same AS Soldeir Documentation.
+                    //Do For Remaining Objects same as Soldeir Documentation.
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
                         TableHeuristic = HeuristicAStarGreadySearchElephant(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
@@ -10624,7 +10835,7 @@ namespace QuantumRefrigiz
 
 
                             StringHeuristics(2, 1, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
-                            if (ElephantOnTable[i].LoseOcuuredatChiled <= -1 || ElephantOnTable[i].LoseOcuuredatChiled <= -2 || ElephantOnTable[i].LoseOcuuredatChiled <= -3)
+                            if (Lose(2, i, j))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
@@ -10681,7 +10892,7 @@ namespace QuantumRefrigiz
                     for (var i = 0; i < HourseMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchHourse(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                //else
+                // else
 
 
                 return TableHeuristic;
@@ -10749,7 +10960,7 @@ namespace QuantumRefrigiz
 
                             StringHeuristics(3, 1, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
 
-                            if (HoursesOnTable[i].LoseOcuuredatChiled <= -1 || HoursesOnTable[i].LoseOcuuredatChiled <= -2 || HoursesOnTable[i].LoseOcuuredatChiled <= -3)
+                            if (Lose(3, i, j))
                                 continue;
 
 
@@ -10868,7 +11079,7 @@ namespace QuantumRefrigiz
                             Order = COrder;
                             StringHeuristics(4, 1, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
 
-                            if (CastlesOnTable[i].LoseOcuuredatChiled <= -1 || CastlesOnTable[i].LoseOcuuredatChiled <= -2 || CastlesOnTable[i].LoseOcuuredatChiled <= -3)
+                            if (Lose(4, i, j))
                                 continue;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -10984,7 +11195,7 @@ namespace QuantumRefrigiz
 
                             StringHeuristics(5, 1, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
 
-                            if (MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled <= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3)
+                            if (Lose(5, i, j))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
@@ -11029,7 +11240,7 @@ namespace QuantumRefrigiz
                     for (var i = 0; i < KingMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchKing(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                //else
+                // else
 
 
                 return TableHeuristic;
@@ -11048,7 +11259,7 @@ namespace QuantumRefrigiz
                     for (var i = KingMidle; i < KingHigh; i++)
                         TableHeuristic = HeuristicAStarGreadySearchKing(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
-                //else
+                // else
 
 
                 return TableHeuristic;
@@ -11075,8 +11286,9 @@ namespace QuantumRefrigiz
                 {
                     for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[k] != null && KingOnTable[i].KingThinkingQuantum != null && j < KingOnTable[i].KingThinkingQuantum[k].TableListKing.Count; j++)
                     {
-                        if (IsSupHuTrue(i, j, 0, 5))
+                        if (IsSupHuTrue(i, j, 0, 6))
                             continue;
+
                         {
 
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
@@ -11095,7 +11307,7 @@ namespace QuantumRefrigiz
 
                             StringHeuristics(6, 1, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
 
-                            if (KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled <= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3)
+                            if (Lose(6, i, j))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;

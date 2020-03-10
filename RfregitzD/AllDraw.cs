@@ -8473,7 +8473,9 @@ namespace RefrigtzDLL
             bool continued = false;
             if (IsSupHuTrue(i, j, k, Kind))
                 return true;
-             //soldier
+            if (WinPerformLoop(Kind, i, j))
+                return WinReturn(Kind, i, j);
+            //soldier
             if (Kind == 1)
             {
                 if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((((Do == 1 || AA) && UsePenaltyRegardMechnisamT)) && UsePenaltyRegardMechnisamT) || SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
@@ -9150,13 +9152,225 @@ namespace RefrigtzDLL
         {
             return ((ThinkingChess.IsAtLeastOneKillerAtDraw) || (!(HaveKiller > 0)));
         }
+        bool Lose(int Kind, int i, int j)
+        {
+            bool Is = false;
+
+            if (Kind == 1)
+            {
+                if (SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -1 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -2 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -3)
+                    return true;
+                if (SolderesOnTable[i].LoseOcuuredatChiled <= -1 || SolderesOnTable[i].LoseOcuuredatChiled <= -2 || SolderesOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 2)
+            {
+                if (ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -1 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -2 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -3)
+                    return true;
+                if (ElephantOnTable[i].LoseOcuuredatChiled <= -1 || ElephantOnTable[i].LoseOcuuredatChiled <= -2 || ElephantOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 3)
+            {
+                if (HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -1 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -2 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -3)
+                    return true;
+                if (HoursesOnTable[i].LoseOcuuredatChiled <= -1 || HoursesOnTable[i].LoseOcuuredatChiled <= -2 || HoursesOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 4)
+            {
+                if (CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -1 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -2 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -3)
+                    return true;
+                if (CastlesOnTable[i].LoseOcuuredatChiled <= -1 || CastlesOnTable[i].LoseOcuuredatChiled <= -2 || CastlesOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 5)
+            {
+                if (MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -1 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -2 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -3)
+                    return true;
+                if (MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled <= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+            else
+
+        if (Kind == 6)
+            {
+                if (KingOnTable[i].KingThinking[0].LoseChiled[j] <= -1 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -2 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -3)
+                    return true;
+                if (KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled <= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3)
+                    return true;
+            }
+
+            return Is;
+        }
+        bool WinPerformLoop(int Kind, int i, int j)
+        {
+            bool Is = false;
+
+            if (Kind == 1)
+            {
+                bool A = false;
+                for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].WinChiled.Count; k++)
+                    A = A || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 3;
+
+                bool B = SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 2)
+            {
+                bool A = false;
+                for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].WinChiled.Count; k++)
+                    A = A || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 3;
+
+                bool B = ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 3)
+            {
+                bool A = false;
+                for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].WinChiled.Count; k++)
+                    A = A || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 3;
+
+                bool B = HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 4)
+            {
+                bool A = false;
+                for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].WinChiled.Count; k++)
+                    A = A || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 3;
+
+                bool B = CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 5)
+            {
+                bool A = false;
+                for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].WinChiled.Count; k++)
+                    A = A || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 3;
+
+                bool B = MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = A && B;
+            }
+            else
+
+      if (Kind == 6)
+            {
+                bool A = false;
+                for (int k = 0; k < KingOnTable[i].KingThinking[0].WinChiled.Count; k++)
+                    A = A || KingOnTable[i].KingThinking[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 3;
+
+                bool B = KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3;
+                Is = A && B;
+            }
+            return Is;
+        }
+        bool WinReturn(int Kind, int i, int j)
+        {
+            bool Is = false;
+
+            if (Kind == 1)
+            {
+                bool A = false;
+                for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].WinChiled.Count; k++)
+                    A = A || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 3;
+
+                bool B = SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 2)
+            {
+                bool A = false;
+                for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].WinChiled.Count; k++)
+                    A = A || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 3;
+
+                bool B = ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 3)
+            {
+                bool A = false;
+                for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].WinChiled.Count; k++)
+                    A = A || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 3;
+
+                bool B = HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 4)
+            {
+                bool A = false;
+                for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].WinChiled.Count; k++)
+                    A = A || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 3;
+
+                bool B = CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 5)
+            {
+                bool A = false;
+                for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].WinChiled.Count; k++)
+                    A = A || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 3;
+
+                bool B = MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3;
+
+                Is = !(A || B);
+            }
+            else
+
+    if (Kind == 6)
+            {
+                bool A = false;
+                for (int k = 0; k < KingOnTable[i].KingThinking[0].WinChiled.Count; k++)
+                    A = A || KingOnTable[i].KingThinking[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 3;
+
+                bool B = KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3;
+                Is = !(A || B);
+            }
+            return Is;
+        }
         //soldier Heuristic
         int[,] HeuristicAStarGreadySearchSoldier(ref int[,] TableHeuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
 
+
+
             Object a1 = new Object();
             lock (a1)
             {
+
 
                 int j;
                 List<int> Founded = new List<int>();
@@ -9164,6 +9378,8 @@ namespace RefrigtzDLL
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
+
+
 
                 //For Every Soldier Movments AStarGreedy.
                 for (int k = 0; k < AllDraw.SodierMovments; k++)
@@ -9173,7 +9389,9 @@ namespace RefrigtzDLL
                     {
                         if (IsSupHuTrue(i, j, 0, 1))
                             continue;
+
                         {
+
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
@@ -9181,19 +9399,23 @@ namespace RefrigtzDLL
                                 continue;
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
+
                             if (SolderesOnTable[i].SoldierThinking[k].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j] != null)
                                 SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
+
                             StringHeuristics(1, 1, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
-                            if (SolderesOnTable[i].LoseOcuuredatChiled <= -1 || SolderesOnTable[i].LoseOcuuredatChiled <= -2 || SolderesOnTable[i].LoseOcuuredatChiled <= -3)
+                            if (Lose(1, i, j))
                                 continue;
+
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
+
 
                             if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 1, ref Do, AStarGreedyi, Order))
                                 continue;
@@ -9205,15 +9427,21 @@ namespace RefrigtzDLL
                                     if (SolderesOnTable[i].SoldierThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
+
                                 if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 1, ref Do, AStarGreedyi, Order))
                                     continue;
+
                             }
+
                         }
                     }
+
                 }
+
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+
                 return TableHeuristic;
             }
         }
@@ -9221,9 +9449,11 @@ namespace RefrigtzDLL
         int[,] HeuristicAStarGreadySearchSoldierGray(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
 
+
             Object a1 = new Object();
             lock (a1)
             {
+
                 if (SodierMidle != 0)
                 {
                     for (var i = 0; i < SodierMidle; i++)
@@ -9231,21 +9461,25 @@ namespace RefrigtzDLL
                 }
                 //else
 
+
                 return TableHeuristic;
             }
         }
         //brown section of soldier Heuristic
         int[,] HeuristicAStarGreadySearchSoldierBrown(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object a1 = new Object();
             lock (a1)
             {
                 if (SodierMidle != SodierHigh)
                 {
+
                     for (var i = SodierMidle; i < SodierHigh; i++)
                         TableHeuristic = HeuristicAStarGreadySearchSoldier(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
                 //else
+
 
                 return TableHeuristic;
             }
@@ -9253,6 +9487,7 @@ namespace RefrigtzDLL
         //gray section of elephant Heuristic
         int[,] HeuristicAStarGreadySearchElephantGray(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
 
             Object a1 = new Object();
             lock (a1)
@@ -9265,15 +9500,18 @@ namespace RefrigtzDLL
                 }
                 //else
 
+
                 return TableHeuristic;
             }
         }
         //brown section of elephant Heuristic
         int[,] HeuristicAStarGreadySearchElephantBrown(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object a1 = new Object();
             lock (a1)
             {
+
                 if (ElefantHigh != ElefantMidle)
                 {
                     //Do For Remaining Objects same as Soldeir Documentation.
@@ -9282,15 +9520,19 @@ namespace RefrigtzDLL
                 }
                 //else
 
+
                 return TableHeuristic;
             }
         }
         //main section of elephant Heuristic
         int[,] HeuristicAStarGreadySearchElephant(ref int[,] TableHeuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object a1 = new Object();
             lock (a1)
             {
+
+
 
                 int j;
                 List<int> Founded = new List<int>();
@@ -9298,13 +9540,16 @@ namespace RefrigtzDLL
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
+
                 for (int k = 0; k < AllDraw.ElefantMovments; k++)
+
                 {
                     for (j = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking != null && ElephantOnTable[i].ElefantThinking[k] != null && j < ElephantOnTable[i].ElefantThinking[k].TableListElefant.Count; j++)
                     {
                         if (IsSupHuTrue(i, j, 0, 2))
                             continue;
                         {
+
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
@@ -9312,26 +9557,31 @@ namespace RefrigtzDLL
                                 continue;
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
+
                             if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j] != null)
                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(2, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
+
                             StringHeuristics(2, 1, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
-                            if (ElephantOnTable[i].LoseOcuuredatChiled <= -1 || ElephantOnTable[i].LoseOcuuredatChiled <= -2 || ElephantOnTable[i].LoseOcuuredatChiled <= -3)
+                            if (Lose(2, i, j))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
+
                             if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 2, ref Do, AStarGreedyi, Order))
                                 continue;
+
 
                             Object ol = new Object();
                             lock (ol)
                             {
+
                                 //When There is No Movments in Such Order Enemy continue.
                                 if (Order != AllDraw.OrderPlate)
                                     if (ElephantOnTable[i].ElefantThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
@@ -9340,21 +9590,29 @@ namespace RefrigtzDLL
                                 if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 2, ref Do, AStarGreedyi, Order))
                                     continue;
 
+
+
                             }
 
+
                         }
+
                     }
                 }
+
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
 
+
                 return TableHeuristic;
             }
+
 
         }
         //gray section of hourse Heuristic
         int[,] HeuristicAStarGreadySearchHourseGray(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
 
             Object a1 = new Object();
             lock (a1)
@@ -9367,15 +9625,18 @@ namespace RefrigtzDLL
                 }
                 // else
 
+
                 return TableHeuristic;
             }
         }
         //brown section of hourse Heuristic
         int[,] HeuristicAStarGreadySearchHourseBrown(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object a1 = new Object();
             lock (a1)
             {
+
                 if (HourseHight != HourseMidle)
                 {
                     //For Every Soldeir
@@ -9384,15 +9645,19 @@ namespace RefrigtzDLL
                 }
                 //else
 
+
                 return TableHeuristic;
             }
         }
         //main section of hourse Heuristic
         int[,] HeuristicAStarGreadySearchHourse(ref int[,] TableHeuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object a1 = new Object();
             lock (a1)
             {
+
+
 
                 int j;
                 List<int> Founded = new List<int>();
@@ -9400,6 +9665,7 @@ namespace RefrigtzDLL
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
+
 
                 for (int k = 0; k < AllDraw.HourseMovments; k++)
                 {
@@ -9408,6 +9674,7 @@ namespace RefrigtzDLL
                         if (IsSupHuTrue(i, j, 0, 3))
                             continue;
                         {
+
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
@@ -9415,24 +9682,31 @@ namespace RefrigtzDLL
                                 continue;
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
+
                             if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy[j] != null)
                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(3, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
+
                             StringHeuristics(3, 1, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
-                            if (HoursesOnTable[i].LoseOcuuredatChiled <= -1 || HoursesOnTable[i].LoseOcuuredatChiled <= -2 || HoursesOnTable[i].LoseOcuuredatChiled <= -3)
+
+                            if (Lose(3, i, j))
                                 continue;
+
 
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
+
                             if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 3, ref Do, AStarGreedyi, Order))
                                 continue;
+
                             Object ol = new Object();
                             lock (ol)
                             {
+
                                 //When There is No Movments in Such Order Enemy continue.
                                 if (Order != AllDraw.OrderPlate)
                                     if (HoursesOnTable[i].HourseThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
@@ -9441,12 +9715,15 @@ namespace RefrigtzDLL
                                 if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 3, ref Do, AStarGreedyi, Order))
                                     continue;
 
+
                             }
+
                         }
                     }
                 }
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+
 
                 return TableHeuristic;
             }
@@ -9454,9 +9731,11 @@ namespace RefrigtzDLL
         //gray section of Castle Heuristic
         int[,] HeuristicAStarGreadySearchCastleGray(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O = new Object();
             lock (O)
             {
+
                 if (0 != HourseMidle)
                 {
                     for (var i = 0; i < CastleMidle; i++)
@@ -9464,22 +9743,27 @@ namespace RefrigtzDLL
                 }
                 //else
 
+
                 return TableHeuristic;
             }
         }
         //main brown section of Castle Heuristic
         int[,] HeuristicAStarGreadySearchCastleBrown(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O = new Object();
             lock (O)
             {
+
 
                 if (CastleMidle != CastleHigh)
                 {
                     for (var i = CastleMidle; i < CastleHigh; i++)
                         TableHeuristic = HeuristicAStarGreadySearchCastle(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+
                 }
                 //else
+
 
                 return TableHeuristic;
             }
@@ -9487,9 +9771,12 @@ namespace RefrigtzDLL
         //main section of Castle Heuristic
         int[,] HeuristicAStarGreadySearchCastle(ref int[,] TableHeuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O1 = new Object();
             lock (O1)
             {
+
+
 
 
                 int j;
@@ -9498,6 +9785,7 @@ namespace RefrigtzDLL
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
+
                 for (int k = 0; k < AllDraw.CastleMovments; k++)
                 {
                     for (j = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking != null && CastlesOnTable[i].CastleThinking[k] != null && j < CastlesOnTable[i].CastleThinking[k].TableListCastle.Count; j++)
@@ -9505,6 +9793,7 @@ namespace RefrigtzDLL
                         if (IsSupHuTrue(i, j, 0, 4))
                             continue;
                         {
+
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
@@ -9512,20 +9801,25 @@ namespace RefrigtzDLL
                                 continue;
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
+
                             if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy[j] != null)
                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(4, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
+
                             Order = COrder;
                             StringHeuristics(4, 1, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
-                            if (CastlesOnTable[i].LoseOcuuredatChiled <= -1 || CastlesOnTable[i].LoseOcuuredatChiled <= -2 || CastlesOnTable[i].LoseOcuuredatChiled <= -3)
+
+                            if (Lose(4, i, j))
                                 continue;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
+
                             if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 4, ref Do, AStarGreedyi, Order))
                                 continue;
+
 
                             Object ol = new Object();
                             lock (ol)
@@ -9537,20 +9831,26 @@ namespace RefrigtzDLL
                                 //When There is greater Heuristic Movments.
                                 if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 4, ref Do, AStarGreedyi, Order))
                                     continue;
+
                             }
+
                         }
                     }
 
+
                 }
+
 
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+
                 return TableHeuristic;
             }
         }
         //main section of minister Heuristic
         int[,] HeuristicAStarGreadySearchMinsisterGray(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O = new Object();
             lock (O)
             {
@@ -9558,15 +9858,19 @@ namespace RefrigtzDLL
                 {
                     for (var i = 0; i < MinisterMidle; i++)
                         TableHeuristic = HeuristicAStarGreadySearchMinsister(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+
                 }
                 //else
 
+
                 return TableHeuristic;
             }
+
         }
         //brown main section of minister Heuristic
         int[,] HeuristicAStarGreadySearchMinsisterBrown(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O = new Object();
             lock (O)
             {
@@ -9574,8 +9878,10 @@ namespace RefrigtzDLL
                 {
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
                         TableHeuristic = HeuristicAStarGreadySearchMinsister(ref TableHeuristic, i, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+
                 }
                 //else
+
 
                 return TableHeuristic;
             }
@@ -9583,9 +9889,12 @@ namespace RefrigtzDLL
         //main section of minister Heuristic
         int[,] HeuristicAStarGreadySearchMinsister(ref int[,] TableHeuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O3 = new Object();
             lock (O3)
             {
+
+
 
                 int j;
                 List<int> Founded = new List<int>();
@@ -9593,6 +9902,7 @@ namespace RefrigtzDLL
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
+
                 for (int k = 0; k < AllDraw.MinisterMovments; k++)
                 {
                     for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
@@ -9607,21 +9917,26 @@ namespace RefrigtzDLL
                                 continue;
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
+
                             if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j] != null)
                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(5, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
+
                             StringHeuristics(5, 1, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
-                            if (MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled <= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3)
+
+                            if (Lose(5, i, j))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
+
                             if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 5, ref Do, AStarGreedyi, Order))
                                 continue;
+
                             Object ol = new Object();
                             lock (ol)
                             {
@@ -9630,19 +9945,24 @@ namespace RefrigtzDLL
                                         continue;
                                 if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 5, ref Do, AStarGreedyi, Order))
                                     continue;
+
                             }
                         }
                     }
 
+
                 }
+
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+
                 return TableHeuristic;
             }
         }
         //main gray section of king Heuristic
         int[,] HeuristicAStarGreadySearchKingGray(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O = new Object();
             lock (O)
             {
@@ -9653,15 +9973,18 @@ namespace RefrigtzDLL
                 }
                 // else
 
+
                 return TableHeuristic;
             }
         }
         //main brown section of king Heuristic
         int[,] HeuristicAStarGreadySearchKingBrown(ref int[,] TableHeuristic, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O = new Object();
             lock (O)
             {
+
                 if (KingHigh != KingMidle)
                 {
                     for (var i = KingMidle; i < KingHigh; i++)
@@ -9669,15 +9992,19 @@ namespace RefrigtzDLL
                 }
                 // else
 
+
                 return TableHeuristic;
             }
         }
         //main section of king Heuristic
         int[,] HeuristicAStarGreadySearchKing(ref int[,] TableHeuristic, int i, int AStarGreedyi, Color a, int Order, bool CurrentTableHeuristic, ref bool Act)
         {
+
             Object O = new Object();
             lock (O)
             {
+
+
 
                 int j;
                 List<int> Founded = new List<int>();
@@ -9685,13 +10012,16 @@ namespace RefrigtzDLL
                 int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
+
                 for (int k = 0; k < AllDraw.KingMovments; k++)
                 {
                     for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                     {
                         if (IsSupHuTrue(i, j, 0, 6))
                             continue;
+
                         {
+
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
@@ -9699,21 +10029,26 @@ namespace RefrigtzDLL
                                 continue;
                             int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
+
                             if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && KingOnTable[i].KingThinking[0].AStarGreedy[j] != null)
                                 KingOnTable[i].KingThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(6, ref AA, Order * -1);
                             ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
+
                             StringHeuristics(6, 1, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
-                            if (KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled <= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3)
+
+                            if (Lose(6, i, j))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
+
                             if (HeuristicRegardSection(i, j, k, ref Act, ref TableHeuristic, ref AA, a, 6, ref Do, AStarGreedyi, Order))
                                 continue;
+
                             Object ol = new Object();
                             lock (ol)
                             {
@@ -9724,12 +10059,16 @@ namespace RefrigtzDLL
                                 //When There is greater Heuristic Movments.
                                 if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 6, ref Do, AStarGreedyi, Order))
                                     continue;
+
                             }
+
                         }
                     }
                 }
+
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
+
                 return TableHeuristic;
             }
         }
