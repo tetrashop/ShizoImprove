@@ -18,6 +18,13 @@ namespace QuantumRefrigiz
 
     public class AllDraw//: IDisposable
     {
+        public List<bool> SolderesOnTableMove = new List<bool>();
+        public List<bool> ElephantOnTableMove = new List<bool>();
+        public List<bool> HoursesOnTableMove = new List<bool>();
+        public List<bool> CastlesOnTableMove = new List<bool>();
+        public List<bool> MinisterOnTableMove = new List<bool>();
+        public List<bool> KingOnTableMove = new List<bool>();
+
         bool OnlyWin = false;
 
         public static bool LeafSemaphoreIndex = false;
@@ -845,40 +852,53 @@ namespace QuantumRefrigiz
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index, bool Verify = false)
         {
-            AllDraw thisAStarGreedyString = this.AStarGreedyString;
+            SolderesOnTableMove.Clear();
+            ElephantOnTableMove.Clear();
+            HoursesOnTableMove.Clear();
+            CastlesOnTableMove.Clear();
+            MinisterOnTableMove.Clear();
+            KingOnTableMove.Clear();
 
+            AllDraw thisAStarGreedyString = this.AStarGreedyString;
             if (Verify)
             {
                 if (SetRowColumn())
                     return;
                 int Dummy = OrderP;
-
                 Object a1 = new Object();
                 lock (a1)
                 {
-
                     SetObjectNumbers(TableList[0]);
 
                     int So1 = 0;
                     int So2 = SodierMidle;
+                    for (int i = 0; i < SodierHigh; i++)
+                        SolderesOnTableMove.Add(false);
                     int El1 = 0;
                     int El2 = ElefantMidle;
+                    for (int i = 0; i < ElefantHigh; i++)
+                        ElephantOnTableMove.Add(false);
                     int Ho1 = 0;
                     int Ho2 = HourseMidle;
+                    for (int i = 0; i < HourseHight; i++)
+                        HoursesOnTableMove.Add(false);
                     int Br1 = 0;
                     int Br2 = CastleMidle;
+                    for (int i = 0; i < CastleHigh; i++)
+                        CastlesOnTableMove.Add(false);
                     int Mi1 = 0;
                     int Mi2 = MinisterMidle;
+                    for (int i = 0; i < MinisterHigh; i++)
+                        MinisterOnTableMove.Add(false);
                     int Ki1 = 0;
                     int Ki2 = KingMidle;
-
+                    for (int i = 0; i < KingHigh; i++)
+                        KingOnTableMove.Add(false);
 
                     SetRowColumnFinished = false;
-
                     Move = 0;
                     //Intiate Dummy Variables.
                     //When Conversion Occured.
-
                     //When Table Exist.
                     if (TableList.Count > 0)
                     {
@@ -886,7 +906,6 @@ namespace QuantumRefrigiz
                         for (int Column = 0; Column < 8; Column++)
                             for (int Row = 0; Row < 8; Row++)
                             {
-
                                 if (CloneATable(TableList[index])[Row, Column] == 0)
                                     continue;
                                 //When Things are Soldiers.
@@ -894,7 +913,6 @@ namespace QuantumRefrigiz
                                 {
                                     //Determine int
                                     Color a;
-
                                     if (CloneATable(TableList[index])[Row, Column] > 0)
                                     {
                                         OrderP = 1;
@@ -907,12 +925,10 @@ namespace QuantumRefrigiz
                                     }     //When int is Gray. 
                                     if (a == Color.Gray)
                                     {
-
                                         //Construct Soder Gray.
                                         SolderesOnTable[So1].Row = Row;
                                         SolderesOnTable[So1].Column = Column;
-
-                                        //IncreASe So1.
+                                        //Increase So1.
                                         So1++;
                                         if (So1 > SodierMidle)
                                         {
@@ -920,22 +936,17 @@ namespace QuantumRefrigiz
                                             SodierHigh++;
                                         }
 
-
-
                                     }
                                     //When int is Brown
                                     else
                                     {
-
                                         //Construct Soldeir Brown.
                                         SolderesOnTable[So2].Row = Row;
                                         SolderesOnTable[So2].Column = Column;
-
-                                        //IncreASe So2.
+                                        //Increase So2.
                                         So2++;
                                         if (So2 > SodierHigh)
                                             SodierHigh++;
-
 
                                     }
                                 }
@@ -957,11 +968,9 @@ namespace QuantumRefrigiz
                                     if (a == Color.Gray)
                                     {
 
-
                                         //Construction of Draw Object.
                                         ElephantOnTable[El1].Row = Row;
                                         ElephantOnTable[El1].Column = Column;
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(El1, OrderP, 2);
                                         //Increament of Gray Index.
@@ -972,16 +981,13 @@ namespace QuantumRefrigiz
                                             ElefantMidle++;
                                             ElefantHigh++;
                                         }
-
                                     }
                                     else//For Brown Elephant .Objects
                                     {
 
-
                                         //Construction of Draw Brown Elephant Object. 
                                         ElephantOnTable[El2].Row = Row;
                                         ElephantOnTable[El2].Column = Column;
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(El2, OrderP, 2);
                                         //Increament of Index.
@@ -989,7 +995,6 @@ namespace QuantumRefrigiz
                                         //When New Brown Elephant Object Increament of Index.
                                         if (El2 > ElefantHigh)
                                             ElefantHigh++;
-
 
                                     }
                                 }
@@ -1011,39 +1016,32 @@ namespace QuantumRefrigiz
                                     if (a == Color.Gray)
                                     {
 
-
-
                                         //Construction of Draw Brown Hourse.
                                         HoursesOnTable[Ho1].Row = Row;
                                         HoursesOnTable[Ho1].Column = Column;
-
 
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Ho1, OrderP, 3);
                                         //Increament of Index.
                                         Ho1++;
-                                        //when There is New Gray Hourse IncreASe.
+                                        //when There is New Gray Hourse Increase.
                                         if (Ho1 > HourseMidle)
                                         {
                                             HourseMidle++;
                                             HourseHight++;
                                         }
-
                                     }//For Brown Hourses.
                                     else
                                     {
 
-
                                         //Construction of Draw Brown Hourse.
                                         HoursesOnTable[Ho2].Row = Row;
                                         HoursesOnTable[Ho2].Column = Column;
-
                                         //Increament of Index.
                                         Ho2++;
                                         //When New Brown Hourse Exist Exist Index.
                                         if (Ho2 > HourseHight)
                                             HourseHight++;
-
                                     }
                                 }
                                 else//For Castles Objects.
@@ -1063,8 +1061,6 @@ namespace QuantumRefrigiz
                                     }         //For Gray int.
                                     if (a == Color.Gray)
                                     {
-
-
 
                                         //Construction of New Draw Gray Castles.
                                         CastlesOnTable[Br1].Row = Row;
@@ -1077,22 +1073,18 @@ namespace QuantumRefrigiz
                                             CastleMidle++;
                                             CastleHigh++;
                                         }
-
                                     }//For Brown Castles.
                                     else
                                     {
 
-
                                         //Construction Draw of New Brown Castles.
                                         CastlesOnTable[Br2].Row = Row;
                                         CastlesOnTable[Br2].Column = Column;
-
                                         //Increament of Index.
                                         Br2++;
                                         //wehn Brown New Castles Detected Increament Max Index.
                                         if (Br2 > CastleHigh)
                                             CastleHigh++;
-
                                     }
                                 }
                                 else//For Minister Objects.
@@ -1114,12 +1106,9 @@ namespace QuantumRefrigiz
                                     {
 
 
-
-
                                         //construction of new draw Gray Minster.
                                         MinisterOnTable[Mi1].Row = Row;
                                         MinisterOnTable[Mi1].Column = Column;
-
                                         //Increament of Index.
                                         Mi1++;
                                         //Wehn New Gray Minster Detected Increament Max Indexes.
@@ -1129,22 +1118,18 @@ namespace QuantumRefrigiz
                                             MinisterHigh++;
                                         }
 
-
                                     }//For Brown  ints.
                                     else
                                     {
 
-
                                         //Construction of New Draw Brown Minster.
                                         MinisterOnTable[Mi2].Row = Row;
                                         MinisterOnTable[Mi2].Column = Column;
-
                                         //Increament Index.
                                         Mi2++;
                                         //When New Brown Minister Detected Increament Max Index.
                                         if (Mi2 > MinisterHigh)
                                             MinisterHigh++;
-
                                     }
                                 }
                                 else//for King Objects.        
@@ -1165,12 +1150,9 @@ namespace QuantumRefrigiz
                                     if (a == Color.Gray)
                                     {
 
-
-
                                         //Construction of New Draw Gray King.
                                         KingOnTable[Ki1].Row = Row;
                                         KingOnTable[Ki1].Column = Column;
-
                                         //Increament of Index.
                                         Ki1++;
                                         //when New Draw  Object Detected Increament Max Index.
@@ -1178,70 +1160,49 @@ namespace QuantumRefrigiz
                                         {
                                             KingMidle++;
                                             KingHigh++;
-
                                         }
-
                                     }//For Brown King int
                                     else
                                     {
 
-
                                         //Construction of New Draw King Brown Object.
                                         KingOnTable[Ki2].Row = Row;
                                         KingOnTable[Ki2].Column = Column;
-
                                         //Increament of Index.
                                         Ki2++;
                                         //When New Object Detected Increament Of Brown King Max Index.
                                         if (Ki2 > KingHigh)
                                             KingHigh++;
-
                                     }
-
                                 }
                             }
-
                         //Make Empty Remaining.
 
-
                     }
-
-
 
                     SetObjectNumbers(TableList[0]);
                     for (var i = So1; i < SodierMidle; i++)
                         SolderesOnTable[i] = null;
-
                     for (var i = So2; i < SodierHigh; i++)
                         SolderesOnTable[i] = null;
-
                     for (var i = El1; i < ElefantMidle; i++)
                         ElephantOnTable[i] = null;
-
                     for (var i = El2; i < ElefantHigh; i++)
                         ElephantOnTable[i] = null;
-
                     for (var i = Ho1; i < HourseMidle; i++)
                         HoursesOnTable[i] = null;
-
                     for (var i = Ho2; i < HourseHight; i++)
                         HoursesOnTable[i] = null;
-
                     for (var i = Br1; i < CastleMidle; i++)
                         CastlesOnTable[i] = null;
-
                     for (var i = Br2; i < CastleHigh; i++)
                         CastlesOnTable[i] = null;
-
                     for (var i = Mi1; i < MinisterMidle; i++)
                         MinisterOnTable[i] = null;
-
                     for (var i = Mi2; i < MinisterHigh; i++)
                         MinisterOnTable[i] = null;
-
                     for (var i = Ki1; i < KingMidle; i++)
                         KingOnTable[i] = null;
-
                     for (var i = Ki2; i < KingHigh; i++)
                         KingOnTable[i] = null;
                     if (TableList.Count > 0)
@@ -1252,7 +1213,6 @@ namespace QuantumRefrigiz
                     }
                     SetRowColumnFinished = true;
                 }
-
                 Spaces--;
                 this.AStarGreedyString = thisAStarGreedyString;
                 OrderP = Dummy;
@@ -1260,29 +1220,37 @@ namespace QuantumRefrigiz
             else
             {
                 int Dummy = OrderP;
-
                 Object a1 = new Object();
                 lock (a1)
                 {
-
                     SetObjectNumbers(TableList[0]);
 
                     int So1 = 0;
                     int So2 = SodierMidle;
+                    for (int i = 0; i < SodierHigh; i++)
+                        SolderesOnTableMove.Add(false);
                     int El1 = 0;
                     int El2 = ElefantMidle;
+                    for (int i = 0; i < ElefantHigh; i++)
+                        ElephantOnTableMove.Add(false);
                     int Ho1 = 0;
                     int Ho2 = HourseMidle;
+                    for (int i = 0; i < HourseHight; i++)
+                        HoursesOnTableMove.Add(false);
                     int Br1 = 0;
                     int Br2 = CastleMidle;
+                    for (int i = 0; i < CastleHigh; i++)
+                        CastlesOnTableMove.Add(false);
                     int Mi1 = 0;
                     int Mi2 = MinisterMidle;
+                    for (int i = 0; i < MinisterHigh; i++)
+                        MinisterOnTableMove.Add(false);
                     int Ki1 = 0;
                     int Ki2 = KingMidle;
-
+                    for (int i = 0; i < KingHigh; i++)
+                        KingOnTableMove.Add(false);
 
                     SetRowColumnFinished = false;
-
                     Move = 0;
                     //Intiate Dummy Variables.
                     //When Conversion Occured.
@@ -1293,7 +1261,6 @@ namespace QuantumRefrigiz
                     MinisterOnTable = new DrawMinisterQ[MinisterHigh];
                     KingOnTable = new DrawKingQ[KingHigh];
                     AllDraw.SodierConversionOcuured = false;
-
                     //When Table Exist.
                     if (TableList.Count > 0)
                     {
@@ -1301,7 +1268,6 @@ namespace QuantumRefrigiz
                         for (int Column = 0; Column < 8; Column++)
                             for (int Row = 0; Row < 8; Row++)
                             {
-
                                 if (CloneATable(TableList[index])[Row, Column] == 0)
                                     continue;
                                 //When Things are Soldiers.
@@ -1309,7 +1275,6 @@ namespace QuantumRefrigiz
                                 {
                                     //Determine int
                                     Color a;
-
                                     if (CloneATable(TableList[index])[Row, Column] > 0)
                                     {
                                         OrderP = 1;
@@ -1322,14 +1287,11 @@ namespace QuantumRefrigiz
                                     }     //When int is Gray. 
                                     if (a == Color.Gray)
                                     {
-
                                         //Construct Soder Gray.
                                         SolderesOnTable[So1] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, So1);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(So1, OrderP, 1);
-
-                                        //IncreASe So1.
+                                        //Increase So1.
                                         So1++;
                                         if (So1 > SodierMidle)
                                         {
@@ -1337,23 +1299,18 @@ namespace QuantumRefrigiz
                                             SodierHigh++;
                                         }
 
-
-
                                     }
                                     //When int is Brown
                                     else
                                     {
-
                                         //Construct Soldeir Brown.
                                         SolderesOnTable[So2] = new DrawSoldierQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, So2);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(So2, OrderP, 1);
-                                        //IncreASe So2.
+                                        //Increase So2.
                                         So2++;
                                         if (So2 > SodierHigh)
                                             SodierHigh++;
-
 
                                     }
                                 }
@@ -1375,10 +1332,8 @@ namespace QuantumRefrigiz
                                     if (a == Color.Gray)
                                     {
 
-
                                         //Construction of Draw Object.
                                         ElephantOnTable[El1] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, El1);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(El1, OrderP, 2);
                                         //Increament of Gray Index.
@@ -1389,15 +1344,12 @@ namespace QuantumRefrigiz
                                             ElefantMidle++;
                                             ElefantHigh++;
                                         }
-
                                     }
                                     else//For Brown Elephant .Objects
                                     {
 
-
                                         //Construction of Draw Brown Elephant Object. 
                                         ElephantOnTable[El2] = new DrawElefantQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, El2);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(El2, OrderP, 2);
                                         //Increament of Index.
@@ -1405,7 +1357,6 @@ namespace QuantumRefrigiz
                                         //When New Brown Elephant Object Increament of Index.
                                         if (El2 > ElefantHigh)
                                             ElefantHigh++;
-
 
                                     }
                                 }
@@ -1427,30 +1378,24 @@ namespace QuantumRefrigiz
                                     if (a == Color.Gray)
                                     {
 
-
-
                                         //Construction of Draw Brown Hourse.
                                         HoursesOnTable[Ho1] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ho1);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Ho1, OrderP, 3);
                                         //Increament of Index.
                                         Ho1++;
-                                        //when There is New Gray Hourse IncreASe.
+                                        //when There is New Gray Hourse Increase.
                                         if (Ho1 > HourseMidle)
                                         {
                                             HourseMidle++;
                                             HourseHight++;
                                         }
-
                                     }//For Brown Hourses.
                                     else
                                     {
 
-
                                         //Construction of Draw Brown Hourse.
                                         HoursesOnTable[Ho2] = new DrawHourseQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ho2);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Ho2, OrderP, 3);
                                         //Increament of Index.
@@ -1458,7 +1403,6 @@ namespace QuantumRefrigiz
                                         //When New Brown Hourse Exist Exist Index.
                                         if (Ho2 > HourseHight)
                                             HourseHight++;
-
                                     }
                                 }
                                 else//For Castles Objects.
@@ -1479,11 +1423,8 @@ namespace QuantumRefrigiz
                                     if (a == Color.Gray)
                                     {
 
-
-
                                         //Construction of New Draw Gray Castles.
                                         CastlesOnTable[Br1] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Br1);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Br1, OrderP, 4);
                                         //Increamnt of Index.
@@ -1494,15 +1435,12 @@ namespace QuantumRefrigiz
                                             CastleMidle++;
                                             CastleHigh++;
                                         }
-
                                     }//For Brown Castles.
                                     else
                                     {
 
-
                                         //Construction Draw of New Brown Castles.
                                         CastlesOnTable[Br2] = new DrawCastleQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Br2);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Br2, OrderP, 4);
                                         //Increament of Index.
@@ -1510,7 +1448,6 @@ namespace QuantumRefrigiz
                                         //wehn Brown New Castles Detected Increament Max Index.
                                         if (Br2 > CastleHigh)
                                             CastleHigh++;
-
                                     }
                                 }
                                 else//For Minister Objects.
@@ -1532,11 +1469,8 @@ namespace QuantumRefrigiz
                                     {
 
 
-
-
                                         //construction of new draw Gray Minster.
                                         MinisterOnTable[Mi1] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Mi1);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Mi1, OrderP, 5);
                                         //Increament of Index.
@@ -1548,15 +1482,12 @@ namespace QuantumRefrigiz
                                             MinisterHigh++;
                                         }
 
-
                                     }//For Brown  ints.
                                     else
                                     {
 
-
                                         //Construction of New Draw Brown Minster.
                                         MinisterOnTable[Mi2] = new DrawMinisterQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Mi2);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Mi2, OrderP, 5);
                                         //Increament Index.
@@ -1564,7 +1495,6 @@ namespace QuantumRefrigiz
                                         //When New Brown Minister Detected Increament Max Index.
                                         if (Mi2 > MinisterHigh)
                                             MinisterHigh++;
-
                                     }
                                 }
                                 else//for King Objects.        
@@ -1585,11 +1515,8 @@ namespace QuantumRefrigiz
                                     if (a == Color.Gray)
                                     {
 
-
-
                                         //Construction of New Draw Gray King.
                                         KingOnTable[Ki1] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), 1, false, Ki1);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Ki1, OrderP, 6);
                                         //Increament of Index.
@@ -1599,17 +1526,13 @@ namespace QuantumRefrigiz
                                         {
                                             KingMidle++;
                                             KingHigh++;
-
                                         }
-
                                     }//For Brown King int
                                     else
                                     {
 
-
                                         //Construction of New Draw King Brown Object.
                                         KingOnTable[Ki2] = new DrawKingQ(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Row, Column, a, CloneATable(TableList[index]), -1, false, Ki2);
-
                                         //satisfied of created deeper three
                                         BlitzNotValidFullGameThinkingQuantumTreePartThree(Ki2, OrderP, 6);
                                         //Increament of Index.
@@ -1617,53 +1540,36 @@ namespace QuantumRefrigiz
                                         //When New Object Detected Increament Of Brown King Max Index.
                                         if (Ki2 > KingHigh)
                                             KingHigh++;
-
                                     }
-
                                 }
                             }
-
                         //Make Empty Remaining.
 
-
                     }
-
-
 
                     SetObjectNumbers(TableList[0]);
                     for (var i = So1; i < SodierMidle; i++)
                         SolderesOnTable[i] = null;
-
                     for (var i = So2; i < SodierHigh; i++)
                         SolderesOnTable[i] = null;
-
                     for (var i = El1; i < ElefantMidle; i++)
                         ElephantOnTable[i] = null;
-
                     for (var i = El2; i < ElefantHigh; i++)
                         ElephantOnTable[i] = null;
-
                     for (var i = Ho1; i < HourseMidle; i++)
                         HoursesOnTable[i] = null;
-
                     for (var i = Ho2; i < HourseHight; i++)
                         HoursesOnTable[i] = null;
-
                     for (var i = Br1; i < CastleMidle; i++)
                         CastlesOnTable[i] = null;
-
                     for (var i = Br2; i < CastleHigh; i++)
                         CastlesOnTable[i] = null;
-
                     for (var i = Mi1; i < MinisterMidle; i++)
                         MinisterOnTable[i] = null;
-
                     for (var i = Mi2; i < MinisterHigh; i++)
                         MinisterOnTable[i] = null;
-
                     for (var i = Ki1; i < KingMidle; i++)
                         KingOnTable[i] = null;
-
                     for (var i = Ki2; i < KingHigh; i++)
                         KingOnTable[i] = null;
                     if (TableList.Count > 0)
@@ -1674,12 +1580,11 @@ namespace QuantumRefrigiz
                     }
                     SetRowColumnFinished = true;
                 }
-
                 Spaces--;
                 this.AStarGreedyString = thisAStarGreedyString;
                 OrderP = Dummy;
+                SetObjectNumbers(Tabl);
             }
-            SetObjectNumbers(Tabl);
         }
         public bool SetRowColumn()
         {
@@ -10495,8 +10400,8 @@ namespace QuantumRefrigiz
             if (Kind == 1)
             {
                 //    bool A = false;
-                //  for (int k = 0; k < SolderesOnTable[i].SoldierThinking[0].WinChiled.Count; k++)
-                //     A = A || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinking[0].WinChiled[k] >= 3;
+                //  for (int k = 0; k < SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled.Count; k++)
+                //     A = A || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 1 || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 2 || SolderesOnTable[i].SoldierThinkingQuantum[0].WinChiled[k] >= 3;
 
                 bool B = SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3;
 
@@ -10507,8 +10412,8 @@ namespace QuantumRefrigiz
       if (Kind == 2)
             {
                 //   bool A = false;
-                //   for (int k = 0; k < ElephantOnTable[i].ElefantThinking[0].WinChiled.Count; k++)
-                //       A = A || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinking[0].WinChiled[k] >= 3;
+                //   for (int k = 0; k < ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled.Count; k++)
+                //       A = A || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 1 || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 2 || ElephantOnTable[i].ElefantThinkingQuantum[0].WinChiled[k] >= 3;
 
                 bool B = ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3;
 
@@ -10519,8 +10424,8 @@ namespace QuantumRefrigiz
       if (Kind == 3)
             {
                 //   bool A = false;
-                //   for (int k = 0; k < HoursesOnTable[i].HourseThinking[0].WinChiled.Count; k++)
-                //      A = A || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinking[0].WinChiled[k] >= 3;
+                //   for (int k = 0; k < HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled.Count; k++)
+                //      A = A || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 1 || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 2 || HoursesOnTable[i].HourseThinkingQuantum[0].WinChiled[k] >= 3;
 
                 bool B = HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3;
 
@@ -10531,8 +10436,8 @@ namespace QuantumRefrigiz
       if (Kind == 4)
             {
                 //  bool A = false;
-                //  for (int k = 0; k < CastlesOnTable[i].CastleThinking[0].WinChiled.Count; k++)
-                //      A = A || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinking[0].WinChiled[k] >= 3;
+                //  for (int k = 0; k < CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled.Count; k++)
+                //      A = A || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 1 || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 2 || CastlesOnTable[i].CastleThinkingQuantum[0].WinChiled[k] >= 3;
 
                 bool B = CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3;
 
@@ -10543,8 +10448,8 @@ namespace QuantumRefrigiz
       if (Kind == 5)
             {
                 //   bool A = false;
-                //   for (int k = 0; k < MinisterOnTable[i].MinisterThinking[0].WinChiled.Count; k++)
-                //      A = A || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinking[0].WinChiled[k] >= 3;
+                //   for (int k = 0; k < MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled.Count; k++)
+                //      A = A || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 1 || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 2 || MinisterOnTable[i].MinisterThinkingQuantum[0].WinChiled[k] >= 3;
 
                 bool B = MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3;
 
@@ -10555,8 +10460,8 @@ namespace QuantumRefrigiz
       if (Kind == 6)
             {
                 //  bool A = false;
-                //  for (int k = 0; k < KingOnTable[i].KingThinking[0].WinChiled.Count; k++)
-                //      A = A || KingOnTable[i].KingThinking[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinking[0].WinChiled[k] >= 3;
+                //  for (int k = 0; k < KingOnTable[i].KingThinkingQuantum[0].WinChiled.Count; k++)
+                //      A = A || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 1 || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 2 || KingOnTable[i].KingThinkingQuantum[0].WinChiled[k] >= 3;
 
                 bool B = KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3;
                 Is = B;
@@ -15149,7 +15054,7 @@ namespace QuantumRefrigiz
 
         }
         AllDraw InitiateAStarGreedytSodler(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
-             )
+              )
         {
             Object oo = new Object();
             lock (oo)
@@ -15162,7 +15067,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If Solders Not Exist Continue and Traversal Back.
-                    if (InitiateAStarGreedyt(i, 1,Order))
+                    if (InitiateAStarGreedyt(i, 1, Order))
                     {
                         //Initiate of Local Variables By Global Objective Gray Current Solder.
                         int ik = (int)SolderesOnTable[i].Row;
@@ -15183,6 +15088,8 @@ namespace QuantumRefrigiz
                                     SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantumFinished = false;
                                     var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
+                                    if (SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count != 0)
+                                        SolderesOnTableMove[i] = true;
                                 }
                             }
                         }
@@ -15227,7 +15134,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Elephant Gray Objects.
-                    if (InitiateAStarGreedyt(i, 2,Order))
+                    if (InitiateAStarGreedyt(i, 2, Order))
                     {
                         //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
                         int ik = (int)ElephantOnTable[i].Row;
@@ -15249,6 +15156,8 @@ namespace QuantumRefrigiz
                                     var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+                                    if (ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count != 0)
+                                        ElephantOnTableMove[i] = true;
                                 }
                             }
                         }
@@ -15294,7 +15203,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Gray Hourse Objects.
-                    if (InitiateAStarGreedyt(i, 3,Order))
+                    if (InitiateAStarGreedyt(i, 3, Order))
                     {
                         //Initiate of Local Variables By Global Gray Hourse Objectives.
                         int ik = (int)HoursesOnTable[i].Row;
@@ -15316,6 +15225,8 @@ namespace QuantumRefrigiz
                                     var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+                                    if (HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count != 0)
+                                        HoursesOnTableMove[i] = true;
 
                                 }
                             }
@@ -15362,7 +15273,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //When Current Castles Gray Not Exist Continue Traversal Back.
-                    if (InitiateAStarGreedyt(i, 4,Order))
+                    if (InitiateAStarGreedyt(i, 4, Order))
                     {
                         //Initaiate of Local Varibales By Global Varoiables.
                         int ik = (int)CastlesOnTable[i].Row;
@@ -15384,6 +15295,9 @@ namespace QuantumRefrigiz
                                     var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+
+                                    if (CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count != 0)
+                                        CastlesOnTableMove[i] = true;
                                 }
                             }
                         }
@@ -15428,7 +15342,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //For Each Non Exist Gray Minister Objectives.
-                    if (InitiateAStarGreedyt(i, 5,Order))
+                    if (InitiateAStarGreedyt(i, 5, Order))
                     {
                         //Inititate Local Variables By Global Varibales.
                         int ik = (int)MinisterOnTable[i].Row;
@@ -15450,6 +15364,8 @@ namespace QuantumRefrigiz
                                     var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+                                    if (MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count != 0)
+                                        MinisterOnTableMove[i] = true;
                                 }
                             }
                         }
@@ -15493,7 +15409,7 @@ namespace QuantumRefrigiz
                     Order = DummyOrder;
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If There is Not Current Object Continue Traversal Back.
-                    if (InitiateAStarGreedyt(i, 6,Order))
+                    if (InitiateAStarGreedyt(i, 6, Order))
                     {
                         //Initiate Local varibale By Global Objective Varibales.
                         int ik = (int)(int)KingOnTable[i].Row;
@@ -15515,6 +15431,8 @@ namespace QuantumRefrigiz
                                     ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinkingQuantum[0].ThinkingQuantum(iAStarGreedy, this, ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+                                    if (KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count != 0)
+                                        KingOnTableMove[i] = true;
                                 }
                             }
                         }

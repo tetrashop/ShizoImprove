@@ -14,6 +14,13 @@ namespace RefrigtzDLL
     [Serializable]
     public class AllDraw//: IDisposable
     {
+        public List<bool> SolderesOnTableMove = new List<bool>();
+        public List<bool> ElephantOnTableMove = new List<bool>();
+        public List<bool> HoursesOnTableMove = new List<bool>();
+        public List<bool> CastlesOnTableMove = new List<bool>();
+        public List<bool> MinisterOnTableMove = new List<bool>();
+        public List<bool> KingOnTableMove = new List<bool>();
+
         bool OnlyWin = false;
         public static bool LeafSemaphoreIndex = false;
         //Initiate Variables. 
@@ -741,6 +748,13 @@ namespace RefrigtzDLL
         //Rearrange AllDraw Object Content.
         public void SetRowColumn(int index, bool Verify = false)
         {
+            SolderesOnTableMove.Clear();
+            ElephantOnTableMove.Clear();
+            HoursesOnTableMove.Clear();
+            CastlesOnTableMove.Clear();
+            MinisterOnTableMove.Clear();
+            KingOnTableMove.Clear();
+
             AllDraw thisAStarGreedyString = this.AStarGreedyString;
             if (Verify)
             {
@@ -751,18 +765,31 @@ namespace RefrigtzDLL
                 lock (a1)
                 {
                     SetObjectNumbers(TableList[0]);
+
                     int So1 = 0;
                     int So2 = SodierMidle;
+                    for (int i = 0; i < SodierHigh; i++)
+                        SolderesOnTableMove.Add(false);
                     int El1 = 0;
                     int El2 = ElefantMidle;
+                    for (int i = 0; i < ElefantHigh; i++)
+                        ElephantOnTableMove.Add(false);
                     int Ho1 = 0;
                     int Ho2 = HourseMidle;
+                    for (int i = 0; i < HourseHight; i++)
+                        HoursesOnTableMove.Add(false);
                     int Br1 = 0;
                     int Br2 = CastleMidle;
+                    for (int i = 0; i < CastleHigh; i++)
+                        CastlesOnTableMove.Add(false);
                     int Mi1 = 0;
                     int Mi2 = MinisterMidle;
+                    for (int i = 0; i < MinisterHigh; i++)
+                        MinisterOnTableMove.Add(false);
                     int Ki1 = 0;
                     int Ki2 = KingMidle;
+                    for (int i = 0; i < KingHigh; i++)
+                        KingOnTableMove.Add(false);
 
                     SetRowColumnFinished = false;
                     Move = 0;
@@ -1093,18 +1120,31 @@ namespace RefrigtzDLL
                 lock (a1)
                 {
                     SetObjectNumbers(TableList[0]);
+
                     int So1 = 0;
                     int So2 = SodierMidle;
+                    for (int i = 0; i < SodierHigh; i++)
+                        SolderesOnTableMove.Add(false);
                     int El1 = 0;
                     int El2 = ElefantMidle;
+                    for (int i = 0; i < ElefantHigh; i++)
+                        ElephantOnTableMove.Add(false);
                     int Ho1 = 0;
                     int Ho2 = HourseMidle;
+                    for (int i = 0; i < HourseHight; i++)
+                        HoursesOnTableMove.Add(false);
                     int Br1 = 0;
                     int Br2 = CastleMidle;
+                    for (int i = 0; i < CastleHigh; i++)
+                        CastlesOnTableMove.Add(false);
                     int Mi1 = 0;
                     int Mi2 = MinisterMidle;
+                    for (int i = 0; i < MinisterHigh; i++)
+                        MinisterOnTableMove.Add(false);
                     int Ki1 = 0;
                     int Ki2 = KingMidle;
+                    for (int i = 0; i < KingHigh; i++)
+                        KingOnTableMove.Add(false);
 
                     SetRowColumnFinished = false;
                     Move = 0;
@@ -13427,7 +13467,7 @@ namespace RefrigtzDLL
 
         }
         AllDraw InitiateAStarGreedytSodler(int i, int iii, int jjj, int[,] Table, int DummyOrder, int DummyCurrentOrder, int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
-             )
+           )
         {
             Object oo = new Object();
             lock (oo)
@@ -13461,6 +13501,8 @@ namespace RefrigtzDLL
                                     SolderesOnTable[i].SoldierThinking[0].ThinkingFinished = false;
                                     var array = Task.Factory.StartNew(() => SolderesOnTable[i].SoldierThinking[0].Thinking(iAStarGreedy, this, ref SolderesOnTable[i].LoseOcuuredatChiled, ref SolderesOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
+                                    if (SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count != 0)
+                                        SolderesOnTableMove[i] = true;
                                 }
                             }
                         }
@@ -13527,6 +13569,8 @@ namespace RefrigtzDLL
                                     var array = Task.Factory.StartNew(() => ElephantOnTable[i].ElefantThinking[0].Thinking(iAStarGreedy, this, ref ElephantOnTable[i].LoseOcuuredatChiled, ref ElephantOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+                                    if (ElephantOnTable[i].ElefantThinking[0].TableListElefant.Count != 0)
+                                        ElephantOnTableMove[i] = true;
                                 }
                             }
                         }
@@ -13594,6 +13638,8 @@ namespace RefrigtzDLL
                                     var array = Task.Factory.StartNew(() => HoursesOnTable[i].HourseThinking[0].Thinking(iAStarGreedy, this, ref HoursesOnTable[i].LoseOcuuredatChiled, ref HoursesOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+                                    if (HoursesOnTable[i].HourseThinking[0].TableListHourse.Count != 0)
+                                        HoursesOnTableMove[i] = true;
 
                                 }
                             }
@@ -13662,6 +13708,9 @@ namespace RefrigtzDLL
                                     var array = Task.Factory.StartNew(() => CastlesOnTable[i].CastleThinking[0].Thinking(iAStarGreedy, this, ref CastlesOnTable[i].LoseOcuuredatChiled, ref CastlesOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+
+                                    if (CastlesOnTable[i].CastleThinking[0].TableListCastle.Count != 0)
+                                        CastlesOnTableMove[i] = true;
                                 }
                             }
                         }
@@ -13728,6 +13777,8 @@ namespace RefrigtzDLL
                                     var array = Task.Factory.StartNew(() => MinisterOnTable[i].MinisterThinking[0].Thinking(iAStarGreedy, this, ref MinisterOnTable[i].LoseOcuuredatChiled, ref MinisterOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+                                    if (MinisterOnTable[i].MinisterThinking[0].TableListMinister.Count != 0)
+                                        MinisterOnTableMove[i] = true;
                                 }
                             }
                         }
@@ -13793,6 +13844,8 @@ namespace RefrigtzDLL
                                     ; var array = Task.Factory.StartNew(() => KingOnTable[i].KingThinking[0].Thinking(iAStarGreedy, this, ref KingOnTable[i].LoseOcuuredatChiled, ref KingOnTable[i].WinOcuuredatChiled));
                                     array.Wait(); array.Dispose();
 
+                                    if (KingOnTable[i].KingThinking[0].TableListKing.Count != 0)
+                                        KingOnTableMove[i] = true;
                                 }
                             }
                         }
