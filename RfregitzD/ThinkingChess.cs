@@ -223,6 +223,8 @@ namespace RefrigtzDLL
         //[NonSerialized()]
 
         public List<AllDraw> AStarGreedy = new List<AllDraw>();
+        public List<bool> AStarGreedyMove = new List<bool>();
+
         readonly int[,] Value = new int[8, 8];
 
         int CurrentAStarGredyMax = -1;
