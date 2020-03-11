@@ -14,6 +14,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class AllDraw//: IDisposable
     {
+        bool OnlyWin = false;
         public static bool LeafSemaphoreIndex = false;
         //Initiate Variables. 
         bool[] ThinkingAllowed = { false, false, false, false, false, false, false, false, false, false, false, false };
@@ -8478,7 +8479,7 @@ namespace RefrigtzDLL
             bool B = WinPerfromeRegardMethod(Kind, i, j);
 
             continued = A;
-            if (!B)
+            if (!(A&&B))
                 return continued;
             //soldier
             if (Kind == 1)
@@ -8490,8 +8491,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
-                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
-                            return true;
+                        //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            //return true;
                         SaveBeginEndLocation(i, j, k, 1);
                         SaveTableHeuristic(i, j, k, 1, ref TableHeuristic);
                         SaveLess(i, j, k, 1, ref Less, AA, Order);
@@ -8531,8 +8532,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
-                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
-                            return true;
+                        //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            //return true;
                         SaveBeginEndLocation(i, j, k, 2);
                         SaveTableHeuristic(i, j, k, 2, ref TableHeuristic);
                         SaveLess(i, j, k, 2, ref Less, AA, Order);
@@ -8567,8 +8568,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
-                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
-                            return true;
+                        //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            //return true;
                         SaveBeginEndLocation(i, j, k, 4);
                         SaveTableHeuristic(i, j, k, 4, ref TableHeuristic);
                         SaveLess(i, j, k, 4, ref Less, AA, Order);
@@ -8586,8 +8587,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
-                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
-                            return true;
+                        //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            //return true;
                         SaveBeginEndLocation(i, j, k, 5);
                         SaveTableHeuristic(i, j, k, 5, ref TableHeuristic);
                         SaveLess(i, j, k, 5, ref Less, AA, Order);
@@ -8606,8 +8607,8 @@ namespace RefrigtzDLL
                     Object On = new Object();
                     lock (On)
                     {
-                        if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
-                            return true;
+                        //if (!RegardLessOptimized(i, j, k, Kind, ref Less, AA, Order))
+                            //return true;
                         SaveBeginEndLocation(i, j, k, 6);
                         SaveTableHeuristic(i, j, k, 6, ref TableHeuristic);
                         SaveLess(i, j, k, 6, ref Less, AA, Order);
@@ -8621,6 +8622,8 @@ namespace RefrigtzDLL
                     continued = true;
                 }
             }
+            if (continued)
+                OnlyWin = true;
             return continued;
         }
         //initiate deterministic vars of orderic Heuristic value
@@ -10095,13 +10098,18 @@ namespace RefrigtzDLL
             {
                 int[,] TableHeuristic = new int[8, 8];
                 HeuristicAStarGreadySearchSoldierGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                HeuristicAStarGreadySearchElephantGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchElephantGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
-                HeuristicAStarGreadySearchHourseGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchHourseGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
-                HeuristicAStarGreadySearchCastleGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                HeuristicAStarGreadySearchMinsisterGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                HeuristicAStarGreadySearchKingGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchCastleGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchMinsisterGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchKingGray(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 return TableHeuristic;
             }
         }
@@ -10113,13 +10121,18 @@ namespace RefrigtzDLL
             {
                 int[,] TableHeuristic = new int[8, 8];
                 HeuristicAStarGreadySearchSoldierBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                HeuristicAStarGreadySearchElephantBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchElephantBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
-                HeuristicAStarGreadySearchHourseBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchHourseBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
 
-                HeuristicAStarGreadySearchCastleBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                HeuristicAStarGreadySearchMinsisterBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
-                HeuristicAStarGreadySearchKingBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchCastleBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchMinsisterBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
+                if (!OnlyWin)
+                    HeuristicAStarGreadySearchKingBrown(ref TableHeuristic, AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 return TableHeuristic;
             }
         }

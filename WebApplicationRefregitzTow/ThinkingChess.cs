@@ -10831,7 +10831,7 @@ namespace RefrigtzW
 
 
                     }
-                    if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
+                    if (CheckedM!=3)
                     {
                         WinChiled.Add(0);
                         LoseChiled.Add(0);
@@ -11518,6 +11518,7 @@ namespace RefrigtzW
                     HeuristicListSolder.Add(Hu);
 
                     HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
+
                 }
                 else
                 if (Kind == 2)
@@ -11535,6 +11536,7 @@ namespace RefrigtzW
                     HeuristicListElefant.Add(Hu);
 
                     HitNumberElefant.Add(TableS[RowDestination, ColumnDestination]);
+
                 }
                 else
                 if (Kind == 3)
@@ -11552,6 +11554,7 @@ namespace RefrigtzW
                     HeuristicListHourse.Add(Hu);
 
                     HitNumberHourse.Add(TableS[RowDestination, ColumnDestination]);
+
                 }
                 else
                 if (Kind == 4)
@@ -11569,6 +11572,7 @@ namespace RefrigtzW
                     HeuristicListCastle.Add(Hu);
 
                     HitNumberCastle.Add(TableS[RowDestination, ColumnDestination]);
+
                 }
                 else
                 if (Kind == 5)
@@ -11586,6 +11590,8 @@ namespace RefrigtzW
                     HeuristicListMinister.Add(Hu);
 
                     HitNumberMinister.Add(TableS[RowDestination, ColumnDestination]);
+
+
                 }
                 else
                 if (Kind == 6)
@@ -11603,9 +11609,8 @@ namespace RefrigtzW
                     HeuristicListKing.Add(Hu);
 
                     HitNumberKing.Add(TableS[RowDestination, ColumnDestination]);
+
                 }
-                LoseChiled.Add(0);
-                WinChiled.Add(0);
             }
         }
         bool ChessRuleThinking(int[,] TableS, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination)
@@ -15374,11 +15379,7 @@ namespace RefrigtzW
                                 ThinkingFinished = true;
                                 EndThread++;
                             }
-                            if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                            {
-                                WinChiled.Add(0);
-                                LoseChiled.Add(0);
-                            }
+                            
                             return;
                         }
                         if (//CheckMateOcuured || 
@@ -15393,11 +15394,7 @@ namespace RefrigtzW
                                 ThinkingFinished = true;
                                 EndThread++;
                             }
-                            if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                            {
-                                WinChiled.Add(0);
-                                LoseChiled.Add(0);
-                            }
+                            
                             return;
                         }
 
@@ -15431,11 +15428,7 @@ namespace RefrigtzW
                             ThinkingFinished = true;
                             ThinkingBegin = false;
                             EndThread++;
-                            if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                            {
-                                WinChiled.Add(0);
-                                LoseChiled.Add(0);
-                            }
+                            
                         }
 
                         return;
@@ -15452,11 +15445,7 @@ namespace RefrigtzW
                             ThinkingFinished = true;
                             ThinkingBegin = false;
                             EndThread++;
-                            if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                            {
-                                WinChiled.Add(0);
-                                LoseChiled.Add(0);
-                            }
+                            
                         }
 
                         return;

@@ -10837,7 +10837,7 @@ namespace RefrigtzDLL
 
 
                     }
-                    if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
+                    if (CheckedM != 3)
                     {
                         WinChiled.Add(0);
                         LoseChiled.Add(0);
@@ -11524,6 +11524,7 @@ namespace RefrigtzDLL
                     HeuristicListSolder.Add(Hu);
 
                     HitNumberSoldier.Add(TableS[RowDestination, ColumnDestination]);
+                    
                 }
                 else
                 if (Kind == 2)
@@ -11541,6 +11542,7 @@ namespace RefrigtzDLL
                     HeuristicListElefant.Add(Hu);
 
                     HitNumberElefant.Add(TableS[RowDestination, ColumnDestination]);
+                    
                 }
                 else
                 if (Kind == 3)
@@ -11558,6 +11560,7 @@ namespace RefrigtzDLL
                     HeuristicListHourse.Add(Hu);
 
                     HitNumberHourse.Add(TableS[RowDestination, ColumnDestination]);
+                    
                 }
                 else
                 if (Kind == 4)
@@ -11575,6 +11578,7 @@ namespace RefrigtzDLL
                     HeuristicListCastle.Add(Hu);
 
                     HitNumberCastle.Add(TableS[RowDestination, ColumnDestination]);
+                    
                 }
                 else
                 if (Kind == 5)
@@ -11592,6 +11596,8 @@ namespace RefrigtzDLL
                     HeuristicListMinister.Add(Hu);
 
                     HitNumberMinister.Add(TableS[RowDestination, ColumnDestination]);
+                
+                     
                 }
                 else
                 if (Kind == 6)
@@ -11609,10 +11615,8 @@ namespace RefrigtzDLL
                     HeuristicListKing.Add(Hu);
 
                     HitNumberKing.Add(TableS[RowDestination, ColumnDestination]);
-                }
-                LoseChiled.Add(0);
-                WinChiled.Add(0);
-
+                  
+                    }
             }
         }
         bool ChessRuleThinking(int[,] TableS, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination)
@@ -15351,11 +15355,7 @@ namespace RefrigtzDLL
                         ThinkingBegin = false;
 
                         ThinkingFinished = true;
-                        if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                        {
-                            WinChiled.Add(0);
-                            LoseChiled.Add(0);
-                        }
+                        
                         return;
                     }
                     Thread t = new Thread(new ThreadStart(ThinkingWaite));
@@ -15384,11 +15384,7 @@ namespace RefrigtzDLL
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                                {
-                                    WinChiled.Add(0);
-                                    LoseChiled.Add(0);
-                                }
+                                
 
                                 ThinkingBegin = false;
                                 ThinkingFinished = true;
@@ -15404,11 +15400,7 @@ namespace RefrigtzDLL
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                                {
-                                    WinChiled.Add(0);
-                                    LoseChiled.Add(0);
-                                }
+                                
                                 ThinkingBegin = false;
                                 ThinkingFinished = true;
                                 EndThread++;
@@ -15443,11 +15435,7 @@ namespace RefrigtzDLL
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                            {
-                                WinChiled.Add(0);
-                                LoseChiled.Add(0);
-                            }
+                            
                             ThinkingFinished = true;
                             ThinkingBegin = false;
                             EndThread++;
@@ -15463,11 +15451,7 @@ namespace RefrigtzDLL
                         Object O2 = new Object();
                         lock (O2)
                         {
-                            if (WinOcuuredatChiled == 0 && LoseOcuuredatChiled == 0)
-                            {
-                                WinChiled.Add(0);
-                                LoseChiled.Add(0);
-                            }
+                            
                             ThinkingFinished = true;
                             ThinkingBegin = false;
                             EndThread++;
