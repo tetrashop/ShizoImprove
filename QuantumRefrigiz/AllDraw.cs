@@ -18,6 +18,7 @@ namespace QuantumRefrigiz
 
     public class AllDraw//: IDisposable
     {
+        bool UsedRestrictedMoveBlitz = true;
         public List<bool> SolderesOnTableMove = new List<bool>();
         public List<bool> ElephantOnTableMove = new List<bool>();
         public List<bool> HoursesOnTableMove = new List<bool>();
@@ -17106,6 +17107,69 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             return false;
         }
 
+        bool UsedRestrictedBlitzMoveAstarGreedy(int Kind, int ik, int j)
+        {
+            if (Kind == 1)
+            {
+                if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedyMove.Count > j)
+                {
+                    if ((SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedyMove[j] && UsedRestrictedMoveBlitz))
+                        return true;
+                }
+
+            }
+            else
+            if (Kind == 2)
+            {
+                if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedyMove.Count > j)
+                {
+                    if ((ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedyMove[j] && UsedRestrictedMoveBlitz))
+                        return true;
+                }
+
+            }
+            else
+            if (Kind == 3)
+            {
+                if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedyMove.Count > j)
+                {
+                    if ((HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedyMove[j] && UsedRestrictedMoveBlitz))
+                        return true;
+                }
+
+            }
+            else
+            if (Kind == 4)
+            {
+                if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedyMove.Count > j)
+                {
+                    if ((CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedyMove[j] && UsedRestrictedMoveBlitz))
+                        return true;
+                }
+
+            }
+            else
+            if (Kind == 5)
+            {
+                if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedyMove.Count > j)
+                {
+                    if ((MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedyMove[j] && UsedRestrictedMoveBlitz))
+                        return true;
+                }
+
+            }
+            else
+            if (Kind == 5)
+            {
+                if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedyMove.Count > j)
+                {
+                    if ((KingOnTable[ik].KingThinkingQuantum[0].AStarGreedyMove[j] && UsedRestrictedMoveBlitz))
+                        return true;
+                }
+
+            }
+            return false;
+        }
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingQuantumTreeSolderGray(ref int PreviousLessS, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
@@ -17135,7 +17199,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (AllDraw.OrderPlate == Order)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(1, ik, j) || SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17148,7 +17212,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         else
                         {
                             //when in learning autamata is penalty or Heuristic specified is greater than specific dynamic programming var
-                            if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(1, ik, j) || SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17192,7 +17256,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (AllDraw.OrderPlate == Order)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(2, ik, j) || ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17205,7 +17269,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         else
                         {
                             //when in learning autamata is penalty or Heuristic specified is greater than specific dynamic programming var
-                            if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(2, ik, j) || ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17247,7 +17311,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (AllDraw.OrderPlate == Order)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(3, ik, j) || HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17260,7 +17324,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         else
                         {
                             //when in learning autamata is penalty or Heuristic specified is greater than specific dynamic programming var
-                            if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(3, ik, j) || HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17302,7 +17366,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (AllDraw.OrderPlate == Order)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(4, ik, j) || CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17315,7 +17379,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         else
                         {
                             //when in learning autamata is penalty or Heuristic specified is greater than specific dynamic programming var
-                            if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(4, ik, j) || CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17359,7 +17423,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (AllDraw.OrderPlate == Order)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(5, ik, j) || MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17372,7 +17436,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         else
                         {
                             //when in learning autamata is penalty or Heuristic specified is greater than specific dynamic programming var
-                            if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(5, ik, j) || MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17414,7 +17478,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (AllDraw.OrderPlate == Order)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(6, ik, j) || KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17427,7 +17491,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         else
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                            if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                            if (UsedRestrictedBlitzMoveAstarGreedy(6, ik, j) || KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                             {
                             }
                             else
@@ -17588,7 +17652,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (AllDraw.OrderPlate == Order)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(1, ik, j) || SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17601,7 +17665,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     else
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(1, ik, j) || SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17640,7 +17704,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (AllDraw.OrderPlate == Order)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(2, ik, j) || ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17653,7 +17717,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     else
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(2, ik, j) || ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17667,6 +17731,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 }
             }
         }
+        
         //blitz for determination about best movment of every objects
         void BlitzGameThinkingQuantumTreeHourseBrown(ref int PreviousLessH, ref int[] Index, ref int[] jIndex, int Order, int iAStarGreedy, int ik, int j, bool FOUND, int LeafAStarGreedy)
         {
@@ -17692,7 +17757,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (AllDraw.OrderPlate == Order)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(3, ik, j) || HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17705,7 +17770,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     else
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(3, ik, j) || HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17717,6 +17782,18 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     }
                 }
             }
+        }
+        bool AllIndexIsNull(int[] iIndex)
+        {
+            bool Is = true;
+            for (int i = 0; i < 6; i++)
+            {
+
+                if (iIndex[i] != -1)
+                    Is = false;
+            }
+            return Is;
+
         }
         //main blitz for determination about best movment of every objects
         public int FullGameMakimgBlitz(ref int[] Index, ref int[] jIndex, int Order, int LeafAStarGreedy)
@@ -17745,6 +17822,35 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     BlitzGameThinkingQuantumTreeCastleGray(ref PB, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                     BlitzGameThinkingQuantumTreeMinisterGray(ref PM, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                     BlitzGameThinkingQuantumTreeKingGray(ref PK, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+
+
+                    if (AllIndexIsNull(index))
+                    {
+                        Kind = -1;
+                        PS = Int32.MinValue; PE = Int32.MinValue; PH = Int32.MinValue; PB = Int32.MinValue; PM = Int32.MinValue; PK = Int32.MinValue;
+                        if (Order != AllDraw.OrderPlate)
+                        {
+                            PS = Int32.MaxValue;
+                            PE = Int32.MaxValue;
+                            PH = Int32.MaxValue;
+                            PB = Int32.MaxValue;
+                            PM = Int32.MaxValue;
+                            PK = Int32.MaxValue;
+                        }
+                        for (int h = 0; h < 6; h++)
+                        {
+                            index[h] = -1;
+                            jindex[h] = -1;
+                        }
+
+                        UsedRestrictedMoveBlitz = false;
+                        BlitzGameThinkingQuantumTreeSolderGray(ref PS, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeElephantGray(ref PE, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeHourseGray(ref PH, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeCastleGray(ref PB, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeMinisterGray(ref PM, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeKingGray(ref PK, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                    }
                 }
             }
             else
@@ -17758,6 +17864,33 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     BlitzGameThinkingQuantumTreeCastleBrown(ref PB, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                     BlitzGameThinkingQuantumTreeMinisterBrown(ref PM, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
                     BlitzGameThinkingQuantumTreeKingBrown(ref PK, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                    if (AllIndexIsNull(index))
+                    {
+                        Kind = -1;
+                        PS = Int32.MinValue; PE = Int32.MinValue; PH = Int32.MinValue; PB = Int32.MinValue; PM = Int32.MinValue; PK = Int32.MinValue;
+                        if (Order != AllDraw.OrderPlate)
+                        {
+                            PS = Int32.MaxValue;
+                            PE = Int32.MaxValue;
+                            PH = Int32.MaxValue;
+                            PB = Int32.MaxValue;
+                            PM = Int32.MaxValue;
+                            PK = Int32.MaxValue;
+                        }
+                        for (int h = 0; h < 6; h++)
+                        {
+                            index[h] = -1;
+                            jindex[h] = -1;
+                        }
+                        UsedRestrictedMoveBlitz = false;
+
+                        BlitzGameThinkingQuantumTreeSolderBrown(ref PS, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeElephantBrown(ref PE, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeHourseBrown(ref PH, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeCastleBrown(ref PB, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeMinisterBrown(ref PM, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                        BlitzGameThinkingQuantumTreeKingBrown(ref PK, ref index, ref jindex, Order, 0, 0, 0, false, LeafAStarGreedy);
+                    }
                 }
             }
             int JI = -1;
@@ -17811,7 +17944,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (AllDraw.OrderPlate == Order)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(4, ik, j) || CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
 
@@ -17825,7 +17958,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     else
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(4, ik, j) || CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
 
@@ -17865,7 +17998,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (AllDraw.OrderPlate == Order)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(5, ik, j) || MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17879,7 +18012,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     else
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(5, ik, j) || MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17919,7 +18052,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (AllDraw.OrderPlate == Order)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(6, ik, j) || KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
@@ -17932,7 +18065,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     else
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
-                        if (KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
+                        if (UsedRestrictedBlitzMoveAstarGreedy(6, ik, j) || KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) > PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
                         {
                         }
                         else
