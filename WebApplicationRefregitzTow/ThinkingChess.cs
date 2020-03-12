@@ -13523,11 +13523,11 @@ namespace RefrigtzW
                 HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 bool IsS = false;
-                if (HDoubleDefense < 0)
+                /*if (HDoubleDefense < 0)
                 {
                     SetSupHuTrue();
                     IsS = true;
-                }
+                }*/
                 Object O1 = new Object();
                 lock (O1)
                 {
@@ -13679,13 +13679,13 @@ namespace RefrigtzW
                         //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                         if (WinOcuuredatChiled == 0)
                         {
-                            if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
+                           /* if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
                             {
 
                                 //if (Before)
                                 SetSupHuTrue();
                                 IsS = true;
-                            }
+                            }*/
                             if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
                             {
 

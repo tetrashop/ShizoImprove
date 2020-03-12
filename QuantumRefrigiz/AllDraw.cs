@@ -18966,7 +18966,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
         }
         //main operation of full game deeper created compuational to deeper need.
-        void OpOfFullGameThinkingTree(int ik, int j, int Order, int iAStarGreedy, int ii, int jj, Color a, int kind, bool FOUND, int LeafAStarGreedy)
+        void OpOfFullGameThinkingQuantumTree(int ik, int j, int Order, int iAStarGreedy, int ii, int jj, Color a, int kind, bool FOUND, int LeafAStarGreedy)
         {
 
             //soldier
@@ -18977,7 +18977,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
                 //minitor
-                OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinking[0].Row) + Number(SolderesOnTable[ik].SoldierThinking[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1]);
+                OutPutAction = " " + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].Row) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].Column) + Alphabet(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0]) + Number(SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1]);
                 //if (Order == 1)
 
                 //else
@@ -18985,16 +18985,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                 //operational 
                 PerceptionCount++;
-                var iii = SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][0];
-                var jjj = SolderesOnTable[ik].SoldierThinking[0].RowColumnSoldier[j][1];
+                var iii = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][0];
+                var jjj = SolderesOnTable[ik].SoldierThinkingQuantum[0].RowColumnSoldier[j][1];
                 Color aa = a;
-                int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]);
+                int[,] Tab = CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]);
                 int Ord = Order;
-                SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                var array1 = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Ord * -1, false, FOUND, LeafAStarGreedy));
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                var array1 = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]), Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-                SolderesOnTable[ik].SoldierThinking[0].AStarGreedyMove[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1] = true;
+                SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedyMove[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 2)//elephant 
             {
@@ -19003,7 +19003,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
                 //minitor
-                OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinking[0].Row) + Number(ElephantOnTable[ik].ElefantThinking[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1]);
+                OutPutAction = " " + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].Row) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].Column) + Alphabet(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0]) + Number(ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1]);
                 //if (Order == 1)
 
                 //else
@@ -19011,17 +19011,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                 //operational 
                 PerceptionCount++;
-                var iii = ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][0];
-                var jjj = ElephantOnTable[ik].ElefantThinking[0].RowColumnElefant[j][1];
+                var iii = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][0];
+                var jjj = ElephantOnTable[ik].ElefantThinkingQuantum[0].RowColumnElefant[j][1];
                 Color aa = a;
-                int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]);
+                int[,] Tab = CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]);
                 int Ord = Order;
-                ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
-                var array1 = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                var array1 = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-                ElephantOnTable[ik].ElefantThinking[0].AStarGreedyMove[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1] = true;
+                ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedyMove[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 3)//hourse
             {
@@ -19030,7 +19030,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
                 //minitor
-                OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinking[0].Row) + Number(HoursesOnTable[ik].HourseThinking[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1]);
+                OutPutAction = " " + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].Row) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].Column) + Alphabet(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0]) + Number(HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1]);
                 //if (Order == 1)
 
                 //else
@@ -19038,17 +19038,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                 //operational 
                 PerceptionCount++;
-                var iii = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][0];
-                var jjj = HoursesOnTable[ik].HourseThinking[0].RowColumnHourse[j][1];
+                var iii = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][0];
+                var jjj = HoursesOnTable[ik].HourseThinkingQuantum[0].RowColumnHourse[j][1];
                 Color aa = a;
-                int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]);
+                int[,] Tab = CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]);
                 int Ord = Order;
-                HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                var array1 = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                var array1 = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
 
-                HoursesOnTable[ik].HourseThinking[0].AStarGreedyMove[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1] = true;
+                HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedyMove[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 4)//Castle
             {
@@ -19057,7 +19057,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
                 //minitor
-                OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinking[0].Row) + Number(CastlesOnTable[ik].CastleThinking[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1]);
+                OutPutAction = " " + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].Row) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].Column) + Alphabet(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0]) + Number(CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1]);
                 //if (Order == 1)
 
                 //else
@@ -19065,16 +19065,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                 //operational 
                 PerceptionCount++;
-                var iii = CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][0];
-                var jjj = CastlesOnTable[ik].CastleThinking[0].RowColumnCastle[j][1];
+                var iii = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][0];
+                var jjj = CastlesOnTable[ik].CastleThinkingQuantum[0].RowColumnCastle[j][1];
                 Color aa = a;
-                int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]);
+                int[,] Tab = CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]);
                 int Ord = Order;
-                CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
-                var array1 = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                var array1 = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-                CastlesOnTable[ik].CastleThinking[0].AStarGreedyMove[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1] = true;
+                CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedyMove[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 5)//minister
             {
@@ -19083,7 +19083,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
                 //minitor
-                OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinking[0].Row) + Number(MinisterOnTable[ik].MinisterThinking[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1]);
+                OutPutAction = " " + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].Row) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].Column) + Alphabet(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0]) + Number(MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1]);
                 //if (Order == 1)
 
                 //else
@@ -19091,17 +19091,17 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                 //operational 
                 PerceptionCount++;
-                var iii = MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][0];
-                var jjj = MinisterOnTable[ik].MinisterThinking[0].RowColumnMinister[j][1];
+                var iii = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][0];
+                var jjj = MinisterOnTable[ik].MinisterThinkingQuantum[0].RowColumnMinister[j][1];
                 Color aa = a;
-                int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]);
+                int[,] Tab = CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]);
                 int Ord = Order;
-                MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
-                var array1 = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                var array1 = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-                MinisterOnTable[ik].MinisterThinking[0].AStarGreedyMove[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1] = true;
+                MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedyMove[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 6)//king
             {
@@ -19110,7 +19110,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
                 //minitor
-                OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinking[0].Row) + Number(KingOnTable[ik].KingThinking[0].Column) + Alphabet(KingOnTable[ik].KingThinking[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinking[0].RowColumnKing[j][1]);
+                OutPutAction = " " + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].Row) + Number(KingOnTable[ik].KingThinkingQuantum[0].Column) + Alphabet(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0]) + Number(KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1]);
                 //if (Order == 1)
 
                 //else
@@ -19118,19 +19118,19 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
                 //operational 
                 PerceptionCount++;
-                var iii = KingOnTable[ik].KingThinking[0].RowColumnKing[j][0];
-                var jjj = KingOnTable[ik].KingThinking[0].RowColumnKing[j][1];
+                var iii = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][0];
+                var jjj = KingOnTable[ik].KingThinkingQuantum[0].RowColumnKing[j][1];
                 Color aa = a;
-                int[,] Tab = CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]);
+                int[,] Tab = CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]);
                 int Ord = Order;
-                KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
 
-                var array1 = Task.Factory.StartNew(() => KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
+                var array1 = Task.Factory.StartNew(() => KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
 
                 array1.Wait(); array1.Dispose();
 
-                KingOnTable[ik].KingThinking[0].AStarGreedyMove[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1] = true;
+                KingOnTable[ik].KingThinkingQuantum[0].AStarGreedyMove[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1] = true;
             }
 
         }
