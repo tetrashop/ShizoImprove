@@ -15,6 +15,7 @@ namespace RefrigtzDLL
     public class AllDraw//: IDisposable
     {
 
+        int NumberOfnewMove = 0;
         bool UsedRestrictedMoveBlitz = true;
         public List<bool> SolderesOnTableMove = new List<bool>();
         public List<bool> ElephantOnTableMove = new List<bool>();
@@ -14758,6 +14759,7 @@ namespace RefrigtzDLL
                     Object O = new Object();
                     lock (O)
                     {
+                        NumberOfnewMove = 0;
                         Order = DummyOrder;
                         ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
@@ -14771,6 +14773,15 @@ namespace RefrigtzDLL
                         array1.Wait();
                         array1.Dispose();
 
+                        if (NumberOfnewMove == 0)
+                        {
+                            UsedRestrictedMoveBlitz = false;
+
+                            array1 = Task.Factory.StartNew(() => Do = this.FullGameThinkingTree(Ord, iAStarGreedy1, ii1, jj1, ik1, j1, false, LeafAStarGreedy));
+                            array1.Wait();
+                            array1.Dispose();
+
+                        }
                         var array11 = Task.Factory.StartNew(() => FullGameThinkingTreeWinLose(Order));
                         array11.Wait();
                         array11.Dispose();
@@ -17221,7 +17232,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         //main operation of full game deeper created compuational to deeper need.
         void OpOfFullGameThinkingTree(int ik, int j, int Order, int iAStarGreedy, int ii, int jj, Color a, int kind, bool FOUND, int LeafAStarGreedy)
         {
-
+            if (UsedRestrictedBlitzMoveAstarGreedy(kind, ik, j))
+                return;
+            NumberOfnewMove++;
             //soldier
             if (kind == 1)
             {
