@@ -19309,75 +19309,77 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
         public int FullGameThinkingQuantumTreeWin(int Order)
         {
             int Sum = 0;
-            if (Order == 1)
+            if (this.AStarGreedyString != null)
             {
-                for (var i = 0; i < this.SodierMidle; i++)
+                if (Order == 1)
                 {
-                    if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
-                        Sum += this.SolderesOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = 0; i < this.ElefantMidle; i++)
-                {
-                    if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
-                        Sum += this.ElephantOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = 0; i < this.HourseMidle; i++)
-                {
-                    if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
-                        Sum += this.HoursesOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = 0; i < this.CastleMidle; i++)
-                {
-                    if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
-                        Sum += this.CastlesOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = 0; i < this.MinisterMidle; i++)
-                {
-                    if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
-                        Sum += this.MinisterOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = 0; i < this.KingMidle; i++)
-                {
-                    if (this.KingOnTable != null && this.KingOnTable[i] != null)
-                        Sum += this.KingOnTable[i].WinOcuuredatChiled;
-                }
+                    for (var i = 0; i < this.SodierMidle; i++)
+                    {
+                        if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
+                            Sum += this.SolderesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.ElefantMidle; i++)
+                    {
+                        if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
+                            Sum += this.ElephantOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.HourseMidle; i++)
+                    {
+                        if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
+                            Sum += this.HoursesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.CastleMidle; i++)
+                    {
+                        if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
+                            Sum += this.CastlesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.MinisterMidle; i++)
+                    {
+                        if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
+                            Sum += this.MinisterOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.KingMidle; i++)
+                    {
+                        if (this.KingOnTable != null && this.KingOnTable[i] != null)
+                            Sum += this.KingOnTable[i].WinOcuuredatChiled;
+                    }
 
+                }
+                else
+                {
+                    for (var i = this.SodierMidle; i < this.SodierHigh; i++)
+                    {
+                        if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
+                            Sum += this.SolderesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = this.ElefantMidle; i < this.ElefantHigh; i++)
+                    {
+                        if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
+                            Sum += this.ElephantOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = this.HourseMidle; i < this.HourseHight; i++)
+                    {
+                        if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
+                            Sum += this.HoursesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = this.CastleMidle; i < this.CastleHigh; i++)
+                    {
+                        if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
+                            Sum += this.CastlesOnTable[i].WinOcuuredatChiled;
+                    }
+
+                    for (var i = this.MinisterMidle; i < this.MinisterHigh; i++)
+                    {
+                        if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
+                            Sum += this.MinisterOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = this.KingMidle; i < this.KingHigh; i++)
+                    {
+                        if (this.KingOnTable != null && this.KingOnTable[i] != null)
+                            Sum += this.KingOnTable[i].WinOcuuredatChiled;
+                    }
+                }
             }
-            else
-            {
-                for (var i = this.SodierMidle; i < this.SodierHigh; i++)
-                {
-                    if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
-                        Sum += this.SolderesOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = this.ElefantMidle; i < this.ElefantHigh; i++)
-                {
-                    if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
-                        Sum += this.ElephantOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = this.HourseMidle; i < this.HourseHight; i++)
-                {
-                    if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
-                        Sum += this.HoursesOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = this.CastleMidle; i < this.CastleHigh; i++)
-                {
-                    if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
-                        Sum += this.CastlesOnTable[i].WinOcuuredatChiled;
-                }
-
-                for (var i = this.MinisterMidle; i < this.MinisterHigh; i++)
-                {
-                    if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
-                        Sum += this.MinisterOnTable[i].WinOcuuredatChiled;
-                }
-                for (var i = this.KingMidle; i < this.KingHigh; i++)
-                {
-                    if (this.KingOnTable != null && this.KingOnTable[i] != null)
-                        Sum += this.KingOnTable[i].WinOcuuredatChiled;
-                }
-            }
-
 
             if (Order == 1)
             {
@@ -19518,78 +19520,80 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
         public int FullGameThinkingQuantumTreeLose(int Order)
         {
             int Sum = 0;
-
-
-            if (!IsAtleastAWin(this, Order))
+            if (this.AStarGreedyString != null)
             {
-                if (Order == 1)
+
+                if (!IsAtleastAWin(this, Order))
                 {
-                    for (var i = 0; i < this.SodierMidle; i++)
+                    if (Order == 1)
                     {
-                        if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
-                            Sum += this.SolderesOnTable[i].LoseOcuuredatChiled;
+                        for (var i = 0; i < this.SodierMidle; i++)
+                        {
+                            if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
+                                Sum += this.SolderesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.ElefantMidle; i++)
+                        {
+                            if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
+                                Sum += this.ElephantOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.HourseMidle; i++)
+                        {
+                            if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
+                                Sum += this.HoursesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.CastleMidle; i++)
+                        {
+                            if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
+                                Sum += this.CastlesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.MinisterMidle; i++)
+                        {
+                            if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
+                                Sum += this.MinisterOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.KingMidle; i++)
+                        {
+                            if (this.KingOnTable != null && this.KingOnTable[i] != null)
+                                Sum += this.KingOnTable[i].LoseOcuuredatChiled;
+                        }
                     }
-                    for (var i = 0; i < this.ElefantMidle; i++)
+                    else
                     {
-                        if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
-                            Sum += this.ElephantOnTable[i].LoseOcuuredatChiled;
+                        for (var i = this.SodierMidle; i < this.SodierHigh; i++)
+                        {
+                            if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
+                                Sum += this.SolderesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.ElefantMidle; i < this.ElefantHigh; i++)
+                        {
+                            if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
+                                Sum += this.ElephantOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.HourseMidle; i < this.HourseHight; i++)
+                        {
+                            if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
+                                Sum += this.HoursesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.CastleMidle; i < this.CastleHigh; i++)
+                        {
+                            if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
+                                Sum += this.CastlesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.MinisterMidle; i < this.MinisterHigh; i++)
+                        {
+                            if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
+                                Sum += this.MinisterOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.KingMidle; i < this.KingHigh; i++)
+                        {
+                            if (this.KingOnTable != null && this.KingOnTable[i] != null)
+                                Sum += this.KingOnTable[i].LoseOcuuredatChiled;
+                        }
                     }
-                    for (var i = 0; i < this.HourseMidle; i++)
-                    {
-                        if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
-                            Sum += this.HoursesOnTable[i].LoseOcuuredatChiled;
-                    }
-                    for (var i = 0; i < this.CastleMidle; i++)
-                    {
-                        if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
-                            Sum += this.CastlesOnTable[i].LoseOcuuredatChiled;
-                    }
-                    for (var i = 0; i < this.MinisterMidle; i++)
-                    {
-                        if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
-                            Sum += this.MinisterOnTable[i].LoseOcuuredatChiled;
-                    }
-                    for (var i = 0; i < this.KingMidle; i++)
-                    {
-                        if (this.KingOnTable != null && this.KingOnTable[i] != null)
-                            Sum += this.KingOnTable[i].LoseOcuuredatChiled;
-                    }
-                }
-                else
-                {
-                    for (var i = this.SodierMidle; i < this.SodierHigh; i++)
-                    {
-                        if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
-                            Sum += this.SolderesOnTable[i].LoseOcuuredatChiled;
-                    }
-                    for (var i = this.ElefantMidle; i < this.ElefantHigh; i++)
-                    {
-                        if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
-                            Sum += this.ElephantOnTable[i].LoseOcuuredatChiled;
-                    }
-                    for (var i = this.HourseMidle; i < this.HourseHight; i++)
-                    {
-                        if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
-                            Sum += this.HoursesOnTable[i].LoseOcuuredatChiled;
-                    }
-                    for (var i = this.CastleMidle; i < this.CastleHigh; i++)
-                    {
-                        if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
-                            Sum += this.CastlesOnTable[i].LoseOcuuredatChiled;
-                    }
-                    for (var i = this.MinisterMidle; i < this.MinisterHigh; i++)
-                    {
-                        if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
-                            Sum += this.MinisterOnTable[i].LoseOcuuredatChiled;
-                    }
-                    for (var i = this.KingMidle; i < this.KingHigh; i++)
-                    {
-                        if (this.KingOnTable != null && this.KingOnTable[i] != null)
-                            Sum += this.KingOnTable[i].LoseOcuuredatChiled;
-                    }
-                }
 
 
+                }
             }
             if (Order == 1)
             {
