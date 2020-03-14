@@ -4522,10 +4522,10 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeSolderIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 1))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 1))
+                //return false;
             //when is null creation enough but empty and create deeper node 
-            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
+            if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -4605,10 +4605,10 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeElephantIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 2))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 2))
+                //return false;
             //when is null creation enough but empty and create deeper node 
-            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
+            if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -4688,10 +4688,10 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeHourseIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 3))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 3))
+                //return false;
             //when is null creation enough but empty and create deeper node 
-            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
+            if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -4772,10 +4772,10 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeCastleIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 4))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 4))
+                //return false;
             //when is null creation enough but empty and create deeper node 
-            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
+            if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -4855,10 +4855,10 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeMinisterIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 5))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 5))
+                //return false;
             //when is null creation enough but empty and create deeper node 
-            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
+            if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -4936,10 +4936,10 @@ namespace RefrigtzDLL
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeKingIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 6))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 6))
+                //return false;
             //when is null creation enough but empty and create deeper node 
-            if (KingOnTable[i].KingThinking[0].AStarGreedy == null)
+            if (KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -16940,7 +16940,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count > SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count)
                 {
-                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count == 0)
                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -16951,7 +16951,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count > ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count)
                 {
-                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count == 0)
                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -16962,7 +16962,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
                 {
-                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count == 0)
                         HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -16973,7 +16973,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
                 {
-                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count == 0)
                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -16984,7 +16984,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count > MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count)
                 {
-                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count == 0)
                         MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -16995,7 +16995,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (KingOnTable[ik].KingThinking[0].TableListKing.Count > KingOnTable[ik].KingThinking[0].AStarGreedy.Count)
                 {
-                    if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                    if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count == 0)
                         KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                     KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17010,7 +17010,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count > SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count)
                 {
-                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count == 0)
                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17021,7 +17021,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count > ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count)
                 {
-                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count == 0)
                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17032,7 +17032,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
                 {
-                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count == 0)
                         HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17043,7 +17043,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
                 {
-                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count == 0)
                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17054,7 +17054,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count > MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count)
                 {
-                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count == 0)
                         MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17065,7 +17065,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (KingOnTable[ik].KingThinking[0].TableListKing.Count > KingOnTable[ik].KingThinking[0].AStarGreedy.Count)
                 {
-                    if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                    if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count == 0)
                         KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                     KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17082,7 +17082,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count > SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count)
                 {
-                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count == 0)
                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17093,7 +17093,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count > ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count)
                 {
-                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count == 0)
                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17104,7 +17104,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
                 {
-                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count == 0)
                         HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17115,7 +17115,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
                 {
-                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count == 0)
                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17126,7 +17126,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count > MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count)
                 {
-                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count == 0)
                         MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17137,7 +17137,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid 
                 if (KingOnTable[ik].KingThinking[0].TableListKing.Count > KingOnTable[ik].KingThinking[0].AStarGreedy.Count)
                 {
-                    if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                    if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count == 0)
                         KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                     KingOnTable[ik].KingThinking[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     KingOnTable[ik].KingThinking[0].AStarGreedy[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -17153,7 +17153,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid do create of deeper node and string making
                 if (SolderesOnTable[ik].SoldierThinking[0].TableListSolder.Count == SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count)
                 {
-                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy == null)
+                    if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count == 0)
                         SolderesOnTable[ik].SoldierThinking[0].AStarGreedy = new List<AllDraw>();
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].TableList.Clear();
                     SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]));
@@ -17167,7 +17167,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid do create of deeper node and string making
                 if (ElephantOnTable[ik].ElefantThinking[0].TableListElefant.Count == ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count)
                 {
-                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy == null)
+                    if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count == 0)
                         ElephantOnTable[ik].ElefantThinking[0].AStarGreedy = new List<AllDraw>();
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].TableList.Clear();
                     ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]));
@@ -17181,7 +17181,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid do create of deeper node and string making
                 if (HoursesOnTable[ik].HourseThinking[0].TableListHourse.Count == HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count)
                 {
-                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy == null)
+                    if (HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count == 0)
                         HoursesOnTable[ik].HourseThinking[0].AStarGreedy = new List<AllDraw>();
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].TableList.Clear();
                     HoursesOnTable[ik].HourseThinking[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]));
@@ -17195,7 +17195,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid do create of deeper node and string making
                 if (CastlesOnTable[ik].CastleThinking[0].TableListCastle.Count == CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count)
                 {
-                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy == null)
+                    if (CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count == 0)
                         CastlesOnTable[ik].CastleThinking[0].AStarGreedy = new List<AllDraw>();
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].TableList.Clear();
                     CastlesOnTable[ik].CastleThinking[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]));
@@ -17209,7 +17209,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid do create of deeper node and string making
                 if (MinisterOnTable[ik].MinisterThinking[0].TableListMinister.Count == MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count)
                 {
-                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy == null)
+                    if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count == 0)
                         MinisterOnTable[ik].MinisterThinking[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].TableList.Clear();
                     MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]));
@@ -17223,7 +17223,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 //when valid do create of deeper node and string making
                 if (KingOnTable[ik].KingThinking[0].TableListKing.Count == KingOnTable[ik].KingThinking[0].AStarGreedy.Count)
                 {
-                    if (KingOnTable[ik].KingThinking[0].AStarGreedy == null)
+                    if (KingOnTable[ik].KingThinking[0].AStarGreedy.Count == 0)
                         KingOnTable[ik].KingThinking[0].AStarGreedy = new List<AllDraw>();
                     KingOnTable[ik].KingThinking[0].AStarGreedy[j].TableList.Clear();
                     KingOnTable[ik].KingThinking[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]));
@@ -21091,7 +21091,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.SolderesOnTable[i].SoldierThinking[0] == null)
                         continue;
-                    if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
+                    if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; j++)
@@ -21112,7 +21112,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.ElephantOnTable[i].ElefantThinking[0] == null)
                         continue;
-                    if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
+                    if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; j++)
@@ -21133,7 +21133,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.HoursesOnTable[i].HourseThinking[0] == null)
                         continue;
-                    if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
+                    if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; j++)
@@ -21154,7 +21154,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.CastlesOnTable[i].CastleThinking[0] == null)
                         continue;
-                    if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
+                    if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; j++)
@@ -21175,7 +21175,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.MinisterOnTable[i].MinisterThinking[0] == null)
                         continue;
-                    if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
+                    if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; j++)
@@ -21198,7 +21198,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.KingOnTable[i].KingThinking[0] == null)
                         continue;
-                    if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
+                    if (Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count; j++)
@@ -21232,7 +21232,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.SolderesOnTable[i].SoldierThinking[0] == null)
                         continue;
-                    if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy == null)
+                    if (Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Clear();
@@ -21258,7 +21258,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.ElephantOnTable[i].ElefantThinking[0] == null)
                         continue;
-                    if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy == null)
+                    if (Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Clear();
@@ -21284,7 +21284,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.HoursesOnTable[i].HourseThinking[0] == null)
                         continue;
-                    if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy == null)
+                    if (Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Clear();
@@ -21310,7 +21310,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.CastlesOnTable[i].CastleThinking[0] == null)
                         continue;
-                    if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy == null)
+                    if (Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Clear();
@@ -21336,7 +21336,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.MinisterOnTable[i].MinisterThinking[0] == null)
                         continue;
-                    if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy == null)
+                    if (Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Clear();
@@ -21364,7 +21364,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
                     if (Node.KingOnTable[i].KingThinking[0] == null)
                         continue;
-                    if (Node.KingOnTable[i].KingThinking[0].AStarGreedy == null)
+                    if (Node.KingOnTable[i].KingThinking[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.KingOnTable[i].KingThinking[0].AStarGreedy.Clear();

@@ -15151,7 +15151,7 @@ namespace RefrigtzDLL
                 //when valid do create of deeper node and string making
                 if (TableListSolder.Count > AStarGreedy.Count)
                 {
-                    if (AStarGreedy == null)
+                    if (AStarGreedy.Count == 0)
                         AStarGreedy = new List<AllDraw>();
                     AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
@@ -15165,7 +15165,7 @@ namespace RefrigtzDLL
                 //when valid do create of deeper node and string making
                 if (TableListElefant.Count > AStarGreedy.Count)
                 {
-                    if (AStarGreedy == null)
+                    if (AStarGreedy.Count == 0)
                         AStarGreedy = new List<AllDraw>();
                     AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
@@ -15179,7 +15179,7 @@ namespace RefrigtzDLL
                 //when valid do create of deeper node and string making
                 if (TableListHourse.Count > AStarGreedy.Count)
                 {
-                    if (AStarGreedy == null)
+                    if (AStarGreedy.Count == 0)
                         AStarGreedy = new List<AllDraw>();
                     AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
@@ -15193,7 +15193,7 @@ namespace RefrigtzDLL
                 //when valid do create of deeper node and string making
                 if (TableListCastle.Count > AStarGreedy.Count)
                 {
-                    if (AStarGreedy == null)
+                    if (AStarGreedy.Count == 0)
                         AStarGreedy = new List<AllDraw>();
                     AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
@@ -15207,7 +15207,7 @@ namespace RefrigtzDLL
                 //when valid do create of deeper node and string making
                 if (TableListMinister.Count > AStarGreedy.Count)
                 {
-                    if (AStarGreedy == null)
+                    if (AStarGreedy.Count == 0)
                         AStarGreedy = new List<AllDraw>();
                     AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();
@@ -15221,7 +15221,7 @@ namespace RefrigtzDLL
                 //when valid do create of deeper node and string making
                 if (TableListKing.Count > AStarGreedy.Count)
                 {
-                    if (AStarGreedy == null)
+                    if (AStarGreedy.Count == 0)
                         AStarGreedy = new List<AllDraw>();
                     AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     AStarGreedy[AStarGreedy.Count - 1].TableList.Clear();

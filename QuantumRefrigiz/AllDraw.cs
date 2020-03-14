@@ -4924,13 +4924,12 @@ namespace QuantumRefrigiz
             return (Is);
 
         }
-        //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeSolderIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 1))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 1))
+            //return false;
             //when is null creation enough but empty and create deeper node 
-            if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy == null)
+            if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -4961,7 +4960,6 @@ namespace QuantumRefrigiz
             {
                 if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy != null && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-
                     THIS = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5002,22 +5000,19 @@ namespace QuantumRefrigiz
                             FoundOfCurrentTableNodeSolderIJ(i, j, Tab, Order, ref THIS, ref Found);
                             if (Found)
                                 return Found;
-
                         }
-
                     }
                 }
-
             }
             return Found;
         }
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeElephantIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 2))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 2))
+            //return false;
             //when is null creation enough but empty and create deeper node 
-            if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy == null)
+            if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -5048,7 +5043,6 @@ namespace QuantumRefrigiz
             {
                 if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != null && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-
                     THIS = ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5067,15 +5061,12 @@ namespace QuantumRefrigiz
                     {
                         if (IsSupHuTrue(i, j, 0, 2))
                             continue;
-
                         if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
                         {
-
                             FoundOfCurrentTableNodeElephantIJ(i, j, Tab, Order, ref THIS, ref Found);
                             if (Found)
                                 return Found;
                         }
-
                     }
                 }
             }//when is not deeper null and is less than j index create empty but create deeper node table
@@ -5090,24 +5081,21 @@ namespace QuantumRefrigiz
                         if (ThinkingQuantumChess.TableEqual(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Tab))
                         {
                             FoundOfCurrentTableNodeElephantIJ(i, j, Tab, Order, ref THIS, ref Found);
-
                             if (Found)
                                 return Found;
                         }
-
                     }
                 }
-
             }
             return Found;
         }
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeHourseIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 3))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 3))
+            //return false;
             //when is null creation enough but empty and create deeper node 
-            if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy == null)
+            if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -5139,7 +5127,6 @@ namespace QuantumRefrigiz
                 if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy != null && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j)
                 {
 
-
                     THIS = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5163,9 +5150,7 @@ namespace QuantumRefrigiz
                             FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
                             if (Found)
                                 return Found;
-
                         }
-
                     }
                 }
             }
@@ -5182,22 +5167,19 @@ namespace QuantumRefrigiz
                             FoundOfCurrentTableNodeHourseIJ(i, j, Tab, Order, ref THIS, ref Found);
                             if (Found)
                                 return Found;
-
                         }
-
                     }
                 }
-
             }
             return Found;
         }
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeCastleIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 4))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 4))
+            //return false;
             //when is null creation enough but empty and create deeper node 
-            if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy == null)
+            if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -5228,9 +5210,7 @@ namespace QuantumRefrigiz
             {
                 if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy != null && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-
                     THIS = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j];
-
                     Found = true;
                     return true;
                 }
@@ -5250,12 +5230,10 @@ namespace QuantumRefrigiz
                             continue;
                         if (ThinkingQuantumChess.TableEqual(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Tab))
                         {
-
                             FoundOfCurrentTableNodeCastleIJ(i, j, Tab, Order, ref THIS, ref Found);
                             if (Found)
                                 return Found;
                         }
-
                     }
                 }
             }
@@ -5272,22 +5250,19 @@ namespace QuantumRefrigiz
                             FoundOfCurrentTableNodeCastleIJ(i, j, Tab, Order, ref THIS, ref Found);
                             if (Found)
                                 return Found;
-
                         }
-
                     }
                 }
-
             }
             return Found;
         }
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeMinisterIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 5))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 5))
+            //return false;
             //when is null creation enough but empty and create deeper node 
-            if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy == null)
+            if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -5318,7 +5293,6 @@ namespace QuantumRefrigiz
             {
                 if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy != null && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-
                     THIS = MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -5342,9 +5316,7 @@ namespace QuantumRefrigiz
                             FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
                             if (Found)
                                 return Found;
-
                         }
-
                     }
                 }
             }
@@ -5359,22 +5331,19 @@ namespace QuantumRefrigiz
                         if (ThinkingQuantumChess.TableEqual(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Tab))
                         {
                             FoundOfCurrentTableNodeMinisterIJ(i, j, Tab, Order, ref THIS, ref Found);
-
                         }
-
                     }
                 }
-
             }
             return Found;
         }
         //Creation Table and deeper when there is not deeper or there is  
         public bool FoundOfCurrentTableNodeKingIJ(int i, int j, int[,] Tab, int Order, ref AllDraw THIS, ref bool Found)
         {
-            if (IsSupHuTrue(i, j, 0, 6))
-                return false;
+            //if (IsSupHuTrue(i, j, 0, 6))
+            //return false;
             //when is null creation enough but empty and create deeper node 
-            if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy == null)
+            if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == 0)
             {
                 for (int h = 0; h <= j; h++)
                     //satisfied of created deeper three
@@ -5405,7 +5374,6 @@ namespace QuantumRefrigiz
             {
                 if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy != null && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j)
                 {
-
                     THIS = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j];
                     Found = true;
                     return true;
@@ -18814,7 +18782,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count > SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count == 0)
                         SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18825,7 +18793,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count > ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count == 0)
                         ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18836,7 +18804,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
+                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count == 0)
                         HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18847,7 +18815,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
+                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count == 0)
                         CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18858,7 +18826,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count > MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count == 0)
                         MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18869,7 +18837,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count > KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
+                    if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count == 0)
                         KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18886,7 +18854,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count > SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count == 0)
                         SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18897,7 +18865,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count > ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count == 0)
                         ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18908,7 +18876,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
+                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count == 0)
                         HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18919,7 +18887,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
+                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count == 0)
                         CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18930,7 +18898,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count > MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count == 0)
                         MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18941,7 +18909,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count > KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
+                    if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count == 0)
                         KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18959,7 +18927,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count > SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count == 0)
                         SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18970,7 +18938,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count > ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count == 0)
                         ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18981,7 +18949,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count > HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
+                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count == 0)
                         HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -18992,7 +18960,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count > CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
+                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count == 0)
                         CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -19003,7 +18971,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count > MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count == 0)
                         MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -19014,7 +18982,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid 
                 if (KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count > KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
+                    if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count == 0)
                         KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Add(new AllDraw(Order * -1, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged));
                     KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count - 1].AStarGreedyString = this;
@@ -19032,7 +19000,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid do create of deeper node and string making
                 if (SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder.Count == SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    if (SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy.Count == 0)
                         SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                     SolderesOnTable[ik].SoldierThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j]));
@@ -19046,7 +19014,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid do create of deeper node and string making
                 if (ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant.Count == ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    if (ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy.Count == 0)
                         ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                     ElephantOnTable[ik].ElefantThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j]));
@@ -19060,7 +19028,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid do create of deeper node and string making
                 if (HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse.Count == HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy == null)
+                    if (HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy.Count == 0)
                         HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                     HoursesOnTable[ik].HourseThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j]));
@@ -19074,7 +19042,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid do create of deeper node and string making
                 if (CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle.Count == CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy == null)
+                    if (CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy.Count == 0)
                         CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                     CastlesOnTable[ik].CastleThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j]));
@@ -19088,7 +19056,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid do create of deeper node and string making
                 if (MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister.Count == MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    if (MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy.Count == 0)
                         MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                     MinisterOnTable[ik].MinisterThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j]));
@@ -19102,7 +19070,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 //when valid do create of deeper node and string making
                 if (KingOnTable[ik].KingThinkingQuantum[0].TableListKing.Count == KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count)
                 {
-                    if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy == null)
+                    if (KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy.Count == 0)
                         KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy = new List<AllDraw>();
                     KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[j].TableList.Clear();
                     KingOnTable[ik].KingThinkingQuantum[0].AStarGreedy[j].TableList.Add(CloneATable(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j]));
@@ -23307,7 +23275,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0] == null)
                         continue;
-                    if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; j++)
@@ -23329,7 +23297,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0] == null)
                         continue;
-                    if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; j++)
@@ -23351,7 +23319,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.HoursesOnTable[i].HourseThinkingQuantum[0] == null)
                         continue;
-                    if (Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; j++)
@@ -23373,7 +23341,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.CastlesOnTable[i].CastleThinkingQuantum[0] == null)
                         continue;
-                    if (Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; j++)
@@ -23395,7 +23363,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0] == null)
                         continue;
-                    if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; j++)
@@ -23419,7 +23387,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.KingOnTable[i].KingThinkingQuantum[0] == null)
                         continue;
-                    if (Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     Formatters.Serialize(DummyFileStream, Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count);
                     for (int j = 0; j < Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; j++)
@@ -23459,7 +23427,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0] == null)
                         continue;
-                    if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Clear();
@@ -23486,7 +23454,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0] == null)
                         continue;
-                    if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Clear();
@@ -23513,7 +23481,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.HoursesOnTable[i].HourseThinkingQuantum[0] == null)
                         continue;
-                    if (Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Clear();
@@ -23540,7 +23508,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.CastlesOnTable[i].CastleThinkingQuantum[0] == null)
                         continue;
-                    if (Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Clear();
@@ -23567,7 +23535,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0] == null)
                         continue;
-                    if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Clear();
@@ -23596,7 +23564,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
                     if (Node.KingOnTable[i].KingThinkingQuantum[0] == null)
                         continue;
-                    if (Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy == null)
+                    if (Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count == 0)
                         continue;
                     int count = (Int32)Formatters.Deserialize(DummyFileStream);
                     Node.KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Clear();
