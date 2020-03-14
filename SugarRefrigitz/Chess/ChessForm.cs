@@ -1413,6 +1413,8 @@ namespace Chess
 
                     Table = CloneATable(brd.GetTable());
 
+                    RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
+
                     if (DrawManagement())
                     {
                         //Load AllDraw.asd
@@ -1427,7 +1429,36 @@ namespace Chess
                             Draw.SetRowColumn(0);
                             RefrigtzDLL.AllDraw.DepthIterative = 0;
 
-                            
+
+                            bool Store = Deeperthandeeper;
+                            Deeperthandeeper = false;
+
+
+                            OrderPlate = 1;
+                            AllDraw.OrderPlate = OrderPlate;
+
+                            int Ord = OrderPlate;
+                            Color aa = Color.Gray;
+                            if (Ord == -1)
+                                aa = Color.Brown;
+                            bool B = AllDraw.Blitz;
+                            AllDraw.Blitz = false;
+                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
+                            //FOUND = false;
+
+                            if (Draw.IsAtLeastAllObjectIsNull())
+                            {
+                                Draw.TableList.Clear();
+                                Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]));
+                                Draw.SetRowColumn(0);
+                                Draw.IsCurrentDraw = true;
+                            }
+                            Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
+
+
+                            AllDraw.Blitz = B;
+                            Deeperthandeeper = Store;
+
                         }
                         else
                         {
@@ -1441,8 +1472,7 @@ namespace Chess
                     }
                     MessageBox.Show("Ready...");
                     LoadP = true;
-                    RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
-
+              
                     AllOperations();
                     Thread t = new Thread(new ThreadStart(P));
                     t.Start();

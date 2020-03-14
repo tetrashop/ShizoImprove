@@ -6680,7 +6680,7 @@ namespace RefrigtzDLL
                         return HP;
                     if (TableConst[Ros, Cos] == 1 && Tab[Rod, Cod] > 0)
                     {
-                        HP = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
+                        HP = ((RationalRegard) * (NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
                     }
                 }
                 else
@@ -6689,7 +6689,7 @@ namespace RefrigtzDLL
                         return HP;
                     if (TableConst[Ros, Cos] == -1 && Tab[Rod, Cod] < 0)
                     {
-                        HP = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
+                        HP = ((RationalRegard) * (NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
                     }
                 }
                 return HP;
@@ -6706,9 +6706,9 @@ namespace RefrigtzDLL
 
                     if (TableConst[Ros, Cos] == 2 && Tab[Rod, Cod] <= 0)
                     {
-                        HE = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
-                        if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
-                            HE *= NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos);
+                        HE = ((RationalRegard) * (NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
+                        if (NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) == 0)
+                            HE *= NoOfExistInMoveList(Before, Ros, Cos, Rod, Cod);
                     }
                 }
                 else
@@ -6716,9 +6716,9 @@ namespace RefrigtzDLL
 
                     if (TableConst[Ros, Cos] == -2 && Tab[Rod, Cod] >= 0)
                     {
-                        HE = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))));
-                        if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
-                            HE *= NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos);
+                        HE = ((RationalRegard) * (NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)) + ((RationalPenalty) * (NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
+                        if (NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) == 0)
+                            HE *= NoOfExistInMoveList(Before, Ros, Cos, Rod, Cod);
                     }
                 }
                 return HE;
@@ -6736,10 +6736,10 @@ namespace RefrigtzDLL
                     if (TableConst[Ros, Cos] == 3 && Tab[Rod, Cod] <= 0)
                     {
                         //Base of weak hourse is where is Home strong.
-                        HH = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
+                        HH = ((RationalRegard) * (NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
                         //Hourse close
-                        if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
-                            HH *= (64 - NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos));
+                        if (NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) == 0)
+                            HH *= (64 - NoOfExistInMoveList(Before, Ros, Cos, Rod, Cod));
                     }
                 }
                 else
@@ -6748,10 +6748,10 @@ namespace RefrigtzDLL
                     if (TableConst[Ros, Cos] == -3 && Tab[Rod, Cod] >= 0)
                     {
                         //Base of weak hourse is where is Home strong.
-                        HH = ((RationalRegard) * (NoOfExistInAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInSupportList(Before, Rod, Cod, Ros, Cos)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
+                        HH = ((RationalRegard) * (NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)) + ((RationalPenalty) * (128 - NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))));
                         //Hourse close
-                        if (NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) == 0)
-                            HH *= (64 - NoOfExistInMoveList(Before, Rod, Cod, Ros, Cos));
+                        if (NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) == 0)
+                            HH *= (64 - NoOfExistInMoveList(Before, Ros, Cos, Rod, Cod));
                     }
                 }
                 return HH;
@@ -7016,7 +7016,7 @@ namespace RefrigtzDLL
                 ExchangeSeed[2] += HeuristicHourseCloseBaseOfWeakHourseIsWhereIsHomeStrong(Before, CloneATable(Table), Ord, Ros, Cos, Rod, Cod);
 
                 //Safty before Attack
-                ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedAttackList(Before, Rod, Cod, Ros, Cos) + NoOfExistInReducedSupportList(Before, Rod, Cod, Ros, Cos))) + (RationalRegard * (NoOfExistInMoveList(Before, Ros, Cos, Rod, Cod) + NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)));
+                ExchangeSeed[2] += (RationalPenalty * (NoOfExistInReducedMoveList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInReducedSupportList(Before, Ros, Cos, Rod, Cod))) + (RationalRegard * (NoOfExistInMoveList(Before, Ros, Cos, Rod, Cod) + NoOfExistInAttackList(Before, Ros, Cos, Rod, Cod) + NoOfExistInSupportList(Before, Ros, Cos, Rod, Cod)));
 
                 Ord = DummyOrd;
                 ChessRules.CurrentOrder = DummyCurrentOrd;
@@ -15665,13 +15665,16 @@ namespace RefrigtzDLL
                 Object OI = new Object();
                 lock (OI)
                 {
-                    bool IsSup = true;
-                    for (int i = 0; i < IsSupHu.Count; i++)
-                        IsSup = IsSup && IsSupHu[i];
-                    if (IsSup)
+                    if (IsSupHu.Count > 0)
                     {
-                        if (LoseOcuuredatChiled == 0)
-                            LoseOcuuredatChiled = -4;
+                        bool IsSup = true;
+                        for (int i = 0; i < IsSupHu.Count; i++)
+                            IsSup = IsSup && IsSupHu[i];
+                        if (IsSup)
+                        {
+                            if (LoseOcuuredatChiled == 0)
+                                LoseOcuuredatChiled = -4;
+                        }
                     }
                     /*else
                     {
