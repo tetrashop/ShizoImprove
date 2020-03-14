@@ -17264,7 +17264,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 var array1 = Task.Factory.StartNew(() => SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, ii, jj, a, CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-                SolderesOnTable[ik].SoldierThinking[0].AStarGreedyMove[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1] = true;
+                if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedyMove.Count > 0)
+                    SolderesOnTable[ik].SoldierThinking[0].AStarGreedyMove[SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 2)//elephant 
             {
@@ -17291,7 +17292,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 var array1 = Task.Factory.StartNew(() => ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-                ElephantOnTable[ik].ElefantThinking[0].AStarGreedyMove[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1] = true;
+                if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedyMove.Count > 0)
+                    ElephantOnTable[ik].ElefantThinking[0].AStarGreedyMove[ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 3)//hourse
             {
@@ -17317,8 +17319,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 var array1 = Task.Factory.StartNew(() => HoursesOnTable[ik].HourseThinking[0].AStarGreedy[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-
-                HoursesOnTable[ik].HourseThinking[0].AStarGreedyMove[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1] = true;
+                if (HoursesOnTable[ik].HourseThinking[0].AStarGreedyMove.Count > 0)
+                    HoursesOnTable[ik].HourseThinking[0].AStarGreedyMove[HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 4)//Castle
             {
@@ -17344,7 +17346,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 var array1 = Task.Factory.StartNew(() => CastlesOnTable[ik].CastleThinking[0].AStarGreedy[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-                CastlesOnTable[ik].CastleThinking[0].AStarGreedyMove[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1] = true;
+                if (CastlesOnTable[ik].CastleThinking[0].AStarGreedyMove.Count > 0)
+                    CastlesOnTable[ik].CastleThinking[0].AStarGreedyMove[CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 5)//minister
             {
@@ -17371,7 +17374,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 var array1 = Task.Factory.StartNew(() => MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(iAStarGreedy, iii, jjj, aa, Tab, Ord * -1, false, FOUND, LeafAStarGreedy));
 
                 array1.Wait(); array1.Dispose();
-                MinisterOnTable[ik].MinisterThinking[0].AStarGreedyMove[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1] = true;
+                if (MinisterOnTable[ik].MinisterThinking[0].AStarGreedyMove.Count > 0)
+                    MinisterOnTable[ik].MinisterThinking[0].AStarGreedyMove[MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count - 1] = true;
             }
             else if (kind == 6)//king
             {
@@ -17399,8 +17403,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
 
                 array1.Wait(); array1.Dispose();
-
-                KingOnTable[ik].KingThinking[0].AStarGreedyMove[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1] = true;
+                if (KingOnTable[ik].KingThinking[0].AStarGreedyMove.Count > 0)
+                    KingOnTable[ik].KingThinking[0].AStarGreedyMove[KingOnTable[ik].KingThinking[0].AStarGreedy.Count - 1] = true;
             }
 
         }
