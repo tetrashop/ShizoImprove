@@ -18,6 +18,7 @@ namespace QuantumRefrigiz
 
     public class AllDraw//: IDisposable
     {
+        public static bool UniqueLeafDetection = true;
         int NumberOfnewMove = 0;
         bool UsedRestrictedMoveBlitzAndFull = true;
         public List<bool> SolderesOnTableMove = new List<bool>();
@@ -5680,9 +5681,11 @@ namespace QuantumRefrigiz
             lock (a)
             {
                 //when found return recursive
-                if (Found)
-                    return Leaf;
-                //gray
+                if (UniqueLeafDetection)
+                {
+                    if (Found)
+                        return Leaf;
+                }   //gray
                 if (Order == 1)
                 {
 
@@ -5690,34 +5693,49 @@ namespace QuantumRefrigiz
                     {
                         FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = 0; i < ElefantMidle; i++)
                     {
                         FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = 0; i < HourseMidle; i++)
                     {
                         FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
 
                     }
 
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = 0; i < CastleMidle; i++)
                     {
                         FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = 0; i < MinisterMidle; i++)
                     {
                         FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = 0; i < KingMidle; i++)
                     {
                         FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
@@ -5725,39 +5743,57 @@ namespace QuantumRefrigiz
                 }
                 else
                 {
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = SodierMidle; i < SodierHigh; i++)
                     {
                         FoundOfLeafDepenOfKindSoldier(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
                     {
                         FoundOfLeafDepenOfKindElephant(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = HourseMidle; i < HourseHight; i++)
                     {
                         FoundOfLeafDepenOfKindHourse(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = CastleMidle; i < CastleHigh; i++)
                     {
                         FoundOfLeafDepenOfKindCastle(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
                     {
                         FoundOfLeafDepenOfKindMinister(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);
                     }
 
-                    if (Found)
-                        return Leaf;
+                    if (UniqueLeafDetection)
+                    {
+                        if (Found)
+                            return Leaf;
+                    }
                     for (var i = KingMidle; i < KingHigh; i++)
                     {
                         FoundOfLeafDepenOfKindKing(i, ref Leaf, ref Found, Order, ref OrderLeaf, ik, jk, iii, jjj);

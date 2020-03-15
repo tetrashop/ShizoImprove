@@ -2091,17 +2091,17 @@ namespace Chess
                     if (FOUND)
                     {
                         Draw = THIS;
-                        
-                        
-                        
+
+
+
                         bool LoadTree = true;
                         Ord = OrderPlate;
                         //if (MovmentsNumber > 1)
                         (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
 
                         Draw.IsCurrentDraw = true;
-                        
-                        
+
+
                     }
                     else
                     {
@@ -2110,35 +2110,27 @@ namespace Chess
                         a = Color.Brown;
                         while (Draw.AStarGreedyString != null)
                             Draw = Draw.AStarGreedyString;
+
                         bool FirstS = false;
-                        if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 2))
+                        if ((RefrigtzDLL.AllDraw.TableListAction.Count > 2))
                         {
-                            if ((RefrigtzDLL.AllDraw.TableListAction.Count != 2))
-                            {
-                                Ord = OrderPlate * -1;
-                                AllDraw.OrderPlate = Ord;
-                                OrderPlate = Ord;
-                            }
-                            if (RefrigtzDLL.AllDraw.TableListAction.Count == 2)
-                                FirstS = true;
+                            Ord = OrderPlate * -1;
+                            AllDraw.OrderPlate = Ord;
+                            OrderPlate = Ord;
 
                             Color aa = Color.Gray;
                             if (Ord == -1)
                                 aa = Color.Brown;
                             Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
-                            
                         }
                         else
                         if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 1))
                         {
                             Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
-                            Ord = OrderPlate;
-                            AllDraw.OrderPlate = Ord;
                             FirstS = true;
-                            
-                            
-                            
                         }
+
+
                         if (FOUND)
                         {
                             Draw = THIS;
