@@ -14636,6 +14636,7 @@ namespace RefrigtzDLL
            )
         {
 
+            AllDraw THISA = new AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); ; THISA = AStarGreedyString;
 
             OrderP = Order;
             SetObjectNumbers(Tab);
@@ -14807,6 +14808,7 @@ namespace RefrigtzDLL
             tH.Clear();
 
 
+            AStarGreedyString = THISA;
 
             return this;
 

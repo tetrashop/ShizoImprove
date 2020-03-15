@@ -16326,7 +16326,7 @@ namespace QuantumRefrigiz
         public AllDraw InitiateAStarGreedyt(int iAStarGreedy, int ii, int jj, Color a, int[,] Tab, int Order, bool TB, bool FOUND, int LeafAStarGreedy//, ref Refrigtz.Timer timer, ref Refrigtz.Timer Timerint, ref int Less
             )
         {
-
+            AllDraw THISA = new AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); ; THISA = AStarGreedyString;
 
             OrderP = Order;
             SetObjectNumbers(Tab);
@@ -16498,6 +16498,7 @@ namespace QuantumRefrigiz
             tH.Clear();
 
 
+            AStarGreedyString = THISA;
 
             return this;
 

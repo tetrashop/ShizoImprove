@@ -14,26 +14,18 @@ using System.IO;
 using System.Threading;
 using Refrigtz;
 using System.Text;
-
 namespace Chess
 {
     [Serializable]
     public class ChessForm : System.Windows.Forms.Form
     {
         Process proc = new Process();
-
         public bool LoadTree = false;
-
         bool SettingPRFALSE = false;
-
         public QuantumRefrigiz.AllDraw DrawQ;
-
         bool Clicked = false;
-
         public bool ArrangmentsChanged = true;
-
         const string PieceToChar = "kqrnbp PBNRQK";
-
         bool BobSection = true;
         public double MaxHeuristicx = Double.MinValue;
         public bool MovementsAStarGreedyHeuristicFound = false;
@@ -44,7 +36,6 @@ namespace Chess
         public bool AStarGreedyHeuristic = false;
         public bool BestMovments = false;
 
-
         bool Quantum = false;
         int StockMovebase = 0;
         int FenCastling = -1;
@@ -54,7 +45,6 @@ namespace Chess
         int ColumnClickP = -1;
         int RowRealesed = -1;
         int ColumnRealeased = -1;
-
         bool LoadP = false;
         int AllDrawKind = 0;
         bool NotFoundBegin = false;
@@ -64,7 +54,6 @@ namespace Chess
         
         public static int MovmentsNumber = 0;
         public static String Root = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
-
         public static String AllDrawKindString = "";
         public static int OrderPlate = 1;
         bool CoPermit = true;
@@ -72,7 +61,6 @@ namespace Chess
         PictureBox[] Con = new PictureBox[4];
         bool WaitOnplay = false;
         RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(false, false, false, false, false, false, false, true);
-
         bool Person = true;
         public RefrigtzDLL.AllDraw Draw = new AllDraw(-1, false, false, false, false, false, false, false, true);
         int[,] Table = null;
@@ -96,7 +84,6 @@ namespace Chess
         Label labelf;
         Label labelg;
         Label labelh;
-
         private int cl;
         private int order;
         private int x1;
@@ -114,7 +101,6 @@ namespace Chess
         private Image img10;
         private Image img11;
         private Image img12;
-
         private Image img21;
         private Image img22;
         private Image img23;
@@ -131,7 +117,6 @@ namespace Chess
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem AboutToolStripMenuItem;
         private ToolStripMenuItem AboutHelpToolStripMenuItem;
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -143,15 +128,12 @@ namespace Chess
         [field: NonSerialized] private readonly Task feedTask;
 
 
-
-
         public ChessForm()
         {
             
             Init();
             Init2();
         }
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -173,20 +155,19 @@ namespace Chess
             lock (O)
             {
                 int LeafAStarGrteedy = 0;
+                AllDraw THIS = Draw.AStarGreedyString;
                 Table = Draw.Initiate(1, 4, a, CloneATable(brd.GetTable()), Order, false, FOUND, LeafAStarGrteedy);
+                Draw.AStarGreedyString = THIS;
             }
         }
-
         void AliceAction(int Order)
         {
             
             
             
-
             Object O = new Object();
             lock (O)
             {
-
                 RefrigtzDLL.ThinkingChess.ThinkingRun = false;
 #pragma warning disable CS0164 // This label has not been referenced
                 Begin4:
@@ -201,14 +182,10 @@ namespace Chess
                 Initiate(Color.Brown, -1);
 
 
-
-
-
             }
             
             
             
-
         }
         void DisposeConv()
         {
@@ -251,21 +228,17 @@ namespace Chess
                         Con[i - j].Image = img4;
                     if (i == j + 3)
                         Con[i - j].Image = img6;
-
                 }
             }
             Con[0].Click += new System.EventHandler(Con1_Click1);
             Con[1].Click += new System.EventHandler(Con2_Click1);
             Con[2].Click += new System.EventHandler(Con3_Click1);
             Con[3].Click += new System.EventHandler(Con4_Click1);
-
         }
-
         public void Init()
         {
             InitializeComponent();
             pb = new PictureBox[8, 8];
-
             brd = new Board();
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
@@ -282,7 +255,6 @@ namespace Chess
                     this.pb[i, j].TabStop = false;
                     this.Controls.AddRange(new System.Windows.Forms.Control[] { this.pb[i, j] });
                 }
-
             lb = new ListBox();
             this.lb.Location = new System.Drawing.Point(530, 10);
             this.lb.Name = "lb";
@@ -290,7 +262,6 @@ namespace Chess
             this.lb.TabIndex = 64;
             this.lb.TabStop = false;
             this.Controls.AddRange(new Control[] { this.lb });
-
             label1 = new Label();
             this.label1.Location = new System.Drawing.Point(10, 30);
             this.label1.Name = "label1";
@@ -300,7 +271,6 @@ namespace Chess
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             label1.Text = "1";
             this.Controls.AddRange(new Control[] { this.label1 });
-
             label2 = new Label();
             this.label2.Location = new System.Drawing.Point(10, 90);
             this.label2.Name = "label2";
@@ -310,7 +280,6 @@ namespace Chess
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             label2.Text = "2";
             this.Controls.AddRange(new Control[] { this.label2 });
-
             label3 = new Label();
             this.label3.Location = new System.Drawing.Point(10, 150);
             this.label3.Name = "label3";
@@ -320,7 +289,6 @@ namespace Chess
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             label3.Text = "3";
             this.Controls.AddRange(new Control[] { this.label3 });
-
             label4 = new Label();
             this.label4.Location = new System.Drawing.Point(10, 210);
             this.label4.Name = "label4";
@@ -330,7 +298,6 @@ namespace Chess
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             label4.Text = "4";
             this.Controls.AddRange(new Control[] { this.label4 });
-
             label5 = new Label();
             this.label5.Location = new System.Drawing.Point(10, 270);
             this.label5.Name = "label5";
@@ -340,7 +307,6 @@ namespace Chess
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             label5.Text = "5";
             this.Controls.AddRange(new Control[] { this.label5 });
-
             label6 = new Label();
             this.label6.Location = new System.Drawing.Point(10, 330);
             this.label6.Name = "label6";
@@ -350,7 +316,6 @@ namespace Chess
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             label6.Text = "6";
             this.Controls.AddRange(new Control[] { this.label6 });
-
             label7 = new Label();
             this.label7.Location = new System.Drawing.Point(10, 390);
             this.label7.Name = "label7";
@@ -360,7 +325,6 @@ namespace Chess
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             label7.Text = "7";
             this.Controls.AddRange(new Control[] { this.label7 });
-
             label8 = new Label();
             this.label8.Location = new System.Drawing.Point(10, 450);
             this.label8.Name = "label8";
@@ -370,7 +334,6 @@ namespace Chess
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             label8.Text = "8";
             this.Controls.AddRange(new Control[] { this.label8 });
-
             labelh = new Label();
             this.labelh.Location = new System.Drawing.Point(50, 490);
             this.labelh.Name = "labelh";
@@ -380,7 +343,6 @@ namespace Chess
             this.labelh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             labelh.Text = "h";
             this.Controls.AddRange(new Control[] { this.labelh });
-
             labelg = new Label();
             this.labelg.Location = new System.Drawing.Point(110, 490);
             this.labelg.Name = "labelg";
@@ -390,7 +352,6 @@ namespace Chess
             this.labelg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             labelg.Text = "g";
             this.Controls.AddRange(new Control[] { this.labelg });
-
             labelf = new Label();
             this.labelf.Location = new System.Drawing.Point(175, 490);
             this.labelf.Name = "labelf";
@@ -400,7 +361,6 @@ namespace Chess
             this.labelf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             labelf.Text = "f";
             this.Controls.AddRange(new Control[] { this.labelf });
-
             labele = new Label();
             this.labele.Location = new System.Drawing.Point(230, 490);
             this.labele.Name = "labele";
@@ -410,7 +370,6 @@ namespace Chess
             this.labele.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             labele.Text = "e";
             this.Controls.AddRange(new Control[] { this.labele });
-
             labeld = new Label();
             this.labeld.Location = new System.Drawing.Point(290, 490);
             this.labeld.Name = "labeld";
@@ -420,7 +379,6 @@ namespace Chess
             this.labeld.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             labeld.Text = "d";
             this.Controls.AddRange(new Control[] { this.labeld });
-
             labelc = new Label();
             this.labelc.Location = new System.Drawing.Point(350, 490);
             this.labelc.Name = "labelc";
@@ -430,7 +388,6 @@ namespace Chess
             this.labelc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             labelc.Text = "c";
             this.Controls.AddRange(new Control[] { this.labelc });
-
             labelb = new Label();
             this.labelb.Location = new System.Drawing.Point(410, 490);
             this.labelb.Name = "labelb";
@@ -440,7 +397,6 @@ namespace Chess
             this.labelb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             labelb.Text = "b";
             this.Controls.AddRange(new Control[] { this.labelb });
-
             labela = new Label();
             this.labela.Location = new System.Drawing.Point(470, 490);
             this.labela.Name = "labela";
@@ -450,7 +406,6 @@ namespace Chess
             this.labela.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(162)));
             labela.Text = "a";
             this.Controls.AddRange(new Control[] { this.labela });
-
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.ClientSize = new System.Drawing.Size(700, 520);
             this.Name = "ChessForm";
@@ -463,7 +418,6 @@ namespace Chess
             this.pb[5, 0].Click += new System.EventHandler(Pb_Click6);
             this.pb[6, 0].Click += new System.EventHandler(Pb_Click7);
             this.pb[7, 0].Click += new System.EventHandler(Pb_Click8);
-
             this.pb[0, 1].Click += new System.EventHandler(Pb_Click9);
             this.pb[1, 1].Click += new System.EventHandler(Pb_Click10);
             this.pb[2, 1].Click += new System.EventHandler(Pb_Click11);
@@ -472,7 +426,6 @@ namespace Chess
             this.pb[5, 1].Click += new System.EventHandler(Pb_Click14);
             this.pb[6, 1].Click += new System.EventHandler(Pb_Click15);
             this.pb[7, 1].Click += new System.EventHandler(Pb_Click16);
-
             this.pb[0, 2].Click += new System.EventHandler(Pb_Click17);
             this.pb[1, 2].Click += new System.EventHandler(Pb_Click18);
             this.pb[2, 2].Click += new System.EventHandler(Pb_Click19);
@@ -481,7 +434,6 @@ namespace Chess
             this.pb[5, 2].Click += new System.EventHandler(Pb_Click22);
             this.pb[6, 2].Click += new System.EventHandler(Pb_Click23);
             this.pb[7, 2].Click += new System.EventHandler(Pb_Click24);
-
             this.pb[0, 3].Click += new System.EventHandler(Pb_Click25);
             this.pb[1, 3].Click += new System.EventHandler(Pb_Click26);
             this.pb[2, 3].Click += new System.EventHandler(Pb_Click27);
@@ -490,7 +442,6 @@ namespace Chess
             this.pb[5, 3].Click += new System.EventHandler(Pb_Click30);
             this.pb[6, 3].Click += new System.EventHandler(Pb_Click31);
             this.pb[7, 3].Click += new System.EventHandler(Pb_Click32);
-
             this.pb[0, 4].Click += new System.EventHandler(Pb_Click33);
             this.pb[1, 4].Click += new System.EventHandler(Pb_Click34);
             this.pb[2, 4].Click += new System.EventHandler(Pb_Click35);
@@ -499,7 +450,6 @@ namespace Chess
             this.pb[5, 4].Click += new System.EventHandler(Pb_Click38);
             this.pb[6, 4].Click += new System.EventHandler(Pb_Click39);
             this.pb[7, 4].Click += new System.EventHandler(Pb_Click40);
-
             this.pb[0, 5].Click += new System.EventHandler(Pb_Click41);
             this.pb[1, 5].Click += new System.EventHandler(Pb_Click42);
             this.pb[2, 5].Click += new System.EventHandler(Pb_Click43);
@@ -508,7 +458,6 @@ namespace Chess
             this.pb[5, 5].Click += new System.EventHandler(Pb_Click46);
             this.pb[6, 5].Click += new System.EventHandler(Pb_Click47);
             this.pb[7, 5].Click += new System.EventHandler(Pb_Click48);
-
             this.pb[0, 6].Click += new System.EventHandler(Pb_Click49);
             this.pb[1, 6].Click += new System.EventHandler(Pb_Click50);
             this.pb[2, 6].Click += new System.EventHandler(Pb_Click51);
@@ -517,7 +466,6 @@ namespace Chess
             this.pb[5, 6].Click += new System.EventHandler(Pb_Click54);
             this.pb[6, 6].Click += new System.EventHandler(Pb_Click55);
             this.pb[7, 6].Click += new System.EventHandler(Pb_Click56);
-
             this.pb[0, 7].Click += new System.EventHandler(Pb_Click57);
             this.pb[1, 7].Click += new System.EventHandler(Pb_Click58);
             this.pb[2, 7].Click += new System.EventHandler(Pb_Click59);
@@ -527,7 +475,6 @@ namespace Chess
             this.pb[6, 7].Click += new System.EventHandler(Pb_Click63);
             this.pb[7, 7].Click += new System.EventHandler(Pb_Click64);
         }
-
         private void Init2()
         {
             cl = 0;
@@ -546,7 +493,6 @@ namespace Chess
             img10 = Image.FromFile("pic/siyahsah2.jpg");
             img11 = Image.FromFile("pic/siyahpiyon1.jpg");
             img12 = Image.FromFile("pic/siyahpiyon2.jpg");
-
             img21 = Image.FromFile("pic/beyazkale1.jpg");
             img22 = Image.FromFile("pic/beyazkale2.jpg");
             img23 = Image.FromFile("pic/beyazat1.jpg");
@@ -559,7 +505,6 @@ namespace Chess
             img30 = Image.FromFile("pic/beyazsah2.jpg");
             img31 = Image.FromFile("pic/beyazpiyon1.jpg");
             img32 = Image.FromFile("pic/beyazpiyon2.jpg");
-
             pb[0, 0].Image = img1;
             pb[1, 0].Image = img4;
             pb[2, 0].Image = img5;
@@ -568,7 +513,6 @@ namespace Chess
             pb[5, 0].Image = img6;
             pb[6, 0].Image = img3;
             pb[7, 0].Image = img2;
-
             pb[0, 7].Image = img22;
             pb[1, 7].Image = img23;
             pb[2, 7].Image = img26;
@@ -577,7 +521,6 @@ namespace Chess
             pb[5, 7].Image = img25;
             pb[6, 7].Image = img24;
             pb[7, 7].Image = img21;
-
             pb[0, 1].Image = img12;
             pb[1, 1].Image = img11;
             pb[2, 1].Image = img12;
@@ -586,7 +529,6 @@ namespace Chess
             pb[5, 1].Image = img11;
             pb[6, 1].Image = img12;
             pb[7, 1].Image = img11;
-
             pb[0, 6].Image = img31;
             pb[1, 6].Image = img32;
             pb[2, 6].Image = img31;
@@ -595,9 +537,7 @@ namespace Chess
             pb[5, 6].Image = img32;
             pb[6, 6].Image = img31;
             pb[7, 6].Image = img32;
-
         }
-
         [STAThread]
         static void Main()
         {
@@ -609,14 +549,11 @@ namespace Chess
             lock (O)
             {
                 
-
               
-
                 if (!Quantum)
                     RefrigtzDLL.ThinkingChess.ThinkingRun = false;
                 else
                     QuantumRefrigiz.ThinkingQuantumChess.ThinkingQuantumRun = false;
-
                 
                 if (OrderPlate == 1)
                 {
@@ -632,7 +569,6 @@ namespace Chess
                 Clicked = false; BobSection = false;
             }
         }
-
         void OpBeforeThinking(ref Color a, ref bool StoreStateCC, ref bool StoreStateCP, ref bool StoreStateGe)
         {
             Object O = new Object();
@@ -640,8 +576,6 @@ namespace Chess
             {
              
                 
-
-
 
                 if (OrderPlate == 1)
                 {
@@ -653,7 +587,6 @@ namespace Chess
                     
                     
                 }
-
                 if (OrderPlate == 1)
                 {
                     
@@ -679,7 +612,6 @@ namespace Chess
                 try
                 {
 
-
                     Helper.WaitOnUsed("output.txt");
                     if (File.Exists("output.txt"))
                     {
@@ -687,12 +619,10 @@ namespace Chess
                     }
                     if (Preveios == Next || Next.Length < 1)
                         return true;
-
                 }
                 catch (Exception t)
                 {
                     Log(t);
-
                 }   
                 
                 if (Preveios == Next || Next.Length < 1)
@@ -758,7 +688,6 @@ namespace Chess
                         RowRealesed = 7;
                     
                     ColumnRealeased = 7-((System.Convert.ToInt32(A[3]) - 48) - 1);
-
                     if (A.Length == 5)
                     {
                         if (A[4] == 'p')
@@ -791,8 +720,6 @@ namespace Chess
                                                             if (A[4] == 'Q')
                             return 5;
 
-
-
                     }
                 }
                 catch (Exception t)
@@ -801,7 +728,6 @@ namespace Chess
                     return -1;
                 }
                 return 0;
-
             }
         }
         bool Empty(int Row, int Column)
@@ -825,7 +751,6 @@ namespace Chess
                 return 6 + Table[Row, Column];
             }
         }
-
         String Fen()
         {
             Object O = new Object();
@@ -834,24 +759,19 @@ namespace Chess
                 bool StartPos = false;
                 if (RowRealesed == -1 || ColumnRealeased == -1)
                     StartPos = true;
-
                 int EmptyCnt;
                 String ss = "";
-
                 for (int r = 0; r <= 7; ++r)
                 {
                     for (int f = 0; f <= 7; ++f)
                     {
                         for (EmptyCnt = 0; f <= 7 && Empty(f, r); ++f)
                             ++EmptyCnt;
-
                         if (EmptyCnt != 0)
                             ss += EmptyCnt;
-
                         if (f <= 7)
                             ss += PieceToChar[Piece_on(f, r)];
                     }
-
                     if (r != 7)
                         ss += '/';
                 }
@@ -861,20 +781,15 @@ namespace Chess
                     ss += " b ";
                 if (RefrigtzDLL.ChessRules.SmallKingCastleGray)
                     ss += "K";
-
                 if (RefrigtzDLL.ChessRules.BigKingCastleGray)
                     ss += "Q";
-
                 if (RefrigtzDLL.ChessRules.SmallKingCastleBrown)
                     ss += "k";
-
                 if (RefrigtzDLL.ChessRules.BigKingCastleBrown)
                     ss += "q";
-
                 if (!RefrigtzDLL.ChessRules.CastleKingAllowedGray && !RefrigtzDLL.ChessRules.CastleKingAllowedBrown)
                     ss += '-';
                 String S = " - ";
-
                 if (!StartPos)
                 {
                     if (!BobSection)
@@ -888,7 +803,6 @@ namespace Chess
                     }
                     else
                     {
-
                         if (System.Math.Abs(Table[(int)RowRealesed, (int)ColumnRealeased]) == 1)
                         {
                             S = " ";
@@ -906,20 +820,15 @@ namespace Chess
                 StockMovebase = MovmentsNumber / 2;
                 StockMove = MovmentsNumber % 2;
                 S += (StockMovebase).ToString() + " " + ((int)StockMove).ToString() + "\n";
-
                 ss += S;
-
                 //if (MovmentsNumber % 2 == 0 && MovmentsNumber != 0)
                 
                 //else
                 
-
                 ss = "position fen " + ss;
-
                 return ss;
                 
                 
-
 
             }
         }
@@ -930,9 +839,7 @@ namespace Chess
             {
                 if (!Quantum)
                 {
-
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
-
                     if (RefrigtzDLL.AllDraw.TableListAction.Count >= 1)
                     {
                         RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
@@ -972,7 +879,6 @@ namespace Chess
                                 }
                                 if ((RefrigtzDLL.ChessRules.SmallKingCastleBrown || RefrigtzDLL.ChessRules.BigKingCastleBrown) && (!RefrigtzDLL.ChessRules.CastleActBrown))
                                     RefrigtzDLL.ChessRules.CastleActBrown = true;
-
                                 if (R.CromosomRow != -1 && R.CromosomColumn != -1)
                                     RefrigtzDLL.AllDraw.SyntaxToWrite = (new RefrigtzDLL.ChessRules(0, OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn], R.CromosomColumn, R.CromosomRow, HitVal, Hit, RefrigtzDLL.ChessRules.CastleActBrown, Convert);
                             }
@@ -984,7 +890,6 @@ namespace Chess
                 else
                 {
                     QuantumRefrigiz.AllDraw.TableListAction.Add(CloneATable(Table));
-
                     if (QuantumRefrigiz.AllDraw.TableListAction.Count >= 1)
                     {
                         QuantumRefrigiz.ChessGeneticAlgorithm R = new QuantumRefrigiz.ChessGeneticAlgorithm(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
@@ -1018,7 +923,6 @@ namespace Chess
                                 }
                                 if ((QuantumRefrigiz.ChessRules.SmallKingCastleBrown || QuantumRefrigiz.ChessRules.BigKingCastleBrown) && (!QuantumRefrigiz.ChessRules.CastleActBrown))
                                     QuantumRefrigiz.ChessRules.CastleActBrown = true;
-
                                 if (R.CromosomRow != -1 && R.CromosomColumn != -1)
                                     QuantumRefrigiz.AllDraw.SyntaxToWrite = (new QuantumRefrigiz.ChessRules(0, OrderPlate, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged)).CreateStatistic(ArrangmentsChanged, CloneATable(Table), MovmentsNumber, QuantumRefrigiz.AllDraw.TableListAction[QuantumRefrigiz.AllDraw.TableListAction.Count - 1][R.CromosomRow, R.CromosomColumn], R.CromosomColumn, R.CromosomRow, HitVal, Hit, QuantumRefrigiz.ChessRules.CastleActBrown, Convert);
                             }
@@ -1029,12 +933,10 @@ namespace Chess
                 }
             }
         }
-
         private void SetBoxStatistic(string syntaxToWrite)
         {
             throw new NotImplementedException();
         }
-
         void ComputerByComputerAliceAsStockFish(ref Process proc)
         {
             Object O = new Object();
@@ -1043,15 +945,12 @@ namespace Chess
                 Color a = Color.Gray;
                 bool StoreStateCC = false, StoreStateCP = false, StoreStateGe = false;
                 
-
                 int[,] Tab = CloneATable(Table);
-
                 RowClickP = -1;
                 ColumnClickP = -1;
                 RowRealesed = -1;
                 ColumnRealeased = -1;
                 
-
 
                 if (OrderPlate == 1)
                 {
@@ -1063,9 +962,7 @@ namespace Chess
                     
                     
                 }
-
                 
-
                 String Pre = "";
                 if (File.Exists("output.txt"))
                     Pre = File.ReadAllText("output.txt");
@@ -1075,7 +972,6 @@ namespace Chess
                 sw.Flush();
                 String wr = "";
                 WaitOn = true;
-
                 do
                 {
                     try
@@ -1084,16 +980,13 @@ namespace Chess
                         input = "wr" + "\r\n";
                         sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                         sw.Flush();
-
                         WaitOn = WaitOnMovmentOccured(Pre, ref wr);
                     }
                     catch (Exception t)
                     {
                         Log(t);
                     }
-
                 } while (WaitOn);
-
                 if (wr == "e8c8" || wr == "e1c1")
                 {
                     FenCastling = 1;
@@ -1124,7 +1017,6 @@ namespace Chess
                     {
                         Tab[(int)RowRealesed, (int)ColumnRealeased] = Pro;
                         Tab[(int)RowClickP, (int)ColumnClickP] = 0;
-
                     }
                 }
                 else
@@ -1157,10 +1049,8 @@ namespace Chess
                 {
                     RefrigtzDLL.ChessRules.BigKingCastleBrown = false;
                     RefrigtzDLL.ChessRules.SmallKingCastleBrown = false;
-
                 }
                 fens = Fen();
-
                 RowClickP = -1;
                 ColumnClickP = -1;
                 RowRealesed = -1;
@@ -1169,35 +1059,23 @@ namespace Chess
                 input = fens + "\r\n";
                 sw.BaseStream.Write(Encoding.ASCII.GetBytes(input), 0, input.Length);
                 sw.Flush();
-
                 //if (OrderPlate == 1)
                 
                 //else
                 
                 
 
-
-
                 
-
                 Table = CloneATable(Tab);
                 
-
                 
                 
                 
-
                 
-
                 
-
-
 
 
                 RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
-
-
-
 
 
                 BobSection = true;
@@ -1220,18 +1098,14 @@ namespace Chess
             Object O = new Object();
             lock (O)
             {
-
                 SetAllDrawKind();
                 //Set Configuration To True for some unknown reason!.
                 
                 SetAllDrawKindString();
-
                 //Saved Midle Target.
                 (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-
               
             }
-
         }
         public bool TableZero(int[,] Ta)
         {
@@ -1239,7 +1113,6 @@ namespace Chess
             lock (O)
             {
                 bool Zerro = true;
-
                 for (int i = 0; i < 8; i++)
                 {
                     for (int j = 0; j < 8; j++)
@@ -1248,18 +1121,15 @@ namespace Chess
                             Zerro = false;
                     }
                 }
-
                 return Zerro;
             }
         }
-
         //Bob Section of Computer By Computer Thinking.
         void BobAction()
         {
             
             
             
-
             Object O = new Object();
             lock (O)
             {
@@ -1275,20 +1145,14 @@ namespace Chess
                 OpBeforeThinking(ref a, ref StoreStateCC, ref StoreStateCP, ref StoreStateGe);
                 
 
-
-
                 var array = Task.Factory.StartNew(() => Initiate(a));
                 array.Wait(); array.Dispose();
-
               
-
 
                 try
                 {
                     if (TableZero(CloneATable(Table)))
                         OpTableZero(true);
-
-
 
                 }
                 catch (Exception t)
@@ -1296,32 +1160,22 @@ namespace Chess
                     Log(t);
                     goto Begin2;
                 }
-
-                
-
                 
                 
                 
-
+                
+                
+                
+                
                 
 
                 
-
-                
-
-                
-
-
-                
-
 
             }
             
             
             
-
         }
-
         void ComputerByComputerBobAsRefregitz(ref Process proc)
         {
             Object O = new Object();
@@ -1329,7 +1183,6 @@ namespace Chess
             {
                
                 BobAction();
-
                 if (RefrigtzDLL.ChessRules.BigKingCastleGray)
                 {
                     FenCastling = 1;
@@ -1342,9 +1195,7 @@ namespace Chess
                 else
                     FenCastling = -1;
                 RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
-
                 R = new RefrigtzDLL.ChessGeneticAlgorithm(false, false, false, false, false, false, false, true);
-
                 if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, 1, true))
                 {
                     
@@ -1363,7 +1214,6 @@ namespace Chess
                     }
                 }
                 
-
                 String fens = Fen();
                 if (RefrigtzDLL.ChessRules.BigKingCastleGray)
                 {
@@ -1382,21 +1232,15 @@ namespace Chess
                 ColumnClickP = -1;
                 RowRealesed = -1;
                 ColumnRealeased = -1;
-
              
                 BobSection = false;
-
                 
                 
-
                 
 
-
                 
-
             }
         }
-
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
@@ -1410,11 +1254,8 @@ namespace Chess
                     var parallelOptions = new ParallelOptions();
                     parallelOptions.MaxDegreeOfParallelism = System.Threading.PlatformHelper.ProcessorCount;
                     
-
                     Table = CloneATable(brd.GetTable());
-
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
-
                     if (DrawManagement())
                     {
                         //Load AllDraw.asd
@@ -1429,14 +1270,11 @@ namespace Chess
                             Draw.SetRowColumn(0);
                             RefrigtzDLL.AllDraw.DepthIterative = 0;
 
-
                             bool Store = Deeperthandeeper;
                             Deeperthandeeper = false;
 
-
                             OrderPlate = 1;
                             AllDraw.OrderPlate = OrderPlate;
-
                             int Ord = OrderPlate;
                             Color aa = Color.Gray;
                             if (Ord == -1)
@@ -1444,8 +1282,7 @@ namespace Chess
                             bool B = AllDraw.Blitz;
                             AllDraw.Blitz = false;
                             RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
-                            //FOUND = false;
-
+                            
                             if (Draw.IsAtLeastAllObjectIsNull())
                             {
                                 Draw.TableList.Clear();
@@ -1455,10 +1292,8 @@ namespace Chess
                             }
                             Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
 
-
                             AllDraw.Blitz = B;
                             Deeperthandeeper = Store;
-
                         }
                         else
                         {
@@ -1467,7 +1302,6 @@ namespace Chess
                             Thread arr = new Thread(new ThreadStart(SetDrawFound));
                             arr.Start();
                             arr.Join();
-
                         }
                     }
                     MessageBox.Show("Ready...");
@@ -1488,14 +1322,11 @@ namespace Chess
                 {
                     if (Table[i, j] == 0)
                     {
-
                         if (RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j] != 0)
                             RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j] = RefrigtzDLL.ThinkingChess.NoOfMovableAllObjectMove - 1;
                     }
                 }
             }
-
-
 
         }
         void P() { Play(-1, -1); }
@@ -1517,17 +1348,13 @@ namespace Chess
                     jj = R.CromosomColumn;
                 }
                 
-
                 
                 
                 
                 Play(ii, jj);
-
                 
-
                 AllDraw.NextRow = -1;
                 AllDraw.NextColumn = -1;
-
                 AllDraw.LastRow = -1;
                 AllDraw.LastColumn = -1;
                 cl = 0;
@@ -1568,7 +1395,6 @@ namespace Chess
         }
         private static StringBuilder sortOutPut = new StringBuilder(null);
         private static int numOutputLines = 0;
-
         private static void SortOutputHandler(object sendingProcess,
            DataReceivedEventArgs outLine)
         {
@@ -1578,14 +1404,12 @@ namespace Chess
                 if (!String.IsNullOrEmpty(outLine.Data))
                 {
                     numOutputLines++;
-
                     // Add the text to the collected output.
                     sortOutPut.Append(Environment.NewLine +
                         "[" + numOutputLines.ToString() + "] - " + outLine.Data);
                 }
             }
         }
-
         void AllOperations()
         {
             Object O = new Object();
@@ -1618,34 +1442,27 @@ namespace Chess
                         File.Delete("output.txt");
                 }
                 catch (Exception t) { Log(t); }
-
                 if ((MovmentsNumber > 0))
                 {
-
                     if (OrderPlate == -1)
                     {
-
                         var array1 = Task.Factory.StartNew(() => SetAllDrawKind()); array1.Wait();
                         //Set Configuration To True for some unknown reason!.
                         
                         var array2 = Task.Factory.StartNew(() => SetAllDrawKindString()); array2.Wait();
-
                         (new TakeRoot()).Save(FOUND, Quantum, this, ref LoadTree, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
                         MessageBox.Show("No Konwledgs to begin with stockfish! Please delete one node of Last table and continue");
                         Application.ExitThread();
                         Application.Exit();
                     }
-
                 }
                 if (OrderPlate == 1)
                     BobSection = true;
                 else
                     BobSection = false;
-
                 
             }
         }
-
         public int Play(int i, int j)
         {
             Object o = new Object();
@@ -1660,31 +1477,25 @@ namespace Chess
                     int k = 0;
                     int played = 0;
 
-
                     if (i == -1 && j == -1)
                     {
                         Again:
                         CoPermit = false;
-
                         Person = false;
                         
                         AllDraw.Blitz = true;
                         
 
-
                    
                         
                         
                         Table = brd.GetTable();
-
                         
                         
                         
                         
-
                             var array = Task.Factory.StartNew(() => ComputerByComputerBobAsRefregitz(ref proc));
                             array.Wait(); array.Dispose();
-
                         if (Draw.TableZero(Table))
                         {
                             
@@ -1700,10 +1511,8 @@ namespace Chess
                         
                         
                         
-
                       
                         R = new RefrigtzDLL.ChessGeneticAlgorithm(false, false, false, false, false, false, false, true);
-
                         if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, 1 , true))
                         {
                             
@@ -1715,12 +1524,10 @@ namespace Chess
                                 MessageBox.Show("One or more cromosoms is invalid by refrigitz;");
                                 RefrigtzDLL.AllDraw.TableListAction.RemoveAt(RefrigtzDLL.AllDraw.TableListAction.Count - 1);
 
-
                       
                                 
                                 
                                 
-
                                 
                                 
                                 
@@ -1744,20 +1551,15 @@ namespace Chess
                         else
                         {
                             
-
                             
                             {
                                 MessageBox.Show("One or more DNA is invalid by refrigitz;");
-
                                 
                                 
                                 
                                 RefrigtzDLL.AllDraw.TableListAction.RemoveAt(RefrigtzDLL.AllDraw.TableListAction.Count - 1);
-
                                 Table = brd.GetTable();
-
                                 
-
 
                                 
                                 
@@ -1765,32 +1567,25 @@ namespace Chess
                                 goto Again;
                             }
                         }
-
                         
                         
                     }
                     else
                     {
                         CoPermit = true;
-
                         k = brd.getInfo(i, j);
                         //if (k == 0)
                         
-
                     }
-
                     string lstr = " ";
                     if (k > 6)
                     {
-
                         played = 2;
                     }
                     else if (k < 7 && k != 0)
                     {
                         played = 1;
-
                     }
-
 
                     if (cl == 0 && k != 0 && played == order)
                     {
@@ -1798,7 +1593,6 @@ namespace Chess
                         y1 = j;
                         this.pb[i, j].BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                         cl = 1;
-
                         Object oo = new Object();
                         lock (oo)
                         {
@@ -1807,12 +1601,9 @@ namespace Chess
                         }
                         return 0;
                     }
-
                     if (cl == 1)
                     {
-
                         Board b = new Board();
-
                         int m = brd.getInfo(x1, y1);
                         King king2 = new King(order, x1, y1);
                         int y, z;
@@ -1856,7 +1647,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 2:
                                 Knight kn = new Knight(1, x1, y1);
                                 if (kn.move(brd, i, j) == 1)
@@ -1892,7 +1682,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 3:
                                 Bishop bsp = new Bishop(1, x1, y1);
                                 if (bsp.move(brd, i, j) == 1)
@@ -1928,7 +1717,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 4:
                                 Queen qn2 = new Queen(1, x1, y1);
                                 if (qn2.move(brd, i, j) == 1)
@@ -1964,7 +1752,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 5:
                                 King kg2 = new King(1, x1, y1);
                                 if (kg2.move(brd, i, j) == 1)
@@ -1991,7 +1778,6 @@ namespace Chess
                                         pb[i, j].Image = img10;
                                     }
                                     Com = true;
-
                                 }
                                 else if (kg2.move(brd, i, j) == 2)
                                 {
@@ -2015,9 +1801,7 @@ namespace Chess
                                     brd.setSquare(1, 3, 0);
                                     order++;
                                     Com = true;
-
                                 }
-
                                 else if (kg2.move(brd, i, j) == 3)
                                 {
                                     b.setSquare(0, x1, y1);
@@ -2040,7 +1824,6 @@ namespace Chess
                                     brd.setSquare(5, 6, 0);
                                     order++;
                                     Com = true;
-
                                 }
                                 else
                                 {
@@ -2076,26 +1859,22 @@ namespace Chess
                                         }
                                         else
                                          if (ConClick == 2)
-
                                         {
                                             brd.setSquare(0, x1, y1);
                                             brd.setSquare(1, i, j);
                                         }
                                         else
                                         if (ConClick == 3)
-
                                         {
                                             brd.setSquare(0, x1, y1);
                                             brd.setSquare(2, i, j);
                                         }
                                         else
                                         if (ConClick == 4)
-
                                         {
                                             brd.setSquare(0, x1, y1);
                                             brd.setSquare(3, i, j);
                                         }
-
 
                                     }
                                     else
@@ -2120,7 +1899,6 @@ namespace Chess
                                         }
                                         else
                                                if (ConClick == 2)
-
                                         {
                                             if (brd.getbcolor(i, j) == 2)
                                             {
@@ -2133,7 +1911,6 @@ namespace Chess
                                         }
                                         else
                                         if (ConClick == 3)
-
                                         {
                                             if (brd.getbcolor(i, j) == 2)
                                             {
@@ -2146,7 +1923,6 @@ namespace Chess
                                         }
                                         else
                                         if (ConClick == 4)
-
                                         {
                                             if (brd.getbcolor(i, j) == 2)
                                             {
@@ -2172,7 +1948,6 @@ namespace Chess
                                         }
                                     }
                                     Com = true;
-
                                 }
                                 else
                                 {
@@ -2181,7 +1956,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 7:
                                 Castle cs = new Castle(2, x1, y1);
                                 if (cs.move(brd, i, j) == 1)
@@ -2209,7 +1983,6 @@ namespace Chess
                                         pb[i, j].Image = img22;
                                     }
                                     Com = true;
-
                                 }
                                 else
                                 {
@@ -2218,7 +1991,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 8:
                                 Knight kn2 = new Knight(2, x1, y1);
                                 if (kn2.move(brd, i, j) == 1)
@@ -2246,7 +2018,6 @@ namespace Chess
                                         pb[i, j].Image = img24;
                                     }
                                     Com = true;
-
                                 }
                                 else
                                 {
@@ -2255,7 +2026,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 9:
                                 Bishop bsp2 = new Bishop(2, x1, y1);
                                 if (bsp2.move(brd, i, j) == 1)
@@ -2283,7 +2053,6 @@ namespace Chess
                                         pb[i, j].Image = img26;
                                     }
                                     Com = true;
-
                                 }
                                 else
                                 {
@@ -2292,7 +2061,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 10:
                                 Queen qn = new Queen(2, x1, y1);
                                 if (qn.move(brd, i, j) == 1)
@@ -2320,7 +2088,6 @@ namespace Chess
                                         pb[i, j].Image = img28;
                                     }
                                     Com = true;
-
                                 }
                                 else
                                 {
@@ -2329,7 +2096,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 11:
                                 King kg = new King(2, x1, y1);
                                 if (kg.move(brd, i, j) == 1)
@@ -2357,9 +2123,7 @@ namespace Chess
                                         pb[i, j].Image = img30;
                                     }
                                     Com = true;
-
                                 }
-
                                 else if (kg.move(brd, i, j) == 2)
                                 {
                                     b.setSquare(0, x1, y1);
@@ -2382,9 +2146,7 @@ namespace Chess
                                     brd.setSquare(5, 3, 7);
                                     order--;
                                     Com = true;
-
                                 }
-
                                 else if (kg.move(brd, i, j) == 3)
                                 {
                                     b.setSquare(0, x1, y1);
@@ -2407,7 +2169,6 @@ namespace Chess
                                     brd.setSquare(11, 6, 7);
                                     order--;
                                     Com = true;
-
                                 }
                                 else
                                 {
@@ -2416,7 +2177,6 @@ namespace Chess
                                     return 0;
                                 }
                                 break;
-
                             case 12:
                                 Pawn p2 = new Pawn(2, x1, y1);
                                 if (p2.move(brd, i, j) == 1)
@@ -2444,26 +2204,22 @@ namespace Chess
                                         }
                                         else
                                          if (ConClick == 2)
-
                                         {
                                             brd.setSquare(0, x1, y1);
                                             brd.setSquare(7, i, j);
                                         }
                                         else
                                         if (ConClick == 3)
-
                                         {
                                             brd.setSquare(0, x1, y1);
                                             brd.setSquare(9, i, j);
                                         }
                                         else
                                         if (ConClick == 4)
-
                                         {
                                             brd.setSquare(0, x1, y1);
                                             brd.setSquare(10, i, j);
                                         }
-
 
                                     }
                                     else
@@ -2472,7 +2228,6 @@ namespace Chess
                                         brd.setSquare(0, x1, y1);
                                         brd.setSquare(12, i, j);
                                     }
-
                                     order--;
                                     if (ConClick != -1)
                                     {
@@ -2489,7 +2244,6 @@ namespace Chess
                                         }
                                         else
                                                if (ConClick == 2)
-
                                         {
                                             if (brd.getbcolor(i, j) == 2)
                                             {
@@ -2502,7 +2256,6 @@ namespace Chess
                                         }
                                         else
                                         if (ConClick == 3)
-
                                         {
                                             if (brd.getbcolor(i, j) == 2)
                                             {
@@ -2515,7 +2268,6 @@ namespace Chess
                                         }
                                         else
                                         if (ConClick == 4)
-
                                         {
                                             if (brd.getbcolor(i, j) == 2)
                                             {
@@ -2540,9 +2292,7 @@ namespace Chess
                                             pb[i, j].Image = img32;
                                         }
                                     }
-
                                     Com = true;
-
                                 }
                                 else
                                 {
@@ -2552,7 +2302,6 @@ namespace Chess
                                 }
                                 break;
                         }
-
                     
                         this.pb[x1, y1].BorderStyle = 0;
                         cl = 0;
@@ -2596,7 +2345,6 @@ namespace Chess
                                 lstr2 = "a";
                                 break;
                         }
-
                         switch (x1)
                         {
                             case 0:
@@ -2624,7 +2372,6 @@ namespace Chess
                                 lstr3 = "a";
                                 break;
                         }
-
                         if (king.isChecked(brd) == 1)
                         {
                             if (brd.isMated(order) == 1)
@@ -2647,22 +2394,16 @@ namespace Chess
                                         RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[x1, y1]++;
                                         RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j]++;
 
-
                                         MovmentsNumber++;
                                         
-
                                         Table = brd.GetTable();
-
                                         ClearTableInitiationPreventionOfMultipleMove();
-
 
                                         System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                         tt.Start();
                                         tt.Join();
                                         tt.Abort();
-
                                         AllDraw.OrderPlate = -1; OrderPlate = -1;
-
 
                                         
                                         
@@ -2670,7 +2411,6 @@ namespace Chess
                                         var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
                                         array.Wait(); array.Dispose();
                                         R = new RefrigtzDLL.ChessGeneticAlgorithm(false, false, false, false, false, false, false, true);
-
                                         if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, -1, true))
                                         {
                                             
@@ -2682,12 +2422,9 @@ namespace Chess
                                                 MessageBox.Show("One or more cromosoms is invalid;");
                                                 RefrigtzDLL.AllDraw.TableListAction.RemoveAt(RefrigtzDLL.AllDraw.TableListAction.Count - 1);
 
-
-
                                                 
                                                 
                                                 
-
                                                 
                                                 
                                                 
@@ -2707,26 +2444,20 @@ namespace Chess
                                                 RefrigtzDLL.ThinkingChess.NoOfBoardMovedGray++;
                                             else
                                                 RefrigtzDLL.ThinkingChess.NoOfBoardMovedBrown++;
-
                                             Play(i, j);
                                         }
                                         else
                                         {
                                             
-
                                             
                                             {
                                                 MessageBox.Show("One or more DNA is invalid;");
-
                                                 
                                                 
                                                 
                                                 RefrigtzDLL.AllDraw.TableListAction.RemoveAt(RefrigtzDLL.AllDraw.TableListAction.Count - 1);
-
                                                 Table = brd.GetTable();
-
                                                 
-
 
                                                 
                                                 
@@ -2735,7 +2466,6 @@ namespace Chess
                                             }
                                         }
                                         Play(-1, -1);
-
                                         
                                         
                                         
@@ -2746,35 +2476,25 @@ namespace Chess
                                         RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[x1, y1]++;
                                         RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j]++;
 
-
                                         
                                         MovmentsNumber++;
-
                                         Table = brd.GetTable();
-
                                         ClearTableInitiationPreventionOfMultipleMove();
-
                                         System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                         tt.Start();
                                         tt.Join();
                                         tt.Abort();
-
                                         AllDraw.OrderPlate = 1; OrderPlate = 1;
 
-
                                         Play(-1, -1);
-
                                     }
-
                                 }
                             }
-
                         }
                         else
                         {
                             lstr = str2 + " " + lstr + " " + lstr3 + (y1 + 1).ToString() + " To " + lstr2 + (j + 1).ToString() + " Hu:" + AllDraw.Less.ToString();
                             this.lb.Items.AddRange(new object[] { lstr });
-
                         }
                         Object oi = new Object();
                         lock (oi)
@@ -2783,23 +2503,17 @@ namespace Chess
                             {
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[x1, y1]++;
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j]++;
-
                            
                                 MovmentsNumber++;
                                 
-
                                 Table = brd.GetTable();
-
                                 ClearTableInitiationPreventionOfMultipleMove();
-
 
                                 System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                 tt.Start();
                                 tt.Join();
                                 tt.Abort();
-
                                 AllDraw.OrderPlate = -1; OrderPlate = -1;
-
 
                                 
                                 
@@ -2807,7 +2521,6 @@ namespace Chess
                                 var array = Task.Factory.StartNew(() => ComputerByComputerAliceAsStockFish(ref proc));
                                 array.Wait(); array.Dispose();
                                 R = new RefrigtzDLL.ChessGeneticAlgorithm(false, false, false, false, false, false, false, true);
-
                                 if (R.FindGenToModified(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2], RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1], RefrigtzDLL.AllDraw.TableListAction, 0, -1, true))
                                 {
                                     
@@ -2819,12 +2532,9 @@ namespace Chess
                                         MessageBox.Show("One or more cromosoms is invalid by sugar;");
                                         RefrigtzDLL.AllDraw.TableListAction.RemoveAt(RefrigtzDLL.AllDraw.TableListAction.Count - 1);
 
-
-
                                         
                                         
                                         
-
                                         
                                         
                                         
@@ -2844,26 +2554,20 @@ namespace Chess
                                         RefrigtzDLL.ThinkingChess.NoOfBoardMovedGray++;
                                     else
                                         RefrigtzDLL.ThinkingChess.NoOfBoardMovedBrown++;
-
                                     Play(i, j);
                                 }
                                 else
                                 {
                                     
-
                                     
                                     {
                                         MessageBox.Show("One or more DNA is invalid by sugar;");
-
                                         
                                         
                                         
                                         RefrigtzDLL.AllDraw.TableListAction.RemoveAt(RefrigtzDLL.AllDraw.TableListAction.Count - 1);
-
                                         Table = brd.GetTable();
-
                                         
-
 
                                         
                                         
@@ -2872,7 +2576,6 @@ namespace Chess
                                     }
                                 }
                                 Play(-1, -1);
-
                                 
                                 
                                 
@@ -2882,23 +2585,16 @@ namespace Chess
                             {
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[x1, y1]++;
                                 RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j]++;
-
                                 ClearTableInitiationPreventionOfMultipleMove();
-
                                 MovmentsNumber++;
-
-
 
                                 System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                 tt.Start();
                                 tt.Join();
                                 tt.Abort();
-
                                 AllDraw.OrderPlate = 1; OrderPlate = 1;
 
-
                                 Play(-1, -1);
-
                             }
                         }
                         return 1;
@@ -2906,7 +2602,6 @@ namespace Chess
                 }
                 catch (Exception t) { Log(t); }
                 return 0;
-
             }
         }
         void Wait()
@@ -2918,14 +2613,11 @@ namespace Chess
                     new PerformanceCounter(
                         "Process", "% Processor Time", Process.GetCurrentProcess().ProcessName, true);
 
-
                 do { WaitOnplay = true; } while (myAppCpu.NextValue() != 0);
-
                 WaitOnplay = false;
             }
         }
         #region These are the Click events for Picture Boxes in the form
-
         private void Con1_Click1(object sender, System.EventArgs e)
         {
             ConClick = 1;
@@ -2942,333 +2634,268 @@ namespace Chess
         {
             ConClick = 4;
         }
-
         private void Pb_Click1(object sender, System.EventArgs e)
         {
             Play(0, 0);
         }
-
         private void Pb_Click2(object sender, System.EventArgs e)
         {
             Play(1, 0);
         }
-
         private void Pb_Click3(object sender, System.EventArgs e)
         {
             Play(2, 0);
         }
-
         private void Pb_Click4(object sender, System.EventArgs e)
         {
             Play(3, 0);
         }
-
         private void Pb_Click5(object sender, System.EventArgs e)
         {
             Play(4, 0);
         }
-
         private void Pb_Click6(object sender, System.EventArgs e)
         {
             Play(5, 0);
         }
-
         private void Pb_Click7(object sender, System.EventArgs e)
         {
             Play(6, 0);
         }
-
         private void Pb_Click8(object sender, System.EventArgs e)
         {
             Play(7, 0);
         }
-
         private void Pb_Click9(object sender, System.EventArgs e)
         {
             Play(0, 1);
         }
-
         private void Pb_Click10(object sender, System.EventArgs e)
         {
             Play(1, 1);
         }
-
         private void Pb_Click11(object sender, System.EventArgs e)
         {
             Play(2, 1);
         }
-
         private void Pb_Click12(object sender, System.EventArgs e)
         {
             Play(3, 1);
         }
-
         private void Pb_Click13(object sender, System.EventArgs e)
         {
             Play(4, 1);
         }
-
         private void Pb_Click14(object sender, System.EventArgs e)
         {
             Play(5, 1);
         }
-
         private void Pb_Click15(object sender, System.EventArgs e)
         {
             Play(6, 1);
         }
-
         private void Pb_Click16(object sender, System.EventArgs e)
         {
             Play(7, 1);
         }
-
         private void Pb_Click17(object sender, System.EventArgs e)
         {
             Play(0, 2);
         }
-
         private void Pb_Click18(object sender, System.EventArgs e)
         {
             Play(1, 2);
         }
-
         private void Pb_Click19(object sender, System.EventArgs e)
         {
             Play(2, 2);
         }
-
         private void Pb_Click20(object sender, System.EventArgs e)
         {
             Play(3, 2);
         }
-
         private void Pb_Click21(object sender, System.EventArgs e)
         {
             Play(4, 2);
         }
 
-
         private void Pb_Click22(object sender, System.EventArgs e)
         {
             Play(5, 2);
         }
-
         private void Pb_Click23(object sender, System.EventArgs e)
         {
             Play(6, 2);
         }
-
         private void Pb_Click24(object sender, System.EventArgs e)
         {
             Play(7, 2);
         }
-
         private void Pb_Click25(object sender, System.EventArgs e)
         {
             Play(0, 3);
         }
-
         private void Pb_Click26(object sender, System.EventArgs e)
         {
             Play(1, 3);
         }
-
         private void Pb_Click27(object sender, System.EventArgs e)
         {
             Play(2, 3);
         }
-
         private void Pb_Click28(object sender, System.EventArgs e)
         {
             Play(3, 3);
         }
-
         private void Pb_Click29(object sender, System.EventArgs e)
         {
             Play(4, 3);
         }
 
-
         private void Pb_Click30(object sender, System.EventArgs e)
         {
             Play(5, 3);
         }
-
         private void Pb_Click31(object sender, System.EventArgs e)
         {
             Play(6, 3);
         }
-
         private void Pb_Click32(object sender, System.EventArgs e)
         {
             Play(7, 3);
         }
-
         private void Pb_Click33(object sender, System.EventArgs e)
         {
             Play(0, 4);
         }
-
         private void Pb_Click34(object sender, System.EventArgs e)
         {
             Play(1, 4);
         }
-
         private void Pb_Click35(object sender, System.EventArgs e)
         {
             Play(2, 4);
         }
-
         private void Pb_Click36(object sender, System.EventArgs e)
         {
             Play(3, 4);
         }
-
         private void Pb_Click37(object sender, System.EventArgs e)
         {
             Play(4, 4);
         }
 
-
         private void Pb_Click38(object sender, System.EventArgs e)
         {
             Play(5, 4);
         }
-
         private void Pb_Click39(object sender, System.EventArgs e)
         {
             Play(6, 4);
         }
-
         private void Pb_Click40(object sender, System.EventArgs e)
         {
             Play(7, 4);
         }
-
         private void Pb_Click41(object sender, System.EventArgs e)
         {
             Play(0, 5);
         }
-
         private void Pb_Click42(object sender, System.EventArgs e)
         {
             Play(1, 5);
         }
-
         private void Pb_Click43(object sender, System.EventArgs e)
         {
             Play(2, 5);
         }
-
         private void Pb_Click44(object sender, System.EventArgs e)
         {
             Play(3, 5);
         }
-
         private void Pb_Click45(object sender, System.EventArgs e)
         {
             Play(4, 5);
         }
 
-
         private void Pb_Click46(object sender, System.EventArgs e)
         {
             Play(5, 5);
         }
-
         private void Pb_Click47(object sender, System.EventArgs e)
         {
             Play(6, 5);
         }
-
         private void Pb_Click48(object sender, System.EventArgs e)
         {
             Play(7, 5);
         }
-
         private void Pb_Click49(object sender, System.EventArgs e)
         {
             Play(0, 6);
         }
-
         private void Pb_Click50(object sender, System.EventArgs e)
         {
             Play(1, 6);
         }
-
         private void Pb_Click51(object sender, System.EventArgs e)
         {
             Play(2, 6);
         }
-
         private void Pb_Click52(object sender, System.EventArgs e)
         {
             Play(3, 6);
         }
-
         private void Pb_Click53(object sender, System.EventArgs e)
         {
             Play(4, 6);
         }
 
-
         private void Pb_Click54(object sender, System.EventArgs e)
         {
             Play(5, 6);
         }
-
         private void Pb_Click55(object sender, System.EventArgs e)
         {
             Play(6, 6);
         }
-
         private void Pb_Click56(object sender, System.EventArgs e)
         {
             Play(7, 6);
         }
-
         private void Pb_Click57(object sender, System.EventArgs e)
         {
             Play(0, 7);
         }
-
         private void Pb_Click58(object sender, System.EventArgs e)
         {
             Play(1, 7);
         }
-
         private void Pb_Click59(object sender, System.EventArgs e)
         {
             Play(2, 7);
         }
-
         private void Pb_Click60(object sender, System.EventArgs e)
         {
             Play(3, 7);
         }
-
         private void Pb_Click61(object sender, System.EventArgs e)
         {
             Play(4, 7);
         }
-
         private void Pb_Click62(object sender, System.EventArgs e)
         {
             Play(5, 7);
         }
-
         private void Pb_Click63(object sender, System.EventArgs e)
         {
             Play(6, 7);
         }
-
         private void Pb_Click64(object sender, System.EventArgs e)
         {
             Play(7, 7);
         }
         #endregion
-
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChessForm));
@@ -3325,14 +2952,11 @@ namespace Chess
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new AboutBoxChessRefrigitz()).ShowDialog();
         }
-
         private void AboutHelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new AboutBoxFaraDars()).ShowDialog();
@@ -3351,7 +2975,6 @@ namespace Chess
                             Draw = Draw.AStarGreedyString;
                         }
                     }
-
                 }
                 catch (Exception t) { Log(t); }
                 return Draw;
@@ -3366,21 +2989,18 @@ namespace Chess
                     return;
                 int Dummy = OrderPlate;
                 
-                RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString; 
+                RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString;
                 RefrigtzDLL.AllDraw THISStore = Draw;
                 //while (Draw.AStarGreedyString != null)
                 
-
                 
                 
-
                 
                 Object O = new Object();
                 lock (O)
                 {
                     FOUND = false;
                     THIS = null;
-
                     Color a = Color.Brown;
                     //if (First)
                     
@@ -3390,17 +3010,14 @@ namespace Chess
                     Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
                     if (FOUND)
                     {
-
                         Draw = THIS;
                         
-
                         
                         
                         bool LoadTree = true;
                         Ord = OrderPlate;
                         //if (MovmentsNumber > 1)
                         (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
-                    
 
                         Draw.IsCurrentDraw = true;
                         
@@ -3408,18 +3025,14 @@ namespace Chess
                     }
                     else
                     {
-
                         FOUND = false;
-
 
                         a = Color.Brown;
                         while (Draw.AStarGreedyString != null)
                             Draw = Draw.AStarGreedyString;
-
                         bool FirstS = false;
                         if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 2))
                         {
-
                             if ((RefrigtzDLL.AllDraw.TableListAction.Count != 2))
                             {
                                 Ord = OrderPlate * -1;
@@ -3429,13 +3042,11 @@ namespace Chess
                             if (RefrigtzDLL.AllDraw.TableListAction.Count == 2)
                                 FirstS = true;
 
-
                             Color aa = Color.Gray;
                             if (Ord == -1)
                                 aa = Color.Brown;
                             Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
-                             
-
+                            
                         }
                         else
                         if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 1))
@@ -3448,24 +3059,17 @@ namespace Chess
                             
                             
                         }
-
                         if (FOUND)
                         {
-
                             Draw = THIS;
-
 
                             Draw.IsCurrentDraw = true;
                             
                             
                             
-
                             
                             bool Store = Deeperthandeeper;
                             Deeperthandeeper = false;
-
-
-
 
 
                             Color aa = Color.Gray;
@@ -3474,14 +3078,14 @@ namespace Chess
                             bool B = AllDraw.Blitz;
                             AllDraw.Blitz = false;
                             RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
-                           
+                            
                             if (!FirstS)
                             {
                                 if (Draw.IsAtLeastAllObjectIsNull())
                                 {
                                     Draw.TableList.Clear();
                                     Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]));
-                                    Draw.SetRowColumn(0);                                    
+                                    Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
                                 }
                                 Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0);
@@ -3495,12 +3099,11 @@ namespace Chess
                                     Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
                                     Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
-                               }
+                                }
                                 Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
                             }
                             AllDraw.Blitz = B;
                             Deeperthandeeper = Store;
-
                             //while (Draw.AStarGreedyString != null)
                             
                             FOUND = false;
@@ -3512,7 +3115,6 @@ namespace Chess
                             }
                             Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
 
-
                             if (FOUND)
                             {
                                 Draw = THIS;
@@ -3520,32 +3122,22 @@ namespace Chess
                                 
                                 
                                 
-
                                 
                                 bool LoadTree = true;
-
                                 (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
-
                                 AllDraw.OrderPlate = Ord;
 
-
                                 
                                 
-
                             }
                             else
                             {
-
                                 Draw = THISStore;
-
                                 if (MovmentsNumber == 1)
                                     NotFoundBegin = true;
-
                                 
                                 bool LoadTree = true;
 
-
-                            
                                 
                                 Draw.TableList.Clear();
                                 Draw.TableList.Add(CloneATable(Table));
@@ -3565,11 +3157,8 @@ namespace Chess
                             if (MovmentsNumber == 1)
                                 NotFoundBegin = true;
                             OrderPlate = Dummy;
-
                             
                             bool LoadTree = true;
-
-                           
 
                             
                             Draw.TableList.Clear();
@@ -3583,10 +3172,8 @@ namespace Chess
                             
                             
                         }
-
                     }
                 }
-              
                 if (RefrigtzDLL.AllDraw.FirstTraversalTree)
                     FOUND = false;
                 DrawManagement();
@@ -3598,26 +3185,20 @@ namespace Chess
             lock (OO)
             {
                 SetAllDrawKind();
-
                 //Set Configuration To True for some unknown reason!.
                 
                 SetAllDrawKindString();
-
                 bool Found = false;
                 String P = Path.GetFullPath(path3);
                 AllDrawReplacement = Path.Combine(P, AllDrawKindString);
-
                 Logger y = new Logger(AllDrawReplacement);
                 
-
                 y = new Logger(AllDrawKindString);
                 
-
                 if (!NotFoundBegin)
                 {
                     if (File.Exists(AllDrawKindString))
                     {
-
                         if (File.Exists(AllDrawReplacement))
                         {
                             if (((new System.IO.FileInfo(AllDrawKindString).Length) < (new System.IO.FileInfo(AllDrawReplacement)).Length))
@@ -3640,7 +3221,6 @@ namespace Chess
                                 Directory.CreateDirectory(Path.GetFullPath(path3));
                             File.Copy(AllDrawKindString, AllDrawReplacement);
                             Found = true;
-
                         }
                         Found = true;
                     }
@@ -3677,7 +3257,6 @@ namespace Chess
                 else
                 if (AllDrawKind == 1)
                     AllDrawKindString = "AllDrawFFSF.asd";
-
 
             }
         }
@@ -3738,9 +3317,7 @@ namespace Chess
                     A = "h";
                 return A;
 
-
             }
         }
-
     }
 }

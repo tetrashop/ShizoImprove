@@ -16317,6 +16317,7 @@ namespace RefrigtzW
             )
         {
 
+            AllDraw THISA = new AllDraw(OrderPlate, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged); ; THISA = AStarGreedyString;
 
             OrderP = Order;
             SetObjectNumbers(Tab);
@@ -16487,7 +16488,7 @@ namespace RefrigtzW
             tH.Clear();
 
 
-
+            AStarGreedyString = THISA;
             return this;
 
         }
@@ -22707,14 +22708,16 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 lock (OOOO)
                 {
                     //if (MaxAStarGreedy == 0)
-                        MaxAStarGreedy = PlatformHelper.ProcessorCount;
+                    MaxAStarGreedy = PlatformHelper.ProcessorCount;
                     MaxAStarGreedy1 = MaxAStarGreedy;
 
                     int[,] Tabl = CloneATable(Table);
                     Color aaa = a;
-                    
-                    
+
+                    AllDraw THISA = AStarGreedyString;
+
                     InitiateAStarGreedyt(MaxAStarGreedy1, iiii, jjjj, aaa, Tabl, Ord, false, FOUND, LeafAStarGreedy);
+                    AStarGreedyString = THISA;
                 }
                 Object Om = new Object();
                 lock (Om)
