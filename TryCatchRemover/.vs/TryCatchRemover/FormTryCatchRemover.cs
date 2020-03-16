@@ -1,6 +1,45 @@
-﻿/**************************************************************************
- * CopyRight Ramin Edjlal 2019 Tetra E-Commerce****************************
- * ************************************************************************/
+/**************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+*************TETRASHOP.IR**************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+**************************************/
+
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -334,7 +373,7 @@ namespace TryCatchRemover
                     break;
                 if (Contain.IndexOf("*/") + 2 > Contain.Length)
                     break;
-                Contain = Contain.Replace(Contain.Substring(Contain.IndexOf("/*"), Contain.IndexOf("*/") + 2- Contain.IndexOf("/*")),"");
+                Contain = Contain.Replace(Contain.Substring(Contain.IndexOf("/*"), Contain.IndexOf("*/") + 2 - Contain.IndexOf("/*")), "");
 
             } while (Contain.Contains("*/"));
             saveFileDialogTryCatchRemover.ShowDialog();
@@ -721,11 +760,11 @@ namespace TryCatchRemover
             {
                 if (Contain[i].Length != 0)
                 {
-                    
+
                     i++;
                     continue;
                 }
-                
+
                 Contain = Remove(Contain, i);
                 i++;
             } while (i < Contain.Length);
@@ -733,7 +772,98 @@ namespace TryCatchRemover
             System.IO.File.WriteAllLines(saveFileDialogTryCatchRemover.FileName, Contain);
             MessageBox.Show("Done!");
 
+        }
 
+        private void buttonTetraShop_Click(object sender, EventArgs e)
+        {
+            String[] TetraShop = new String[40];
+            TetraShop[0] = "/";
+
+            for (int j = 0; j < 40; j++)
+            {
+                int i = 0;
+                if (j != 0)
+                    TetraShop[j] = "";
+                bool SetB = true; 
+                do
+                {
+                    
+                  
+                    if (j < 39)
+                    {
+                        if (j == 20)
+                        {
+                            int B = -1;
+                            if (SetB)
+                            {
+                                B = TetraShop[j].Length;
+                            }
+
+                            if (SetB && i == 13)
+                            {
+                                TetraShop[j] += "TETRASHOP.IR";
+                                SetB = false;
+                                i += "TETRASHOP.IR".Length - 1;
+                            }
+                                                        
+                            if (TetraShop[j].Length == 39)
+                            {
+                                TetraShop[j] += "\n";
+                            }
+                            
+                            if (TetraShop[j].Length < 39)
+                            {
+                                TetraShop[j] += "*";
+
+                            }
+                        }
+                        else
+                        {
+                            if (TetraShop[j].Length < 39)
+                            {
+                                TetraShop[j] += "*";
+
+                            }
+
+                            if (TetraShop[j].Length == 39)
+                            {
+                                TetraShop[j] += "\n";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (i < 38)
+                        {
+                            TetraShop[j] += "*";
+
+                        }
+                        if (TetraShop[j].Length == 38)
+                        {
+                            TetraShop[j] += "/";
+
+                        }
+                        if (TetraShop[j].Length == 39)
+                        {
+                            TetraShop[j] += "\n";
+                        }
+                    }
+                    i++;
+                } while (i < 40);
+            }
+
+
+            OpenFileDialogTryCatchRemover.ShowDialog();
+            String A = OpenFileDialogTryCatchRemover.FileName;
+            String Contain = System.IO.File.ReadAllText(A);
+            String Brand = "";
+
+            for (int i = 0; i < 40; i++)
+                Brand += TetraShop[i];
+            Contain = Brand + Contain;
+            saveFileDialogTryCatchRemover.ShowDialog();
+            System.IO.File.WriteAllText(saveFileDialogTryCatchRemover.FileName, Contain);
+            MessageBox.Show("Done!");
         }
     }
 }

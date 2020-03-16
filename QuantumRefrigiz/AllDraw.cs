@@ -18,7 +18,7 @@ namespace QuantumRefrigiz
 
     public class AllDraw//: IDisposable
     {
-        public static bool UniqueLeafDetection = true;
+        public static bool UniqueLeafDetection = false;
         int NumberOfnewMove = 0;
         bool UsedRestrictedMoveBlitzAndFull = true;
         public List<bool> SolderesOnTableMove = new List<bool>();
@@ -5443,18 +5443,42 @@ namespace QuantumRefrigiz
                     if (IsSupHuTrue(i, j, 0, 1))
                         continue;
                     //when leaf found set refer bool and alldraw refer objects
-                    if (SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count <= SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder.Count// && Kind == 1
+                    if ((!SolderesOnTableMove[i]) && SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
                     )
                     {
-                        Found = true;
-                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
-
-                        Color aa = Color.Gray;
-                        if (Order * -1 == -1)
-                            aa = Color.Brown;
-                        SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]), Order * -1, false, false, 0);
-                        Leaf = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1];
-                        return Leaf;
+                        //BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
+                        if (Order == 1)
+                        {
+                            for (var k = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && k < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].SodierMidle; k++)
+                            {
+                                if (!SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].SolderesOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]), Order * -1, false, false, 0);
+                                    Leaf = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (var k = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].SodierMidle; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinkingQuantum[0] != null && k < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].SodierHigh; k++)
+                            {
+                                if (!SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].SolderesOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j]), Order * -1, false, false, 0);
+                                    Leaf = SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
                     }
                     else//deeper
                         for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
@@ -5485,18 +5509,42 @@ namespace QuantumRefrigiz
                         continue;
 
                     //when leaf found set refer bool and alldraw refer objects
-                    if (ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count <= ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant.Count //&& Kind == 2
+                    if ((!ElephantOnTableMove[i]) && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
                     )
                     {
-                        Found = true;
-                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 2);
-
-                        Color aa = Color.Gray;
-                        if (Order * -1 == -1)
-                            aa = Color.Brown;
-                        ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]), Order * -1, false, false, 0);
-                        Leaf = ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1];
-                        return Leaf;
+                        //BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
+                        if (Order == 1)
+                        {
+                            for (var k = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && k < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].ElefantMidle; k++)
+                            {
+                                if (!ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].ElephantOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]), Order * -1, false, false, 0);
+                                    Leaf = ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (var k = ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].ElefantMidle; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinkingQuantum[0] != null && k < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].ElefantHigh; k++)
+                            {
+                                if (!ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].ElephantOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j]), Order * -1, false, false, 0);
+                                    Leaf = ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
                     }
                     else//deeper
                         for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
@@ -5525,18 +5573,42 @@ namespace QuantumRefrigiz
                         continue;
 
                     //when leaf found set refer bool and alldraw refer objects
-                    if (HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count <= HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse.Count //&& Kind == 3
+                    if ((!HoursesOnTableMove[i]) && HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
                     )
                     {
-                        Found = true;
-                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 3);
-
-                        Color aa = Color.Gray;
-                        if (Order * -1 == -1)
-                            aa = Color.Brown;
-                        HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]), Order * -1, false, false, 0);
-                        Leaf = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1];
-                        return Leaf;
+                        //BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
+                        if (Order == 1)
+                        {
+                            for (var k = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && k < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].HourseMidle; k++)
+                            {
+                                if (!HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].HoursesOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]), Order * -1, false, false, 0);
+                                    Leaf = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (var k = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].HourseMidle; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinkingQuantum[0] != null && k < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].HourseHight; k++)
+                            {
+                                if (!HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].HoursesOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(HoursesOnTable[i].HourseThinkingQuantum[0].TableListHourse[j]), Order * -1, false, false, 0);
+                                    Leaf = HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
                     }
                     else//deeper
                         for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
@@ -5568,18 +5640,42 @@ namespace QuantumRefrigiz
 
 
                     //when leaf found set refer bool and alldraw refer objects
-                    if (CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count <= CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle.Count //&& Kind == 4
+                    if ((!CastlesOnTableMove[i]) && CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
                     )
                     {
-                        Found = true;
-                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 4);
-
-                        Color aa = Color.Gray;
-                        if (Order * -1 == -1)
-                            aa = Color.Brown;
-                        CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]), Order * -1, false, false, 0);
-                        Leaf = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1];
-                        return Leaf;
+                        //BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
+                        if (Order == 1)
+                        {
+                            for (var k = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && k < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].CastleMidle; k++)
+                            {
+                                if (!CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].CastlesOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]), Order * -1, false, false, 0);
+                                    Leaf = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (var k = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].CastleMidle; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinkingQuantum[0] != null && k < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].CastleHigh; k++)
+                            {
+                                if (!CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].CastlesOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j]), Order * -1, false, false, 0);
+                                    Leaf = CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
                     }
                     else//deeper
                         for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
@@ -5607,18 +5703,42 @@ namespace QuantumRefrigiz
                         continue;
 
                     //when leaf found set refer bool and alldraw refer objects
-                    if (MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count <= MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister.Count //&& Kind == 5
+                    if ((!MinisterOnTableMove[i]) && MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
                     )
                     {
-                        Found = true;
-                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 5);
-
-                        Color aa = Color.Gray;
-                        if (Order * -1 == -1)
-                            aa = Color.Brown;
-                        MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]), Order * -1, false, false, 0);
-                        Leaf = MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1];
-                        return Leaf;
+                        //BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
+                        if (Order == 1)
+                        {
+                            for (var k = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && k < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].MinisterMidle; k++)
+                            {
+                                if (!MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].MinisterOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]), Order * -1, false, false, 0);
+                                    Leaf = MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (var k = MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].MinisterMidle; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinkingQuantum[0] != null && k < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].MinisterHigh; k++)
+                            {
+                                if (!MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].MinisterOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j]), Order * -1, false, false, 0);
+                                    Leaf = MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
                     }
                     else//deeper
                         for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
@@ -5648,18 +5768,42 @@ namespace QuantumRefrigiz
                     if (IsSupHuTrue(i, j, 0, 6))
                         continue;
                     //when leaf found set refer bool and alldraw refer objects
-                    if (KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count <= KingOnTable[i].KingThinkingQuantum[0].TableListKing.Count //&& Kind == 6
+                    if ((!KingOnTableMove[i]) && KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count > j// && Kind == 1
                     )
                     {
-                        Found = true;
-                        BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 6);
-
-                        Color aa = Color.Gray;
-                        if (Order * -1 == -1)
-                            aa = Color.Brown;
-                        KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]), Order * -1, false, false, 0);
-                        Leaf = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1];
-                        return Leaf;
+                        //BlitzNotValidFullGameThinkingQuantumTreePartOne(ik, Order, 1);
+                        if (Order == 1)
+                        {
+                            for (var k = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && k < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].KingMidle; k++)
+                            {
+                                if (!KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].KingOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]), Order * -1, false, false, 0);
+                                    Leaf = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (var k = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].KingMidle; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinkingQuantum[0] != null && k < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].KingHigh; k++)
+                            {
+                                if (!KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].KingOnTableMove[k])
+                                {
+                                    Color aa = Color.Gray;
+                                    if (Order * -1 == -1)
+                                        aa = Color.Brown;
+                                    KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j]), Order * -1, false, false, 0);
+                                    Leaf = KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[j];
+                                    Found = true;
+                                    return Leaf;
+                                }
+                            }
+                        }
                     }
                     else//deeper
                         for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1; ii++)

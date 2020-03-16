@@ -41,6 +41,7 @@
             this.buttonComment = new System.Windows.Forms.Button();
             this.buttonCodeComment = new System.Windows.Forms.Button();
             this.buttonSpaceLine = new System.Windows.Forms.Button();
+            this.buttonTetraShop = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenFileDialogTryCatchRemover
@@ -143,9 +144,20 @@
             this.buttonSpaceLine.UseVisualStyleBackColor = true;
             this.buttonSpaceLine.Click += new System.EventHandler(this.buttonSpaceLine_Click);
             // 
+            // buttonTetraShop
+            // 
+            this.buttonTetraShop.Location = new System.Drawing.Point(46, 253);
+            this.buttonTetraShop.Name = "buttonTetraShop";
+            this.buttonTetraShop.Size = new System.Drawing.Size(169, 23);
+            this.buttonTetraShop.TabIndex = 6;
+            this.buttonTetraShop.Text = "TetraShop.ir";
+            this.buttonTetraShop.UseVisualStyleBackColor = true;
+            this.buttonTetraShop.Click += new System.EventHandler(this.buttonTetraShop_Click);
+            // 
             // FormTryCatchRemover
             // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 296);
+            this.Controls.Add(this.buttonTetraShop);
             this.Controls.Add(this.buttonSpaceLine);
             this.Controls.Add(this.buttonCodeComment);
             this.Controls.Add(this.buttonRewmoveStarComment);
@@ -174,6 +186,7 @@
         private System.Windows.Forms.Button buttonComment;
         private System.Windows.Forms.Button buttonCodeComment;
         private System.Windows.Forms.Button buttonSpaceLine;
+        private System.Windows.Forms.Button buttonTetraShop;
     }
 }
 
