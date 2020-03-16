@@ -5072,7 +5072,7 @@ namespace RefrigtzDLL
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                             SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -5138,7 +5138,7 @@ namespace RefrigtzDLL
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                             ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -5202,7 +5202,7 @@ namespace RefrigtzDLL
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                             HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -5269,7 +5269,7 @@ namespace RefrigtzDLL
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                             CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                 }
@@ -5332,7 +5332,7 @@ namespace RefrigtzDLL
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                             MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -5397,7 +5397,7 @@ namespace RefrigtzDLL
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                             KingOnTable[i].KingThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 

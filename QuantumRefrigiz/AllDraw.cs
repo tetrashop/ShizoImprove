@@ -5481,7 +5481,7 @@ namespace QuantumRefrigiz
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy.Count; ii++)
                             SolderesOnTable[i].SoldierThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -5547,7 +5547,7 @@ namespace QuantumRefrigiz
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ii++)
                             ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -5611,7 +5611,7 @@ namespace QuantumRefrigiz
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy.Count; ii++)
                             HoursesOnTable[i].HourseThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -5678,7 +5678,7 @@ namespace QuantumRefrigiz
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy.Count; ii++)
                             CastlesOnTable[i].CastleThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
                 }
@@ -5741,7 +5741,7 @@ namespace QuantumRefrigiz
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy.Count; ii++)
                             MinisterOnTable[i].MinisterThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -5806,7 +5806,7 @@ namespace QuantumRefrigiz
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count - 1; ii++)
+                        for (var ii = 0; ii < KingOnTable[i].KingThinkingQuantum[0].AStarGreedy.Count; ii++)
                             KingOnTable[i].KingThinkingQuantum[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
 
 
@@ -8061,7 +8061,7 @@ namespace QuantumRefrigiz
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
                                 {
-                                    for (int ij = 0; ij < SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                    for (int ij = 0; ij < SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy.Count; ij++)
                                         SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]);
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
@@ -8379,7 +8379,7 @@ namespace QuantumRefrigiz
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
                                 {
-                                    for (int ij = 0; ij < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count - 1; ij++)
+                                    for (int ij = 0; ij < ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy.Count; ij++)
                                         ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy[ij]);
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
@@ -8588,7 +8588,7 @@ namespace QuantumRefrigiz
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
                                 {
-                                    for (int ij = 0; ij < HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                    for (int ij = 0; ij < HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy.Count; ij++)
                                         HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy[ij]);
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
@@ -8797,7 +8797,7 @@ namespace QuantumRefrigiz
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
                                 {
-                                    for (int ij = 0; ij < CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                    for (int ij = 0; ij < CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy.Count; ij++)
                                         CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy[ij]);
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
@@ -9007,7 +9007,7 @@ namespace QuantumRefrigiz
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
                                 {
-                                    for (int ij = 0; ij < MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                    for (int ij = 0; ij < MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy.Count; ij++)
                                         MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy[ij]);
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
@@ -9219,7 +9219,7 @@ namespace QuantumRefrigiz
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
                                 {
-                                    for (int ij = 0; ij < KingOnTable[i].KingThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                    for (int ij = 0; ij < KingOnTable[i].KingThinkingQuantum[k].AStarGreedy.Count; ij++)
                                         KingOnTable[i].KingThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, KingOnTable[i].KingThinkingQuantum[k].AStarGreedy[ij]);
                                     Order = COrder;
                                     ChessRules.CurrentOrder = CDummy;
@@ -11514,7 +11514,7 @@ namespace QuantumRefrigiz
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
                             {
-                                for (int ij = 0; ij < SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                for (int ij = 0; ij < SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy.Count; ij++)
                                     SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, SolderesOnTable[i].SoldierThinkingQuantum[k].AStarGreedy[ij]);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -11817,7 +11817,7 @@ namespace QuantumRefrigiz
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
                             {
-                                for (int ij = 0; ij < ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                for (int ij = 0; ij < ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy.Count; ij++)
                                     ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, ElephantOnTable[i].ElefantThinkingQuantum[k].AStarGreedy[ij]);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -12043,7 +12043,7 @@ namespace QuantumRefrigiz
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
                             {
-                                for (int ij = 0; ij < HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                for (int ij = 0; ij < HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy.Count; ij++)
                                     HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, HoursesOnTable[i].HourseThinkingQuantum[k].AStarGreedy[ij]);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -12275,7 +12275,7 @@ namespace QuantumRefrigiz
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
                             {
-                                for (int ij = 0; ij < CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                for (int ij = 0; ij < CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy.Count; ij++)
                                     CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, CastlesOnTable[i].CastleThinkingQuantum[k].AStarGreedy[ij]);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -12494,7 +12494,7 @@ namespace QuantumRefrigiz
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
                             {
-                                for (int ij = 0; ij < MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                for (int ij = 0; ij < MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy.Count; ij++)
                                     MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, MinisterOnTable[i].MinisterThinkingQuantum[k].AStarGreedy[ij]);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
@@ -12704,7 +12704,7 @@ namespace QuantumRefrigiz
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
                             {
-                                for (int ij = 0; ij < KingOnTable[i].KingThinkingQuantum[k].AStarGreedy.Count - 1; ij++)
+                                for (int ij = 0; ij < KingOnTable[i].KingThinkingQuantum[k].AStarGreedy.Count; ij++)
                                     KingOnTable[i].KingThinkingQuantum[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, KingOnTable[i].KingThinkingQuantum[k].AStarGreedy[ij]);
                                 Order = COrder;
                                 ChessRules.CurrentOrder = CDummy;
