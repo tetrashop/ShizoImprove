@@ -1600,11 +1600,11 @@ namespace Chess
                                         Table = brd.GetTable();
                                         ClearTableInitiationPreventionOfMultipleMove();
                                         RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(brd.GetTable()));
+                                        AllDraw.OrderPlate = -1; OrderPlate = -1;
                                         System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                         tt.Start();
                                         tt.Join();
                                         tt.Abort();
-                                        AllDraw.OrderPlate = -1; OrderPlate = -1;
                                         
                                         
                                         
@@ -1620,12 +1620,12 @@ namespace Chess
                                         Table = brd.GetTable();
                                         ClearTableInitiationPreventionOfMultipleMove();
 
+                                        AllDraw.OrderPlate = 1; OrderPlate = 1;
                                         System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                         tt.Start();
                                         tt.Join();
                                         tt.Abort();
-                                        AllDraw.OrderPlate = 1; OrderPlate = 1;
-
+                                       
                                         
                                         
                                         
@@ -1649,12 +1649,12 @@ namespace Chess
                                 Table = brd.GetTable();
                                 ClearTableInitiationPreventionOfMultipleMove();
                                 RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(brd.GetTable()));
+                                AllDraw.OrderPlate = -1; OrderPlate = -1;
                                 System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                 tt.Start();
                                 tt.Join();
                                 tt.Abort();
-                                AllDraw.OrderPlate = -1; OrderPlate = -1;
-
+                              
                                 
                                 
                                 
@@ -1670,12 +1670,12 @@ namespace Chess
                                 MovmentsNumber++;
                                 ClearTableInitiationPreventionOfMultipleMove();
 
+                                AllDraw.OrderPlate = 1; OrderPlate = 1;
                                 System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                 tt.Start();
                                 tt.Join();
                                 tt.Abort();
-                                AllDraw.OrderPlate = 1; OrderPlate = 1;
-                            }
+                             }
                         }
                         return 1;
                     }
