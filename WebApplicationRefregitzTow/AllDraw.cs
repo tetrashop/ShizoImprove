@@ -5561,9 +5561,9 @@ namespace RefrigtzW
                         }
                     }
                     else//deeper
-                        for (var ii = 0; ii < [i].ElefantThinking[0].AStarGreedy.Count; ii++)
+                        for (var ii = 0; ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                             ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].FoundOfLeafDepenOfKind(ref Leaf, ref Found, Order * -1, ref OrderLeaf, ik, jk, iii, jjj);
-ElephantOnTable
+
 
 
                 }
