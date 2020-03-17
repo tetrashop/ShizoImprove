@@ -42,6 +42,8 @@
             this.buttonCodeComment = new System.Windows.Forms.Button();
             this.buttonSpaceLine = new System.Windows.Forms.Button();
             this.buttonTetraShop = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonImageLogo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenFileDialogTryCatchRemover
@@ -74,7 +76,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(287, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -154,9 +156,30 @@
             this.buttonTetraShop.UseVisualStyleBackColor = true;
             this.buttonTetraShop.Click += new System.EventHandler(this.buttonTetraShop_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // buttonImageLogo
+            // 
+            this.buttonImageLogo.Location = new System.Drawing.Point(46, 294);
+            this.buttonImageLogo.Name = "buttonImageLogo";
+            this.buttonImageLogo.Size = new System.Drawing.Size(169, 23);
+            this.buttonImageLogo.TabIndex = 8;
+            this.buttonImageLogo.Text = "Image Logo";
+            this.buttonImageLogo.UseVisualStyleBackColor = true;
+            this.buttonImageLogo.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormTryCatchRemover
             // 
-            this.ClientSize = new System.Drawing.Size(284, 296);
+            this.ClientSize = new System.Drawing.Size(287, 345);
+            this.Controls.Add(this.buttonImageLogo);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonTetraShop);
             this.Controls.Add(this.buttonSpaceLine);
             this.Controls.Add(this.buttonCodeComment);
@@ -187,6 +210,8 @@
         private System.Windows.Forms.Button buttonCodeComment;
         private System.Windows.Forms.Button buttonSpaceLine;
         private System.Windows.Forms.Button buttonTetraShop;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonImageLogo;
     }
 }
 
