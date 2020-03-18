@@ -45,6 +45,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonImageLogo = new System.Windows.Forms.Button();
             this.button3TextImageLogo = new System.Windows.Forms.Button();
+            this.button4TextImageLogo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenFileDialogTryCatchRemover
@@ -186,9 +187,20 @@
             this.button3TextImageLogo.UseVisualStyleBackColor = true;
             this.button3TextImageLogo.Click += new System.EventHandler(this.button3TextImageLogo_Click);
             // 
+            // button4TextImageLogo
+            // 
+            this.button4TextImageLogo.Location = new System.Drawing.Point(46, 379);
+            this.button4TextImageLogo.Name = "button4TextImageLogo";
+            this.button4TextImageLogo.Size = new System.Drawing.Size(169, 23);
+            this.button4TextImageLogo.TabIndex = 10;
+            this.button4TextImageLogo.Text = "4 Text Image Logo";
+            this.button4TextImageLogo.UseVisualStyleBackColor = true;
+            this.button4TextImageLogo.Click += new System.EventHandler(this.button4TextImageLogo_Click);
+            // 
             // FormTryCatchRemover
             // 
-            this.ClientSize = new System.Drawing.Size(272, 372);
+            this.ClientSize = new System.Drawing.Size(272, 424);
+            this.Controls.Add(this.button4TextImageLogo);
             this.Controls.Add(this.button3TextImageLogo);
             this.Controls.Add(this.buttonImageLogo);
             this.Controls.Add(this.button1);
@@ -225,6 +237,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonImageLogo;
         private System.Windows.Forms.Button button3TextImageLogo;
+        private System.Windows.Forms.Button button4TextImageLogo;
     }
 }
 
