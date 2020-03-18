@@ -44,6 +44,7 @@
             this.buttonTetraShop = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonImageLogo = new System.Windows.Forms.Button();
+            this.button3TextImageLogo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenFileDialogTryCatchRemover
@@ -76,7 +77,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(287, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(272, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -175,9 +176,20 @@
             this.buttonImageLogo.UseVisualStyleBackColor = true;
             this.buttonImageLogo.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3TextImageLogo
+            // 
+            this.button3TextImageLogo.Location = new System.Drawing.Point(46, 336);
+            this.button3TextImageLogo.Name = "button3TextImageLogo";
+            this.button3TextImageLogo.Size = new System.Drawing.Size(169, 23);
+            this.button3TextImageLogo.TabIndex = 9;
+            this.button3TextImageLogo.Text = "3 Text Image Logo";
+            this.button3TextImageLogo.UseVisualStyleBackColor = true;
+            this.button3TextImageLogo.Click += new System.EventHandler(this.button3TextImageLogo_Click);
+            // 
             // FormTryCatchRemover
             // 
-            this.ClientSize = new System.Drawing.Size(287, 345);
+            this.ClientSize = new System.Drawing.Size(272, 372);
+            this.Controls.Add(this.button3TextImageLogo);
             this.Controls.Add(this.buttonImageLogo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonTetraShop);
@@ -212,6 +224,7 @@
         private System.Windows.Forms.Button buttonTetraShop;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonImageLogo;
+        private System.Windows.Forms.Button button3TextImageLogo;
     }
 }
 
