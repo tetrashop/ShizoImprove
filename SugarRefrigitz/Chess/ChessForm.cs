@@ -2476,7 +2476,8 @@ namespace Chess
                                         RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[x1, y1]++;
                                         RefrigtzDLL.ThinkingChess.TableInitiationPreventionOfMultipleMove[i, j]++;
 
-                                        
+
+                                        AllDraw.OrderPlate = 1; OrderPlate = 1;
                                         MovmentsNumber++;
                                         Table = brd.GetTable();
                                         ClearTableInitiationPreventionOfMultipleMove();
@@ -2484,8 +2485,7 @@ namespace Chess
                                         tt.Start();
                                         tt.Join();
                                         tt.Abort();
-                                        AllDraw.OrderPlate = 1; OrderPlate = 1;
-
+                               
                                         Play(-1, -1);
                                     }
                                 }
@@ -2588,12 +2588,12 @@ namespace Chess
                                 ClearTableInitiationPreventionOfMultipleMove();
                                 MovmentsNumber++;
 
+                                AllDraw.OrderPlate = 1; OrderPlate = 1;
                                 System.Threading.Thread tt = new System.Threading.Thread(new System.Threading.ThreadStart(SetDrawFound));
                                 tt.Start();
                                 tt.Join();
                                 tt.Abort();
-                                AllDraw.OrderPlate = 1; OrderPlate = 1;
-
+                           
                                 Play(-1, -1);
                             }
                         }
@@ -2988,14 +2988,14 @@ namespace Chess
                 if (Draw == null)
                     return;
                 int Dummy = OrderPlate;
-                
+
                 RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString;
                 RefrigtzDLL.AllDraw THISStore = Draw;
                 //while (Draw.AStarGreedyString != null)
-                
-                
-                
-                
+
+
+
+
                 Object O = new Object();
                 lock (O)
                 {
@@ -3003,7 +3003,7 @@ namespace Chess
                     THIS = null;
                     Color a = Color.Brown;
                     //if (First)
-                    
+
                     //else
                     int Ord = OrderPlate;
                     AllDraw.OrderPlate = Ord;
@@ -3011,17 +3011,17 @@ namespace Chess
                     if (FOUND)
                     {
                         Draw = THIS;
-                        
-                        
-                        
+
+
+
                         bool LoadTree = true;
                         Ord = OrderPlate;
                         //if (MovmentsNumber > 1)
                         (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
 
                         Draw.IsCurrentDraw = true;
-                        
-                        
+
+
                     }
                     else
                     {
@@ -3030,44 +3030,36 @@ namespace Chess
                         a = Color.Brown;
                         while (Draw.AStarGreedyString != null)
                             Draw = Draw.AStarGreedyString;
+
                         bool FirstS = false;
-                        if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 2))
+                        if ((RefrigtzDLL.AllDraw.TableListAction.Count > 2))
                         {
-                            if ((RefrigtzDLL.AllDraw.TableListAction.Count != 2))
-                            {
-                                Ord = OrderPlate * -1;
-                                AllDraw.OrderPlate = Ord;
-                                OrderPlate = Ord;
-                            }
-                            if (RefrigtzDLL.AllDraw.TableListAction.Count == 2)
-                                FirstS = true;
+                            Ord = OrderPlate * -1;
+                            AllDraw.OrderPlate = Ord;
+                            OrderPlate = Ord;
 
                             Color aa = Color.Gray;
                             if (Ord == -1)
                                 aa = Color.Brown;
                             Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
-                            
                         }
                         else
                         if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 1))
                         {
                             Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
-                            Ord = OrderPlate;
-                            AllDraw.OrderPlate = Ord;
                             FirstS = true;
-                            
-                            
-                            
                         }
+
+
                         if (FOUND)
                         {
                             Draw = THIS;
 
                             Draw.IsCurrentDraw = true;
-                            
-                            
-                            
-                            
+
+
+
+
                             bool Store = Deeperthandeeper;
                             Deeperthandeeper = false;
 
@@ -3078,7 +3070,7 @@ namespace Chess
                             bool B = AllDraw.Blitz;
                             AllDraw.Blitz = false;
                             RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
-                            
+
                             if (!FirstS)
                             {
                                 if (Draw.IsAtLeastAllObjectIsNull())
@@ -3105,7 +3097,7 @@ namespace Chess
                             AllDraw.Blitz = B;
                             Deeperthandeeper = Store;
                             //while (Draw.AStarGreedyString != null)
-                            
+
                             FOUND = false;
                             if (!First && (RefrigtzDLL.AllDraw.TableListAction.Count > 2))
                             {
@@ -3118,27 +3110,27 @@ namespace Chess
                             if (FOUND)
                             {
                                 Draw = THIS;
-                                
-                                
-                                
-                                
-                                
+
+
+
+
+
                                 bool LoadTree = true;
                                 (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
                                 AllDraw.OrderPlate = Ord;
 
-                                
-                                
+
+
                             }
                             else
                             {
                                 Draw = THISStore;
                                 if (MovmentsNumber == 1)
                                     NotFoundBegin = true;
-                                
+
                                 bool LoadTree = true;
 
-                                
+
                                 Draw.TableList.Clear();
                                 Draw.TableList.Add(CloneATable(Table));
                                 Draw.SetRowColumn(0);
@@ -3147,8 +3139,8 @@ namespace Chess
                                 RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                                 RefrigtzDLL.AllDraw.DepthIterative = 0;
                                 (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
-                                
-                                
+
+
                             }
                         }
                         else
@@ -3157,10 +3149,10 @@ namespace Chess
                             if (MovmentsNumber == 1)
                                 NotFoundBegin = true;
                             OrderPlate = Dummy;
-                            
+
                             bool LoadTree = true;
 
-                            
+
                             Draw.TableList.Clear();
                             Draw.TableList.Add(CloneATable(Table));
                             Draw.SetRowColumn(0);
@@ -3169,8 +3161,8 @@ namespace Chess
                             RefrigtzDLL.ChessRules.CurrentOrder = OrderPlate;
                             RefrigtzDLL.AllDraw.DepthIterative = 0;
                             (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
-                            
-                            
+
+
                         }
                     }
                 }

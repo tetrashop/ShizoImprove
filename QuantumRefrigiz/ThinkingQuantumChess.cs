@@ -12028,7 +12028,7 @@ namespace QuantumRefrigiz
 
         }
         public int[] CalculateHeuristicsParallel(bool Before, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
-       )
+      )
         {
             Object OO = new Object();
             lock (OO)
@@ -12051,7 +12051,9 @@ namespace QuantumRefrigiz
 
                                 int[,] TableSS = CloneATable(TableS);
                                 int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                                Heuristic = HeuristicAll(Before, Killed, TableSS, color, Order);
+                                var H = Task.Factory.StartNew(() => Heuristic = HeuristicAll(Before, Killed, TableSS, color, Order));
+                                H.Wait();
+                                H.Dispose();
                             }
                         }, () =>
                         {
@@ -12063,8 +12065,9 @@ namespace QuantumRefrigiz
 
                                 int[,] TableSS = CloneATable(TableS);
                                 int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                                Exchange = HeuristicExchange(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD);
-
+                                var H = Task.Factory.StartNew(() => Exchange = HeuristicExchange(Before, Killed, TableSS, color, Order, RowS, ColS, RowD, ColD));
+                                H.Wait();
+                                H.Dispose();
                             }
                         });
                     }
@@ -12089,83 +12092,96 @@ namespace QuantumRefrigiz
                                         return;
                                     int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
                                     int[,] TableSS = CloneATable(TableS);
-                                    HeuristicRemain[0] = HeuristicCheckAndCheckMate(RoS, CoS, RoD, CoD, TableSS, color//, ref HeuristicReducedMovementValue
-                                    );
+                                    var H = Task.Factory.StartNew(() => HeuristicRemain[0] = HeuristicCheckAndCheckMate(RoS, CoS, RoD, CoD, TableSS, color//, ref HeuristicReducedMovementValue
+                                    ));
+                                    H.Wait();
+                                    H.Dispose();
                                 }
                             }
                         }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             //if (SubOfHeuristicAllIsPositive(Heuristic))
-                             {
-                                 if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                     return;
-                                 int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                                 int[,] TableSS = CloneATable(TableS);
-                                 HeuristicRemain[1] = HeuristicDistribution(Before, TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicDistributionValue
-                                      );
-                             }
-                         }
-                     }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                 return;
-                             int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                             int[,] TableSS = CloneATable(TableS);
-                             HeuristicRemain[2] = HeuristicKingSafety(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
-                                  );
-                         }
-                     }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                 return;
-                             int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                             int[,] TableSS = CloneATable(TableS);
-                             HeuristicRemain[3] = HeuristicKingPreventionOfCheckedAtBegin(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
-                             );
-                         }
-                     }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             //if (SubOfHeuristicAllIsPositive(Heuristic))
-                             {
-                                 if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                     return;
-                                 int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                                 int[,] TableSS = CloneATable(TableS);
-                                 HeuristicRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD);
-                             }
-                         }
-                     }, () =>
-                     {
-                         Object O = new Object();
-                         lock (O)
-                         {
-                             //if (SubOfHeuristicAllIsPositive(Heuristic))
-                             {
-                                 if (!Scop(RowS, ColS, RowD, ColD, Kind))
-                                     return;
-                                 int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
-                                 int[,] TableSS = CloneATable(TableS);
-                                 Color colorE = Color.Gray;
-                                 if (Order == -1)
-                                     colorE = Color.Gray;
-                                 else
-                                     colorE = Color.Brown;
-                                 HeuristicRemain[5] = HeuristicBetterSpace(TableSS, color, colorE, Order, Order * -1);
-                             }
-                         }
-                     });
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                //if (SubOfHeuristicAllIsPositive(Heuristic))
+                                {
+                                    if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                        return;
+                                    int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                    int[,] TableSS = CloneATable(TableS);
+                                    var H = Task.Factory.StartNew(() => HeuristicRemain[1] = HeuristicDistribution(Before, TableSS, Order, color, RowS, ColS, RowD, ColD//, ref HeuristicDistributionValue
+                                         ));
+                                    H.Wait();
+                                    H.Dispose();
+                                }
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                    return;
+                                int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                int[,] TableSS = CloneATable(TableS);
+                                var H = Task.Factory.StartNew(() => HeuristicRemain[2] = HeuristicKingSafety(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
+                                     ));
+                                H.Wait();
+                                H.Dispose();
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                    return;
+                                int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                int[,] TableSS = CloneATable(TableS);
+                                var H = Task.Factory.StartNew(() => HeuristicRemain[3] = HeuristicKingPreventionOfCheckedAtBegin(TableSS, Order, color, CurrentAStarGredyMax, RoS, CoS, RoD, CoD//, ref HeuristicKingSafe
+                                ));
+                                H.Wait();
+                                H.Dispose();
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                //if (SubOfHeuristicAllIsPositive(Heuristic))
+                                {
+                                    if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                        return;
+                                    int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                    int[,] TableSS = CloneATable(TableS);
+                                    var H = Task.Factory.StartNew(() => HeuristicRemain[4] = HeuristicObjectAtCenterAndPawnAttackTraversalObjectsAndDangourForEnemy(TableSS, color, Order, RoS, CoS, RoD, CoD));
+                                    H.Wait();
+                                    H.Dispose();
+                                }
+                            }
+                        }, () =>
+                        {
+                            Object O = new Object();
+                            lock (O)
+                            {
+                                //if (SubOfHeuristicAllIsPositive(Heuristic))
+                                {
+                                    if (!Scop(RowS, ColS, RowD, ColD, Kind))
+                                        return;
+                                    int RoS = RowS, CoS = ColS, RoD = RowD, CoD = ColD;
+                                    int[,] TableSS = CloneATable(TableS);
+                                    Color colorE = Color.Gray;
+                                    if (Order == -1)
+                                        colorE = Color.Gray;
+                                    else
+                                        colorE = Color.Brown;
+                                    var H = Task.Factory.StartNew(() => HeuristicRemain[5] = HeuristicBetterSpace(TableSS, color, colorE, Order, Order * -1));
+                                    H.Wait();
+                                    H.Dispose();
+                                }
+                            }
+
+                        });
                     }
                 });
 
