@@ -2062,7 +2062,7 @@ namespace Chess
                 return Draw;
             }
         }
-        public void SetDrawFounding(ref bool FOUND, ref RefrigtzDLL.AllDraw THIS, bool First)
+        public void SetDrawFounding(ref bool FOUNDI, ref RefrigtzDLL.AllDraw THISI, bool FirstI)
         {
             Object OO = new Object();
             lock (OO)
@@ -2074,7 +2074,9 @@ namespace Chess
                 RefrigtzDLL.AllDraw THISB = Draw.AStarGreedyString;
                 RefrigtzDLL.AllDraw THISStore = Draw;
                 //while (Draw.AStarGreedyString != null)
-
+                bool FOUND = false;
+                RefrigtzDLL.AllDraw THIS = null;
+                bool First = false;
 
 
 
@@ -2089,7 +2091,9 @@ namespace Chess
                     //else
                     int Ord = OrderPlate;
                     AllDraw.OrderPlate = Ord;
-                    Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND);
+                    var output = Task.Factory.StartNew(() => Draw.FoundOfCurrentTableNode(CloneATable(Table), Ord, ref THIS, ref FOUND));
+                    output.Wait();
+                    output.Dispose();
                     if (FOUND)
                     {
                         Draw = THIS;
@@ -2123,12 +2127,16 @@ namespace Chess
                             Color aa = Color.Gray;
                             if (Ord == -1)
                                 aa = Color.Brown;
-                            Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND);
+                            output = Task.Factory.StartNew(() => Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, ref THIS, ref FOUND));
+                            output.Wait();
+                            output.Dispose();
                         }
                         else
                         if ((RefrigtzDLL.AllDraw.TableListAction.Count >= 1))
                         {
-                            Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
+                            output = Task.Factory.StartNew(() => Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND));
+                            output.Wait();
+                            output.Dispose();
                             FirstS = true;
                         }
 
@@ -2162,7 +2170,9 @@ namespace Chess
                                     Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
                                 }
-                                Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0);
+                                output = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0));
+                                output.Wait();
+                                output.Dispose();
                             }
                             else
                             {
@@ -2174,7 +2184,9 @@ namespace Chess
                                     Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
                                 }
-                                Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0);
+                                output = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0));
+                                output.Wait();
+                                output.Dispose();
                             }
                             AllDraw.Blitz = B;
                             Deeperthandeeper = Store;
@@ -2187,7 +2199,9 @@ namespace Chess
                                 AllDraw.OrderPlate = Ord;
                                 OrderPlate = Ord;
                             }
-                            Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND);
+                            output = Task.Factory.StartNew(() => Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND));
+                            output.Wait();
+                            output.Dispose();
 
                             if (FOUND)
                             {
@@ -2248,8 +2262,12 @@ namespace Chess
                         }
                     }
                 }
+
                 if (RefrigtzDLL.AllDraw.FirstTraversalTree)
                     FOUND = false;
+                FOUNDI = FOUND;
+                THISI = THIS;
+                FirstI = First;
                 DrawManagement();
             }
         }
