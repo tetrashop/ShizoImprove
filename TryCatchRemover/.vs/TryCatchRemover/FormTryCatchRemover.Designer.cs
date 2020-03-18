@@ -46,6 +46,8 @@
             this.buttonImageLogo = new System.Windows.Forms.Button();
             this.button3TextImageLogo = new System.Windows.Forms.Button();
             this.button4TextImageLogo = new System.Windows.Forms.Button();
+            this.button255TextImageLogo = new System.Windows.Forms.Button();
+            this.buttonFullTextImageLogo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenFileDialogTryCatchRemover
@@ -197,9 +199,30 @@
             this.button4TextImageLogo.UseVisualStyleBackColor = true;
             this.button4TextImageLogo.Click += new System.EventHandler(this.button4TextImageLogo_Click);
             // 
+            // button255TextImageLogo
+            // 
+            this.button255TextImageLogo.Location = new System.Drawing.Point(46, 418);
+            this.button255TextImageLogo.Name = "button255TextImageLogo";
+            this.button255TextImageLogo.Size = new System.Drawing.Size(169, 23);
+            this.button255TextImageLogo.TabIndex = 11;
+            this.button255TextImageLogo.Text = "255 Text Image Logo";
+            this.button255TextImageLogo.UseVisualStyleBackColor = true;
+            this.button255TextImageLogo.Click += new System.EventHandler(this.button255TextImageLogo_Click);
+            // 
+            // buttonFullTextImageLogo
+            // 
+            this.buttonFullTextImageLogo.Location = new System.Drawing.Point(46, 418);
+            this.buttonFullTextImageLogo.Name = "buttonFullTextImageLogo";
+            this.buttonFullTextImageLogo.Size = new System.Drawing.Size(169, 23);
+            this.buttonFullTextImageLogo.TabIndex = 11;
+            this.buttonFullTextImageLogo.Text = "255 Text Image Logo";
+            this.buttonFullTextImageLogo.UseVisualStyleBackColor = true;
+            this.buttonFullTextImageLogo.Click += new System.EventHandler(this.button255TextImageLogo_Click);
+            // 
             // FormTryCatchRemover
             // 
-            this.ClientSize = new System.Drawing.Size(272, 424);
+            this.ClientSize = new System.Drawing.Size(272, 453);
+            this.Controls.Add(this.button255TextImageLogo);
             this.Controls.Add(this.button4TextImageLogo);
             this.Controls.Add(this.button3TextImageLogo);
             this.Controls.Add(this.buttonImageLogo);
@@ -238,6 +261,8 @@
         private System.Windows.Forms.Button buttonImageLogo;
         private System.Windows.Forms.Button button3TextImageLogo;
         private System.Windows.Forms.Button button4TextImageLogo;
+        private System.Windows.Forms.Button button255TextImageLogo;
+        private System.Windows.Forms.Button buttonFullTextImageLogo;
     }
 }
 

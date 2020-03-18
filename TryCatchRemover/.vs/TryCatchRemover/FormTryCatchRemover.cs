@@ -1,3 +1,132 @@
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'&%%$$$$$$$$$$%%&'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!(&%$$&&%()(********()(%%&$$%&(!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'%$&)(()++,.04344444332//+++)(('&$%&!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&%$%(),.2332/...--/,,,-.-..-.0222/-*)'%&%&!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&%'')),2441--.15;BHNTXY]^YWRMG?82.++.1430,))%'%'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!(%$%()+131--/7CQ`mx¥«°³¶·¸¹·´²¯¬¦}si[M>3-,/32.+)(&%'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!(%&')+/42,+3BVk{§¯·¾ÄÊÏÓ×ÙÜÞÞÝÜÚ×ÔÐÌÇÁº³«qbO</ .31-+(&$'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&')),141+1E^s¥±»ÄËÓÚáçìðóöøùúûûúù÷õòïëæß×ÍÄ»²«¡nT;,+02.+(&%'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&$')-35/+9Us§³½ÉÓÜãêðõùýĀāăăĄąąąĆąąĄĄĂāĀýúõîçÞÔÉ¾¶­iK2)/1/)(&%(!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!(%&(,25/-@a|®ºÆÑÝçïôùüÿāĂăăĄĄĄĄăăăăăăăăĄĄĄăĂāÿü÷ñêáÖË¿´¨sT5)/1.+('&!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!&'(*050+Ai¥³¾Ê×âëóùýþÿĀĀĀĀĀĀĀĀĀĀĀÿÿÿÿÿÿĀĀĀĀĀĀĀĀĀÿþûøòêßÒÃµ©xX6)/2-)'$'!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!%(* 52*<f§µ¿ÌÙåîôøûüýüüüüüüüüüüüüüüüýýýýýýýýýýýýýýýýüüùôìáÒÁ´«xT1*21+)&&!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!'$),26,3Z¤µ¾ÊØäíòöøøø÷÷÷÷÷øøøøøøøøøøøøøøùùùùùùùùøøøøøùùùùùöòêßÏÀ³ªtI*.4.)'$(!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!&&),52+Gt°¼ÇÕáêðôôôôôôôôôôôôôôôôôôôôôôõõõõõõõõõõõõõõôôôôôôõõõóïçÛÍ½±¦e8)31+($'!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!%&)/5,3`¦¶ÂÐÝæíðñððïïïïïððððððñññññññññññòòòòòòòòòòñññññññññññññðìä×Æ¶¬yM* 3+)&&!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!($)+24)Bw°»ÈÖáéìììëëëììììììììííííììììììííííííííííííííííííìììììììíííîìçÝÎ¼¯¥c2+3-(&&!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!($(+43*S¨¶¿ÍÚãçèèççççèèèèèèééééééééééêêêêêêêêêêêêêêêêêêêêêêêêééééééééêêçßÒÁ²«r>)2/)(%!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!($(+4/.d±¹ÃÑÜâäääãããäääääääåååååååææææææççççççççççççççççççççææææææååååæåæäàÕÆ¶¬zI(21+)$!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!($'+3-3n³ºÆÔÜàáààßßßààààààáááááááááááááââââââââââáßÞÛØÙÞâáâââââáááááááááááâáÞ×Ì¼¯~S*12+($!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!($(+3+7u´»ÈÕÜÞÞÜÜÛÛÜÜÜÜÜÝÝÝÝÝÞÞÞÞÞÞÞÞÞÞÞÞÞÞßßßßßÞÕÇµ}pw¡¥±ØÜÝßÞÞÞÞÞÞÞÞÞÞÞÞÞÝÞÞÝÙÐÁ°¢X+02+(%!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!$(+3,:y´»ÈÔÚÛÚÙØØÙÙÙÙÙÙÙÙÙÙÚÚÛÛÛÛÛÛÛÛÛÛÛÜÜÜÜÜÜÜÙÌ¯i[¨äčĞĤġĪġäÚÜÜÛÛÛÛÛÛÛÛÛÛÛÚÚÚÚÛØÑÃ±¢[-02+)%!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!$(,4,:{µ»ÈÓ×Ø×ÖÕÕÕÖÖÕÖÖÖÖÖ××××××××××××ØØØØØØØØØ×Ê¦RaăłłłłłłłłĀÒØØØØØØ××××××××××××ØÖÑÃ±¢],01*&&!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!%)+4-6xµ»ÇÑÕÔÓÓÒÒÒÒÒÒÒÓÓÓÓÔÔÔÔÔÔÔÔÔÕÕÕÕÕÕÕÕÕÕÕÕÖÐ³XNėłłłłłłłłłúÏÕÕÕÕÕÕÕÕÕÔÔÔÔÔÔÔÔÔÔÕÔÏÂ°£[*20)&&!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!&&*302s´ºÅÏÒÒÑÐÏÏÏÏÐÐÐÐÐÐÐÐÑÑÑÑÑÑÑÒÒÒÒÒÒÒÒÒÒÒÒÒÒÓË}CÃłłłłłłłłłľãÏÒÒÒÒÒÒÒÒÒÒÒÑÑÑÑÑÑÐÐÑÒÒÌ¿®¤X)1.(&'!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!'&*23.k²¸ÂÌÏÏÎÌÌÌÌÌÌÍÍÍÍÍÍÍÍÎÎÎÎÎÎÎÎÎÎÎÏÏÏÏÏÏÏÏÏÏÐÅqBĂłłłłłłłłłķÕÍÏÏÏÏÏÏÏÎÎÎÎÎÎÎÎÎÎÎÍÍÎÏÏÈ¹«¡N(3,)$!!!!!!!!!!!!!!
+ !!!!!!!!!!!!($)/6+_¯·¿ÉÌÌËÉÈÈÈÈÉÉÉÉÉÉÊÊÊËËËËËËËËËËËËËËÌÌÌÌÌÌÌÌÌÃoGĖłłłłłłłłłĹÓÊÌÌÌÌÌËËËËËËËËËËËËËËÊÊÊÌËÄ´©zC(3+(%!!!!!!!!!!!!!
+ !!!!!!!!!!!!%(.6)Oªµ¼ÆÊÉÈÆÅÅÅÆÆÆÆÆÆÆÇÇÇÇÇÇÇÈÈÈÈÈÈÉÉÉÉÉÉÉÉÉÉÉÉÉÊÄtEĎłłłłłłłłłĸÐÇÉÉÉÉÉÉÉÉÉÉÈÈÈÈÈÈÇÇÇÇÇÇÈÉÈ¿±§t7,2)&&!!!!!!!!!!!!
+ !!!!!!!!!!!&%,5->£´¹ÃÇÆÅÃÂÂÂÂÂÂÃÃÃÃÃÃÃÄÄÄÄÄÄÅÅÅÅÄÅÅÅÅÅÅÅÅÆÆÆÆÆÇÆ¥Fïłłłłłłłłłłõ¿ÆÆÅÅÅÅÅÅÅÅÅÄÅÅÅÄÄÄÄÄÄÃÃÅÆÅ»­¦h.00*'!!!!!!!!!!!!
+ !!!!!!!!!!!$*230v´¶¾ÄÄÂÀ¾¾¿¿¿¿¿¿ÀÀÀÀÀÀÀÀÁÁÁÁÁÁÁÁÁÁÂÂÂÂÂÂÂÂÂÂÃÂÂÃºi³łłłłłłłłłłĳÆÁÂÂÂÂÂÂÂÂÁÁÁÁÁÁÁÁÁÁÁÀÀÀÀÂÃÁ¶©£U)4,(%!!!!!!!!!!!
+ !!!!!!!!!!%).7)`´´ºÁÁ¿½»º»»»¼¼¼¼¼½½½½½½¾¾¾¾¾¾¾¾¾¿¿¿¿¿¿¿¿¿¿¿¿¿ÀÀÀÀ¶_®ĶłłłłłłłĽďÇ½¿¿¿¿¿¿¿¿¿¾¿¾¾¾¾¾¾¾¾½½½½½¿À½±§z@+3)%&!!!!!!!!!!
+ !!!!!!!!!'&,5-E­´¶½¾¼º¸·····¸¹¹¸¹¹¹¹ººººººº»»»»»»»»»»»»»¼¼¼¼¼¼¸°¦xM;ĖłłłłłłłĴÁ¸¼¼¼»»»»»»»»»»»»»ººººººº¹¹º¼¼·¬¦n/0/($!!!!!!!!!!
+ !!!!!!!!!%)/4/x¶²¹»¹¶µ³³´´´´µµµµµµµ¶¶¶·¶····¸¸¸¸¸¸¸¸¸¸¸¹¹¹¹¹¶ªtUN}ºÎĹłłłłłłłİÀ¶¹¹¹¹¸¸¸¸¸¸¸¸¸¸¸····¶·¶¶¶µ¶·¹¹±¨¤U(2+'&!!!!!!!!!
+ !!!!!!!!&%,7*X³±³¸·´²°°°±±±±²²²²²²²³³³³³³´´´´´µµµµµµµµµµ¶¶¶³}]CrĄŀłłłłłłłłłłė¯µ¶¶¶µµµµµµµµµµ´´´´´³³³³³³²²²´¶´«¦z;,0)$!!!!!!!!!
+ !!!!!!!!$)109¦³¯´´²¯­¬­­­¬­­­­®®®¯¯®¯¯°°¯°°°°°°±±±²²²²²²³³¬qJIÔĻłłłłłłłłłĭĂąÍ®²²²²±±±²²±±±±±±±±°°°°°¯¯®¯¯®¯±³®¦¦e*1+'%!!!!!!!!
+ !!!!!!!&(+5*e¶®¯±®¬ª¨¨©¨¨©ªªªªªª««««««¬¬¬¬¬­­­­­®®®®¯¯¯¯¬aAlĐłłłłłłłłłłłćz§«¯¯¯®®®®®®­­­­¬¬¬¬¬¬¬¬¬¬««««««ª¬®®©¤¡C*0)$!!!!!!!!
+ !!!!!!!$)1/<¬²«­¬ª§¥£¤¥¥¥¥¦¦¦¦§§§§§§¨¨¨©©©©ªªªª«««««¬¬¬¦rQA½ĶłłłłłłłłłłłłĬÄ¦¬¬¬¬¬««««ªªªª©©©©©¨©¨¨¨¨¨¨§§§§§§©¬ª£¤j,0+'%!!!!!!!
+ !!!!!!'(,5*h¶«ªª¨¥¢¡¡¡¢¢¢¢¢££¤¤¤¤¤¤¥¥¥¦¦¦§§§§§¨¨¨¨©¨hHNïłłłłłłłłłłłłłłłĽë¢©©©©©¨¨¨¨§§§§¦¦¥¥¥¥¤¥¥¥¤¤¤¤¤¤¤£¤¨©¤¢¢F)/($!!!!!!!
+ !!!!!!%*2/;©¯¨§¥£{z{{{{|}|}}}}~~~¡¡¡¢£££££¤¤¤¥¥¥¥¤yaBhėłłłłłłłłłłłłłłłłłĬ¨¥¦¦¥¥¤¥¤¤¤¤££££¢¢¡¡¡~~~~~}~¢¥¤¥k+1,%&!!!!!!
+ !!!!!(&,5+`²©¤£}ywwwxxxxyyyyzzz{{||}}~~¡¡¡¡¢¢¢¡v]B¢įłłłłłłłłłłłłłłłłłłķ¯££¢¢¢¢¡¡¡¡¡~~~}}||||||{{{zzzz{¢}¡A* ($!!!!!!
+ !!!!!&)/34~­£}zwsssstttutuvvvwwxxyyzzz{{{||}}}}~~~x^B©Ļłłłłłłłłłłłłłłłłłłłļ³z~~~~~~}}|||{{zzzzyyyxxwwwwwvvvwy||z£a)1)&(!!!!!
+ !!!!!$*3,P«§}{xtqonnnoooppqrrssttuuvvvwwwxxyyyzzzz{iG^İłłłłłłĺČłłłłłłłłłłłłŁÀt{{{ynaersyyxxxwwvvvuuttssrrrrrqqswyx~x6,,(&!!!!!
+ !!!!'(-4-o«xurokijjjjklmmnooppqqrrssstttuuvvvvvwwuZAéłłłłłłķ©ÒłłłłłłłłłłłłłúpxxwhNOÓąÁouuuuttsssrqqpponnnnmmmnquux£Q(/($!!!!!
+ !!!!%*11=¢¦ytqmjfeeeffghijjjklmnnnooppqqqrrrssstturVUħłłłłŁģ²;ÿłłłłłłłłłłłłłĸ¦quoU?ìłłľÖirrqqqppoonmmmlkkjjiiiilpqs¢n,/ &'!!!!
+ !!!!$*4,V¨~tplhdaabbccdeefgghiiijjklllmnnoooppppqqqaUĘłłłłĵÄSJĝłłłłłłłłłłłłłłÈjrgFRĴłłłĺ°innmmllkkjjiihhggffeeegknoy<+.(&!!!!
+ !!!'(-4.p§xplhd_]]^^_``abcdeeeffghhhiiijjkkllmmmmmnlQ°łłłłĿÙK[ĵłłłłłłłłłłłłłłãjlV7¢łłłłłādkjjiihggggffeedddcbbbcfjls£S)/($!!!!
+ !!!&)01<¢£slhd_ZYYZZ[[]^_`aabcddddeefffgghhhiiijjjjkeIèłłłłĐBvłłłłłłłłłłłłłłłØYH9^ėłłłłį³dggggffeedddccbbaa``___bfin}j,0)&(!!!
+ !!!$)3.P¨|nid`ZVVVVWXXY[[]^_```abbbccddeeeeeefffggggh]TĘłłłľa·łłłłłłłłłłłłłłŀr>xåĴłłłģÚwaeeddddcbbbaa``___^^^]][^bfjxz6-,'&!!!
+ !!!',5,gªwke`ZUSSRSTTUVWXZZ[]^^___````aabbbcccdddddeefQtĸłłłåòłłłłłłłłłłłłłłłčĖłłłłĺÏh]acbbaa````____^]]][[ZZZYXZ_cgr£I+/)%!!!
+ !!((-41z¨qga[VQOPOPPQRSUVWXXYZ[]]]^^^____````aaabbbbbcbHÀłłłŁĿłłłłłłłłłłłłłłłłłłłłģ®X_````____^^^^]][[ZYYXXXWVVVVZ_cl£^)0)$!!!
+ !!&)01>©¤mc^XRMLMLLMNOPQRSUUWWXYZZZ[[[]]]]^^^_______``a[DõłłłłłłłłłłłłłłłłłłłłłłĿíjY__^^^]]]]][[ZZYYXXWWVUUTTSRRRVZ_f}p,/,&(!!
+ !!%*2.N±}i`ZTNIIIIJJKLMNOPQSSTUVWWXXYYYZZZZ[[[[]]]^^^^^_SRĢłłłłłłłłłłłłłłłłłłłłĎªVZ][[[[ZZZZZYXXXWVVUUTSRRQPPOOONQV[au{3.,'&!!
+ !!$*2,`²we]VPKGFFFGHHIJKLMNOPRSTUUUVVWWXXXYYYYYZZZZZ[[[[]HzļłłłłłłłłłłłłłŁłłłĕ»XUZZZZYYYYXXWWVUUUTSRRQPPNNMLLLKJJMRV]l¡>+-'&!!
+ !!'*4,m­sbZTNHEEEEFFFGHIJKLMNOQRSTTUVVVWWWXXXXYYYYYZZZZ[[T=ÌłłłłłłłłłłłłĿ¸ëõ²YTYYYYYYYXXWWVVUUTTSRQPONNLKKJJIHHGFINSXfJ(.(%!!
+ !(&-31x©o`XSMFCCDDEEFFFGHIJLMNOPRRTUUUVVVWWWWXXYYYYYYYZZXN;ÆłłłłłłłłłłłłĕUTTTXYYYYXXXWWWVUUUUTSRQPONMLJIIHGFEDDDCEKOUb|U','%!!
+ !'*.46¥¨k^WQKDCBBCCDDDEEGHIJKLMOPPRSTTUVVVVWWWWWXXYYYYYXRCWĭłłłłłłłłłłłłÕRYYYYYXXXXXWVVVUTTSRRQPONLKKIHGFDCCBAAA@AFLR^x_&+'$!!
+ !'*13=¬¦i[UOICABABBCCCDDDEFHIJKMNOPQQSTTUVVVVVWWWXXYYYYSFBúłłłłłłłłłłłłļuVYYYYXXWWWVVVUTSRRQPOOMLKJIHFEDCBAA@@????BHNYth&*'')!
+ !')23C¯£hZSNGA@@@AAABBBCCCDEGHIJKMNOPQRSSTUUVVVVWWWWXXTH>ÙłłłłłłłłłłłłłāSXXXXXWWWVVUTTSSRPONMLKJIHGFEDCBAA@??>>>==@EKUol))'&(!
+ !',31I±¡fYRLE@???@@@@@AAABBCDEGHJJLMNOPQRSTUUUVVVVWWWUK=ºłłłłłłłłłłłłłľ¡SWWWWWWVVUUTSRQPONMKJIIGGFEDCBBA@??>==<<;;>BHRjo+('%'!
+ !',3/N±|cXRKD>>>>?????@@@@ABCCEFGHIKLMMNPRRSTTTUUVVWUN@pĶłłłłłłłłłłłłłåQWWWWWVVVUTTSRQONLKJIGGGEEDDCBA@@?>>=<<;;::<@FNgq.''%&!
+ !',5/R®w_TOIB====>=>>>???@@AABCDDEFGIJLMNOPQRSTTTUUVQFIĎłłłłłłłłłłłłłĩZPWVVVVVVUTTRQPOMKJIGFEDDDCCBBA@@?>>=<;;;:99<?EMdr0'(%&!
+ !',5/S«rYLFB=::;<<<===>>>??@@@ABBCDEFGHKLNOPQQRSSTTSL>¸łłłłłłłłłłłłłłļārOUVVVUUTSRQPNLKIHGEEDDCCBBAA@@?>==<<;::988;?DLdt2'('&!
+ !',5/SªpTG?932358:;<<<===>>???@@AABCCEFHJLMNOPQRRRSPEBĒłłłłłłłłłłłłłłłłı»OTUUUTSRQONLKIGFEDDCCBBAA@@??>>=<;;:99877:>CLes4(('&!
+ !',60R¨oSF=5.,,-/1579:<<==>>>???@@AABCDFHJKLMNOOPQQK=hŀłłłłłłłłłłłłłłłłłłåUQUTSRQONLKIGFEDCCBBAAA@@??>>=<;::998876:>BLev4()'&!
+ !',60R¨nSG>6-)())*,.02479;<=>>>>???@ABCDFGIKLLMMNOLC8áłłłłłłłłłłłłłłłłłłłłĈgNSRQPNMKIHFEDCCBBA@@@???>>=<<;::9887657;?Gew2))'&!
+ !',52O¦pTH@7.)((((())*,.03579;<<=>??@ABCEFHIIKLLMKD8­Ŀłłłłłłłłłłłłłłłłłłłłłĥ¡JQPOMKIHFEDCCBAA@@@??>>>=<<<;:876420/037Bfw1*)'&!
+ !',53K¦rUIA9/ (((((()))*+,./134679;<>?ABCEFGHIJKLG:~ļłłłłłłłłłłłłłłłłłłłłłłłĺÂJMNLJHGEDCCBAA@@????>>=<;986520.,)((+/4Biv/+)''!
+ !',55G§vWJC:1*((((()))**++,,,-./124579;=?@BDEFHIJI@ÏĿłłłłłłłłłłłłłłłłłłłłłłłłłçQGKIHFEDCBBA@??>=<;:975420.,+)'&%$&*06Fnq--+('!
+ !',36B¦zZLD<2+))())))))*++,,,---./01235689;<=?ACEGE8¹łłłłłłłłłłłłłłłłłłłłłłłłłłđuDEFCA@@?>=<:98754310.-,+*))''&%$&,18Itm+/+*)!
+ !'-27=¤¡_NE=4,)))))))***+++,,---./011234567899;<>>;8ùłłłłłłłłłłłłłłłłłłłłłłłłłłłĽïO<;::98765432210//.-,,+*))('&%%(-3;Lzg*1-(+!
+ !(-/77~©dPG?6-*)))))*++++++,,-..//012345667889::<;6Ãłłłłłłłłłłłłłłłłłłłłłłłłłłłłłłí777765543222110/..-,,,*))(''&&* 5=Q¢^+2-)-!
+ !)-072u°iRHA8/+***)**++++,,,,--./0123345678899:<:8§ĽłłłłłłłłłłıãăĭłłłļĳłłłłłłłłłłłĳJ77765544322110//.--,+**)(('''+18AZ¥Q,3-)!!
+ !+,-80iµpVKC:1,+***++++++,,--../0122345677889:;:8rĲłłłłłłłłłłł¾;BU¡Ôÿ¨W¥ÔćĮłłłłłłłķQ78766554332110//.--,,+**)((().3;Ge¥D.2-+2!
+ !-)-83W·yZME=3-+*++++,,,,,--..001233456778899;;8PěłłłłłłłłłłłèBGGEB@BCDA?CWt©īłłłłĭG88766554433210//..--,,+**)((+07>Mp¢910.,!!
+ !2,-67F¸¤`PH?6/,,++,,+,,---./00123455678899:;<:7ÚłłłłłłłłłłłñEFHHHHGGGGGGGC5HĲłłłłğ@888766554332110/...--,,+**))-29BR{y141-(!!
+ !!'/4:8²±eSJB90-,,,,,,,---./0122345667899:;<=;4PĴłłłłłłłłłłéEEHHHHHHHHHGGGD5¦łłłłłĐ:9987776655432100/...--,,++*+/4=EZ¤i.6/ )!!
+ !!)02;1~½lVME=4.--,,,,---./0012345678998766679aāłłłłłłłłłłØCFHHHHHHHHHHHHHB4Òłłłłłā9::998877665432100//...-,,,+-28@Jd§R/5.--!!
+ !!+,1;2bÃx[PHA70..------./0112345678864Do¶ÐãûĖľłłłłłłłłłĻ¼AHIIIIIIIIIIIIIHA5ðłłłłłì:=;;:998876544221100///.---,/4<CPp¤@24/+2!!
+ !!/ 077GÀ©aSLE;2/......./011234567884CÖĨłłłłłłłłłłłłłłłĥ|AIJJJJJJJJJJJJIII@6ĄłłłłłÙ:?>=<;::9876554322110///..-.28@HX|x362-/!!!
+ !!!./4<6¯¸jWOH@61///..//011201235651KĐłłłłłłłłłłłłłłłłû]CJJJKKKKKKKJJJJJJIA6ĊłłłłłÆ<A@?>>=<;98876543322110///.05;CLb©d.81+*!!!
+ !!!)03<2nÃv[RLE:310///001121©±©¨TZo½ĠłłłłłłłłłłłłłłłĨ»FGKKKKKKKKKKKKKKKKKJB5ýłłłłł´=CBAA@?><;:987655433221000038@HRp¬I060* !!!
+ !!!--1:7KÀ§cVOI@6211100122/fłłłłĹĽłłłłłłłłłłłłłĿļłŀĔcCKLLLLLLMMMMMLLLLLLKKE5æłłłłł£@FEDCBA@?><;:987655432211026<DL[~653/.6!!!
+ !!!2-16<6¬¹n[SME;422222233.×łłłłłłłłłłłłłłłİĐç¹plytPHLMMMMMMMMMMMMMMMMMMMLG5ÁłłłłŁuCGFFEDCBA@?=<;9987654332214:AHRi¬b/91.*!!!!
+ !!!!*13=3fÄ~aVPJB7433333431ĉłłłłłłłłłłıđè¾wXGCDGHGHKMMMMMMMNNNNNNNNNMMMMMMJ8płłłłĻjEIHHGFEDCBA@?=<;98765433247>FMZy©E360//!!!!
+ !!!!/.099B¼²l[TNG=654445540ùłłłłłłĨíÀvWD@@DGJKLLMMMMMNNNNNNNNNNNNNNNNNNNNNL?DĩłłłĶ`HJIIHHGFEDCBA@>=;987654446;BJRf§s394/.6!!!!
+ !!!!6/14>3yÅ|bXRLD;6666662@ćłłłłā¿X;=?CGHIJKLLMMMMNNNNNNNOOOOOOOOOOOOONNNNNF3çłłłįXIKKJIIHHGFEDCB@?=;98765559AGMXt­R293.*!!!!!
+ !!!!!+-1;6LÅ±m^VPJ@9777760ÆłłłłÉ;;?DEFGHJJKLMMMMNNNNNOOOPPPPPPPPPPPPPPPPOOOJ4yłłłĨVKLKKJJIIHGGFEDB@?<:977668>ELRc¥}89610/!!!!!
+ !!!!!2,27>5¢Â|dYTOH>:98855đłłłþ;?BDFFHIJKLMMMNNNNNOOPPPQQQQQQQQQQQQQQQQQPPPM9LĶłłĨRKMLLKKJIIIHGFEDB@><98878=CJPZs®Y1:31/6!!!!!
+ !!!!!!2/4<7O½®o`XSME=;;94RĹłłĿn<CDEFGIJKLMMMNNNOOPPPQQQQQQQQQQQQQQQQQQQQQQQN<<ģłłıjKMMMLKKJJJIHGFECB?=;998<BHOUf¨¡:962--!!!!!!
+ !!!!!!/037?5z¼}g]WRLC==;3ułłłú<BDEGHIJKLMMNNNOOPPQQQQQQQRRRRRRRRRRRRRRRQQQQL<7ęłłŁħ`KMMMLLKKJJIHHFDCA?=;:<BGMS^x³Y2;42/6!!!!!!
+ !!!!!!!*.4=8K·°qb[VQKB?>2¤łłĽl>DEFHIJKLMNNNOOPPQQQQQRRRRRRRRRRRRRRRRRRRRRRQJ8GĪłłłłÅENNMMMLKKJJIHGFDB@>=>BHMRYk®8:72.-!!!!!!!
+ !!!!!!!2037@5p½¢j`ZUQIBA6tłłå=EFGHIJLLMNNNOPPQQQQQRRRRRRRSSSSSTTTSSSSSRRRRRI4złłłłłĦdEKNMMMLKKJJIHGECBA@CHMRWc²Q4<42/6!!!!!!!
+ !!!!!!!!225==A°¶ue_ZUPHDBFØÿRCFGHIJLLMNNOOPQQQQQRRRRRSSSTTTTTTTTTTTTTTTSSSRI3¢łłłłłłĤ½aIGLMMLKKJJIHGEDCEINRW^r³s4=72.-!!!!!!!!
+ !!!!!!!!2-38A6^Ä­nd_YUPHED?AEGHIJKLMMNNOPPQQQQRRRRRSSTTTTTTTUUUUUUUTTTTTTTSI2yłłłłłłłłĲý°RJNMLKKJJIHFEGKOSW]i©ªB8=6306!!!!!!!!
+ !!!!!!!!!+24;A6¢È¢kc_YVPHFGGHIIJKLMMNNOPPQQQRRRRRSTTTTTUUUUUUUUUUUUUUUUUTTTO8¾łłłłłłłłłłłĞoJMMLKKJJIGHLPTX[d~µ[4?730/!!!!!!!!!
+ !!!!!!!!!6037?<C»½zib^YVOIHHIJKLLMMNNOPQQQQRRRRSTTTTUUUUUUVVVWWWWWVVVUUUUUUURfÜúēĎüĽłłłłłļxJNMMLKKJIJMQUX]cv·v7?:443=!!!!!!!!!
+ !!!!!!!!!!/048B6YÃ´ugb_ZVPJIJKLMMMNNOPQQQQRRRSTTTTUUUUVVWXYYYZZZZZZYYXWVVUUUUSMNRQMu°ÊàèÖqKONMMMLKJKNSUY]br±«A:>64/6!!!!!!!!!!
+ !!!!!!!!!!=236;B5pÄ¬pgb_ZWPLKLLMMNNOPQQQRRRRSTTTUUUUVWXYZ[]]^^^^^^^]][ZYYWVUUUUTSSSNLKJJIMPONNMMMKLOSWZ^bmª¶Q6?850/!!!!!!!!!!!
+ !!!!!!!!!!!2.57=?:£Å¦ogc`[WRMLMMNNOPQQQRRRRTTTUUUUVXYZ[]^__``aaaaa```_^]]ZYXVUUUUTTTSRRRQQQPONNMMMQTWZ_bj¥»c4@;543=!!!!!!!!!!!
+ !!!!!!!!!!!!/047?<B³Æ£mgc`]YSNMNNOPPQQRRRSTTTUUUVWYZ]^_`abcdddeeedddcba`_^][YXVUUUTTTSRRRQQQPONNNRVX[_ch¡¾r6?<76/6!!!!!!!!!!!!
+ !!!!!!!!!!!!=6249A:K½Ä¡ngda^ZUPNNOPQQRRRSTTTUUUWYZ]^_abceefghhiiihhgffedba`^]ZYWVUUTTTSRRRQQQONPSWZ^`di~¾~;>?7422!!!!!!!!!!!!!
+ !!!!!!!!!!!!!6264;C7RÂÂnheb`[WROPQQRRRSTTTUUVWY[^_abdeghjklmmmnmmmlkjhgfdca_^[ZXVUUUTTSRRRQQPRUX[_bdj}¾¥?=@850-=!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!2/47<C7VÄÃ¡oigda^ZTQQQRRRTTTUUVXZ]_`bdfgiklnppqrrrrrqqpomkihfdb`_]ZXVUUUTTSRRQQTWZ]`cfl~»©B;B:636!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!2468<C7XÃÅ¤pjheb`]WSRRRSTTUUVXZ]_acegiknpqrsuvvwwwvvutsronmjgeda_^ZXVUUTTTRRSVZ]_bdgn¡¼¨C;D:6266!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!/468<C6UÁÈ¨rligdb_ZUSSTTUUVXZ^_bdfhlnprsvwxzz{{{{{zyywutsqnkifdb`^ZYVUUTTTUY]_adfip¥½¤B<D=8326!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!/467=C9O»Ë­umkhfda^YUTUUVXZ^_bdgilortwxy|}~¡¡¡~}|zxwuqpmjgeb`^ZXVUUUY[_acehks«¿|?=C<9766!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!/468=D;H¯Îµ{pljheca^YVVWZ]_bdgjmprvx{}~¢£¤¥¥¥¥¥¤¤¢}{yutqnjgeb`]ZXWY]_acegjoz²¿r<?C<766/!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!2469=D=@~Í¾¤snlihfdb_[Z]_bdgjnqtwy|~¢£¤§§©©ªªªª©¨¦¥¤¢}zwtqnkgeb_^^_`adehimu¤»ºc9@A;7502!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!2477=CA:iÂÃ¬yqnljhfeedcbdfjnqtwz}¡£¦¨©ª¬­®®¯®®­¬«ª¨¦¤¡~{xuqnjgfeeeeefhjlq{®À®R9B@;7336!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!2679<CD:Q­Æ·¢upnljjjjkkklnqtwz~¢¥¦ª¬®¯±±³³³³³±°°­«ª¨¤¢~{xurpommkjjjjlov¤¹¿xC<D?;756=!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!6237;@G?Aq½¾®~tqoooopqsuwwy{~¢¥¨ª­¯±´µ¶·¸¸¸·¶µ´²°­«¨¥¢}{zxvtrpooops~±Â²^;AE><:69=!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!6679:@FE;R¥¾¹«}utttuvy{~¡£¥¦¨©¬¯±³¶·¹º¼¼½¼¼»¹¸¶´²¯­«©¨¦¤¡~{ywvttu|­¾¾uF<FD>984/=!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!/6;9=CHA@a¬¼¸«zyz|~¡£¦©«®°²´¶¸º¼½¿ÀÁÂÂÂÁÁ¿¾¼»¹·µ³°¯¬©¦¤¢~|zz¡¬¼À¤S<BF@<:;22!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!635:=AGH?Eh°¾¹¯§££¤¦©«­°³¶¸»½¿ÂÄÆÇÈÉÉÊÊÉÈÇÆÄÂÀ¾»¸¶´±®«©¦¤£§²¾À¨Z??FC=9<99=!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!=/4:;>BHG>Gh«¾Àº±­¬­¯²´¸º½ÀÂÅÈÊÌÍÎÏÐÐÐÏÏÍÌÊÈÅÃÀ¾»¸µ²¯®®°¹ÂÀ¦[@>EC?=;782!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!23:<=?CIG@Ea¥¾ÆÂ»¶´µ·º¾ÂÅÇÊÍÏÑÓÔÕÖÖÖÕÔÓÒÏÍËÈÄÂ¾º·µ¶º¾¿¶zU@?ED@=;:496!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!=96:;=@DIHBARq°ÂÉÈÂ¿¾¾ÁÅÊÍÐÒÔ×ØÙÚÚÙØ×ÕÓÐÍÊÇÂ¿½¾ÀÂÁ·£eK?BGE@>=:732!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!K669;=>ACGIE@EVq¬¾ÈËÊÇÅÆÈÊÌÏÑÒÒÒÒÑÐÏÍËÉÇÆÅÅÅÅÀ´fOBAGIEA?<<732=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!=269===?AFHIEBDN`t¨·¿ÃÄÈÊËÌÌËËÊÊÌÍËÉÈÄ¾·­~lXJCBGJIDB@<<;===K!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!=268:>??@CFHKIECEJR[hrz¢¨««¬«©ª§¡wndXOGDCFJLJGC@?=>;=2=K!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!K=26=?>@BBCFILLKIFEDFGHJIIIIIHFEEEFJKKJHFDAA=@?=6==!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!K6=6=@??@BBDEHIIJKMOONOOOOOMLJIHGEECA??>?===6K!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!KK6C9:?DABBB@CDDGGGGGGGGGGFCDBB@B?A?:@C6KK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!K=6=9=:==AADBADDDDDDABDCDC;:=@=6=K!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!KK==6=9@==========@9=C==KK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!KKKKKKKKKKKKKKKK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
 /******************************************************************************************************************************
 *******************************************************************************************************************************
 *******************************************************************************************************************************
@@ -1603,6 +1732,178 @@ namespace TryCatchRemover
                                     else TetraShop[j] += " ";
 
 
+                                }
+                            }
+                        }
+                        if (TetraShop[j].Length == n - 3)
+                        {
+                            TetraShop[j] += "*";
+
+                        }
+                        if (TetraShop[j].Length == n - 2)
+                        {
+                            TetraShop[j] += "/";
+
+                        }
+                        if (TetraShop[j].Length == n - 1)
+                        {
+                            TetraShop[j] += "\n";
+                        }
+                    }
+                }
+            }
+
+
+            MessageBox.Show("Select Text To Open:");
+            OpenFileDialogTryCatchRemover.ShowDialog();
+            String A = OpenFileDialogTryCatchRemover.FileName;
+            String Contain = System.IO.File.ReadAllText(A);
+            String Brand = "";
+
+            for (int i = 0; i < n; i++)
+                Brand += TetraShop[i];
+            Contain = Brand + Contain;
+            MessageBox.Show("Select Text To Save:");
+            saveFileDialogTryCatchRemover.ShowDialog();
+            System.IO.File.WriteAllText(saveFileDialogTryCatchRemover.FileName, Contain);
+            MessageBox.Show("Done!");
+
+
+        }
+
+        private void button255TextImageLogo_Click(object sender, EventArgs e)
+        {
+            char[] Lists = new char[256];
+            int count = 0;
+            for (int i = char.MinValue; i < char.MaxValue; i++)
+            {
+                if (i < 33)
+                    continue;
+                if (i > 127 && i < 161)
+                    continue;
+
+                if (System.Convert.ToChar(i) == '\0' || System.Convert.ToChar(i) == '\\' || System.Convert.ToChar(i) == '\t' || System.Convert.ToChar(i) == '\f' || System.Convert.ToChar(i) == '\r' || System.Convert.ToChar(i) == '\n' || System.Convert.ToChar(i) == '\a' || System.Convert.ToChar(i) == '\b' || System.Convert.ToChar(i) == '\v')
+                    continue;
+                if (System.Convert.ToChar(i).GetType().IsAssignableFrom(System.Convert.ToChar(i).GetType()))
+                {
+
+                    if (count < 256)
+                    {
+                        Lists[count] = System.Convert.ToChar(i);
+                        count++;
+                    }
+                }
+
+            }
+
+            MessageBox.Show("Select Image:");
+            OpenFileDialogTryCatchRemover.ShowDialog();
+            String AImage = OpenFileDialogTryCatchRemover.FileName;
+            Image AI = Image.FromFile(AImage);
+            int Wi = AI.Width;
+            int He = AI.Height;
+            int n = 0;
+            if (Wi > He)
+            {
+                n = Wi;
+                // double a = 40.0 / (double)Wi;
+                //Wi = (int)((double)Wi * a);
+                // He = (int)((double)He * a);
+            }
+            else
+            {
+                n = He;
+                // double a = 40.0 / (double)He;
+                //Wi = (int)((double)Wi * a);
+                // He = (int)((double)He * a);
+
+            }
+            Bitmap TetraShopImage = new Bitmap(AI);
+            Graphics g = Graphics.FromImage(TetraShopImage);
+            String[] TetraShop = new String[n];
+            TetraShop[0] = "/*";
+
+            for (int j = 0; j < n; j++)
+            {
+                if (j != 0)
+                    TetraShop[j] = "";
+                for (int i = 0; i < n; i++)
+                {
+
+
+                    if (j < n - 1)
+                    {
+                        if (TetraShop[j].Length == n - 1)
+                        {
+                            TetraShop[j] += "\n";
+                        }
+                        if (TetraShop[j].Length < n - 1)
+                        {
+                            if (He > j && Wi > i)
+                            {
+
+                                int f = ((TetraShopImage.GetPixel(i, j).R + TetraShopImage.GetPixel(i, j).B + TetraShopImage.GetPixel(i, j).G) / 3);
+
+                                if (TetraShop[j].Length > 0)
+                                {
+                                    if (!((TetraShop[j][TetraShop[j].Length - 1] == '/' && Lists[f] == '*') || ((TetraShop[j][TetraShop[j].Length - 1] == '*' && Lists[f] == '/'))))
+                                        TetraShop[j] += Lists[f];
+                                    else
+                                        TetraShop[j] += " ";
+                                }
+                                else
+                                    TetraShop[j] += " ";
+                            }
+                            else
+                            {
+
+                                if (TetraShop[j].Length < n - 2)
+                                {
+                                    TetraShop[j] += "*";
+
+                                }
+                                if (TetraShop[j].Length == n - 1)
+                                {
+                                    TetraShop[j] += "\n";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (TetraShop[j].Length == n - 3)
+                            {
+                                TetraShop[j] += "*";
+
+                            }
+                            if (TetraShop[j].Length == n - 2)
+                            {
+                                TetraShop[j] += "/";
+
+                            }
+                            if (TetraShop[j].Length == n - 1)
+                            {
+                                TetraShop[j] += "\n";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (i < n - 3)
+                        {
+                            if (TetraShop[j].Length < n - 3)
+                            {
+                                if (He > j && Wi > i)
+                                {
+                                    int f = ((TetraShopImage.GetPixel(i, j).R + TetraShopImage.GetPixel(i, j).B + TetraShopImage.GetPixel(i, j).G) / 3);
+                                    if (TetraShop[j].Length > 0)
+                                    {
+                                        if (!((TetraShop[j][TetraShop[j].Length - 1] == '/' && Lists[f] == '*') || ((TetraShop[j][TetraShop[j].Length - 1] == '*' && Lists[f] == '/'))))
+                                            TetraShop[j] += Lists[f];
+                                        else
+                                            TetraShop[j] += " ";
+                                    }
+                                    else
+                                        TetraShop[j] += " ";
                                 }
                             }
                         }
