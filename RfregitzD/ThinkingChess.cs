@@ -6220,6 +6220,7 @@ namespace RefrigtzDLL
 
                     var output = Task.Factory.StartNew(() =>
                     {
+
                         Parallel.For(0, 8, RowS =>
                         {
                             Parallel.For(0, 8, ColS =>
@@ -6228,75 +6229,75 @@ namespace RefrigtzDLL
                                 {
                                     Parallel.For(0, 8, ColD =>
                                     {
+
                                         if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
-                                            HA += RationalPenalty;
-                                        else
                                         {
+                                            HA += RationalPenalty;
+                                            return;
+                                        }
 
 
-                                            //if (!feedCancellationTokenSource.IsCancellationRequested)
+                                        Parallel.Invoke(() =>
+                                        {
+                                            Object OO = new Object();
+                                            lock (OO)
                                             {
-                                                Parallel.Invoke(() =>
+
+
+                                                if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
                                                 {
-                                                    Object OO = new Object();
-                                                    lock (OO)
+                                                    if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
                                                     {
-
-
-                                                        if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], false, false))
-                                                        {
-                                                            if (Attack(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                            {
-                                                                if (HeuristicA[0] == 0)
-                                                                    HeuristicA[0] = RationalPenalty;
-                                                                HeuristicB[0] += RationalPenalty;
-                                                            }
-                                                        }
-
-                                                        if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
-                                                        {
-                                                            if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
-                                                            {
-                                                                if (HeuristicA[2] == 0)
-                                                                    HeuristicA[2] = RationalPenalty;
-                                                                HeuristicB[2] += RationalPenalty;
-                                                            }
-                                                        }
-
-
-                                                        if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
-                                                        {
-                                                            if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                            {
-                                                                if (HeuristicA[1] == 0)
-                                                                    HeuristicA[1] = RationalRegard;
-                                                                HeuristicB[1] += RationalRegard;
-                                                            }
-                                                        }
-
-                                                        if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
-                                                        {
-                                                            if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
-                                                            {
-                                                                if (HeuristicA[3] == 0)
-                                                                    HeuristicA[3] = RationalRegard;
-                                                                HeuristicB[3] += RationalRegard;
-                                                            }
-                                                        }
-
-
-
+                                                        if (HeuristicA[0] == 0)
+                                                            HeuristicA[0] = RationalPenalty;
+                                                        HeuristicB[0] += RationalPenalty;
                                                     }
-                                                });
+                                                }
                                             }
                                         }
+
+                                        , () =>
+                                        {
+                                            if (Permit(Order * -1, Table[RowD, ColD], Table[RowS, ColS], true, false))
+                                            {
+                                                if (Support(CloneATable(Table), RowD, ColD, RowS, ColS, OrderColor(Ord * -1), Ord * -1))
+                                                {
+                                                    if (HeuristicA[2] == 0)
+                                                        HeuristicA[2] = RationalPenalty;
+                                                    HeuristicB[2] += RationalPenalty;
+                                                }
+                                            }
+
+                                        }
+                                        , () =>
+                                        {
+                                            if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], false, false))
+                                            {
+                                                if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                {
+                                                    if (HeuristicA[1] == 0)
+                                                        HeuristicA[1] = RationalRegard;
+                                                    HeuristicB[1] += RationalRegard;
+                                                }
+                                            }
+                                        }
+                                         , () =>
+                                         {
+                                             if (Permit(Order, Table[RowS, ColS], Table[RowD, ColD], true, false))
+                                             {
+                                                 if (Support(CloneATable(Table), RowS, ColS, RowD, ColD, OrderColor(Ord), Ord))
+                                                 {
+                                                     if (HeuristicA[3] == 0)
+                                                         HeuristicA[3] = RationalRegard;
+                                                     HeuristicB[3] += RationalRegard;
+                                                 }
+                                             }
+                                         });
                                     });
-
-
-
                                 });
                             });
                         });
+
                     });
 
 
