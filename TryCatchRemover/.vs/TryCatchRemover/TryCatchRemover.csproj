@@ -70,6 +70,7 @@
     <Compile Include="AboutBoxTryCatchRemover.Designer.cs">
       <DependentUpon>AboutBoxTryCatchRemover.cs</DependentUpon>
     </Compile>
+    <Compile Include="AllKeyboardOfWorldMemmoty.cs" />
     <Compile Include="Colleralation.cs" />
     <Compile Include="FormTryCatchRemover.cs">
       <SubType>Form</SubType>
@@ -79,6 +80,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TakeRoot.cs" />
     <EmbeddedResource Include="AboutBoxTryCatchRemover.resx">
       <DependentUpon>AboutBoxTryCatchRemover.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +126,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GalleryStudio\GalleryStudio.csproj">
+      <Project>{257fbd67-c2d8-4e20-8d14-9a4e27341e1a}</Project>
+      <Name>GalleryStudio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

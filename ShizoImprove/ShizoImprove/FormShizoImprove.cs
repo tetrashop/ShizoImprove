@@ -18,6 +18,7 @@ namespace ShizoImprove
     {
         public String path = "D:\\";//'DVD'\\";
         ShizoImprove t = null;
+        ShizoImproveFile tt = null;
         public FormShizoImprove()
         {
             InitializeComponent();
@@ -35,12 +36,24 @@ namespace ShizoImprove
 
         private void buttonImproveCollection_Click(object sender, EventArgs e)
         {
-            if (ShizoImprove.AllFiles.Count == 0)
-                t = new ShizoImprove(path);
-            progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
-            progressBarWorking.Minimum = 0;
-            t.FormShizoImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+            if (!checkBoxActOnSuffixes.Checked)
+            {
+                if (ShizoImprove.AllFiles.Count == 0)
+                    t = new ShizoImprove(path);
+                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                progressBarWorking.Minimum = 0;
+                t.FormShizoImprove(textBoxWorkingProject.Text, ref progressBarWorking);
 
+            }
+            else
+            {
+                if (ShizoImproveFile.AllFiles.Count == 0)
+                    tt = new ShizoImproveFile(path);
+                progressBarWorking.Maximum = ShizoImproveFile.AllFiles.Count;
+                progressBarWorking.Minimum = 0;
+                tt.FormShizoImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+
+            }
         }
 
         private void textBoxInput_TextChanged(object sender, EventArgs e)
@@ -63,23 +76,41 @@ namespace ShizoImprove
         //improved events
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (ShizoImprove.AllFiles.Count > 0)
+            if (!checkBoxActOnSuffixes.Checked)
             {
-                ShizoImprove.AllFiles.Clear();
-                t = new ShizoImprove(path);
+                if (ShizoImprove.AllFiles.Count > 0)
+                {
+               
+                    progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                    progressBarWorking.Minimum = 0;
+                    t.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+                }
+                else
+                {
+                    t = new ShizoImprove(path);
 
-                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
-                progressBarWorking.Minimum = 0;
-                t.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+                    progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                    progressBarWorking.Minimum = 0;
+                    t.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+                }
             }
             else
             {
-                t = new ShizoImprove(path);
+                if (ShizoImproveFile.AllFiles.Count > 0)
+                {
+                 
+                    progressBarWorking.Maximum = ShizoImproveFile.AllFiles.Count;
+                    progressBarWorking.Minimum = 0;
+                    tt.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+                }
+                else
+                {
+                    tt = new ShizoImproveFile(path);
 
-                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
-                progressBarWorking.Minimum = 0;
-                t.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+                    progressBarWorking.Maximum = ShizoImproveFile.AllFiles.Count;
+                    progressBarWorking.Minimum = 0;
+                    tt.FormImprove(textBoxWorkingProject.Text, ref progressBarWorking);
+                }
             }
         }
 
@@ -97,34 +128,65 @@ namespace ShizoImprove
 
 
 
-            ShizoImprove.AllFiles.Clear();
-            t = new ShizoImprove(path, true);
-
-            progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
-            progressBarWorking.Minimum = 0;
-            t.FormShizoImproveClearCach(textBoxInput.Text, ref progressBarWorking);
-
+            if (!checkBoxActOnSuffixes.Checked)
+            {
+           
+                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                progressBarWorking.Minimum = 0;
+                t.FormShizoImproveClearCach(textBoxInput.Text, ref progressBarWorking);
+            }
+            else
+            {
+         
+                progressBarWorking.Maximum = ShizoImproveFile.AllFiles.Count;
+                progressBarWorking.Minimum = 0;
+                tt.FormShizoImproveClearCach(textBoxInput.Text, ref progressBarWorking);
+            }
         }
 
         private void buttonActOnFileHistory_Click(object sender, EventArgs e)
         {
-            if (ShizoImprove.AllFiles.Count > 0)
+            if (!checkBoxActOnSuffixes.Checked)
             {
-                ShizoImprove.AllFiles.Clear();
-                t = new ShizoImprove(path);
+                if (ShizoImprove.AllFiles.Count > 0)
+                {
+            
+                    progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                    progressBarWorking.Minimum = 0;
+                    t.FormShizoImproveActOnFileHistory(textBoxWorkingProject.Text, ref progressBarWorking);
+                }
+                else
+                {
+                    t = new ShizoImprove(path);
 
-                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
-                progressBarWorking.Minimum = 0;
-                t.FormShizoImproveActOnFileHistory(textBoxWorkingProject.Text, ref progressBarWorking);
+                    progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
+                    progressBarWorking.Minimum = 0;
+                    t.FormShizoImproveActOnFileHistory(textBoxWorkingProject.Text, ref progressBarWorking);
+                }
             }
             else
             {
-                t = new ShizoImprove(path);
+                if (ShizoImproveFile.AllFiles.Count > 0)
+                {
+               
+                    progressBarWorking.Maximum = ShizoImproveFile.AllFiles.Count;
+                    progressBarWorking.Minimum = 0;
+                    tt.FormShizoImproveActOnFileHistory(textBoxWorkingProject.Text, ref progressBarWorking);
+                }
+                else
+                {
+                    tt = new ShizoImproveFile(path);
 
-                progressBarWorking.Maximum = ShizoImprove.AllFiles.Count;
-                progressBarWorking.Minimum = 0;
-                t.FormShizoImproveActOnFileHistory(textBoxWorkingProject.Text, ref progressBarWorking);
+                    progressBarWorking.Maximum = ShizoImproveFile.AllFiles.Count;
+                    progressBarWorking.Minimum = 0;
+                    tt.FormShizoImproveActOnFileHistory(textBoxWorkingProject.Text, ref progressBarWorking);
+                }
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

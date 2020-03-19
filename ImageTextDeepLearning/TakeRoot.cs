@@ -11,8 +11,7 @@ using System.Text;
 using System.IO;
 using ImageTextDeepLearning;
 using GalleryStudio;
-using ContourAnalysisNS;
-using ContourAnalysisDemo;
+
 
 namespace Refrigtz
 {

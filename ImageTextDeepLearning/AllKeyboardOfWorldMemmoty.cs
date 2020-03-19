@@ -9,8 +9,7 @@ using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.IO;
-using ContourAnalysisDemo;
-using ContourAnalysisNS;
+
 using ImageTextDeepLearning;
 namespace GalleryStudio
 {

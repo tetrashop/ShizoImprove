@@ -256,6 +256,134 @@
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!,)((''''''''''((),!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-+('&+)(+.-////////-.+()+&'(+-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+(&*.+-.11348<==>>>><=:76110.-+,)&(+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+(&(+/35:<=:654432522224233338:::640.+(+(+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+(+*..3:==94449@IR]dmrtyztqkc[OD;51048<<82-.(+(+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!.)&)+.18;9326BUi{¬ºÂÇÍÓÖÙÚÛÜÚ×ÖÓÑÊÀµ¨wcM=416;;61.+*(,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-(++/17=;21=Soª¾ËÒÙßäéíñõ÷ùûûúú÷õòïëçáÜÖÎÂ²gJ6/5;:40+)',!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)+-.3;>80:Vx´ÈÔÝåìòùÿĄĉčďđĔĕĕĖĖĕĔĒĐĎċćĂüôìäÜÕÐÅ°nI3/8:50+)(,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+&+.4=?61FnµÌ×àéòûĂĈĎĒĖęěĜĝĞĞĞğğğğĞĞĞĝĜěęĖđċĄüóéàÙÒÅª`;-596/+)(-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!.()-2;?53P~ÀÓÞçñüĆčēĖęěĜĜĝĝĝĝĝĝĝĝĝĝĝĝĝĝĞĞĝĝĝĜěĘĔďĈÿõëáØÍ¶mA.5:50++)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!++,08?71R©ÉØáìøĂċĒėĚěěĜĜěěěěěěěěěěěěěěěěěěěěěěěĜěěęĖĐĉÿòäØÎ½tB-5;4.,',!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!(+/7?:/J¦ÌÚâîûĆĎĕėęęęęęęęęęęęęęęęęęęęęęęęęęęęęęęęęęęęęĘēČĂóã×Ñ¾n:.;:1.+)!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!+&-3;@1=vÉÛâíúĆďēĖėėĖĖĖĖĖĖĖėėėėėėėėėėėėėėėėėėėėėėėėėėėėėėėĖēċāñâ×Ð¹_05>5.,'-!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!)+.2@:1Z·ÖáëùąčēĔĕĔĔĔĔĔĔĔĔĔĔĔĔĔĔĔĔĔĔĔĔĕĕĕĕĕĕĕĕĕĕĕĕĕĕĔĔĔĔĔĔĕĕĕĔđĉþðàÖÌ¥D-;:1+&+!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!()/8@1=|ËÜçôĂċđĒĒĒĒđđđđđĒĒĒĒĒĒĒĒĒĒĒĒĒĒĒĒĒēēēēēēēēēēĒĒĒĒĒĒĒĒĒĒĒēēĒďĈüêÛÒ¾c05=2.++!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!-&-0;>.S»×áîýĈĎĐĐĐďďďďďďďďďďďĐĐĐĐďďďďďďĐĐĐĐĐĐĐĐĐĐĐĐĐĐĐĐĐĐďďďďďďďĐĐĐđĐčăóàÔÌ¢</=4,))!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!-&+0>;0lÎÝåóĂĊčĎčččččččččččĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎĎďďčĆøæØÒµM-;7/+(!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!-&+2?76£ØàéøĄĊċċċĊĊĊċċċċċċċċċċċċċċČČČČČČČČČČČČČČČČčččččČČČČČČČČČČČċċċċČČČċĈüìÜÓ¿^,;:0.'!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!-&+2>3=°ÛáíüĆĉĉĉĈĈĈĈĈĈĈĈĈĈĉĉĉĉĉĉĉĉĉĉĉĉĉĉĉĉĉĊĊĊĊĊĊĉĈćĄāĂćĉĉĉĉĉĉĉĉĉĉĉĉĉĉĉĉĉĉĉĊĈĀóâÕÆl/9;1,&!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!-&+2>1C¸ÜâïýąĈĈćĆĆĆĆĆĆĆĆćććććććććććććććććććĈĈĈĈĈćþîÛÂ³·ÀÄÒĀĆćĈćććććććććććććććĈćĂøç×Ét18<0,(!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!&+2>2H¾ÜâðýĄĆąĄăăĄĄĄĄĄĄĄĄĄĄĄąąąąąąąąąąĆĆĆĆĆĆĆĆĆĄõÓ«x»îēġĦģİĮċąĆĆĆĆąąąąąąąąąąĄĄąąĂùê×Èy39<1.)!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!',2>1GÀÜâðüĂăĂāĀĀĀāāĀāāāāāĂĂĂĂĂĂĂĂĂĂĂĂăăăăăăăăăāóÊoyĊłłłłłłłłěÿăăăăăăĂĂĂĂĂĂĂĂĂĂĂĂăāùë×Èz39;0))!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!).1?4B¼ÜâïûĀÿÿýýýýýýýýþþþþÿÿÿÿÿÿÿÿÿĀĀĀĀĀĀĀĀĀĀĀĀāúÙwgĜłłłłłłłłłĖüĀĀĀĀĀĀĀĀĀÿÿÿÿÿÿÿÿÿÿĀÿøê×Êy0;8/+)!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!+)0=7<·ÜáíùþýüûúúúúûûûûûûûûüüüüüüüýýýýýýýýýýýýýýþôÁ[ÒłłłłłłłłłĿĈûýýýýýýýýýýýüüüüüüûûüýüöæÔËs-:5-+,!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!,+/;<5«Úàëöûúù÷ö÷÷÷÷øøøøøøøøùùùùùùùùùùùúúúúúúúúúúúî´ZĉłłłłłłłłłĻþùúúúúúúúùùùùùùùùùùùøøùúúñàÒÈe,<3.&!!!!!!!!!!!!!!
+ !!!!!!!!!!!!.&.8@0zÖÞèóøøöôóóóóôôôôôôõõõöööööööööööööö÷÷÷÷÷÷÷÷÷ì±`ěłłłłłłłłłļûö÷÷÷÷÷ööööööööööööööõõõøöìÛÏÁU,=2,(!!!!!!!!!!!!!
+ !!!!!!!!!!!!(,5@.eÐÜåñöõóñðððñññññññòòòòòòòóóóóóóôôôôôôôôôôôôôõî¸^ĔłłłłłłłłłļøóôôôôôôôôôôóóóóóóòòòòòòóôòèØÎ¹D2</))!!!!!!!!!!!!
+ !!!!!!!!!!!))2@4NÈÛâíóòðîííííííîîîîîîîïïïïïïððððïððððððððñññññòðË`øłłłłłłłłłłĐìññðððððððððïðððïïïïïïîîðñïäÔÍ©599/+!!!!!!!!!!!!
+ !!!!!!!!!!!&/<=9ºÜßéððíëééêêêêêêëëëëëëëëììììììììììííííííííííîííîã­ÆłłłłłłłłłłķðìííííííííìììììììììììëëëëîîëÞÐÊp->3,(!!!!!!!!!!!
+ !!!!!!!!!!(-5B.{ÜÝäííëèæåæææçççççèèèèèèéééééééééêêêêêêêêêêêêêëëëêà¾ķłłłłłłłĿğïéêêêêêêêêêéêééééééééèèèèèëëçÙÎÁQ0=.)+!!!!!!!!!!
+ !!!!!!!!!,+2?3WÔÜàéëéæãâââââãääãääääåååååååæææææææææææææçççççæâØÍ¿kPěłłłłłłłĸêäçççæææææææææææææåååååååääæççáÔÍ±887-&!!!!!!!!!!
+ !!!!!!!!!(.8>8¼ÞÜåéæãàÞÞßßßßàààààààáááâáââââãããããããããããäääääàÑ¹ul´ÊÛĺłłłłłłłĵéâääääãããããããããããââââáâáááàáâåäÚÏËp,<0,)!!!!!!!!!
+ !!!!!!!!+)2B0rÛÛßåäàÞÛÛÛÜÜÜÜÝÝÝÝÝÝÝÞÞÞÞÞÞßßßßßààààààààààáááÝÄ}]¦ċŀłłłłłłłłłłĤÜàáááààààààààààßßßßßÞÞÞÞÞÞÝÝÝàâßÓÍÀI28.&!!!!!!!!!
+ !!!!!!!!'.:8FÌÛÚááßÛØ×ØØØ×ØØØØÙÙÙÚÚÙÚÚÛÛÚÛÛÛÛÛÛÜÜÜÝÝÝÝÝÝÞÞÕµfaàļłłłłłłłłłĳĕėðÚÝÝÝÝÜÜÜÝÝÜÜÜÜÜÜÜÜÛÛÛÛÛÚÚÙÚÚÙÚÞßØÍÍ¤/92+)!!!!!!!!
+ !!!!!!!++1@0¤ß×ÜßÜÙÕÓÓÔÓÓÔÕÕÕÕÕÕÖÖÖÖÖÖ×××××ØØØØØÙÙÙÙÚÚÚÚÖÇ¢X¡ĖłłłłłłłłłłłĘÌÔ×ÚÚÚÙÙÙÙÙÙØØØØ××××××××××ÖÖÖÖÖÖÕØÛÚÒËÇU/9.&!!!!!!!!
+ !!!!!!!'.:6KÔÚ×ÜÚ×ÓÐÎÏÐÐÐÐÑÑÑÑÒÒÒÒÒÒÓÓÓÔÔÔÔÕÕÕÕÖÖÖÖÖ××ÖÏ¸pYÌĸłłłłłłłłłłłłĲèÓ×××××ÖÖÖÖÕÕÕÕÔÔÔÔÔÓÔÓÓÓÓÓÓÒÒÒÒÒÒÕÙÖÌÌ¬292+(!!!!!!!
+ !!!!!!++2@0§ÞÕØÙÕÒÎËËÌÌÌÌÍÍÍÍÎÎÏÏÏÏÏÏÐÐÐÑÑÑÒÒÒÒÒÓÓÓÓÔÒÇ¬dfùłłłłłłłłłłłłłłłľăÏÔÔÔÔÔÓÓÓÓÒÒÒÒÑÑÐÐÐÐÏÐÐÐÏÏÏÏÏÏÏÎÐÔÕÏÊÉY.8,&!!!!!!!
+ !!!!!!(/<7IÐØÔÖÓÐÌÈÆÇÇÇÇÈÉÈÉÉÉÉÊÊÊËËÌÌÌÍÎÎÎÎÎÏÏÏÐÐÐÐÎÁ£[}ĜłłłłłłłłłłłłłłłłłĲÒÐÑÑÐÐÏÐÏÏÏÏÎÎÎÎÍÍÌÌÌËËËËËÊÊÊÊÊÉÊÎÒÐÉÍ¬1:2()!!!!!!
+ !!!!!-+2@1{ÚÔÒÒÏËÆÃÃÃÄÄÄÄÅÅÅÅÆÆÆÇÇÈÈÉÉÊÊËËËËÌÌÌÌÍÍÍË¾}Y´ıłłłłłłłłłłłłłłłłłłĺ×ÌÎÎÍÍÍÍÌÌÌÌÌËËÊÊÊÉÉÈÈÈÈÈÈÇÇÇÆÆÆÆÈÍÏÉÈÇR07,&!!!!!!
+ !!!!!).8<>Ã×ÐÐÍÉÅÀ¿¿¿ÀÀÀÀÀÁÂÂÂÃÃÄÄÅÅÆÆÆÇÇÇÈÈÉÉÉÉÊÊÊÂZºļłłłłłłłłłłłłłłłłłłłĽÙÇÊÊÊÊÊÊËÉÉÈÈÈÇÇÆÆÆÆÅÅÅÄÄÃÃÃÃÃÂÂÂÃÆËÉÅË~.:.)-!!!!!
+ !!!!!&/=3gÔÒÍÌÇÃ¿»ººº»»»¼¼½¾¾¿¿ÀÀÁÁÂÂÂÃÃÃÄÄÅÅÅÆÆÆÆÆ¯btĲłłłłłłĻĒłłłłłłłłłłłłŁâÁÇÇÇÃµ¥¯ÁÁÅÅÄÄÄÃÃÂÂÂÁÁÀÀ¿¿¾¾¾¾¾½½ÀÅÇÄÇ¾B23,)!!!!!
+ !!!!,+4?4°ÔÍÊÆÂ¾¸µ¶¶¶¶·¸¹¹º»»¼¼½½¾¾¿¿¿ÀÀÀÁÁÂÂÂÂÂÃÃÀ|Yôłłłłłłĸ¹ßłłłłłłłłłłłłłČ¾ÄÄÂ®kdáĔá¼ÁÁÁÁÀÀ¿¿¿¾½½¼¼»ºººº¹¹¹»¿ÄÃÂËi-8,&!!!!!
+ !!!!(/:9KÈÐÉÅÀ¼·²±±±²²³´µ¶¶¶·¸¹ººº»»¼¼½½½¾¾¾¿¿¿ÀÀÁ¼yoĪłłłłŁĪÇPĆłłłłłłłłłłłłłĺÍ¾Á¸uTôłłľñ·¾¾½½½¼¼»»º¹¹¹¸··¶¶µµµµº¿À¿Ê±380),!!!!
+ !!!!&0>3oÐËÄ¾¹´¯««¬¬­®¯±±²³³´µµµ¶¶·¸¸¸¹ºº»»»¼¼¼¼½½½¨pĜłłłłĹàtcġłłłłłłłłłłłłłłæ¸¾®`eĵłłłļÓ¶ºº¹¹¸¸··¶¶µµ´´³³²±°°°³¸½½ÃÈK06,)!!!!
+ !!!,+4?6²ÑÆ¾¹³­§¤¥¥¦¨©ª«­®¯°±±±²³´´´µµµ¶¶··¸¸¹¹¹¹¹º·sÁłłłłŀïhrĶłłłłłłłłłłłłłłú¸·vI°łłłłłĐ°·¶¶µµ´³³³³²±°°¯¯®­¬««¬±¶¹½Ëm-8,&!!!!
+ !!!)-::JÇÍÁ¹³­¦¡~¡¡¢£¤¦§¨ªª¬­®¯¯¯°°±²²³³´´´µµµ¶¶¶¶·¯fòłłłłĘY©łłłłłłłłłłłłłłłïdLoěłłłłĳÔ¯³³³³²±°°¯®®­­¬«ª©©¨¦¦§«°´¹Æ¬29/).!!!
+ !!!'.=5gÐÇ»³­¦zzz{{}~¢£¤¥§¨¨©©««¬­­®¯°°°±°±±²²²³³³µ¤nĜłłłľuÆłłłłłłłłłłłłłłŀ§S§íĵłłłĪñ¾¬±°¯¯¯®­¬¬«ª©¨¨§¦¦¥¥¤££¢¥ª¯µÁÀB43,)!!!
+ !!!+2A3¥ÒÂ¶­¦wtutvwwyz|}¡¢£¤¥¦¦§¨¨¨©©ª«««­­­®®®¯¯°±±s©ĹłłłïúłłłłłłłłłłłłłłłđĚłłłłļç°¦ª­¬«ª©©©¨¨§¦¦¦¥¤££¢¢~~}|~¥ª°ºÊ^17.(!!!
+ !!-+4?:¾Ñ¼°¨¡yqoppqrrtuxzz|}~¢£££¥¥¥¦¦¦¦¨¨¨©ªªª«««««­«eÎłłłŁĿłłłłłłłłłłłłłłłłłłłłĪÌ¡¨©©¨¨§¦¦¦¥¥¥¤££¢¡~}||{{yyxx~¥«´Ìz.9.&!!!
+ !!+.9;MÐÌ·ª¢{sljkkkmnoprsuwxz{|}~¡¡¢£££¤¤¥¥¦¦¦¦¦§§¨¨©£]ýłłłłłłłłłłłłłłłłłłłłłłŀþ¯¦¦¥¥¤¤¤£££¢¡~}|{zzxwwvuusrrx~¥®Æ³282)-!!
+ !!)/;6eÚÆ±¥}ulfefeghijlmoqrtuvwyzz{|}}~~~¡¢¢¢£££¤¥¥¥¥§tiĥłłłłłłłłłłłłłłłłłłłłĘÆ{£¢¢¢¢~~}||{zyxwwutsrrpponmmqx~§½Ã>52,+!!
+ !!'0=2{ÛÀ¬¡xogbabbbddegijkmopsuuvwwxyzz{{|}}~~~~¡¡¢¢£e­ĽłłłłłłłłłłłłłŁłłłĝÔ}z~~~~}}}|{zzyxwwvussrqonmljjjhggjqx¢´ÉN25+)!!
+ !!+0?3®Ö»¨}tlc__`_abbcefghklmoqstuvwxxyzzz{{||}}}~~~~¡¡uRØłłłłłłłłłłłłŀÒûăÌ~w}~~}}}}|{zzyxxwvutsrpommkjhhgfddcbems{­Ê`-6-)!!
+ !.*4=;¼Ñ·¥zrj`]]]__`abbdefhjkmoprsuvvwxxyzzzz{|}}}~~~~~~{kPÓłłłłłłłłłłłłĞzwxx|~}}}||{zzzyxwwwvusrpomljhgfedba_^_]_hnw¨Çp+5,(!!
+ !,05>CËÏ³¢xof^[ZZ]]^__`acdeghjlnoprtuuwxxxyzzzzz{|}}}}~|qZmįłłłłłłłłłłłłèu~~~}}|||{{zyyxwwuutsrqonkjigedb`_^]ZYYXZbjs£Ã~*3+'!!
+ !+/:>LÔÍ±~umcZXYYY[]]^___abdfhikmooqrsuuwxxxyyzzz{|}}}}t`XĂłłłłłłłłłłłłĽµy}}}}|{zzzyxxwvutsqpoomkjhfeca_^]ZYYWWVVV]em}¾«*0,+/!
+ !+.<=UØË¯|rjaXWWWYXYZ[[]^^_aceggikmnoqrstuvwxxxyzzzz{{ubSäłłłłłłłłłłłłłČv||||{zzzyyxwvutsqonlljigfdca`^]ZZXVVTTTRRW`jw¹³./+)-!
+ !+2>;^ÛÈ¬zqh_VUUVVWWXXYYZ[]^`adeghjkmooqrtuvwwxxxyzzzvgRÈłłłłłłłłłłłłłĿ½uzzzzzzyywwvutrpomljiggedcb`^][ZXWVTSSQPPPT]es³¹1-,(,!
+ !+2?8eÚÄ¨ypg[TSSTUUUVVWXXYY[]_`bdefijklmprstuuvwwxxzwkV¤ķłłłłłłłłłłłłłõrzzzzzyxxwvuusqomljigeddbb`_^]ZYXVUTSQPPONMQYbn¯¼6,,(+!
+ !+2@8j×½¢rkdXQRRSSSTTTVVVWXYZ[]__abdghjknopqrsuuvwwxq`_ēłłłłłłłłłłłłłĭ|rzyyyyxxwvusrpoljigecba`___][ZYWVUTSQPOOMKKPW`l«½:+-()!
+ !+2@8kÓ¶xf^WPLMOPQQRSSTTUVWXXYZ[]^_abdfikmnoqrrttuvthSÇłłłłłłłłłłłłłłĽČ¯owxxxwvutsrpnljgedba`__^]]ZYYWVTSRQPOMMLJIOV_k¬À=,-+)!
+ !+2@8kÒ³r^QHA?AEIMPPQQSSSTUVVWXYYZ]^_acegjkmooqrrstn^WėłłłłłłłłłłłłłłłłĴÑpuwwvutsqomkjgdcba`^^]]ZYYXWVTTSQPOMLKJIGMT]k¬¿A--+)!
+ !+2B9kÏ²p[NB8456:>DHKNPQRSTTUVVWXXYZ]_`begjklmnopqpgQzŀłłłłłłłłłłłłłłłłłłôvqvutsqomkigecb`_^][ZZYWWWVUTSQPNMLLJIGGMT]j­ÃA-/+)!
+ !+2B:kÏ²p^PC6/.//148;?CGKOPRTTUUVVWYZ[^_bdgijjklnoj[Iêłłłłłłłłłłłłłłłłłłłłđ¥mtrqonligeba`_^][YYYWVVVTTSQPOMMLJIHFDIOUb«Ã=//+)!
+ !+2A<fÍ´r_RE80---../0248<@DHLOPQSTVVXZ]^acdfgijjli[J»ĿłłłłłłłłłłłłłłłłłłłłłĪºiqpoljgecb`_^[ZYYXWWVUTTSQQPOMJIFC?<9<BHX¬Ã<0/,+!
+ !+2A?`Í¶s`SH:1-----./001358:=@CFILOQTWY]_abdefhijbM®ĽłłłłłłłłłłłłłłłłłłłłłłłĻÕhlmjhfda`_^]ZZYXWVVVTTRPOLJGD@<950-.3:CY°¿820,+!
+ !+2ABZÎ»vcVJ<2...--//0112344578:=?BEHKOSVX[^abefhfWÚĿłłłłłłłłłłłłłłłłłłłłłłłłłõndhgeca_^][ZYWVTSQPNKIEC?<852/,+)'*2<F^µ¹653.,!
+ !+3>CTÍ¿zeXL>3//./////02234456678:<=?BDFILOQSVY[_b^IÅłłłłłłłłłłłłłłłłłłłłłłłłłłĘ­`bb^ZXWVTRPNLJGEC@><975310/,,*('+4>Ic½³2820/!
+ !,4<DLÉÇhZOA5///////022223456678:;=>@BCEGHIKLNPSTOJĀłłłłłłłłłłłłłłłłłłłłłłłłłłłľúfPPNMLJIGDCB@?=<:98655310/-,+((-7AMhÅª1;5-3!
+ !.58DDÄÏ¦k^QE70000//0222333456889:<=?@BDFGHIJKMNPNGÏłłłłłłłłłłłłłłłłłłłłłłłłłłłłłłõHIHGFEDCA@??==;:98755420/-,+*)0:DPoÍ|2=4/6!
+ !/49D=¸×­o`TG9311001223335545778:<=?@ACEFGIJKLNOMJ¶ľłłłłłłłłłłĳíĊįłłłĽĵłłłłłłłłłłłĵ]GHGFEDCB@@?>=<:98765320/--,,,3=IV{Ñl3>50!!
+ !345E:¨ßµtdWK=52202223333556789:<=??ACEFGIIJLMOMI¤ĴłłłłłłłłłłłÍPYm³àĆ¹m¶àĎİłłłłłłłĸdHIGGFDDBA@?>=<:986654210/.--/8AM`ªÐX8=43?!
+ !605E>qá¿{gZO@6322323444556789;<=?@BCDFGHIJLLOOIdğłłłłłłłłłłłòY``^XVYZ]WUZo¤µĭłłłłįYIIHGFEDCBA@?=<:99866543200.-2<GRh·ÌH<:65!!
+ !?55BDZâÊ£l`SE944334434567789<<>?@BDEFHIJKLMNPLGäłłłłłłłłłłłú]^aaaa```````YDXĳłłłłĢTJJIHGFEDCB@@>=;99886655321006@KWpÄÁ<@;5-!!
+ !!,8?IGÛØ©pdWJ<654454556778:;=??ABDFGIJKLMOPQNCcĵłłłłłłłłłłô]^bbbbaaaaa```ZE²łłłłłĕMLKJIHGFFDDB@?=<;:998665532239CP]{Ï«7C81/!!
+ !!/8=J;Ãæ²ug]OB86655556668:;<>@BCDFGIKLJHGGGGJoćłłłłłłłłłłäZ_bbbbbbbbaaaaaWCÚłłłłłćLNMLKJJIGGFDB@?=<;:9998655436?HTd¨Òm9B766!!
+ !!35:J=¡î¿|l`UG<886666678:;=>@BCDFGJJGCU}ÀØëĀęĿłłłłłłłłłļÌYbdddddddccccccbUD÷łłłłłôMROOMLLJJIGECB@?>=<;:9987665:COYm·ÏR=@83?!!
+ !!91:ED]ìÐ¥qf[M@:9888889:;=>@BCDGHJICRÞĪłłłłłłłłłłłłłłłĨ±YcdddeeeddddddddcUEĉłłłłłãNUSRPONMLJIGEDB@??==<:::8879?ITaxÅÀ>C=59!!!
+ !!!88@KC×á°vkaTE=:99989:;=>@<=?AEFD>YĔłłłłłłłłłłłłłłłłĄt[eeefffffffeeeeeedUFĎłłłłłÓPXVUTSQPNLJIGFDCB@??>=<::98<DNZh¦Ó¥8F;21!!!
+ !!!/9>L=°í½}of[L@=<:::;<=>?>²»³´ci{ÆģłłłłłłłłłłłłłłłĬËaaggggggggggggggfffeWDĂłłłłłÄSZYXWVTSQOMLJIGEDCB@??=<<;;@ITap·Ø`;C:19!!!
+ !!!67;IDcìÏ§ukbTF?===<<=??:rłłłłĺĽłłłłłłłłłłłłłĿĽłŀĚz[fhhhhhhiiiiihhhhhhgg[DíłłłłłµW_^[YYWVTRPNMKIHGEDBA@?>=<?FPZg}ÉÇCB?88F!!!
+ !!!?6;CLDÕáµ|ph]MB?@????@@9ÞłłłłłłłłłłłłłłłĲĖòÊ¦£¯«kchiiijjjjjjjjjjjjjiiih`DÊłłłłŁª[a`_^]ZYWVTRPNLKIGFDCB@??>CLVap¯×£:G;81!!!!
+ !!!!1:>N?¦ïÆ¦vmdWHBBBA@BCA=čłłłłłłłłłłĳėòÍ¬qb]]bbbcgjjjjjjjkkkkkkkkkjjjjjjeI|łłłłļ¡_cbb`_^]ZYXVTRPNLJGFDCBA@BGR^h{ÁÔY@D:99!!!!
+ !!!!98:HHUçÚ³}sj`QFDCCCDDB<þłłłłłłīöÎ©n]WX]bfghhijjjjkkkkkklllllllllkkkkkkhSSīłłłķxcedcbb`_^]ZYWUSQNLJGFDCBBFNXdp«Ñº@H@88F!!!!
+ !!!!F9<@O?¿ïÅ§xogZMFFFFFF?LċłłłłćËmPSV[acdfghhijjjkkkklllmmmmmmmmmmmmmllllk^@íłłłısegfedcba`_][ZXVTQNLIGFDDELVaiy¼Øm=H>81!!!!!
+ !!!!!36<JCeñÚ´umdUKHIIIF;ÏłłłłÕOOU]^`bcefghijjjkkkllmmmnnnoooooooooonnnmmmeC¥łłłīqfhgfeedcba`^]ZYVTPMKIGGFJS^hq¨ÏÇFHC;;9!!!!!
+ !!!!!?5=DOBÉìÅªzsk`RLKJJDCĕłłłąOUY]_`bdefhijjkkkllmmnnopppppppppppppppppooniKYķłłīohihhgfedccb`_][YUROLJIHJQZen|»Úw<J?<9F!!!!!
+ !!!!!!?9@LEié×¶¤yqi]PMNLBaĺłłĿ¢QZ]^`bdeghijjkklmmnnoppppppqqqqqqqqqqqppppppjOJĥłłĳ¤gjjihgfeeddb`_]ZXTRNLKJPYbku¬ÒÊIHD>76!!!!!!
+ !!!!!!9<?EPBÁçÆ­~wogYQQO@¢łłłĂQY]_acdegijjkklmmnopppppqqqqqrrqrrrqrrqqqqqqphNEěłłŁīzgjjjhhgfeddba_]YWTQOMQYajr¡Áàx=K@<9F!!!!!!
+ !!!!!!!18@NGcãÙº§}voeXTR@¯łłľT]_`cdfgiikklmmnoppppqqqrrrrrrrrrrrrrrrrrrrqpdITīłłłł×`kkjjihgfeddb`^[XVSRSYbiq{²ØÉFJE=86!!!!!!!
+ !!!!!!!?<?FSB´èÊ²¤|unbXVF¡łłïS^_aceehijkklmnoppppqqrrrrrrsstttuuuttttsrrrrqcB¥łłłłłĪ~ahkjjihgfeddb`^ZYWVZbjqx¨Éßl@M@<9F!!!!!!!
+ !!!!!!!!?<ANNTÛà¿«£{tmbZX[ãćiZ`bcefhijkkmmnppppqqrrrrsttuuuuuuuuuuuuuuuttsqcB«łłłłłłĨÍzecijihgfedca`]ZZ^cjpw¢»Þ¹ANE>86!!!!!!!!
+ !!!!!!!!?6>GUC|ðÖ¸©¢{umb]]UX^abdefhijklmnopppqqrrrrttuuuuuuuvvvvvvvuuuuuuusc?£łłłłłłłłĴćÄngjihgfedca_^`flqw°ÓÕVGNC?<F!!!!!!!!
+ !!!!!!!!!3?AKTEÉóÌ´©¢{umb_`abcdfghijklmnoppqqrrrrtuuuuuvvvwwwwwwwwwwwwvvuuumIÇłłłłłłłłłłłģ§fjihgfedcabhnsy~«ÈázAQF?<9!!!!!!!!!
+ !!!!!!!!!F<>ERLXæçÅ²§¢{uldbbdefhijjklmnpppqqrrrtuuuuvwwwwwxxyyzzzyyxxwwwwwvvr¤ìąĚĖĆľłłłłłĽ°fkjihgfeddjotz©¿ã¾EQIB?BS!!!!!!!!!
+ !!!!!!!!!!9;BGVEwïÝÀ¯§¢|vmedefhijjklmnpppqrrrsuuuuvwwwxxz{}}~~~}}|zyxwwwwtlnrqm°ÆÜîõæ«hmkjjihgefkquz¡¨ºÜÖUKPEA9F!!!!!!!!!!
+ !!!!!!!!!!S?>CKVCµñÕ»®¨£|wnhfghjjklmnpppqrrrtuuuvwwwxz|~¡££¤¥¥¥¥¥¤¤£¢~}zywwwvutttnkihhgknmlkjjighmrw|¡§µÔãmDRGC;9!!!!!!!!!!!
+ !!!!!!!!!!!?8BFOQJÌðÐ¹®¨¤~xpihjjklmnpppqrrruuuvwwwy{}¢¤¥¦§¨©ªªªªª©¨¨¦¥¤£}{ywwwvuuusrrqqppnmlkjjjotx}£§²Îè¤ATKB?BS!!!!!!!!!!!
+ !!!!!!!!!!!!9<AFRNVÞñÍ¸®©¥zrljklmnoppqrrsuuuvwwxz}£¥¦¨ª«­®¯¯°°°¯¯®­¬ª¨¦¥£¡~{xwwvuuusrrqqppnmlklqvz~¤©°Êê¸EQMEC9F!!!!!!!!!!!!
+ !!!!!!!!!!!!SF?@IUJdêïÌ¹¯«¦¢}unklmoppqrrsuuuvwwz}£¥§©«®°±²³´´µµµ´´³²±°®¬©¨¥£}zxwwuuusrrqpppmlnsx}¡¥ª²ÈëÇLPQF@??!!!!!!!!!!!!!
+ !!!!!!!!!!!!!F?CBKXGnîíË¹±¬¨¤xqmoppqrrsuuuwwxz~¢¥¦©¬¯±³´¶·¸¹¹¹º¹¹¹¸·¶´³±¯­ª§¥¢~{xwwvuusrrqppoqvz~£§«´ÈéÏROTHB;6S!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!?9@EMXEtñíÌ»³®ª¦¢|uppqrrruuuwwx{~£¦¨«¯±³µ·¸º¼¼½¾¾¾¾¾½½¼»¹·µ´±¯¬©¦£|xwwvuusrrqqty}¡¥©®¶ÉçÓWMWKDBF!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!?CDGMXFwïðÏ½´°¬¨¥xsqrrtuuwwx{¤¦©­°³µ·¹¼½¾¿ÁÂÂÃÃÃÂÂÁÀ¿¾»º¹¶³°®ª§¥|xwwuuurrsw}¡¤¨«°¹ÌèÓXLZKD@FF!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!9CCGMXEsîóÓ¿¶²¯«¨¤}vstuuvwx|¤§«¯±´¸º¼¾¿ÂÃÄÆÆÇÇÇÇÇÆÅÅÃÁÀ¿½º·µ²¯«¨¥}xwvuuuv{¡¤§«®²»ÏéÎWMZNGA?F!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!9CCEOYIjçöÙÃ¹µ±®«¨£|wuvwx{¤§«¯²µ¸»¾ÀÃÄÅÈÉÊËËÌÌÌËËÊÉÈÆÄÃÁ½¼¹¶³°¬¨¥|xwvw|¤§ª­±¶¿ÕëÅSOYMIEFF!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!9CCGOZL`ÚùàÈ½·´±­«§£|yxz~£§«¯³¶¹¼¾ÂÄÇÉÊËÍÎÏÐÐÐÐÐÏÏÍËËÉÇÅÁÀ½º¶³°¬¨¤{y|¡¤§ª¬°µ¼ÆÝë¹NRXNGCF9!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!?CDHO[PTÇúéÐÂº¶³±®¬¨¤¡£¦«¯³¶º½ÀÃÅÈÊÍÎÏÒÒÔÔÕÕÕÕÔÓÑÐÏÍËÉÆÃÀ½º·³°«¦¥¤¥¦¨«®±³¹ÂÏæè¦JTVMFD<?!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!?CEGOYUL­ðïÙÇ¾¹·´²¯­­¬««¯²¶º½ÀÃÆÉÌÎÑÓÔÕ×ØÙÙÚÙÙØ×ÖÕÓÑÏÌÊÇÄÁ½º¶³±¯¯®­­®±´¸¾ÈÙìÙoJWTMFBBF!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!?FDJOX[KnØòãÐÄ½º¸µµµ¶·¸¸¸º½ÀÃÆÊÍÐÑÕ×ÙÚÜÜÞÞÞÞÞÜÛÛØÖÕÓÏÍÊÇÄÁ¾½¼»º¸¶µµµ·¼ÄÑäìÀYO[RLGDFS!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!F?BGMT_RV¸êëÛÍÃ¾¼¼½½¾ÁÄÄÅÅÆÇÊÍÐÓÕØÚÜßàáâãããâáàßÝÛØÖÓÐÍËÊÈÈÇÅÄÂ¿½½¼½ÂÌÝïÞ~NV]RMKFKS!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!FFIHKT^[NoÏëæÙÍÅÃÃÄÇÈÊÌÍÐÑÒÓÓÕ×ÚÜÞáâäåççèççæäãáßÝÚÙ×ÕÔÔÑÐÍÌÊÉÇÄÄÅËÙëë½^N^ZQIGC9S!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!9FMJPYbVU£ØêæÚÑÌÌÍÏÐÑÓÕØÙÛÞßàãäåçèêëìíííììêéççåäâàÞÜÚØÕÔÒÐÏÍÍÑÚéîÎpOX^UNKL??!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!FBDKOV`aS]¬ÜìçÞØÖÖ×ØÙÜÝßáäæèêìîðòóôõõõöõôóòðïíëèæäâàÝÜÚØÖÔÖàëîÓ{SS_ZQJMKKS!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!S9CKMRWb_R`¬×ìîèáÝÝÞàâäçéëîðòôöøúúûûüüûûúøöôòðîìêçåâßÞÝßæðîÐ|UR]ZTPLHI?!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!?BMNPSZc`U]£Ïìôðéåäåçêîñóõ÷úûýÿāāāĂāāāĀþüúøõòðìèæãäçìíãÃtUT]ZUPMKCKF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SKFILPT[caXWp¸Üð÷ôïìëìïó÷úýÿāăĄąĆąąĄăāÿüú÷ôðíëëíðïåÎ©fTX`]UQPKIB?!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!lFFKMPQVZad^U]v¸×ìöøöóñòõ÷ùûýþþþýüûúù÷öôóòòóóïâË«mYW`d^WTOMIB?S!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!S?FKOPQSW_bd^X[l£¼Óäíñòöøøùøø÷÷öøùø÷öòíæÚÉ²zeZYaed[XVOMORSSl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!S?FIMQSSVY`cgd]Z^fq~­ºÄÍÔØØØ×ÖÖÒËÁ¶©ymb[Z`ehfaYUTQQOR?Sl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!lS?FSQQUWYZ`dhhgd`_]`bcfeeeedca_^^`eggfb`]WVQVQSFSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!lFSFSTTSVXY[_bdefhkmmlmmmnnkigebb^^ZWTSQQSRSFl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!llF^KMVZVYYYWZ]]abbbbbbbba`Z]YYVYTVVMY^Fll!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!lSFSKRMSSVV]YW^^^^^^WY]Z[XOMRYSFSl!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!llSSFSKYRRRRRRRRRRYKS^SSll!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!llllllllllllllll!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'&%%$$$$$$$$$$%%&'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!(&%$$&&%()(********()(%%&$$%&(!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'%$&)(()++,.04344444332//+++)(('&$%&!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -2052,6 +2180,11 @@ namespace TryCatchRemover
 
             }
             Array.Sort(Lists);
+            MessageBox.Show("Sorting! This might take long time;");
+
+            ImageTextDeepLearning.AllKeyboardOfWorld dd=new ImageTextDeepLearning.AllKeyboardOfWorld();
+            Lists = dd.AllSortedImageMatrix(Lists);
+
             MessageBox.Show("Select Image:");
             OpenFileDialogTryCatchRemover.ShowDialog();
             String AImage = OpenFileDialogTryCatchRemover.FileName;
@@ -2211,6 +2344,451 @@ namespace TryCatchRemover
             MessageBox.Show("Done!");
 
 
+        }
+    }
+
+}
+
+namespace ImageTextDeepLearning
+{
+    //To Store All Keyboard literals
+    [Serializable]
+    class AllKeyboardOfWorld
+    {
+        public static List<string> fonts = new List<string>();
+
+        public AllKeyboardOfWorld()
+        {
+            if (fonts.Count == 0)
+            {
+                fonts.Clear();
+                bool Do = ListAllFonts();
+                if (!Do)
+                    fonts.Clear();
+            }
+
+        }
+
+        //Initiate global vars
+        int Width = 10, Height = 10;
+        List<String> KeyboardAllStrings = new List<String>();
+        List<Image> KeyboardAllImage = new List<Image>();
+        List<bool[,]> KeyboardAllConjunctionMatrix = new List<bool[,]>();
+        List<bool[,]> KeyboardAllConjunctionMatrixList = new List<bool[,]>();
+        //Crate all able chars on List indevidully
+        bool CreateString(char[] A)
+        {
+            //when not existence
+            if (KeyboardAllStrings.Count == 0)
+            {
+                for (int i = 0; i < 256; i++)
+                    KeyboardAllStrings.Add(A[i].ToString());
+            }
+            return true;
+        }
+        bool ListAllFonts()
+        {
+            try
+            {
+                foreach (FontFamily font in System.Drawing.FontFamily.Families)
+                {
+                    fonts.Add(font.Name);
+                }
+            }
+            catch (Exception t) { return false; }
+            return true;
+        }
+        //Savle all
+        bool SaveAll()
+        {
+            try
+            {
+                //when file dos not exist
+                if (!File.Exists("KeyboardAllStrings.asd"))
+                {
+
+                    /*   lock (KeyboardAllStrings)
+                       {
+                           for (int i = 0; i < KeyboardAllStrings.Count; i++)
+                           {
+                               File.AppendAllText("KeyboardAllStrings.asd", KeyboardAllStrings[i]);
+                           }
+                       }*/
+                    //serialized on take root
+                    if (this.KeyboardAllImage.Count > 0)
+                    {
+                        Refrigtz.TakeRoot t = new Refrigtz.TakeRoot();
+                        t.Save(this, "KeyboardAllStrings.asd");
+
+                    }
+                }
+                else
+                {//delete and serilized take root
+                    File.Delete("KeyboardAllStrings.asd");
+                    if (this.KeyboardAllImage.Count > 0)
+                    {
+                        Refrigtz.TakeRoot t = new Refrigtz.TakeRoot();
+                        t.Save(this, "KeyboardAllStrings.asd");
+
+                    }
+                }
+
+            }
+
+            catch (Exception t)
+            {
+                //System.Windows.Forms.MessageBox.Show("Fatual Error!" + t.ToString()); return false;
+            }
+            return true;
+        }
+        //read all
+        bool ReadAll()
+        {
+            try
+            {
+                //when existence
+                if (File.Exists("KeyboardAllStrings.asd"))
+                {
+                    //clear
+                    KeyboardAllStrings.Clear();
+                    KeyboardAllImage.Clear();
+                    KeyboardAllConjunctionMatrix.Clear();
+
+
+                    /* String Tem = File.ReadAllText("KeyboardAllStrings.asd");
+                     if (Tem.Length > 0)
+                     {
+                         for (int i = 0; i < Tem.Length; i++)
+                         {
+                             KeyboardAllStrings.Add(Tem[i].ToString());
+                         }
+                     }
+                     else
+                     {
+                         bool Do = CreateString();
+                         if (!Do)
+                             return false;
+                     }*/
+                    //serilized
+                    Refrigtz.TakeRoot tr = new Refrigtz.TakeRoot();
+                    AllKeyboardOfWorld t = tr.Load("KeyboardAllStrings.asd");
+                    this.KeyboardAllConjunctionMatrix = t.KeyboardAllConjunctionMatrix;
+                    this.KeyboardAllConjunctionMatrixList = t.KeyboardAllConjunctionMatrixList;
+                    this.KeyboardAllImage = t.KeyboardAllImage;
+                    this.KeyboardAllStrings = t.KeyboardAllStrings;
+
+                }
+                else//others retiurn unsuccessfull
+                    return false;
+            }
+            catch (Exception t)
+            {
+                //when unsuccessfull return false
+                return false;
+            }
+            //return true
+            return true;
+        }
+        //Founf Min of Y
+        int MinY(Bitmap Im)
+        {
+            int Mi = 0;
+            int j = 0;
+            for (int k = 0; k < Im.Height; k++)
+            {
+                if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
+                {
+                    Mi = k;
+                    break;
+                }
+            }
+            return Mi;
+
+        }
+        //Cropping and fitting image
+        Bitmap cropImage(Bitmap img, Rectangle cropArea)
+        {
+            int X = cropArea.X;
+            int Y = cropArea.Y;
+            int XX = cropArea.Width;
+            int YY = cropArea.Height;
+
+
+
+
+            Bitmap bmp = new Bitmap(Width, Height);
+            using (Graphics gph = Graphics.FromImage(bmp))
+            {
+                gph.DrawImage(img, new Rectangle(0, 0, Width, Height), new Rectangle(X, Y, XX, YY), GraphicsUnit.Pixel);
+            }
+            return bmp;
+        }
+        //Found of Min of X
+        int MinX(Bitmap Im)
+        {
+            int Mi = 0;
+            int k = 0;
+            for (int j = 0; j < Im.Width; j++)
+            {
+                if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
+                {
+                    Mi = j;
+                    break;
+                }
+            }
+            return Mi;
+
+        }
+        //Found of Max Of Y
+        int MaxY(Bitmap Im)
+        {
+            int Ma = 0;
+            int j = 0;
+            for (int k = Im.Height - 1; k >= 0; k--)
+            {
+                if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
+                {
+                    Ma = k;
+                    break;
+                }
+            }
+            return Ma;
+
+        }
+        //Found of Max of X
+        int MaxX(Bitmap Im)
+        {
+            int Ma = 0;
+            int k = 0;
+            for (int j = Im.Width - 1; j >= 0; j--)
+            {
+                if (!(Im.GetPixel(j, k).A == 255 && Im.GetPixel(j, k).R == 255 && Im.GetPixel(j, k).B == 255 && Im.GetPixel(j, k).G == 255))
+                {
+                    Ma = j;
+                    break;
+                }
+            }
+            return Ma;
+
+        }
+        //store all strings list to proper  images themselves list
+        bool ConvertAllStringToImage(char[] d)
+        {
+            try
+            {
+                bool Do = false;
+                //when is not ok
+                if (!ReadAll())
+                {
+                    //create list
+                    Do = CreateString(d);
+                    //when is successfull 
+                    if (Do)//Save
+                        Do = SaveAll();
+                    //when not return successfull
+                    if (!Do)
+                    {
+                        //System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                        return false;
+                    }
+                }
+                else//else return successfull
+                {
+                    Do = true;
+
+                }
+                //when existence os string list and empty od image list
+                if (Do && KeyboardAllImage.Count == 0)
+                {
+                    //clear
+                    KeyboardAllImage.Clear();
+                    //for all lists items
+                    for (int i = 0; i < KeyboardAllStrings.Count; i++)
+                    {
+                        //For all font prototype
+                        if (fonts.Count > 0)
+                        {
+                            //proper empty image coinstruction object
+                            Bitmap Temp = new Bitmap(Width, Height);
+                            //create proper image graphics
+                            Graphics e = Graphics.FromImage(Temp);
+
+                            //Draw fill white image
+                            e.FillRectangle(Brushes.White, new Rectangle(0, 0, Width, Height));
+
+                            //draw string
+                            e.DrawString(KeyboardAllStrings[i], new Font(fonts[0], 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
+                            //retrive min and max of tow X and Y
+                            int MiX = MinX(Temp), MiY = MinY(Temp), MaX = MaxX(Temp), MaY = MaxY(Temp);
+
+                            //crop to proper space
+                            Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
+
+                            //Add
+                            //KeyboardAllImage.Add(Te);
+                            //create proper conjunction matrix
+                            bool[,] Tem = new bool[Width, Height];
+                            for (int k = 0; k < Width; k++)
+                                for (int p = 0; p < Height; p++)
+                                {
+                                    // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
+                                    if (!(Te.GetPixel(k, p).A == 255 && Te.GetPixel(k, p).R == 255 && Te.GetPixel(k, p).B == 255 && Te.GetPixel(k, p).G == 255))
+                                        Tem[k, p] = true;
+                                    else
+                                        Tem[k, p] = false;
+
+                                }
+                            //Add
+                            KeyboardAllConjunctionMatrix.Add(Tem);
+                            e.Dispose();
+
+                        }
+                        else//When font not installed
+                        {
+                            Bitmap Temp = new Bitmap(Width, Height);
+                            //create proper image graphics
+                            Graphics e = Graphics.FromImage(Temp);
+
+                            //Draw fill white image
+                            e.FillRectangle(Brushes.White, new Rectangle(0, 0, Width, Height));
+
+                            //draw string
+                            e.DrawString(KeyboardAllStrings[i], new Font("Arial", 1F * ((Width + Height) / 2)), Brushes.Black, new Rectangle(0, 0, Width, Height));
+                            //retrive min and max of tow X and Y
+                            int MiX = MinX(Temp), MiY = MinY(Temp), MaX = MaxX(Temp), MaY = MaxY(Temp);
+
+                            //crop to proper space
+                            Bitmap Te = cropImage(Temp, new Rectangle(MiX, MiY, MaX - MiX, MaY - MiY));
+
+                            //Add
+                            //KeyboardAllImage.Add(Te);
+                            //create proper conjunction matrix
+                            bool[,] Tem = new bool[Width, Height];
+                            for (int k = 0; k < Width; k++)
+                                for (int p = 0; p < Height; p++)
+                                {
+                                    // Tem[k, p] = Temp.GetPixel(k, p).ToArgb();
+                                    if (!(Te.GetPixel(k, p).A == 255 && Te.GetPixel(k, p).R == 255 && Te.GetPixel(k, p).B == 255 && Te.GetPixel(k, p).G == 255))
+                                        Tem[k, p] = true;
+                                    else
+                                        Tem[k, p] = false;
+
+                                }
+                            //Add
+                            KeyboardAllConjunctionMatrix.Add(Tem);
+                            e.Dispose();
+                        }
+                    }
+                    //save all
+                    Do = SaveAll();
+                    //if (!Do)
+                    //System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                    //else
+                    //System.Windows.Forms.MessageBox.Show("Completed " + KeyboardAllConjunctionMatrix.Count + " .");
+                }
+                //else
+                //System.Windows.Forms.MessageBox.Show("Fatual Error!");
+
+            }
+            catch (Exception t)
+            {
+                //when existence of exeptio return false
+                //System.Windows.Forms.MessageBox.Show("Fatual Error!");
+                return false;
+            }
+            //return successfulll
+            //KeyboardAllImage.Clear();
+            return true;
+        }
+        //Convert image list to conjunction matrix
+        bool ConvertAllTempageToMatrix(List<Bitmap> Temp)
+        {
+            try
+            {
+                //when list is empty
+                if (KeyboardAllConjunctionMatrixList.Count == 0)
+                {
+                    //clear
+                    KeyboardAllConjunctionMatrixList.Clear();
+                    //for all list count
+                    for (int i = 0; i < Temp.Count; i++)
+                    {
+                        //matrix boolean object constructor list
+                        List<bool[,]> Te = new List<bool[,]>();
+
+                        //boolean object constructor
+                        bool[,] Tem = new bool[Width, Height];
+                        //for all width
+                        for (int k = 0; k < Width; k++)
+                        {
+                            //for all height
+                            for (int p = 0; p < Height; p++)
+                            {
+                                //assigne proper matrix
+                                //Tem[k, p] = Temp[i].GetPixel(k, p).ToArgb();
+                                if (!(Temp[i].GetPixel(k, p).A == 255 && Temp[i].GetPixel(k, p).R == 255 && Temp[i].GetPixel(k, p).B == 255 && Temp[i].GetPixel(k, p).G == 255))
+
+                                    Tem[k, p] = true;
+                                else
+                                    Tem[k, p] = false;
+
+                            }
+                        }
+                        //add
+                        KeyboardAllConjunctionMatrixList.Add(Tem);
+
+                    }
+                }
+                else//othewise return successfull
+                    return true;
+            }
+            catch (Exception t)
+            {
+                //when is exeption return unsuccessfull
+                return false;
+            }
+            //when save is not valid return successfull
+            if (!SaveAll())
+            {
+                return false;
+            }
+            //return successfull
+            return true;
+        }
+
+        public char[] AllSortedImageMatrix(char[] d)
+        {
+            int[] dd = new int[256];
+            CreateString(d);
+            ConvertAllStringToImage(d);
+            int count = 0;
+            for (int i = 0; i < KeyboardAllConjunctionMatrixList.Count; i++)
+            {
+
+
+                dd[count] = ImageTextDeepLearning.Colleralation.GetCorrelation(KeyboardAllConjunctionMatrixList[i], KeyboardAllImage[0].Width);
+            }
+
+            for (int i = 0; i < 256; i++)
+            {
+                for (int j = i+1; j < 256; j++)
+                {
+                    if (dd[i] > dd[j])
+                    {
+                        int s = dd[j];
+                        dd[j] = dd[i];
+                        dd[i] = s;
+
+
+                        char ss = d[j];
+                        d[j] = d[i];
+                        d[i] = ss;
+                    }
+
+
+                }
+            }
+            return d;
         }
     }
 }

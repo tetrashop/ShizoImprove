@@ -42,6 +42,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonClearCach = new System.Windows.Forms.Button();
             this.buttonActOnFileHistory = new System.Windows.Forms.Button();
+            this.checkBoxActOnSuffixes = new System.Windows.Forms.CheckBox();
             this.menuStripShizoImprove.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,11 +173,23 @@
             this.buttonActOnFileHistory.UseVisualStyleBackColor = true;
             this.buttonActOnFileHistory.Click += new System.EventHandler(this.buttonActOnFileHistory_Click);
             // 
+            // checkBoxActOnSuffixes
+            // 
+            this.checkBoxActOnSuffixes.AutoSize = true;
+            this.checkBoxActOnSuffixes.Location = new System.Drawing.Point(676, 206);
+            this.checkBoxActOnSuffixes.Name = "checkBoxActOnSuffixes";
+            this.checkBoxActOnSuffixes.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxActOnSuffixes.TabIndex = 12;
+            this.checkBoxActOnSuffixes.Text = "Act on Suffixes";
+            this.checkBoxActOnSuffixes.UseVisualStyleBackColor = true;
+            this.checkBoxActOnSuffixes.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // FormShizoImprove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxActOnSuffixes);
             this.Controls.Add(this.buttonActOnFileHistory);
             this.Controls.Add(this.buttonClearCach);
             this.Controls.Add(this.buttonImproved);
@@ -216,5 +229,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button buttonClearCach;
         private System.Windows.Forms.Button buttonActOnFileHistory;
+        private System.Windows.Forms.CheckBox checkBoxActOnSuffixes;
     }
 }
