@@ -1252,7 +1252,7 @@ namespace Chess
                     MessageBox.Show("Wait...");
                   
                     var parallelOptions = new ParallelOptions();
-                    parallelOptions.MaxDegreeOfParallelism = System.Threading.PlatformHelper.ProcessorCount;
+                    parallelOptions.MaxDegreeOfParallelism = System.Threading.PlatformHelper.ProcessorCount*2;
                     
                     Table = CloneATable(brd.GetTable());
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
@@ -1281,7 +1281,7 @@ namespace Chess
                                 aa = Color.Brown;
                             bool B = AllDraw.Blitz;
                             AllDraw.Blitz = false;
-                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
+                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
                             
                             if (Draw.IsAtLeastAllObjectIsNull())
                             {
@@ -3077,7 +3077,7 @@ namespace Chess
                                 aa = Color.Brown;
                             bool B = AllDraw.Blitz;
                             AllDraw.Blitz = false;
-                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
+                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
 
                             if (!FirstS)
                             {

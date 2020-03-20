@@ -22815,7 +22815,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw = false;
 
                 var parallelOptions = new ParallelOptions();
-                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount*2;
                 SetDeptIgnore = SetDept;
                 int[,] TableHeuristic = null;
                 int Current = ChessRules.CurrentOrder;
@@ -22925,7 +22925,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 lock (OOOO)
                 {
                     //if (MaxAStarGreedy == 0)
-                    MaxAStarGreedy = PlatformHelper.ProcessorCount;
+                    MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
                     MaxAStarGreedy1 = MaxAStarGreedy;
 
                     int[,] Tabl = CloneATable(Table);

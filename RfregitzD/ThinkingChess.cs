@@ -16,6 +16,8 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess//: IDisposable
     {
+        int HeuristicReducedAttackedIndexInOnGameMidle = 0;
+        List<int> HeuristicReducedAttackedIndexInOnGame = new List<int>();
 
         static bool GoldenFinished = false;
 
@@ -6639,7 +6641,7 @@ namespace RefrigtzDLL
                 return Is;
             }
         }
-        int NoOfExistInReducedSupportList(bool Before, int Rows, int Cols, int Rowd, int Cold)
+             int NoOfExistInReducedSupportList(bool Before, int Rows, int Cols, int Rowd, int Cold)
         {
             Object O = new Object();
             lock (O)
@@ -6663,6 +6665,43 @@ namespace RefrigtzDLL
                             if (HeuristicAllReducedSupport[i][2] == Rows && HeuristicAllReducedSupport[i][3] == Cols && HeuristicAllReducedSupport[i][0] == Rowd && HeuristicAllReducedSupport[i][1] == Cold)
                                 Is++;
 
+                        }
+                    }
+                }
+                return Is;
+            }
+        }
+
+        int NoOfExistInSupportList(bool Before, int RowD, int ColD)
+        {
+            Object O = new Object();
+            lock (O)
+            {
+                int Is = 0;
+                for (int Rows = 0; Rows < 8; Rows++)
+                {
+                    for (int Cols = 0; Cols < 8; Cols++)
+                    {
+                        if (Before)
+                        {
+                            for (int i = 0; i < HeuristicAllSupport.Count; i++)
+                            {
+                                if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols && HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD)
+                                    Is++;
+
+                            }
+                        }
+                        else
+                        {
+                            if (HeuristicAllSupportMidel > 0 && HeuristicAllSupportMidel < HeuristicAllSupport.Count)
+                            {
+                                for (int i = HeuristicAllSupportMidel; i < HeuristicAllSupport.Count; i++)
+                                {
+                                    if (HeuristicAllSupport[i][0] == Rows && HeuristicAllSupport[i][1] == Cols && HeuristicAllSupport[i][2] == RowD && HeuristicAllSupport[i][3] == ColD)
+                                        Is++;
+
+                                }
+                            }
                         }
                     }
                 }
@@ -10847,7 +10886,8 @@ namespace RefrigtzDLL
                     }
                     if (RETURN)
                         return;
-
+                    if (AllDraw.OrderPlate != Order)
+                        return;
                   
 
                 }
@@ -12190,13 +12230,26 @@ namespace RefrigtzDLL
                     {
                         if (Order == 1)
                         {
-                            if ((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]])) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] < 0)
+                            if (((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]]))
+                            //|| (System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > 0 && NoOfExistInSupportList(Before, HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]) == 0)
+                            ) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] < 0)
+                            {
+
+                                HeuristicReducedAttackedIndexInOnGame.Add(i);
+
                                 return true;
+                            }
                         }
                         else
                         {
-                            if ((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]])) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] > 0)
+                            if (((System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]]))
+                            //|| (System.Math.Abs(TableS[HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]]) > 0 && NoOfExistInSupportList(Before, HeuristicAllReducedAttacked[i][2], HeuristicAllReducedAttacked[i][3]) == 0)
+                            ) && TableS[HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]] > 0)
+                            {
+                                HeuristicReducedAttackedIndexInOnGame.Add(i);
+
                                 return true;
+                            }
                         }
 
                     }
@@ -13482,6 +13535,8 @@ namespace RefrigtzDLL
                 int HFromCenter = 0;
                 int HExchangeInnovation = 0;
                 int HExchangeSupport = 0;
+                if (Order != AllDraw.OrderPlate)
+                    return;
                 if (!Before && MidleIndex())
                 {
                     HeuristicAllAttackedMidel = HeuristicAllAttacked.Count;
@@ -13490,6 +13545,7 @@ namespace RefrigtzDLL
                     HeuristicAllReducedMoveMidel = HeuristicAllReducedMove.Count;
                     HeuristicAllReducedSupportMidel = HeuristicAllReducedSupport.Count;
                     HeuristicAllSupportMidel = HeuristicAllSupport.Count;
+                    HeuristicReducedAttackedIndexInOnGameMidle = HeuristicReducedAttackedIndexInOnGame.Count;
                 }
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
 
@@ -13591,7 +13647,7 @@ namespace RefrigtzDLL
                                 A = ColleralationGray < 30;
                                 if (WinOcuuredatChiled == 0)
                                 {
-                                    B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                                    B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                                 }
                             }
@@ -13600,7 +13656,7 @@ namespace RefrigtzDLL
                                 A = ColleralationBrown < 30;
                                 if (WinOcuuredatChiled == 0)
                                 {
-                                    B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowD, ColD]) < TableS[RowS, ColS]);
+                                    B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                                 }
                             }
@@ -13704,13 +13760,13 @@ namespace RefrigtzDLL
                         //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                         if (WinOcuuredatChiled == 0)
                         {
-                            /*if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
-                                                        {
+                            if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
+                            {
 
-                                                            //if (Before)
-                                                            SetSupHuTrue();
-                                                            IsS = true;
-                                                        }*/
+                                //if (Before)
+                                SetSupHuTrue();
+                                IsS = true;
+                            }
                             if (DisturbeOnHugeTraversalExchangePrevention(Before, CloneATable(TableS), Order))
                             {
 
@@ -15689,8 +15745,35 @@ namespace RefrigtzDLL
                             IsSup = IsSup && IsSupHu[i];
                         if (IsSup)
                         {
-                            if (LoseOcuuredatChiled == 0)
-                                LoseOcuuredatChiled = -4;
+                            if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
+                            {
+                                int i = IndexOfMoved();
+                                if (i != -1)
+                                {
+                                    i = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
+                                    if (i != -1)
+                                        IsSupHu[i] = false;
+                                    else
+                                    {
+                                        if (LoseOcuuredatChiled == 0)
+                                            LoseOcuuredatChiled = -4;
+                                    }
+
+                                }
+                                else
+                                {
+                                    if (LoseOcuuredatChiled == 0)
+                                        LoseOcuuredatChiled = -4;
+
+                                }
+
+
+                            }
+                            else
+                            {
+                                if (LoseOcuuredatChiled == 0)
+                                    LoseOcuuredatChiled = -4;
+                            }
                         }
                     }
                     /*else
@@ -15715,293 +15798,382 @@ namespace RefrigtzDLL
             }
             return;
         }
+        int IndexOfMoved()
+        {
+            int i = -1;
+
+            for (int j = 0; j < HeuristicAllReducedAttackedMidel; j++)
+            {
+                bool Is = false;
+                for (int k = HeuristicAllReducedAttackedMidel; k < HeuristicAllReducedAttacked.Count; k++)
+                {
+                    if (HeuristicAllReducedAttacked[j][0] == HeuristicAllReducedAttacked[k][0]
+                    && HeuristicAllReducedAttacked[j][1] == HeuristicAllReducedAttacked[k][1]
+                    && HeuristicAllReducedAttacked[j][2] == HeuristicAllReducedAttacked[k][2]
+                    && HeuristicAllReducedAttacked[j][3] == HeuristicAllReducedAttacked[k][3])
+                        Is = true;
+
+                }
+                if (!Is)
+                    return j;
+            }
+            return -1;
+
+        }
+        int IndexOfIsSupTRUE(int Kind, int RowD, int ColD)
+        {
+            int i = -1;
+            bool Is = false;
+
+            if (Kind == 1)
+            {
+                for (int j = 0; j < RowColumnSoldier.Count; j++)
+                {
+                    if (NoOfExistInReducedAttackList(false, RowColumnSoldier[j][0], RowColumnSoldier[j][1], RowD, ColD) == 0)
+                        return j;
+
+                }
+            }
+            else
+            if (Kind == 2)
+            {
+                for (int j = 0; j < RowColumnElefant.Count; j++)
+                {
+                    if (NoOfExistInReducedAttackList(false, RowColumnElefant[j][0], RowColumnElefant[j][1], RowD, ColD) == 0)
+                        return j;
+                }
+
+            }
+            else
+            if (Kind == 3)
+            {
+                for (int j = 0; j < RowColumnHourse.Count; j++)
+                {
+                    if (NoOfExistInReducedAttackList(false, RowColumnHourse[j][0], RowColumnHourse[j][1], RowD, ColD) == 0)
+                        return j;
+
+                }
+            }
+            else
+            if (Kind == 4)
+            {
+                for (int j = 0; j < RowColumnCastle.Count; j++)
+                {
+                    if (NoOfExistInReducedAttackList(false, RowColumnCastle[j][0], RowColumnCastle[j][1], RowD, ColD) == 0)
+                        return j;
+
+                }
+            }
+            else
+            if (Kind == 5)
+            {
+                for (int j = 0; j < RowColumnMinister.Count; j++)
+                {
+                    if (NoOfExistInReducedAttackList(false, RowColumnMinister[j][0], RowColumnMinister[j][1], RowD, ColD) == 0)
+                        return j;
+
+                }
+            }
+            else
+            if (Kind == 6)
+            {
+                for (int j = 0; j < RowColumnKing.Count; j++)
+                {
+                    if (NoOfExistInReducedAttackList(false, RowColumnKing[j][0], RowColumnKing[j][1], RowD, ColD) == 0)
+                        return j;
+
+                }
+            }
+            return -1;
+
+        }
         //objects value main method
         int RetrunValValue(int RowS, int ColS, int RowO, int ColO, int[,] Tab, int Sign)
-        {
-
-            int O = 0;
-            if (RowO == -1 && ColO == -1)
-                O = System.Math.Abs(Tab[RowS, ColS]);
-            else
-                O = System.Math.Abs(Tab[RowS, ColS]) + System.Math.Abs(Tab[RowO, ColO]);
-            O *= Sign;
-
-            return O;
-        }
-
-        //objects value main method
-        int ObjectValueCalculator(int[,] Table//, int Order
-            , int RowS, int ColS, int RowO, int ColumnO)
-        {
-
-            int Val = 1;
-
-            if (Table[RowS, ColS] / Order > 0)
-            {
-                if (System.Math.Abs(Table[RowS, ColS]) == 2)
                 {
-                    Val = Val * 3;
+
+                    int O = 0;
+                    if (RowO == -1 && ColO == -1)
+                        O = System.Math.Abs(Tab[RowS, ColS]);
+                    else
+                        O = System.Math.Abs(Tab[RowS, ColS]) + System.Math.Abs(Tab[RowO, ColO]);
+                    O *= Sign;
+
+                    return O;
                 }
-                else
-                        if (System.Math.Abs(Table[RowS, ColS]) == 3)
+
+                //objects value main method
+                int ObjectValueCalculator(int[,] Table//, int Order
+                    , int RowS, int ColS, int RowO, int ColumnO)
                 {
-                    Val = Val * 3;
-                }
-                else
-                            if (System.Math.Abs(Table[RowS, ColS]) == 4)
-                {
-                    Val = Val * 5;
-                }
-                else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 5)
-                {
-                    Val = Val * 9;
-                }
-                else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 6)
-                {
-                    Val = Val * 10;
-                }
-            }
-            else
-            if (Table[RowO, ColumnO] / Order > 0)
-            {
-                if (System.Math.Abs(Table[RowO, ColumnO]) == 2)
-                {
-                    Val = Val * 3;
-                }
-                else
-                   if (System.Math.Abs(Table[RowO, ColumnO]) == 3)
-                {
-                    Val = Val * 3;
-                }
-                else
-                       if (System.Math.Abs(Table[RowO, ColumnO]) == 4)
-                {
-                    Val = Val * 5;
-                }
-                else
-                           if (System.Math.Abs(Table[RowO, ColumnO]) == 5)
-                {
-                    Val = Val * 9;
-                }
-                else
-                           if (System.Math.Abs(Table[RowO, ColumnO]) == 6)
-                {
-                    Val = Val * 10;
-                }
-            }
-            //}
-            //       if (Val < 0)
 
+                    int Val = 1;
 
-            return Val;
-
-
-
-
-
-
-        }
-        //objects value main method
-        int ObjectValueCalculator(int[,] Table//, int Order
-            , int RowS, int ColS)
-        {
-
-            int Val = 1;
-
-
-
-            if (System.Math.Abs(Table[RowS, ColS]) == 1)
-            {
-                Val = 1;
-            }
-            else
-            if (System.Math.Abs(Table[RowS, ColS]) == 2)
-            {
-                Val = 3;
-            }
-            else
-                        if (System.Math.Abs(Table[RowS, ColS]) == 3)
-            {
-                Val = 3;
-            }
-            else
-                            if (System.Math.Abs(Table[RowS, ColS]) == 4)
-            {
-                Val = 5;
-            }
-            else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 5)
-            {
-                Val = 9;
-            }
-            else
-                                if (System.Math.Abs(Table[RowS, ColS]) == 6)
-            {
-                Val = 10;
-            }
-
-            return Val;
-        }
-        //objects value main method determination
-        bool SignSelfEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
-        {
-
-            Object O = new Object();
-            lock (O)
-            {
-                bool Is = false;
-
-                if (Order == 1)
-                {
-                    if (Obj1 > 0 && Obj2 == 0)
+                    if (Table[RowS, ColS] / Order > 0)
                     {
-                        Is = true;
-                        A = Color.Gray;
-                        Ord = 1;
+                        if (System.Math.Abs(Table[RowS, ColS]) == 2)
+                        {
+                            Val = Val * 3;
+                        }
+                        else
+                                if (System.Math.Abs(Table[RowS, ColS]) == 3)
+                        {
+                            Val = Val * 3;
+                        }
+                        else
+                                    if (System.Math.Abs(Table[RowS, ColS]) == 4)
+                        {
+                            Val = Val * 5;
+                        }
+                        else
+                                        if (System.Math.Abs(Table[RowS, ColS]) == 5)
+                        {
+                            Val = Val * 9;
+                        }
+                        else
+                                        if (System.Math.Abs(Table[RowS, ColS]) == 6)
+                        {
+                            Val = Val * 10;
+                        }
+                    }
+                    else
+                    if (Table[RowO, ColumnO] / Order > 0)
+                    {
+                        if (System.Math.Abs(Table[RowO, ColumnO]) == 2)
+                        {
+                            Val = Val * 3;
+                        }
+                        else
+                           if (System.Math.Abs(Table[RowO, ColumnO]) == 3)
+                        {
+                            Val = Val * 3;
+                        }
+                        else
+                               if (System.Math.Abs(Table[RowO, ColumnO]) == 4)
+                        {
+                            Val = Val * 5;
+                        }
+                        else
+                                   if (System.Math.Abs(Table[RowO, ColumnO]) == 5)
+                        {
+                            Val = Val * 9;
+                        }
+                        else
+                                   if (System.Math.Abs(Table[RowO, ColumnO]) == 6)
+                        {
+                            Val = Val * 10;
+                        }
+                    }
+                    //}
+                    //       if (Val < 0)
+
+
+                    return Val;
+
+
+
+
+
+
+                }
+                //objects value main method
+                int ObjectValueCalculator(int[,] Table//, int Order
+                    , int RowS, int ColS)
+                {
+
+                    int Val = 1;
+
+
+
+                    if (System.Math.Abs(Table[RowS, ColS]) == 1)
+                    {
+                        Val = 1;
+                    }
+                    else
+                    if (System.Math.Abs(Table[RowS, ColS]) == 2)
+                    {
+                        Val = 3;
+                    }
+                    else
+                                if (System.Math.Abs(Table[RowS, ColS]) == 3)
+                    {
+                        Val = 3;
+                    }
+                    else
+                                    if (System.Math.Abs(Table[RowS, ColS]) == 4)
+                    {
+                        Val = 5;
+                    }
+                    else
+                                        if (System.Math.Abs(Table[RowS, ColS]) == 5)
+                    {
+                        Val = 9;
+                    }
+                    else
+                                        if (System.Math.Abs(Table[RowS, ColS]) == 6)
+                    {
+                        Val = 10;
+                    }
+
+                    return Val;
+                }
+                //objects value main method determination
+                bool SignSelfEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
+                {
+
+                    Object O = new Object();
+                    lock (O)
+                    {
+                        bool Is = false;
+
+                        if (Order == 1)
+                        {
+                            if (Obj1 > 0 && Obj2 == 0)
+                            {
+                                Is = true;
+                                A = Color.Gray;
+                                Ord = 1;
+                            }
+                        }
+                        else
+                        {
+                            if (Obj1 < 0 && Obj2 == 0)
+                            {
+                                Is = true;
+                                A = Color.Brown;
+                                Ord = -1;
+                            }
+                        }
+
+                        return Is;
                     }
                 }
-                else
+                //objects value main method determination
+                bool SignEnemyEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
                 {
-                    if (Obj1 < 0 && Obj2 == 0)
+
+                    Object O = new Object();
+                    lock (O)
                     {
-                        Is = true;
-                        A = Color.Brown;
-                        Ord = -1;
+                        bool Is = false;
+
+                        if (Order == 1)
+                        {
+                            if (Obj1 < 0 && Obj2 == 0)
+                            {
+                                Is = true;
+                                A = Color.Brown;
+                                Ord = -1;
+                            }
+                        }
+                        else
+                        {
+                            if (Obj1 > 0 && Obj2 == 0)
+                            {
+                                Is = true;
+                                A = Color.Gray;
+                                Ord = 1;
+                            }
+                        }
+
+                        return Is;
+                    }
+                }
+                //objects value main method determination
+                bool SignNotEqualEnemy(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
+                {
+
+                    Object O = new Object();
+                    lock (O)
+                    {
+                        bool Is = false;
+
+
+                        if (Order == 1)
+                        {
+                            if (Obj1 < 0 && Obj2 > 0)
+                            {
+                                Is = true;
+                                A = Color.Brown;
+                                Ord = -1;
+                            }
+                        }
+                        else
+                        {
+                            if (Obj1 > 0 && Obj2 < 0)
+                            {
+                                Is = true;
+                                A = Color.Gray;
+                                Ord = 1;
+                            }
+                        }
+
+                        return Is;
+                    }
+                }
+                //objects value main method determination
+                bool SignEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
+                {
+
+                    Object O = new Object();
+                    lock (O)
+                    {
+                        bool Is = false;
+
+
+                        if (Order == 1)
+                        {
+                            if (Obj1 > 0 && Obj2 > 0)
+                            {
+                                Is = true;
+                                A = Color.Gray;
+                                Ord = 1;
+                            }
+                        }
+                        else
+                        {
+                            if (Obj1 < 0 && Obj2 < 0)
+                            {
+                                Is = true;
+                                A = Color.Brown;
+                                Ord = -1;
+                            }
+                        }
+
+                        return Is;
+                    }
+                }
+                //objects value main method determination
+                bool SignNotEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
+                {
+
+                    Object O = new Object();
+                    lock (O)
+                    {
+                        bool Is = false;
+                        if (Order == 1)
+                        {
+                            if (Obj1 > 0 && Obj2 < 0)
+                            {
+                                Is = true;
+                                A = Color.Gray;
+                                Ord = 1;
+                            }
+                        }
+                        else
+                        {
+                            if (Obj1 < 0 && Obj2 > 0)
+                            {
+                                Is = true;
+                                A = Color.Brown;
+                                Ord = -1;
+                            }
+                        }
+
+                        return Is;
                     }
                 }
 
-                return Is;
             }
-        }
-        //objects value main method determination
-        bool SignEnemyEmpty(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
-        {
-
-            Object O = new Object();
-            lock (O)
-            {
-                bool Is = false;
-
-                if (Order == 1)
-                {
-                    if (Obj1 < 0 && Obj2 == 0)
-                    {
-                        Is = true;
-                        A = Color.Brown;
-                        Ord = -1;
-                    }
-                }
-                else
-                {
-                    if (Obj1 > 0 && Obj2 == 0)
-                    {
-                        Is = true;
-                        A = Color.Gray;
-                        Ord = 1;
-                    }
-                }
-
-                return Is;
             }
-        }
-        //objects value main method determination
-        bool SignNotEqualEnemy(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
-        {
-
-            Object O = new Object();
-            lock (O)
-            {
-                bool Is = false;
-
-
-                if (Order == 1)
-                {
-                    if (Obj1 < 0 && Obj2 > 0)
-                    {
-                        Is = true;
-                        A = Color.Brown;
-                        Ord = -1;
-                    }
-                }
-                else
-                {
-                    if (Obj1 > 0 && Obj2 < 0)
-                    {
-                        Is = true;
-                        A = Color.Gray;
-                        Ord = 1;
-                    }
-                }
-
-                return Is;
-            }
-        }
-        //objects value main method determination
-        bool SignEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
-        {
-
-            Object O = new Object();
-            lock (O)
-            {
-                bool Is = false;
-
-
-                if (Order == 1)
-                {
-                    if (Obj1 > 0 && Obj2 > 0)
-                    {
-                        Is = true;
-                        A = Color.Gray;
-                        Ord = 1;
-                    }
-                }
-                else
-                {
-                    if (Obj1 < 0 && Obj2 < 0)
-                    {
-                        Is = true;
-                        A = Color.Brown;
-                        Ord = -1;
-                    }
-                }
-
-                return Is;
-            }
-        }
-        //objects value main method determination
-        bool SignNotEqualSelf(int Obj1, int Obj2, int Order, ref int Ord, ref Color A)
-        {
-
-            Object O = new Object();
-            lock (O)
-            {
-                bool Is = false;
-                if (Order == 1)
-                {
-                    if (Obj1 > 0 && Obj2 < 0)
-                    {
-                        Is = true;
-                        A = Color.Gray;
-                        Ord = 1;
-                    }
-                }
-                else
-                {
-                    if (Obj1 < 0 && Obj2 > 0)
-                    {
-                        Is = true;
-                        A = Color.Brown;
-                        Ord = -1;
-                    }
-                }
-
-                return Is;
-            }
-        }
-
-    }
-}
 
 //End of Documentation.
