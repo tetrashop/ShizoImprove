@@ -10491,60 +10491,60 @@ namespace RefrigtzW
         {
             return ((ThinkingChess.IsAtLeastOneKillerAtDraw) || (!(HaveKiller > 0)));
         }
-        bool Lose(int Kind, int i, int j)
+        bool Lose(int Kind, int i, int j, int Order)
         {
             bool Is = false;
 
             if (Kind == 1)
             {
-                if (SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -1 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -2 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -3)
+                if ((SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -1 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -2 || SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
-                if (SolderesOnTable[i].LoseOcuuredatChiled <= -1 || SolderesOnTable[i].LoseOcuuredatChiled <= -2 || SolderesOnTable[i].LoseOcuuredatChiled <= -3)
+                if ((SolderesOnTable[i].LoseOcuuredatChiled <= -1 || SolderesOnTable[i].LoseOcuuredatChiled <= -2 || SolderesOnTable[i].LoseOcuuredatChiled <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
             }
             else
 
         if (Kind == 2)
             {
-                if (ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -1 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -2 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -3)
+                if ((ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -1 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -2 || ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
-                if (ElephantOnTable[i].LoseOcuuredatChiled <= -1 || ElephantOnTable[i].LoseOcuuredatChiled <= -2 || ElephantOnTable[i].LoseOcuuredatChiled <= -3)
+                if ((ElephantOnTable[i].LoseOcuuredatChiled <= -1 || ElephantOnTable[i].LoseOcuuredatChiled <= -2 || ElephantOnTable[i].LoseOcuuredatChiled <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
             }
             else
 
         if (Kind == 3)
             {
-                if (HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -1 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -2 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -3)
+                if ((HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -1 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -2 || HoursesOnTable[i].HourseThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
-                if (HoursesOnTable[i].LoseOcuuredatChiled <= -1 || HoursesOnTable[i].LoseOcuuredatChiled <= -2 || HoursesOnTable[i].LoseOcuuredatChiled <= -3)
+                if ((HoursesOnTable[i].LoseOcuuredatChiled <= -1 || HoursesOnTable[i].LoseOcuuredatChiled <= -2 || HoursesOnTable[i].LoseOcuuredatChiled <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
             }
             else
 
         if (Kind == 4)
             {
-                if (CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -1 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -2 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -3)
+                if ((CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -1 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -2 || CastlesOnTable[i].CastleThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
-                if (CastlesOnTable[i].LoseOcuuredatChiled <= -1 || CastlesOnTable[i].LoseOcuuredatChiled <= -2 || CastlesOnTable[i].LoseOcuuredatChiled <= -3)
+                if ((CastlesOnTable[i].LoseOcuuredatChiled <= -1 || CastlesOnTable[i].LoseOcuuredatChiled <= -2 || CastlesOnTable[i].LoseOcuuredatChiled <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
             }
             else
 
         if (Kind == 5)
             {
-                if (MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -1 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -2 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -3)
+                if ((MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -1 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -2 || MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
-                if (MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled <= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3)
+                if ((MinisterOnTable[i].LoseOcuuredatChiled <= -1 || MinisterOnTable[i].LoseOcuuredatChiled <= -2 || MinisterOnTable[i].LoseOcuuredatChiled <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
             }
             else
 
         if (Kind == 6)
             {
-                if (KingOnTable[i].KingThinking[0].LoseChiled[j] <= -1 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -2 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -3)
+                if ((KingOnTable[i].KingThinking[0].LoseChiled[j] <= -1 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -2 || KingOnTable[i].KingThinking[0].LoseChiled[j] <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
-                if (KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled <= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3)
+                if ((KingOnTable[i].LoseOcuuredatChiled <= -1 || KingOnTable[i].LoseOcuuredatChiled <= -2 || KingOnTable[i].LoseOcuuredatChiled <= -3) && UniqueCapableMoveIsTruSup(Kind, Order) != 1)
                     return true;
             }
 
@@ -10757,7 +10757,7 @@ namespace RefrigtzW
 
 
                             StringHeuristics(1, 1, AA, Do, SolderesOnTable[i].WinOcuuredatChiled, SolderesOnTable[i].LoseOcuuredatChiled);
-                            if (Lose(1, i, j))
+                            if (Lose(1, i, j,Order))
                                 continue;
 
                             Order = COrder;
@@ -10915,7 +10915,7 @@ namespace RefrigtzW
 
 
                             StringHeuristics(2, 1, AA, Do, ElephantOnTable[i].WinOcuuredatChiled, ElephantOnTable[i].LoseOcuuredatChiled);
-                            if (Lose(2, i, j))
+                            if (Lose(2, i, j,Order))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
@@ -11040,7 +11040,7 @@ namespace RefrigtzW
 
                             StringHeuristics(3, 1, AA, Do, HoursesOnTable[i].WinOcuuredatChiled, HoursesOnTable[i].LoseOcuuredatChiled);
 
-                            if (Lose(3, i, j))
+                            if (Lose(3, i, j,Order))
                                 continue;
 
 
@@ -11159,7 +11159,7 @@ namespace RefrigtzW
                             Order = COrder;
                             StringHeuristics(4, 1, AA, Do, CastlesOnTable[i].WinOcuuredatChiled, CastlesOnTable[i].LoseOcuuredatChiled);
 
-                            if (Lose(4, i, j))
+                            if (Lose(4, i, j,Order))
                                 continue;
                             ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
@@ -11275,7 +11275,7 @@ namespace RefrigtzW
 
                             StringHeuristics(5, 1, AA, Do, MinisterOnTable[i].WinOcuuredatChiled, MinisterOnTable[i].LoseOcuuredatChiled);
 
-                            if (Lose(5, i, j))
+                            if (Lose(5, i, j,Order))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
@@ -11387,7 +11387,7 @@ namespace RefrigtzW
 
                             StringHeuristics(6, 1, AA, Do, KingOnTable[i].WinOcuuredatChiled, KingOnTable[i].LoseOcuuredatChiled);
 
-                            if (Lose(6, i, j))
+                            if (Lose(6, i, j,Order))
                                 continue;
                             Order = COrder;
                             ChessRules.CurrentOrder = CDummy;
@@ -22751,6 +22751,154 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         {
             
         }
+        int UniqueCapableMoveIsTruSup(int Kind, int Order)
+        {
+            int No = 0;
+            if (Order == 1)
+            {
+                if (Kind == 1)
+                {
+                    for (int i = 0; i < SodierMidle; i++)
+                    {
+                        for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!SolderesOnTable[i].SoldierThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 2)
+                {
+                    for (int i = 0; i < ElefantMidle; i++)
+                    {
+                        for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!ElephantOnTable[i].ElefantThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 3)
+                {
+                    for (int i = 0; i < HourseMidle; i++)
+                    {
+                        for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!HoursesOnTable[i].HourseThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 4)
+                {
+                    for (int i = 0; i < CastleMidle; i++)
+                    {
+                        for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!CastlesOnTable[i].CastleThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 5)
+                {
+                    for (int i = 0; i < MinisterMidle; i++)
+                    {
+                        for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!MinisterOnTable[i].MinisterThinking[0].IsSupHu[j])
+                                No++;
+                        }
+
+                    }
+                }
+                else if (Kind == 6)
+                {
+                    for (int i = 0; i < KingMidle; i++)
+                    {
+                        for (int j = 0; j < KingOnTable[i].KingThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!KingOnTable[i].KingThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (Kind == 1)
+                {
+                    for (int i = SodierMidle; i < SodierHigh; i++)
+                    {
+                        for (int j = 0; j < SolderesOnTable[i].SoldierThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!SolderesOnTable[i].SoldierThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 2)
+                {
+                    for (int i = ElefantMidle; i < ElefantHigh; i++)
+                    {
+                        for (int j = 0; j < ElephantOnTable[i].ElefantThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!ElephantOnTable[i].ElefantThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 3)
+                {
+                    for (int i = HourseMidle; i < HourseHight; i++)
+                    {
+                        for (int j = 0; j < HoursesOnTable[i].HourseThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!HoursesOnTable[i].HourseThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 4)
+                {
+                    for (int i = CastleMidle; i < CastleHigh; i++)
+                    {
+                        for (int j = 0; j < CastlesOnTable[i].CastleThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!CastlesOnTable[i].CastleThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 5)
+                {
+                    for (int i = MinisterMidle; i < MinisterHigh; i++)
+                    {
+                        for (int j = 0; j < MinisterOnTable[i].MinisterThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!MinisterOnTable[i].MinisterThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+                else if (Kind == 6)
+                {
+                    for (int i = KingMidle; i < KingHigh; i++)
+                    {
+                        for (int j = 0; j < KingOnTable[i].KingThinking[0].IsSupHu.Count; j++)
+                        {
+                            if (!KingOnTable[i].KingThinking[0].IsSupHu[j])
+                                No++;
+                        }
+                    }
+                }
+
+            }
+
+            return No;
+        }
+
+
         //Main Initiate Thinking Method.
         public int[,] Initiate(int ii, int jj, Color a, int[,] Table, int Order, bool TB, bool FOUND, int LeafAStarGreedy, bool SetDept = false)
         {
