@@ -546,6 +546,7 @@ namespace Chess
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(brd.GetTable()));
                     Table = CloneATable(brd.GetTable());
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
+                    RefrigtzDLL.ThinkingChess.TableInitiation = CloneATable(brd.GetTable());
                     if (DrawManagement())
                     {
                         //Load AllDraw.asd

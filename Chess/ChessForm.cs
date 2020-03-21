@@ -545,6 +545,7 @@ namespace Chess
                     parallelOptions.MaxDegreeOfParallelism = System.Threading.PlatformHelper.ProcessorCount*2;
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(brd.GetTable()));
                     Table = CloneATable(brd.GetTable());
+                    RefrigtzDLL.ThinkingChess.TableInitiation = CloneATable(brd.GetTable());
                     if (DrawManagement())
                     {
                         //Load AllDraw.asd

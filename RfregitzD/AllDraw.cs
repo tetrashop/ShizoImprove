@@ -1125,6 +1125,7 @@ namespace RefrigtzDLL
                 {
                     SetObjectNumbers(TableList[0]);
 
+                    //Detection of moved in intiation
                     int So1 = 0;
                     int So2 = SodierMidle;
                     for (int i = 0; i < SodierHigh; i++)
@@ -1486,6 +1487,7 @@ namespace RefrigtzDLL
                 SetObjectNumbers(Tabl);
             }
         }
+        //Set row column of all draw objects;
         public bool SetRowColumn()
         {
             int Dummy = OrderP;
@@ -1493,7 +1495,9 @@ namespace RefrigtzDLL
             Object a1 = new Object();
             lock (a1)
             {
+            //number of objects initation
                 SetObjectNumbers(TableList[0]);
+                //dummy vars
                 int So1 = 0;
                 int So2 = SodierMidle;
                 int El1 = 0;
@@ -1770,8 +1774,9 @@ namespace RefrigtzDLL
                     //Make Empty Remaining.
 
                 }
-
+                //initiate numbers og vars
                 SetObjectNumbers(TableList[0]);
+                //clear remaining
                 for (var i = So1; i < SodierMidle; i++)
                     SolderesOnTable[i] = null;
                 for (var i = So2; i < SodierHigh; i++)
@@ -1796,11 +1801,10 @@ namespace RefrigtzDLL
                     KingOnTable[i] = null;
                 for (var i = Ki2; i < KingHigh; i++)
                     KingOnTable[i] = null;
+                //clone a copy
                 if (TableList.Count > 0)
                 {
-                    for (var i = 0; i < 8; i++)
-                        for (var j = 0; j < 8; j++)
-                            Tabl[i, j] = TableList[0][i, j];
+                    Tabl = CloneATable(TableList[0]);
                 }
                 SetRowColumnFinished = true;
             }
@@ -3164,78 +3168,91 @@ namespace RefrigtzDLL
         bool BondryObjectNumber(int i, int Kind, int Order)
         {
             bool Is = true;
+            //gray
             if (Order == 1)
             {
+            //soldier
                 if (Kind == 1)
                 {
+                    //when index out of boundry
                     if (i >= SodierMidle)
                         Is = false;
                 }
                 else
-                    if (Kind == 2)
+                    if (Kind == 2)//elephant
                 {
+                    //when index out of boundry
                     if (i >= ElefantMidle)
                         Is = false;
                 }
                 else
                     if (Kind == 3)
                 {
-                    if (i >= HourseMidle)
+                    //when index out of boundry
+                    if (i >= HourseMidle)//hourse
                         Is = false;
                 }
                 else
                     if (Kind == 4)
                 {
-                    if (i >= CastleMidle)
+                    //when index out of boundry
+                    if (i >= CastleMidle)//castle
                         Is = false;
                 }
                 else
                     if (Kind == 5)
                 {
-                    if (i >= MinisterMidle)
+                    //when index out of boundry
+                    if (i >= MinisterMidle)//minister
                         Is = false;
                 }
                 else
                     if (Kind == 6)
                 {
-                    if (i >= KingMidle)
+                    //when index out of boundry
+                    if (i >= KingMidle)//king
                         Is = false;
                 }
             }
             else
             {
-                if (Kind == 1)
+                if (Kind == 1)//soldier
                 {
+                    //when index out of boundry
                     if (i < SodierMidle || i >= SodierHigh)
                         Is = false;
                 }
                 else
-                   if (Kind == 2)
+                   if (Kind == 2)//elephant
                 {
+                    //when index out of boundry
                     if (i < ElefantMidle || i >= ElefantHigh)
                         Is = false;
                 }
                 else
-                   if (Kind == 3)
+                   if (Kind == 3)//hourse
                 {
+                    //when index out of boundry
                     if (i < HourseMidle || i >= HourseHight)
                         Is = false;
                 }
                 else
-                   if (Kind == 4)
+                   if (Kind == 4)//castle
                 {
                     if (i < CastleMidle || i >= CastleHigh)
                         Is = false;
                 }
                 else
-                   if (Kind == 5)
+                   if (Kind == 5)//miniser
                 {
+                    //when index out of boundry
                     if (i < MinisterMidle || i >= MinisterHigh)
                         Is = false;
                 }
                 else
-                   if (Kind == 6)
+                   if (Kind == 6)//king
                 {
+                    //when index out of boundry
                     if (i < KingMidle || i >= KingHigh)
                         Is = false;
                 }
