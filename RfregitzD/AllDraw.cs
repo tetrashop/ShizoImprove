@@ -17791,9 +17791,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {   //non learning autamata victory leafs
                         for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
                             SolderesOnTable[ik].WinOcuuredatChiled += SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
-                        //non learning autamata victom leafs
-                        for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
-                            SolderesOnTable[ik].LoseOcuuredatChiled += SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+                        SolderesOnTable[ik].SoldierThinking[0].TowDistrurbProperUse(ref SolderesOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = 0; ik < ElefantMidle; ik++)
@@ -17803,10 +17802,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {      //non learning autamata victory leafs
                         for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
                             ElephantOnTable[ik].WinOcuuredatChiled += ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
-                        //non learning autamata victom leafs
-                        for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
-                            ElephantOnTable[ik].LoseOcuuredatChiled += ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
 
+                        ElephantOnTable[ik].ElefantThinking[0].TowDistrurbProperUse(ref ElephantOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = 0; ik < HourseMidle; ik++)
@@ -17816,9 +17813,9 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {     //non learning autamata victory leafs
                         for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
                             HoursesOnTable[ik].WinOcuuredatChiled += HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
-                        //non learning autamata victom leafs
-                        for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
-                            HoursesOnTable[ik].LoseOcuuredatChiled += HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+
+                        HoursesOnTable[ik].HourseThinking[0].TowDistrurbProperUse(ref HoursesOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = 0; ik < CastleMidle; ik++)
@@ -17828,8 +17825,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {      //non learning autamata victory leafs
                         for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
                             CastlesOnTable[ik].WinOcuuredatChiled += CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
-                        for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
-                            CastlesOnTable[ik].LoseOcuuredatChiled += CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+                        CastlesOnTable[ik].CastleThinking[0].TowDistrurbProperUse(ref CastlesOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = 0; ik < MinisterMidle; ik++)
@@ -17839,9 +17836,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {      //non learning autamata victory leafs
                         for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
                             MinisterOnTable[ik].WinOcuuredatChiled += MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
-                        //non learning autamata victom leafs
-                        for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
-                            MinisterOnTable[ik].LoseOcuuredatChiled += MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+                        MinisterOnTable[ik].MinisterThinking[0].TowDistrurbProperUse(ref MinisterOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = 0; ik < KingMidle; ik++)
@@ -17851,9 +17847,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {    //non learning autamata victory leafs
                         for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
                             KingOnTable[ik].WinOcuuredatChiled += KingOnTable[ik].KingThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
-                        //non learning autamata victom leafs
-                        for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
-                            KingOnTable[ik].LoseOcuuredatChiled += KingOnTable[ik].KingThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+                        KingOnTable[ik].KingThinking[0].TowDistrurbProperUse(ref KingOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
             }
@@ -17867,6 +17862,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         for (int h = 0; h < SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[ik].SoldierThinking[0].AStarGreedy != null; h++)
                             SolderesOnTable[ik].WinOcuuredatChiled += SolderesOnTable[ik].SoldierThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
                         //non learning autamata victom leafs
+                        SolderesOnTable[ik].SoldierThinking[0].TowDistrurbProperUse(ref SolderesOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = ElefantMidle; ik < ElefantMidle; ik++)
@@ -17877,6 +17873,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         for (int h = 0; h < ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[ik].ElefantThinking[0].AStarGreedy != null; h++)
                             ElephantOnTable[ik].WinOcuuredatChiled += ElephantOnTable[ik].ElefantThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
 
+                        ElephantOnTable[ik].ElefantThinking[0].TowDistrurbProperUse(ref ElephantOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = HourseMidle; ik < HourseHight; ik++)
@@ -17886,6 +17883,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {     //non learning autamata victory leafs
                         for (int h = 0; h < HoursesOnTable[ik].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[ik].HourseThinking[0].AStarGreedy != null; h++)
                             HoursesOnTable[ik].WinOcuuredatChiled += HoursesOnTable[ik].HourseThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+                        HoursesOnTable[ik].HourseThinking[0].TowDistrurbProperUse(ref HoursesOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = CastleMidle; ik < CastleHigh; ik++)
@@ -17895,6 +17894,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {      //non learning autamata victory leafs
                         for (int h = 0; h < CastlesOnTable[ik].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[ik].CastleThinking[0].AStarGreedy != null; h++)
                             CastlesOnTable[ik].WinOcuuredatChiled += CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+                        CastlesOnTable[ik].CastleThinking[0].TowDistrurbProperUse(ref CastlesOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = KingMidle; ik < KingHigh; ik++)
@@ -17904,6 +17905,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {      //non learning autamata victory leafs
                         for (int h = 0; h < MinisterOnTable[ik].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[ik].MinisterThinking[0].AStarGreedy != null; h++)
                             MinisterOnTable[ik].WinOcuuredatChiled += MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+                        MinisterOnTable[ik].MinisterThinking[0].TowDistrurbProperUse(ref MinisterOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
                 for (int ik = 0; ik < KingMidle; ik++)
@@ -17913,6 +17916,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {    //non learning autamata victory leafs
                         for (int h = 0; h < KingOnTable[ik].KingThinking[0].AStarGreedy.Count && KingOnTable[ik].KingThinking[0].AStarGreedy != null; h++)
                             KingOnTable[ik].WinOcuuredatChiled += KingOnTable[ik].KingThinking[0].AStarGreedy[h].FullGameThinkingTreeWin(Order * -1);
+
+                        KingOnTable[ik].KingThinking[0].TowDistrurbProperUse(ref KingOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
             }

@@ -15746,59 +15746,7 @@ namespace RefrigtzW
 
                 ThinkingFullGame(iAStarGreedy, THIS);
 
-                Object OI = new Object();
-                lock (OI)
-                {
-                    if (IsSupHu.Count > 0)
-                    {
-                        bool IsSup = true;
-                        for (int i = 0; i < IsSupHu.Count; i++)
-                            IsSup = IsSup && IsSupHu[i];
-                        if (IsSup)
-                        {
-                            if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
-                            {
-                                int i = IndexOfMoved();
-                                if (i != -1)
-                                {
-                                    i = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
-                                    if (i != -1)
-                                        IsSupHu[i] = false;
-                                    else
-                                    {
-                                        if (LoseOcuuredatChiled == 0)
-                                            LoseOcuuredatChiled = -4;
-                                    }
-
-                                }
-                                else
-                                {
-                                    if (LoseOcuuredatChiled == 0)
-                                        LoseOcuuredatChiled = -4;
-
-                                }
-
-
-                            }
-                            else
-                            {
-                                if (LoseOcuuredatChiled == 0)
-                                    LoseOcuuredatChiled = -4;
-                            }
-                        }
-                    }
-                    /*else
-                    {
-                        IsSup = false;
-                        for (int i = 0; i < IsSupHu.Count; i++)
-                            IsSup = IsSup || IsSupHu[i];
-                        if (!IsSup)
-                        {
-                            if (WinOcuuredatChiled == 0)
-                                WinOcuuredatChiled = 4;
-                        }
-                    }*/
-                }
+                TowDistrurbProperUse(ref LoseOcuuredatChiled);
             }
             catch (Exception t)
             {
@@ -15809,6 +15757,63 @@ namespace RefrigtzW
             }
             return;
         }
+        public void TowDistrurbProperUse(ref int LoseOcuuredatChiled)
+        {
+            Object OI = new Object();
+            lock (OI)
+            {
+                if (IsSupHu.Count > 0)
+                {
+                    bool IsSup = true;
+                    for (int i = 0; i < IsSupHu.Count; i++)
+                        IsSup = IsSup && IsSupHu[i];
+                    if (IsSup)
+                    {
+                        if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
+                        {
+                            int i = IndexOfMoved();
+                            if (i != -1)
+                            {
+                                i = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
+                                if (i != -1)
+                                    IsSupHu[i] = false;
+                                else
+                                {
+                                    if (LoseOcuuredatChiled == 0)
+                                        LoseOcuuredatChiled = -4;
+                                }
+
+                            }
+                            else
+                            {
+                                if (LoseOcuuredatChiled == 0)
+                                    LoseOcuuredatChiled = -4;
+
+                            }
+
+
+                        }
+                        else
+                        {
+                            if (LoseOcuuredatChiled == 0)
+                                LoseOcuuredatChiled = -4;
+                        }
+                    }
+                }
+                /*else
+                {
+                    IsSup = false;
+                    for (int i = 0; i < IsSupHu.Count; i++)
+                        IsSup = IsSup || IsSupHu[i];
+                    if (!IsSup)
+                    {
+                        if (WinOcuuredatChiled == 0)
+                            WinOcuuredatChiled = 4;
+                    }
+                }*/
+            }
+        }
+
         int IndexOfMoved()
         {
             int i = -1;
