@@ -19667,7 +19667,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             if (this.AStarGreedyString != null)
             {
 
-                if (!IsAtleastAWin(this, Order))
+                //if (!IsAtleastAWin(this, Order))
                 {
                     if (Order == 1)
                     {
@@ -19836,7 +19836,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             CastlesOnTable[ik].LoseOcuuredatChiled += CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h].FullGameThinkingTreeLose(Order * -1);
                     }
                 }
-                for (int ik = KingMidle; ik < KingHigh; ik++)
+                for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
                 {
                     if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null
        )
@@ -19845,7 +19845,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             MinisterOnTable[ik].LoseOcuuredatChiled += MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h].FullGameThinkingTreeLose(Order * -1);
                     }
                 }
-                for (int ik = 0; ik < KingMidle; ik++)
+                for (int ik = KingMidle; ik < KingHigh; ik++)
                 {
                     if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null
 )
@@ -22760,7 +22760,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         int UniqueCapableMoveIsTruSup(int Kind, int Order)
         {
             int No = 0;
-            if (Order == 1)
+         /*   if (Order == 1)
             {
                 if (Kind == 1)
                 {
@@ -22900,7 +22900,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 }
 
             }
-
+*/
             return No;
         }
 

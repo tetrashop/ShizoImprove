@@ -19648,7 +19648,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         CastlesOnTable[ik].CastleThinkingQuantum[0].TowDistrurbProperUse(ref CastlesOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
-                for (int ik = KingMidle; ik < KingHigh; ik++)
+                for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
                 {
                     if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinkingQuantum != null && MinisterOnTable[ik].MinisterThinkingQuantum[0] != null
        )
@@ -19659,7 +19659,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             MinisterOnTable[ik].MinisterThinkingQuantum[0].TowDistrurbProperUse(ref MinisterOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
-                for (int ik = 0; ik < KingMidle; ik++)
+                for (int ik = KingMidle; ik < KingHigh; ik++)
                 {
                     if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinkingQuantum != null && KingOnTable[ik].KingThinkingQuantum[0] != null
 )
@@ -19679,7 +19679,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
             if (this.AStarGreedyString != null)
             {
 
-                if (!IsAtleastAWin(this, Order))
+                //if (!IsAtleastAWin(this, Order))
                 {
                     if (Order == 1)
                     {

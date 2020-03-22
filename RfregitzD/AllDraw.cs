@@ -17898,7 +17898,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         CastlesOnTable[ik].CastleThinking[0].TowDistrurbProperUse(ref CastlesOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
-                for (int ik = KingMidle; ik < KingHigh; ik++)
+                for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
                 {
                     if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null
        )
@@ -17909,7 +17909,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         MinisterOnTable[ik].MinisterThinking[0].TowDistrurbProperUse(ref MinisterOnTable[ik].LoseOcuuredatChiled);
                     }
                 }
-                for (int ik = 0; ik < KingMidle; ik++)
+                for (int ik = KingMidle; ik < KingHigh; ik++)
                 {
                     if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null
 )
@@ -18098,7 +18098,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             CastlesOnTable[ik].LoseOcuuredatChiled += CastlesOnTable[ik].CastleThinking[0].AStarGreedy[h].FullGameThinkingTreeLose(Order * -1);
                     }
                 }
-                for (int ik = KingMidle; ik < KingHigh; ik++)
+                for (int ik = MinisterMidle; ik < MinisterHigh; ik++)
                 {
                     if (MinisterOnTable != null && MinisterOnTable[ik] != null && MinisterOnTable[ik].MinisterThinking != null && MinisterOnTable[ik].MinisterThinking[0] != null
        )
@@ -18107,7 +18107,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             MinisterOnTable[ik].LoseOcuuredatChiled += MinisterOnTable[ik].MinisterThinking[0].AStarGreedy[h].FullGameThinkingTreeLose(Order * -1);
                     }
                 }
-                for (int ik = 0; ik < KingMidle; ik++)
+                for (int ik = KingMidle; ik < KingHigh; ik++)
                 {
                     if (KingOnTable != null && KingOnTable[ik] != null && KingOnTable[ik].KingThinking != null && KingOnTable[ik].KingThinking[0] != null
 )
