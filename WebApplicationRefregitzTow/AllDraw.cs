@@ -5471,6 +5471,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]), Order * -1, false, false, 0);
+                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;
@@ -5487,6 +5488,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]), Order * -1, false, false, 0);
+                                    SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;
@@ -5537,6 +5539,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]), Order * -1, false, false, 0);
+                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;
@@ -5553,6 +5556,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]), Order * -1, false, false, 0);
+                                    ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;
@@ -5601,7 +5605,9 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]), Order * -1, false, false, 0);
+                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
+
                                     Found = true;
                                     return Leaf;
                                 }
@@ -5617,6 +5623,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]), Order * -1, false, false, 0);
+                                    HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;
@@ -5668,7 +5675,9 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]), Order * -1, false, false, 0);
+                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
+
                                     Found = true;
                                     return Leaf;
                                 }
@@ -5684,6 +5693,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]), Order * -1, false, false, 0);
+                                    CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;
@@ -5731,7 +5741,9 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]), Order * -1, false, false, 0);
+                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
+
                                     Found = true;
                                     return Leaf;
                                 }
@@ -5747,6 +5759,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]), Order * -1, false, false, 0);
+                                    MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;
@@ -5796,6 +5809,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     KingOnTable[i].KingThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]), Order * -1, false, false, 0);
+                                    KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;
@@ -5812,6 +5826,7 @@ namespace RefrigtzW
                                     if (Order * -1 == -1)
                                         aa = Color.Brown;
                                     KingOnTable[i].KingThinking[0].AStarGreedy[j].InitiateAStarGreedyt(MaxAStarGreedy, 0, 0, aa, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]), Order * -1, false, false, 0);
+                                    KingOnTable[i].KingThinking[0].AStarGreedy[j].AStarGreedyString = this;
                                     Leaf = KingOnTable[i].KingThinking[0].AStarGreedy[j];
                                     Found = true;
                                     return Leaf;

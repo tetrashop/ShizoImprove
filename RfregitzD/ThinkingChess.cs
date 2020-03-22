@@ -10687,7 +10687,7 @@ namespace RefrigtzDLL
                             {
                                 IsThereMateOfEnemy = true;
                                 FoundFirstMating++;
-                                if (LoseOcuuredatChiled == 0)
+                                //if (LoseOcuuredatChiled == 0)
                                 {
                                     WinChiled.Add(2);
                                     LoseChiled.Add(0);
@@ -10715,7 +10715,7 @@ namespace RefrigtzDLL
                                 IsThereMateOfEnemy = true;
 
                                 FoundFirstMating++;
-                                if (LoseOcuuredatChiled == 0)
+                                //if (LoseOcuuredatChiled == 0)
                                 {
                                     WinChiled.Add(2);
                                     LoseChiled.Add(0);
@@ -10742,7 +10742,7 @@ namespace RefrigtzDLL
                             {
                                 IsThereMateOfSelf = true;
                                 FoundFirstSelfMating++;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     WinChiled.Add(0);
                                     LoseChiled.Add(-2);
@@ -10770,7 +10770,7 @@ namespace RefrigtzDLL
                             lock (A)
                             {
                                 FoundFirstSelfMating++;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     WinChiled.Add(0);
                                     LoseChiled.Add(-2);
@@ -13638,7 +13638,7 @@ namespace RefrigtzDLL
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-                        if (WinOcuuredatChiled == 0)
+                        //if (WinOcuuredatChiled == 0)
                         {
                             if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             {
@@ -13655,7 +13655,7 @@ namespace RefrigtzDLL
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13664,7 +13664,7 @@ namespace RefrigtzDLL
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13768,7 +13768,7 @@ namespace RefrigtzDLL
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
                         //Disturbe on huge traversal exchange prevention 
                         //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                        if (WinOcuuredatChiled == 0)
+                        //if (WinOcuuredatChiled == 0)
                         {
                             if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
                             {
@@ -13799,7 +13799,7 @@ namespace RefrigtzDLL
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
 
@@ -13809,7 +13809,7 @@ namespace RefrigtzDLL
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);// || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13822,7 +13822,7 @@ namespace RefrigtzDLL
                             }
                             else
                             {
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {//if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
                                  //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                                  //Empire more
@@ -15575,13 +15575,13 @@ namespace RefrigtzDLL
                                 (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
                                 {
                                     FoundFirstSelfMating++;
-                                    if (WinOcuuredatChiled == 0)
+                                    //if (WinOcuuredatChiled == 0)
                                         LoseOcuuredatChiled = -2;
                                     IsThereMateOfSelf = true;
                                 }
                                 if ((AAA.CheckMateGray && AllDraw.OrderPlate == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == 1))
                                 {
-                                    if (LoseOcuuredatChiled == 0)
+                                    //if (LoseOcuuredatChiled == 0)
                                         WinOcuuredatChiled = 3;
                                     FoundFirstMating++;
                                     IsThereMateOfEnemy = true;
@@ -15780,14 +15780,14 @@ namespace RefrigtzDLL
                                     IsSupHu[i] = false;
                                 else
                                 {
-                                    if (LoseOcuuredatChiled == 0)
+                                    //if (LoseOcuuredatChiled == 0)
                                         LoseOcuuredatChiled = -4;
                                 }
 
                             }
                             else
                             {
-                                if (LoseOcuuredatChiled == 0)
+                                //if (LoseOcuuredatChiled == 0)
                                     LoseOcuuredatChiled = -4;
 
                             }
@@ -15796,7 +15796,7 @@ namespace RefrigtzDLL
                         }
                         else
                         {
-                            if (LoseOcuuredatChiled == 0)
+                            //if (LoseOcuuredatChiled == 0)
                                 LoseOcuuredatChiled = -4;
                         }
                     }
@@ -15808,7 +15808,7 @@ namespace RefrigtzDLL
                         IsSup = IsSup || IsSupHu[i];
                     if (!IsSup)
                     {
-                        if (WinOcuuredatChiled == 0)
+                        //if (WinOcuuredatChiled == 0)
                             WinOcuuredatChiled = 4;
                     }
                 }*/

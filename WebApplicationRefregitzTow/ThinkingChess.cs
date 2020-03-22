@@ -10680,7 +10680,7 @@ namespace RefrigtzW
                             {
                                 IsThereMateOfEnemy = true;
                                 FoundFirstMating++;
-                                if (LoseOcuuredatChiled == 0)
+                                //if (LoseOcuuredatChiled == 0)
                                 {
                                     WinChiled.Add(2);
                                     LoseChiled.Add(0);
@@ -10708,7 +10708,7 @@ namespace RefrigtzW
                                 IsThereMateOfEnemy = true;
 
                                 FoundFirstMating++;
-                                if (LoseOcuuredatChiled == 0)
+                                //if (LoseOcuuredatChiled == 0)
                                 {
                                     WinChiled.Add(2);
                                     LoseChiled.Add(0);
@@ -10735,7 +10735,7 @@ namespace RefrigtzW
                             {
                                 IsThereMateOfSelf = true;
                                 FoundFirstSelfMating++;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     WinChiled.Add(0);
                                     LoseChiled.Add(-2);
@@ -10763,7 +10763,7 @@ namespace RefrigtzW
                             lock (A)
                             {
                                 FoundFirstSelfMating++;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     WinChiled.Add(0);
                                     LoseChiled.Add(-2);
@@ -13630,7 +13630,7 @@ namespace RefrigtzW
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-                        if (WinOcuuredatChiled == 0)
+                        //if (WinOcuuredatChiled == 0)
                         {
                             if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             {
@@ -13647,7 +13647,7 @@ namespace RefrigtzW
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13656,7 +13656,7 @@ namespace RefrigtzW
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13760,7 +13760,7 @@ namespace RefrigtzW
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
                         //Disturbe on huge traversal exchange prevention 
                         //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                        if (WinOcuuredatChiled == 0)
+                        //if (WinOcuuredatChiled == 0)
                         {
                             if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
                             {
@@ -13791,7 +13791,7 @@ namespace RefrigtzW
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
 
@@ -13801,7 +13801,7 @@ namespace RefrigtzW
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);// || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13814,7 +13814,7 @@ namespace RefrigtzW
                             }
                             else
                             {
-                                if (WinOcuuredatChiled == 0)
+                                //if (WinOcuuredatChiled == 0)
                                 {//if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
                                  //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                                  //Empire more
@@ -15565,13 +15565,13 @@ namespace RefrigtzW
                                 (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
                                 {
                                     FoundFirstSelfMating++;
-                                    if (WinOcuuredatChiled == 0)
+                                    //if (WinOcuuredatChiled == 0)
                                         LoseOcuuredatChiled = -2;
                                     IsThereMateOfSelf = true;
                                 }
                                 if ((AAA.CheckMateGray && AllDraw.OrderPlate == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == 1))
                                 {
-                                    if (LoseOcuuredatChiled == 0)
+                                    //if (LoseOcuuredatChiled == 0)
                                         WinOcuuredatChiled = 3;
                                     FoundFirstMating++;
                                     IsThereMateOfEnemy = true;
@@ -15770,14 +15770,14 @@ namespace RefrigtzW
                                     IsSupHu[i] = false;
                                 else
                                 {
-                                    if (LoseOcuuredatChiled == 0)
+                                    //if (LoseOcuuredatChiled == 0)
                                         LoseOcuuredatChiled = -4;
                                 }
 
                             }
                             else
                             {
-                                if (LoseOcuuredatChiled == 0)
+                                //if (LoseOcuuredatChiled == 0)
                                     LoseOcuuredatChiled = -4;
 
                             }
@@ -15786,7 +15786,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            if (LoseOcuuredatChiled == 0)
+                            //if (LoseOcuuredatChiled == 0)
                                 LoseOcuuredatChiled = -4;
                         }
                     }
@@ -15798,7 +15798,7 @@ namespace RefrigtzW
                         IsSup = IsSup || IsSupHu[i];
                     if (!IsSup)
                     {
-                        if (WinOcuuredatChiled == 0)
+                        //if (WinOcuuredatChiled == 0)
                             WinOcuuredatChiled = 4;
                     }
                 }*/
