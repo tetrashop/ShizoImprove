@@ -10699,7 +10699,7 @@ namespace QuantumRefrigiz
             {
                 RETURN = false;
                 Object O3 = new Object();
-                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
+                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), Order, ii, jj);
                 Object O = new Object();
                 lock (O)
                 {
@@ -10714,7 +10714,7 @@ namespace QuantumRefrigiz
                     //Consideration to go to Check.  
 
                     //if (!UsePenaltyRegardMechnisamT)
-                    AA.CheckMate(TableS, AllDraw.OrderPlate);
+                    AA.CheckMate(TableS, Order);
                     {
                         if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
                         {
@@ -10923,8 +10923,8 @@ namespace QuantumRefrigiz
                     if (RETURN)
                         return;
 
-                    if (Order != AllDraw.OrderPlate)
-                        return;
+                    //if (Order != AllDraw.OrderPlate)
+                        //return;
                 }
 
                 //Initiate Local Variables.
@@ -13598,8 +13598,8 @@ namespace QuantumRefrigiz
                     HeuristicAllSupportMidel = HeuristicAllSupport.Count;
                     HeuristicReducedAttackedIndexInOnGameMidle = HeuristicReducedAttackedIndexInOnGame.Count;
                 }
-                if (Order != AllDraw.OrderPlate)
-                    return;
+                //if (Order != AllDraw.OrderPlate)
+                    //return;
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
 
                 if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0)
@@ -15612,8 +15612,8 @@ namespace QuantumRefrigiz
                     bool Castle = false;
 
                     bool DoEnemySelf = true;
-                    ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
-                    if (AAA.CheckMate(TableS, AllDraw.OrderPlate))
+                    ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), Order, ii, jj);
+                    if (AAA.CheckMate(TableS, Order))
                     {
                         if (AAA.CheckMateGray || AAA.CheckMateBrown)
                         {
@@ -15623,7 +15623,8 @@ namespace QuantumRefrigiz
 
                                 ThinkingQuantumFinished = true;
                                 CheckMateOcuured = true;
-                                if ((AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
+                                if (//(AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || 
+                                (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
                                 {
                                     FoundFirstSelfMating++;
                                     if (WinOcuuredatChiled == 0)
@@ -15637,6 +15638,7 @@ namespace QuantumRefrigiz
                                     FoundFirstMating++;
                                     IsThereMateOfEnemy = true;
                                 }
+
                                 EndThread++;
                             }
                             return;

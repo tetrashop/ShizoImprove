@@ -10663,7 +10663,7 @@ namespace RefrigtzDLL
             {
                 RETURN = false;
                 Object O3 = new Object();
-                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
+                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), Order, ii, jj);
                 Object O = new Object();
                 lock (O)
                 {
@@ -10678,7 +10678,7 @@ namespace RefrigtzDLL
                     //Consideration to go to Check.  
 
                     //if (!UsePenaltyRegardMechnisamT)
-                    AA.CheckMate(TableS, AllDraw.OrderPlate);
+                    AA.CheckMate(TableS, Order);
                     {
                         if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
                         {
@@ -10886,8 +10886,8 @@ namespace RefrigtzDLL
                     }
                     if (RETURN)
                         return;
-                    if (AllDraw.OrderPlate != Order)
-                        return;
+                    //if (AllDraw.OrderPlate != Order)
+                        //return;
                   
 
                 }
@@ -13545,8 +13545,8 @@ namespace RefrigtzDLL
                 int HFromCenter = 0;
                 int HExchangeInnovation = 0;
                 int HExchangeSupport = 0;
-                if (Order != AllDraw.OrderPlate)
-                    return;
+                //if (Order != AllDraw.OrderPlate)
+                    //return;
                 if (!Before && MidleIndex())
                 {
                     HeuristicAllAttackedMidel = HeuristicAllAttacked.Count;
@@ -15560,8 +15560,8 @@ namespace RefrigtzDLL
                     bool Castle = false;
 
                     bool DoEnemySelf = true;
-                    ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), AllDraw.OrderPlate, ii, jj);
-                    if (AAA.CheckMate(TableS, AllDraw.OrderPlate))
+                    ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), Order, ii, jj);
+                    if (AAA.CheckMate(TableS, Order))
                     {
                         if (AAA.CheckMateGray || AAA.CheckMateBrown)
                         {
@@ -15571,7 +15571,8 @@ namespace RefrigtzDLL
 
                                 ThinkingFinished = true;
                                 CheckMateOcuured = true;
-                                if ((AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
+                                if (//(AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || 
+                                (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
                                 {
                                     FoundFirstSelfMating++;
                                     if (WinOcuuredatChiled == 0)
@@ -15585,6 +15586,7 @@ namespace RefrigtzDLL
                                     FoundFirstMating++;
                                     IsThereMateOfEnemy = true;
                                 }
+
                                 EndThread++;
                             }
                             return;
