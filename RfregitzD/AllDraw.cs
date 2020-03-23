@@ -17724,78 +17724,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         }
         public int FullGameThinkingTreeWin(int Order)
         {
-            int Sum = 0;
-            if (this.AStarGreedyString != null)
-            {
-                if (Order == 1)
-                {
-                    for (var i = 0; i < this.SodierMidle; i++)
-                    {
-                        if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
-                            Sum += this.SolderesOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = 0; i < this.ElefantMidle; i++)
-                    {
-                        if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
-                            Sum += this.ElephantOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = 0; i < this.HourseMidle; i++)
-                    {
-                        if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
-                            Sum += this.HoursesOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = 0; i < this.CastleMidle; i++)
-                    {
-                        if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
-                            Sum += this.CastlesOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = 0; i < this.MinisterMidle; i++)
-                    {
-                        if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
-                            Sum += this.MinisterOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = 0; i < this.KingMidle; i++)
-                    {
-                        if (this.KingOnTable != null && this.KingOnTable[i] != null)
-                            Sum += this.KingOnTable[i].WinOcuuredatChiled;
-                    }
-
-                }
-                else
-                {
-                    for (var i = this.SodierMidle; i < this.SodierHigh; i++)
-                    {
-                        if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
-                            Sum += this.SolderesOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = this.ElefantMidle; i < this.ElefantHigh; i++)
-                    {
-                        if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
-                            Sum += this.ElephantOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = this.HourseMidle; i < this.HourseHight; i++)
-                    {
-                        if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
-                            Sum += this.HoursesOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = this.CastleMidle; i < this.CastleHigh; i++)
-                    {
-                        if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
-                            Sum += this.CastlesOnTable[i].WinOcuuredatChiled;
-                    }
-
-                    for (var i = this.MinisterMidle; i < this.MinisterHigh; i++)
-                    {
-                        if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
-                            Sum += this.MinisterOnTable[i].WinOcuuredatChiled;
-                    }
-                    for (var i = this.KingMidle; i < this.KingHigh; i++)
-                    {
-                        if (this.KingOnTable != null && this.KingOnTable[i] != null)
-                            Sum += this.KingOnTable[i].WinOcuuredatChiled;
-                    }
-                }
-            }
+            
 
             if (Order == 1)
             {
@@ -17936,87 +17865,83 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 }
             }
+            int Sum = 0;
+            //if (this.AStarGreedyString != null)
+            {
+                if (Order == 1)
+                {
+                    for (var i = 0; i < this.SodierMidle; i++)
+                    {
+                        if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
+                            Sum += this.SolderesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.ElefantMidle; i++)
+                    {
+                        if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
+                            Sum += this.ElephantOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.HourseMidle; i++)
+                    {
+                        if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
+                            Sum += this.HoursesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.CastleMidle; i++)
+                    {
+                        if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
+                            Sum += this.CastlesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.MinisterMidle; i++)
+                    {
+                        if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
+                            Sum += this.MinisterOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = 0; i < this.KingMidle; i++)
+                    {
+                        if (this.KingOnTable != null && this.KingOnTable[i] != null)
+                            Sum += this.KingOnTable[i].WinOcuuredatChiled;
+                    }
+
+                }
+                else
+                {
+                    for (var i = this.SodierMidle; i < this.SodierHigh; i++)
+                    {
+                        if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
+                            Sum += this.SolderesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = this.ElefantMidle; i < this.ElefantHigh; i++)
+                    {
+                        if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
+                            Sum += this.ElephantOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = this.HourseMidle; i < this.HourseHight; i++)
+                    {
+                        if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
+                            Sum += this.HoursesOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = this.CastleMidle; i < this.CastleHigh; i++)
+                    {
+                        if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
+                            Sum += this.CastlesOnTable[i].WinOcuuredatChiled;
+                    }
+
+                    for (var i = this.MinisterMidle; i < this.MinisterHigh; i++)
+                    {
+                        if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
+                            Sum += this.MinisterOnTable[i].WinOcuuredatChiled;
+                    }
+                    for (var i = this.KingMidle; i < this.KingHigh; i++)
+                    {
+                        if (this.KingOnTable != null && this.KingOnTable[i] != null)
+                            Sum += this.KingOnTable[i].WinOcuuredatChiled;
+                    }
+                }
+            }
             return Sum;
         }
         public int FullGameThinkingTreeLose(int Order)
         {
-            int Sum = 0;
-            if (this.AStarGreedyString != null)
-            {
-
-                //if (!IsAtleastAWin(this, Order))
-                {
-                    if (Order == 1)
-                    {
-                        for (var i = 0; i < this.SodierMidle; i++)
-                        {
-                            if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
-                                Sum += this.SolderesOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = 0; i < this.ElefantMidle; i++)
-                        {
-                            if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
-                                Sum += this.ElephantOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = 0; i < this.HourseMidle; i++)
-                        {
-                            if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
-                                Sum += this.HoursesOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = 0; i < this.CastleMidle; i++)
-                        {
-                            if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
-                                Sum += this.CastlesOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = 0; i < this.MinisterMidle; i++)
-                        {
-                            if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
-                                Sum += this.MinisterOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = 0; i < this.KingMidle; i++)
-                        {
-                            if (this.KingOnTable != null && this.KingOnTable[i] != null)
-                                Sum += this.KingOnTable[i].LoseOcuuredatChiled;
-                        }
-                    }
-                    else
-                    {
-                        for (var i = this.SodierMidle; i < this.SodierHigh; i++)
-                        {
-                            if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
-                                Sum += this.SolderesOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = this.ElefantMidle; i < this.ElefantHigh; i++)
-                        {
-                            if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
-                                Sum += this.ElephantOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = this.HourseMidle; i < this.HourseHight; i++)
-                        {
-                            if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
-                                Sum += this.HoursesOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = this.CastleMidle; i < this.CastleHigh; i++)
-                        {
-                            if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
-                                Sum += this.CastlesOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = this.MinisterMidle; i < this.MinisterHigh; i++)
-                        {
-                            if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
-                                Sum += this.MinisterOnTable[i].LoseOcuuredatChiled;
-                        }
-                        for (var i = this.KingMidle; i < this.KingHigh; i++)
-                        {
-                            if (this.KingOnTable != null && this.KingOnTable[i] != null)
-                                Sum += this.KingOnTable[i].LoseOcuuredatChiled;
-                        }
-                    }
-
-
-                }
-            }
-            if (Order == 1)
+                      if (Order == 1)
             {
                 for (int ik = 0; ik < SodierMidle; ik++)
                 {
@@ -18132,6 +18057,82 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     }
                 }
             }
+            int Sum = 0;
+            //if (this.AStarGreedyString != null)
+            {
+
+                //if (!IsAtleastAWin(this, Order))
+                {
+                    if (Order == 1)
+                    {
+                        for (var i = 0; i < this.SodierMidle; i++)
+                        {
+                            if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
+                                Sum += this.SolderesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.ElefantMidle; i++)
+                        {
+                            if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
+                                Sum += this.ElephantOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.HourseMidle; i++)
+                        {
+                            if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
+                                Sum += this.HoursesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.CastleMidle; i++)
+                        {
+                            if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
+                                Sum += this.CastlesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.MinisterMidle; i++)
+                        {
+                            if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
+                                Sum += this.MinisterOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = 0; i < this.KingMidle; i++)
+                        {
+                            if (this.KingOnTable != null && this.KingOnTable[i] != null)
+                                Sum += this.KingOnTable[i].LoseOcuuredatChiled;
+                        }
+                    }
+                    else
+                    {
+                        for (var i = this.SodierMidle; i < this.SodierHigh; i++)
+                        {
+                            if (this.SolderesOnTable != null && this.SolderesOnTable[i] != null)
+                                Sum += this.SolderesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.ElefantMidle; i < this.ElefantHigh; i++)
+                        {
+                            if (this.ElephantOnTable != null && this.ElephantOnTable[i] != null)
+                                Sum += this.ElephantOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.HourseMidle; i < this.HourseHight; i++)
+                        {
+                            if (this.HoursesOnTable != null && this.HoursesOnTable[i] != null)
+                                Sum += this.HoursesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.CastleMidle; i < this.CastleHigh; i++)
+                        {
+                            if (this.CastlesOnTable != null && this.CastlesOnTable[i] != null)
+                                Sum += this.CastlesOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.MinisterMidle; i < this.MinisterHigh; i++)
+                        {
+                            if (this.MinisterOnTable != null && this.MinisterOnTable[i] != null)
+                                Sum += this.MinisterOnTable[i].LoseOcuuredatChiled;
+                        }
+                        for (var i = this.KingMidle; i < this.KingHigh; i++)
+                        {
+                            if (this.KingOnTable != null && this.KingOnTable[i] != null)
+                                Sum += this.KingOnTable[i].LoseOcuuredatChiled;
+                        }
+                    }
+
+
+                }
+            }
             return Sum;
         }
         //deeper for soldier
@@ -18226,7 +18227,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 1);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 1);
                                 }
                                 //when deeper is valid
                                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count > 0)
@@ -18286,7 +18287,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 1);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 1);
                                 }
                                 //when deeper is valid
                                 if (SolderesOnTable[ik].SoldierThinking[0].AStarGreedy.Count > 0)
@@ -18447,7 +18448,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 2);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 2);
 
                                     //when deeper is valid
                                     if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count > 0)
@@ -18507,7 +18508,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 2);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 2);
 
                                     //when deeper is valid
                                     if (ElephantOnTable[ik].ElefantThinking[0].AStarGreedy.Count > 0)
@@ -18668,7 +18669,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 Object O3 = new Object();
                                 lock (O3)
                                 {
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 3);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 3);
                                 }
 
 
@@ -18730,7 +18731,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     lock (O3)
                                     {
                                         //initiate for satisfied full game primary conditions
-                                        FullGameThinkingTreeInitialization(ik, j, Order, 3);
+                                        //FullGameThinkingTreeInitialization(ik, j, Order, 3);
                                     }
 
 
@@ -18891,7 +18892,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 4);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 4);
                                 }
 
 
@@ -18951,7 +18952,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 4);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 4);
                                 }
 
 
@@ -19115,7 +19116,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 5);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 5);
                                 }
 
 
@@ -19178,7 +19179,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 5);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 5);
                                 }
 
 
@@ -19344,7 +19345,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 6);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 6);
                                 }
 
 
@@ -19404,7 +19405,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 lock (O3)
                                 {
                                     //initiate for satisfied full game primary conditions
-                                    FullGameThinkingTreeInitialization(ik, j, Order, 6);
+                                    //FullGameThinkingTreeInitialization(ik, j, Order, 6);
                                 }
 
 

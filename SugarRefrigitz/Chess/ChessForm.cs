@@ -162,12 +162,14 @@ namespace Chess
         }
         void AliceAction(int Order)
         {
-            
-            
-            
+
+
+
             Object O = new Object();
             lock (O)
             {
+                bool B = AllDraw.Blitz;
+                AllDraw.Blitz = false;
                 RefrigtzDLL.ThinkingChess.ThinkingRun = false;
 #pragma warning disable CS0164 // This label has not been referenced
                 Begin4:
@@ -180,12 +182,12 @@ namespace Chess
                     Draw.IsCurrentDraw = true;
                 }
                 Initiate(Color.Brown, -1);
-
+                AllDraw.Blitz = B;
 
             }
-            
-            
-            
+
+
+
         }
         void DisposeConv()
         {
@@ -3078,7 +3080,7 @@ namespace Chess
                                 aa = Color.Brown;
                             bool B = AllDraw.Blitz;
                             AllDraw.Blitz = false;
-                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount * 2;
 
                             if (!FirstS)
                             {
@@ -3088,6 +3090,7 @@ namespace Chess
                                     Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]));
                                     Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
+                                    FOUND = false;
                                 }
                                 output = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0));
                                 output.Wait();
@@ -3102,6 +3105,7 @@ namespace Chess
                                     Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
                                     Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
+                                    FOUND = false;
                                 }
                                 output = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0));
                                 output.Wait();

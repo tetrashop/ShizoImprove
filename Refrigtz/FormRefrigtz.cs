@@ -7131,7 +7131,7 @@ namespace Refrigtz
             lock (O)
             {
                 var parallelOptions = new ParallelOptions();
-                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount*2;
+                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
 
                 int HA = 0;
                 if (!Quantum)
@@ -14063,7 +14063,7 @@ namespace Refrigtz
                                 aa = Color.Brown;
                             bool B = RefrigtzDLL.AllDraw.Blitz;
                             RefrigtzDLL.AllDraw.Blitz = false;
-                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
                             //FOUND = false;
                             if (!FirstS)
                             {
@@ -14362,7 +14362,7 @@ namespace Refrigtz
                                 aa = Color.Brown;
                             bool B = QuantumRefrigiz.AllDraw.Blitz;
                             QuantumRefrigiz.AllDraw.Blitz = false;
-                            QuantumRefrigiz.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                            QuantumRefrigiz.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
                             //FOUND = false;
                             if (!FirstS)
                             {

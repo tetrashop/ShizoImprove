@@ -135,14 +135,17 @@ namespace Chess
                 //Draw.AStarGreedyString = THIS;
             }
         }
+        
         void BobAction(int Order)
         {
-            
-            
-            
+
+
+
             Object O = new Object();
             lock (O)
             {
+                bool B = AllDraw.Blitz;
+                AllDraw.Blitz = false;
                 RefrigtzDLL.ThinkingChess.ThinkingRun = false;
 #pragma warning disable CS0164 // This label has not been referenced
                 Begin4:
@@ -155,13 +158,18 @@ namespace Chess
                     Draw.IsCurrentDraw = true;
                 }
                 Initiate(Color.Gray, 1);
-
+                AllDraw.Blitz = B;
 
             }
-            
-            
-            
+
+
+
+
         }
+
+
+
+    
         void DisposeConv()
         {
             for (int i = 0; i < 4; i++)
@@ -2170,6 +2178,7 @@ namespace Chess
                                     Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]));
                                     Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
+                                    FOUND = false;
                                 }
                                 output = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 2]), Ord, false, FOUND, 0));
                                 output.Wait();
@@ -2184,6 +2193,7 @@ namespace Chess
                                     Draw.TableList.Add(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]));
                                     Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
+                                    FOUND = false;
                                 }
                                 output = Task.Factory.StartNew(() => Draw.InitiateAStarGreedyt(RefrigtzDLL.AllDraw.MaxAStarGreedy, 0, 0, aa, CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, false, FOUND, 0));
                                 output.Wait();
@@ -2193,17 +2203,18 @@ namespace Chess
                             Deeperthandeeper = Store;
                             //while (Draw.AStarGreedyString != null)
 
+
                             FOUND = false;
+                            output = Task.Factory.StartNew(() => Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND));
+                            output.Wait();
+                            output.Dispose();
+
                             if (!First && (RefrigtzDLL.AllDraw.TableListAction.Count > 2))
                             {
                                 Ord = OrderPlate * -1;
                                 AllDraw.OrderPlate = Ord;
                                 OrderPlate = Ord;
                             }
-                            output = Task.Factory.StartNew(() => Draw.FoundOfCurrentTableNode(CloneATable(RefrigtzDLL.AllDraw.TableListAction[RefrigtzDLL.AllDraw.TableListAction.Count - 1]), Ord, ref THIS, ref FOUND));
-                            output.Wait();
-                            output.Dispose();
-
                             if (FOUND)
                             {
                                 Draw = THIS;
