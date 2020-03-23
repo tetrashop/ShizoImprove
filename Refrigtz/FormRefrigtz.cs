@@ -7131,13 +7131,13 @@ namespace Refrigtz
             lock (O)
             {
                 var parallelOptions = new ParallelOptions();
-                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount*2;
 
                 int HA = 0;
                 if (!Quantum)
-                    HA = CalculateMoveMentHueuristicUserRefrigitzDLL(Kind, Table, Order, Row, Column, RowSource, ColumnS, color);
+                    HA = CalculateMoveMentHueuristicUserRefrigitzDLL(Kind, CloneATable(Table), Order, Row, Column, RowSource, ColumnS, color);
                 else
-                    HA = CalculateMoveMentHueuristicUserQuantum(Kind, Table, Order, Row, Column, RowSource, ColumnS, color);
+                    HA = CalculateMoveMentHueuristicUserQuantum(Kind, CloneATable(Table), Order, Row, Column, RowSource, ColumnS, color);
                 return HA;
             }
         }
@@ -7148,7 +7148,7 @@ namespace Refrigtz
             lock (O)
             {
                 QuantumRefrigiz.ThinkingQuantumChess th1 = null;
-                th1 = new QuantumRefrigiz.ThinkingQuantumChess(-1, Kind, 0, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged, Row, Column, color, Table, 0, Order, false, 0, 0, Table[Row, Column]);
+                th1 = new QuantumRefrigiz.ThinkingQuantumChess(-1, Kind, 0, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged, Row, Column, color, CloneATable(Table), 0, Order, false, 0, 0, Table[Row, Column]);
                 int HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue = new int();
                 int HeuristicReducedMovementValue = new int();
                 int HeuristicSelfSupportedValue = new int();
@@ -7174,7 +7174,7 @@ namespace Refrigtz
             lock (O)
             {
                 RefrigtzDLL.ThinkingChess th = null;
-                th = new RefrigtzDLL.ThinkingChess(-1, Kind, 0, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged, Row, Column, color, Table, 0, Order, false, 0, 0, Table[Row, Column]);
+                th = new RefrigtzDLL.ThinkingChess(-1, Kind, 0, MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged, Row, Column, color, CloneATable(Table), 0, Order, false, 0, 0, Table[Row, Column]);
                 int HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue = new int();
                 int HeuristicReducedMovementValue = new int();
                 int HeuristicSelfSupportedValue = new int();
@@ -7214,7 +7214,7 @@ namespace Refrigtz
 
                 if (!Quantum)
                 {
-                    A.Check(Tab, Order);
+                    A.Check(CloneATable(Tab), Order);
                     if (Order == 1 && A.CheckGray)
                         Check = true;
                     if (Order == -1 && A.CheckBrown)
@@ -7222,7 +7222,7 @@ namespace Refrigtz
                 }
                 else
                 {
-                    AQ.Check(Tab, Order);
+                    AQ.Check(CloneATable(Tab), Order);
                     if (Order == 1 && AQ.CheckGray)
                         Check = true;
                     if (Order == -1 && AQ.CheckBrown)
@@ -14063,7 +14063,7 @@ namespace Refrigtz
                                 aa = Color.Brown;
                             bool B = RefrigtzDLL.AllDraw.Blitz;
                             RefrigtzDLL.AllDraw.Blitz = false;
-                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
+                            RefrigtzDLL.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
                             //FOUND = false;
                             if (!FirstS)
                             {
@@ -14362,7 +14362,7 @@ namespace Refrigtz
                                 aa = Color.Brown;
                             bool B = QuantumRefrigiz.AllDraw.Blitz;
                             QuantumRefrigiz.AllDraw.Blitz = false;
-                            QuantumRefrigiz.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
+                            QuantumRefrigiz.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
                             //FOUND = false;
                             if (!FirstS)
                             {

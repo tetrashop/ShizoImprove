@@ -999,7 +999,7 @@ namespace RefrigtzW
                     {
                         //if (Before)
                         {
-                            if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
+                            if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, CloneATable(Table), Ord, aa, RowS, ColS, RowD, ColD))
                                 HA += RationalPenalty;
                             else
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
@@ -1104,7 +1104,7 @@ namespace RefrigtzW
                     {
                         //if (Before)
                         {
-                            if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
+                            if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, CloneATable(Table), Ord, aa, RowS, ColS, RowD, ColD))
                                 HA += RationalPenalty;
                             else
                             if (Attack(CloneATable(Table), RowS, ColS, RowD, ColD, a, Order))
@@ -1370,7 +1370,7 @@ namespace RefrigtzW
                                     }
                                     else
                                     {
-                                        if (IsMinisteBreakable(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
+                                        if (IsMinisteBreakable(Before, CloneATable(Table), Order, aa, RowS, ColS, RowD, ColD))
                                         {
                                             HA += (3 * RationalPenalty);
                                         }
@@ -1490,7 +1490,7 @@ namespace RefrigtzW
                                                 }
                                                 else
                                                 {
-                                                    if (IsMinisteBreakable(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
+                                                    if (IsMinisteBreakable(Before, CloneATable(Table), Order, aa, RowS, ColS, RowD, ColD))
                                                     {
                                                         HA += (3 * RationalPenalty);
                                                     }
@@ -1505,7 +1505,7 @@ namespace RefrigtzW
                 }
                 if (!MinisterOnAttack)
                 {
-                    if (IsMinistePowerfull(Before, Table, Order, aa, RowS, ColS, RowD, ColD))
+                    if (IsMinistePowerfull(Before, CloneATable(Table), Order, aa, RowS, ColS, RowD, ColD))
                         HA += RationalRegard;
 
                 }
@@ -1684,20 +1684,20 @@ namespace RefrigtzW
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed, Tab, Order, aa, RowS, ColS, RowD, ColD);
+                    EnemyNotSupported = InAttackEnemyThatIsNotSupported(Killed, CloneATable(Tab), Order, aa, RowS, ColS, RowD, ColD);
                     //When there is Attacks to Current Objects and is killable..
-                    if (Attack(Tab, RowS, ColS, RowD, ColD, a, Order))
+                    if (Attack(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
                     {
                         if (EnemyNotSupported)
                         {
                             //Heuristic positive.
-                            HA += AllDraw.SignKiller * (int)((ObjectValueCalculator(Tab, RowS, ColS, RowD, ColD)
+                            HA += AllDraw.SignKiller * (int)((ObjectValueCalculator(CloneATable(Tab), RowS, ColS, RowD, ColD)
                             ));
                         }
                         else
                         {
                             //Heuristic ngative.
-                            HA += AllDraw.SignKiller * (int)((ObjectValueCalculator(Tab, RowS, ColS, RowD, ColD)
+                            HA += AllDraw.SignKiller * (int)((ObjectValueCalculator(CloneATable(Tab), RowS, ColS, RowD, ColD)
                             ) * -1);
                         }
                     }
@@ -1773,8 +1773,8 @@ namespace RefrigtzW
                             Object O1 = new Object();
                             lock (O1)
                             {
-                                if (Support(Tab, RowS, ColS, ii, jj, a, Order1 * -1)
-                                       && ObjectValueCalculator(Tab, i, j) >= ObjectValueCalculator(Tab, ii, jj)
+                                if (Support(CloneATable(Tab), RowS, ColS, ii, jj, a, Order1 * -1)
+                                       && ObjectValueCalculator(CloneATable(Tab), i, j) >= ObjectValueCalculator(CloneATable(Tab), ii, jj)
                                         )
 
                                 //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
@@ -1857,7 +1857,7 @@ namespace RefrigtzW
 
                                         EnemyNotSupported = true;
                                         InAttackedNotEnemySupported = false;
-                                        if (Attack(Tab, i, j, ii, jj, a, Order))
+                                        if (Attack(CloneATable(Tab), i, j, ii, jj, a, Order))
                                         {
                                             InAttackedNotEnemySupported = true;
 
@@ -1876,8 +1876,8 @@ namespace RefrigtzW
                                                     if (Order * -1 == -1)
                                                         a = Color.Brown;
                                                     //
-                                                    if (Support(Tab, RowS, ColS, ii, jj, a, Order * -1)
-                                                        //&& (ObjectValueCalculator(Tab,i,j) >= ObjectValueCalculator(Tab,ii,jj)
+                                                    if (Support(CloneATable(Tab), RowS, ColS, ii, jj, a, Order * -1)
+                                                        //&& (ObjectValueCalculator(CloneATable(Tab),i,j) >= ObjectValueCalculator(CloneATable(Tab),ii,jj)
 
                                                         //Wehn [i,j] (Current) is less or equal than [ii,jj] (Enemy) 
                                                         //EnemyNotSupported method Should return [valid]
@@ -2004,7 +2004,7 @@ namespace RefrigtzW
                                 if (Order * -1 == -1)
                                     a = Color.Brown;
                                 //when there is attack to some self node.
-                                if (Attack(Tab, ii, jj, RowS, ColS, a, Order * -1))
+                                if (Attack(CloneATable(Tab), ii, jj, RowS, ColS, a, Order * -1))
                                 {
                                     bool Supporte = false;
                                     //For All Self
@@ -2028,7 +2028,7 @@ namespace RefrigtzW
                                             if (Order == -1)
                                                 a = Color.Brown;
                                             //when there is attack of self node to that enemy node.
-                                            if (Support(Tab, RowD, ColD, RowS, ColS, a, Order) || Attack(Tab, RowD, ColD, ii, jj, a, Order))
+                                            if (Support(CloneATable(Tab), RowD, ColD, RowS, ColS, a, Order) || Attack(CloneATable(Tab), RowD, ColD, ii, jj, a, Order))
                                             {
 
                                                 Supporte = true;
@@ -2104,7 +2104,7 @@ namespace RefrigtzW
                             Object OO = new Object();
                             lock (OO)
                             {
-                                if (Attack(Tab, RowS, ColS, i, j, a, Order * -1))
+                                if (Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1))
                                 {
                                     InAttackedNotSelfSupported = true;
                                     a = Color.Gray;
@@ -2130,7 +2130,7 @@ namespace RefrigtzW
                                                     Tab[ik, jk] = TableS[ik, jk];
                                             //When there is support and cuurent is less than enemy.
                                             //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
-                                            if (Support(Tab, RowD, ColD, i, j, a, Order))
+                                            if (Support(CloneATable(Tab), RowD, ColD, i, j, a, Order))
                                             {
                                                 SelfSupported = true;
                                                 S = S && true;
@@ -2243,7 +2243,7 @@ namespace RefrigtzW
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        if (Attack(Tab, RowS, ColS, i, j, a, Order * -1))
+                        if (Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1))
                         {
                             InAttackedNotSelfSupported = true;
                             a = Color.Gray;
@@ -2271,7 +2271,7 @@ namespace RefrigtzW
                                             Tab[ik, jk] = TableS[ik, jk];
                                     //When there is supporte and cuurent is less than enemy.
                                     //method return true when is not supporte and the enemy is less than cuurent in to be hitten.
-                                    if (Support(Tab, RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(Tab, i, j) <= ObjectValueCalculator(Tab, RowS, ColS)))
+                                    if (Support(CloneATable(Tab), RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(CloneATable(Tab), i, j) <= ObjectValueCalculator(CloneATable(Tab), RowS, ColS)))
                                     {
                                         SelfSupported = true;
                                         S = S && true;
@@ -2355,7 +2355,7 @@ namespace RefrigtzW
                                 Object O1 = new Object();
                                 lock (O1)
                                 {
-                                    if (Attack(Tab, RowS, ColS, i, j, a, Order * -1))
+                                    if (Attack(CloneATable(Tab), RowS, ColS, i, j, a, Order * -1))
                                     {
                                         InAttackedNotSelfSupported = true;
                                         a = Color.Gray;
@@ -2380,7 +2380,7 @@ namespace RefrigtzW
                                                     for (var jk = 0; jk < 8; jk++)
                                                         Tab[ik, jk] = TableS[ik, jk];
                                                 //When There is Supporter For Attacked Self Object and Is Greater than Attacking Object.
-                                                if (Support(Tab, RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(Tab, i, j) <= ObjectValueCalculator(Tab, RowS, ColS)))
+                                                if (Support(CloneATable(Tab), RowD, ColD, i, j, a, Order) && (ObjectValueCalculator(CloneATable(Tab), i, j) <= ObjectValueCalculator(CloneATable(Tab), RowS, ColS)))
                                                 {
                                                     SelfSupported = true;
                                                     S = S && true;
@@ -2510,7 +2510,7 @@ namespace RefrigtzW
 
 
                         //When there is Attacks.
-                        if (Support(Tab, RowS, ColS, ii, jj, a, Order))
+                        if (Support(CloneATable(Tab), RowS, ColS, ii, jj, a, Order))
                             SelfSupported = true;
                     }
                 }
@@ -2781,7 +2781,7 @@ namespace RefrigtzW
                             else
                                 return HeuristicSelfSupportedValue;
                             //For Support Movments.
-                            if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
+                            if (Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
                             {
                                 //Calculate Local Support Heuristic.
                                 HA += RationalRegard;
@@ -2827,8 +2827,8 @@ namespace RefrigtzW
                                             //When Enemy is Supported.
                                             bool A = new bool();
                                             bool B = new bool();
-                                            A = Support(Tab, g, h, RowS, ColS, aaa, Order);
-                                            B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
+                                            A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order);
+                                            B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1);
                                             //When Enemy is Supported.
                                             if (A)
                                             {
@@ -2919,7 +2919,7 @@ namespace RefrigtzW
                                         else
                                             return HeuristicSelfSupportedValue;
                                         //For Support Movments.
-                                        if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
+                                        if (Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
                                         {
                                             //Calculate Local Support Heuristic.
                                             HA += RationalRegard;
@@ -2965,8 +2965,8 @@ namespace RefrigtzW
                                                         //When Enemy is Supported.
                                                         bool A = new bool();
                                                         bool B = new bool();
-                                                        A = Support(Tab, g, h, RowS, ColS, aaa, Order);
-                                                        B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
+                                                        A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order);
+                                                        B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1);
                                                         //When Enemy is Supported.
                                                         if (A)
                                                         {
@@ -3089,7 +3089,7 @@ namespace RefrigtzW
                             else
                                 return HeuristicSelfSupportedValue;
                             //For Support Movments.
-                            if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
+                            if (Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
                             {
                                 //Calculate Local Support Heuristic.
                                 HA += RationalPenalty;
@@ -3135,8 +3135,8 @@ namespace RefrigtzW
                                             //When Enemy is Supported.
                                             bool A = new bool();
                                             bool B = new bool();
-                                            A = Support(Tab, g, h, RowS, ColS, aaa, Order);
-                                            B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
+                                            A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order);
+                                            B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1);
                                             //When Enemy is Supported.
                                             if (A)
                                             {
@@ -3227,7 +3227,7 @@ namespace RefrigtzW
                                         else
                                             return HeuristicSelfSupportedValue;
                                         //For Support Movments.
-                                        if (Support(Tab, RowS, ColS, RowD, ColD, a, Order))
+                                        if (Support(CloneATable(Tab), RowS, ColS, RowD, ColD, a, Order))
                                         {
                                             //Calculate Local Support Heuristic.
                                             HA += RationalPenalty;
@@ -3273,8 +3273,8 @@ namespace RefrigtzW
                                                         //When Enemy is Supported.
                                                         bool A = new bool();
                                                         bool B = new bool();
-                                                        A = Support(Tab, g, h, RowS, ColS, aaa, Order);
-                                                        B = Attack(Tab, g, h, RowS, ColS, aa, Order * -1);
+                                                        A = Support(CloneATable(Tab), g, h, RowS, ColS, aaa, Order);
+                                                        B = Attack(CloneATable(Tab), g, h, RowS, ColS, aa, Order * -1);
                                                         //When Enemy is Supported.
                                                         if (A)
                                                         {
@@ -3466,9 +3466,9 @@ namespace RefrigtzW
             {
                 bool Remove = false;
                 //Create Objects.
-                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[i, j], Tab, Order, i, j);
+                ChessRules AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Tab[i, j], CloneATable(Tab), Order, i, j);
                 //When is Check.
-                if (AA.Check(Tab, Order))
+                if (AA.Check(CloneATable(Tab), Order))
                 {
                     //When there is Current Checked or Objects Danger return false.
                     if (Order == 1 && (AA.CheckGray || AA.CheckGrayObjectDangour))
@@ -3604,7 +3604,7 @@ namespace RefrigtzW
             lock (O)
             {
                 //Initiate Object.
-                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, Tabl, 1, Row, Column);
+                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(Tabl), 1, Row, Column);
                 //Gray Order.
                 if (Order == 1)
                 {
@@ -3893,7 +3893,7 @@ namespace RefrigtzW
                         int[] IS = null;
                         lock (O1)
                         {
-                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(Tab, Ord, a, Depth1, OrderP, OrderM, KindCheckedSelf1);
+                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(CloneATable(Tab), Ord, a, Depth1, OrderP, OrderM, KindCheckedSelf1);
                         }
                         if (Is[0] == 1) Is[0] = 1;
                         if (IS[2] == 1) Is[2] = 1;
@@ -4057,7 +4057,7 @@ namespace RefrigtzW
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
                                                 if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                                 Is[1] = Is[1]; Is[3] = IS[3];
                                             }
@@ -4090,7 +4090,7 @@ namespace RefrigtzW
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
@@ -4119,7 +4119,7 @@ namespace RefrigtzW
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
@@ -4151,7 +4151,7 @@ namespace RefrigtzW
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
                                                 if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                                 Is[1] = Is[1]; Is[3] = IS[3];
                                             }
@@ -4182,7 +4182,7 @@ namespace RefrigtzW
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
@@ -4210,7 +4210,7 @@ namespace RefrigtzW
                                         Object O1 = new Object();
                                         lock (O1)
                                         {
-                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                            IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
                                             if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                             Is[1] = Is[1]; Is[3] = IS[3];
                                         }
@@ -4243,7 +4243,7 @@ namespace RefrigtzW
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
                                                 if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                                 Is[1] = Is[1]; Is[3] = IS[3];
                                             }
@@ -4275,7 +4275,7 @@ namespace RefrigtzW
                                             Object O1 = new Object();
                                             lock (O1)
                                             {
-                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, Tab, ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
+                                                IS = IsNextMovmentIsCheckOrCheckMateForCurrentMovmentbaseKernel(Ord, CloneATable(Tab), ik1, jk1, iki1, jki1, OrderP, OrderM, Depth1, KindCheckedSelf1);
                                                 if (Is[0] == 1) Is[0] = 1; if (IS[2] == 1) Is[2] = 1;
                                                 Is[1] = Is[1]; Is[3] = IS[3];
                                             }
@@ -4343,7 +4343,7 @@ namespace RefrigtzW
                     if (Order * -1 == -1)
                         aa = Color.Brown;
                     //When Enemy Attacked Current Movements.
-                    if (Attack(Tab, ii, jj, RowS, ColS, aa, Order * -1) && (ObjectValueCalculator(Tab, ii, jj) < ObjectValueCalculator(Tab, RowS, ColS)))
+                    if (Attack(CloneATable(Tab), ii, jj, RowS, ColS, aa, Order * -1) && (ObjectValueCalculator(CloneATable(Tab), ii, jj) < ObjectValueCalculator(CloneATable(Tab), RowS, ColS)))
                     {
                         NumberOfCurrentEnemyAttackSuchObject++;
                         //Clone a Table.
@@ -4759,7 +4759,7 @@ namespace RefrigtzW
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowD, ColD);
 
                     int[,] Tab = CloneATable(Table);
-                    if (G.CheckMate(Tab, Order))
+                    if (G.CheckMate(CloneATable(Tab), Order))
                     {
                         if (Order == 1 && G.CheckMateBrown)
                             HA += RationalRegard;
@@ -4774,7 +4774,7 @@ namespace RefrigtzW
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
 
                     int[,] Tab = CloneATable(Table);
-                    if (G.CheckMate(Tab, Order))
+                    if (G.CheckMate(CloneATable(Tab), Order))
                     {
                         if (Order == -1 && G.CheckMateGray)
                             HA += RationalRegard;
@@ -4844,7 +4844,7 @@ namespace RefrigtzW
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
-                    if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
+                    if (EnemyKingCanMateByCloseHome(RowK, ColK, CloneATable(Table), Order))
                         HA += RationalRegard;
                 }
                 else
@@ -4853,7 +4853,7 @@ namespace RefrigtzW
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
-                    if (EnemyKingCanMateByCloseHome(RowK, ColK, Table, Order))
+                    if (EnemyKingCanMateByCloseHome(RowK, ColK, CloneATable(Table), Order))
                         HA += RationalRegard;
                 }
                 return HA;
@@ -4871,7 +4871,7 @@ namespace RefrigtzW
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
                     G.FindBrownKing(CloneATable(Table), ref RowK, ref ColK);
 
-                    if (EnemyKingHaveAtMostOneEmptyItemInAttack(RowK, ColK, Table, Order))
+                    if (EnemyKingHaveAtMostOneEmptyItemInAttack(RowK, ColK, CloneATable(Table), Order))
                         HA += RationalRegard;
                 }
                 else
@@ -4880,7 +4880,7 @@ namespace RefrigtzW
                     ChessRules G = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order, CloneATable(Table), Order, RowS, ColS);
                     G.FindGrayKing(CloneATable(Table), ref RowK, ref ColK);
 
-                    if (EnemyKingHaveAtMostOneEmptyItemInAttack(RowK, ColK, Table, Order))
+                    if (EnemyKingHaveAtMostOneEmptyItemInAttack(RowK, ColK, CloneATable(Table), Order))
                         HA += RationalRegard;
                 }
                 return HA;
@@ -5064,7 +5064,7 @@ namespace RefrigtzW
                                                     Ta[kkk, ppp] = Ta[k, p];
                                                     Ta[k, p] = 0;
 
-                                                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], Tab, Order, kkk, ppp);
+                                                    ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ta[kkk, ppp], CloneATable(Tab), Order, kkk, ppp);
                                                     if (A.CheckMate(CloneATable(Ta), Order * 1))
                                                         return true;
                                                 }
@@ -5167,16 +5167,16 @@ namespace RefrigtzW
             lock (O)
             {
                 int HA = 0;
-                HA += SimpleMate_Zero(RowS, ColS, RowD, ColD, Table, a);
+                HA += SimpleMate_Zero(RowS, ColS, RowD, ColD, CloneATable(Table), a);
                 if (HA == 0)
-                    HA += SimpleMate_One(RowS, ColS, RowD, ColD, Table, a);
+                    HA += SimpleMate_One(RowS, ColS, RowD, ColD, CloneATable(Table), a);
                 if (HA == 0)
                 {
-                    HA += SimpleMate_Tow(RowS, ColS, RowD, ColD, Table, a);
+                    HA += SimpleMate_Tow(RowS, ColS, RowD, ColD, CloneATable(Table), a);
                 }
                 if (HA == 0)
                 {
-                    HA += SimpleMate_Three_And_Four(RowS, ColS, RowD, ColD, Table, a);
+                    HA += SimpleMate_Three_And_Four(RowS, ColS, RowD, ColD, CloneATable(Table), a);
                 }
                 if (IsContorlCenter(RowS, ColS, RowD, ColD, CloneATable(Table), a))
                 {
@@ -5282,7 +5282,7 @@ namespace RefrigtzW
                             if (Order == -1 && Tab[ii, jj] <= 0)
                             continue;
                         //If Current Attacks Enemy.
-                        if (Attack(Tab, i, j, ii, jj, a, Order))
+                        if (Attack(CloneATable(Tab), i, j, ii, jj, a, Order))
                         {
                             Count++;
                         }
@@ -6230,7 +6230,7 @@ namespace RefrigtzW
                                     Parallel.For(0, 8, ColD =>
                                     {
 
-                                        if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, Table, Ord, aa, RowS, ColS, RowD, ColD))
+                                        if (IsDistributedObjectAttackNonDistributedEnemyObject(Before, CloneATable(Table), Ord, aa, RowS, ColS, RowD, ColD))
                                         {
                                             HA += RationalPenalty;
                                             return;
@@ -7231,8 +7231,8 @@ namespace RefrigtzW
                                         //When Enemy is Supported.
                                         bool A = new bool();
                                         bool B = new bool();
-                                        A = Support(Tab, g, h, RowS, ColS, a, Order);
-                                        B = Attack(Tab, g, h, RowD, ColD, aaa, Order * -1);
+                                        A = Support(CloneATable(Tab), g, h, RowS, ColS, a, Order);
+                                        B = Attack(CloneATable(Tab), g, h, RowD, ColD, aaa, Order * -1);
                                         //When Enemy is Supported.
                                         if (B)
                                         {
@@ -7464,8 +7464,8 @@ namespace RefrigtzW
                                         //When Enemy is Supported.
                                         bool A = new bool();
                                         bool B = new bool();
-                                        A = Support(Tab, g, h, RowS, ColS, a, Order);
-                                        B = Attack(Tab, g, h, RowD, ColD, aaa, Order * -1);
+                                        A = Support(CloneATable(Tab), g, h, RowS, ColS, a, Order);
+                                        B = Attack(CloneATable(Tab), g, h, RowD, ColD, aaa, Order * -1);
                                         //When Enemy is Supported.
                                         if (B)
                                         {
@@ -9932,7 +9932,7 @@ namespace RefrigtzW
                             int Ord1 = AllDraw.OrderPlate;
                             int Ord2 = AllDraw.OrderPlate * -1;
                             //when is true must penalty(Superposition)
-                            Task.Run(() => Is = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(Tab, Ord, a, Depth, Ord1, Ord2, true));
+                            Task.Run(() => Is = IsNextMovmentIsCheckOrCheckMateForCurrentMovment(CloneATable(Tab), Ord, a, Depth, Ord1, Ord2, true));
 
                             //A
 

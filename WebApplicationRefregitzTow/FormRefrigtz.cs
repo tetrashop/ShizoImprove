@@ -949,7 +949,7 @@ namespace RefrigtzW
                 bookConn.Dispose();
                 Move++;
 
-                if ((new ChessRules(0,MovementsAStarGreedyHeuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHeuristic,OnlySelf,AStarGreedyHeuristic,ArrangmentsChanged,1, Tab, OrderPlate, -1, -1).CheckMate(Tab, OrderPlate)))
+                if ((new ChessRules(0,MovementsAStarGreedyHeuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHeuristic,OnlySelf,AStarGreedyHeuristic,ArrangmentsChanged,1, CloneATable(Tab), OrderPlate, -1, -1).CheckMate(CloneATable(Tab), OrderPlate)))
                 {
                     int iii = 0;
                     do { iii++; } while (System.IO.File.Exists(Root + "\\Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
@@ -1038,7 +1038,7 @@ namespace RefrigtzW
                     bookConn.Close();
                     oleDbCmd.Dispose();
                     bookConn.Dispose();
-                    if ((new ChessRules(0,MovementsAStarGreedyHeuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHeuristic,OnlySelf,AStarGreedyHeuristic,ArrangmentsChanged,1, Tab, OrderPlate, -1, -1).CheckMate(Tab, OrderPlate)))
+                    if ((new ChessRules(0,MovementsAStarGreedyHeuristicFound,IInoreSelfObjects,UsePenaltyRegardMechnisam,BestMovments,PredictHeuristic,OnlySelf,AStarGreedyHeuristic,ArrangmentsChanged,1, CloneATable(Tab), OrderPlate, -1, -1).CheckMate(CloneATable(Tab), OrderPlate)))
                     {
                         int iii = 0;
                         do { iii++; } while (System.IO.File.Exists("Database\\Games\\CurrentBank" + iii.ToString() + ".accdb"));
@@ -1322,7 +1322,7 @@ namespace RefrigtzW
         public void Load()
         {
             var parallelOptions = new ParallelOptions();
-            parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
+            parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount*2;
 
             MovmentsNumber = 0;
 

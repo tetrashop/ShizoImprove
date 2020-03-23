@@ -254,8 +254,9 @@ namespace Refrigtz
                 */
                 try
                 {
-                    
-                   
+
+
+                    RefrigtzDLL.AllDraw Stote = Curent.Draw;
                     if (!File.Exists(AllDrawKindString))
                     {
                         GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged
@@ -317,6 +318,8 @@ namespace Refrigtz
                         //DrawManagement(FOUND, UsePenaltyRegardMechnisam, AStarGreedyHeuristic);
 
                     }
+                    Curent.Draw = Stote;
+                    return true;
                     return true;
                 }
                 catch (Exception t)
