@@ -13465,30 +13465,6 @@ namespace RefrigtzW
             return Sum;
         }
 
-        int DoubleAttack(int[,] Table, bool Before, int RowD, int ColD, int Order)
-        {
-            int DD = 0;
-            List<List<int[]>> DDL = new List<List<int[]>>();
-            for (int RowS = 0; RowS < 8; RowS++)
-                for (int ColS = 0; ColS < 8; ColS++)
-                {
-                    {
-                        DDL.Add(ListOfExistInAttackList(Before, RowS, ColS, RowD, ColD));
-                    }
-                }
-            List<int[]> DDE = new List<int[]>();
-            for (int i = 0; i < DDL.Count; i++)
-                for (int j = 0; j < DDL[i].Count; j++)
-                    DDE.Add(DDL[i][j]);
-            if (DDE.Count > 1)
-            {
-                for (int i = 0; i < DDE.Count; i++)
-                    DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
-                DD = (RationalRegard) * (DD);
-            }
-
-            return DD;
-        }
         bool MidleIndex()
         {
             bool Is = true;
@@ -13509,27 +13485,74 @@ namespace RefrigtzW
             return Is;
 
         }
-        int DoubleDefence(int[,] Table, bool Before, int RowS, int ColS, int Order)
+        int DoubleAttack(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             int DD = 0;
             List<List<int[]>> DDL = new List<List<int[]>>();
-            for (int RowD = 0; RowD < 8; RowD++)
-                for (int ColD = 0; ColD < 8; ColD++)
+            for (int RowDD = 0; RowDD < 8; RowDD++)
+                for (int ColDD = 0; ColDD < 8; ColDD++)
                 {
                     {
-                        DDL.Add(ListOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD));
+                        DDL.Add(ListOfExistInAttackList(Before, RowS, ColS, RowDD, ColDD));
                     }
                 }
             List<int[]> DDE = new List<int[]>();
+
             for (int i = 0; i < DDL.Count; i++)
-                for (int j = 0; j < DDL[i].Count; j++)
-                    DDE.Add(DDL[i][j]);
-            if (DDE.Count > 1)
             {
-                for (int i = 0; i < DDE.Count; i++)
-                    DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
-                DD = (RationalPenalty) * (DD);
+                for (int j = 0; j < DDL[i].Count; j++)
+                {
+                    if (DDL[i][j][0] == RowS && DDL[i][j][1] == ColS)
+                    {
+                        for (int RowDD = 0; RowDD < 8; RowDD++)
+                            for (int ColDD = 0; ColDD < 8; ColDD++)
+                            {
+                                {
+                                    if (DDL[i][j][0] == RowS && DDL[i][j][1] == ColS && DDL[i][j][2] == RowDD && DDL[i][j][3] == ColDD)
+                                        DD += System.Math.Abs(Table[DDE[i][0], DDE[i][1]]);
+                                }
+                            }
+                    }
+                }
             }
+
+            DD = (RationalRegard) * (DD);
+
+            return DD;
+        }
+        int DoubleDefence(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        {
+            int DD = 0;
+            List<List<int[]>> DDL = new List<List<int[]>>();
+            for (int RowSS = 0; RowSS < 8; RowSS++)
+                for (int ColSS = 0; ColSS < 8; ColSS++)
+                {
+                    {
+                        DDL.Add(ListOfExistInReducedAttackList(Before, RowSS, ColSS, RowD, ColD));
+                    }
+                }
+            List<int[]> DDE = new List<int[]>();
+
+            for (int i = 0; i < DDL.Count; i++)
+            {
+                for (int j = 0; j < DDL[i].Count; j++)
+                {
+                    if (DDL[i][j][0] == RowD && DDL[i][j][1] == ColD)
+                    {
+                        for (int RowSS = 0; RowSS < 8; RowSS++)
+                            for (int ColSS = 0; ColSS < 8; ColSS++)
+                            {
+                                {
+                                    if (DDL[i][j][0] == RowD && DDL[i][j][1] == ColD && DDL[i][j][2] == RowSS && DDL[i][j][3] == ColSS)
+                                        DD += System.Math.Abs(Table[DDE[i][2], DDE[i][3]]);
+                                }
+                            }
+                    }
+                }
+            }
+
+            DD = (RationalPenalty) * (DD);
+
             return DD;
         }
         public void CalculateHeuristics(int LoseOcuuredatChiled, int WinOcuuredatChiled, bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
@@ -13624,8 +13647,8 @@ namespace RefrigtzW
 
                 }
 
-                HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowD, ColD, Order);
-                HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, Order);
+                HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
+                HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 bool IsS = false;
                 if (HDoubleDefense < 0)
                 {
