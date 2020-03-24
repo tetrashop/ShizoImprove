@@ -16,6 +16,7 @@ namespace QuantumRefrigiz
     [Serializable]
     public class ThinkingQuantumChess//: IDisposable
     {
+        public int RemoveOfDisturbIndex = -1;
         int HeuristicReducedAttackedIndexInOnGameMidle = 0;
         List<int> HeuristicReducedAttackedIndexInOnGame = new List<int>();
         bool MidIndex = false;
@@ -13657,11 +13658,11 @@ namespace QuantumRefrigiz
                 HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
                 bool IsS = false;
-                /*if (HDoubleDefense < 0)
+                if (HDoubleDefense < 0)
                 {
                     SetSupHuTrue();
                     IsS = true;
-                }*/
+                }
                 Object O1 = new Object();
                 lock (O1)
                 {
@@ -15828,9 +15829,9 @@ namespace QuantumRefrigiz
                             int i = IndexOfMoved();
                             if (i != -1)
                             {
-                                i = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
-                                if (i != -1)
-                                    IsSupHu[i] = false;
+                                RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
+                                if (RemoveOfDisturbIndex != -1)
+                                    IsSupHu[RemoveOfDisturbIndex] = false;
                                 else
                                 {
                                     //if (LoseOcuuredatChiled == 0)
@@ -15865,6 +15866,41 @@ namespace QuantumRefrigiz
                             WinOcuuredatChiled = 4;
                     }
                 }*/
+            }
+        }
+             public void TowDistrurbProperUsePreferNotToClose(ref int LoseOcuuredatChiled)
+        {
+            Object OI = new Object();
+            lock (OI)
+            {
+                if (RemoveOfDisturbIndex == -1)
+                {
+
+                    if (HeuristicAllReducedAttackedMidel > (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
+                    {
+                        int i = IndexOfMoved();
+                        if (i != -1)
+                        {
+                            RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
+                            if (RemoveOfDisturbIndex != -1)
+                                IsSupHu[RemoveOfDisturbIndex] = false;
+                            else
+                            {
+                                //if (LoseOcuuredatChiled == 0)
+                                LoseOcuuredatChiled = -4;
+                            }
+
+                        }
+                        else
+                        {
+                            //if (LoseOcuuredatChiled == 0)
+                            LoseOcuuredatChiled = -4;
+
+                        }
+
+
+                    }
+                }
             }
         }
 
