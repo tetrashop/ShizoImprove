@@ -18,6 +18,8 @@ namespace RefrigtzW
 
     public class AllDraw//: IDisposable
     {
+        public static int OrderPlateDraw = -1;
+
         public static bool UniqueLeafDetection = false;
         int NumberOfnewMove = 0;
         bool UsedRestrictedMoveBlitzAndFull = true;
@@ -8122,7 +8124,7 @@ namespace RefrigtzW
                                 Object ol = new Object();
                                 lock (ol)
                                 {
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (SolderesOnTable[i].SoldierThinking[0].NumberOfPenalties < Less)
                                             continue;
 
@@ -8406,7 +8408,7 @@ namespace RefrigtzW
                                 lock (ol)
                                 {
                                     //When There is No Movments in Such Order Enemy continue.
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (ElephantOnTable[i].ElefantThinking[0].NumberOfPenalties < Less)
                                             continue;
                                     //When There is greater Heuristic Movments.
@@ -8613,7 +8615,7 @@ namespace RefrigtzW
                                 lock (ol)
                                 {
                                     //When There is No Movments in Such Order Enemy continue.
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (HoursesOnTable[i].HourseThinking[0].NumberOfPenalties < Less)
                                             continue;
                                     //When There is greater Heuristic Movments.
@@ -8824,7 +8826,7 @@ namespace RefrigtzW
                                 lock (ol)
                                 {
                                     //When There is No Movments in Such Order Enemy continue.
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (CastlesOnTable[i].CastleThinking[0].NumberOfPenalties < Less) continue;
                                     //When There is greater Heuristic Movments.
                                     if (CastlesOnTable[i].CastleThinking[0].NumberOfPenalties < Less)
@@ -9033,7 +9035,7 @@ namespace RefrigtzW
                                 Object ol = new Object();
                                 lock (ol)
                                 {
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (MinisterOnTable[i].MinisterThinking[0].NumberOfPenalties < Less)
                                             continue;
                                     if (MinisterOnTable[i].MinisterThinking[0].NumberOfPenalties < Less)
@@ -9247,7 +9249,7 @@ namespace RefrigtzW
                                 {
 
                                     //When There is No Movments in Such Order Enemy continue.
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (KingOnTable[i].KingThinking[0].NumberOfPenalties < Less)
                                             continue;
                                     //When There is greater Heuristic Movments.
@@ -10755,7 +10757,7 @@ namespace RefrigtzW
                             Object ol = new Object();
                             lock (ol)
                             {
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (SolderesOnTable[i].SoldierThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -10915,7 +10917,7 @@ namespace RefrigtzW
                             {
 
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (ElephantOnTable[i].ElefantThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11040,7 +11042,7 @@ namespace RefrigtzW
                             {
 
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (HoursesOnTable[i].HourseThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11157,7 +11159,7 @@ namespace RefrigtzW
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (CastlesOnTable[i].CastleThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11272,7 +11274,7 @@ namespace RefrigtzW
                             Object ol = new Object();
                             lock (ol)
                             {
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (MinisterOnTable[i].MinisterThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 5, ref Do, AStarGreedyi, Order))
@@ -11385,7 +11387,7 @@ namespace RefrigtzW
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (KingOnTable[i].KingThinking[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11570,7 +11572,7 @@ namespace RefrigtzW
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (SolderesOnTable[i].SoldierThinking[0].NumberOfPenalties < Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11847,7 +11849,7 @@ namespace RefrigtzW
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (ElephantOnTable[i].ElefantThinking[0].NumberOfPenalties < Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -12071,7 +12073,7 @@ namespace RefrigtzW
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (HoursesOnTable[i].HourseThinking[0].NumberOfPenalties < Less)
 
                                         continue;
@@ -12300,7 +12302,7 @@ namespace RefrigtzW
                             Object ol = new Object();
                             lock (ol)
                             {
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (CastlesOnTable[i].CastleThinking[0].NumberOfPenalties < Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -12520,7 +12522,7 @@ namespace RefrigtzW
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (MinisterOnTable[i].MinisterThinking[0].NumberOfPenalties < Less)
                                         continue;
 
@@ -12731,7 +12733,7 @@ namespace RefrigtzW
                             {
 
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (KingOnTable[i].KingThinking[0].NumberOfPenalties < Less)
                                         continue;
 
@@ -17935,7 +17937,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         {
             int Kind = -1;
             int PS = Int32.MinValue, PE = Int32.MinValue, PH = Int32.MinValue, PB = Int32.MinValue, PM = Int32.MinValue, PK = Int32.MinValue;
-            if (Order != AllDraw.OrderPlate)
+            if (Order != AllDraw.OrderPlateDraw)
             {
                 PS = Int32.MaxValue;
                 PE = Int32.MaxValue;
@@ -17963,7 +17965,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {
                         Kind = -1;
                         PS = Int32.MinValue; PE = Int32.MinValue; PH = Int32.MinValue; PB = Int32.MinValue; PM = Int32.MinValue; PK = Int32.MinValue;
-                        if (Order != AllDraw.OrderPlate)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             PS = Int32.MaxValue;
                             PE = Int32.MaxValue;
@@ -18003,7 +18005,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     {
                         Kind = -1;
                         PS = Int32.MinValue; PE = Int32.MinValue; PH = Int32.MinValue; PB = Int32.MinValue; PM = Int32.MinValue; PK = Int32.MinValue;
-                        if (Order != AllDraw.OrderPlate)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             PS = Int32.MaxValue;
                             PE = Int32.MaxValue;

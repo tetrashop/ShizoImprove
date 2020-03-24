@@ -18,6 +18,8 @@ namespace QuantumRefrigiz
 
     public class AllDraw//: IDisposable
     {
+        public static int OrderPlateDraw = 1;
+
         public static bool UniqueLeafDetection = false;
         int NumberOfnewMove = 0;
         bool UsedRestrictedMoveBlitzAndFull = true;
@@ -8145,7 +8147,7 @@ namespace QuantumRefrigiz
                                 Object ol = new Object();
                                 lock (ol)
                                 {
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (SolderesOnTable[i].SoldierThinkingQuantum[0].NumberOfPenalties < Less)
                                             continue;
 
@@ -8429,7 +8431,7 @@ namespace QuantumRefrigiz
                                 lock (ol)
                                 {
                                     //When There is No Movments in Such Order Enemy continue.
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (ElephantOnTable[i].ElefantThinkingQuantum[0].NumberOfPenalties < Less)
                                             continue;
                                     //When There is greater Heuristic Movments.
@@ -8636,7 +8638,7 @@ namespace QuantumRefrigiz
                                 lock (ol)
                                 {
                                     //When There is No Movments in Such Order Enemy continue.
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (HoursesOnTable[i].HourseThinkingQuantum[0].NumberOfPenalties < Less)
                                             continue;
                                     //When There is greater Heuristic Movments.
@@ -8847,7 +8849,7 @@ namespace QuantumRefrigiz
                                 lock (ol)
                                 {
                                     //When There is No Movments in Such Order Enemy continue.
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (CastlesOnTable[i].CastleThinkingQuantum[0].NumberOfPenalties < Less) continue;
                                     //When There is greater Heuristic Movments.
                                     if (CastlesOnTable[i].CastleThinkingQuantum[0].NumberOfPenalties < Less)
@@ -9056,7 +9058,7 @@ namespace QuantumRefrigiz
                                 Object ol = new Object();
                                 lock (ol)
                                 {
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (MinisterOnTable[i].MinisterThinkingQuantum[0].NumberOfPenalties < Less)
                                             continue;
                                     if (MinisterOnTable[i].MinisterThinkingQuantum[0].NumberOfPenalties < Less)
@@ -9270,7 +9272,7 @@ namespace QuantumRefrigiz
                                 {
 
                                     //When There is No Movments in Such Order Enemy continue.
-                                    if (Order != AllDraw.OrderPlate)
+                                    if (Order != AllDraw.OrderPlateDraw)
                                         if (KingOnTable[i].KingThinkingQuantum[0].NumberOfPenalties < Less)
                                             continue;
                                     //When There is greater Heuristic Movments.
@@ -10780,7 +10782,7 @@ namespace QuantumRefrigiz
                             Object ol = new Object();
                             lock (ol)
                             {
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (SolderesOnTable[i].SoldierThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -10940,7 +10942,7 @@ namespace QuantumRefrigiz
                             {
 
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (ElephantOnTable[i].ElefantThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11065,7 +11067,7 @@ namespace QuantumRefrigiz
                             {
 
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (HoursesOnTable[i].HourseThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11182,7 +11184,7 @@ namespace QuantumRefrigiz
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (CastlesOnTable[i].CastleThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11297,7 +11299,7 @@ namespace QuantumRefrigiz
                             Object ol = new Object();
                             lock (ol)
                             {
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (MinisterOnTable[i].MinisterThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 if (HeuristicMainBody(i, j, k, ref Act, ref TableHeuristic, ref CurrentTableHeuristic, ref AA, a, 5, ref Do, AStarGreedyi, Order))
@@ -11410,7 +11412,7 @@ namespace QuantumRefrigiz
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (KingOnTable[i].KingThinkingQuantum[0].ReturnHeuristic(i, j, Order, AA, ref HaveKilled) > Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11595,7 +11597,7 @@ namespace QuantumRefrigiz
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (SolderesOnTable[i].SoldierThinkingQuantum[0].NumberOfPenalties < Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -11872,7 +11874,7 @@ namespace QuantumRefrigiz
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (ElephantOnTable[i].ElefantThinkingQuantum[0].NumberOfPenalties < Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -12096,7 +12098,7 @@ namespace QuantumRefrigiz
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (HoursesOnTable[i].HourseThinkingQuantum[0].NumberOfPenalties < Less)
 
                                         continue;
@@ -12325,7 +12327,7 @@ namespace QuantumRefrigiz
                             Object ol = new Object();
                             lock (ol)
                             {
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (CastlesOnTable[i].CastleThinkingQuantum[0].NumberOfPenalties < Less)
                                         continue;
                                 //When There is greater Heuristic Movments.
@@ -12545,7 +12547,7 @@ namespace QuantumRefrigiz
                             lock (ol)
                             {
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (MinisterOnTable[i].MinisterThinkingQuantum[0].NumberOfPenalties < Less)
                                         continue;
 
@@ -12756,7 +12758,7 @@ namespace QuantumRefrigiz
                             {
 
                                 //When There is No Movments in Such Order Enemy continue.
-                                if (Order != AllDraw.OrderPlate)
+                                if (Order != AllDraw.OrderPlateDraw)
                                     if (KingOnTable[i].KingThinkingQuantum[0].NumberOfPenalties < Less)
                                         continue;
 
@@ -17979,7 +17981,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
         {
             int Kind = -1;
             int PS = Int32.MinValue, PE = Int32.MinValue, PH = Int32.MinValue, PB = Int32.MinValue, PM = Int32.MinValue, PK = Int32.MinValue;
-            if (Order != AllDraw.OrderPlate)
+            if (Order != AllDraw.OrderPlateDraw)
             {
                 PS = Int32.MaxValue;
                 PE = Int32.MaxValue;
@@ -18007,7 +18009,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     {
                         Kind = -1;
                         PS = Int32.MinValue; PE = Int32.MinValue; PH = Int32.MinValue; PB = Int32.MinValue; PM = Int32.MinValue; PK = Int32.MinValue;
-                        if (Order != AllDraw.OrderPlate)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             PS = Int32.MaxValue;
                             PE = Int32.MaxValue;
@@ -18047,7 +18049,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     {
                         Kind = -1;
                         PS = Int32.MinValue; PE = Int32.MinValue; PH = Int32.MinValue; PB = Int32.MinValue; PM = Int32.MinValue; PK = Int32.MinValue;
-                        if (Order != AllDraw.OrderPlate)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             PS = Int32.MaxValue;
                             PE = Int32.MaxValue;

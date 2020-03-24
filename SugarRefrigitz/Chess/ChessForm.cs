@@ -1261,6 +1261,7 @@ namespace Chess
                     
                     Table = CloneATable(brd.GetTable());
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(Table));
+                    RefrigtzDLL.AllDraw.OrderPlateDraw = 1;
                     RefrigtzDLL.ThinkingChess.TableInitiation = CloneATable(brd.GetTable());
                     if (DrawManagement())
                     {

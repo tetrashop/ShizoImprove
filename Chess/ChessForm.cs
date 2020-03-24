@@ -547,6 +547,7 @@ namespace Chess
                     MessageBox.Show("Wait...");
                     var parallelOptions = new ParallelOptions();
                     parallelOptions.MaxDegreeOfParallelism = System.Threading.PlatformHelper.ProcessorCount*2;
+                    RefrigtzDLL.AllDraw.OrderPlateDraw = -1;
                     RefrigtzDLL.AllDraw.TableListAction.Add(CloneATable(brd.GetTable()));
                     Table = CloneATable(brd.GetTable());
                     RefrigtzDLL.ThinkingChess.TableInitiation = CloneATable(brd.GetTable());

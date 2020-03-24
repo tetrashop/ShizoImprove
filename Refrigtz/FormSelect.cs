@@ -12,6 +12,7 @@ namespace Refrigtz
     [Serializable]
     public partial class FormSelect : Form
     {
+        public static int OrderPlateDraw = 1;
         static void Log(Exception ex)
         {
             try
@@ -79,6 +80,7 @@ namespace Refrigtz
             Object O = new Object();
             lock (O)
             {
+                OrderPlateDraw = -1;
                 if (RadioButtonBrownOrder.Checked)
                 {
                     if (!File.Exists("_DonotDelete.txt"))
@@ -95,6 +97,7 @@ namespace Refrigtz
             {
                 if (RadioButtonGrayOrder.Checked)
                 {
+                    OrderPlateDraw = 1;
                     if (File.Exists("_DonotDelete.txt"))
                         File.Delete("_DonotDelete.txt");
                 }

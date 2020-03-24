@@ -5334,7 +5334,12 @@ namespace Refrigtz
             {
                 //        var array = Task.Factory.StartNew(() => Load_Form(sender, e));
                 Load_Form(sender, e);
-        }
+                if (!Quantum)
+                    RefrigtzDLL.AllDraw.OrderPlateDraw = FormSelect.OrderPlateDraw;
+                else
+                    QuantumRefrigiz.AllDraw.OrderPlateDraw = FormSelect.OrderPlateDraw;
+
+            }
 
         }
         //Reading Table Database.

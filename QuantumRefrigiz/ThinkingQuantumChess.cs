@@ -3462,11 +3462,11 @@ namespace QuantumRefrigiz
             {
                 int Sign = 1;
                 //When Current Order Sign Positive.
-                if (Order == AllDraw.OrderPlate)
+                if (Order == AllDraw.OrderPlateDraw)
                     Sign = 1;
                 else
                     //When Order is Opposite Sign Negative.
-                    if (Order != AllDraw.OrderPlate)
+                    if (Order != AllDraw.OrderPlateDraw)
                     Sign = -1;
 
                 return Sign;
@@ -7803,7 +7803,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListSolder[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlateDraw)
                             {
                                 if (Less > HeuristicListSolder[i][0] +
                                     HeuristicListSolder[i][1] +
@@ -7870,7 +7870,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListElefant[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlateDraw)
                             {
                                 if (Less > HeuristicListElefant[i][0] +
                                     HeuristicListElefant[i][1] +
@@ -7935,7 +7935,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListHourse[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlateDraw)
                             {
                                 if (Less > HeuristicListHourse[i][0] +
                                     HeuristicListHourse[i][1] +
@@ -8000,7 +8000,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListCastle[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlateDraw)
                             {
                                 if (Less > HeuristicListCastle[i][0] +
                                     HeuristicListCastle[i][1] +
@@ -8064,7 +8064,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListMinister[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlateDraw)
                             {
                                 if (Less > HeuristicListMinister[i][0] +
                                     HeuristicListMinister[i][1] +
@@ -8130,7 +8130,7 @@ namespace QuantumRefrigiz
                     {
                         if (PenaltyRegardListKing[i].IsPenaltyAction() != 0)
                         {
-                            if (Order == AllDraw.OrderPlate)
+                            if (Order == AllDraw.OrderPlateDraw)
                             {
                                 if (Less > HeuristicListKing[i][0] +
                                     HeuristicListKing[i][1] +
@@ -9017,7 +9017,7 @@ namespace QuantumRefrigiz
             }
             else
             {
-                if (Order == AllDraw.OrderPlate)
+                if (Order == AllDraw.OrderPlateDraw)
                 {
                     BOUND = -1;
 
@@ -10724,7 +10724,7 @@ namespace QuantumRefrigiz
                             {
                                 IsThereMateOfEnemy = true;
                                 FoundFirstMating++;
-                                //if (LoseOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     WinChiled.Add(2);
                                     LoseChiled.Add(0);
@@ -10752,7 +10752,7 @@ namespace QuantumRefrigiz
                                 IsThereMateOfEnemy = true;
 
                                 FoundFirstMating++;
-                                //if (LoseOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     WinChiled.Add(2);
                                     LoseChiled.Add(0);
@@ -10779,7 +10779,7 @@ namespace QuantumRefrigiz
                             {
                                 IsThereMateOfSelf = true;
                                 FoundFirstSelfMating++;
-                                //if (WinOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     WinChiled.Add(0);
                                     LoseChiled.Add(-2);
@@ -10807,7 +10807,7 @@ namespace QuantumRefrigiz
                             lock (A)
                             {
                                 FoundFirstSelfMating++;
-                                //if (WinOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     WinChiled.Add(0);
                                     LoseChiled.Add(-2);
@@ -10924,7 +10924,7 @@ namespace QuantumRefrigiz
                     if (RETURN)
                         return;
 
-                    //if (Order != AllDraw.OrderPlate)
+                    //if (Order != AllDraw.OrderPlateDraw)
                         //return;
                 }
 
@@ -13599,7 +13599,7 @@ namespace QuantumRefrigiz
                     HeuristicAllSupportMidel = HeuristicAllSupport.Count;
                     HeuristicReducedAttackedIndexInOnGameMidle = HeuristicReducedAttackedIndexInOnGame.Count;
                 }
-                //if (Order != AllDraw.OrderPlate)
+                //if (Order != AllDraw.OrderPlateDraw)
                     //return;
                 int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
 
@@ -13682,7 +13682,7 @@ namespace QuantumRefrigiz
                         HeuristicKingSafe = (HKingSafe * SignOrderToPlate(Order));
                         HeuristicKingDangour = (HKingDangour * SignOrderToPlate(Order));
                         HeuristicFromCenter = (HFromCenter * SignOrderToPlate(Order));
-                        //if (WinOcuuredatChiled == 0)
+                        if (Order == AllDraw.OrderPlateDraw)
                         {
                             if ((System.Math.Abs(TableS[RowS, ColS]) > System.Math.Abs(TableS[RowD, ColD])) && TableS[RowD, ColD] != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
                             {
@@ -13699,7 +13699,7 @@ namespace QuantumRefrigiz
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                //if (WinOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13708,7 +13708,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                //if (WinOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13812,7 +13812,7 @@ namespace QuantumRefrigiz
                         HeuristicFromCenter += (HFromCenter * SignOrderToPlate(Order));
                         //Disturbe on huge traversal exchange prevention 
                         //if ((System.Math.Abs(TableConst[RowS, ColS]) > System.Math.Abs(Killed)) && Killed != 0 && NoOfExistInReducedAttackList(Before, RowD, ColD, RowS, ColS) > 0)
-                        //if (WinOcuuredatChiled == 0)
+                        if (Order == AllDraw.OrderPlateDraw)
                         {
                             if (DisturbeOnNonSupportedTraversalExchangePrevention(Killed, Before, CloneATable(TableS), Order))
                             {
@@ -13843,7 +13843,7 @@ namespace QuantumRefrigiz
                             if (Order == 1)
                             {
                                 A = ColleralationGray < 30;
-                                //if (WinOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
 
@@ -13853,7 +13853,7 @@ namespace QuantumRefrigiz
                             else
                             {
                                 A = ColleralationBrown < 30;
-                                //if (WinOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (Killed != 0 && Killed < TableS[RowD, ColD]);
                                     C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf);// || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
@@ -13866,7 +13866,7 @@ namespace QuantumRefrigiz
                             }
                             else
                             {
-                                //if (WinOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 {//if (TableInitiationPreventionOfMultipleMove[RowS, ColS] == NoOfMovableAllObjectMove && IsSupHu[IsSupHu.Count - 1] && (!IsS))
                                  //TableInitiationPreventionOfMultipleMove[RowS, ColS] = NoOfMovableAllObjectMove - 1;
                                  //Empire more
@@ -15501,7 +15501,7 @@ namespace QuantumRefrigiz
                     NumberOfPenalties = 0;
                     SetObjectNumbers(CloneATable(TableConst));
                     bool PenRegStrore = true;
-                    // if (Order == AllDraw.OrderPlate)
+                    // if (Order == AllDraw.OrderPlateDraw)
 
 
 
@@ -15628,13 +15628,13 @@ namespace QuantumRefrigiz
                                 (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
                                 {
                                     FoundFirstSelfMating++;
-                                    //if (WinOcuuredatChiled == 0)
+                                    if (Order == AllDraw.OrderPlateDraw)
                                         LoseOcuuredatChiled = -2;
                                     IsThereMateOfSelf = true;
                                 }
                                 if ((AAA.CheckMateGray && AllDraw.OrderPlate == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == 1))
                                 {
-                                    //if (LoseOcuuredatChiled == 0)
+                                    if (Order == AllDraw.OrderPlateDraw)
                                         WinOcuuredatChiled = 3;
                                     FoundFirstMating++;
                                     IsThereMateOfEnemy = true;
@@ -15834,14 +15834,14 @@ namespace QuantumRefrigiz
                                     IsSupHu[RemoveOfDisturbIndex] = false;
                                 else
                                 {
-                                    //if (LoseOcuuredatChiled == 0)
+                                    if (Order == AllDraw.OrderPlateDraw)
                                         LoseOcuuredatChiled = -4;
                                 }
 
                             }
                             else
                             {
-                                //if (LoseOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                     LoseOcuuredatChiled = -4;
 
                             }
@@ -15850,7 +15850,7 @@ namespace QuantumRefrigiz
                         }
                         else
                         {
-                            //if (LoseOcuuredatChiled == 0)
+                            if (Order == AllDraw.OrderPlateDraw)
                                 LoseOcuuredatChiled = -4;
                         }
                     }
@@ -15862,45 +15862,50 @@ namespace QuantumRefrigiz
                         IsSup = IsSup || IsSupHu[i];
                     if (!IsSup)
                     {
-                        //if (WinOcuuredatChiled == 0)
+                        if (Order == AllDraw.OrderPlateDraw)
                             WinOcuuredatChiled = 4;
                     }
                 }*/
             }
         }
-             public void TowDistrurbProperUsePreferNotToClose(ref int LoseOcuuredatChiled)
+        public void TowDistrurbProperUsePreferNotToClose(ref int LoseOcuuredatChiled)
         {
             Object OI = new Object();
             lock (OI)
             {
-                if (RemoveOfDisturbIndex == -1)
+                if (!IsThereCheckOfSelf)
                 {
-
-                    if (HeuristicAllReducedAttackedMidel > (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
+                    if (RemoveOfDisturbIndex == -1)
                     {
-                        int i = IndexOfMoved();
-                        if (i != -1)
+
+                        if (HeuristicAllReducedAttackedMidel > (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
                         {
-                            RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
-                            if (RemoveOfDisturbIndex != -1)
-                                IsSupHu[RemoveOfDisturbIndex] = false;
+                            int i = IndexOfMoved();
+                            if (i != -1)
+                            {
+                                RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
+                                if (RemoveOfDisturbIndex != -1)
+                                    IsSupHu[RemoveOfDisturbIndex] = false;
+                                else
+                                {
+                                    if (Order == AllDraw.OrderPlateDraw)
+                                    LoseOcuuredatChiled = -4;
+                                }
+
+                            }
                             else
                             {
-                                //if (LoseOcuuredatChiled == 0)
+                                if (Order == AllDraw.OrderPlateDraw)
                                 LoseOcuuredatChiled = -4;
+
                             }
 
-                        }
-                        else
-                        {
-                            //if (LoseOcuuredatChiled == 0)
-                            LoseOcuuredatChiled = -4;
 
                         }
-
-
                     }
                 }
+                else if (Order == AllDraw.OrderPlateDraw)
+                    LoseOcuuredatChiled = -4;
             }
         }
 
