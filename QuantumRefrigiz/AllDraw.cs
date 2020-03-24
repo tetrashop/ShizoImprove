@@ -2452,7 +2452,7 @@ namespace QuantumRefrigiz
                             //When CheckMate Occured for Current Sodiers
                             if (AA.CheckMate(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Order))
                                 //When Self CheckMate
-                                if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
                                     //Return Ignore
                                     Do = -1;
@@ -2464,7 +2464,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //When Enemy CheckMate
-                                    if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                    if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                     {
                                         //Set Regard and Set Movements.
                                         Do = 1;
@@ -2502,7 +2502,7 @@ namespace QuantumRefrigiz
                             //When CheckMate Occured for Current Elephant.
                             if (AA.CheckMate(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Order))
                                 //For Self Order CheckMate.
-                                if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
                                     //Set Penalty Ignore.
                                     Do = -1;
@@ -2514,7 +2514,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //For Enemy Order CheckMate.
-                                    if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                    if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                     {
                                         //Set Regard Continue.
                                         Do = 1;
@@ -2551,7 +2551,7 @@ namespace QuantumRefrigiz
                             //When CheckMate Occured.
                             if (AA.CheckMate(HoursesOnTable[i].HourseThinkingQuantum[0].TableListSolder[j], Order))
                                 //For Self CheckMate.
-                                if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
                                     //Set Ignore.
                                     Do = -1;
@@ -2563,7 +2563,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //For Enemy CheckMate.
-                                    if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                    if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                     {
                                         //Set Regard.
                                         Do = 1;
@@ -2600,7 +2600,7 @@ namespace QuantumRefrigiz
                             //When Current Gray Castles CheckMate.
                             if (AA.CheckMate(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Order))
                                 //For Self CheckMate
-                                if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
                                     //Set Penalty Ignore.
                                     Do = -1;
@@ -2612,7 +2612,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //For Enemy CheckMate.
-                                    if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                    if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                     {
                                         //Set Regard.
                                         Do = 1;
@@ -2651,7 +2651,7 @@ namespace QuantumRefrigiz
                             //When M ate Occured in Minister Gray.
                             if (AA.CheckMate(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Order))
                                 //Self CheckMate.
-                                if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
                                     //Penalty Ignore.
                                     Do = -1;
@@ -2663,7 +2663,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //For Enemy CheckMate.
-                                    if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                    if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                     {
                                         //Regard Setting.
                                         Do = 1;
@@ -2702,7 +2702,7 @@ namespace QuantumRefrigiz
                             //When CheckMate Occured in King Gray.
                             if (AA.CheckMate(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Order))
                                 //Self CheckMate.
-                                if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
                                     //Penalty Ignore.
                                     Do = -1;
@@ -2714,7 +2714,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //Self CheckMate.
-                                    if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                    if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                     {
                                         //Regard Setting.
                                         Do = 1;
@@ -2759,7 +2759,7 @@ namespace QuantumRefrigiz
                             //When Solders Brown CheckMate Occured.
                             if (AA.CheckMate(SolderesOnTable[i].SoldierThinkingQuantum[0].TableListSolder[j], Order))
                                 //Self CheckMate.
-                                if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
                                     //Ignore Penalty.
                                     Do = -1;
@@ -2771,7 +2771,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //Self CheckMate.
-                                    if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                    if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                     {
                                         //Set Regard.
                                         Do = 1;
@@ -2810,7 +2810,7 @@ namespace QuantumRefrigiz
                             //CheckMate Occured in Elephenat Brown.
                             if (AA.CheckMate(ElephantOnTable[i].ElefantThinkingQuantum[0].TableListElefant[j], Order))
                                 //Self CheckMate.
-                                if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
                                     //Ignore Penalty.
                                     Do = -1;
@@ -2822,7 +2822,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //CheckMate Enemy.
-                                    if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                    if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                     {
                                         //Set Regrading.
                                         Do = 1;
@@ -2861,7 +2861,7 @@ namespace QuantumRefrigiz
                             //When Hourse Broin CheckMate Ocuucred.
                             if (AA.CheckMate(HoursesOnTable[i].HourseThinkingQuantum[0].TableListSolder[j], Order))
                                 //Self CheckMate.
-                                if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
                                     //Ignore Penalty.
                                     Do = -1;
@@ -2873,7 +2873,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //CheckMate Enemy.
-                                    if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                    if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                     {
                                         //Set Regrad.
                                         Do = 1;
@@ -2912,7 +2912,7 @@ namespace QuantumRefrigiz
                             //When Brown Castles CheckMate Occured.
                             if (AA.CheckMate(CastlesOnTable[i].CastleThinkingQuantum[0].TableListCastle[j], Order))
                                 //Self CheckMate.
-                                if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
                                     //Ignore CheckMate.
                                     Do = -1;
@@ -2924,7 +2924,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //CheckMate Enemy.
-                                    if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                    if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                     {
                                         //Set Regard.
                                         Do = 1;
@@ -2963,7 +2963,7 @@ namespace QuantumRefrigiz
                             //When Minister Borwn CheckMate Occcured.
                             if (AA.CheckMate(MinisterOnTable[i].MinisterThinkingQuantum[0].TableListMinister[j], Order))
                                 //Self CheckMate.
-                                if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
                                     //Set Ignore.
                                     Do = -1;
@@ -2975,7 +2975,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //CheckMate Enemy.
-                                    if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                    if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                     {
                                         //Set Regard.
                                         Do = 1;
@@ -3015,7 +3015,7 @@ namespace QuantumRefrigiz
                             //When King Brown Rules CheckMate Occcured.
                             if (AA.CheckMate(KingOnTable[i].KingThinkingQuantum[0].TableListKing[j], Order))
                                 //Self CheckMate.
-                                if (AllDraw.OrderPlate == -1 && AA.CheckMateBrown)
+                                if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
                                     //Set Ignore.
                                     Do = -1;
@@ -3027,7 +3027,7 @@ namespace QuantumRefrigiz
                                 else
                                 {
                                     //CheckMate Enemy.
-                                    if (AllDraw.OrderPlate == 1 && AA.CheckMateGray)
+                                    if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                     {
                                         //Set Regard.
                                         Do = 1;
@@ -17377,7 +17377,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (CheckeHuristci(SolderesOnTable[ik].SoldierThinkingQuantum[0].TableListSolder[j], Order, ik, j, 0))
                             continue;
                         //when is self
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                             if (UsedRestrictedBlitzMoveAstarGreedy(1, ik, j) || SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -17434,7 +17434,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             continue;
 
                         //when is self
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                             if (UsedRestrictedBlitzMoveAstarGreedy(2, ik, j) || ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -17489,7 +17489,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (CheckeHuristci(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order, ik, j, 0))
                             continue;
                         //when is self
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                             if (UsedRestrictedBlitzMoveAstarGreedy(3, ik, j) || HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -17544,7 +17544,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (CheckeHuristci(CastlesOnTable[ik].CastleThinkingQuantum[0].TableListCastle[j], Order, ik, j, 0))
                             continue;
                         //when is self
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                             if (UsedRestrictedBlitzMoveAstarGreedy(4, ik, j) || CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -17601,7 +17601,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     lock (O)
                     {
                         //when is self
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                             if (UsedRestrictedBlitzMoveAstarGreedy(5, ik, j) || MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -17656,7 +17656,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (CheckeHuristci(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order, ik, j, 0))
                             continue;
                         //when is self
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                             if (UsedRestrictedBlitzMoveAstarGreedy(6, ik, j) || KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -17830,7 +17830,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
 
                     //when is self
-                    if (AllDraw.OrderPlate == Order)
+                    if (Order != AllDraw.OrderPlateDraw)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                         if (UsedRestrictedBlitzMoveAstarGreedy(1, ik, j) || SolderesOnTable[ik].SoldierThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessS || (SolderesOnTable[ik].SoldierThinkingQuantum[0].PenaltyRegardListSolder[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -17882,7 +17882,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (CheckeHuristci(ElephantOnTable[ik].ElefantThinkingQuantum[0].TableListElefant[j], Order, ik, j, 0))
                         continue;
                     //when is self
-                    if (AllDraw.OrderPlate == Order)
+                    if (Order != AllDraw.OrderPlateDraw)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                         if (UsedRestrictedBlitzMoveAstarGreedy(2, ik, j) || ElephantOnTable[ik].ElefantThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessE || (ElephantOnTable[ik].ElefantThinkingQuantum[0].PenaltyRegardListElefant[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -17935,7 +17935,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (CheckeHuristci(HoursesOnTable[ik].HourseThinkingQuantum[0].TableListHourse[j], Order, ik, j, 0))
                         continue;
                     //when is self
-                    if (AllDraw.OrderPlate == Order)
+                    if (Order != AllDraw.OrderPlateDraw)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                         if (UsedRestrictedBlitzMoveAstarGreedy(3, ik, j) || HoursesOnTable[ik].HourseThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessH || (HoursesOnTable[ik].HourseThinkingQuantum[0].PenaltyRegardListHourse[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -18122,7 +18122,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         continue;
 
                     //when is self
-                    if (AllDraw.OrderPlate == Order)
+                    if (Order != AllDraw.OrderPlateDraw)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                         if (UsedRestrictedBlitzMoveAstarGreedy(4, ik, j) || CastlesOnTable[ik].CastleThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessB || (CastlesOnTable[ik].CastleThinkingQuantum[0].PenaltyRegardListCastle[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -18176,7 +18176,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (CheckeHuristci(MinisterOnTable[ik].MinisterThinkingQuantum[0].TableListMinister[j], Order, ik, j, 0))
                         continue;
                     //when is self
-                    if (AllDraw.OrderPlate == Order)
+                    if (Order != AllDraw.OrderPlateDraw)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                         if (UsedRestrictedBlitzMoveAstarGreedy(5, ik, j) || MinisterOnTable[ik].MinisterThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessM || (MinisterOnTable[ik].MinisterThinkingQuantum[0].PenaltyRegardListMinister[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -18230,7 +18230,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     if (CheckeHuristci(KingOnTable[ik].KingThinkingQuantum[0].TableListKing[j], Order, ik, j, 0))
                         continue;
                     //when is self
-                    if (AllDraw.OrderPlate == Order)
+                    if (Order != AllDraw.OrderPlateDraw)
                     {
                         //when in learning autamata is penalty or Heuristic specified is less than specific dynamic programming var
                         if (UsedRestrictedBlitzMoveAstarGreedy(6, ik, j) || KingOnTable[ik].KingThinkingQuantum[0].ReturnHeuristic(ik, j, Order, false, ref HaveKilled) < PreviousLessK || (KingOnTable[ik].KingThinkingQuantum[0].PenaltyRegardListKing[j].IsPenaltyAction() == 0 && UsePenaltyRegardMechnisamT))
@@ -19937,7 +19937,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                         if (SolderesOnTable[ik].SoldierThinkingQuantum[0].IsSupHu[j])
                             continue;
                         //self do
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 1, true, j)
@@ -20156,7 +20156,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             continue;
 
                         //self do
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 2, true, j)
@@ -20377,7 +20377,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
                         //self do
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 3, true, j)
@@ -20601,7 +20601,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                     {
 
                         //self do
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 4, true, j)
@@ -20824,7 +20824,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
 
 
                         //self do
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 5, true, j)
@@ -21053,7 +21053,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                             continue;
 
                         //when is self
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             //when certification for continued of code satisfied
                             if (ReturnConsiderationOfPermitForValidationOfLearningInFullGameThinkingQuantumTree(ik, 6, true, j)

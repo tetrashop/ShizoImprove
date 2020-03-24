@@ -750,7 +750,7 @@ namespace Chess
                             //if (k == 0)
                             
                             cl = 0;
-                            if (RefrigtzDLL.AllDraw.OrderPlate == 1)
+                            if (RefrigtzDLL.AllDraw.OrderPlateDraw == 1)
                                 RefrigtzDLL.ThinkingChess.NoOfBoardMovedGray++;
                             else
                                 RefrigtzDLL.ThinkingChess.NoOfBoardMovedBrown++;

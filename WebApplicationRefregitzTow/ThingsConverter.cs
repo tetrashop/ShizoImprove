@@ -121,7 +121,7 @@ namespace RefrigtzW
                             if (//AllDraw.Person && 
                                 AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                             {
-                                if (AllDraw.OrderPlate == 1)
+                                if (AllDraw.OrderPlateDraw == 1)
                                 {
                                     /* while (AllDraw.ConvertedKind == -1) { 
                                      }
@@ -139,7 +139,7 @@ namespace RefrigtzW
                                 if (//AllDraw.Person &&
                                 AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                             {
-                                if (AllDraw.OrderPlate == -1)
+                                if (AllDraw.OrderPlateDraw == -1)
                                 {
                                     //(new FormُSelectItems()).ShowDialog();
                                     /*  while (AllDraw.ConvertedKind == -1) {  
@@ -221,7 +221,7 @@ namespace RefrigtzW
                         }
                         else
                         {
-                            if (AllDraw.OrderPlate == 1)
+                            if (AllDraw.OrderPlateDraw == 1)
                             {
                                 AllDraw.ConvertedKind = -1;
                                 AllDraw.SodierConversionOcuured = true;
@@ -230,7 +230,7 @@ namespace RefrigtzW
                                 if (//AllDraw.Person &&
                                     AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                                 {
-                                    if (AllDraw.OrderPlate == 1)
+                                    if (AllDraw.OrderPlateDraw == 1)
                                     {
                                         /* while (AllDraw.ConvertedKind == -1) {  
                                          }
@@ -248,7 +248,7 @@ namespace RefrigtzW
                                     if (//AllDraw.Person && 
                                     AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                                 {
-                                    if (AllDraw.OrderPlate == -1)
+                                    if (AllDraw.OrderPlateDraw == -1)
                                     {
                                         /*  while (AllDraw.ConvertedKind == -1) {  
                                           }
@@ -341,7 +341,7 @@ namespace RefrigtzW
                                 if (//AllDraw.Person && 
                                     AllDraw.StateCP && AllDraw.THISSecradioButtonGrayOrderChecked)
                                 {
-                                    if (AllDraw.OrderPlate == 1)
+                                    if (AllDraw.OrderPlateDraw == 1)
                                     {
                                         /*  while (AllDraw.ConvertedKind == -1) { 
                                           }
@@ -359,7 +359,7 @@ namespace RefrigtzW
                                     if (//AllDraw.Person && 
                                     AllDraw.StateCP && AllDraw.THISSecradioButtonBrownOrderChecked)
                                 {
-                                    if (AllDraw.OrderPlate == -1)
+                                    if (AllDraw.OrderPlateDraw == -1)
                                     {
                                         /*   while (AllDraw.ConvertedKind == -1) { 
                                            }

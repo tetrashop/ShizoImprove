@@ -10717,7 +10717,7 @@ namespace QuantumRefrigiz
                     //if (!UsePenaltyRegardMechnisamT)
                     AA.CheckMate(TableS, Order);
                     {
-                        if (AllDraw.OrderPlate == 1 && AA.CheckMateBrown)
+                        if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateBrown)
                         {
                             Object A = new Object();
                             lock (A)
@@ -10743,7 +10743,7 @@ namespace QuantumRefrigiz
 
 
                         }
-                        if (AllDraw.OrderPlate == -1 && AA.CheckMateGray)
+                        if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateGray)
                         {
                             DoEnemySelf = false;
                             Object A = new Object();
@@ -10770,9 +10770,9 @@ namespace QuantumRefrigiz
                                 RETURN = true; return;
                             }
                         }
-                        if (//(AllDraw.OrderPlate == -1 && AA.CheckBrown)|| 
+                        if (//(AllDraw.OrderPlateDraw == -1 && AA.CheckBrown)|| 
 
-                            (AllDraw.OrderPlate == -1 && AA.CheckMateBrown))
+                            (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown))
                         {
                             Object A = new Object();
                             lock (A)
@@ -10799,8 +10799,8 @@ namespace QuantumRefrigiz
 
 
                         }
-                        if (//(AllDraw.OrderPlate == 1 && AA.CheckGray) ||
-                            (AllDraw.OrderPlate == 1 && AA.CheckMateGray))
+                        if (//(AllDraw.OrderPlateDraw == 1 && AA.CheckGray) ||
+                            (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray))
                         {
                             DoEnemySelf = false;
                             Object A = new Object();
@@ -13516,11 +13516,21 @@ namespace QuantumRefrigiz
             return Sum;
         }
 
-        int DoubleAttack(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        int DoubleAttack(int[,] Table, bool Before, int RowD, int ColD, int Order)
         {
             int DD = 0;
-
-            List<int[]> DDE = ListOfExistInAttackList(Before, RowS, ColS, RowD, ColD);
+            List<List<int[]>> DDL = new List<List<int[]>>();
+            for (int RowS = 0; RowS < 8; RowS++)
+                for (int ColS = 0; ColS < 8; ColS++)
+                {
+                    {
+                        DDL.Add(ListOfExistInAttackList(Before, RowS, ColS, RowD, ColD));
+                    }
+                }
+            List<int[]> DDE = new List<int[]>();
+            for (int i = 0; i < DDL.Count; i++)
+                for (int j = 0; j < DDL[i].Count; j++)
+                    DDE.Add(DDL[i][j]);
             if (DDE.Count > 1)
             {
                 for (int i = 0; i < DDE.Count; i++)
@@ -13550,11 +13560,21 @@ namespace QuantumRefrigiz
             return Is;
 
         }
-        int DoubleDefence(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        int DoubleDefence(int[,] Table, bool Before, int RowS, int ColS, int Order)
         {
             int DD = 0;
-
-            List<int[]> DDE = ListOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD);
+            List<List<int[]>> DDL = new List<List<int[]>>();
+            for (int RowD = 0; RowD < 8; RowD++)
+                for (int ColD = 0; ColD < 8; ColD++)
+                {
+                    {
+                        DDL.Add(ListOfExistInReducedAttackList(Before, RowS, ColS, RowD, ColD));
+                    }
+                }
+            List<int[]> DDE = new List<int[]>();
+            for (int i = 0; i < DDL.Count; i++)
+                for (int j = 0; j < DDL[i].Count; j++)
+                    DDE.Add(DDL[i][j]);
             if (DDE.Count > 1)
             {
                 for (int i = 0; i < DDE.Count; i++)
@@ -13655,10 +13675,10 @@ namespace QuantumRefrigiz
 
                 }
 
-                HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
-                HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order);
+                HDoubleAttack = DoubleAttack(CloneATable(TableS), Before,RowD, ColD, Order);
+                HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, Order);
                 bool IsS = false;
-                if (HDoubleDefense < 0)
+               if (HDoubleDefense < 0)
                 {
                     SetSupHuTrue();
                     IsS = true;
@@ -14286,7 +14306,7 @@ namespace QuantumRefrigiz
             {
                 if (LearningVarsObject.Count == 0 || AllDrawclass)
                 {
-                    if (AllDraw.OrderPlate == Order)
+                    if (Order != AllDraw.OrderPlateDraw)
                     {
                         if (Current.IsPenaltyAction() == 0)
 
@@ -14299,7 +14319,7 @@ namespace QuantumRefrigiz
 
                             HeuristicAttackValue++;
                     }
-                    if (AllDraw.OrderPlate == Order)
+                    if (Order != AllDraw.OrderPlateDraw)
                     {
                         if (Current.IsRewardAction() == 1)
 
@@ -14317,7 +14337,7 @@ namespace QuantumRefrigiz
                 {
                     if ((LearningVarsObject[LearningVarsObject.Count - 1][1] && !LearningVarsObject[LearningVarsObject.Count - 1][4]))
                     {
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             if (Current.IsPenaltyAction() == 0)
 
@@ -14330,7 +14350,7 @@ namespace QuantumRefrigiz
 
                                 HeuristicAttackValue += 2;
                         }
-                        if (AllDraw.OrderPlate == Order)
+                        if (Order != AllDraw.OrderPlateDraw)
                         {
                             if (Current.IsRewardAction() == 1)
 
@@ -15444,7 +15464,7 @@ namespace QuantumRefrigiz
             try
             {
 
-                if (AllDraw.OrderPlate == Order)
+                if (Order != AllDraw.OrderPlateDraw)
                 {
                     //Combination of tow elephant s powerfull of tow hourse
                     if (Kind == 2)
@@ -15624,15 +15644,15 @@ namespace QuantumRefrigiz
 
                                 ThinkingQuantumFinished = true;
                                 CheckMateOcuured = true;
-                                if (//(AAA.CheckGray && AllDraw.OrderPlate == 1) || (AAA.CheckBrown && AllDraw.OrderPlate == -1) || 
-                                (AAA.CheckMateGray && AllDraw.OrderPlate == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == -1))
+                                if (//(AAA.CheckGray && AllDraw.OrderPlateDraw == 1) || (AAA.CheckBrown && AllDraw.OrderPlateDraw == -1) || 
+                                (AAA.CheckMateGray && AllDraw.OrderPlateDraw == 1) || (AAA.CheckMateBrown && AllDraw.OrderPlateDraw == -1))
                                 {
                                     FoundFirstSelfMating++;
                                     if (Order == AllDraw.OrderPlateDraw)
                                         LoseOcuuredatChiled = -2;
                                     IsThereMateOfSelf = true;
                                 }
-                                if ((AAA.CheckMateGray && AllDraw.OrderPlate == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlate == 1))
+                                if ((AAA.CheckMateGray && AllDraw.OrderPlateDraw == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlateDraw == 1))
                                 {
                                     if (Order == AllDraw.OrderPlateDraw)
                                         WinOcuuredatChiled = 3;
