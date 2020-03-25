@@ -55,6 +55,16 @@ namespace RefrigtzDLL
 
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+        //return maximum of six type values 
+        //clone a table
+        int[,] CloneATable(int[,] Tab)
+        {
+            int[,] Tabl = new int[8, 8];
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
+                    Tabl[i, j] = Tab[i, j];
+            return Tabl;
+        }
 
         public ThingsConverter(bool arrangmentsChanged, int rowSource, int columnSource, Color color, int[,] tableS, int order, int v)
         {
@@ -63,7 +73,7 @@ namespace RefrigtzDLL
             this.rowSource = rowSource;
             this.columnSource = columnSource;
             this.color = color;
-            this.tableS = tableS;
+            this.tableS = CloneATable(tableS);
             Order = order;
             this.v = v;
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;

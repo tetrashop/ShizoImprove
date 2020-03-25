@@ -8164,7 +8164,7 @@ namespace QuantumRefrigiz
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
 
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
 
@@ -8173,7 +8173,7 @@ namespace QuantumRefrigiz
 
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinkingQuantum[k].Row, SolderesOnTable[i].SoldierThinkingQuantum[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -8447,7 +8447,7 @@ namespace QuantumRefrigiz
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
 
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
 
@@ -8457,7 +8457,7 @@ namespace QuantumRefrigiz
 
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 2, CloneATable(TableS), Order, -1, -1);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -8653,7 +8653,7 @@ namespace QuantumRefrigiz
                                             if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                             {
 
-                                                if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                                if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                     continue;
 
 
@@ -8662,7 +8662,7 @@ namespace QuantumRefrigiz
 
                                             AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 3, CloneATable(TableS), Order, HoursesOnTable[i].HourseThinkingQuantum[k].Row, HoursesOnTable[i].HourseThinkingQuantum[k].Column);
                                             //If there is kish or kshachamaz Order.
-                                            if (AB.Check(TableS, Order))
+                                            if (AB.Check(CloneATable(TableS), Order))
                                             {
                                                 //When Order is Gray.
                                                 if (Order == 1)
@@ -8862,7 +8862,7 @@ namespace QuantumRefrigiz
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
 
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
 
@@ -8872,7 +8872,7 @@ namespace QuantumRefrigiz
 
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 4, CloneATable(TableS), Order, CastlesOnTable[i].CastleThinkingQuantum[k].Row, CastlesOnTable[i].CastleThinkingQuantum[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -9073,7 +9073,7 @@ namespace QuantumRefrigiz
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
 
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
 
@@ -9083,7 +9083,7 @@ namespace QuantumRefrigiz
 
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 5, CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinkingQuantum[k].Row, MinisterOnTable[i].MinisterThinkingQuantum[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -9286,7 +9286,7 @@ namespace QuantumRefrigiz
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
 
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
                                         }
@@ -9294,7 +9294,7 @@ namespace QuantumRefrigiz
 
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 6, CloneATable(TableS), Order, KingOnTable[i].KingThinkingQuantum[k].Row, KingOnTable[i].KingThinkingQuantum[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -9560,32 +9560,32 @@ namespace QuantumRefrigiz
             //soldier
             if (Kind == 1)
             {
-                TableHeuristic = SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder[j];
+                TableHeuristic = CloneATable(SolderesOnTable[i].SoldierThinkingQuantum[k].TableListSolder[j]);
             }
             else//elephant
                 if (Kind == 2)
             {
-                TableHeuristic = ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant[j];
+                TableHeuristic = CloneATable(ElephantOnTable[i].ElefantThinkingQuantum[k].TableListElefant[j]);
             }
             else//hourse
                 if (Kind == 3)
             {
-                TableHeuristic = HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse[j];
+                TableHeuristic = CloneATable(HoursesOnTable[i].HourseThinkingQuantum[k].TableListHourse[j]);
             }
             else//Castle
                 if (Kind == 4)
             {
-                TableHeuristic = CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle[j];
+                TableHeuristic = CloneATable(CastlesOnTable[i].CastleThinkingQuantum[k].TableListCastle[j]);
             }
             else//minister
                 if (Kind == 5)
             {
-                TableHeuristic = MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j];
+                TableHeuristic = CloneATable(MinisterOnTable[i].MinisterThinkingQuantum[k].TableListMinister[j]);
             }
             else//king
                 if (Kind == 6)
             {
-                TableHeuristic = KingOnTable[i].KingThinkingQuantum[k].TableListKing[j];
+                TableHeuristic = CloneATable(KingOnTable[i].KingThinkingQuantum[k].TableListKing[j]);
             }
 
         }
@@ -9916,7 +9916,7 @@ namespace QuantumRefrigiz
             bool continued = false;
             ChessRules AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinkingQuantum[k].Row, SolderesOnTable[i].SoldierThinkingQuantum[k].Column);
             //If there is kish or kshachamaz Order.
-            if (AB.Check(TableS, Order))
+            if (AB.Check(CloneATable(TableS), Order))
             {
                 //When Order is Gray.
                 if (Order == 1)
@@ -9977,7 +9977,7 @@ namespace QuantumRefrigiz
                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                         {
 
-                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
                                 //if (Order == 1)
 
@@ -9990,7 +9990,7 @@ namespace QuantumRefrigiz
 
                         }
                         //When there is not Penalty regard mechanism.
-                        if (CheckeHuristci(TableS, Order, i, j, k))
+                        if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                             return true;
 
 
@@ -10081,7 +10081,7 @@ namespace QuantumRefrigiz
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
 
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             //if (Order == 1)
 
@@ -10095,7 +10095,7 @@ namespace QuantumRefrigiz
 
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
 
 
@@ -10161,7 +10161,7 @@ namespace QuantumRefrigiz
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
 
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             if (Order == 1)
                             {
@@ -10177,7 +10177,7 @@ namespace QuantumRefrigiz
 
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
 
                     InitiateVars(i, j, k, 3);
@@ -10244,7 +10244,7 @@ namespace QuantumRefrigiz
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
 
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             //if (Order == 1)
 
@@ -10258,7 +10258,7 @@ namespace QuantumRefrigiz
 
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
 
 
@@ -10327,7 +10327,7 @@ namespace QuantumRefrigiz
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
 
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             //if (Order == 1)
 
@@ -10340,7 +10340,7 @@ namespace QuantumRefrigiz
                     }
 
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
 
 
@@ -10412,7 +10412,7 @@ namespace QuantumRefrigiz
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
 
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             //if (Order == 1)
 
@@ -10425,7 +10425,7 @@ namespace QuantumRefrigiz
                     }
                     //When there is not Penalty regard mechanism.
 
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
 
                     InitiateVars(i, j, k, 6);
@@ -11611,7 +11611,7 @@ namespace QuantumRefrigiz
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
 
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
 
                                     }
@@ -11619,7 +11619,7 @@ namespace QuantumRefrigiz
 
                                     AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinkingQuantum[k].Row, SolderesOnTable[i].SoldierThinkingQuantum[k].Column);
                                     //If there is kish or kshachamaz Order.
-                                    if (AB.Check(TableS, Order))
+                                    if (AB.Check(CloneATable(TableS), Order))
                                     {
                                         //When Order is Gray.
                                         if (Order == 1)
@@ -11891,7 +11891,7 @@ namespace QuantumRefrigiz
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
 
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
 
                                     }
@@ -11900,7 +11900,7 @@ namespace QuantumRefrigiz
                                     {
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 2, CloneATable(TableS), Order, ElephantOnTable[i].ElefantThinkingQuantum[k].Row, ElephantOnTable[i].ElefantThinkingQuantum[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -12115,7 +12115,7 @@ namespace QuantumRefrigiz
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
 
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
 
@@ -12125,7 +12125,7 @@ namespace QuantumRefrigiz
                                         {
                                             AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 3, CloneATable(TableS), Order, HoursesOnTable[i].HourseThinkingQuantum[k].Row, HoursesOnTable[i].HourseThinkingQuantum[k].Column);
                                             //If there is kish or kshachamaz Order.
-                                            if (AB.Check(TableS, Order))
+                                            if (AB.Check(CloneATable(TableS), Order))
                                             {
                                                 //When Order is Gray.
                                                 if (Order == 1)
@@ -12341,7 +12341,7 @@ namespace QuantumRefrigiz
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
 
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
 
 
@@ -12351,7 +12351,7 @@ namespace QuantumRefrigiz
                                     {
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 4, CloneATable(TableS), Order, CastlesOnTable[i].CastleThinkingQuantum[k].Row, CastlesOnTable[i].CastleThinkingQuantum[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -12563,7 +12563,7 @@ namespace QuantumRefrigiz
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
 
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
 
                                     }
@@ -12571,7 +12571,7 @@ namespace QuantumRefrigiz
 
                                     AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 5, CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinkingQuantum[k].Row, MinisterOnTable[i].MinisterThinkingQuantum[k].Column);
                                     //If there is kish or kshachamaz Order.
-                                    if (AB.Check(TableS, Order))
+                                    if (AB.Check(CloneATable(TableS), Order))
                                     {
                                         //When Order is Gray.
                                         if (Order == 1)
@@ -12775,7 +12775,7 @@ namespace QuantumRefrigiz
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
 
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
 
 
@@ -12784,7 +12784,7 @@ namespace QuantumRefrigiz
 
                                     AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 6, CloneATable(TableS), Order, KingOnTable[i].KingThinkingQuantum[k].Row, KingOnTable[i].KingThinkingQuantum[k].Column);
                                     //If there is kish or kshachamaz Order.
-                                    if (AB.Check(TableS, Order))
+                                    if (AB.Check(CloneATable(TableS), Order))
                                     {
                                         //When Order is Gray.
                                         if (Order == 1)

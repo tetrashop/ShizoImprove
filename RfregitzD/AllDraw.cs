@@ -2297,8 +2297,8 @@ namespace RefrigtzDLL
                         {
 
                             //Create Rules Objects For Soldiers.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, SolderesOnTable[i].SoldierThinking[0].TableListSolder[j][SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]]
-                                , SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])[SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]]
+                                , CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])
                                 , Order
                                 , SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0]
                                 , SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]);
@@ -2344,13 +2344,13 @@ namespace RefrigtzDLL
                         {
 
                             //Create Elephant Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ElephantOnTable[i].ElefantThinking[0].TableListElefant[j][ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]]
-                            , ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])[ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]]
+                            , CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])
                             , Order
                             , ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0]
                             , ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]);
                             //When CheckMate Occured for Current Elephant.
-                            if (AA.CheckMate(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Order))
+                            if (AA.CheckMate(CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]), Order))
                                 //For Self Order CheckMate.
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2391,13 +2391,13 @@ namespace RefrigtzDLL
                         {
 
                             //Set Hourse Rules Objects.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, HoursesOnTable[i].HourseThinking[0].TableListHourse[j][HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]]
-                            , HoursesOnTable[i].HourseThinking[0].TableListHourse[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])[HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]]
+                            , CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])
                             , Order
                             , HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0]
                             , HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]);
                             //When CheckMate Occured.
-                            if (AA.CheckMate(HoursesOnTable[i].HourseThinking[0].TableListSolder[j], Order))
+                            if (AA.CheckMate(CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]), Order))
                                 //For Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2438,13 +2438,13 @@ namespace RefrigtzDLL
                         {
 
                             //Castles Gray Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CastlesOnTable[i].CastleThinking[0].TableListCastle[j][CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]]
-                            , CastlesOnTable[i].CastleThinking[0].TableListCastle[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])[CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]]
+                            , CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])
                             , Order
                             , CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0]
                             , CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]);
                             //When Current Gray Castles CheckMate.
-                            if (AA.CheckMate(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Order))
+                            if (AA.CheckMate(CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]), Order))
                                 //For Self CheckMate
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2485,13 +2485,13 @@ namespace RefrigtzDLL
                         {
 
                             //Minister Gray Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, MinisterOnTable[i].MinisterThinking[0].TableListMinister[j][MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]]
-                            , MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])[MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]]
+                            , CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])
                             , Order
                             , MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0]
                             , MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]);
                             //When M ate Occured in Minister Gray.
-                            if (AA.CheckMate(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Order))
+                            if (AA.CheckMate(CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]), Order))
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2532,13 +2532,13 @@ namespace RefrigtzDLL
                         {
 
                             //Gray King Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, KingOnTable[i].KingThinking[0].TableListKing[j][KingOnTable[i].KingThinking[0].RowColumnKing[j][0], KingOnTable[i].KingThinking[0].RowColumnKing[j][1]]
-                            , KingOnTable[i].KingThinking[0].TableListKing[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])[KingOnTable[i].KingThinking[0].RowColumnKing[j][0], KingOnTable[i].KingThinking[0].RowColumnKing[j][1]]
+                            , CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])
                             , Order
                             , KingOnTable[i].KingThinking[0].RowColumnKing[j][0]
                             , KingOnTable[i].KingThinking[0].RowColumnKing[j][1]);
                             //When CheckMate Occured in King Gray.
-                            if (AA.CheckMate(KingOnTable[i].KingThinking[0].TableListKing[j], Order))
+                            if (AA.CheckMate(CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]), Order))
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateGray)
                                 {
@@ -2584,8 +2584,8 @@ namespace RefrigtzDLL
                         {
 
                             //Solders Brown Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, SolderesOnTable[i].SoldierThinking[0].TableListSolder[j][SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]]
-                            , SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])[SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]]
+                            , CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])
                             , Order
                             , SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0]
                             , SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]);
@@ -2631,13 +2631,13 @@ namespace RefrigtzDLL
                         {
 
                             //Elephant Brown Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, ElephantOnTable[i].ElefantThinking[0].TableListElefant[j][ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]]
-                            , ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])[ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]]
+                            , CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])
                             , Order
                             , ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0]
                             , ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]);
                             //CheckMate Occured in Elephenat Brown.
-                            if (AA.CheckMate(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j], Order))
+                            if (AA.CheckMate(CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]), Order))
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2678,13 +2678,13 @@ namespace RefrigtzDLL
                         {
 
                             //Hourse Brown Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, HoursesOnTable[i].HourseThinking[0].TableListHourse[j][HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]]
-                            , HoursesOnTable[i].HourseThinking[0].TableListHourse[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])[HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]]
+                            , CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])
                             , Order
                             , HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0]
                             , HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]);
                             //When Hourse Broin CheckMate Ocuucred.
-                            if (AA.CheckMate(HoursesOnTable[i].HourseThinking[0].TableListSolder[j], Order))
+                            if (AA.CheckMate(CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]), Order))
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2725,13 +2725,13 @@ namespace RefrigtzDLL
                         {
 
                             //Castles Brown Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CastlesOnTable[i].CastleThinking[0].TableListCastle[j][CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]]
-                            , CastlesOnTable[i].CastleThinking[0].TableListCastle[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])[CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]]
+                            , CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])
                             , Order
                             , CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0]
                             , CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]);
                             //When Brown Castles CheckMate Occured.
-                            if (AA.CheckMate(CastlesOnTable[i].CastleThinking[0].TableListCastle[j], Order))
+                            if (AA.CheckMate(CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]), Order))
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2772,13 +2772,13 @@ namespace RefrigtzDLL
                         {
 
                             //Minister Brown Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, MinisterOnTable[i].MinisterThinking[0].TableListMinister[j][MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]]
-                            , MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])[MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]]
+                            , CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])
                             , Order
                             , MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0]
                             , MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]);
                             //When Minister Borwn CheckMate Occcured.
-                            if (AA.CheckMate(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j], Order))
+                            if (AA.CheckMate(CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]), Order))
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -2820,13 +2820,13 @@ namespace RefrigtzDLL
                         {
 
                             //King Brown Rules.
-                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, KingOnTable[i].KingThinking[0].TableListKing[j][KingOnTable[i].KingThinking[0].RowColumnKing[j][0], KingOnTable[i].KingThinking[0].RowColumnKing[j][1]]
-                            , KingOnTable[i].KingThinking[0].TableListKing[j]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])[KingOnTable[i].KingThinking[0].RowColumnKing[j][0], KingOnTable[i].KingThinking[0].RowColumnKing[j][1]]
+                            , CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])
                             , Order
                             , KingOnTable[i].KingThinking[0].RowColumnKing[j][0]
                             , KingOnTable[i].KingThinking[0].RowColumnKing[j][1]);
                             //When King Brown Rules CheckMate Occcured.
-                            if (AA.CheckMate(KingOnTable[i].KingThinking[0].TableListKing[j], Order))
+                            if (AA.CheckMate(CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]), Order))
                                 //Self CheckMate.
                                 if (AllDraw.OrderPlateDraw == -1 && AA.CheckMateBrown)
                                 {
@@ -4399,42 +4399,42 @@ namespace RefrigtzDLL
                 if (Kind == 1)
                 {
                     //when current alldraw lists is collision of stored lists tables state return true
-                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])))
+                    if (SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]))))
                         Is = true;
                 }
                 else//elephant
                                     if (Kind == 2)
                 {
                     //when current alldraw lists is collision of stored lists tables state return true
-                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])))
+                    if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]))))
                         Is = true;
                 }
                 else//hourse
                                     if (Kind == 3)
                 {
                     //when current alldraw lists is collision of stored lists tables state return true
-                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], HoursesOnTable[i].HourseThinking[0].TableListHourse[j])))
+                    if (HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]))))
                         Is = true;
                 }
                 else//Castle
                                     if (Kind == 4)
                 {
                     //when current alldraw lists is collision of stored lists tables state return true
-                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CastlesOnTable[i].CastleThinking[0].TableListCastle[j])))
+                    if (CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]))))
                         Is = true;
                 }
                 else//minster
                                     if (Kind == 5)
                 {
                     //when current alldraw lists is collision of stored lists tables state return true
-                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])))
+                    if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]))))
                         Is = true;
                 }
                 else//king
                                     if (Kind == 6)
                 {
                     //when current alldraw lists is collision of stored lists tables state return true
-                    if (KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], KingOnTable[i].KingThinking[0].TableListKing[j])))
+                    if (KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Count != 0 && (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]))))
                         Is = true;
                 }
             }
@@ -5849,7 +5849,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]))))
                         Is = true;
                 }
             }
@@ -5865,7 +5865,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]))))
                         Is = true;
                 }
             }
@@ -5881,7 +5881,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], HoursesOnTable[i].HourseThinking[0].TableListHourse[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]))))
                         Is = true;
                 }
             }
@@ -5897,7 +5897,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CastlesOnTable[i].CastleThinking[0].TableListCastle[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]))))
                         Is = true;
                 }
             }
@@ -5913,7 +5913,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]))))
                         Is = true;
                 }
             }
@@ -5929,7 +5929,7 @@ namespace RefrigtzDLL
                         //alldraw table list count
                         d = KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Count;
                     //alldraw tabale list and deeper count not staisfy validity or when there is not equallity retunr true
-                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], KingOnTable[i].KingThinking[0].TableListKing[j])))
+                    if (d > 0 && e > j && (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]))))
                         Is = true;
                 }
             }
@@ -5978,7 +5978,7 @@ namespace RefrigtzDLL
                     if (a == e && e > j && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList != null && SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]))
+                        if (!ThinkingChess.TableEqual(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[j].TableList[0], CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])))
                             Is = true;
                     }
                     else
@@ -6009,7 +6009,7 @@ namespace RefrigtzDLL
                     if (a == e && e > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList != null && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]))
+                        if (!ThinkingChess.TableEqual(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].TableList[0], CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])))
                             Is = true;
                     }
                     else
@@ -6040,7 +6040,7 @@ namespace RefrigtzDLL
                     if (a == e && e > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList != null && HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], HoursesOnTable[i].HourseThinking[0].TableListHourse[j]))
+                        if (!ThinkingChess.TableEqual(HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].TableList[0], CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])))
                             Is = true;
                     }
                     else
@@ -6071,7 +6071,7 @@ namespace RefrigtzDLL
                     if (a == e && e > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList != null && CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CastlesOnTable[i].CastleThinking[0].TableListCastle[j]))
+                        if (!ThinkingChess.TableEqual(CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].TableList[0], CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])))
                             Is = true;
                     }
                     else
@@ -6102,7 +6102,7 @@ namespace RefrigtzDLL
                     if (a == e && e > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList != null && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]))
+                        if (!ThinkingChess.TableEqual(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].TableList[0], CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])))
                             Is = true;
                     }
                     else
@@ -6133,7 +6133,7 @@ namespace RefrigtzDLL
                     if (a == e && e > j && KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList != null && KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList.Count > 0)
                     {
                         //when tow lists tables not is equal return true
-                        if (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], KingOnTable[i].KingThinking[0].TableListKing[j]))
+                        if (!ThinkingChess.TableEqual(KingOnTable[i].KingThinking[0].AStarGreedy[j].TableList[0], CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])))
                             Is = true;
                     }
                     else
@@ -6221,7 +6221,7 @@ namespace RefrigtzDLL
                                         return;
                                 }
 
-                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CloneATable(SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].TableList[0]), Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 SolderesOnTable[i].SoldierThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
                             for (int h = 0; h < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count && SolderesOnTable[i].SoldierThinking[0].AStarGreedy != null; h++)
@@ -6353,7 +6353,7 @@ namespace RefrigtzDLL
                                         return;
                                 }
 
-                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CloneATable(ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].TableList[0]), Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
                             for (int h = 0; h < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null; h++)
@@ -6470,7 +6470,7 @@ namespace RefrigtzDLL
                                         return;
                                 }
 
-                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CloneATable(HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].TableList[0]), Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
                             for (int h = 0; h < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count && HoursesOnTable[i].HourseThinking[0].AStarGreedy != null; h++)
@@ -6589,7 +6589,7 @@ namespace RefrigtzDLL
                                         return;
                                 }
 
-                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CloneATable(CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].TableList[0]), Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
                             for (int h = 0; h < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count && CastlesOnTable[i].CastleThinking[0].AStarGreedy != null; h++)
@@ -6710,7 +6710,7 @@ namespace RefrigtzDLL
                                         return;
                                 }
 
-                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CloneATable(MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].TableList[0]), Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
                             for (int h = 0; h < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count && MinisterOnTable[i].MinisterThinking[0].AStarGreedy != null; h++)
@@ -6827,7 +6827,7 @@ namespace RefrigtzDLL
                                         return;
                                 }
 
-                                KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0], Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
+                                KingOnTable[i].KingThinking[0].AStarGreedy[iii].FoundOfLeafDepenOfKindFullGame(CloneATable(KingOnTable[i].KingThinking[0].AStarGreedy[iii].TableList[0]), Order * -1, iAStarGreedy, ii, jj, i, jjj, FOUND, LeafAStarGreedy);
                                 KingOnTable[i].KingThinking[0].AStarGreedy[iii].AStarGreedyString = this;
                             }
                             for (int h = 0; h < KingOnTable[i].KingThinking[0].AStarGreedy.Count && KingOnTable[i].KingThinking[0].AStarGreedy != null; h++)
@@ -7440,14 +7440,14 @@ namespace RefrigtzDLL
                                         //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
                                         }
                                         //When there is not Penalty regard mechanism.
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -7683,14 +7683,14 @@ namespace RefrigtzDLL
                                         //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
                                         }
                                         //When there is not Penalty regard mechanism.
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 2, CloneATable(TableS), Order, -1, -1);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -7866,14 +7866,14 @@ namespace RefrigtzDLL
                                             //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                             if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                             {
-                                                if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                                if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                     continue;
 
                                             }
                                             //When there is not Penalty regard mechanism.
                                             AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 3, CloneATable(TableS), Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
                                             //If there is kish or kshachamaz Order.
-                                            if (AB.Check(TableS, Order))
+                                            if (AB.Check(CloneATable(TableS), Order))
                                             {
                                                 //When Order is Gray.
                                                 if (Order == 1)
@@ -8049,14 +8049,14 @@ namespace RefrigtzDLL
                                         //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
                                         }
                                         //When there is not Penalty regard mechanism.
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 4, CloneATable(TableS), Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -8233,14 +8233,14 @@ namespace RefrigtzDLL
                                         //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
                                         }
                                         //When there is not Penalty regard mechanism.
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 5, CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -8421,13 +8421,13 @@ namespace RefrigtzDLL
                                         //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
                                         }
                                         //When there is not Penalty regard mechanism.
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 6, CloneATable(TableS), Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -8670,32 +8670,32 @@ namespace RefrigtzDLL
             //soldier
             if (Kind == 1)
             {
-                TableHeuristic = SolderesOnTable[i].SoldierThinking[k].TableListSolder[j];
+                TableHeuristic = CloneATable(SolderesOnTable[i].SoldierThinking[k].TableListSolder[j]);
             }
             else//elephant
                 if (Kind == 2)
             {
-                TableHeuristic = ElephantOnTable[i].ElefantThinking[k].TableListElefant[j];
+                TableHeuristic = CloneATable(ElephantOnTable[i].ElefantThinking[k].TableListElefant[j]);
             }
             else//hourse
                 if (Kind == 3)
             {
-                TableHeuristic = HoursesOnTable[i].HourseThinking[k].TableListHourse[j];
+                TableHeuristic = CloneATable(HoursesOnTable[i].HourseThinking[k].TableListHourse[j]);
             }
             else//Castle
                 if (Kind == 4)
             {
-                TableHeuristic = CastlesOnTable[i].CastleThinking[k].TableListCastle[j];
+                TableHeuristic = CloneATable(CastlesOnTable[i].CastleThinking[k].TableListCastle[j]);
             }
             else//minister
                 if (Kind == 5)
             {
-                TableHeuristic = MinisterOnTable[i].MinisterThinking[k].TableListMinister[j];
+                TableHeuristic = CloneATable(MinisterOnTable[i].MinisterThinking[k].TableListMinister[j]);
             }
             else//king
                 if (Kind == 6)
             {
-                TableHeuristic = KingOnTable[i].KingThinking[k].TableListKing[j];
+                TableHeuristic = CloneATable(KingOnTable[i].KingThinking[k].TableListKing[j]);
             }
         }
         //same of befor verified existence of begin move and end move location saved in unique results of Last best movments
@@ -9018,7 +9018,7 @@ namespace RefrigtzDLL
             bool continued = false;
             ChessRules AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
             //If there is kish or kshachamaz Order.
-            if (AB.Check(TableS, Order))
+            if (AB.Check(CloneATable(TableS), Order))
             {
                 //When Order is Gray.
                 if (Order == 1)
@@ -9070,7 +9070,7 @@ namespace RefrigtzDLL
                         //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                         {
-                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                             {
                                 //if (Order == 1)
                                 //else
@@ -9080,7 +9080,7 @@ namespace RefrigtzDLL
 
                         }
                         //When there is not Penalty regard mechanism.
-                        if (CheckeHuristci(TableS, Order, i, j, k))
+                        if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                             return true;
 
                         InitiateVars(i, j, k, 1);
@@ -9156,7 +9156,7 @@ namespace RefrigtzDLL
                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             //if (Order == 1)
                             //else
@@ -9166,7 +9166,7 @@ namespace RefrigtzDLL
 
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
 
                     InitiateVars(i, j, k, 2);
@@ -9218,7 +9218,7 @@ namespace RefrigtzDLL
                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             if (Order == 1)
                             {
@@ -9231,7 +9231,7 @@ namespace RefrigtzDLL
                         }
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
                     InitiateVars(i, j, k, 3);
 
@@ -9283,7 +9283,7 @@ namespace RefrigtzDLL
                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             //if (Order == 1)
                             //else
@@ -9293,7 +9293,7 @@ namespace RefrigtzDLL
 
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
 
                     InitiateVars(i, j, k, 4);
@@ -9349,7 +9349,7 @@ namespace RefrigtzDLL
                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             //if (Order == 1)
                             //else 
@@ -9358,7 +9358,7 @@ namespace RefrigtzDLL
                         }
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
 
                     InitiateVars(i, j, k, 5);
@@ -9413,7 +9413,7 @@ namespace RefrigtzDLL
                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                     {
-                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                         {
                             //if (Order == 1)
                             //else
@@ -9422,7 +9422,7 @@ namespace RefrigtzDLL
                         }
                     }
                     //When there is not Penalty regard mechanism.
-                    if (CheckeHuristci(TableS, Order, i, j, k))
+                    if (CheckeHuristci(CloneATable(TableS), Order, i, j, k))
                         return true;
                     InitiateVars(i, j, k, 6);
 
@@ -10555,13 +10555,13 @@ namespace RefrigtzDLL
                                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
                                     }
                                     //When there is not Penalty regard mechanism.
                                     AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
                                     //If there is kish or kshachamaz Order.
-                                    if (AB.Check(TableS, Order))
+                                    if (AB.Check(CloneATable(TableS), Order))
                                     {
                                         //When Order is Gray.
                                         if (Order == 1)
@@ -10799,7 +10799,7 @@ namespace RefrigtzDLL
                                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
                                     }
                                     //When there is not Penalty regard mechanism.
@@ -10807,7 +10807,7 @@ namespace RefrigtzDLL
                                     {
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 2, CloneATable(TableS), Order, ElephantOnTable[i].ElefantThinking[k].Row, ElephantOnTable[i].ElefantThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -10993,7 +10993,7 @@ namespace RefrigtzDLL
                                         //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                         if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                         {
-                                            if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                            if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                                 continue;
 
                                         }
@@ -11002,7 +11002,7 @@ namespace RefrigtzDLL
                                         {
                                             AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 3, CloneATable(TableS), Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
                                             //If there is kish or kshachamaz Order.
-                                            if (AB.Check(TableS, Order))
+                                            if (AB.Check(CloneATable(TableS), Order))
                                             {
                                                 //When Order is Gray.
                                                 if (Order == 1)
@@ -11189,7 +11189,7 @@ namespace RefrigtzDLL
                                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
 
                                     }
@@ -11198,7 +11198,7 @@ namespace RefrigtzDLL
                                     {
                                         AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 4, CloneATable(TableS), Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
-                                        if (AB.Check(TableS, Order))
+                                        if (AB.Check(CloneATable(TableS), Order))
                                         {
                                             //When Order is Gray.
                                             if (Order == 1)
@@ -11380,13 +11380,13 @@ namespace RefrigtzDLL
                                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
                                     }
                                     //When there is not Penalty regard mechanism.
                                     AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 5, CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
                                     //If there is kish or kshachamaz Order.
-                                    if (AB.Check(TableS, Order))
+                                    if (AB.Check(CloneATable(TableS), Order))
                                     {
                                         //When Order is Gray.
                                         if (Order == 1)
@@ -11564,14 +11564,14 @@ namespace RefrigtzDLL
                                     //checked for Legal Movments ArgumentOutOfRangeException curnt game.
                                     if (DynamicAStarGreedytPrograming && !CurrentTableHeuristic && AStarGreedyi == 1)
                                     {
-                                        if (!IsEnemyThingsinStable(TableS, AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
+                                        if (!IsEnemyThingsinStable(CloneATable(TableS), AllDraw.TableListAction[AllDraw.TableListAction.Count - 1], AllDraw.OrderPlate))
                                             continue;
 
                                     }
                                     //When there is not Penalty regard mechanism.
                                     AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 6, CloneATable(TableS), Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
                                     //If there is kish or kshachamaz Order.
-                                    if (AB.Check(TableS, Order))
+                                    if (AB.Check(CloneATable(TableS), Order))
                                     {
                                         //When Order is Gray.
                                         if (Order == 1)
@@ -15724,7 +15724,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 1, ik, j))
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, ik, j, 0))
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -15780,7 +15780,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 2, ik, j))
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, ik, j, 0))
                             continue;
 
                         //when is self
@@ -15836,7 +15836,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, ik, j, 0))
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -15891,7 +15891,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 4, ik, j))
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, ik, j, 0))
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -15944,7 +15944,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
 
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
+                    if (CheckeHuristci(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, ik, j, 0))
                         continue;
 
                     Object O = new Object();
@@ -16003,7 +16003,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 6, ik, j))
                             continue;
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, ik, j, 0))
                             continue;
                         //when is self
                         if (Order != AllDraw.OrderPlateDraw)
@@ -16176,7 +16176,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
 
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
+                    if (CheckeHuristci(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, ik, j, 0))
                         continue;
 
                     //when is self
@@ -16229,7 +16229,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
 
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
+                    if (CheckeHuristci(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, ik, j, 0))
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -16281,7 +16281,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 3, ik, j))
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
+                    if (CheckeHuristci(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, ik, j, 0))
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -16467,7 +16467,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
 
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
+                    if (CheckeHuristci(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, ik, j, 0))
                         continue;
 
                     //when is self
@@ -16522,7 +16522,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     if (!IsThereEmptyOrNonCalculatedAStarGreedyNode(Order, 5, ik, j))
                         continue;
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
+                    if (CheckeHuristci(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, ik, j, 0))
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -16576,7 +16576,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         continue;
 
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
+                    if (CheckeHuristci(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, ik, j, 0))
                         continue;
                     //when is self
                     if (Order != AllDraw.OrderPlateDraw)
@@ -18210,7 +18210,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (ooo)
                     {
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(SolderesOnTable[ik].SoldierThinking[0].TableListSolder[j]), Order, ik, j, 0))
                             continue;
                         //sereved continuce
                         if (SolderesOnTable[ik].SoldierThinking[0].IsSupHu[j])
@@ -18427,7 +18427,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (ooo)
                     {
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(ElephantOnTable[ik].ElefantThinking[0].TableListElefant[j]), Order, ik, j, 0))
                             continue;
 
                         //sereved continuce
@@ -18647,7 +18647,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (ooo)
                     {
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(HoursesOnTable[ik].HourseThinking[0].TableListHourse[j]), Order, ik, j, 0))
                             continue;
 
                         //sereved continuce
@@ -18869,7 +18869,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                     }
                     //when node have kings dangoures ignore and continue.
-                    if (CheckeHuristci(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j], Order, ik, j, 0))
+                    if (CheckeHuristci(CloneATable(CastlesOnTable[ik].CastleThinking[0].TableListCastle[j]), Order, ik, j, 0))
                         continue;
 
                     //sereved continuce
@@ -19092,7 +19092,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (ooo)
                     {
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(MinisterOnTable[ik].MinisterThinking[0].TableListMinister[j]), Order, ik, j, 0))
                             continue;
 
                         //sereved continuce
@@ -19324,7 +19324,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     lock (ooo)
                     {
                         //when node have kings dangoures ignore and continue.
-                        if (CheckeHuristci(KingOnTable[ik].KingThinking[0].TableListKing[j], Order, ik, j, 0))
+                        if (CheckeHuristci(CloneATable(KingOnTable[ik].KingThinking[0].TableListKing[j]), Order, ik, j, 0))
                             continue;
 
                         //sereved continuce

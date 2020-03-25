@@ -2204,7 +2204,7 @@ namespace RefrigtzDLL
                 Object O1 = new Object();
                 lock (O1)
                 {
-                    IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(TableS, Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported);
+                    IsTowValuableObject = InAttackSelfThatNotSupportedCalculateValuableAll(CloneATable(TableS), Order, color, ikk, jkk, iik, jjk, ref ValuableSelfSupported);
                     //Initiate Variables.
                     int[,] Tab = new int[8, 8];
                     for (var ik = 0; ik < 8; ik++)
@@ -9342,14 +9342,14 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -9382,7 +9382,7 @@ namespace RefrigtzDLL
                         if (!Sup) { NumbersOfAllNode++; }
                     }
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination,ref TableS));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -9472,7 +9472,7 @@ namespace RefrigtzDLL
 
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
-                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, CloneATable(TableS), Hu));
 
                         newTask1.Wait(); newTask1.Dispose();
 
@@ -9537,14 +9537,14 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -9575,7 +9575,7 @@ namespace RefrigtzDLL
                         if (!Sup) { NumbersOfAllNode++; }
                     }
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination,ref TableS));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -9664,7 +9664,7 @@ namespace RefrigtzDLL
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
 
-                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, CloneATable(TableS), Hu));
 
                         newTask1.Wait(); newTask1.Dispose();
 
@@ -9714,7 +9714,7 @@ namespace RefrigtzDLL
                                     Color a = Color.Gray;
                                     if (Order * -1 == -1)
                                         a = Color.Brown;
-                                    if (Attack(TableS, ii, jj, i, j, a, Order * -1))
+                                    if (Attack(CloneATable(TableS), ii, jj, i, j, a, Order * -1))
                                     {
                                         BREAK = 1;
                                         //Current
@@ -9731,7 +9731,7 @@ namespace RefrigtzDLL
                                                 a = Color.Gray;
                                                 if (Order == -1)
                                                     a = Color.Brown;
-                                                if (Support(TableS, RowS, ColS, i, j, a, Order))
+                                                if (Support(CloneATable(TableS), RowS, ColS, i, j, a, Order))
                                                 {
                                                     BREAK = 2;
                                                     break;
@@ -9855,7 +9855,7 @@ namespace RefrigtzDLL
                                         lock (O1)
                                         {
                                             if (!(LearningV[0] || LearningV[1] || LearningV[2]))
-                                                LearningV[0] = LearningV[0] || InAttackSelfThatNotSupportedAll(TableS, Order, color, i, j, RowS, ColS, ik, jk, iik, jjk);
+                                                LearningV[0] = LearningV[0] || InAttackSelfThatNotSupportedAll(CloneATable(TableS), Order, color, i, j, RowS, ColS, ik, jk, iik, jjk);
                                         }
                                     }//, () =>
                                     {
@@ -9879,7 +9879,7 @@ namespace RefrigtzDLL
                                         lock (O1)
                                         {
                                             if (!(LearningV[0] || LearningV[1] || LearningV[2]))
-                                                LearningV[2] = LearningV[2] || IsGardForCurrentMovmentsAndIsNotMovable(TableS, Order, color, i, j, RowS, ColS//, ii, jj, RowD, ColD
+                                                LearningV[2] = LearningV[2] || IsGardForCurrentMovmentsAndIsNotMovable(CloneATable(TableS), Order, color, i, j, RowS, ColS//, ii, jj, RowD, ColD
                                                     );
                                         }
                                     }
@@ -9927,13 +9927,13 @@ namespace RefrigtzDLL
                 Object O11 = new Object();
                 lock (O11)
                 {
-                    var newTask = Task.Factory.StartNew(() => IsPrviousMovemntIsDangrousForCurr = IsPrviousMovemntIsDangrousForCurrent(TableS, Order));
+                    var newTask = Task.Factory.StartNew(() => IsPrviousMovemntIsDangrousForCurr = IsPrviousMovemntIsDangrousForCurrent(CloneATable(TableS), Order));
                     newTask.Wait();
                     newTask.Dispose();
                     //when true must penalty
                     if (!IsPrviousMovemntIsDangrousForCurr)
                     {
-                        newTask = Task.Factory.StartNew(() => SelfNotSupported = InAttackSelfThatNotSupported(TableS, Order, color, i, j, ii, jj));
+                        newTask = Task.Factory.StartNew(() => SelfNotSupported = InAttackSelfThatNotSupported(CloneATable(TableS), Order, color, i, j, ii, jj));
                         newTask.Wait();
                         newTask.Dispose();
                     } //when true must regard
@@ -9946,7 +9946,7 @@ namespace RefrigtzDLL
                     //For All Current
                     bool[] LearningVars = new bool[3];
 
-                    Task.Run(() => LearningVars = SomeLearningVarsCalculator(TableS, ii, jj, i, j));
+                    Task.Run(() => LearningVars = SomeLearningVarsCalculator(CloneATable(TableS), ii, jj, i, j));
 
                     Object O4 = new Object();
                     lock (O4)
@@ -10092,7 +10092,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
 
@@ -10100,7 +10100,7 @@ namespace RefrigtzDLL
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -10134,7 +10134,7 @@ namespace RefrigtzDLL
                     }
 
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination,ref TableS));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -10223,7 +10223,7 @@ namespace RefrigtzDLL
 
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
-                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, CloneATable(TableS), Hu));
 
                         newTask1.Wait(); newTask1.Dispose();
 
@@ -10259,14 +10259,14 @@ namespace RefrigtzDLL
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
 
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -10298,7 +10298,7 @@ namespace RefrigtzDLL
                     }
 
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination,ref TableS));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -10386,7 +10386,7 @@ namespace RefrigtzDLL
 
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
-                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, CloneATable(TableS), Hu));
 
                         newTask1.Wait(); newTask1.Dispose();
 
@@ -10420,14 +10420,14 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
 
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -10458,7 +10458,7 @@ namespace RefrigtzDLL
                         if (!Sup) { NumbersOfAllNode++; }
                     }
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination,ref TableS));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -10545,7 +10545,7 @@ namespace RefrigtzDLL
 
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
-                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, CloneATable(TableS), Hu));
 
                         newTask1.Wait(); newTask1.Dispose();
 
@@ -10715,7 +10715,7 @@ namespace RefrigtzDLL
                     //Consideration to go to Check.  
 
                     //if (!UsePenaltyRegardMechnisamT)
-                    AA.CheckMate(TableS, Order);
+                    AA.CheckMate(CloneATable(TableS), Order);
                     {
                         if (AllDraw.OrderPlateDraw == 1 && AA.CheckMateBrown)
                         {
@@ -11020,7 +11020,7 @@ namespace RefrigtzDLL
                     if (Equality)
                     {
                         ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), Order, Row, Column);
-                        if (A.Check(TableS, Order))
+                        if (A.Check(CloneATable(TableS), Order))
                         {
                             if (Order == 1 && (A.CheckGray))
                             {
@@ -11037,7 +11037,7 @@ namespace RefrigtzDLL
                         }
                         else
                         {
-                            if (IsCurrentStateIsDangreousForCurrentOrder(TableS, Order, color, i, j) && DoEnemySelf)
+                            if (IsCurrentStateIsDangreousForCurrentOrder(CloneATable(TableS), Order, color, i, j) && DoEnemySelf)
                             {
                                 NumberOfPenalties++;
                                 Current.LearningAlgorithmPenalty();
@@ -11430,7 +11430,7 @@ namespace RefrigtzDLL
                 }
             }
         }
-        void KilledMethod(ref int Killed, bool Sup, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination, int[,] TableS, ThingsConverter t = null)
+        void KilledMethod(ref int Killed, bool Sup, int RowSource, int ColumnSource, int RowDestination, int ColumnDestination, ref int[,] TableS, ThingsConverter t = null)
         {
             Object O = new Object();
             lock (O)
@@ -11452,8 +11452,22 @@ namespace RefrigtzDLL
                         }
                         else
                         {
+                            int con = 1;
+                            if (t.ConvertedToMinister)
+                                con = 5;
+                            else
+                            if (t.ConvertedToCastle)
+                                con = 4;
+                            else
+                            if (t.ConvertedToHourse)
+                                con = 3;
+                            else
+                            if (t.ConvertedToElefant)
+                                con = 2;
+
+
                             Killed = TableConst[RowDestination, ColumnDestination];
-                            TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
+                            TableS[RowDestination, ColumnDestination] = (Math.Abs(TableS[RowSource, ColumnSource]) / TableS[RowSource, ColumnSource]) * con;
                             TableS[RowSource, ColumnSource] = 0;
                         }
                     }
@@ -11727,7 +11741,7 @@ namespace RefrigtzDLL
                 Order = DummyOrder;
                 ChessRules.CurrentOrder = DummyCurrentOrder;
                 ///When There is Movments.
-                if (ChessRuleThinking(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination))
+                if (ChessRuleThinking(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination))
                 {
 
                     ThingsConverter t = new ThingsConverter(ArrangmentsChanged, RowSource, ColumnSource, color, CloneATable(TableS), Order, false, 0);
@@ -11735,7 +11749,7 @@ namespace RefrigtzDLL
                     QuantumAtamata Current = new QuantumAtamata(3, 3, 3);
                     ThinkingAtRun = true; int CheckedM = 0; bool PenaltyVCar = false;
                     bool Sup = false;
-                    var newTask1 = Task.Factory.StartNew(() => SupMethod(TableS, RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
+                    var newTask1 = Task.Factory.StartNew(() => SupMethod(CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, ref Sup));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -11772,7 +11786,7 @@ namespace RefrigtzDLL
 
 
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, TableS, t));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination,ref TableS,t));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -11859,7 +11873,7 @@ namespace RefrigtzDLL
 
                         String H = " HAttack:" + ((Hu[0])).ToString() + " HMove:" + ((Hu[1])).ToString() + " HSelSup:" + ((Hu[2])).ToString() + " HCheckedMateDang:" + ((Hu[3])).ToString() + " HKiller:" + ((Hu[4])).ToString() + " HReduAttack:" + ((Hu[5])).ToString() + " HDisFromCurrentEnemyking:" + ((Hu[6])).ToString() + " HKingSafe:" + ((Hu[7])).ToString() + " HObjFromCeneter:" + ((Hu[8])).ToString() + " HKingDang:" + ((Hu[9])).ToString();
 
-                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, TableS, Hu));
+                        newTask1 = Task.Factory.StartNew(() => HeuristicInsertion(Kind, RowDestination, ColumnDestination, CloneATable(TableS), Hu));
 
                         newTask1.Wait(); newTask1.Dispose();
 
@@ -13900,7 +13914,7 @@ namespace RefrigtzDLL
                                 Color a = Color.Gray;
                                 if (Order == -1)
                                     a = Color.Brown;
-                                if (((TableInitiation[1, 7] == TableS[1, 7] && TableS[1, 7] == 3) && TableInitiationPreventionOfMultipleMove[1, 7] == 0 && ObjectMovable(1, 7, TableS, Order, a)) || ((TableInitiation[6, 7] == TableS[6, 7] && TableS[6, 7] == 3) && TableInitiationPreventionOfMultipleMove[6, 7] == 0 && ObjectMovable(6, 7, TableS, Order, a)))
+                                if (((TableInitiation[1, 7] == TableS[1, 7] && TableS[1, 7] == 3) && TableInitiationPreventionOfMultipleMove[1, 7] == 0 && ObjectMovable(1, 7, CloneATable(TableS), Order, a)) || ((TableInitiation[6, 7] == TableS[6, 7] && TableS[6, 7] == 3) && TableInitiationPreventionOfMultipleMove[6, 7] == 0 && ObjectMovable(6, 7, CloneATable(TableS), Order, a)))
                                 {
                                     IsS = true;
 
@@ -14022,7 +14036,7 @@ namespace RefrigtzDLL
                                         Color a = Color.Gray;
                                         if (Order == -1)
                                             a = Color.Brown;
-                                        if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0 && ObjectMovable(1, 0, TableS, Order, a)) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == -3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0 && ObjectMovable(6, 0, TableS, Order, a)))
+                                        if (((TableInitiation[1, 0] == TableS[1, 0] && TableS[1, 0] == -3) && TableInitiationPreventionOfMultipleMove[1, 0] == 0 && ObjectMovable(1, 0, CloneATable(TableS), Order, a)) || ((TableInitiation[6, 0] == TableS[6, 0] && TableS[6, 0] == -3) && TableInitiationPreventionOfMultipleMove[6, 0] == 0 && ObjectMovable(6, 0, CloneATable(TableS), Order, a)))
                                         {
 
                                             SetSupHuTrue();
@@ -15766,7 +15780,7 @@ namespace RefrigtzDLL
 
                     bool DoEnemySelf = true;
                     ChessRules AAA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[ii, jj], CloneATable(TableS), Order, ii, jj);
-                    if (AAA.CheckMate(TableS, Order))
+                    if (AAA.CheckMate(CloneATable(TableS), Order))
                     {
                         if (AAA.CheckMateGray || AAA.CheckMateBrown)
                         {

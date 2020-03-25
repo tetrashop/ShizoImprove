@@ -55,7 +55,24 @@ namespace QuantumRefrigiz
 
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
+        int[,] CloneATable(int[,] Tab)
+        {
 
+            Object O = new Object();
+            lock (O)
+            {
+                //Create and new an Object.
+                int[,] Table = new int[8, 8];
+                //ASsigne Parameter To New Objects.
+                for (var i = 0; i < 8; i++)
+                    for (var j = 0; j < 8; j++)
+                        Table[i, j] = Tab[i, j];
+                //Return New Object.
+
+                return Table;
+            }
+
+        }
         public ThingsConverter(bool arrangmentsChanged, int rowSource, int columnSource, Color color, int[,] tableS, int order, int v)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
@@ -63,7 +80,7 @@ namespace QuantumRefrigiz
             this.rowSource = rowSource;
             this.columnSource = columnSource;
             this.color = color;
-            this.tableS = tableS;
+            this.tableS = CloneATable(tableS);
             Order = order;
             this.v = v;
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ThingsConverter:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;

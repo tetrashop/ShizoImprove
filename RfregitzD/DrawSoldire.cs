@@ -102,8 +102,18 @@ namespace RefrigtzDLL
             
             return a;
         }
-        //Constructor 1.
+        //clone a table
+        int[,] CloneATable(int[,] Tab)
+        {
+            int[,] Tabl = new int[8, 8];
+            for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
+                    Tabl[i, j] = Tab[i, j];
+            return Tabl;
+        }
         
+        //Constructor 1.
+
         //Constructor 2.
         public DrawSoldier(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool Arrangments, float i, float j, Color a, int[,] Tab, int Ord, bool TB, int Cur//, ref AllDraw. THIS
             ) :
@@ -140,6 +150,7 @@ namespace RefrigtzDLL
             }
             
         }
+        
         //Clone a Copy Method.
         public void Clone(ref DrawSoldier AA//, ref AllDraw. THIS
             )
@@ -172,24 +183,7 @@ namespace RefrigtzDLL
             AA.color = color;
             
         }
-        int[,] CloneATable(int[,] Tab)
-        {
-            
-            Object O = new Object();
-            lock (O)
-            {
-                //Create and new an Object.
-                int[,] Table = new int[8, 8];
-                //Assigne Parameter To New Objects.
-                for (var i = 0; i < 8; i++)
-                    for (var j = 0; j < 8; j++)
-                        Table[i, j] = Tab[i, j];
-                //Return New Object.
-                
-                return Table;
-            }
-
-        }
+        
         bool[,] CloneATable(bool[,] Tab)
         {
             
