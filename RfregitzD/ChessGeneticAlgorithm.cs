@@ -50,7 +50,7 @@ namespace RefrigtzDLL
         public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
         public bool AStarGreedyHeuristicT = false;
-        bool ArrangmentsChanged = false;
+        bool ArrangmentsChanged = true;
         public bool CastlesKing = false;
         public static bool NoGameFounf = false;
         List<int[]> RowColumn = new List<int[]>();

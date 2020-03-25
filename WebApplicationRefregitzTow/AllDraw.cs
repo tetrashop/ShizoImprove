@@ -15211,6 +15211,16 @@ namespace RefrigtzW
                     //If Solders Not Exist Continue and Traversal Back.
                     if (InitiateAStarGreedyt(i, 1,Order))
                     {
+                        AllDraw Th = AStarGreedyString;
+                        if (IsAtLeastAllObjectIsNull())
+                        {
+                            TableList.Clear();
+                            TableList.Add(CloneATable(Table));
+                            SetRowColumn(0);
+                            IsCurrentDraw = true;
+                        }
+                        AStarGreedyString = Th;
+                        
                         //Initiate of Local Variables By Global Objective Gray Current Solder.
                         int ik = (int)SolderesOnTable[i].Row;
                         int jk = (int)SolderesOnTable[i].Column;
@@ -15278,6 +15288,17 @@ namespace RefrigtzW
                     //Ignore of Non Exist Current Elephant Gray Objects.
                     if (InitiateAStarGreedyt(i, 2,Order))
                     {
+                        AllDraw Th = AStarGreedyString;
+                        if (IsAtLeastAllObjectIsNull())
+                        {
+                            TableList.Clear();
+                            TableList.Add(CloneATable(Table));
+                            SetRowColumn(0);
+                            IsCurrentDraw = true;
+                        }
+                        AStarGreedyString = Th;
+
+                  
                         //Inititae Local Varibale By Global Gray Elephant Objects Varibales.
                         int ik = (int)ElephantOnTable[i].Row;
                         int jk = (int)ElephantOnTable[i].Column;
@@ -15347,6 +15368,17 @@ namespace RefrigtzW
                     //Ignore of Non Exist Current Gray Hourse Objects.
                     if (InitiateAStarGreedyt(i, 3,Order))
                     {
+                        AllDraw Th = AStarGreedyString;
+                        if (IsAtLeastAllObjectIsNull())
+                        {
+                            TableList.Clear();
+                            TableList.Add(CloneATable(Table));
+                            SetRowColumn(0);
+                            IsCurrentDraw = true;
+                        }
+                        AStarGreedyString = Th;
+
+                  
                         //Initiate of Local Variables By Global Gray Hourse Objectives.
                         int ik = (int)HoursesOnTable[i].Row;
                         int jk = (int)HoursesOnTable[i].Column;
@@ -15417,6 +15449,17 @@ namespace RefrigtzW
                     //When Current Castles Gray Not Exist Continue Traversal Back.
                     if (InitiateAStarGreedyt(i, 4,Order))
                     {
+                        AllDraw Th = AStarGreedyString;
+                        if (IsAtLeastAllObjectIsNull())
+                        {
+                            TableList.Clear();
+                            TableList.Add(CloneATable(Table));
+                            SetRowColumn(0);
+                            IsCurrentDraw = true;
+                        }
+                        AStarGreedyString = Th;
+
+                        
                         //Initaiate of Local Varibales By Global Varoiables.
                         int ik = (int)CastlesOnTable[i].Row;
                         int jk = (int)CastlesOnTable[i].Column;
@@ -15486,6 +15529,17 @@ namespace RefrigtzW
                     //For Each Non Exist Gray Minister Objectives.
                     if (InitiateAStarGreedyt(i, 5,Order))
                     {
+                        AllDraw Th = AStarGreedyString;
+                        if (IsAtLeastAllObjectIsNull())
+                        {
+                            TableList.Clear();
+                            TableList.Add(CloneATable(Table));
+                            SetRowColumn(0);
+                            IsCurrentDraw = true;
+                        }
+                        AStarGreedyString = Th;
+
+                  
                         //Inititate Local Variables By Global Varibales.
                         int ik = (int)MinisterOnTable[i].Row;
                         int jk = (int)MinisterOnTable[i].Column;
@@ -15553,6 +15607,17 @@ namespace RefrigtzW
                     //If There is Not Current Object Continue Traversal Back.
                     if (InitiateAStarGreedyt(i, 6,Order))
                     {
+                        AllDraw Th = AStarGreedyString;
+                        if (IsAtLeastAllObjectIsNull())
+                        {
+                            TableList.Clear();
+                            TableList.Add(CloneATable(Table));
+                            SetRowColumn(0);
+                            IsCurrentDraw = true;
+                        }
+                        AStarGreedyString = Th;
+
+                  
                         //Initiate Local varibale By Global Objective Varibales.
                         int ik = (int)(int)KingOnTable[i].Row;
                         int jk = (int)KingOnTable[i].Column;

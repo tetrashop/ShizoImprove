@@ -62,7 +62,7 @@ namespace Chess
         bool WaitOnplay = false;
         RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(false, false, false, false, false, false, false, true);
         bool Person = true;
-        public RefrigtzDLL.AllDraw Draw = new AllDraw(-1, false, false, false, false, false, false, false, true);
+        public RefrigtzDLL.AllDraw Draw = new AllDraw(-1, false, false, false, false, false, false, false, false);
         int[,] Table = null;
         bool FOUND = false;
         #region These are the global variables and objects for ChessForm class

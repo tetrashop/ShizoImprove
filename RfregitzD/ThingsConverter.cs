@@ -17,7 +17,7 @@ namespace RefrigtzDLL
         //Initiate Global Variables.
         public static bool LoadConvertTable = false;
         public static int[,] TableConverted = null;
-        bool ArrangmentsChanged = false;
+        bool ArrangmentsChanged = true;
         public static bool ClickOcurred = false;
         public static bool ActOfClickEqualTow = false;
         public bool Convert = false;

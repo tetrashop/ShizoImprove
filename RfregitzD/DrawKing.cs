@@ -34,7 +34,7 @@ namespace RefrigtzDLL
         public bool OnlySelfT = false;
         public bool AStarGreedyHeuristicT = false;
 
-        public bool ArrangmentsChanged = false;
+        public bool ArrangmentsChanged = true;
         public static long MaxHeuristicxK = -20000000000000000;
         public float Row, Column;
         public Color color;

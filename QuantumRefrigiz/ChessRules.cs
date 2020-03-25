@@ -248,6 +248,10 @@ namespace QuantumRefrigiz
                     return false;
                 if (Order == -1 && Table[RowFirst, ColumnFirst] > 0)
                     return false;
+                if (Order == 1 && Table[RowFirst, ColumnFirst] == 0)
+                    return false;
+                if (Order == -1 && Table[RowFirst, ColumnFirst] == 0)
+                    return false;
 
 
                 if (Table[RowFirst, ColumnFirst] > 0 && Table[RowSecond, ColumnSecond] > 0)

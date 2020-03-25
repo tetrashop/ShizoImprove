@@ -36,7 +36,7 @@ namespace RefrigtzDLL
         public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
         public bool AStarGreedyHeuristicT = false;
-        public bool ArrangmentsChanged = false;
+        public bool ArrangmentsChanged = true;
         public static int MaxHeuristicxS = int.MinValue;
         public float Row, Column;
         public Color color;
