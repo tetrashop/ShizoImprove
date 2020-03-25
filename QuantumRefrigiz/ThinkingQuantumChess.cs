@@ -14263,13 +14263,13 @@ namespace QuantumRefrigiz
                     {
                         IsI = true;
                     }
-                    Is = IsI && Is;
                 }
+                Is = IsI && Is;
+
             }
             return Is;
 
         }
-
         int NoOfObjectNotMovable(int[,] Tab, int Order, Color a, ref int Total, ref int Is)
         {
             List<int[]> IsThere = new List<int[]>();

@@ -14220,8 +14220,9 @@ namespace RefrigtzDLL
                     {
                         IsI = true;
                     }
-                    Is = IsI && Is;
                 }
+                Is = IsI && Is;
+
             }
             return Is;
 

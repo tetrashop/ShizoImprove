@@ -14208,9 +14208,10 @@ namespace RefrigtzW
                     {
                         IsI = true;
                     }
-                    Is = IsI && Is;
                 }
-             }
+                Is = IsI && Is;
+
+            }
             return Is;
 
         }
