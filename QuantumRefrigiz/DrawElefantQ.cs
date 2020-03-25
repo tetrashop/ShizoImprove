@@ -33,7 +33,7 @@ namespace QuantumRefrigiz
         public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
         public bool AStarGreedyHeuristicT = false;
-        public bool ArrangmentsChanged = false;
+        public bool ArrangmentsChanged = true;
         public static long MaxHeuristicxE = -20000000000000000;
         public float Row, Column;
         public ThinkingQuantumChess[] ElefantThinkingQuantum = new ThinkingQuantumChess[AllDraw.ElefantMovments];

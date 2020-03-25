@@ -32,7 +32,7 @@ namespace RefrigtzW
         public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
         public bool AStarGreedyHeuristicT = false;
-        public bool ArrangmentsChanged = false;
+        public bool ArrangmentsChanged = true;
         public static double MaxHeuristicxB = -20000000000000000;
         public float Row, Column;
         public Color color;

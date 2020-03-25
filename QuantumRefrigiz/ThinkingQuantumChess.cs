@@ -139,7 +139,7 @@ namespace QuantumRefrigiz
         public bool PredictHeuristicT = true;
         public bool OnlySelfT = false;
         public bool AStarGreedyHeuristicT = false;
-        bool ArrangmentsChanged = false;
+        bool ArrangmentsChanged = true;
         public int NumberOfPenalties = 0;
         static int NumbersOfCurrentBranchesPenalties = 0;
         public static int NumbersOfAllNode = 0;
@@ -7687,10 +7687,7 @@ namespace QuantumRefrigiz
                 int CCurentOrder = ChessRules.CurrentOrder;
                 //Initiate Global static  Variable.
                 ChessRules.CurrentOrder = Order;
-                int[,] Table = new int[8, 8];
-                for (var ik = 0; ik < 8; ik++)
-                    for (var jk = 0; jk < 8; jk++)
-                        Table[ik, jk] = Tab[ik, jk];
+                int[,] Table = CloneATable(Tab);
 
                 //when there is a Movment from Parameter One to Second Parameter return Attacke..
                 if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j)).Rules(i, j, ii, jj, a, Order))
