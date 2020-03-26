@@ -13621,18 +13621,15 @@ namespace RefrigtzDLL
             if (DDE.Count > 1)
             {
 
-                for (int RowSS = 0; RowSS < 8; RowSS++)
+                for (int RowDD = 0; RowDD < 8; RowDD++)
                 {
-                    for (int ColSS = 0; ColSS < 8; ColSS++)
+                    for (int ColDD = 0; ColDD < 8; ColDD++)
                     {
-
-
                         List<int[]> DDEE = new List<int[]>();
-                        for (int RowDD = 0; RowDD < 8; RowDD++)
+                        for (int RowSS = 0; RowSS < 8; RowSS++)
                         {
-                            for (int ColDD = 0; ColDD < 8; ColDD++)
+                            for (int ColSS = 0; ColSS < 8; ColSS++)
                             {
-
                                 for (int i = 0; i < DDE.Count; i++)
                                 {
                                     if (DDE[i][0] == RowDD && DDE[i][1] == ColDD && DDE[i][2] == RowSS && DDE[i][3] == ColSS)
@@ -13654,7 +13651,7 @@ namespace RefrigtzDLL
                         if (DDEE.Count > 1)
                         {
                             if (!ExistFullDoubleList(HeuristicDoubleDefenceIndexInOnGame, DDEE))
-                               HeuristicDoubleDefenceIndexInOnGame.Add(DDEE);
+                                HeuristicDoubleDefenceIndexInOnGame.Add(DDEE);
                         }
                     }
 
@@ -16145,8 +16142,8 @@ namespace RefrigtzDLL
                 }
             }
             else
-                Is = true;
-            if (!Is)
+                Is = false;
+            if (Is)
             {
                 ObjectIndex[0] = -1;
                 ObjectIndex[1] = -1;
