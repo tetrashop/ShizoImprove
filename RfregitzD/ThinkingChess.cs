@@ -16,6 +16,7 @@ namespace RefrigtzDLL
     [Serializable]
     public class ThinkingChess//: IDisposable
     {
+        static List<List<List<int[]>>> MovableAllObjectsList = new List<List<List<int[]>>>();
         public int RemoveOfDisturbIndex = -1;
 
         int HeuristicDoubleDefenceIndexInOnGameMidle = 0;
@@ -9484,6 +9485,9 @@ namespace RefrigtzDLL
 
 
                 }
+                else
+                    MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination, 1, -1);
+
             }
             ThinkingAtRun = false;
 
@@ -9673,6 +9677,9 @@ namespace RefrigtzDLL
 
 
                 }
+                else
+                    MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination, 1, -1);
+
             }
             ThinkingAtRun = false;
 
@@ -10232,6 +10239,9 @@ namespace RefrigtzDLL
                     }
 
                 }
+                else
+                    MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination, 1, -1);
+
             }
             ThinkingAtRun = false;
 
@@ -10394,6 +10404,9 @@ namespace RefrigtzDLL
                     }
 
                 }
+                else
+                    MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination, 1, -1);
+
             }
             ThinkingAtRun = false;
 
@@ -10555,6 +10568,9 @@ namespace RefrigtzDLL
                     }
 
                 }
+                else
+                    MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination, 1, -1);
+
             }
             ThinkingAtRun = false;
 
@@ -11445,6 +11461,7 @@ namespace RefrigtzDLL
                             Object A2 = new object();
                             lock (A2)
                             {
+                                MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination, 1);
                                 Killed = TableConst[RowDestination, ColumnDestination];
                                 TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                                 TableS[RowSource, ColumnSource] = 0;
@@ -11466,6 +11483,7 @@ namespace RefrigtzDLL
                                 con = 2;
 
 
+                            MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination,1);
                             Killed = TableConst[RowDestination, ColumnDestination];
                             TableS[RowDestination, ColumnDestination] = (Math.Abs(TableS[RowSource, ColumnSource]) / TableS[RowSource, ColumnSource]) * con;
                             TableS[RowSource, ColumnSource] = 0;
@@ -11476,6 +11494,7 @@ namespace RefrigtzDLL
                         Object A2 = new object();
                         lock (A2)
                         {
+                            MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination,1);
                             Killed = TableConst[RowDestination, ColumnDestination];
                             TableS[RowDestination, ColumnDestination] = TableS[RowSource, ColumnSource];
                             TableS[RowSource, ColumnSource] = 0;
@@ -11786,7 +11805,7 @@ namespace RefrigtzDLL
 
 
                     int Killed = 0;
-                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination,ref TableS,t));
+                    newTask1 = Task.Factory.StartNew(() => KilledMethod(ref Killed, Sup, RowSource, ColumnSource, RowDestination, ColumnDestination, ref TableS, t));
 
                     newTask1.Wait(); newTask1.Dispose();
 
@@ -11883,6 +11902,9 @@ namespace RefrigtzDLL
 
 
                 }
+                else
+                    MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination, 1, -1);
+
             }
             ThinkingAtRun = false;
 
@@ -15608,6 +15630,59 @@ namespace RefrigtzDLL
             return Color.Gray;
 
         }
+        bool MovableAllObjectsListMethos(int RowS, int ColS)
+        {
+            bool Is = false;
+            if (MovableAllObjectsList.Count == 8)
+            {
+                if (MovableAllObjectsList[RowS].Count == 8)
+                {
+                    for (int i = 0; i < MovableAllObjectsList[RowS][ColS].Count; i++)
+                    {
+                        if (MovableAllObjectsList[RowS][ColS][i][5] == 1)
+                            Is = true;
+
+                    }
+                }
+            }
+            return Is;
+        }
+
+        void MovableAllObjectsListMethos(int[,] TableS, bool Before, int RowS, int ColS, int RowD, int ColD, int con, int movable = 1)
+        {
+            if (Before)
+            {
+                if (MovableAllObjectsList.Count == 0)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        MovableAllObjectsList.Add(new List<List<int[]>>());
+                        for (int k = 0; k < 8; k++)
+                            MovableAllObjectsList[i].Add(new List<int[]>());
+                    }
+                }
+
+                int[] B = new int[6];
+                B[0] = RowS;
+                B[1] = ColS;
+                B[2] = RowD;
+                B[3] = ColD;
+                if (con == 1)
+                    B[4] = TableS[RowS, ColS];
+                else
+                    B[4] = con;
+                B[5] = movable;
+
+
+                MovableAllObjectsList[RowD][ColD].Add(B);
+
+                for (int i = 0; i < MovableAllObjectsList[RowS][ColS].Count; i++)
+                {
+                    if (MovableAllObjectsList[RowS][ColS][i][2] == RowS && MovableAllObjectsList[RowS][ColS][i][3] == ColS && MovableAllObjectsList[RowS][ColS][i][4] == TableS[RowS, ColS])
+                        MovableAllObjectsList[RowS][ColS].RemoveAt(i);
+                }
+            }
+        }
 
         public void Thinking(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
@@ -15994,27 +16069,27 @@ namespace RefrigtzDLL
                                 RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
                                 if (RemoveOfDisturbIndex != -1)
                                     IsSupHu[RemoveOfDisturbIndex] = false;
-                                else
+                                /*else
                                 {
                                     if (Order == AllDraw.OrderPlateDraw)
                                         LoseOcuuredatChiled = -4;
-                                }
+                                }*/
 
                             }
-                            else
+                            /*else
                             {
                                 if (Order == AllDraw.OrderPlateDraw)
                                     LoseOcuuredatChiled = -4;
 
-                            }
+                            }*/
 
 
                         }
-                        else
+                        /*else
                         {
                             if (Order == AllDraw.OrderPlateDraw)
                                 LoseOcuuredatChiled = -4;
-                        }
+                        }*/
                     }
                 }
                 /*else
@@ -16053,21 +16128,21 @@ namespace RefrigtzDLL
                                     if (i[0] != -1 & i[1] != -1)
                                     {
                                         RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][0], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][1]);
-                                        if (RemoveOfDisturbIndex != -1)
+                                        if (RemoveOfDisturbIndex != -1 && MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][0], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][1]))
                                             IsSupHu[RemoveOfDisturbIndex] = false;
-                                        else
+                                        /*else
                                         {
                                             if (Order == AllDraw.OrderPlateDraw)
                                                 LoseOcuuredatChiled = -4;
-                                        }
+                                        }*/
 
                                     }
-                                    else
+                                   /* else
                                     {
                                         if (Order == AllDraw.OrderPlateDraw)
                                             LoseOcuuredatChiled = -4;
 
-                                    }
+                                    }*/
 
 
                                 }
@@ -16075,8 +16150,8 @@ namespace RefrigtzDLL
                         }
                     }
                 }
-                else if (Order == AllDraw.OrderPlateDraw)
-                    LoseOcuuredatChiled = -4;
+               /* else if (Order == AllDraw.OrderPlateDraw)
+                    LoseOcuuredatChiled = -4;*/
             }
         }
 
