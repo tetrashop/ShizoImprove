@@ -20945,103 +20945,53 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         bool IgnoreOfLoseForKingReducedAttackDisturbingDouble(int Kind, int Order, int i, int j)
         {
             bool No = false;
-            if (Order == 1)
+
+            if (Kind == 1)
             {
-                if (Kind == 1)
-                {
-                    SolderesOnTable[i].SoldierThinking[0].TowDistrurbProperUsePreferNotToClose(ref SolderesOnTable[i].LoseOcuuredatChiled);
-                    if ((SolderesOnTable[i].SoldierThinking[0].RemoveOfDisturbIndex == j) && (SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] < 0 || SolderesOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-                }
-                else if (Kind == 2)
-                {
-
-                    ElephantOnTable[i].ElefantThinking[0].TowDistrurbProperUsePreferNotToClose(ref ElephantOnTable[i].LoseOcuuredatChiled);
-                    if ((ElephantOnTable[i].ElefantThinking[0].RemoveOfDisturbIndex == j) && (ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] < 0 || ElephantOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-                }
-                else if (Kind == 3)
-                {
-                    HoursesOnTable[i].HourseThinking[0].TowDistrurbProperUsePreferNotToClose(ref HoursesOnTable[i].LoseOcuuredatChiled);
-                    if ((HoursesOnTable[i].HourseThinking[0].RemoveOfDisturbIndex == j) && (HoursesOnTable[i].HourseThinking[0].LoseChiled[j] < 0 || HoursesOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-
-                }
-                else if (Kind == 4)
-                {
-                    CastlesOnTable[i].CastleThinking[0].TowDistrurbProperUsePreferNotToClose(ref CastlesOnTable[i].LoseOcuuredatChiled);
-                    if ((CastlesOnTable[i].CastleThinking[0].RemoveOfDisturbIndex == j) && (CastlesOnTable[i].CastleThinking[0].LoseChiled[j] < 0 || CastlesOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-                }
-                else if (Kind == 5)
-                {
-                    MinisterOnTable[i].MinisterThinking[0].TowDistrurbProperUsePreferNotToClose(ref MinisterOnTable[i].LoseOcuuredatChiled);
-                    if ((MinisterOnTable[i].MinisterThinking[0].RemoveOfDisturbIndex == j) && (MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] < 0 || MinisterOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-
-                }
-                else if (Kind == 6)
-                {
-                    KingOnTable[i].KingThinking[0].TowDistrurbProperUsePreferNotToClose(ref KingOnTable[i].LoseOcuuredatChiled);
-                    if ((KingOnTable[i].KingThinking[0].RemoveOfDisturbIndex == j) && (KingOnTable[i].KingThinking[0].LoseChiled[j] < 0 || KingOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-                }
-            }
-            else
-            {
-                if (Kind == 1)
-                {
-                    SolderesOnTable[i].SoldierThinking[0].TowDistrurbProperUsePreferNotToClose(ref SolderesOnTable[i].LoseOcuuredatChiled);
-                    if ((SolderesOnTable[i].SoldierThinking[0].RemoveOfDisturbIndex == j) && (SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] < 0 || SolderesOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-                }
-                else if (Kind == 2)
-                {
-
-                    ElephantOnTable[i].ElefantThinking[0].TowDistrurbProperUsePreferNotToClose(ref ElephantOnTable[i].LoseOcuuredatChiled);
-                    if ((ElephantOnTable[i].ElefantThinking[0].RemoveOfDisturbIndex == j) && (ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] < 0 || ElephantOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-                }
-                else if (Kind == 3)
-                {
-                    HoursesOnTable[i].HourseThinking[0].TowDistrurbProperUsePreferNotToClose(ref HoursesOnTable[i].LoseOcuuredatChiled);
-                    if ((HoursesOnTable[i].HourseThinking[0].RemoveOfDisturbIndex == j) && (HoursesOnTable[i].HourseThinking[0].LoseChiled[j] < 0 || HoursesOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-
-                }
-                else if (Kind == 4)
-                {
-                    CastlesOnTable[i].CastleThinking[0].TowDistrurbProperUsePreferNotToClose(ref CastlesOnTable[i].LoseOcuuredatChiled);
-                    if ((CastlesOnTable[i].CastleThinking[0].RemoveOfDisturbIndex == j) && (CastlesOnTable[i].CastleThinking[0].LoseChiled[j] < 0 || CastlesOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-                }
-                else if (Kind == 5)
-                {
-                    MinisterOnTable[i].MinisterThinking[0].TowDistrurbProperUsePreferNotToClose(ref MinisterOnTable[i].LoseOcuuredatChiled);
-                    if ((MinisterOnTable[i].MinisterThinking[0].RemoveOfDisturbIndex == j) && (MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] < 0 || MinisterOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-
-                }
-                else if (Kind == 6)
-                {
-                    KingOnTable[i].KingThinking[0].TowDistrurbProperUsePreferNotToClose(ref KingOnTable[i].LoseOcuuredatChiled);
-                    if ((KingOnTable[i].KingThinking[0].RemoveOfDisturbIndex == j) && (KingOnTable[i].KingThinking[0].LoseChiled[j] < 0 || KingOnTable[i].LoseOcuuredatChiled < 0))
-                        No = true;
-
-                }
+                SolderesOnTable[i].SoldierThinking[0].TowDistrurbProperUsePreferNotToClose(ref SolderesOnTable[i].LoseOcuuredatChiled, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j]));
+                if ((SolderesOnTable[i].SoldierThinking[0].RemoveOfDisturbIndex == j) && (SolderesOnTable[i].SoldierThinking[0].LoseChiled[j] < 0 || SolderesOnTable[i].LoseOcuuredatChiled < 0))
+                    No = true;
 
             }
+            else if (Kind == 2)
+            {
+
+                ElephantOnTable[i].ElefantThinking[0].TowDistrurbProperUsePreferNotToClose(ref ElephantOnTable[i].LoseOcuuredatChiled, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j]));
+                if ((ElephantOnTable[i].ElefantThinking[0].RemoveOfDisturbIndex == j) && (ElephantOnTable[i].ElefantThinking[0].LoseChiled[j] < 0 || ElephantOnTable[i].LoseOcuuredatChiled < 0))
+                    No = true;
+
+            }
+            else if (Kind == 3)
+            {
+                HoursesOnTable[i].HourseThinking[0].TowDistrurbProperUsePreferNotToClose(ref HoursesOnTable[i].LoseOcuuredatChiled, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j]));
+                if ((HoursesOnTable[i].HourseThinking[0].RemoveOfDisturbIndex == j) && (HoursesOnTable[i].HourseThinking[0].LoseChiled[j] < 0 || HoursesOnTable[i].LoseOcuuredatChiled < 0))
+                    No = true;
+
+
+            }
+            else if (Kind == 4)
+            {
+                CastlesOnTable[i].CastleThinking[0].TowDistrurbProperUsePreferNotToClose(ref CastlesOnTable[i].LoseOcuuredatChiled, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j]));
+                if ((CastlesOnTable[i].CastleThinking[0].RemoveOfDisturbIndex == j) && (CastlesOnTable[i].CastleThinking[0].LoseChiled[j] < 0 || CastlesOnTable[i].LoseOcuuredatChiled < 0))
+                    No = true;
+
+            }
+            else if (Kind == 5)
+            {
+                MinisterOnTable[i].MinisterThinking[0].TowDistrurbProperUsePreferNotToClose(ref MinisterOnTable[i].LoseOcuuredatChiled, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j]));
+                if ((MinisterOnTable[i].MinisterThinking[0].RemoveOfDisturbIndex == j) && (MinisterOnTable[i].MinisterThinking[0].LoseChiled[j] < 0 || MinisterOnTable[i].LoseOcuuredatChiled < 0))
+                    No = true;
+
+
+            }
+            else if (Kind == 6)
+            {
+                KingOnTable[i].KingThinking[0].TowDistrurbProperUsePreferNotToClose(ref KingOnTable[i].LoseOcuuredatChiled, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j]));
+                if ((KingOnTable[i].KingThinking[0].RemoveOfDisturbIndex == j) && (KingOnTable[i].KingThinking[0].LoseChiled[j] < 0 || KingOnTable[i].LoseOcuuredatChiled < 0))
+                    No = true;
+
+            }
+
 
             return No;
         }

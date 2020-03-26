@@ -16020,7 +16020,7 @@ namespace QuantumRefrigiz
                 ThinkingQuantumFullGame(iAStarGreedy, THIS);
 
                 TowDistrurbProperUse(ref LoseOcuuredatChiled);
-                TowDistrurbProperUsePreferNotToClose(ref LoseOcuuredatChiled);
+                TowDistrurbProperUsePreferNotToClose(ref LoseOcuuredatChiled,TableConst);
             }
             catch (Exception t)
             {
@@ -16088,7 +16088,7 @@ namespace QuantumRefrigiz
                 }*/
             }
         }
-        public void TowDistrurbProperUsePreferNotToClose(ref int LoseOcuuredatChiled)
+        public void TowDistrurbProperUsePreferNotToClose(ref int LoseOcuuredatChiled,int[,] Tab)
         {
             Object OI = new Object();
             lock (OI)
@@ -16105,12 +16105,12 @@ namespace QuantumRefrigiz
                                 IsSup = IsSup && IsSupHu[i];
                             if (IsSup)
                             {
-                                if (HeuristicDoubleDefenceIndexInOnGameMidle > (HeuristicDoubleDefenceIndexInOnGameMidle - HeuristicDoubleDefenceIndexInOnGame.Count))
+                                if (HeuristicDoubleDefenceIndexInOnGameMidle > (HeuristicDoubleDefenceIndexInOnGame.Count - HeuristicDoubleDefenceIndexInOnGameMidle))
                                 {
-                                    int i = IndexOfMovedDoubleDefence();
-                                    if (i != -1)
+                                    int[] i = IndexOfMovedDoubleDefence(Tab);
+                                    if (i[0] != -1& i[1] != -1)
                                     {
-                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicDoubleDefenceIndexInOnGame[i]);
+                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][0], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][1]);
                                         if (RemoveOfDisturbIndex != -1)
                                             IsSupHu[RemoveOfDisturbIndex] = false;
                                         else
@@ -16133,7 +16133,7 @@ namespace QuantumRefrigiz
                         }
                     }
                 }
-                else if (Order == AllDraw.OrderPlate)
+                else if (Order == AllDraw.OrderPlateDraw)
                     LoseOcuuredatChiled = -4;
             }
         }
@@ -16161,32 +16161,81 @@ namespace QuantumRefrigiz
 
         }
 
-        int IndexOfMovedDoubleDefence()
+        int[] IndexOfMovedDoubleDefence(int[,] Tab)
         {
-
+            int Object = 0;
+            int[] ObjectIndex = { -1, -1 };
+            bool Is = false;
             for (int i = 0; i < HeuristicDoubleDefenceIndexInOnGameMidle; i++)
             {
-                for (int j = HeuristicDoubleDefenceIndexInOnGameMidle; j < HeuristicDoubleDefenceIndexInOnGame.Count; j++)
-                {
-                    for (int k = 0; k < HeuristicDoubleDefenceIndexInOnGame[i].Count; k++)
-                    {
-                        bool Is = false;
-                        for (int t = 0; t < HeuristicDoubleDefenceIndexInOnGame[j].Count; t++)
-                        {
-                            if (HeuristicDoubleDefenceIndexInOnGame[i][k][0] == HeuristicDoubleDefenceIndexInOnGame[j][t][0]
-                        && HeuristicDoubleDefenceIndexInOnGame[i][k][1] == HeuristicDoubleDefenceIndexInOnGame[j][t][1]
-                        && HeuristicDoubleDefenceIndexInOnGame[i][k][2] == HeuristicDoubleDefenceIndexInOnGame[j][t][2]
-                        && HeuristicDoubleDefenceIndexInOnGame[i][k][3] == HeuristicDoubleDefenceIndexInOnGame[j][t][3])
-                                Is = true;
+                if (HeuristicDoubleDefenceIndexInOnGame[i].Count == 1)
+                    continue;
 
-                        }
-                        if (!Is)
-                            return i;
+                for (int j = 0; j < HeuristicDoubleDefenceIndexInOnGame[i].Count; j++)
+                {
+
+                    if (System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][0], HeuristicDoubleDefenceIndexInOnGame[i][j][1]]) > Object)
+                    {
+                        Is = true;
+                        ObjectIndex[0] = i;
+                        ObjectIndex[1] = j;
+                        Object = System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][0], HeuristicDoubleDefenceIndexInOnGame[i][j][1]]);
                     }
                 }
             }
-            return -1;
+            if (HeuristicDoubleDefenceIndexInOnGameMidle > 0 && HeuristicDoubleDefenceIndexInOnGameMidle != HeuristicDoubleDefenceIndexInOnGame.Count)
+            {
+                Is = false;
+                for (int i = HeuristicDoubleDefenceIndexInOnGameMidle; i < HeuristicDoubleDefenceIndexInOnGame.Count; i++)
+                {
 
+                    for (int j = 0; j < HeuristicDoubleDefenceIndexInOnGame[i].Count; j++)
+                    {
+
+                        if (System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][0], HeuristicDoubleDefenceIndexInOnGame[i][j][1]]) == Object)
+                        {
+                            Is = true;
+                        }
+                    }
+                }
+            }
+            else
+                Is = true;
+            if (!Is)
+            {
+                ObjectIndex[0] = -1;
+                ObjectIndex[1] = -1;
+            }
+            return ObjectIndex;
+
+
+            /* if (HeuristicDoubleDefenceIndexInOnGameMidle > 0 && (HeuristicDoubleDefenceIndexInOnGameMidle == HeuristicDoubleDefenceIndexInOnGame.Count))
+                 return HeuristicDoubleDefenceIndexInOnGameMidle - 1;
+             for (int i = 0; i < HeuristicDoubleDefenceIndexInOnGameMidle; i++)
+             {
+                 if (HeuristicDoubleDefenceIndexInOnGame[i].Count == 1)
+                     continue;
+                 for (int j = HeuristicDoubleDefenceIndexInOnGameMidle; j < HeuristicDoubleDefenceIndexInOnGame.Count; j++)
+                 {
+                     for (int k = 0; k < HeuristicDoubleDefenceIndexInOnGame[i].Count; k++)
+                     {
+                         bool Is = false;
+                         for (int t = 0; t < HeuristicDoubleDefenceIndexInOnGame[j].Count; t++)
+                         {
+                             if (HeuristicDoubleDefenceIndexInOnGame[i][k][0] == HeuristicDoubleDefenceIndexInOnGame[j][t][0]
+                         && HeuristicDoubleDefenceIndexInOnGame[i][k][1] == HeuristicDoubleDefenceIndexInOnGame[j][t][1]
+                         && HeuristicDoubleDefenceIndexInOnGame[i][k][2] == HeuristicDoubleDefenceIndexInOnGame[j][t][2]
+                         && HeuristicDoubleDefenceIndexInOnGame[i][k][3] == HeuristicDoubleDefenceIndexInOnGame[j][t][3])
+                                 Is = true;
+
+                         }
+                         if (!Is)
+                             return i;
+                     }
+                 }
+             }
+            return -1;
+            */
         }
         int IndexOfIsSupTRUE(int Kind, int RowD, int ColD)
         {
