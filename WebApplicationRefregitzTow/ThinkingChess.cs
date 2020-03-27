@@ -9321,7 +9321,7 @@ namespace RefrigtzW
             return;
         }
         //specific determination for thinking main method
-        void KingThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void KingThinkingChess(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
 
             Object O = new Object();
@@ -9369,10 +9369,10 @@ namespace RefrigtzW
                     Object A = new object();
                     lock (A)
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                         newTask1.Wait(); newTask1.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -9395,11 +9395,11 @@ namespace RefrigtzW
                         lock (A3)
                         {
                             PenaltyVCar = false;
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref TmpL, ref TmpW, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                         }
                     }
 
@@ -9415,10 +9415,10 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                         }
                     }
@@ -9518,7 +9518,7 @@ namespace RefrigtzW
         }
 
         //specific determination for thinking main method
-        void MinisterThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void MinisterThinkingChess(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
 
             Object O11 = new Object();
@@ -9565,10 +9565,10 @@ namespace RefrigtzW
                     Object A = new object();
                     lock (A)
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                         newTask1.Wait(); newTask1.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -9589,11 +9589,11 @@ namespace RefrigtzW
                         lock (A3)
                         {
                             PenaltyVCar = false;
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref TmpL, ref TmpW, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                         }
                     }
 
@@ -9609,10 +9609,10 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                         }
                     }
@@ -10074,7 +10074,7 @@ namespace RefrigtzW
                 return LearningV;
             }
         }
-        void CastlesThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle
+        void CastlesThinkingChess(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle
         )
         {
 
@@ -10125,10 +10125,10 @@ namespace RefrigtzW
                     Object A = new object();
                     lock (A)
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                         newTask1.Wait(); newTask1.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -10151,11 +10151,11 @@ namespace RefrigtzW
                         lock (A3)
                         {
                             PenaltyVCar = false;
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref TmpL, ref TmpW, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                         }
                     }
 
@@ -10171,10 +10171,10 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                         }
                     }
@@ -10242,7 +10242,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        void HourseThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void HourseThinkingChess(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
 
             Object OO = new Object();
@@ -10291,10 +10291,10 @@ namespace RefrigtzW
                     Object A = new object();
                     lock (A)
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                         newTask1.Wait(); newTask1.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -10316,11 +10316,11 @@ namespace RefrigtzW
                         lock (A3)
                         {
                             PenaltyVCar = false;
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref TmpL, ref TmpW, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                         }
                     }
 
@@ -10336,10 +10336,10 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                         }
                     }
@@ -10407,7 +10407,7 @@ namespace RefrigtzW
         }
         //specific determination for thinking main method
         //specific determination for thinking main method
-        void ElephantThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void ElephantThinkingChess(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
 
             Object OO = new Object();
@@ -10454,10 +10454,10 @@ namespace RefrigtzW
                     Object A = new object();
                     lock (A)
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                         newTask1.Wait(); newTask1.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -10478,11 +10478,11 @@ namespace RefrigtzW
                         lock (A3)
                         {
                             PenaltyVCar = false;
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref TmpL, ref TmpW, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                         }
                     }
 
@@ -10498,10 +10498,10 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                         }
                     }
@@ -10702,7 +10702,7 @@ namespace RefrigtzW
 
         }
         //learning autamata maib method
-        void PenaltyMechanisam(ref bool RETURN, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
+        void PenaltyMechanisam(ref bool RETURN, ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, ref int CheckedM, int Killed, bool Before, int kind, int[,] TableS, int ii, int jj, ref QuantumAtamata Current, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int i, int j, bool Castle)
         {
 
             Object OO = new Object();
@@ -10794,7 +10794,7 @@ namespace RefrigtzW
                                     WinChiled.Add(0);
                                     LoseChiled.Add(-2);
 
-                                    LoseOcuuredatChiled = -2;
+                                    LoseOcuuredatChiled[0] = -2;
                                 }
                                 if (!(!UsePenaltyRegardMechnisamT || (GoldenFinished)))
                                 {
@@ -10822,7 +10822,7 @@ namespace RefrigtzW
                                     WinChiled.Add(0);
                                     LoseChiled.Add(-2);
 
-                                    LoseOcuuredatChiled = -2;
+                                    LoseOcuuredatChiled[0] = -2;
                                 }
                                 if (!(!UsePenaltyRegardMechnisamT || (GoldenFinished)))
                                 {
@@ -11733,7 +11733,7 @@ namespace RefrigtzW
                 return (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, TableS[RowSource, ColumnSource], CloneATable(TableS), Order, RowSource, ColumnSource)).Rules(RowSource, ColumnSource, RowDestination, ColumnDestination, color, TableS[RowSource, ColumnSource], false);
             }
         }
-        void SolderThinkingChess(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void SolderThinkingChess(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
 
             Object O1 = new Object();
@@ -11784,10 +11784,10 @@ namespace RefrigtzW
                     Object A = new object();
                     lock (A)
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                         newTask1.Wait(); newTask1.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                     }
                     Object A1 = new object();
                     lock (A1)
@@ -11809,11 +11809,11 @@ namespace RefrigtzW
                         lock (A3)
                         {
                             PenaltyVCar = false;
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref TmpL, ref TmpW, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                         }
                     }
 
@@ -11829,9 +11829,9 @@ namespace RefrigtzW
                         //Caused this for Stachostic results.
                         if (!Sup)
                         {
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
                             newTask1.Wait(); newTask1.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                         }
                     }
@@ -11900,7 +11900,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        void CastleThinkingBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void CastleThinkingBrown(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
 
             Object O1 = new Object();
@@ -11950,10 +11950,10 @@ namespace RefrigtzW
                 {
                     ThinkingRun = true;
                 }
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                 newTask1.Wait(); newTask1.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                 Object A = new object();
                 lock (A)
                 {
@@ -11983,7 +11983,7 @@ namespace RefrigtzW
                 newTask1 = Task.Factory.StartNew(() => PenaltyMechanisam(ref PenaltyVCar, ref TmpL, ref TmpW, ref CheckedM, Killed, false, Kind, CloneATable(TableS), RowSource, ColumnSource, ref Current, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, RowDestination, ColumnDestination, Castle));
 
                 newTask1.Wait(); newTask1.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                 //Store Movments Items. 
                 int[] AS = new int[2];
@@ -13699,7 +13699,7 @@ namespace RefrigtzW
             return DD;
         }
 
-        public void CalculateHeuristics(int LoseOcuuredatChiled, int WinOcuuredatChiled, bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
+        public void CalculateHeuristics(int[] LoseOcuuredatChiled, int WinOcuuredatChiled, bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
               , ref int HeuristicAttackValue
                   , ref int HeuristicMovementValue
                   , ref int HeuristicSelfSupportedValue
@@ -14308,7 +14308,7 @@ namespace RefrigtzW
 
 
         //specific determination for ThinkingQuantum main method
-        void CastleThinkingGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
+        void CastleThinkingGray(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int DummyOrder, int DummyCurrentOrder, int[,] TableS, int RowSource, int ColumnSource, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, int RowDestination, int ColumnDestination, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14338,10 +14338,10 @@ namespace RefrigtzW
                     ThinkingRun = true;
                 }
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;  var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;  var newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, true, Order, 0, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                 newTask1.Wait(); newTask1.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                 Object A = new object();
                 lock (A)
@@ -14393,7 +14393,7 @@ namespace RefrigtzW
 
                 newTask1.Wait(); newTask1.Dispose();
 
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                 //Store Movments Items.
                 int[] AS = new int[2];
@@ -14408,7 +14408,7 @@ namespace RefrigtzW
                 newTask1 = Task.Factory.StartNew(() => CalculateHeuristics(TmpL, TmpW, false, Order, Killed, CloneATable(TableS), RowSource, ColumnSource, RowDestination, ColumnDestination, color, ref HeuristicAttackValue, ref HeuristicMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicReducedSupport, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour, ref HeuristicCheckedMate));
 
                 newTask1.Wait(); newTask1.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                 String H = "";
                 int[] Hu = new int[10];
@@ -14526,7 +14526,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingSoldierbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingSoldierbase(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O = new Object();
@@ -14543,14 +14543,14 @@ namespace RefrigtzW
                 {
                     Order = ord;
 
-                    int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                    int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => SolderThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
 
 
 
 
                     newTask.Wait(); newTask.Dispose();
-                    LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                    LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                 }
             }
@@ -14566,7 +14566,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingSoldier(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingSoldier(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14592,14 +14592,14 @@ namespace RefrigtzW
                                     {
                                         TableS[RowS, ColS] = TableConst[RowS, ColS];
                                     }
-                                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => ThinkingSoldierbase(ref TmpL, ref TmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                                 newTask.Wait(); newTask.Dispose();
-                                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
                             }
@@ -14612,7 +14612,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingElephantbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingElephantbase(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14633,14 +14633,14 @@ namespace RefrigtzW
                     if (Scop(ii, jj, i, j, 2) && System.Math.Abs(TableS[ii, jj]) == 2 && System.Math.Abs(Kind) == 2)
                     {
                         Order = ord;
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => ElephantThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
                 }
@@ -14649,7 +14649,7 @@ namespace RefrigtzW
         }
 
         //specific determination for thinking main method
-        public void ThinkingElephant(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingElephant(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O2 = new Object();
@@ -14670,14 +14670,14 @@ namespace RefrigtzW
                             var j = i + jj - ii;
                             if (Scop(ii, jj, i, j, 2))
                             {
-                                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => ThinkingElephantbase(ref TmpL, ref TmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                                 newTask.Wait(); newTask.Dispose();
-                                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
                             }
@@ -14707,7 +14707,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingHourseOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourseOne(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14728,14 +14728,14 @@ namespace RefrigtzW
                     Order = ord;
                     if (Scop(ii, jj, ii + 2, jj + 1, 3))
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj + 1, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
                 }
@@ -14743,7 +14743,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingHourseTwo(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourseTwo(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14763,14 +14763,14 @@ namespace RefrigtzW
                 Order = ord;
                 if (Scop(ii, jj, ii - 2, jj - 1, 3))
                 {
-                    int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                    int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => HourseThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj - 1, Castle));
 
 
 
 
                     newTask.Wait(); newTask.Dispose();
-                    LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                    LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                 }
 
@@ -14778,7 +14778,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingHourseThree(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourseThree(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14800,14 +14800,14 @@ namespace RefrigtzW
                     Order = ord;
                     if (Scop(ii, jj, ii + 2, jj - 1, 3))
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 2, jj - 1, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
                 }
@@ -14815,7 +14815,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingHourseFour(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourseFour(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14834,21 +14834,21 @@ namespace RefrigtzW
                 Order = ord;
                 if (Scop(ii, jj, ii - 2, jj + 1, 3))
                 {
-                    int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                    int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                     var newTask = Task.Factory.StartNew(() => HourseThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 2, jj + 1, Castle));
 
 
 
 
                     newTask.Wait(); newTask.Dispose();
-                    LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                    LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                 }
             }
 
         }
         //specific determination for thinking main method
-        public void ThinkingHourseFive(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourseFive(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14870,14 +14870,14 @@ namespace RefrigtzW
                     Order = ord;
                     if (Scop(ii, jj, ii + 1, jj + 2, 3))
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj + 2, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
                 }
@@ -14885,7 +14885,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingHourseSix(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourseSix(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -14907,14 +14907,14 @@ namespace RefrigtzW
                     Order = ord;
                     if (Scop(ii, jj, ii - 1, jj - 2, 3))
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj - 2, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
                 }
@@ -14922,7 +14922,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingHourseSeven(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourseSeven(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O = new Object();
@@ -14945,14 +14945,14 @@ namespace RefrigtzW
                     Order = ord;
                     if (Scop(ii, jj, ii + 1, jj - 2, 3))
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii + 1, jj - 2, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
                 }
@@ -14960,7 +14960,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingHourseEight(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourseEight(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O111 = new Object();
@@ -14981,14 +14981,14 @@ namespace RefrigtzW
                     Order = ord;
                     if (Scop(ii, jj, ii - 1, jj + 2, 3))
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => HourseThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, ii - 1, jj + 2, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
 
@@ -14999,21 +14999,21 @@ namespace RefrigtzW
 
 
         //specific determination for thinking main method
-        public void ThinkingHourse(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingHourse(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O = new Object();
             lock (O)
             {
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingHourseOne(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                 newTask.Wait(); newTask.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
             }
@@ -15021,14 +15021,14 @@ namespace RefrigtzW
             lock (O1)
             {
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingHourseTwo(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                 newTask.Wait(); newTask.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
             }
@@ -15036,14 +15036,14 @@ namespace RefrigtzW
             lock (O2)
             {
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingHourseThree(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                 newTask.Wait(); newTask.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
             }
@@ -15051,14 +15051,14 @@ namespace RefrigtzW
             lock (O3)
             {
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingHourseFour(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                 newTask.Wait(); newTask.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
             }
@@ -15066,14 +15066,14 @@ namespace RefrigtzW
             lock (O4)
             {
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingHourseFive(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                 newTask.Wait(); newTask.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
             }
@@ -15081,14 +15081,14 @@ namespace RefrigtzW
             lock (O5)
             {
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingHourseSix(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                 newTask.Wait(); newTask.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
             }
@@ -15096,14 +15096,14 @@ namespace RefrigtzW
             lock (O6)
             {
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingHourseSeven(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                 newTask.Wait(); newTask.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
             }
@@ -15111,21 +15111,21 @@ namespace RefrigtzW
             lock (O7)
             {
 
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask = Task.Factory.StartNew(() => ThinkingHourseEight(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                 newTask.Wait(); newTask.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
             }
 
         }
         //specific determination for thinking main method
-        public void ThinkingCastleOne(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingCastleOne(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
 
@@ -15152,14 +15152,14 @@ namespace RefrigtzW
                         {
 
                             Order = ord;
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
 
 
 
 
                             newTask.Wait(); newTask.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                         }
                     }
@@ -15168,7 +15168,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingCastleTow(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingCastleTow(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             //==================
@@ -15196,11 +15196,11 @@ namespace RefrigtzW
                         {
 
                             Order = ord;
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => CastlesThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
 
                             newTask.Wait(); newTask.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                         }
 
                     }
@@ -15210,28 +15210,28 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingCastle(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingCastle(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
 
             Object O = new Object();
             lock (O)
             {
-                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                 var newTask1 = Task.Factory.StartNew(() => ThinkingCastleOne(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
                 newTask1.Wait(); newTask1.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                 var newTask2 = Task.Factory.StartNew(() => ThinkingCastleTow(ref TmpL, ref TmpW, ord, ii, jj, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
                 newTask2.Wait(); newTask2.Dispose();
-                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
             }
 
 
         }
         //specific determination for thinking main method
-        public void ThinkingMinisterbase(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingMinisterbase(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int i, int j, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -15255,14 +15255,14 @@ namespace RefrigtzW
                     {
 
                         Order = ord;
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => MinisterThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
                     }
@@ -15272,7 +15272,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingMinister(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingMinister(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -15289,14 +15289,14 @@ namespace RefrigtzW
                         Object O = new Object();
                         lock (O)
                         {
-                            int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                            int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                             var newTask = Task.Factory.StartNew(() => ThinkingMinisterbase(ref TmpL, ref TmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
                             newTask.Wait(); newTask.Dispose();
-                            LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                            LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
 
@@ -15307,7 +15307,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingCastleBrown(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingCastleBrown(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O = new Object();
@@ -15330,14 +15330,14 @@ namespace RefrigtzW
                     ///Calculate of Castles of Brown.
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, -7, CloneATable(TableS), Order, ii, jj)).Rules(ii, jj, i, jj, color, -7) && (ChessRules.CastleKingAllowedBrown))
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => CastleThinkingBrown(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
                     ThinkingAtRun = false;
@@ -15347,7 +15347,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingCastleGray(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingCastleGray(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O = new Object();
@@ -15368,14 +15368,14 @@ namespace RefrigtzW
 
                     if ((new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 7, CloneATable(TableS), Order, ii, jj)).Rules(ii, jj, i, jj, color, 7) && (ChessRules.CastleKingAllowedGray))
                     {
-                        int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                        int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                         var newTask = Task.Factory.StartNew(() => CastleThinkingGray(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, jj, Castle));
 
 
 
 
                         newTask.Wait(); newTask.Dispose();
-                        LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                        LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
                     }
                     ThinkingAtRun = false;
@@ -15385,7 +15385,7 @@ namespace RefrigtzW
 
         }
         //specific determination for thinking main method
-        public void ThinkingKing(ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
+        public void ThinkingKing(ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled, int ord, int ii, int jj, int DummyOrder, int DummyCurrentOrder, bool DoEnemySelf, bool PenRegStrore, bool EnemyCheckMateActionsString, bool Castle)
         {
 
             Object O1 = new Object();
@@ -15415,14 +15415,14 @@ namespace RefrigtzW
 
                                 Order = ord;
 
-                                int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                                 var newTask = Task.Factory.StartNew(() => KingThinkingChess(ref TmpL, ref TmpW, DummyOrder, DummyCurrentOrder, CloneATable(TableS), ii, jj, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, i, j, Castle));
 
 
 
 
                                 newTask.Wait(); newTask.Dispose();
-                                LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
 
                             }
@@ -15667,7 +15667,7 @@ namespace RefrigtzW
                 }
             }
         }
-        public void Thinking(int iAStarGreedy, AllDraw THIS, ref int LoseOcuuredatChiled, ref int WinOcuuredatChiled)
+        public void Thinking(int iAStarGreedy, AllDraw THIS, ref int[] LoseOcuuredatChiled, ref int WinOcuuredatChiled)
         {
             try
             {
@@ -15851,7 +15851,7 @@ namespace RefrigtzW
                                 {
                                     FoundFirstSelfMating++;
                                     if (Order == AllDraw.OrderPlateDraw)
-                                        LoseOcuuredatChiled = -2;
+                                        LoseOcuuredatChiled[0] = -2;
                                     IsThereMateOfSelf = true;
                                 }
                                 if ((AAA.CheckMateGray && AllDraw.OrderPlateDraw == -1) || (AAA.CheckMateBrown && AllDraw.OrderPlateDraw == 1))
@@ -15904,7 +15904,7 @@ namespace RefrigtzW
                     ChessRules.CurrentOrder = DummyCurrentOrder;
                     ///Calculate Castles of Gray King.
                     ///
-                    int TmpL = LoseOcuuredatChiled, TmpW = WinOcuuredatChiled;
+                    int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
                     switch (Kind)
                     {
                         case 7:
@@ -16002,7 +16002,7 @@ namespace RefrigtzW
                             break;
 
                     }
-                    LoseOcuuredatChiled += TmpL; WinOcuuredatChiled += TmpW;
+                    LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
                     Object O3 = new Object();
                     lock (O3)
                     {
@@ -16034,7 +16034,7 @@ namespace RefrigtzW
             }
             return;
         }
-        public void TowDistrurbProperUse(ref int LoseOcuuredatChiled)
+        public void TowDistrurbProperUse(ref int[] LoseOcuuredatChiled)
         {
             Object OI = new Object();
             lock (OI)
@@ -16057,14 +16057,14 @@ namespace RefrigtzW
                                 /*else
                                 {
                                     if (Order == AllDraw.OrderPlateDraw)
-                                        LoseOcuuredatChiled = -4;
+                                        LoseOcuuredatChiled[0] = -4;
                                 }*/
 
                             }
                             /*else
                             {
                                 if (Order == AllDraw.OrderPlateDraw)
-                                    LoseOcuuredatChiled = -4;
+                                    LoseOcuuredatChiled[0] = -4;
 
                             }*/
 
@@ -16073,7 +16073,7 @@ namespace RefrigtzW
                         /*else
                         {
                             if (Order == AllDraw.OrderPlateDraw)
-                                LoseOcuuredatChiled = -4;
+                                LoseOcuuredatChiled[0] = -4;
                         }*/
                     }
                 }
@@ -16090,7 +16090,7 @@ namespace RefrigtzW
                 }*/
             }
         }
-        public void TowDistrurbProperUsePreferNotToClose(ref int LoseOcuuredatChiled, int[,] Tab)
+        public void TowDistrurbProperUsePreferNotToClose(ref int[] LoseOcuuredatChiled, int[,] Tab)
         {
             Object OI = new Object();
             lock (OI)
@@ -16112,20 +16112,28 @@ namespace RefrigtzW
                                     int[] i = IndexOfMovedDoubleDefence(Tab);
                                     if (i[0] != -1 & i[1] != -1)
                                     {
-                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][0], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][1]);
-                                        if (RemoveOfDisturbIndex != -1 && MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][0], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][1]))
+                                        if (Kind != Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]))
+                                            return;
+                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
+                                        bool a = MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
+                                        if (RemoveOfDisturbIndex != -1 && a)
                                             IsSupHu[RemoveOfDisturbIndex] = false;
-                                        /*else
+
+                                        else if (!a)
                                         {
                                             if (Order == AllDraw.OrderPlateDraw)
-                                                LoseOcuuredatChiled = -4;
-                                        }*/
+                                            {
+                                                LoseOcuuredatChiled[0] = 5;
+                                                LoseOcuuredatChiled[1] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2];
+                                                LoseOcuuredatChiled[2] = HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3];
+                                            }
+                                        }
 
                                     }
                                     /* else
                                      {
                                          if (Order == AllDraw.OrderPlateDraw)
-                                             LoseOcuuredatChiled = -4;
+                                             LoseOcuuredatChiled[0] = -4;
 
                                      }*/
 
@@ -16136,7 +16144,7 @@ namespace RefrigtzW
                     }
                 }
                 /* else if (Order == AllDraw.OrderPlateDraw)
-                     LoseOcuuredatChiled = -4;*/
+                     LoseOcuuredatChiled[0] = -4;*/
             }
         }
 
@@ -16176,12 +16184,12 @@ namespace RefrigtzW
                 for (int j = 0; j < HeuristicDoubleDefenceIndexInOnGame[i].Count; j++)
                 {
 
-                    if (System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][0], HeuristicDoubleDefenceIndexInOnGame[i][j][1]]) > Object)
+                    if (System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][2], HeuristicDoubleDefenceIndexInOnGame[i][j][3]]) > Object)
                     {
                         Is = true;
                         ObjectIndex[0] = i;
                         ObjectIndex[1] = j;
-                        Object = System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][0], HeuristicDoubleDefenceIndexInOnGame[i][j][1]]);
+                        Object = System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][2], HeuristicDoubleDefenceIndexInOnGame[i][j][3]]);
                     }
                 }
             }
@@ -16194,7 +16202,7 @@ namespace RefrigtzW
                     for (int j = 0; j < HeuristicDoubleDefenceIndexInOnGame[i].Count; j++)
                     {
 
-                        if (System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][0], HeuristicDoubleDefenceIndexInOnGame[i][j][1]]) == Object)
+                        if (System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][2], HeuristicDoubleDefenceIndexInOnGame[i][j][3]]) == Object)
                         {
                             Is = true;
                         }
@@ -16248,6 +16256,8 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnSoldier.Count; j++)
                 {
+                    if (IsSup[i])
+                        continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnSoldier[j][0], RowColumnSoldier[j][1], RowD, ColD) == 0)
                         return j;
 
@@ -16258,6 +16268,8 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnElefant.Count; j++)
                 {
+                    if (IsSup[i])
+                        continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnElefant[j][0], RowColumnElefant[j][1], RowD, ColD) == 0)
                         return j;
                 }
@@ -16278,6 +16290,8 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnCastle.Count; j++)
                 {
+                    if (IsSup[i])
+                        continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnCastle[j][0], RowColumnCastle[j][1], RowD, ColD) == 0)
                         return j;
 
@@ -16288,6 +16302,8 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnMinister.Count; j++)
                 {
+                    if (IsSup[i])
+                        continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnMinister[j][0], RowColumnMinister[j][1], RowD, ColD) == 0)
                         return j;
 
@@ -16298,6 +16314,8 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnKing.Count; j++)
                 {
+                    if (IsSup[i])
+                        continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnKing[j][0], RowColumnKing[j][1], RowD, ColD) == 0)
                         return j;
 
@@ -16315,6 +16333,8 @@ namespace RefrigtzW
                 {
                     for (int j = 0; j < RowColumnSoldier.Count; j++)
                     {
+                        if (IsSup[j])
+                            continue;
                         if (NoOfExistInReducedAttackList(false, RowColumnSoldier[j][0], RowColumnSoldier[j][1], Row[i][0], Row[i][1]) == 0)
                             return j;
 
@@ -16325,6 +16345,8 @@ namespace RefrigtzW
                 {
                     for (int j = 0; j < RowColumnElefant.Count; j++)
                     {
+                        if (IsSup[j])
+                            continue;
                         if (NoOfExistInReducedAttackList(false, RowColumnElefant[j][0], RowColumnElefant[j][1], Row[i][0], Row[i][1]) == 0)
                             return j;
                     }
@@ -16335,6 +16357,8 @@ namespace RefrigtzW
                 {
                     for (int j = 0; j < RowColumnHourse.Count; j++)
                     {
+                        if (IsSup[j])
+                            continue;
                         if (NoOfExistInReducedAttackList(false, RowColumnHourse[j][0], RowColumnHourse[j][1], Row[i][0], Row[i][1]) == 0)
                             return j;
 
@@ -16355,6 +16379,8 @@ namespace RefrigtzW
                 {
                     for (int j = 0; j < RowColumnMinister.Count; j++)
                     {
+                        if (IsSup[j])
+                            continue;
                         if (NoOfExistInReducedAttackList(false, RowColumnMinister[j][0], RowColumnMinister[j][1], Row[i][0], Row[i][1]) == 0)
                             return j;
 
@@ -16365,6 +16391,8 @@ namespace RefrigtzW
                 {
                     for (int j = 0; j < RowColumnKing.Count; j++)
                     {
+                        if (IsSup[j])
+                            continue;
                         if (NoOfExistInReducedAttackList(false, RowColumnKing[j][0], RowColumnKing[j][1], Row[i][0], Row[i][1]) == 0)
                             return j;
 

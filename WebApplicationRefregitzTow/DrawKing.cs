@@ -19,7 +19,7 @@ namespace RefrigtzW
         public static bool KingGrayNotCheckedByQuantumMove = false;
         public static bool KingBrownNotCheckedByQuantumMove = false;
 
-        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0; public int[] LoseOcuuredatChiled = { 0, 0, 0 };
         
         
         public static Image[] K = new Image[2];

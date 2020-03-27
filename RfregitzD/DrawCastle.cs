@@ -18,7 +18,7 @@ namespace RefrigtzDLL
 
 
 
-        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0; public int[] LoseOcuuredatChiled = { 0, 0, 0 };
         
         
         

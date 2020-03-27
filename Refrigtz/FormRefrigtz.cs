@@ -7163,7 +7163,8 @@ namespace Refrigtz
                 int HeuristicKingSafe = new int();
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int();int HeuristicCheckedMate = new int();
-                th1.CalculateHeuristics( 0, 0, true,Order, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicReducedMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour,ref HeuristicCheckedMate);
+                int[] Lose = { 0, 0, 0 };
+                th1.CalculateHeuristics( Lose, 0, true,Order, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicReducedMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour,ref HeuristicCheckedMate);
 
 
                 return HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue + HeuristicReducedMovementValue +
@@ -7189,7 +7190,8 @@ namespace Refrigtz
                 int HeuristicKingSafe = new int();
                 int HeuristicFromCenter = new int();
                 int HeuristicKingDangour = new int(); int HeuristicCheckedMate = new int();
-                th.CalculateHeuristics( 0, 0, true,Order, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicReducedMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour,ref HeuristicCheckedMate);
+                int[] Lose = { 0, 0, 0 };
+                th.CalculateHeuristics(Lose, 0, true,Order, 0, CloneATable(Table), Row, Column, RowSource, ColumnS, color, ref HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue, ref HeuristicReducedMovementValue, ref HeuristicSelfSupportedValue, ref HeuristicReducedMovementValue, ref HeuristicHittingValue, ref HeuristicReducedAttackValue, ref HeuristicDistributionValue, ref HeuristicKingSafe, ref HeuristicFromCenter, ref HeuristicKingDangour,ref HeuristicCheckedMate);
 
                 return HeuristicActionAttackAndSupportAndMoveSelfOrEnemyValue + HeuristicReducedMovementValue +
               HeuristicSelfSupportedValue +

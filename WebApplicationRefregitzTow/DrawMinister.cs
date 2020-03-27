@@ -18,7 +18,7 @@ namespace RefrigtzW
 
 
 
-        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0; public int[] LoseOcuuredatChiled = { 0, 0, 0 };
         
         
         public static Image[] M = new Image[2];

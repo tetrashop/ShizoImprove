@@ -17,7 +17,7 @@ namespace RefrigtzW
 #pragma warning restore CS0414 // The field 'DrawSoldier.Spaces' is assigned but its value is never used
 
 
-        public int WinOcuuredatChiled = 0; public int LoseOcuuredatChiled = 0;
+        public int WinOcuuredatChiled = 0; public int[] LoseOcuuredatChiled = { 0, 0, 0 };
         //Iniatate Global Variables.
         //private readonly object balancelock = new object();
         //private readonly object balancelockS = new object();
