@@ -16256,7 +16256,7 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnSoldier.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnSoldier[j][0], RowColumnSoldier[j][1], RowD, ColD) == 0)
                         return j;
@@ -16268,7 +16268,7 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnElefant.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnElefant[j][0], RowColumnElefant[j][1], RowD, ColD) == 0)
                         return j;
@@ -16290,7 +16290,7 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnCastle.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnCastle[j][0], RowColumnCastle[j][1], RowD, ColD) == 0)
                         return j;
@@ -16302,7 +16302,7 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnMinister.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnMinister[j][0], RowColumnMinister[j][1], RowD, ColD) == 0)
                         return j;
@@ -16314,7 +16314,7 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < RowColumnKing.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnKing[j][0], RowColumnKing[j][1], RowD, ColD) == 0)
                         return j;
