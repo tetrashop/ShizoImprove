@@ -19,7 +19,7 @@
 */
 
 /*
-  The code in this file is based on the Opening book code in PolyGlot
+  The code in this file is based on the opening book code in PolyGlot
   by Fabien Letouzey. PolyGlot is available under the GNU General
   Public License, and can be downloaded from http://wbec-ridderkerk.nl
  */
@@ -351,7 +351,7 @@ namespace {
 
 PolyglotBook::PolyglotBook() : rng(now() % 10000) {}
 
-PolyglotBook::~PolyglotBook() { if (is_Open()) close(); }
+PolyglotBook::~PolyglotBook() { if (is_open()) close(); }
 
 
 /// operator>>() reads sizeof(T) chars from the file's binary byte stream and
@@ -372,18 +372,18 @@ template<> PolyglotBook& PolyglotBook::operator>>(Entry& e) {
 }
 
 
-/// Open() tries to Open a book file with the given name after closing any
+/// open() tries to open a book file with the given name after closing any
 /// existing one.
 
-bool PolyglotBook::Open(const char* fName) {
+bool PolyglotBook::open(const char* fName) {
 
-  if (is_Open()) // Cannot close an already closed file
+  if (is_open()) // Cannot close an already closed file
       close();
 
-  ifstream::Open(fName, ifstream::in | ifstream::binary);
+  ifstream::open(fName, ifstream::in | ifstream::binary);
 
-  fileName = is_Open() ? fName : "";
-  ifstream::clear(); // Reset any error flag to allow a retry ifstream::Open()
+  fileName = is_open() ? fName : "";
+  ifstream::clear(); // Reset any error flag to allow a retry ifstream::open()
   return !fileName.empty();
 }
 
@@ -395,7 +395,7 @@ bool PolyglotBook::Open(const char* fName) {
 
 Move PolyglotBook::probe(const Position& pos, const string& fName, bool pickBest) {
 
-  if (fileName != fName && !Open(fName.c_str()))
+  if (fileName != fName && !open(fName.c_str()))
       return MOVE_NONE;
 
   Entry e;

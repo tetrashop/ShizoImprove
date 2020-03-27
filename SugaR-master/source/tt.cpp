@@ -242,7 +242,7 @@ bool TranspositionTable::save() {
 void TranspositionTable::load() {
 	//file size: https://stackoverflow.com/questions/2409504/using-c-filestreams-fstream-how-can-you-determine-the-size-of-a-file
 	std::ifstream file;
-	file.Open(hashfilename, std::ios::in | std::ios::binary);
+	file.open(hashfilename, std::ios::in | std::ios::binary);
 	file.ignore(std::numeric_limits<std::streamsize>::max());
 	std::streamsize size = file.gcount();
 	file.clear();   //  Since ignore will have set eof.
@@ -503,7 +503,7 @@ void TranspositionTable::load_epd_to_hash() {
 	int depth;
 	generation8 = 4; //for storing the positions
 
-	if (myfile.is_Open())
+	if (myfile.is_open())
 	{
 		while (getline(myfile, line))
 		{

@@ -58,7 +58,7 @@ extern uint64 calc_key_from_pcs(int *pcs, int mirror);
 static void free_wdl_entry(struct TBEntry *entry);
 static void free_dtz_entry(struct TBEntry *entry);
 
-static FD Open_tb(const char *str, const char *suffix)
+static FD open_tb(const char *str, const char *suffix)
 {
   int i;
   FD fd;
@@ -70,10 +70,10 @@ static FD Open_tb(const char *str, const char *suffix)
     strcat(file, str);
     strcat(file, suffix);
 #ifndef _WIN32
-    fd = Open(file, O_RDONLY);
+    fd = open(file, O_RDONLY);
 #else
     fd = CreateFile(file, GENERIC_READ, FILE_SHARE_READ, NULL,
-                          Open_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+                          OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 #endif
     if (fd != FD_ERR) return fd;
   }
@@ -91,7 +91,7 @@ static void close_tb(FD fd)
 
 static char *map_file(const char *name, const char *suffix, uint64 *mapping)
 {
-  FD fd = Open_tb(name, suffix);
+  FD fd = open_tb(name, suffix);
   if (fd == FD_ERR)
     return NULL;
 #ifndef _WIN32
@@ -168,7 +168,7 @@ static void init_tb(char *str)
   int color;
   char *s;
 
-  fd = Open_tb(str, WDLSUFFIX);
+  fd = open_tb(str, WDLSUFFIX);
   if (fd == FD_ERR) return;
   close_tb(fd);
 

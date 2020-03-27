@@ -136,9 +136,9 @@ void benchmark(const Position& current, istream& is) {
       string fen;
       ifstream file(fenFile);
 
-      if (!file.is_Open())
+      if (!file.is_open())
       {
-          cerr << "Unable to Open file " << fenFile << endl;
+          cerr << "Unable to open file " << fenFile << endl;
           return;
       }
 

@@ -126,6 +126,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QuantumRefrigiz\QuantumRefrigiz.csproj">
+      <Project>{56d82e52-1fc9-4bc2-b57c-4d23ee44ce23}</Project>
+      <Name>QuantumRefrigiz</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Refrigtz\bin\Debug\All\All\All.csproj">
       <Project>{ac2b4cf6-3294-46d5-9af0-c58ee5b637d4}</Project>
       <Name>All</Name>
