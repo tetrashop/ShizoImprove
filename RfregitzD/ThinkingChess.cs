@@ -11483,7 +11483,7 @@ namespace RefrigtzDLL
                                 con = 2;
 
 
-                            MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination,1);
+                            MovableAllObjectsListMethos(CloneATable(TableS), true, RowSource, ColumnSource, RowDestination, ColumnDestination, con);
                             Killed = TableConst[RowDestination, ColumnDestination];
                             TableS[RowDestination, ColumnDestination] = (Math.Abs(TableS[RowSource, ColumnSource]) / TableS[RowSource, ColumnSource]) * con;
                             TableS[RowSource, ColumnSource] = 0;
@@ -16036,9 +16036,9 @@ namespace RefrigtzDLL
                 }
 
                 ThinkingFullGame(iAStarGreedy, THIS);
-             
-                TowDistrurbProperUse(ref LoseOcuuredatChiled);
+
                 TowDistrurbProperUsePreferNotToClose(ref LoseOcuuredatChiled, TableConst);
+                TowDistrurbProperUse(ref LoseOcuuredatChiled);
             }
             catch (Exception t)
             {
@@ -16054,55 +16054,61 @@ namespace RefrigtzDLL
             Object OI = new Object();
             lock (OI)
             {
-                if (IsSupHu.Count > 0)
+                if (!IsThereCheckOfSelf)
                 {
-                    bool IsSup = true;
-                    for (int i = 0; i < IsSupHu.Count; i++)
-                        IsSup = IsSup && IsSupHu[i];
-                    if (IsSup)
+                    if (RemoveOfDisturbIndex == -1)
                     {
-                        if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
+                        if (IsSupHu.Count > 0)
                         {
-                            int i = IndexOfMoved();
-                            if (i != -1)
+                            bool IsSup = true;
+                            for (int i = 0; i < IsSupHu.Count; i++)
+                                IsSup = IsSup && IsSupHu[i];
+                            if (IsSup)
                             {
-                                RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
-                                if (RemoveOfDisturbIndex != -1)
-                                    IsSupHu[RemoveOfDisturbIndex] = false;
-                                /*else
+                                if (HeuristicAllReducedAttackedMidel - 1 == (HeuristicAllReducedAttacked.Count - HeuristicAllReducedAttackedMidel))
+                                {
+                                    int i = IndexOfMoved();
+                                    if (i != -1)
+                                    {
+                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Kind, HeuristicAllReducedAttacked[i][0], HeuristicAllReducedAttacked[i][1]);
+                                        if (RemoveOfDisturbIndex != -1)
+                                            IsSupHu[RemoveOfDisturbIndex] = false;
+                                        else
+                                        {
+                                            if (Order == AllDraw.OrderPlateDraw)
+                                                LoseOcuuredatChiled[0] = -4;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (Order == AllDraw.OrderPlateDraw)
+                                            LoseOcuuredatChiled[0] = -4;
+
+                                    }
+
+
+                                }
+                                else
                                 {
                                     if (Order == AllDraw.OrderPlateDraw)
                                         LoseOcuuredatChiled[0] = -4;
-                                }*/
-
+                                }
                             }
-                            /*else
-                            {
-                                if (Order == AllDraw.OrderPlateDraw)
-                                    LoseOcuuredatChiled[0] = -4;
-
-                            }*/
-
-
                         }
-                        /*else
-                        {
-                            if (Order == AllDraw.OrderPlateDraw)
-                                LoseOcuuredatChiled[0] = -4;
-                        }*/
+                        /* else
+                         {
+                             IsSup = false;
+                             for (int i = 0; i < IsSupHu.Count; i++)
+                                 IsSup = IsSup || IsSupHu[i];
+                             if (!IsSup)
+                             {
+                                 if (Order == AllDraw.OrderPlateDraw)
+                                     WinOcuuredatChiled = 4;
+                             }
+                         */
                     }
                 }
-                /*else
-                {
-                    IsSup = false;
-                    for (int i = 0; i < IsSupHu.Count; i++)
-                        IsSup = IsSup || IsSupHu[i];
-                    if (!IsSup)
-                    {
-                        if (Order == AllDraw.OrderPlateDraw)
-                            WinOcuuredatChiled = 4;
-                    }
-                }*/
             }
         }
         public void TowDistrurbProperUsePreferNotToClose(ref int[] LoseOcuuredatChiled, int[,] Tab)
@@ -16127,14 +16133,14 @@ namespace RefrigtzDLL
                                     int[] i = IndexOfMovedDoubleDefence(Tab);
                                     if (i[0] != -1 & i[1] != -1)
                                     {
-                                        if (Kind != Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]))
+                                        if (Kind != i[2])
                                             return;
-                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
+                                        RemoveOfDisturbIndex = IndexOfIsSupTRUE(Math.Abs(TableConst[HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]]), HeuristicDoubleDefenceIndexInOnGame[i[0]]);
                                         bool a = MovableAllObjectsListMethos(HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][2], HeuristicDoubleDefenceIndexInOnGame[i[0]][i[1]][3]);
                                         if (RemoveOfDisturbIndex != -1 && a)
                                             IsSupHu[RemoveOfDisturbIndex] = false;
-                                            
-                                        else if(!a)
+
+                                        else if (!a)
                                         {
                                             if (Order == AllDraw.OrderPlateDraw)
                                             {
@@ -16145,12 +16151,12 @@ namespace RefrigtzDLL
                                         }
 
                                     }
-                                   /* else
+                                    else
                                     {
                                         if (Order == AllDraw.OrderPlateDraw)
                                             LoseOcuuredatChiled[0] = -4;
 
-                                    }*/
+                                    }
 
 
                                 }
@@ -16158,8 +16164,6 @@ namespace RefrigtzDLL
                         }
                     }
                 }
-               /* else if (Order == AllDraw.OrderPlateDraw)
-                    LoseOcuuredatChiled[0] = -4;*/
             }
         }
 
@@ -16189,7 +16193,7 @@ namespace RefrigtzDLL
         int[] IndexOfMovedDoubleDefence(int[,] Tab)
         {
             int Object = 0;
-            int[] ObjectIndex = { -1, -1 };
+            int[] ObjectIndex = { -1, -1, -1 };
             bool Is = false;
             for (int i = 0; i < HeuristicDoubleDefenceIndexInOnGameMidle; i++)
             {
@@ -16199,12 +16203,12 @@ namespace RefrigtzDLL
                 for (int j = 0; j < HeuristicDoubleDefenceIndexInOnGame[i].Count; j++)
                 {
 
-                    if (System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][2], HeuristicDoubleDefenceIndexInOnGame[i][j][3]]) > Object)
+                    if (System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][2], HeuristicDoubleDefenceIndexInOnGame[i][j][3]]) > ObjectIndex[2])
                     {
                         Is = true;
                         ObjectIndex[0] = i;
                         ObjectIndex[1] = j;
-                        Object = System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][2], HeuristicDoubleDefenceIndexInOnGame[i][j][3]]);
+                        ObjectIndex[2] = System.Math.Abs(Tab[HeuristicDoubleDefenceIndexInOnGame[i][j][2], HeuristicDoubleDefenceIndexInOnGame[i][j][3]]);
                     }
                 }
             }
@@ -16271,7 +16275,7 @@ namespace RefrigtzDLL
             {
                 for (int j = 0; j < RowColumnSoldier.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnSoldier[j][0], RowColumnSoldier[j][1], RowD, ColD) == 0)
                         return j;
@@ -16283,7 +16287,7 @@ namespace RefrigtzDLL
             {
                 for (int j = 0; j < RowColumnElefant.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnElefant[j][0], RowColumnElefant[j][1], RowD, ColD) == 0)
                         return j;
@@ -16295,6 +16299,8 @@ namespace RefrigtzDLL
             {
                 for (int j = 0; j < RowColumnHourse.Count; j++)
                 {
+                    if (IsSup[j])
+                        continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnHourse[j][0], RowColumnHourse[j][1], RowD, ColD) == 0)
                         return j;
 
@@ -16305,7 +16311,7 @@ namespace RefrigtzDLL
             {
                 for (int j = 0; j < RowColumnCastle.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnCastle[j][0], RowColumnCastle[j][1], RowD, ColD) == 0)
                         return j;
@@ -16317,7 +16323,7 @@ namespace RefrigtzDLL
             {
                 for (int j = 0; j < RowColumnMinister.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnMinister[j][0], RowColumnMinister[j][1], RowD, ColD) == 0)
                         return j;
@@ -16329,7 +16335,7 @@ namespace RefrigtzDLL
             {
                 for (int j = 0; j < RowColumnKing.Count; j++)
                 {
-                    if (IsSup[i])
+                    if (IsSup[j])
                         continue;
                     if (NoOfExistInReducedAttackList(false, RowColumnKing[j][0], RowColumnKing[j][1], RowD, ColD) == 0)
                         return j;
@@ -16341,83 +16347,114 @@ namespace RefrigtzDLL
         }
         int IndexOfIsSupTRUE(int Kind, List<int[]> Row)
         {
+            int jj = -1;
             bool Is = false;
-            for (int i = 0; i < Row.Count; i++)
+
+            if (Kind == 1)
             {
-                if (Kind == 1)
+                for (int j = 0; j < RowColumnSoldier.Count; j++)
                 {
-                    for (int j = 0; j < RowColumnSoldier.Count; j++)
+                    for (int i = 0; i < Row.Count; i++)
                     {
                         if (IsSup[j])
                             continue;
-                        if (NoOfExistInReducedAttackList(false, RowColumnSoldier[j][0], RowColumnSoldier[j][1], Row[i][0], Row[i][1]) == 0)
-                            return j;
+                        if (NoOfExistInReducedAttackList(false, RowColumnSoldier[j][0], RowColumnSoldier[j][1], Row[i][0], Row[i][1]) != 0)
+                            Is = true;
+                        else
+                            jj = j;
 
-                    }
-                }
-                else
-                if (Kind == 2)
-                {
-                    for (int j = 0; j < RowColumnElefant.Count; j++)
-                    {
-                        if (IsSup[j])
-                            continue;
-                        if (NoOfExistInReducedAttackList(false, RowColumnElefant[j][0], RowColumnElefant[j][1], Row[i][0], Row[i][1]) == 0)
-                            return j;
-                    }
 
-                }
-                else
-                if (Kind == 3)
-                {
-                    for (int j = 0; j < RowColumnHourse.Count; j++)
-                    {
-                        if (IsSup[j])
-                            continue;
-                        if (NoOfExistInReducedAttackList(false, RowColumnHourse[j][0], RowColumnHourse[j][1], Row[i][0], Row[i][1]) == 0)
-                            return j;
-
-                    }
-                }
-                else
-                if (Kind == 4)
-                {
-                    for (int j = 0; j < RowColumnCastle.Count; j++)
-                    {
-                        if (NoOfExistInReducedAttackList(false, RowColumnCastle[j][0], RowColumnCastle[j][1], Row[i][0], Row[i][1]) == 0)
-                            return j;
-
-                    }
-                }
-                else
-                if (Kind == 5)
-                {
-                    for (int j = 0; j < RowColumnMinister.Count; j++)
-                    {
-                        if (IsSup[j])
-                            continue;
-                        if (NoOfExistInReducedAttackList(false, RowColumnMinister[j][0], RowColumnMinister[j][1], Row[i][0], Row[i][1]) == 0)
-                            return j;
-
-                    }
-                }
-                else
-                if (Kind == 6)
-                {
-                    for (int j = 0; j < RowColumnKing.Count; j++)
-                    {
-                        if (IsSup[j])
-                            continue;
-                        if (NoOfExistInReducedAttackList(false, RowColumnKing[j][0], RowColumnKing[j][1], Row[i][0], Row[i][1]) == 0)
-                            return j;
 
                     }
                 }
             }
+            else
+            if (Kind == 2)
+            {
+                for (int j = 0; j < RowColumnElefant.Count; j++)
+                {
+                    for (int i = 0; i < Row.Count; i++)
+                    {
+                        if (IsSup[j])
+                            continue;
+                        if (NoOfExistInReducedAttackList(false, RowColumnElefant[j][0], RowColumnElefant[j][1], Row[i][0], Row[i][1]) != 0)
+                            Is = true;
+                        else
+                            jj = j;
+                    }
+                }
+            }
+            else
+            if (Kind == 3)
+            {
+                for (int j = 0; j < RowColumnHourse.Count; j++)
+                {
+                    for (int i = 0; i < Row.Count; i++)
+                    {
+                        if (IsSup[j])
+                            continue;
+                        if (NoOfExistInReducedAttackList(false, RowColumnHourse[j][0], RowColumnHourse[j][1], Row[i][0], Row[i][1]) != 0)
+                            Is = true;
+                        else
+                            jj = j;
+                    }
+                }
+            }
+            else
+            if (Kind == 4)
+            {
+                for (int j = 0; j < RowColumnCastle.Count; j++)
+                {
+                    for (int i = 0; i < Row.Count; i++)
+                    {
+                        if (NoOfExistInReducedAttackList(false, RowColumnCastle[j][0], RowColumnCastle[j][1], Row[i][0], Row[i][1]) != 0)
+                            Is = true;
+                        else
+                            jj = j;
+
+                    }
+                }
+            }
+            else
+            if (Kind == 5)
+            {
+                for (int j = 0; j < RowColumnMinister.Count; j++)
+                {
+                    for (int i = 0; i < Row.Count; i++)
+                    {
+                        if (IsSup[j])
+                            continue;
+                        if (NoOfExistInReducedAttackList(false, RowColumnMinister[j][0], RowColumnMinister[j][1], Row[i][0], Row[i][1]) != 0)
+                            Is = true;
+                        else
+                            jj = j;
+
+                    }
+                }
+            }
+            else
+            if (Kind == 6)
+            {
+                for (int j = 0; j < RowColumnKing.Count; j++)
+                {
+                    for (int i = 0; i < Row.Count; i++)
+                    {
+                        if (IsSup[j])
+                            continue;
+                        if (NoOfExistInReducedAttackList(false, RowColumnKing[j][0], RowColumnKing[j][1], Row[i][0], Row[i][1]) != 0)
+                            Is = true;
+                        else
+                            jj = j;
+
+                    }
+                }
+            }
+            if (!Is)
+                return jj;
             return -1;
 
-        }
-        //objects value main method
+        }     //objects value main method
+              //objects value main method
         int RetrunValValue(int RowS, int ColS, int RowO, int ColO, int[,] Tab, int Sign)
                 {
 
