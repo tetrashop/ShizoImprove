@@ -7,7 +7,11 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
 using RefrigtzDLL;
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
@@ -22,7 +26,9 @@ namespace Chess
         Process proc = new Process();
         public bool LoadTree = false;
         bool SettingPRFALSE = false;
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         public QuantumRefrigiz.AllDraw DrawQ;
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         bool Clicked = false;
         public bool ArrangmentsChanged = true;
         const string PieceToChar = "kqrnbp PBNRQK";
@@ -60,9 +66,17 @@ namespace Chess
         int ConClick = -1;
         PictureBox[] Con = new PictureBox[4];
         bool WaitOnplay = false;
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
         RefrigtzDLL.ChessGeneticAlgorithm R = new RefrigtzDLL.ChessGeneticAlgorithm(false, false, false, false, false, false, false, true);
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
         bool Person = true;
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
         public RefrigtzDLL.AllDraw Draw = new AllDraw(-1, false, false, false, false, false, false, false, false);
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
         int[,] Table = null;
         bool FOUND = false;
         #region These are the global variables and objects for ChessForm class
@@ -171,9 +185,9 @@ namespace Chess
                 bool B = AllDraw.Blitz;
                 AllDraw.Blitz = false;
                 RefrigtzDLL.ThinkingChess.ThinkingRun = false;
-//#pragma warning disable CS0164 // This label has not been referenced
+////#pragma warning disable CS0164 // This label has not been referenced
                 Begin4:
-//#pragma warning restore CS0164 // This label has not been referenced
+////#pragma warning restore CS0164 // This label has not been referenced
                 AllDraw Th = Draw.AStarGreedyString;
                 if (Draw.IsAtLeastAllObjectIsNull())
                 {
@@ -2968,7 +2982,11 @@ namespace Chess
         {
             (new AboutBoxFaraDars()).ShowDialog();
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
         public RefrigtzDLL.AllDraw RootFound()
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -2987,7 +3005,11 @@ namespace Chess
                 return Draw;
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
         public void SetDrawFounding(ref bool FOUNDI, ref RefrigtzDLL.AllDraw THISI, bool FirstI)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
         {
             /*    Object OO = new Object();
                 lock (OO)

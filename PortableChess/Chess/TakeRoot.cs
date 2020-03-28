@@ -4,10 +4,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
-using Chess;
+using RefrigtzChessPortable;
 using System.Diagnostics;
 
-namespace Refrigtz
+namespace RefrigtzChessPortable
 {
     [Serializable]
     public class TakeRoot
@@ -20,11 +20,7 @@ namespace Refrigtz
         public static int AllDrawKind = 0;//0,1,2,3,4,5,6
         public static String AllDrawKindString = "";
 
-//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
-//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
-        public RefrigtzDLL.AllDraw t = null;
-//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
-//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzChessPortable' could not be found (are you missing a using directive or an assembly reference?)
+        public RefrigtzChessPortable.AllDraw t = null;
         //public QuantumRefrigiz.AllDraw tt = null;
 
         static void Log(Exception ex)
@@ -35,7 +31,7 @@ namespace Refrigtz
                 lock (a)
                 {
                     string stackTrace = ex.ToString();
-                    File.AppendAllText(ChessForm.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
+                    File.AppendAllText(RefrigtzChessPortableForm.Root + "\\ErrorProgramRun.txt", stackTrace + ": On" + DateTime.Now.ToString()); // path of file where stack trace will be stored.
                 }
             }
             catch (Exception t) { Log(t); }
@@ -138,7 +134,7 @@ namespace Refrigtz
             }
         }
 
-        public bool Load(bool FOUND, bool Quantum, ChessForm Curent, ref bool LoadTree, bool MovementsAStarGreedyHeuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHeuristic, bool OnlySelf, bool AStarGreedyHeuristic, bool ArrangmentsChanged)
+        public bool Load(bool FOUND, bool Quantum, RefrigtzChessPortableForm Curent, ref bool LoadTree, bool MovementsAStarGreedyHeuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHeuristic, bool OnlySelf, bool AStarGreedyHeuristic, bool ArrangmentsChanged)
         {
             Object OO = new Object();
             lock (OO)
@@ -149,14 +145,18 @@ namespace Refrigtz
                 //Load Middle Targets.
                 try
                 {
-                    if (File.Exists(ChessForm.AllDrawKindString))
+                    if (File.Exists(RefrigtzChessPortableForm.AllDrawKindString))
                     {
-                        if (ChessForm.MovmentsNumber >= 0)
+                        if (RefrigtzChessPortableForm.MovmentsNumber >= 0)
                         {
                             //if (!Quantum)
                             {
+#pragma warning disable CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
+#pragma warning disable CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
                                 GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                                t = (RefrigtzDLL.AllDraw)tr.Load(Quantum, ChessForm.OrderPlate);
+#pragma warning restore CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
+#pragma warning restore CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
+                                t = (RefrigtzChessPortable.AllDraw)tr.Load(Quantum, RefrigtzChessPortableForm.OrderPlate);
                                 if (t != null)
                                 {
                                     Curent.Draw = t;
@@ -164,8 +164,9 @@ namespace Refrigtz
                                     LoadTree = true;
                                     Curent.Draw = Curent.RootFound();
 
-                                    Curent.Draw.UpdateLoseAndWinDepenOfKind(ChessForm.OrderPlate);
-                                   
+                                    Curent.Draw.UpdateLoseAndWinDepenOfKind(RefrigtzChessPortableForm.OrderPlate);
+
+
                                     t = Curent.Draw;
                                     //Curent.SetDrawFounding(ref FOUND, ref THIS, false);
                                     DrawDrawen = true;
@@ -176,7 +177,7 @@ namespace Refrigtz
                             /*else
                             {
                                 GalleryStudio.RefregizMemmory tr = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged);
-                               tt =(QuantumRefrigiz.AllDraw) tr.LoadQ(Quantum, ChessForm.OrderPlate);
+                               tt =(QuantumRefrigiz.AllDraw) tr.LoadQ(Quantum, RefrigtzChessPortableForm.OrderPlate);
                                 if (t != null)
                                 {
 
@@ -195,7 +196,7 @@ namespace Refrigtz
                                 }
                             }*/
                         }
-                        File.Delete(ChessForm.AllDrawKindString);
+                        File.Delete(RefrigtzChessPortableForm.AllDrawKindString);
                     }
                 }
                 catch (Exception t) { Log(t); }
@@ -223,7 +224,7 @@ namespace Refrigtz
             }
         }
 
-        public bool Save(bool FOUND,bool Quantum, ChessForm Curent, ref bool LoadTree, bool MovementsAStarGreedyHeuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHeuristic, bool OnlySelf, bool AStarGreedyHeuristic, bool ArrangmentsChanged)
+        public bool Save(bool FOUND,bool Quantum, RefrigtzChessPortableForm Curent, ref bool LoadTree, bool MovementsAStarGreedyHeuristicFound, bool IInoreSelfObjects, bool UsePenaltyRegardMechnisam, bool BestMovments, bool PredictHeuristic, bool OnlySelf, bool AStarGreedyHeuristic, bool ArrangmentsChanged)
         {
             Object OO = new Object();
             lock (OO)
@@ -259,10 +260,14 @@ namespace Refrigtz
                 {
 
 
-                    RefrigtzDLL.AllDraw Stote = Curent.Draw;
+                    RefrigtzChessPortable.AllDraw Stote = Curent.Draw;
                     if (!File.Exists(AllDrawKindString))
                     {
+#pragma warning disable CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
+#pragma warning disable CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
                         GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged
+#pragma warning restore CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
+#pragma warning restore CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
                             );
                         //if (!Quantum)
                         {
@@ -270,11 +275,11 @@ namespace Refrigtz
                             {
                                 Curent.Draw = Curent.RootFound();
                                 rt.AllDrawCurrentAccess = Curent.Draw;
-                                rt.RewriteAllDraw(ChessForm.OrderPlate);
-                                RefrigtzDLL.AllDraw.DrawTable = false;
+                                rt.RewriteAllDraw(RefrigtzChessPortableForm.OrderPlate);
+                                RefrigtzChessPortable.AllDraw.DrawTable = false;
                                 //.SetBoxText("\r\nSaved Completed.");
                                 //Curent.RefreshBoxText();
-                                //PictureBoxRefrigtz.SendToBack();
+                                //PictureBoxRefrigtzChessPortable.SendToBack();
                                 //PictureBoxTimerGray.SendToBack();
                                 //PictureBoxTimerBrown.SendToBack();
                                 //MessageBox.Show("Saved Completed.");
@@ -285,11 +290,11 @@ namespace Refrigtz
                             {
                                 Curent.DrawQ = Curent.RootFoundQ();
                                 rt.AllDrawCurrentAccessQ = Curent.DrawQ;
-                                rt.RewriteAllDrawQ(ChessForm.OrderPlate);
+                                rt.RewriteAllDrawQ(RefrigtzChessPortableForm.OrderPlate);
                                 QuantumRefrigiz.AllDraw.DrawTable = false;
     //Curent.SetBoxText("\r\nSaved Completed.");
                             //    Curent.RefreshBoxText();
-                                //PictureBoxRefrigtz.SendToBack();
+                                //PictureBoxRefrigtzChessPortable.SendToBack();
                                 //PictureBoxTimerGray.SendToBack();
                                 //PictureBoxTimerBrown.SendToBack();
                                 //MessageBox.Show("Saved Completed.");
@@ -301,19 +306,23 @@ namespace Refrigtz
                     {
                         //DrawManagement(FOUND, UsePenaltyRegardMechnisam, AStarGreedyHeuristic);
 
-                        File.Delete(ChessForm.AllDrawKindString);
+                        File.Delete(RefrigtzChessPortableForm.AllDrawKindString);
+#pragma warning disable CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
+#pragma warning disable CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
                         GalleryStudio.RefregizMemmory rt = new GalleryStudio.RefregizMemmory(MovementsAStarGreedyHeuristicFound, IInoreSelfObjects, UsePenaltyRegardMechnisam, BestMovments, PredictHeuristic, OnlySelf, AStarGreedyHeuristic, ArrangmentsChanged
+#pragma warning restore CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
+#pragma warning restore CS0436 // The type 'RefregizMemmory' in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs' conflicts with the imported type 'RefregizMemmory' in 'GalleryStudio, Version=6.0.0.14, Culture=neutral, PublicKeyToken=null'. Using the type defined in 'G:\'Personal'_'Files'\Refregitz\PortableChess\Chess\RefregizMemmory.cs'.
                             );
                         //"Universal Root Founding";
                         if (Curent.Draw != null)
                         {
                             Curent.Draw = Curent.RootFound();
                             rt.AllDrawCurrentAccess = Curent.Draw;
-                            rt.RewriteAllDraw(ChessForm.OrderPlate);
-                            RefrigtzDLL.AllDraw.DrawTable = false;
+                            rt.RewriteAllDraw(RefrigtzChessPortableForm.OrderPlate);
+                            RefrigtzChessPortable.AllDraw.DrawTable = false;
                             // Curent.SetBoxText("\r\nSaved Completed.");
                             // Curent.RefreshBoxText();
-                            //PictureBoxRefrigtz.SendToBack();
+                            //PictureBoxRefrigtzChessPortable.SendToBack();
                             //PictureBoxTimerGray.SendToBack();
                             //PictureBoxTimerBrown.SendToBack();
                             //MessageBox.Show("Saved Completed.");
@@ -323,7 +332,9 @@ namespace Refrigtz
                     }
                     Curent.Draw = Stote;
                     return true;
+#pragma warning disable CS0162 // Unreachable code detected
                     return true;
+#pragma warning restore CS0162 // Unreachable code detected
                 }
                 catch (Exception t)
                 {
