@@ -147,9 +147,9 @@ namespace Chess
                 bool B = AllDraw.Blitz;
                 AllDraw.Blitz = false;
                 RefrigtzDLL.ThinkingChess.ThinkingRun = false;
-#pragma warning disable CS0164 // This label has not been referenced
+//#pragma warning disable CS0164 // This label has not been referenced
                 Begin4:
-#pragma warning restore CS0164 // This label has not been referenced
+//#pragma warning restore CS0164 // This label has not been referenced
                 AllDraw Th = Draw.AStarGreedyString;
                 if (Draw.IsAtLeastAllObjectIsNull())
                 {

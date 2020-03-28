@@ -92,18 +92,18 @@ namespace Refrigtz
         bool NotFoundBegin = false;
         int[,] TabStor = null;
         bool PersonTmCall = true;
-#pragma warning disable CS0414 // The field 'FormRefrigtz.Move' is assigned but its value is never used
-#pragma warning disable CS0108 // 'FormRefrigtz.Move' hides inherited member 'Control.Move'. Use the new keyword if hiding was intended.
+//#pragma warning disable CS0414 // The field 'FormRefrigtz.Move' is assigned but its value is never used
+//#pragma warning disable CS0108 // 'FormRefrigtz.Move' hides inherited member 'Control.Move'. Use the new keyword if hiding was intended.
         int Move = 0;
-#pragma warning restore CS0108 // 'FormRefrigtz.Move' hides inherited member 'Control.Move'. Use the new keyword if hiding was intended.
-#pragma warning restore CS0414 // The field 'FormRefrigtz.Move' is assigned but its value is never used
+//#pragma warning restore CS0108 // 'FormRefrigtz.Move' hides inherited member 'Control.Move'. Use the new keyword if hiding was intended.
+//#pragma warning restore CS0414 // The field 'FormRefrigtz.Move' is assigned but its value is never used
         bool Deeperthandeeper = false;
 
         bool FOUND = false;
 
-#pragma warning disable CS0414 // The field 'FormRefrigtz.LoadO' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'FormRefrigtz.LoadO' is assigned but its value is never used
         bool LoadO = false;
-#pragma warning restore CS0414 // The field 'FormRefrigtz.LoadO' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'FormRefrigtz.LoadO' is assigned but its value is never used
         bool ExitM = false;
         public static int AllDrawKind = 0;//0,1,2,3,4,5,6
         public static String AllDrawKindString = "";
@@ -223,7 +223,9 @@ namespace Refrigtz
         public static bool StateCC = false;//Computer With Computer
         public static bool StateCP = false;//Person With Computer
         public static bool StateGe = false;//For Genetic Games.
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         public RefrigtzDLL.AllDraw Draw;
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         public static int OrderPlate = 1;
         // int RefrigtzDLL.AllDraw.MouseClick;
         int Soldier;
@@ -262,7 +264,9 @@ namespace Refrigtz
         public bool LoadTree = false;
         //Thread tttt = null;
         //Thread ttt = null;
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         public QuantumRefrigiz.AllDraw DrawQ = null;
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         [field: NonSerialized]
         Process proc = new Process();
 
@@ -273,21 +277,21 @@ namespace Refrigtz
         //private System.Timers.Timer queueManagementTimerSetTimer;
 
 
-#pragma warning disable CS0414 // The field 'FormRefrigtz.AllDo' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'FormRefrigtz.AllDo' is assigned but its value is never used
         bool AllDo = false;
-#pragma warning restore CS0414 // The field 'FormRefrigtz.AllDo' is assigned but its value is never used
-#pragma warning disable CS0414 // The field 'FormRefrigtz.AllMove' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'FormRefrigtz.AllDo' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'FormRefrigtz.AllMove' is assigned but its value is never used
         bool AllMove = false;
-#pragma warning restore CS0414 // The field 'FormRefrigtz.AllMove' is assigned but its value is never used
-#pragma warning disable CS0414 // The field 'FormRefrigtz.SetDLL' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'FormRefrigtz.AllMove' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'FormRefrigtz.SetDLL' is assigned but its value is never used
         bool SetDLL = false;
-#pragma warning restore CS0414 // The field 'FormRefrigtz.SetDLL' is assigned but its value is never used
-#pragma warning disable CS0414 // The field 'FormRefrigtz.SetNode' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'FormRefrigtz.SetDLL' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'FormRefrigtz.SetNode' is assigned but its value is never used
         bool SetNode = false;
-#pragma warning restore CS0414 // The field 'FormRefrigtz.SetNode' is assigned but its value is never used
-#pragma warning disable CS0414 // The field 'FormRefrigtz.SetTimer' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'FormRefrigtz.SetNode' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'FormRefrigtz.SetTimer' is assigned but its value is never used
         bool SetTimer = false;
-#pragma warning restore CS0414 // The field 'FormRefrigtz.SetTimer' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'FormRefrigtz.SetTimer' is assigned but its value is never used
 
         /*private void worker_DoWork()
         {
@@ -977,12 +981,12 @@ namespace Refrigtz
                                         //SetBoxText("\r\nYour Ready!");
                                         //RefreshBoxText();
                                         Color a = Color.Brown;
-#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         FOUND = false;
-#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
 
                                         //SetDrawFounding(ref FOUND, ref THIS, true);
@@ -2523,12 +2527,12 @@ namespace Refrigtz
                                         //SetBoxText("\r\nYour Ready!");
                                         //RefreshBoxText();
                                         Color a = Color.Brown;
-#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'FOUND' is assigned but its value is never used
                                         FOUND = false;
-#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'FOUND' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                                         QuantumRefrigiz.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
 
                                         //SetDrawFounding(ref FOUND, ref THIS, true);
@@ -6006,9 +6010,9 @@ namespace Refrigtz
 
 
                 }
-#pragma warning disable CS0162 // Unreachable code detected
+//#pragma warning disable CS0162 // Unreachable code detected
                 return TableName;
-#pragma warning restore CS0162 // Unreachable code detected
+//#pragma warning restore CS0162 // Unreachable code detected
             }
         }
         //Creatiopn of Configuration Table
@@ -6126,9 +6130,9 @@ namespace Refrigtz
                     }
 
                 }
-#pragma warning disable CS0168 // The variable 't' is declared but never used
+//#pragma warning disable CS0168 // The variable 't' is declared but never used
                 catch (Exception t)
-#pragma warning restore CS0168 // The variable 't' is declared but never used
+//#pragma warning restore CS0168 // The variable 't' is declared but never used
                 {
                 }
                 bookConn.Close();
@@ -6386,10 +6390,10 @@ namespace Refrigtz
                 {
 
                     //Begin12:
-#pragma warning disable CS0164 // This label has not been referenced
+//#pragma warning disable CS0164 // This label has not been referenced
                     try
                     {
-#pragma warning restore CS0164 // This label has not been referenced
+//#pragma warning restore CS0164 // This label has not been referenced
                         /* if (AStarGreedyHeuristic)
                              CheckBoxAStarGreedyHeuristic.Checked = true;
                          else
@@ -7613,7 +7617,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovementCastleKingGray(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             object O = new object();
             lock (O)
@@ -7816,7 +7822,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovementSoldierGray(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -7928,9 +7936,9 @@ namespace Refrigtz
 
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -7960,7 +7968,9 @@ namespace Refrigtz
                               }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovementElephantGray(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -8021,9 +8031,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8051,7 +8061,9 @@ namespace Refrigtz
                  }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentHourseGray(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -8113,9 +8125,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -8145,7 +8157,9 @@ namespace Refrigtz
                 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentCastleGray(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -8207,9 +8221,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -8238,7 +8252,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentMinisterGray(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object o = new Object();
             lock (o)
@@ -8300,9 +8316,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -8331,7 +8347,9 @@ namespace Refrigtz
               }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentKingGray(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -8392,9 +8410,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -8423,7 +8441,9 @@ namespace Refrigtz
                  }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentCastleKingBrown(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -8579,9 +8599,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8631,7 +8651,9 @@ namespace Refrigtz
                  }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentSoldierBrown(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -8739,9 +8761,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8770,7 +8792,9 @@ namespace Refrigtz
             }
         }
 
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovementElephantBrown(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -8832,9 +8856,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -8863,7 +8887,9 @@ namespace Refrigtz
                   }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentHourseBrown(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -8925,9 +8951,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -8955,7 +8981,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentCastleBrown(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -9017,9 +9045,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -9048,7 +9076,9 @@ namespace Refrigtz
                               }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentMinisterBrown(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -9111,9 +9141,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
 
@@ -9142,7 +9172,9 @@ namespace Refrigtz
                               }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentKingBrown(RefrigtzDLL.ChessRules AA, ref bool Do)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -9205,9 +9237,9 @@ namespace Refrigtz
                         SetAndConfirmSyntax();
 
                         FOUND = false;
-#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'THIS' is assigned but its value is never used
                         RefrigtzDLL.AllDraw THIS = null;
-#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'THIS' is assigned but its value is never used
 
                         //SetDrawFounding(ref FOUND, ref THIS, false);
                         OrderPlate = OrderPlate * -1;
@@ -9579,7 +9611,9 @@ namespace Refrigtz
             }
             return Do;
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovementCastleKingGrayQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             object O = new object();
             lock (O)
@@ -9802,7 +9836,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovementSoldierGrayQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -9872,9 +9908,9 @@ namespace Refrigtz
                             else
                             {
                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                 bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                 if (Hit != 0)
                                     HitVal = true;
 
@@ -9955,7 +9991,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovementElephantGrayQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -9980,9 +10018,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -10057,7 +10095,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentHourseGrayQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -10081,9 +10121,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -10160,7 +10200,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentCastleGrayQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -10185,9 +10227,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -10262,7 +10304,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentMinisterGrayQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object o = new Object();
             lock (o)
@@ -10287,9 +10331,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -10367,7 +10411,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentKingGrayQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -10391,9 +10437,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), 1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Gray);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -10470,7 +10516,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentCastleKingBrownQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -10689,7 +10737,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentSoldierBrownQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -10754,9 +10804,9 @@ namespace Refrigtz
                             else
                             {
                                 int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                                 bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                                 if (Hit != 0)
                                     HitVal = true;
 
@@ -10835,7 +10885,9 @@ namespace Refrigtz
             }
         }
 
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovementElephantBrownQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -10859,9 +10911,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -10936,7 +10988,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentHourseBrownQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -10961,9 +11015,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -11038,7 +11092,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentCastleBrownQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -11062,9 +11118,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -11139,7 +11195,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentMinisterBrownQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -11163,9 +11221,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -11243,7 +11301,9 @@ namespace Refrigtz
 
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         void MovmentKingBrownQuantum(QuantumRefrigiz.ChessRules AA)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -11268,9 +11328,9 @@ namespace Refrigtz
 
                             QuantumRefrigiz.AllDraw.Less = CalculateMoveMentHueuristicUser(System.Math.Abs(CurrentKind), CloneATable(Table), -1, (int)RowClickP, (int)ColumnClickP, (int)RowRealesed, (int)ColumnRealeased, Color.Brown);
                             int Hit = Table[(int)RowRealesed, (int)ColumnRealeased];
-#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'HitVal' is assigned but its value is never used
                             bool HitVal = false;
-#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'HitVal' is assigned but its value is never used
                             if (Hit != 0)
                                 HitVal = true;
                             LastRow = (int)RowRealesed;
@@ -13889,7 +13949,9 @@ namespace Refrigtz
                     SetDrawFounding(ref FOUND, ref THISQ, false);
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         public void SetDrawFounding(ref bool FOUND, ref RefrigtzDLL.AllDraw THIS, bool First)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object OO = new Object();
             lock (OO)
@@ -14188,7 +14250,9 @@ namespace Refrigtz
                 DrawManagement();
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         public void SetDrawFounding(ref bool FOUND, ref QuantumRefrigiz.AllDraw THIS, bool First)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object OO = new Object();
             lock (OO)
@@ -17525,7 +17589,9 @@ namespace Refrigtz
                 catch (Exception t) { Log(t); }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         public RefrigtzDLL.AllDraw RootFound()
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -17545,7 +17611,9 @@ namespace Refrigtz
                 return Draw;
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         public QuantumRefrigiz.AllDraw RootFoundQ()
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumRefrigiz' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -19605,9 +19673,9 @@ namespace Refrigtz
                             File.Delete("CodeLogEvent.txt");
                         finished = true;
                     }
-#pragma warning disable CS0168 // The variable 't' is declared but never used
+//#pragma warning disable CS0168 // The variable 't' is declared but never used
                     catch (Exception t) { }
-#pragma warning restore CS0168 // The variable 't' is declared but never used
+//#pragma warning restore CS0168 // The variable 't' is declared but never used
                 } while (!finished);
                 //SetBoxText("\n\rCleared!");
                 //RefreshBoxText();

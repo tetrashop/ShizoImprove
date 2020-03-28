@@ -13,9 +13,13 @@ namespace Refrigtz
     [Serializable]
     public partial class FormTXT : Form
     {
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         RefrigtzDLL.AllDraw D = null;
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         Thread t = null;
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         public FormTXT(RefrigtzDLL.AllDraw TG)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             InitializeComponent();
             Object O = new Object();
@@ -66,7 +70,9 @@ namespace Refrigtz
         {
 
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         public void CreateTree(RefrigtzDLL.AllDraw Draw)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -185,7 +191,9 @@ namespace Refrigtz
             ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("CheM:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             return AA;
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         string MoveS(RefrigtzDLL.ThinkingChess t, int kind, int j)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -235,7 +243,9 @@ namespace Refrigtz
                 return move;
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         private void PopulateTreeViewS(int parentId, TreeNode parentNode, RefrigtzDLL.AllDraw Draw)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         { Object O = new Object();
             lock (O)
             {
@@ -401,7 +411,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         private void PopulateTreeViewE(int parentId, TreeNode parentNode, RefrigtzDLL.AllDraw Draw)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -572,7 +584,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         private void PopulateTreeViewH(int parentId, TreeNode parentNode, RefrigtzDLL.AllDraw Draw)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         { Object O = new Object();
             lock (O)
             {
@@ -743,7 +757,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         private void PopulateTreeViewC(int parentId, TreeNode parentNode, RefrigtzDLL.AllDraw Draw)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -914,7 +930,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         int ReturnbCal(RefrigtzDLL.ThinkingChess t, int Kind, int j)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -1004,7 +1022,9 @@ namespace Refrigtz
                 return int.MinValue;
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         private void PopulateTreeViewM(int parentId, TreeNode parentNode, RefrigtzDLL.AllDraw Draw)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)
@@ -1175,7 +1195,9 @@ namespace Refrigtz
                 }
             }
         }
+//#pragma warning disable CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         private void PopulateTreeViewK(int parentId, TreeNode parentNode, RefrigtzDLL.AllDraw Draw)
+//#pragma warning restore CS0246 // The type or namespace name 'RefrigtzDLL' could not be found (are you missing a using directive or an assembly reference?)
         {
             Object O = new Object();
             lock (O)

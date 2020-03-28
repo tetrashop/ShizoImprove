@@ -12,9 +12,9 @@ namespace RefrigtzDLL
 
         
         StringBuilder Space = new StringBuilder("&nbsp;");
-#pragma warning disable CS0414 // The field 'DrawHourse.Spaces' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'DrawHourse.Spaces' is assigned but its value is never used
         int Spaces = 0;
-#pragma warning restore CS0414 // The field 'DrawHourse.Spaces' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'DrawHourse.Spaces' is assigned but its value is never used
 
 
         public int WinOcuuredatChiled = 0; public int[] LoseOcuuredatChiled = { 0, 0, 0 };

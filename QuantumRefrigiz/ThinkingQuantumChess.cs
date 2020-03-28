@@ -96,9 +96,9 @@ namespace QuantumRefrigiz
         public bool KishSelf = false;
         public bool KishEnemy = false;
         readonly StringBuilder Space = new StringBuilder("&nbsp;");
-#pragma warning disable CS0414 // The field 'ThinkingQuantumChess.Spaces' is ASsigned but its value is never used
+//#pragma warning disable CS0414 // The field 'ThinkingQuantumChess.Spaces' is ASsigned but its value is never used
         readonly int Spaces = 0;
-#pragma warning restore CS0414 // The field 'ThinkingQuantumChess.Spaces' is ASsigned but its value is never used
+//#pragma warning restore CS0414 // The field 'ThinkingQuantumChess.Spaces' is ASsigned but its value is never used
 
         public int HeuristicAttackValueSup = new int();
         public int HeuristicMovementValueSup = new int();
@@ -119,9 +119,9 @@ namespace QuantumRefrigiz
         public bool IsThereMateOfSelf = false;
         public bool IsThereCheckOfEnemy = false;
         public bool IsThereCheckOfSelf = false;
-#pragma warning disable CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public static NetworkQuantumLearningKrinskyAtamata LearniningTable = null;
-#pragma warning restore CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'NetworkQuantumLearningKrinskyAtamata' could not be found (are you missing a using directive or an assembly reference?)
         bool ThinkingQuantumAtRun = false;
         public static String ActionsString = "";
 
@@ -219,24 +219,24 @@ namespace QuantumRefrigiz
         public List<int[]> HeuristicListMinister = null;
         public List<int[]> HeuristicListKing = null;
         public List<int> KillerAtThinkingQuantum = null;
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListSolder = null;
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListElefant = null;
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListHourse = null;
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListCastle = null;
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListMinister = null;
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public List<QuantumAtamata> PenaltyRegardListKing = null;
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public int Max;
         public int Row, Column;
         public Color color;
@@ -5008,9 +5008,9 @@ namespace QuantumRefrigiz
             Object O = new Object();
             lock (O)
             {
-#pragma warning disable CS0219 // The variable 'NIs' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'NIs' is assigned but its value is never used
                 int NIs = 0;
-#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
                 for (int k = 0; k < 8; k++)
                 {
                     for (int p = 0; p < 8; p++)
@@ -10636,9 +10636,9 @@ namespace QuantumRefrigiz
             }
         }
         //healthy of lists in learning auatama
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         bool EqualitOne(QuantumAtamata Current, int kind)
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
 
             Object O = new Object();
@@ -10670,9 +10670,9 @@ namespace QuantumRefrigiz
             }
         }
         //add list 
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         void AddAtList(int kind, QuantumAtamata Current)
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
 
             Object O = new Object();
@@ -11292,9 +11292,9 @@ namespace QuantumRefrigiz
                         }
                         else
                         {
-#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
                             bool Added = false;
-#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
                             Object OO1 = new Object();
                             lock (OO1)
                             {
@@ -14513,9 +14513,9 @@ namespace QuantumRefrigiz
             ThinkingQuantumAtRun = false;
 
         }
-#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         public void HeuristicPenaltyValuePerform(QuantumAtamata Current, int Order, ref int HeuristicAttackValue, bool AllDrawclass = false)
-#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0246 // The type or namespace name 'QuantumAtamata' could not be found (are you missing a using directive or an assembly reference?)
         {
 
 

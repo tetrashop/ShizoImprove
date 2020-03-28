@@ -31,9 +31,9 @@ using System.Threading;
 namespace WebApplicationRefregitzTow
 {
 
-#pragma warning disable CS3008 // Identifier '_Default' is not CLS-compliant
+//#pragma warning disable CS3008 // Identifier '_Default' is not CLS-compliant
     public partial class _Default : Page
-#pragma warning restore CS3008 // Identifier '_Default' is not CLS-compliant
+//#pragma warning restore CS3008 // Identifier '_Default' is not CLS-compliant
     {
         public static bool First = true;
         public static Control uc;

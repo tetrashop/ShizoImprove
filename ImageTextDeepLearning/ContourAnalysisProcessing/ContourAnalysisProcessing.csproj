@@ -39,15 +39,6 @@
   <ItemGroup>
     <Compile Include="ImageProcessor.cs" />
     <Compile Include="TemplateGenerator.cs" />
-    <Reference Include="Emgu.CV">
-      <HintPath>..\Emgu.CV.dll</HintPath>
-    </Reference>
-    <Reference Include="Emgu.CV.UI">
-      <HintPath>..\Emgu.CV.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Emgu.Util">
-      <HintPath>..\Emgu.Util.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Compile Include="Global.cs" />
@@ -60,5 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Fakes Include="Fakes\Emgu.Util.fakes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Fakes Include="Fakes\Emgu.CV.UI.fakes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Fakes Include="Fakes\Emgu.CV.fakes" />
   </ItemGroup>
 </Project>

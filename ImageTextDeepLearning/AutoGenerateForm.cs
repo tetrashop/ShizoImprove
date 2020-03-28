@@ -1,6 +1,8 @@
 ﻿namespace ContourAnalysisDemo
 {
+//#pragma warning disable CS0246 // The type or namespace name 'ContourAnalysisNS' could not be found (are you missing a using directive or an assembly reference?)
     using ContourAnalysisNS;
+//#pragma warning restore CS0246 // The type or namespace name 'ContourAnalysisNS' could not be found (are you missing a using directive or an assembly reference?)
     using System;
     using System.ComponentModel;
     using System.Drawing;
@@ -17,9 +19,13 @@
         private Label label1;
         private TextBox tbFont;
         private CheckBox cbAntipattern;
+//#pragma warning disable CS0246 // The type or namespace name 'ImageProcessor' could not be found (are you missing a using directive or an assembly reference?)
         private ImageProcessor processor;
+//#pragma warning restore CS0246 // The type or namespace name 'ImageProcessor' could not be found (are you missing a using directive or an assembly reference?)
 
+//#pragma warning disable CS0246 // The type or namespace name 'ImageProcessor' could not be found (are you missing a using directive or an assembly reference?)
         public AutoGenerateForm(ImageProcessor processor)
+//#pragma warning restore CS0246 // The type or namespace name 'ImageProcessor' could not be found (are you missing a using directive or an assembly reference?)
         {
             this.InitializeComponent();
             this.tbFont.Text = new FontConverter().ConvertToString(this.tbChars.Font);

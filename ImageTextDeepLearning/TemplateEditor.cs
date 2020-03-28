@@ -1,6 +1,8 @@
 ﻿namespace ContourAnalysisDemo
 {
+//#pragma warning disable CS0246 // The type or namespace name 'ContourAnalysisNS' could not be found (are you missing a using directive or an assembly reference?)
     using ContourAnalysisNS;
+//#pragma warning restore CS0246 // The type or namespace name 'ContourAnalysisNS' could not be found (are you missing a using directive or an assembly reference?)
     using System;
     using System.ComponentModel;
     using System.Drawing;
@@ -8,7 +10,9 @@
 
     public class TemplateEditor : Form
     {
+//#pragma warning disable CS0246 // The type or namespace name 'Templates' could not be found (are you missing a using directive or an assembly reference?)
         private Templates templates;
+//#pragma warning restore CS0246 // The type or namespace name 'Templates' could not be found (are you missing a using directive or an assembly reference?)
         private IContainer components = null;
         private DataGridView dgvTemplates;
         private Label label1;
@@ -17,7 +21,9 @@
         private CheckBox cbPreferredAngle;
         private Button btDelete;
 
+//#pragma warning disable CS0246 // The type or namespace name 'Templates' could not be found (are you missing a using directive or an assembly reference?)
         public TemplateEditor(Templates templates)
+//#pragma warning restore CS0246 // The type or namespace name 'Templates' could not be found (are you missing a using directive or an assembly reference?)
         {
             this.InitializeComponent();
             this.templates = templates;

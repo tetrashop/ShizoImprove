@@ -1,11 +1,21 @@
 ﻿namespace ContourAnalysisDemo
 {
     using ImageTextDeepLearning;
+//#pragma warning disable CS0246 // The type or namespace name 'ContourAnalysisNS' could not be found (are you missing a using directive or an assembly reference?)
     using ContourAnalysisNS;
+//#pragma warning restore CS0246 // The type or namespace name 'ContourAnalysisNS' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
     using Emgu.CV;
+//#pragma warning restore CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
     using Emgu.CV.CvEnum;
+//#pragma warning restore CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
     using Emgu.CV.UI;
+//#pragma warning restore CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
     using Emgu.CV.Structure;
+//#pragma warning restore CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -18,9 +28,17 @@
     public class MainForm : Form
     {
         public bool DisablePaintOnAligns = false;
+//#pragma warning disable CS0246 // The type or namespace name 'Capture' could not be found (are you missing a using directive or an assembly reference?)
         private Capture _capture;
+//#pragma warning restore CS0246 // The type or namespace name 'Capture' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0308 // The non-generic type 'Image' cannot be used with type arguments
+//#pragma warning disable CS0246 // The type or namespace name 'Bgr' could not be found (are you missing a using directive or an assembly reference?)
         public Image<Bgr, byte> frame;
+//#pragma warning restore CS0246 // The type or namespace name 'Bgr' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning restore CS0308 // The non-generic type 'Image' cannot be used with type arguments
+//#pragma warning disable CS0246 // The type or namespace name 'ImageProcessor' could not be found (are you missing a using directive or an assembly reference?)
         public ImageProcessor processor;
+//#pragma warning restore CS0246 // The type or namespace name 'ImageProcessor' could not be found (are you missing a using directive or an assembly reference?)
         private Dictionary<string, Image> AugmentedRealityImages = new Dictionary<string, Image>();
         private bool captureFromCam = true;
         private int frameCount = 0;
@@ -30,7 +48,9 @@
         private int camHeight = 480;
         private string templateFile;
         private IContainer components = null;
+//#pragma warning disable CS0246 // The type or namespace name 'ImageBox' could not be found (are you missing a using directive or an assembly reference?)
         private ImageBox ibMain;
+//#pragma warning restore CS0246 // The type or namespace name 'ImageBox' could not be found (are you missing a using directive or an assembly reference?)
         private Panel pnSettings;
         private StatusStrip ssMain;
         private Splitter splitter1;
@@ -72,7 +92,9 @@
         private CheckBox cbShowContours;
         private ToolStripButton btTemplateEditor;
         private ToolStripButton btAutoGenerate;
+//#pragma warning disable CS0246 // The type or namespace name 'PanAndZoomPictureBox' could not be found (are you missing a using directive or an assembly reference?)
         private PanAndZoomPictureBox panAndZoomPictureBox1;
+//#pragma warning restore CS0246 // The type or namespace name 'PanAndZoomPictureBox' could not be found (are you missing a using directive or an assembly reference?)
         private ToolStripLabel toolStripLabel1;
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripComboBox toolStripComboBox1;
@@ -231,7 +253,9 @@
             base.Dispose(disposing);
         }
 
+//#pragma warning disable CS0246 // The type or namespace name 'FoundTemplateDesc' could not be found (are you missing a using directive or an assembly reference?)
         public void DrawAugmentedReality(FoundTemplateDesc found, Graphics gr)
+//#pragma warning restore CS0246 // The type or namespace name 'FoundTemplateDesc' could not be found (are you missing a using directive or an assembly reference?)
         {
             string key = Path.GetDirectoryName(this.templateFile) + @"\" + found.template.name;
             if (!this.AugmentedRealityImages.ContainsKey(key))

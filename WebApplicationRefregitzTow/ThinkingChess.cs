@@ -96,9 +96,9 @@ namespace RefrigtzW
         public bool KishSelf = false;
         public bool KishEnemy = false;
         readonly StringBuilder Space = new StringBuilder("&nbsp;");
-#pragma warning disable CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
         readonly int Spaces = 0;
-#pragma warning restore CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'ThinkingChess.Spaces' is assigned but its value is never used
 
         public int HeuristicAttackValueSup = new int();
         public int HeuristicMovementValueSup = new int();
@@ -4988,9 +4988,9 @@ namespace RefrigtzW
             Object O = new Object();
             lock (O)
             {
-#pragma warning disable CS0219 // The variable 'NIs' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'NIs' is assigned but its value is never used
                 int NIs = 0;
-#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'NIs' is assigned but its value is never used
                 for (int k = 0; k < 8; k++)
                 {
                     for (int p = 0; p < 8; p++)
@@ -11251,9 +11251,9 @@ namespace RefrigtzW
                         }
                         else
                         {
-#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
+//#pragma warning disable CS0219 // The variable 'Added' is assigned but its value is never used
                             bool Added = false;
-#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
+//#pragma warning restore CS0219 // The variable 'Added' is assigned but its value is never used
                             Object OO1 = new Object();
                             lock (OO1)
                             {

@@ -93,15 +93,15 @@ namespace Refrigtz
                  t = new Load();
                 
                  Application.Run(t);/*
-#pragma warning disable CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
+//#pragma warning disable CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
                 (new TakeRoot()).Save(t.ttt.Quantum, t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHeuristicFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechnisam, t.ttt.BestMovments, t.ttt.PredictHeuristic, t.ttt.OnlySelf, t.ttt.AStarGreedyHeuristic, t.ttt.ArrangmentsChanged);
-#pragma warning restore CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
+//#pragma warning restore CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
            */ }
             catch (Exception tt)
             {
-/*#pragma warning disable CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
+/*//#pragma warning disable CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
                 (new TakeRoot()).Save(t.ttt.Quantum, t.ttt, ref t.ttt.LoadTree, t.ttt.MovementsAStarGreedyHeuristicFound, t.ttt.IInoreSelfObjects, t.ttt.UsePenaltyRegardMechnisam, t.ttt.BestMovments, t.ttt.PredictHeuristic, t.ttt.OnlySelf, t.ttt.AStarGreedyHeuristic, t.ttt.ArrangmentsChanged);
-#pragma warning restore CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
+//#pragma warning restore CS0197 // Using 'FormRefrigtz.LoadTree' as a ref or out value or taking its address may cause a runtime exception because it is a field of a marshal-by-reference class
 
 */
                 Log(tt);

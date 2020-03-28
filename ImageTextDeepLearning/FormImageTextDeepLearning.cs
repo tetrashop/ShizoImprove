@@ -16,11 +16,21 @@ using System.Windows.Forms;
 using ContourAnalysisDemo;
 
 using ImageTextDeepLearning;
+//#pragma warning disable CS0246 // The type or namespace name 'ContourAnalysisNS' could not be found (are you missing a using directive or an assembly reference?)
 using ContourAnalysisNS;
+//#pragma warning restore CS0246 // The type or namespace name 'ContourAnalysisNS' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
 using Emgu.CV;
+//#pragma warning restore CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
 using Emgu.CV.CvEnum;
+//#pragma warning restore CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
 using Emgu.CV.UI;
+//#pragma warning restore CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
+//#pragma warning disable CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
 using Emgu.CV.Structure;
+//#pragma warning restore CS0246 // The type or namespace name 'Emgu' could not be found (are you missing a using directive or an assembly reference?)
 
 namespace ImageTextDeepLearning
 {
@@ -30,7 +40,11 @@ namespace ImageTextDeepLearning
         bool Recognized = false;
         //Global vars
         DetectionOfLitteral On = null;
+//#pragma warning disable CS0108 // 'FormImageTextDeepLearning.Width' hides inherited member 'Control.Width'. Use the new keyword if hiding was intended.
+//#pragma warning disable CS0108 // 'FormImageTextDeepLearning.Height' hides inherited member 'Control.Height'. Use the new keyword if hiding was intended.
         int Width =10, Height =10;
+//#pragma warning restore CS0108 // 'FormImageTextDeepLearning.Height' hides inherited member 'Control.Height'. Use the new keyword if hiding was intended.
+//#pragma warning restore CS0108 // 'FormImageTextDeepLearning.Width' hides inherited member 'Control.Width'. Use the new keyword if hiding was intended.
         List<ConjunctedShape> conShapes = new List<ConjunctedShape>();
         SmallImageing t = null;
         MainForm d = null;
