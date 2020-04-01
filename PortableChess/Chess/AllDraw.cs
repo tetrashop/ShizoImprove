@@ -2278,7 +2278,7 @@ namespace RefrigtzChessPortable
                             Order = CDummy;
                         }
                 }
-                ChesRules.CurrentOrder = CDummy;
+                ChessRules.CurrentOrder = CDummy;
                 return AA;
             }
         }
@@ -2288,12 +2288,12 @@ namespace RefrigtzChessPortable
             Object a = new Object();
             lock (a)
             {
-                int CDummy = ChesRules.CurrentOrder;
+                int CDummy = ChessRules.CurrentOrder;
                 int COrder = Order;
                 //For Gray Order.
                 if (Order == 1)
                 {
-                    ChesRules AA = null;
+                    ChessRules AA = null;
 
                     //For  Soldeirs.
                     for (var i = 0; i < SodierMidle; i++)
@@ -2301,7 +2301,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Create Rules Objects For Soldiers.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])[SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])[SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]]
                                 , CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])
                                 , Order
                                 , SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0]
@@ -2334,12 +2334,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //For Subbranchs.
                                 for (var ii = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                     SolderesOnTable[ii].SoldierThinking[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //For Elephant.
@@ -2348,7 +2348,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Create Elephant Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])[ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])[ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]]
                             , CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])
                             , Order
                             , ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0]
@@ -2381,12 +2381,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //For Subbranchs.
                                 for (var ii = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                     ElephantOnTable[ii].ElefantThinking[0].AStarGreedy[i].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //For Hourse.
@@ -2395,7 +2395,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Set Hourse Rules Objects.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])[HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])[HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]]
                             , CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])
                             , Order
                             , HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0]
@@ -2428,12 +2428,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //Sub branchs For Hourse.
                                 for (var ii = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                     HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //For Gray Briges.
@@ -2442,7 +2442,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Castles Gray Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])[CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])[CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]]
                             , CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])
                             , Order
                             , CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0]
@@ -2475,12 +2475,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //For Castles Gray Subbranchs.
                                 for (var ii = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                     CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //For Ministers Gray.
@@ -2489,7 +2489,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Minister Gray Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])[MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])[MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]]
                             , CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])
                             , Order
                             , MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0]
@@ -2522,12 +2522,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //For Gray Ministers Subbranchs.
                                 for (var ii = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                     MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //For Gray King.
@@ -2536,7 +2536,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Gray King Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])[KingOnTable[i].KingThinking[0].RowColumnKing[j][0], KingOnTable[i].KingThinking[0].RowColumnKing[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])[KingOnTable[i].KingThinking[0].RowColumnKing[j][0], KingOnTable[i].KingThinking[0].RowColumnKing[j][1]]
                             , CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])
                             , Order
                             , KingOnTable[i].KingThinking[0].RowColumnKing[j][0]
@@ -2569,26 +2569,26 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //For King Gray Subbranchs.
                                 for (var ii = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                     KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                 }
                 //For Brown Order.
                 else
                 {
-                    ChesRules AA = null;
+                    ChessRules AA = null;
                     //For Solders Brown.
                     for (var i = SodierMidle; i < SodierHigh; i++)
                         for (var j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && j < SolderesOnTable[i].SoldierThinking[0].TableListSolder.Count; j++)
                         {
 
                             //Solders Brown Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])[SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])[SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0], SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][1]]
                             , CloneATable(SolderesOnTable[i].SoldierThinking[0].TableListSolder[j])
                             , Order
                             , SolderesOnTable[i].SoldierThinking[0].RowColumnSoldier[j][0]
@@ -2621,12 +2621,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //Solders Brown Subbranchs Calling.
                                 for (var ii = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[0] != null && ii < SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                     SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //Elephant Brown 
@@ -2635,7 +2635,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Elephant Brown Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])[ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])[ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0], ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][1]]
                             , CloneATable(ElephantOnTable[i].ElefantThinking[0].TableListElefant[j])
                             , Order
                             , ElephantOnTable[i].ElefantThinking[0].RowColumnElefant[j][0]
@@ -2668,12 +2668,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //Subbranchs Elephenat Brown Calling.
                                 for (var ii = 0; ElephantOnTable != null && ElephantOnTable[i] != null && ElephantOnTable[i].ElefantThinking[0] != null && ii < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                     ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //Hourse Brown 
@@ -2682,7 +2682,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Hourse Brown Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])[HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])[HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0], HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][1]]
                             , CloneATable(HoursesOnTable[i].HourseThinking[0].TableListHourse[j])
                             , Order
                             , HoursesOnTable[i].HourseThinking[0].RowColumnHourse[j][0]
@@ -2715,12 +2715,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //Hourse Brown Calling Subbranchs.
                                 for (var ii = 0; HoursesOnTable != null && HoursesOnTable[i] != null && HoursesOnTable[i].HourseThinking[0] != null && ii < HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                     HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //Castles Brown 
@@ -2729,7 +2729,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Castles Brown Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])[CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])[CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0], CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][1]]
                             , CloneATable(CastlesOnTable[i].CastleThinking[0].TableListCastle[j])
                             , Order
                             , CastlesOnTable[i].CastleThinking[0].RowColumnCastle[j][0]
@@ -2762,12 +2762,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //Brown Castles Calling Subbranches.
                                 for (var ii = 0; CastlesOnTable != null && CastlesOnTable[i] != null && CastlesOnTable[i].CastleThinking[0] != null && ii < CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                     CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //Minister Brown 
@@ -2776,7 +2776,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //Minister Brown Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])[MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])[MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0], MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][1]]
                             , CloneATable(MinisterOnTable[i].MinisterThinking[0].TableListMinister[j])
                             , Order
                             , MinisterOnTable[i].MinisterThinking[0].RowColumnMinister[j][0]
@@ -2810,12 +2810,12 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //Minister Brown SubBranches Calling.
                                 for (var ii = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[0] != null && ii < MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                     MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                     //King Brown
@@ -2824,7 +2824,7 @@ namespace RefrigtzChessPortable
                         {
 
                             //King Brown Rules.
-                            AA = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])[KingOnTable[i].KingThinking[0].RowColumnKing[j][0], KingOnTable[i].KingThinking[0].RowColumnKing[j][1]]
+                            AA = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])[KingOnTable[i].KingThinking[0].RowColumnKing[j][0], KingOnTable[i].KingThinking[0].RowColumnKing[j][1]]
                             , CloneATable(KingOnTable[i].KingThinking[0].TableListKing[j])
                             , Order
                             , KingOnTable[i].KingThinking[0].RowColumnKing[j][0]
@@ -2858,16 +2858,16 @@ namespace RefrigtzChessPortable
                             if (Do != -1)
                             {
                                 Order *= -1;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 //King Brown Subbranches Calling.
                                 for (var ii = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[0] != null && ii < KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                     KingOnTable[i].KingThinking[0].AStarGreedy[ii].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, Base);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                             }
                         }
                 }
-                ChesRules.CurrentOrder = CDummy;
+                ChessRules.CurrentOrder = CDummy;
             }
         }
         //A Mechanisam for penalty all subbranches of chiled of root at contained of same childes  of making penalty by target 
@@ -2877,7 +2877,7 @@ namespace RefrigtzChessPortable
             lock (a)
             {
                 int COrder = Order;
-                int CDummy = ChesRules.CurrentOrder;
+                int CDummy = ChessRules.CurrentOrder;
                 if (Order == 1)
                 {
                     //For Solider Gray
@@ -2887,10 +2887,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i].LearningAlgorithmPenalty();
                             //For deeper chiled.
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //For Elephant Gray 
                     for (var i = 0; i < ElefantMidle; i++)
@@ -2899,10 +2899,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
                             //For Depper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //For Hourse Gray
                     for (var i = 0; i < HourseMidle; i++)
@@ -2912,10 +2912,10 @@ namespace RefrigtzChessPortable
                             A.HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
 
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //for Castle gray
                     for (var i = 0; i < CastleMidle; i++)
@@ -2924,10 +2924,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //for minister gray
                     for (var i = 0; i < MinisterMidle; i++)
@@ -2936,10 +2936,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //for gray king
                     for (var i = 0; i < KingMidle; i++)
@@ -2948,10 +2948,10 @@ namespace RefrigtzChessPortable
                             //make penalty  
                             A.KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].LearningAlgorithmPenalty();
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                 }
                 else//brown
@@ -2963,10 +2963,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i].LearningAlgorithmPenalty();
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //for elephant brown
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
@@ -2975,10 +2975,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].LearningAlgorithmPenalty();
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //for hourse brown
                     for (var i = HourseMidle; i < HourseHight; i++)
@@ -2988,10 +2988,10 @@ namespace RefrigtzChessPortable
                             A.HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].LearningAlgorithmPenalty();
 
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //for casytle brown
                     for (var i = CastleMidle; i < CastleHigh; i++)
@@ -3000,10 +3000,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmPenalty();
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //for minsiter brown
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
@@ -3012,10 +3012,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].LearningAlgorithmPenalty();
                             //fopfor weeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //for king brown
                     for (var i = KingMidle; i < MinisterHigh; i++)
@@ -3024,10 +3024,10 @@ namespace RefrigtzChessPortable
                             //make penalty
                             A.KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].LearningAlgorithmPenalty();
                             //for deeper chiled
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                 MakePenaltyAllCheckMateBranches(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                 }
             }
@@ -7181,7 +7181,7 @@ namespace RefrigtzChessPortable
             lock (a)
             {
                 int COrder = Order;
-                int CDummy = ChesRules.CurrentOrder;
+                int CDummy = ChessRules.CurrentOrder;
                 //gray
                 if (Order == 1)
                 {
@@ -7191,12 +7191,12 @@ namespace RefrigtzChessPortable
                         {
                             //make regard
                             A.SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i].LearningAlgorithmRegard();
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
 
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //elephant
                     for (var i = 0; i < ElefantMidle; i++)
@@ -7206,11 +7206,11 @@ namespace RefrigtzChessPortable
                             //make regard
                             A.ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].LearningAlgorithmRegard();
 
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //hourse
                     for (var i = 0; i < HourseMidle; i++)
@@ -7219,11 +7219,11 @@ namespace RefrigtzChessPortable
                             //make regard
                             A.HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].LearningAlgorithmRegard();
 
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //Castle
                     for (var i = 0; i < CastleMidle; i++)
@@ -7231,11 +7231,11 @@ namespace RefrigtzChessPortable
                         {
                             //make regard
                             A.CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard();
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //minister
                     for (var i = 0; i < MinisterMidle; i++)
@@ -7244,11 +7244,11 @@ namespace RefrigtzChessPortable
                             //make regard
                             A.MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].LearningAlgorithmRegard();
 
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //king
                     for (var i = 0; i < KingMidle; i++)
@@ -7256,11 +7256,11 @@ namespace RefrigtzChessPortable
                         {
                             //make regard
                             A.KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].LearningAlgorithmRegard();
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                 }
                 else//brown
@@ -7271,11 +7271,11 @@ namespace RefrigtzChessPortable
                         {
                             //make regard
                             A.SolderesOnTable[i].SoldierThinking[0].PenaltyRegardListSolder[i].LearningAlgorithmRegard();
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.SolderesOnTable != null && SolderesOnTable[i] != null && A.SolderesOnTable[i].SoldierThinking[0] != null && ii < A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.SolderesOnTable[i].SoldierThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //elephant
                     for (var i = ElefantMidle; i < ElefantHigh; i++)
@@ -7284,11 +7284,11 @@ namespace RefrigtzChessPortable
                             //make regard
                             A.ElephantOnTable[i].ElefantThinking[0].PenaltyRegardListElefant[j].LearningAlgorithmRegard();
 
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.ElephantOnTable != null && ElephantOnTable[i] != null && A.ElephantOnTable[i].ElefantThinking[0] != null && ii < A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.ElephantOnTable[i].ElefantThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //hourse
                     for (var i = HourseMidle; i < HourseHight; i++)
@@ -7297,11 +7297,11 @@ namespace RefrigtzChessPortable
                             //make regard
                             A.HoursesOnTable[i].HourseThinking[0].PenaltyRegardListHourse[j].LearningAlgorithmRegard();
 
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.HoursesOnTable != null && HoursesOnTable[i] != null && A.HoursesOnTable[i].HourseThinking[0] != null && ii < A.HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.HoursesOnTable[i].HourseThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //Castle
                     for (var i = CastleMidle; i < CastleHigh; i++)
@@ -7309,11 +7309,11 @@ namespace RefrigtzChessPortable
                         {
                             //make regard
                             A.CastlesOnTable[i].CastleThinking[0].PenaltyRegardListCastle[j].LearningAlgorithmRegard();
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.CastlesOnTable != null && CastlesOnTable[i] != null && A.CastlesOnTable[i].CastleThinking[0] != null && ii < A.CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.CastlesOnTable[i].CastleThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //minister
                     for (var i = MinisterMidle; i < MinisterHigh; i++)
@@ -7321,11 +7321,11 @@ namespace RefrigtzChessPortable
                         {
                             //make regard
                             A.MinisterOnTable[i].MinisterThinking[0].PenaltyRegardListMinister[j].LearningAlgorithmRegard();
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.MinisterOnTable != null && MinisterOnTable[i] != null && A.MinisterOnTable[i].MinisterThinking[0] != null && ii < A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.MinisterOnTable[i].MinisterThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                     //king
                     for (var i = KingMidle; i < MinisterHigh; i++)
@@ -7333,11 +7333,11 @@ namespace RefrigtzChessPortable
                         {
                             //make regard
                             A.KingOnTable[i].KingThinking[0].PenaltyRegardListKing[j].LearningAlgorithmRegard();
-                            Order *= -1; ChesRules.CurrentOrder *= -1;
+                            Order *= -1; ChessRules.CurrentOrder *= -1;
                             //deeper call
                             for (var ii = 0; A.KingOnTable != null && KingOnTable[i] != null && A.KingOnTable[i].KingThinking[0] != null && ii < A.KingOnTable[i].KingThinking[0].AStarGreedy.Count; ii++)
                                 MakeRegardAllCheckMateBranches(A.KingOnTable[i].KingThinking[0].AStarGreedy[ii], Order);
-                            Order = COrder; ChesRules.CurrentOrder = CDummy;
+                            Order = COrder; ChessRules.CurrentOrder = CDummy;
                         }
                 }
             }
@@ -7348,11 +7348,11 @@ namespace RefrigtzChessPortable
             Object a1 = new Object();
             lock (a1)
             {
-                ChesRules AB = null;
+                ChessRules AB = null;
                 int ToCheckMate = -1, ForCheckMate = -1, j, i;
                 List<int> Founded = new List<int>();
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
                 int[,] TableHeuristic = new int[8, 8];
@@ -7367,9 +7367,9 @@ namespace RefrigtzChessPortable
                         {
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
-                                int CDummy = ChesRules.CurrentOrder;
+                                int CDummy = ChessRules.CurrentOrder;
                                 int COrder = Order;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 Order *= -1;
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
@@ -7377,12 +7377,12 @@ namespace RefrigtzChessPortable
                                     for (int ij = 0; ij < SolderesOnTable[i].SoldierThinking[k].AStarGreedy.Count - 1; ij++)
                                         SolderesOnTable[i].SoldierThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, SolderesOnTable[i].SoldierThinking[k].AStarGreedy[ij]);
                                     Order = COrder;
-                                    ChesRules.CurrentOrder = CDummy;
+                                    ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                         continue;
                                 }
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || SolderesOnTable[i].WinOcuuredatChiled >= 1 || SolderesOnTable[i].WinOcuuredatChiled >= 2 || SolderesOnTable[i].WinOcuuredatChiled >= 3)
                                 {
                                     //Set Table and Heuristic Value and Syntax.
@@ -7449,7 +7449,7 @@ namespace RefrigtzChessPortable
 
                                         }
                                         //When there is not Penalty regard mechanism.
-                                        AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
+                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
                                         if (AB.Check(CloneATable(TableS), Order))
                                         {
@@ -7624,10 +7624,10 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 //Do For Remaining Objects same as Soldeir Documentation.
                 for (i = 0; i < ElefantMidle; i++)
@@ -7637,9 +7637,9 @@ namespace RefrigtzChessPortable
                         {
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
-                                int CDummy = ChesRules.CurrentOrder;
+                                int CDummy = ChessRules.CurrentOrder;
                                 int COrder = Order;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 Order *= -1;
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
@@ -7647,12 +7647,12 @@ namespace RefrigtzChessPortable
                                     for (int ij = 0; ij < ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count - 1; ij++)
                                         ElephantOnTable[i].ElefantThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, ElephantOnTable[i].ElefantThinking[k].AStarGreedy[ij]);
                                     Order = COrder;
-                                    ChesRules.CurrentOrder = CDummy;
+                                    ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                         continue;
                                 }
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || ElephantOnTable[i].WinOcuuredatChiled >= 1 || ElephantOnTable[i].WinOcuuredatChiled >= 2 || ElephantOnTable[i].WinOcuuredatChiled >= 3)
                                 {
                                     Object On = new Object();
@@ -7692,7 +7692,7 @@ namespace RefrigtzChessPortable
 
                                         }
                                         //When there is not Penalty regard mechanism.
-                                        AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 2, CloneATable(TableS), Order, -1, -1);
+                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 2, CloneATable(TableS), Order, -1, -1);
                                         //If there is kish or kshachamaz Order.
                                         if (AB.Check(CloneATable(TableS), Order))
                                         {
@@ -7810,7 +7810,7 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 //hourse
                 for (i = 0; i < HourseMidle; i++)
@@ -7820,9 +7820,9 @@ namespace RefrigtzChessPortable
                         {
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
-                                int CDummy = ChesRules.CurrentOrder;
+                                int CDummy = ChessRules.CurrentOrder;
                                 int COrder = Order;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 Order *= -1;
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
@@ -7830,13 +7830,13 @@ namespace RefrigtzChessPortable
                                     for (int ij = 0; ij < HoursesOnTable[i].HourseThinking[k].AStarGreedy.Count - 1; ij++)
                                         HoursesOnTable[i].HourseThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, HoursesOnTable[i].HourseThinking[k].AStarGreedy[ij]);
                                     Order = COrder;
-                                    ChesRules.CurrentOrder = CDummy;
+                                    ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                         continue;
                                 }
 
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || HoursesOnTable[i].WinOcuuredatChiled >= 1 || HoursesOnTable[i].WinOcuuredatChiled >= 2 || HoursesOnTable[i].WinOcuuredatChiled >= 3)
                                 {
                                     Object On = new Object();
@@ -7875,7 +7875,7 @@ namespace RefrigtzChessPortable
 
                                             }
                                             //When there is not Penalty regard mechanism.
-                                            AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 3, CloneATable(TableS), Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
+                                            AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 3, CloneATable(TableS), Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
                                             //If there is kish or kshachamaz Order.
                                             if (AB.Check(CloneATable(TableS), Order))
                                             {
@@ -7994,7 +7994,7 @@ namespace RefrigtzChessPortable
 
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                 }
                 //Castle
@@ -8005,9 +8005,9 @@ namespace RefrigtzChessPortable
                         {
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
-                                int CDummy = ChesRules.CurrentOrder;
+                                int CDummy = ChessRules.CurrentOrder;
                                 int COrder = Order;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 Order *= -1;
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
@@ -8015,13 +8015,13 @@ namespace RefrigtzChessPortable
                                     for (int ij = 0; ij < CastlesOnTable[i].CastleThinking[k].AStarGreedy.Count - 1; ij++)
                                         CastlesOnTable[i].CastleThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, CastlesOnTable[i].CastleThinking[k].AStarGreedy[ij]);
                                     Order = COrder;
-                                    ChesRules.CurrentOrder = CDummy;
+                                    ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                         continue;
                                 }
 
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || CastlesOnTable[i].WinOcuuredatChiled >= 1 || CastlesOnTable[i].WinOcuuredatChiled >= 2 || CastlesOnTable[i].WinOcuuredatChiled >= 3)
                                 {
                                     Object On = new Object();
@@ -8058,7 +8058,7 @@ namespace RefrigtzChessPortable
 
                                         }
                                         //When there is not Penalty regard mechanism.
-                                        AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 4, CloneATable(TableS), Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
+                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 4, CloneATable(TableS), Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
                                         if (AB.Check(CloneATable(TableS), Order))
                                         {
@@ -8176,10 +8176,10 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 //minister
                 for (i = 0; i < MinisterMidle; i++)
@@ -8189,9 +8189,9 @@ namespace RefrigtzChessPortable
                         {
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
-                                int CDummy = ChesRules.CurrentOrder;
+                                int CDummy = ChessRules.CurrentOrder;
                                 int COrder = Order;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 Order *= -1;
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
@@ -8199,13 +8199,13 @@ namespace RefrigtzChessPortable
                                     for (int ij = 0; ij < MinisterOnTable[i].MinisterThinking[k].AStarGreedy.Count - 1; ij++)
                                         MinisterOnTable[i].MinisterThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, MinisterOnTable[i].MinisterThinking[k].AStarGreedy[ij]);
                                     Order = COrder;
-                                    ChesRules.CurrentOrder = CDummy;
+                                    ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                         continue;
                                 }
 
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || MinisterOnTable[i].WinOcuuredatChiled >= 1 || MinisterOnTable[i].WinOcuuredatChiled >= 2 || MinisterOnTable[i].WinOcuuredatChiled >= 3)
                                 {
                                     Object On = new Object();
@@ -8242,7 +8242,7 @@ namespace RefrigtzChessPortable
 
                                         }
                                         //When there is not Penalty regard mechanism.
-                                        AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 5, CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
+                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 5, CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
                                         if (AB.Check(CloneATable(TableS), Order))
                                         {
@@ -8361,10 +8361,10 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 //king
                 for (i = 0; i < KingMidle; i++)
@@ -8374,9 +8374,9 @@ namespace RefrigtzChessPortable
                         {
                             {
                                 //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
-                                int CDummy = ChesRules.CurrentOrder;
+                                int CDummy = ChessRules.CurrentOrder;
                                 int COrder = Order;
-                                ChesRules.CurrentOrder *= -1;
+                                ChessRules.CurrentOrder *= -1;
                                 Order *= -1;
                                 Do = 0;
                                 if (UsePenaltyRegardMechnisamT)
@@ -8384,13 +8384,13 @@ namespace RefrigtzChessPortable
                                     for (int ij = 0; ij < KingOnTable[i].KingThinking[k].AStarGreedy.Count - 1; ij++)
                                         KingOnTable[i].KingThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, KingOnTable[i].KingThinking[k].AStarGreedy[ij]);
                                     Order = COrder;
-                                    ChesRules.CurrentOrder = CDummy;
+                                    ChessRules.CurrentOrder = CDummy;
                                     ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                         continue;
                                 }
 
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                                 //)
                                 if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT) || KingOnTable[i].WinOcuuredatChiled >= 1 || KingOnTable[i].WinOcuuredatChiled >= 2 || KingOnTable[i].WinOcuuredatChiled >= 3)
@@ -8429,7 +8429,7 @@ namespace RefrigtzChessPortable
                                                 continue;
                                         }
                                         //When there is not Penalty regard mechanism.
-                                        AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 6, CloneATable(TableS), Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
+                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 6, CloneATable(TableS), Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
                                         if (AB.Check(CloneATable(TableS), Order))
                                         {
@@ -8549,10 +8549,10 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 return TableHeuristic;
             }
@@ -9020,7 +9020,7 @@ namespace RefrigtzChessPortable
         bool CheckeHuristci(int[,] TableS, int Order, int i, int j, int k)
         {
             bool continued = false;
-            ChesRules AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
+            ChessRules AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
             //If there is kish or kshachamaz Order.
             if (AB.Check(CloneATable(TableS), Order))
             {
@@ -9719,7 +9719,7 @@ namespace RefrigtzChessPortable
                 int j;
                 List<int> Founded = new List<int>();
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
 
@@ -9741,12 +9741,12 @@ namespace RefrigtzChessPortable
                             //)
                             if (SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() == 0)
                                 continue;
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
                             if (SolderesOnTable[i].SoldierThinking[k].AStarGreedy.Count > j && SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j] != null)
                                 SolderesOnTable[i].SoldierThinking[k].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(1, ref AA, Order * -1);
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
@@ -9756,7 +9756,7 @@ namespace RefrigtzChessPortable
                                 continue;
 
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
@@ -9784,7 +9784,7 @@ namespace RefrigtzChessPortable
 
 
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
 
                 return TableHeuristic;
             }
@@ -9881,7 +9881,7 @@ namespace RefrigtzChessPortable
                 int j;
                 List<int> Founded = new List<int>();
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
 
@@ -9899,12 +9899,12 @@ namespace RefrigtzChessPortable
                             //)
                             if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
                                 continue;
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
                             if (ElephantOnTable[i].ElefantThinking[0].AStarGreedy.Count > j && ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j] != null)
                                 ElephantOnTable[i].ElefantThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(2, ref AA, Order * -1);
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
@@ -9913,7 +9913,7 @@ namespace RefrigtzChessPortable
                             if (Lose(2, i, j,Order))
                                 continue;
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
@@ -9945,7 +9945,7 @@ namespace RefrigtzChessPortable
                 }
 
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
                 return TableHeuristic;
@@ -10006,7 +10006,7 @@ namespace RefrigtzChessPortable
                 int j;
                 List<int> Founded = new List<int>();
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
 
@@ -10024,12 +10024,12 @@ namespace RefrigtzChessPortable
                             //)
                             if (HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
                                 continue;
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
                             if (HoursesOnTable[i].HourseThinking[0].AStarGreedy.Count > j && HoursesOnTable[i].HourseThinking[0].AStarGreedy[j] != null)
                                 HoursesOnTable[i].HourseThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(3, ref AA, Order * -1);
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
@@ -10040,7 +10040,7 @@ namespace RefrigtzChessPortable
 
 
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
@@ -10066,7 +10066,7 @@ namespace RefrigtzChessPortable
                     }
                 }
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
 
 
                 return TableHeuristic;
@@ -10126,7 +10126,7 @@ namespace RefrigtzChessPortable
                 int j;
                 List<int> Founded = new List<int>();
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
 
@@ -10143,12 +10143,12 @@ namespace RefrigtzChessPortable
                             //)
                             if (CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
                                 continue;
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
                             if (CastlesOnTable[i].CastleThinking[0].AStarGreedy.Count > j && CastlesOnTable[i].CastleThinking[0].AStarGreedy[j] != null)
                                 CastlesOnTable[i].CastleThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(4, ref AA, Order * -1);
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
 
                             Order = COrder;
@@ -10156,7 +10156,7 @@ namespace RefrigtzChessPortable
 
                             if (Lose(4, i, j,Order))
                                 continue;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
@@ -10186,7 +10186,7 @@ namespace RefrigtzChessPortable
 
 
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
 
                 return TableHeuristic;
             }
@@ -10243,7 +10243,7 @@ namespace RefrigtzChessPortable
                 int j;
                 List<int> Founded = new List<int>();
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
 
@@ -10259,12 +10259,12 @@ namespace RefrigtzChessPortable
                             //)
                             if (MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() == 0)
                                 continue;
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
                             if (MinisterOnTable[i].MinisterThinking[0].AStarGreedy.Count > j && MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j] != null)
                                 MinisterOnTable[i].MinisterThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(5, ref AA, Order * -1);
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
@@ -10273,7 +10273,7 @@ namespace RefrigtzChessPortable
                             if (Lose(5, i, j,Order))
                                 continue;
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
@@ -10298,7 +10298,7 @@ namespace RefrigtzChessPortable
                 }
 
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
 
                 return TableHeuristic;
             }
@@ -10353,7 +10353,7 @@ namespace RefrigtzChessPortable
                 int j;
                 List<int> Founded = new List<int>();
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
 
@@ -10371,12 +10371,12 @@ namespace RefrigtzChessPortable
                             //)
                             if (KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() == 0)
                                 continue;
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
 
                             if (KingOnTable[i].KingThinking[0].AStarGreedy.Count > j && KingOnTable[i].KingThinking[0].AStarGreedy[j] != null)
                                 KingOnTable[i].KingThinking[0].AStarGreedy[j].IsFoundOfLeafDepenOfKindhaveVictory(6, ref AA, Order * -1);
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
 
@@ -10385,7 +10385,7 @@ namespace RefrigtzChessPortable
                             if (Lose(6, i, j,Order))
                                 continue;
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
 
@@ -10411,7 +10411,7 @@ namespace RefrigtzChessPortable
                 }
 
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
 
                 return TableHeuristic;
             }
@@ -10468,11 +10468,11 @@ namespace RefrigtzChessPortable
             Object O = new Object();
             lock (O)
             {
-                ChesRules AB = null;
+                ChessRules AB = null;
                 int ToCheckMate = -1, ForCheckMate = -1, j, i;
                 List<int> Founded = new List<int>();
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 bool AA = false;
                 int Do = 0;
                 int[,] TableHeuristic = new int[8, 8];
@@ -10485,9 +10485,9 @@ namespace RefrigtzChessPortable
                         for (j = 0; SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable != null && SolderesOnTable[i] != null && SolderesOnTable[i].SoldierThinking[k] != null && SolderesOnTable[i].SoldierThinking[k] != null && j < SolderesOnTable[i].SoldierThinking[k].TableListSolder.Count; j++)
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
@@ -10495,13 +10495,13 @@ namespace RefrigtzChessPortable
                                 for (int ij = 0; ij < SolderesOnTable[i].SoldierThinking[k].AStarGreedy.Count - 1; ij++)
                                     SolderesOnTable[i].SoldierThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, SolderesOnTable[i].SoldierThinking[k].AStarGreedy[ij]);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                     continue;
                             }
 
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             if ((SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsPenaltyAction() != 0 && SolderesOnTable[i].SoldierThinking[k].PenaltyRegardListSolder[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
                             {
                                 //Set Table and Heuristic Value and Syntax.
@@ -10563,7 +10563,7 @@ namespace RefrigtzChessPortable
                                             continue;
                                     }
                                     //When there is not Penalty regard mechanism.
-                                    AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
+                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(TableS), Order, SolderesOnTable[i].SoldierThinking[k].Row, SolderesOnTable[i].SoldierThinking[k].Column);
                                     //If there is kish or kshachamaz Order.
                                     if (AB.Check(CloneATable(TableS), Order))
                                     {
@@ -10731,10 +10731,10 @@ namespace RefrigtzChessPortable
                             }
                         }
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 //Do For Remaining Objects same as Soldeir Documentation.
                 for (i = ElefantMidle; i < ElefantHigh; i++)
@@ -10745,9 +10745,9 @@ namespace RefrigtzChessPortable
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                             ////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
                             //   if (ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() == 0)
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
@@ -10755,13 +10755,13 @@ namespace RefrigtzChessPortable
                                 for (int ij = 0; ij < ElephantOnTable[i].ElefantThinking[k].AStarGreedy.Count - 1; ij++)
                                     ElephantOnTable[i].ElefantThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, ElephantOnTable[i].ElefantThinking[k].AStarGreedy[ij]);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                     continue;
                             }
 
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
                             if ((ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsPenaltyAction() != 0 && ElephantOnTable[i].ElefantThinking[k].PenaltyRegardListElefant[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
@@ -10809,7 +10809,7 @@ namespace RefrigtzChessPortable
                                     //When there is not Penalty regard mechanism.
                                     //if (!UsePenaltyRegardMechnisamT)
                                     {
-                                        AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 2, CloneATable(TableS), Order, ElephantOnTable[i].ElefantThinking[k].Row, ElephantOnTable[i].ElefantThinking[k].Column);
+                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 2, CloneATable(TableS), Order, ElephantOnTable[i].ElefantThinking[k].Row, ElephantOnTable[i].ElefantThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
                                         if (AB.Check(CloneATable(TableS), Order))
                                         {
@@ -10930,10 +10930,10 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 for (i = HourseMidle; i < HourseHight; i++)
                 {
@@ -10943,9 +10943,9 @@ namespace RefrigtzChessPortable
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
                             ////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
                             //    if (HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() == 0)
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
@@ -10953,13 +10953,13 @@ namespace RefrigtzChessPortable
                                 for (int ij = 0; ij < HoursesOnTable[i].HourseThinking[k].AStarGreedy.Count - 1; ij++)
                                     HoursesOnTable[i].HourseThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, HoursesOnTable[i].HourseThinking[k].AStarGreedy[ij]);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                     continue;
                             }
 
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
                             if ((HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsPenaltyAction() != 0 && HoursesOnTable[i].HourseThinking[k].PenaltyRegardListHourse[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
@@ -11004,7 +11004,7 @@ namespace RefrigtzChessPortable
                                         //When there is not Penalty regard mechanism.
                                         //if (!UsePenaltyRegardMechnisamT)
                                         {
-                                            AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 3, CloneATable(TableS), Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
+                                            AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 3, CloneATable(TableS), Order, HoursesOnTable[i].HourseThinking[k].Row, HoursesOnTable[i].HourseThinking[k].Column);
                                             //If there is kish or kshachamaz Order.
                                             if (AB.Check(CloneATable(TableS), Order))
                                             {
@@ -11128,10 +11128,10 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 for (i = CastleMidle; i < CastleHigh; i++)
                 {
@@ -11142,9 +11142,9 @@ namespace RefrigtzChessPortable
                             ////if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT)
                             ///   if (CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() == 0)
 
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
@@ -11152,13 +11152,13 @@ namespace RefrigtzChessPortable
                                 for (int ij = 0; ij < CastlesOnTable[i].CastleThinking[k].AStarGreedy.Count - 1; ij++)
                                     CastlesOnTable[i].CastleThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, CastlesOnTable[i].CastleThinking[k].AStarGreedy[ij]);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                     continue;
                             }
 
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             //if (AllDraw.OrderPlate == Order && AStarGreedyi == 1 //&& UsePenaltyRegardMechnisamT
                             //)
                             if ((CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsPenaltyAction() != 0 && CastlesOnTable[i].CastleThinking[k].PenaltyRegardListCastle[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
@@ -11200,7 +11200,7 @@ namespace RefrigtzChessPortable
                                     //When there is not Penalty regard mechanism.
                                     //if (!UsePenaltyRegardMechnisamT)
                                     {
-                                        AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 4, CloneATable(TableS), Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
+                                        AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 4, CloneATable(TableS), Order, CastlesOnTable[i].CastleThinking[k].Row, CastlesOnTable[i].CastleThinking[k].Column);
                                         //If there is kish or kshachamaz Order.
                                         if (AB.Check(CloneATable(TableS), Order))
                                         {
@@ -11322,9 +11322,9 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
 
                 for (i = MinisterMidle; i < MinisterHigh; i++)
@@ -11333,9 +11333,9 @@ namespace RefrigtzChessPortable
                         for (j = 0; MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable != null && MinisterOnTable[i] != null && MinisterOnTable[i].MinisterThinking[k] != null && MinisterOnTable[i].MinisterThinking[k] != null && j < MinisterOnTable[i].MinisterThinking[k].TableListMinister.Count; j++)
                         {
                             //For Penalty Reagrad Mechanisam of Current Check CheckMate Current Movments.
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
@@ -11343,13 +11343,13 @@ namespace RefrigtzChessPortable
                                 for (int ij = 0; ij < MinisterOnTable[i].MinisterThinking[k].AStarGreedy.Count - 1; ij++)
                                     MinisterOnTable[i].MinisterThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, MinisterOnTable[i].MinisterThinking[k].AStarGreedy[ij]);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                     continue;
                             }
 
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             if ((MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsPenaltyAction() != 0 && MinisterOnTable[i].MinisterThinking[k].PenaltyRegardListMinister[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
                             {
                                 Object On = new Object();
@@ -11388,7 +11388,7 @@ namespace RefrigtzChessPortable
                                             continue;
                                     }
                                     //When there is not Penalty regard mechanism.
-                                    AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 5, CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
+                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 5, CloneATable(TableS), Order, MinisterOnTable[i].MinisterThinking[k].Row, MinisterOnTable[i].MinisterThinking[k].Column);
                                     //If there is kish or kshachamaz Order.
                                     if (AB.Check(CloneATable(TableS), Order))
                                     {
@@ -11504,21 +11504,21 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
                 for (i = KingMidle; i < KingHigh; i++)
                 {
                     for (int k = 0; k < AllDraw.KingMovments; k++)
                         for (j = 0; KingOnTable != null && KingOnTable[i] != null && KingOnTable != null && KingOnTable[i] != null && KingOnTable[i].KingThinking[k] != null && KingOnTable[i].KingThinking[k] != null && j < KingOnTable[i].KingThinking[k].TableListKing.Count; j++)
                         {
-                            int CDummy = ChesRules.CurrentOrder;
+                            int CDummy = ChessRules.CurrentOrder;
                             int COrder = Order;
-                            ChesRules.CurrentOrder *= -1;
+                            ChessRules.CurrentOrder *= -1;
                             Order *= -1;
                             Do = 0;
                             if (UsePenaltyRegardMechnisamT)
@@ -11526,13 +11526,13 @@ namespace RefrigtzChessPortable
                                 for (int ij = 0; ij < KingOnTable[i].KingThinking[k].AStarGreedy.Count - 1; ij++)
                                     KingOnTable[i].KingThinking[k].AStarGreedy[ij].IsPenaltyRegardCheckMateAtBranch(Order, ref Do, KingOnTable[i].KingThinking[k].AStarGreedy[ij]);
                                 Order = COrder;
-                                ChesRules.CurrentOrder = CDummy;
+                                ChessRules.CurrentOrder = CDummy;
                                 ToCheckMate = -1; ForCheckMate = -1; AA = IsToCheckMateHasLessDeeperThanForCheckMate(this, Order, ref ToCheckMate, ref ForCheckMate, 0); if (Do == -1)
                                     continue;
                             }
 
                             Order = COrder;
-                            ChesRules.CurrentOrder = CDummy;
+                            ChessRules.CurrentOrder = CDummy;
                             if ((KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsPenaltyAction() != 0 && KingOnTable[i].KingThinking[k].PenaltyRegardListKing[j].IsRewardAction() == 1 && AStarGreedyi == 1) || ((Do == 1 || AA) && UsePenaltyRegardMechnisamT))
                             {
                                 Object On = new Object();
@@ -11573,7 +11573,7 @@ namespace RefrigtzChessPortable
 
                                     }
                                     //When there is not Penalty regard mechanism.
-                                    AB = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 6, CloneATable(TableS), Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
+                                    AB = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 6, CloneATable(TableS), Order, KingOnTable[i].KingThinking[k].Row, KingOnTable[i].KingThinking[k].Column);
                                     //If there is kish or kshachamaz Order.
                                     if (AB.Check(CloneATable(TableS), Order))
                                     {
@@ -11692,10 +11692,10 @@ namespace RefrigtzChessPortable
                         }
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
 
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                 }
                 return TableHeuristic;
             }
@@ -11709,7 +11709,7 @@ namespace RefrigtzChessPortable
                 int[,] TableHeuristic = new int[8, 8];
                 AStarGreedyi++;
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //Initiate For Dynamic Backward Current AStarGreedyi Non Minus Founded Max Movments Detection Global Variables.
                 List<int> Founded = new List<int>();
                 //Initiateing Indicating Heuristic Multiple Same Value Best Found of Movments.
@@ -11754,7 +11754,7 @@ namespace RefrigtzChessPortable
                     TableHeuristic = HeuristicAStarGreadySearchBrown(AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Store In Local Variable and Dynamic Purpose Proccessing.
                 //Every Non Minuse Non Idept in List Has Gretest Max Order.
                 //Is Desired of Idept Oner Best Movments.
@@ -11803,7 +11803,7 @@ namespace RefrigtzChessPortable
                 int[,] TableHeuristic = new int[8, 8];
                 AStarGreedyi++;
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 //Initiate For Dynamic Backward Current AStarGreedyi Non Minus Founded Max Movments Detection Global Variables.
                 List<int> Founded = new List<int>();
                 //Initiateing Indicating Heuristic Multiple Same Value Best Found of Movments.
@@ -11848,7 +11848,7 @@ namespace RefrigtzChessPortable
                     TableHeuristic = BrownHeuristicAStarGreaedySearchPenalites(AStarGreedyi, a, Order, CurrentTableHeuristic, ref Act);
                 }
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
                 //Store In Local Variable and Dynamic Purpose Proccessing.
                 //Every Non Minuse Non Idept in List Has Gretest Max Order.
                 //Is Desired of Idept Oner Best Movments.
@@ -11896,7 +11896,7 @@ namespace RefrigtzChessPortable
             lock (O)
             {
                 //Initiate Local and Global Variables.
-                int Current = ChesRules.CurrentOrder;
+                int Current = ChessRules.CurrentOrder;
                 int DummyOrder = Order;
                 TableList.Add(CloneATable(Table));
 
@@ -11996,10 +11996,10 @@ namespace RefrigtzChessPortable
                     }
                 }
             //Determination of CheckMate Consideration.
-            (new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(Table), Order, -1, -1)).CheckMate(CloneATable(Table), Order);
+            (new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 1, CloneATable(Table), Order, -1, -1)).CheckMate(CloneATable(Table), Order);
                 //Reconstruction of Order Global Varibales.
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = Current;
+                ChessRules.CurrentOrder = Current;
 
             }
         }
@@ -12023,7 +12023,7 @@ namespace RefrigtzChessPortable
                 int DummyOrder = new int();
                 DummyOrder = Order;
                 int DummyCurrentOrder = new int();
-                DummyCurrentOrder = ChesRules.CurrentOrder;
+                DummyCurrentOrder = ChessRules.CurrentOrder;
                 int[,] TablInit = new int[8, 8];
                 if (Order == 1)
                     a = Color.Gray;
@@ -12046,7 +12046,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == 1)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         //If Solders Not Exist Continue and Traversal Back.
                         //If There is no Thinking Movments on Current Object  
 
@@ -12073,7 +12073,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == 2)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         //Ignore of Non Exist Current Elephant Gray Objects.
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
@@ -12098,7 +12098,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == 3)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)
@@ -12122,7 +12122,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == 4)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)
@@ -12146,7 +12146,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == 5)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)
@@ -12169,7 +12169,7 @@ namespace RefrigtzChessPortable
                     {
 
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)
@@ -12193,7 +12193,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == -1)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)//When There is Current Brown Existing Objective Thinking Movments.
@@ -12219,7 +12219,7 @@ namespace RefrigtzChessPortable
                         if (!ASS)
                         {//When There is Current Brown Existing Objective Thinking Movments.
                             Order = DummyOrder;
-                            ChesRules.CurrentOrder = DummyCurrentOrder;
+                            ChessRules.CurrentOrder = DummyCurrentOrder;
                             //Thinking Operations of Brown Current Objects.
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingBegin = true;
                             ElephantOnTable[iIndex].ElefantThinking[0].ThinkingFinished = false;
@@ -12238,7 +12238,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == -3)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)
@@ -12262,7 +12262,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == -4)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)
@@ -12283,7 +12283,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == -5)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)
@@ -12304,7 +12304,7 @@ namespace RefrigtzChessPortable
                     if (KindIndex == -6)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         bool ASS = false; Object OOOAAA = new Object(); lock (OOOAAA)
                         { ASS = AllDraw.Blitz; }
                         if (!ASS)
@@ -12387,10 +12387,10 @@ namespace RefrigtzChessPortable
                 }
                 //                } 
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
 
                 Order = DummyOrder;
-                ChesRules.CurrentOrder = DummyCurrentOrder;
+                ChessRules.CurrentOrder = DummyCurrentOrder;
                 return this;
             }
         }
@@ -12481,7 +12481,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //If Solders Not Exist Continue and Traversal Back.
                                     if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                     {
@@ -12525,7 +12525,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //For Each Non Exist Gray Minister Objectives.
                                     if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                     {
@@ -12568,7 +12568,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //If There is Not Current Object Continue Traversal Back.
                                     if (KingOnTable != null && KingOnTable[i] != null)
                                     {
@@ -12623,7 +12623,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //If Solders Not Exist Continue and Traversal Back.
                                     if (SolderesOnTable != null && SolderesOnTable[i] != null)
                                     {
@@ -12664,7 +12664,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //Ignore of Non Exist Current Elephant Gray Objects.
                                     if (ElephantOnTable != null && ElephantOnTable[i] != null)
                                     {
@@ -12705,7 +12705,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //Ignore of Non Exist Current Gray Hourse Objects.
                                     if (HoursesOnTable != null && HoursesOnTable[i] != null)
                                     {
@@ -12746,7 +12746,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //When Current Castles Gray Not Exist Continue Traversal Back.
                                     if (CastlesOnTable != null && CastlesOnTable[i] != null)
                                     {
@@ -12788,7 +12788,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //For Each Non Exist Gray Minister Objectives.
                                     if (MinisterOnTable != null && MinisterOnTable[i] != null)
                                     {
@@ -12830,7 +12830,7 @@ namespace RefrigtzChessPortable
                                 lock (O)
                                 {
                                     Order = DummyOrder;
-                                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                                    ChessRules.CurrentOrder = DummyCurrentOrder;
                                     //If There is Not Current Object Continue Traversal Back.
                                     if (KingOnTable != null && KingOnTable[i] != null)
                                     {
@@ -13778,7 +13778,7 @@ namespace RefrigtzChessPortable
                 lock (O)
                 {
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If Solders Not Exist Continue and Traversal Back.
                     if (InitiateAStarGreedyt(i, 1, Order))
                     {
@@ -13855,7 +13855,7 @@ namespace RefrigtzChessPortable
                 lock (O)
                 {
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Elephant Gray Objects.
                     if (InitiateAStarGreedyt(i, 2, Order))
                     {
@@ -13924,7 +13924,7 @@ namespace RefrigtzChessPortable
                 lock (O)
                 {
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                     //Ignore of Non Exist Current Gray Hourse Objects.
                     if (InitiateAStarGreedyt(i, 3, Order))
                     {
@@ -13994,7 +13994,7 @@ namespace RefrigtzChessPortable
                 lock (O)
                 {
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                     //When Current Castles Gray Not Exist Continue Traversal Back.
                     if (InitiateAStarGreedyt(i, 4, Order))
                     {
@@ -14063,7 +14063,7 @@ namespace RefrigtzChessPortable
                 lock (O)
                 {
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                     //For Each Non Exist Gray Minister Objectives.
                     if (InitiateAStarGreedyt(i, 5, Order))
                     {
@@ -14130,7 +14130,7 @@ namespace RefrigtzChessPortable
                 lock (O)
                 {
                     Order = DummyOrder;
-                    ChesRules.CurrentOrder = DummyCurrentOrder;
+                    ChessRules.CurrentOrder = DummyCurrentOrder;
                     //If There is Not Current Object Continue Traversal Back.
                     if (InitiateAStarGreedyt(i, 6, Order))
                     {
@@ -14776,7 +14776,7 @@ namespace RefrigtzChessPortable
                 int DummyOrder = new int();
                 DummyOrder = Order;
                 int DummyCurrentOrder = new int();
-                DummyCurrentOrder = ChesRules.CurrentOrder;
+                DummyCurrentOrder = ChessRules.CurrentOrder;
 //#pragma warning disable CS0219 // The variable 'ik' is assigned but its value is never used
 #pragma warning disable CS0219 // The variable 'ik' is assigned but its value is never used
                 int i = 0, ik = 0;
@@ -14965,7 +14965,7 @@ namespace RefrigtzChessPortable
             int DummyOrder = new int();
             DummyOrder = Order;
             int DummyCurrentOrder = new int();
-            DummyCurrentOrder = ChesRules.CurrentOrder;
+            DummyCurrentOrder = ChessRules.CurrentOrder;
 //#pragma warning disable CS0219 // The variable 'i' is assigned but its value is never used
 #pragma warning disable CS0219 // The variable 'i' is assigned but its value is never used
             int i = 0, ik = 0;
@@ -15036,7 +15036,7 @@ namespace RefrigtzChessPortable
 
             }
             Order = DummyOrder;
-            ChesRules.CurrentOrder = DummyCurrentOrder;
+            ChessRules.CurrentOrder = DummyCurrentOrder;
 
             var array = Task.Factory.StartNew(() => Serve(Order));
 
@@ -15073,7 +15073,7 @@ namespace RefrigtzChessPortable
                     {
                         NumberOfnewMove = 0;
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy-1, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
 
@@ -15146,7 +15146,7 @@ namespace RefrigtzChessPortable
                 int DummyOrder = new int();
                 DummyOrder = Order;
                 int DummyCurrentOrder = new int();
-                DummyCurrentOrder = ChesRules.CurrentOrder;
+                DummyCurrentOrder = ChessRules.CurrentOrder;
                 List<Task> ThB = new List<Task>();
                 int i = 0, ik = 0;
                 int[,] TablInit = new int[8, 8];
@@ -15207,7 +15207,7 @@ namespace RefrigtzChessPortable
                     lock (O)
                     {
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
                         int Ord = Order, iAStarGreedy1 = iAStarGreedy-1, ii1 = ii, jj1 = jj, ik1 = ik, j1 = j;
 
                         //Parallel.Invoke(() =>
@@ -15230,7 +15230,7 @@ namespace RefrigtzChessPortable
         bool KingDan(int[,] Tab, int Order)
         {
             bool IsDang = false;
-            RefrigtzChessPortable.ChesRules A = new RefrigtzChessPortable.ChesRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order);
+            RefrigtzChessPortable.ChessRules A = new RefrigtzChessPortable.ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Order);
             IsDang = A.ObjectDangourKingMove(Order, Tab);
             if (Order == 1 && (IsDang))
             {
@@ -16636,7 +16636,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
         {
             //Initiatye Variables.
             int DummyOrder = Order;
-            int DummyCurrentOrder = ChesRules.CurrentOrder;
+            int DummyCurrentOrder = ChessRules.CurrentOrder;
             Color a;
             if (Order == 1)
                 a = Color.Gray;
@@ -16688,7 +16688,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             BlitzGameTreeCreationThinkingTreeSolder(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16699,7 +16699,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             BlitzGameTreeCreationThinkingTreeElephant(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16710,7 +16710,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             BlitzGameTreeCreationThinkingTreeHourse(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16721,7 +16721,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             BlitzGameTreeCreationThinkingTreeCastle(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16732,7 +16732,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             BlitzGameTreeCreationThinkingTreeMinister(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16777,7 +16777,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         BlitzGameTreeCreationThinkingTreeSolder(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16786,7 +16786,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         BlitzGameTreeCreationThinkingTreeElephant(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16796,7 +16796,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             BlitzGameTreeCreationThinkingTreeHourse(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16806,7 +16806,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             BlitzGameTreeCreationThinkingTreeCastle(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -16817,7 +16817,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             BlitzGameTreeCreationThinkingTreeMinister(a, Index, jIndex, Order * -1, iAStarGreedy, ik, j, FOUND, LeafAStarGreedy);
                         //Initiatye Variables.
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                        ChessRules.CurrentOrder = DummyCurrentOrder;
 
                         if (Order == 1)
                             a = Color.Gray;
@@ -19791,7 +19791,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 bool Do = false;
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 var output = Task.Factory.StartNew(() =>
                 {
                     //if (!feedCancellationTokenSource.IsCancellationRequested)
@@ -19813,7 +19813,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 array1.Wait(); array1.Dispose();
 
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -19834,7 +19834,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                                 //Initiatye Variables.
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -19855,7 +19855,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                                 //Initiatye Variables.
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -19876,7 +19876,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                                 //Initiatye Variables.
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -19897,7 +19897,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                                 //Initiatye Variables.
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -19917,7 +19917,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 array6.Wait(); array6.Dispose();
 
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         });
                     }
@@ -19935,7 +19935,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             {
                 bool Do = false;
                 int DummyOrder = Order;
-                int DummyCurrentOrder = ChesRules.CurrentOrder;
+                int DummyCurrentOrder = ChessRules.CurrentOrder;
                 var output = Task.Factory.StartNew(() =>
                 {
                     //if (!feedCancellationTokenSource.IsCancellationRequested)
@@ -19957,7 +19957,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 array1.Wait(); array1.Dispose();
 
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -19978,7 +19978,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                                 //Initiatye Variables.
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -19999,7 +19999,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                                 //Initiatye Variables.
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -20020,7 +20020,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                                 //Initiatye Variables.
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -20041,7 +20041,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
                                 //Initiatye Variables.
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         }, () =>
                         {
@@ -20061,7 +20061,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                 array6.Wait(); array6.Dispose();
 
                                 Order = DummyOrder;
-                                ChesRules.CurrentOrder = DummyCurrentOrder;
+                                ChessRules.CurrentOrder = DummyCurrentOrder;
                             }
                         });
                     }
@@ -20079,7 +20079,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             bool Do = false;
             //Initiatye Variables.
             int DummyOrder = Order;
-            int DummyCurrentOrder = ChesRules.CurrentOrder;
+            int DummyCurrentOrder = ChessRules.CurrentOrder;
             Color a;
             if (Order == 1)
                 a = Color.Gray;
@@ -20124,7 +20124,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
             bool Do = false;
             //Initiatye Variables.
             int DummyOrder = Order;
-            int DummyCurrentOrder = ChesRules.CurrentOrder;
+            int DummyCurrentOrder = ChessRules.CurrentOrder;
             Color a;
             if (Order == 1)
                 a = Color.Gray;
@@ -20170,7 +20170,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
 
 
                                             Order = DummyOrder;
-                                            ChesRules.CurrentOrder = DummyCurrentOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
                                     }
                                 }
@@ -20197,7 +20197,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             Do |= this.FullGameThinkingTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
                                             //Initiatye Variables.
                                             Order = DummyOrder;
-                                            ChesRules.CurrentOrder = DummyCurrentOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
                                     }
                                 }
@@ -20224,7 +20224,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             Do |= this.FullGameThinkingTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
                                             //Initiatye Variables.
                                             Order = DummyOrder;
-                                            ChesRules.CurrentOrder = DummyCurrentOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
                                     }
                                 }
@@ -20251,7 +20251,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             Do |= this.FullGameThinkingTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
                                             //Initiatye Variables.
                                             Order = DummyOrder;
-                                            ChesRules.CurrentOrder = DummyCurrentOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
                                     }
                                 }
@@ -20278,7 +20278,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             Do |= this.FullGameThinkingTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
                                             //Initiatye Variables.
                                             Order = DummyOrder;
-                                            ChesRules.CurrentOrder = DummyCurrentOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
                                     }
                                 }
@@ -20304,7 +20304,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             int i6 = i;
                                             Do |= this.FullGameThinkingTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
                                             Order = DummyOrder;
-                                            ChesRules.CurrentOrder = DummyCurrentOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
                                     }
                                 }
@@ -20344,7 +20344,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                             int i1 = i;
                                             Do |= this.FullGameThinkingTreeSoldier(i1, a1, Ord1, iAStarGreedy1, ii1, jj1, ik11, j11, FOUND, LeafAStarGreedy);
                                             Order = DummyOrder;
-                                            ChesRules.CurrentOrder = DummyCurrentOrder;
+                                            ChessRules.CurrentOrder = DummyCurrentOrder;
                                         }
                                     }
                                 }
@@ -20367,7 +20367,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         Do |= this.FullGameThinkingTreeElephant(i2, a2, Ord2, iAStarGreedy2, ii2, jj2, ik12, j12, FOUND, LeafAStarGreedy);
                                         //Initiatye Variables.
                                         Order = DummyOrder;
-                                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
                                     }
                                 }
                             }, () =>
@@ -20389,7 +20389,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         Do |= this.FullGameThinkingTreeHourse(i3, a3, Ord3, iAStarGreedy3, ii3, jj3, ik13, j13, FOUND, LeafAStarGreedy);
                                         //Initiatye Variables.
                                         Order = DummyOrder;
-                                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
                                     }
                                 }
                             }, () =>
@@ -20411,7 +20411,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         Do |= this.FullGameThinkingTreeCastle(i4, a4, Ord4, iAStarGreedy4, ii4, jj4, ik14, j14, FOUND, LeafAStarGreedy);
                                         //Initiatye Variables.
                                         Order = DummyOrder;
-                                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
                                     }
                                 }
                             }, () =>
@@ -20433,7 +20433,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         Do |= this.FullGameThinkingTreeMinister(i5, a5, Ord5, iAStarGreedy5, ii5, jj5, ik15, j15, FOUND, LeafAStarGreedy);
                                         //Initiatye Variables.
                                         Order = DummyOrder;
-                                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
                                     }
                                 }
                             }, () =>
@@ -20458,7 +20458,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                         int i6 = i;
                                         Do |= this.FullGameThinkingTreeKing(i6, a6, Ord6, iAStarGreedy6, ii6, jj6, ik16, j16, FOUND, LeafAStarGreedy);
                                         Order = DummyOrder;
-                                        ChesRules.CurrentOrder = DummyCurrentOrder;
+                                        ChessRules.CurrentOrder = DummyCurrentOrder;
                                     }
                                 }
                             });
@@ -21167,7 +21167,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount*2;
                 SetDeptIgnore = SetDept;
                 int[,] TableHeuristic = null;
-                int Current = ChesRules.CurrentOrder;
+                int Current = ChessRules.CurrentOrder;
                 int DummyOrder = Order;
                 Object O = new Object();
                 lock (O)
@@ -21219,8 +21219,8 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         DrawSoldier.MaxHeuristicxS = Int32.MinValue;
                         MovementsAStarGreedyHeuristicFoundT = false;
                         DrawTable = false;
-                        ChesRules.CheckBrownObjectDangourFirstTimesOcured = false;
-                        ChesRules.CheckGrayObjectDangourFirstTimesOcured = false;
+                        ChessRules.CheckBrownObjectDangourFirstTimesOcured = false;
+                        ChessRules.CheckGrayObjectDangourFirstTimesOcured = false;
                     }
                 }
                 MaxHeuristicAStarGreedytBackWard.Clear();
@@ -21255,7 +21255,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         }
                     }
                 }
-                ChesRules.CurrentOrder = Current;
+                ChessRules.CurrentOrder = Current;
                 Order = DummyOrder;
                 int iiii = ii, jjjj = jj, Ord = Order;
                 int MaxAStarGreedy1 = 0;
@@ -21278,7 +21278,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     Tab = new int[8, 8];
                     Less = Int32.MinValue;
                 }
-                ChesRules.CurrentOrder = Current;
+                ChessRules.CurrentOrder = Current;
                 Order = DummyOrder;
                 Object OO = new Object();
                 lock (OO)
@@ -21326,7 +21326,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             }
                         }
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = Current;
+                        ChessRules.CurrentOrder = Current;
                     }
                     else
                     {
@@ -21339,7 +21339,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                             AStarGreedy = 0;
                         }
                         Order = DummyOrder;
-                        ChesRules.CurrentOrder = Current;
+                        ChessRules.CurrentOrder = Current;
                         Object Omm = new Object();
                         lock (Omm)
                         {
@@ -21468,7 +21468,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     CromosomColumn = j;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.SmallKingCastleGray = true;
+                                    ChessRules.SmallKingCastleGray = true;
                                     CastlesKing = true;
                                 }
                                 else //Big Briges King Gray.
@@ -21480,7 +21480,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     CromosomColumn = j;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.BigKingCastleGray = true;
+                                    ChessRules.BigKingCastleGray = true;
                                     CastlesKing = true;
                                 }
                             }
@@ -21495,7 +21495,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     CromosomColumn = j;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.SmallKingCastleBrown = true;
+                                    ChessRules.SmallKingCastleBrown = true;
                                     CastlesKing = true;
                                 }
                                 else//Big Castles King Brown.
@@ -21507,7 +21507,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     CromosomColumn = j;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.BigKingCastleBrown = true;
+                                    ChessRules.BigKingCastleBrown = true;
                                     CastlesKing = true;
                                 }
                             }
@@ -21580,7 +21580,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     CromosomColumn = j;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.SmallKingCastleGray = true;
+                                    ChessRules.SmallKingCastleGray = true;
                                     CastlesKing = true;
                                 }
                                 else //Big Briges King Gray.
@@ -21592,7 +21592,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     CromosomColumn = j;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.BigKingCastleGray = true;
+                                    ChessRules.BigKingCastleGray = true;
                                     CastlesKing = true;
                                 }
                             }
@@ -21607,7 +21607,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     CromosomColumn = j;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.SmallKingCastleBrown = true;
+                                    ChessRules.SmallKingCastleBrown = true;
                                     CastlesKing = true;
                                 }
                                 else//Big Castles King Brown.
@@ -21619,7 +21619,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                                     CromosomColumn = j;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.BigKingCastleBrown = true;
+                                    ChessRules.BigKingCastleBrown = true;
                                     CastlesKing = true;
                                 }
                             }
@@ -22434,7 +22434,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                         Table[p, k] = Tab[p, k];
                 //Initiate Local Variables.
                 int Store = Table[ii, jj];
-                ChesRules A = new ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j);
+                ChessRules A = new ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Table[i, j], CloneATable(Table), Order, i, j);
 
                 //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                 if (Order == 1 && Table[ii, jj] < 0)

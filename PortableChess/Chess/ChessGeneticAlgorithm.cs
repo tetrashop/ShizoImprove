@@ -136,10 +136,10 @@ namespace RefrigtzChessPortable
         //Found of Different Home Gen in Tow RefrigtzChessPortable Home Table Method. 
         public bool FindGenToModified(int[,] Cromosom1, int[,] Cromosom2, List<int[,]> List, int Index, int Order, bool and)
         {
-            ChesRules.SmallKingCastleBrown = false;
-            ChesRules.SmallKingCastleGray = false;
-            ChesRules.BigKingCastleBrown = false;
-            ChesRules.BigKingCastleGray = false;
+            ChessRules.SmallKingCastleBrown = false;
+            ChessRules.SmallKingCastleGray = false;
+            ChessRules.BigKingCastleBrown = false;
+            ChessRules.BigKingCastleGray = false;
             //Injtjate Local Varjables.
             bool Find = false;
             int FindNumber = 0;
@@ -238,7 +238,7 @@ namespace RefrigtzChessPortable
                                     CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.SmallKingCastleGray = true;
+                                    ChessRules.SmallKingCastleGray = true;
                                     Brj = true;
                                 }
                                 else //Big Brjges King Gray.
@@ -250,7 +250,7 @@ namespace RefrigtzChessPortable
                                     CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.BigKingCastleGray = true;
+                                    ChessRules.BigKingCastleGray = true;
                                     Brj = true;
                                 }
 
@@ -269,7 +269,7 @@ namespace RefrigtzChessPortable
                                         CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
-                                        ChesRules.SmallKingCastleBrown = true;
+                                        ChessRules.SmallKingCastleBrown = true;
                                         Brj = true;
                                     }
                                 }
@@ -285,7 +285,7 @@ namespace RefrigtzChessPortable
                                         CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
-                                        ChesRules.BigKingCastleBrown = true;
+                                        ChessRules.BigKingCastleBrown = true;
                                         Brj = true;
                                     }
                                 }
@@ -377,7 +377,7 @@ namespace RefrigtzChessPortable
                                     CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.SmallKingCastleGray = true;
+                                    ChessRules.SmallKingCastleGray = true;
                                     Brj = true;
                                 }
                                 else //Big Brjges King Gray.
@@ -389,7 +389,7 @@ namespace RefrigtzChessPortable
                                     CromosomColumn = i;
                                     Find = true;
                                     FindNumber++;
-                                    ChesRules.BigKingCastleGray = true;
+                                    ChessRules.BigKingCastleGray = true;
                                     Brj = true;
                                 }
 
@@ -408,7 +408,7 @@ namespace RefrigtzChessPortable
                                         CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
-                                        ChesRules.SmallKingCastleBrown = true;
+                                        ChessRules.SmallKingCastleBrown = true;
                                         Brj = true;
                                     }
                                 }
@@ -424,7 +424,7 @@ namespace RefrigtzChessPortable
                                         CromosomColumn = i;
                                         Find = true;
                                         FindNumber++;
-                                        ChesRules.BigKingCastleBrown = true;
+                                        ChessRules.BigKingCastleBrown = true;
                                         Brj = true;
                                     }
                                 }
@@ -621,7 +621,7 @@ namespace RefrigtzChessPortable
                         if (Gen1 == CromosomRow && Gen2 == CromosomColumn)
                             continue;
                         //Rulement of Gen Movments.
-                        if ((new ChesRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, GeneticTable[CromosomRow, CromosomColumn], CloneATable(GeneticTable), Order, CromosomRow, CromosomColumn)).Rules(CromosomRow, CromosomColumn, Gen1,
+                        if ((new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, GeneticTable[CromosomRow, CromosomColumn], CloneATable(GeneticTable), Order, CromosomRow, CromosomColumn)).Rules(CromosomRow, CromosomColumn, Gen1,
                         Gen2, color, GeneticTable[CromosomRow, CromosomColumn]))
                         {
                             //Initiate Global Variables and Syntax.
@@ -645,7 +645,7 @@ namespace RefrigtzChessPortable
                             else
                             {
                                 //Check Consideration.
-                                if ((new ChesRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, GeneticTable[CromosomRow, CromosomRow], CloneATable(GeneticTable), Order, CromosomRow, CromosomColumn)).Check(CloneATable(GeneticTable), Order))
+                                if ((new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, GeneticTable[CromosomRow, CromosomRow], CloneATable(GeneticTable), Order, CromosomRow, CromosomColumn)).Check(CloneATable(GeneticTable), Order))
                                 {
                                     GeneticTable[CromosomRow, CromosomColumn] = GeneticTable[Gen1, Gen2];
                                     GeneticTable[Gen1, Gen2] = 0;
@@ -688,7 +688,7 @@ namespace RefrigtzChessPortable
                         else
                             Ki = 1;
                         Count++;
-                    } while (Count < 6 && !(new ChesRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
+                    } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
@@ -707,7 +707,7 @@ namespace RefrigtzChessPortable
                         else
                             Ki = -1;
                         Count++;
-                    } while (Count < 6 && !(new ChesRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
+                    } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                     if (Count >= 6)
                     {
                         NoGameFounf = true;
@@ -740,7 +740,7 @@ namespace RefrigtzChessPortable
                     else
                         Ki = 1;
                     Count++;
-                } while (Count < 6 && !(new ChesRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
+                } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
                     return null;
 
@@ -755,7 +755,7 @@ namespace RefrigtzChessPortable
                     else
                         Ki = -1;
                     Count++;
-                } while (Count < 6 && !(new ChesRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
+                } while (Count < 6 && !(new ChessRules(0, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, Ki, List[List.Count + MinusOne], Order, CromosomRow, CromosomColumn)).FindAThing(List[List.Count + MinusOne], ref CromosomRow, ref CromosomColumn, Ki, true, RowColumn));
                 if (Count >= 6)
                     return null;
             }

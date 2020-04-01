@@ -8,15 +8,15 @@ using System.IO;
 namespace RefrigtzChessPortable
 {
     [Serializable]
-    public class ChesRules
+    public class ChessRules
     {
        
         StringBuilder Space = new StringBuilder("&nbsp;");
-//#pragma warning disable CS0414 // The field 'ChesRules.Spaces' is assigned but its value is never used
-#pragma warning disable CS0414 // The field 'ChesRules.Spaces' is assigned but its value is never used
+//#pragma warning disable CS0414 // The field 'ChessRules.Spaces' is assigned but its value is never used
+#pragma warning disable CS0414 // The field 'ChessRules.Spaces' is assigned but its value is never used
         int Spaces = 0;
-#pragma warning restore CS0414 // The field 'ChesRules.Spaces' is assigned but its value is never used
-//#pragma warning restore CS0414 // The field 'ChesRules.Spaces' is assigned but its value is never used
+#pragma warning restore CS0414 // The field 'ChessRules.Spaces' is assigned but its value is never used
+//#pragma warning restore CS0414 // The field 'ChessRules.Spaces' is assigned but its value is never used
 
         public bool IgnoreSelfObject = false;
         public static int ObjectHittedRow = -1;
@@ -94,7 +94,7 @@ namespace RefrigtzChessPortable
             catch (Exception t) { }
 #pragma warning restore CS0168 // The variable 't' is declared but never used
         }
-        public ChesRules(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
+        public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int oRDER)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             CurrentAStarGredyMax = CurrentAStarGredy;
@@ -107,9 +107,9 @@ namespace RefrigtzChessPortable
             AStarGreedyHeuristicT = AStarGreedyHuris;
             Order = oRDER;
             ArrangmentsBoard = ArrangmentsChanged;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ChesRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ChessRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
-        public ChesRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
+        public ChessRules(int CurrentAStarGredy, int oRDER, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged)
         {
             //long Time = TimeElapced.TimeNow();Spaces++;
             CurrentAStarGredyMax = CurrentAStarGredy;
@@ -122,10 +122,10 @@ namespace RefrigtzChessPortable
             OnlySelfT = OnlySel;
             AStarGreedyHeuristicT = AStarGreedyHuris;
             ArrangmentsBoard = ArrangmentsChanged;
-            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ChesRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+            ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ChessRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
         }
         //Constructor 
-        public ChesRules(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
+        public ChessRules(int CurrentAStarGredy, bool MovementsAStarGreedyHeuristicTFou, bool IgnoreSelfObject, bool UsePenaltyRegardMechnisa, bool BestMovment, bool PredictHurist, bool OnlySel, bool AStarGreedyHuris, bool ArrangmentsChanged, int Ki, int[,] A, int Ord, int i, int j)
         {
             Object O = new Object();
             lock (O)
@@ -149,7 +149,7 @@ namespace RefrigtzChessPortable
                 TableS = CloneATable(A);
 
                 Order = Ord;
-                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ChesRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
+                ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ChessRules:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
             }
         }
         //Initiate of Rules of RefrigtzChessPortable Refregitz.
@@ -328,7 +328,7 @@ namespace RefrigtzChessPortable
                     if (Order == 1)
                     {
                         //When Gray Castles Not Act.
-                        if (RefrigtzChessPortable.ChesRules.CastleKingAllowedGray)
+                        if (RefrigtzChessPortable.ChessRules.CastleKingAllowedGray)
                         {
                             //If Column is At First Location.
                             if (ColumnFirst == 0 && ColumnSecond == 0)
@@ -377,7 +377,7 @@ namespace RefrigtzChessPortable
                     else//Order of Brown.
                     {
                         //When Brown Castles King Not Occured.
-                        if (RefrigtzChessPortable.ChesRules.CastleKingAllowedBrown)
+                        if (RefrigtzChessPortable.ChessRules.CastleKingAllowedBrown)
                         {
                             //Column Situation.
                             if (ColumnFirst == 7 && ColumnSecond == 7)
@@ -429,7 +429,7 @@ namespace RefrigtzChessPortable
                     if (Order == 1)
                     {
                         //When Gray Castles Not Act.
-                        if (RefrigtzChessPortable.ChesRules.CastleKingAllowedGray)
+                        if (RefrigtzChessPortable.ChessRules.CastleKingAllowedGray)
                         {
                             //If Column is At First Location.
                             if (ColumnFirst == 7 && ColumnSecond == 7)
@@ -471,7 +471,7 @@ namespace RefrigtzChessPortable
                     else//Order of Brown.
                     {
                         //When Brown Castles King Not Occured.
-                        if (RefrigtzChessPortable.ChesRules.CastleKingAllowedBrown)
+                        if (RefrigtzChessPortable.ChessRules.CastleKingAllowedBrown)
                         {
                             //Column Situation.
                             if (ColumnFirst == 0 && ColumnSecond == 0)
@@ -598,7 +598,7 @@ namespace RefrigtzChessPortable
                 ////lock (O)
                 ///{
                 /// if (DoIgnore)
-                ///RefrigtzChessPortable.ChesRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+                ///RefrigtzChessPortable.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
                 // }
                 //Check identification.
                 //Check(CloneATable(Tab), Order);
@@ -606,7 +606,7 @@ namespace RefrigtzChessPortable
                 bool CheckBrownDummy = CheckBrown;
                 //If There is Check on Tow Side.
                 
-                int CDummy = RefrigtzChessPortable.ChesRules.CurrentOrder;
+                int CDummy = RefrigtzChessPortable.ChessRules.CurrentOrder;
                 int COrder = Order;
                 if (Order == 1)
                 {
@@ -645,7 +645,7 @@ namespace RefrigtzChessPortable
                                             for (int h = 0; h < 8; h++)
                                                 for (int g = 0; g < 8; g++)
                                                     Tabl[h, g] = Tab[h, g];
-                                            RefrigtzChessPortable.ChesRules AAA = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tabl[iii, jjj], CloneATable(Tabl), Order, iii, jjj);
+                                            RefrigtzChessPortable.ChessRules AAA = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tabl[iii, jjj], CloneATable(Tabl), Order, iii, jjj);
                                             //When there is checked or checkmate.
                                             if (AAA.CheckMate(Tabl, Order))
                                             {
@@ -713,7 +713,7 @@ namespace RefrigtzChessPortable
                                             for (int h = 0; h < 8; h++)
                                                 for (int g = 0; g < 8; g++)
                                                     Tabl[h, g] = Tab[h, g];
-                                            RefrigtzChessPortable.ChesRules AAA = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tabl[iii, jjj], CloneATable(Tabl), Order, iii, jjj);
+                                            RefrigtzChessPortable.ChessRules AAA = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tabl[iii, jjj], CloneATable(Tabl), Order, iii, jjj);
                                             //When There is Check or Checkedmate
                                             if (AAA.CheckMate(Tabl, Order))
                                             {
@@ -749,13 +749,13 @@ namespace RefrigtzChessPortable
                 //Object O1 = new Object();
                 //lock (O1)
                 //{
-                //RefrigtzChessPortable.ChesRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+                //RefrigtzChessPortable.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
                 //}
                 //If There is Brown ObjectDanger Or Gray ObjectDanger.
                 if (CheckBrownObjectDangour || CheckGrayObjectDangour)
                 {
                     //Iniaate Global Check Variable By Local Variables.
-                    RefrigtzChessPortable.ChesRules.CurrentOrder = CDummy;
+                    RefrigtzChessPortable.ChessRules.CurrentOrder = CDummy;
                     Order = COrder;
                     CheckGray = CheckGrayDummy;
                     CheckBrown = CheckBrownDummy;
@@ -763,7 +763,7 @@ namespace RefrigtzChessPortable
                     ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return true;
                 }
-                RefrigtzChessPortable.ChesRules.CurrentOrder = CDummy;
+                RefrigtzChessPortable.ChessRules.CurrentOrder = CDummy;
                 Order = COrder;
 
                 //Iniatiate Of Global Varibales By Local Variables.
@@ -795,7 +795,7 @@ namespace RefrigtzChessPortable
                 ////lock (O)
                 ///{
                 /// if (DoIgnore)
-                ///RefrigtzChessPortable.ChesRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+                ///RefrigtzChessPortable.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
                 // }
                 //Check identification.
                 //Check(CloneATable(Tab), Order);
@@ -803,7 +803,7 @@ namespace RefrigtzChessPortable
                 bool CheckBrownDummy = CheckBrown;
                 //If There is Check on Tow Side.
                 
-                int CDummy = RefrigtzChessPortable.ChesRules.CurrentOrder;
+                int CDummy = RefrigtzChessPortable.ChessRules.CurrentOrder;
                 int COrder = Order;
                 if (Order == 1)
                 {
@@ -842,7 +842,7 @@ namespace RefrigtzChessPortable
                                             for (int h = 0; h < 8; h++)
                                                 for (int g = 0; g < 8; g++)
                                                     Tabl[h, g] = Tab[h, g];
-                                            RefrigtzChessPortable.ChesRules AAA = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tabl[iii, jjj], CloneATable(Tabl), Order, iii, jjj);
+                                            RefrigtzChessPortable.ChessRules AAA = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tabl[iii, jjj], CloneATable(Tabl), Order, iii, jjj);
                                             //When there is checked or checkmate.
                                             if (AAA.Check(Tabl, Order))
                                             {
@@ -910,7 +910,7 @@ namespace RefrigtzChessPortable
                                             for (int h = 0; h < 8; h++)
                                                 for (int g = 0; g < 8; g++)
                                                     Tabl[h, g] = Tab[h, g];
-                                            RefrigtzChessPortable.ChesRules AAA = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tabl[iii, jjj], CloneATable(Tabl), Order, iii, jjj);
+                                            RefrigtzChessPortable.ChessRules AAA = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tabl[iii, jjj], CloneATable(Tabl), Order, iii, jjj);
                                             //When There is Check or Checkedmate
                                             if (AAA.Check(Tabl, Order))
                                             {
@@ -946,13 +946,13 @@ namespace RefrigtzChessPortable
                 //Object O1 = new Object();
                 //lock (O1)
                 //{
-                //RefrigtzChessPortable.ChesRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+                //RefrigtzChessPortable.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
                 //}
                 //If There is Brown ObjectDanger Or Gray ObjectDanger.
                 if (CheckBrownObjectDangour || CheckGrayObjectDangour)
                 {
                     //Iniaate Global Check Variable By Local Variables.
-                    RefrigtzChessPortable.ChesRules.CurrentOrder = CDummy;
+                    RefrigtzChessPortable.ChessRules.CurrentOrder = CDummy;
                     Order = COrder;
                     CheckGray = CheckGrayDummy;
                     CheckBrown = CheckBrownDummy;
@@ -960,7 +960,7 @@ namespace RefrigtzChessPortable
                     ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                     return true;
                 }
-                RefrigtzChessPortable.ChesRules.CurrentOrder = CDummy;
+                RefrigtzChessPortable.ChessRules.CurrentOrder = CDummy;
                 Order = COrder;
 
                 //Iniatiate Of Global Varibales By Local Variables.
@@ -1013,7 +1013,7 @@ namespace RefrigtzChessPortable
                 lock (OO)
                 {
                     if (DoIgnore)
-                        RefrigtzChessPortable.ChesRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
+                        RefrigtzChessPortable.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = true;
                 }
 
                 //Check identification.
@@ -1032,14 +1032,14 @@ namespace RefrigtzChessPortable
                     return true;
 
                 }
-                int CDummy = RefrigtzChessPortable.ChesRules.CurrentOrder;
+                int CDummy = RefrigtzChessPortable.ChessRules.CurrentOrder;
                 int COrder = Order;
 
                 //Location of King Gary
 
                 {
                     //Iniatite Global Varibales.
-                    RefrigtzChessPortable.ChesRules.CurrentOrder = -1;
+                    RefrigtzChessPortable.ChessRules.CurrentOrder = -1;
                     Order = -1;
                     //For Enemies.
                     for (var i = 0; i < 8; i++)
@@ -1067,7 +1067,7 @@ namespace RefrigtzChessPortable
                                     for (var ik = 0; ik < 8; ik++)
                                         for (var jk = 0; jk < 8; jk++)
                                             Tab[ik, jk] = Table[ik, jk];
-                                    RefrigtzChessPortable.ChesRules A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tab[i, j], CloneATable(Tab), Order * -1, i, j);
+                                    RefrigtzChessPortable.ChessRules A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tab[i, j], CloneATable(Tab), Order * -1, i, j);
                                     Color a = Color.Gray;
                                     if (Order * -1 == -1)
                                         a = Color.Brown;
@@ -1106,7 +1106,7 @@ namespace RefrigtzChessPortable
                                                                 Tab[iii, jjj] = Tab[i, j];
                                                                 Tab[i, j] = 0;
 
-                                                                A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tab[iiii, jjjj], CloneATable(Tab), Order, iiii, jjjj);
+                                                                A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tab[iiii, jjjj], CloneATable(Tab), Order, iiii, jjjj);
                                                                 if (A.Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i, j]))
                                                                 {
                                                                     Tab[iiiii, jjjjj] = Tab[iiii, jjjj];
@@ -1119,7 +1119,7 @@ namespace RefrigtzChessPortable
                                                                         CheckMateBrown = A.CheckMateBrown;
                                                                         CheckGrayObjectDangour = A.CheckGrayObjectDangour;
                                                                         CheckBrownObjectDangour = A.CheckBrownObjectDangour;
-                                                                        RefrigtzChessPortable.ChesRules.CurrentOrder = CDummy;
+                                                                        RefrigtzChessPortable.ChessRules.CurrentOrder = CDummy;
                                                                         Order = COrder;
                                                                         ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                                                         return true;
@@ -1161,7 +1161,7 @@ namespace RefrigtzChessPortable
                                                                 Tab[iii, jjj] = Tab[i, j];
                                                                 Tab[i, j] = 0;
 
-                                                                A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tab[iiii, jjjj], CloneATable(Tab), Order, iiii, jjjj);
+                                                                A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Tab[iiii, jjjj], CloneATable(Tab), Order, iiii, jjjj);
                                                                 if (A.Rules(iiii, jjjj, iiiii, jjjjj, a, Tab[i, j]))
                                                                 {
                                                                     Tab[iiiii, jjjjj] = Tab[iiii, jjjj];
@@ -1174,7 +1174,7 @@ namespace RefrigtzChessPortable
                                                                         CheckMateBrown = A.CheckMateBrown;
                                                                         CheckGrayObjectDangour = A.CheckGrayObjectDangour;
                                                                         CheckBrownObjectDangour = A.CheckBrownObjectDangour;
-                                                                        RefrigtzChessPortable.ChesRules.CurrentOrder = CDummy;
+                                                                        RefrigtzChessPortable.ChessRules.CurrentOrder = CDummy;
                                                                         Order = COrder;
                                                                         ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                                                                         return true;
@@ -1198,7 +1198,7 @@ namespace RefrigtzChessPortable
 
                 }
 
-                RefrigtzChessPortable.ChesRules.CurrentOrder = CDummy;
+                RefrigtzChessPortable.ChessRules.CurrentOrder = CDummy;
                 Order = COrder;
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("ObjectDangourKingMove:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 //Iniatiate Of Global Varibales By Local Variables.
@@ -1318,9 +1318,9 @@ namespace RefrigtzChessPortable
 
 
                 //Consider CheckMate Condition of Table.
-                RefrigtzChessPortable.ChesRules A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, Arrange, 1, CloneATable(Tab), 1, Row, Column);
-                RefrigtzChessPortable.ChesRules AA = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, Arrange, 1, CloneATable(Tab), 1, Row, Column);
-                RefrigtzChessPortable.ChesRules AAA = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, Arrange, 1, CloneATable(Tab), 1, Row, Column);
+                RefrigtzChessPortable.ChessRules A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, Arrange, 1, CloneATable(Tab), 1, Row, Column);
+                RefrigtzChessPortable.ChessRules AA = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, Arrange, 1, CloneATable(Tab), 1, Row, Column);
+                RefrigtzChessPortable.ChessRules AAA = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, Arrange, 1, CloneATable(Tab), 1, Row, Column);
                 A.CheckMate(CloneATable(Tab), Order);
                 AA.ObjectDangourKingMove(Order, CloneATable(Tab), false);
                 Color a = Color.Gray;
@@ -1332,8 +1332,8 @@ namespace RefrigtzChessPortable
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        RefrigtzChessPortable.ChesRules.CastleKingAllowedGray = false;
-                        RefrigtzChessPortable.ChesRules.CastleActGray = true;
+                        RefrigtzChessPortable.ChessRules.CastleKingAllowedGray = false;
+                        RefrigtzChessPortable.ChessRules.CastleActGray = true;
                         RefrigtzChessPortable.ThinkingRefrigtzChessPortable.KingMaovableGray = true;
                     }
                 }
@@ -1342,17 +1342,17 @@ namespace RefrigtzChessPortable
                     Object O2 = new Object();
                     lock (O2)
                     {
-                        RefrigtzChessPortable.ChesRules.CastleActBrown = true;
-                        RefrigtzChessPortable.ChesRules.CastleKingAllowedBrown = false;
+                        RefrigtzChessPortable.ChessRules.CastleActBrown = true;
+                        RefrigtzChessPortable.ChessRules.CastleKingAllowedBrown = false;
                         RefrigtzChessPortable.ThinkingRefrigtzChessPortable.KingMaovableBrown = true;
                     }
                 }
                 bool Castles = false;
                 if (Order == 1)
-                    if (RefrigtzChessPortable.ChesRules.SmallKingCastleGray || RefrigtzChessPortable.ChesRules.BigKingCastleGray)
+                    if (RefrigtzChessPortable.ChessRules.SmallKingCastleGray || RefrigtzChessPortable.ChessRules.BigKingCastleGray)
                         Castles = true;
                 if (Order == -1)
-                    if (RefrigtzChessPortable.ChesRules.SmallKingCastleBrown || RefrigtzChessPortable.ChesRules.BigKingCastleBrown)
+                    if (RefrigtzChessPortable.ChessRules.SmallKingCastleBrown || RefrigtzChessPortable.ChessRules.BigKingCastleBrown)
                         Castles = true;
                 //When Solder Converted or Castles King Acts.
                 if (SodierConvert || (CastleKing && Castles))
@@ -1361,7 +1361,7 @@ namespace RefrigtzChessPortable
                     if (CastleKing)
                     {
                         //Castles Brown King.
-                        if (RefrigtzChessPortable.ChesRules.SmallKingCastleGray)
+                        if (RefrigtzChessPortable.ChessRules.SmallKingCastleGray)
                         {
                             Object O2 = new Object();
                             lock (O2)
@@ -1373,14 +1373,14 @@ namespace RefrigtzChessPortable
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
-                                        RefrigtzChessPortable.ChesRules.SmallKingCastleGray = false;
-                                        RefrigtzChessPortable.ChesRules.CastleKingAllowedGray = false;
+                                        RefrigtzChessPortable.ChessRules.SmallKingCastleGray = false;
+                                        RefrigtzChessPortable.ChessRules.CastleKingAllowedGray = false;
                                     }
                                 }
                             }
                         }
                         else
-                            if (RefrigtzChessPortable.ChesRules.BigKingCastleGray)
+                            if (RefrigtzChessPortable.ChessRules.BigKingCastleGray)
                         //Castles Brown King.                    
                         {
                             Object O2 = new Object();
@@ -1393,14 +1393,14 @@ namespace RefrigtzChessPortable
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
-                                        RefrigtzChessPortable.ChesRules.BigKingCastleGray = false;
-                                        RefrigtzChessPortable.ChesRules.CastleKingAllowedGray = false;
+                                        RefrigtzChessPortable.ChessRules.BigKingCastleGray = false;
+                                        RefrigtzChessPortable.ChessRules.CastleKingAllowedGray = false;
                                     }
                                 }
                             }
                         }
                         else
-                                if (RefrigtzChessPortable.ChesRules.SmallKingCastleBrown)
+                                if (RefrigtzChessPortable.ChessRules.SmallKingCastleBrown)
                         //Castles Brown King.                    
                         {
                             Object O2 = new Object();
@@ -1413,14 +1413,14 @@ namespace RefrigtzChessPortable
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
-                                        RefrigtzChessPortable.ChesRules.SmallKingCastleBrown = false;
-                                        RefrigtzChessPortable.ChesRules.CastleKingAllowedBrown = false;
+                                        RefrigtzChessPortable.ChessRules.SmallKingCastleBrown = false;
+                                        RefrigtzChessPortable.ChessRules.CastleKingAllowedBrown = false;
                                     }
                                 }
                             }
                         }
                         else
-                                    if (RefrigtzChessPortable.ChesRules.BigKingCastleBrown)
+                                    if (RefrigtzChessPortable.ChessRules.BigKingCastleBrown)
                         //Castles Brown King.                    
                         {
 
@@ -1434,8 +1434,8 @@ namespace RefrigtzChessPortable
                                 {
                                     if (!AllDraw.Stockfish)
                                     {
-                                        RefrigtzChessPortable.ChesRules.BigKingCastleBrown = false;
-                                        RefrigtzChessPortable.ChesRules.CastleKingAllowedBrown = false;
+                                        RefrigtzChessPortable.ChessRules.BigKingCastleBrown = false;
+                                        RefrigtzChessPortable.ChessRules.CastleKingAllowedBrown = false;
                                     }
                                 }
                             }
@@ -1485,8 +1485,8 @@ namespace RefrigtzChessPortable
                                 lock (O2)
                                 {
                                     RefrigtzChessPortable.ThinkingRefrigtzChessPortable.KingMaovableBrown = true;
-                                    RefrigtzChessPortable.ChesRules.BigKingCastleBrown = false;
-                                    RefrigtzChessPortable.ChesRules.CastleKingAllowedBrown = false;
+                                    RefrigtzChessPortable.ChessRules.BigKingCastleBrown = false;
+                                    RefrigtzChessPortable.ChessRules.CastleKingAllowedBrown = false;
                                 }
                             }
                             if (A.CheckGray && Order == 1)
@@ -1495,8 +1495,8 @@ namespace RefrigtzChessPortable
                                 lock (O2)
                                 {
                                     RefrigtzChessPortable.ThinkingRefrigtzChessPortable.KingMaovableGray = true;
-                                    RefrigtzChessPortable.ChesRules.BigKingCastleGray = false;
-                                    RefrigtzChessPortable.ChesRules.CastleKingAllowedGray = false;
+                                    RefrigtzChessPortable.ChessRules.BigKingCastleGray = false;
+                                    RefrigtzChessPortable.ChessRules.CastleKingAllowedGray = false;
                                 }
                             }
                         }
@@ -1564,8 +1564,8 @@ namespace RefrigtzChessPortable
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                RefrigtzChessPortable.ChesRules.BigKingCastleBrown = false;
-                                RefrigtzChessPortable.ChesRules.CastleKingAllowedBrown = false;
+                                RefrigtzChessPortable.ChessRules.BigKingCastleBrown = false;
+                                RefrigtzChessPortable.ChessRules.CastleKingAllowedBrown = false;
                                 RefrigtzChessPortable.ThinkingRefrigtzChessPortable.KingMaovableGray = true;
 
                             }
@@ -1575,8 +1575,8 @@ namespace RefrigtzChessPortable
                             Object O2 = new Object();
                             lock (O2)
                             {
-                                RefrigtzChessPortable.ChesRules.BigKingCastleGray = false;
-                                RefrigtzChessPortable.ChesRules.CastleKingAllowedGray = false;
+                                RefrigtzChessPortable.ChessRules.BigKingCastleGray = false;
+                                RefrigtzChessPortable.ChessRules.CastleKingAllowedGray = false;
                                 RefrigtzChessPortable.ThinkingRefrigtzChessPortable.KingMaovableGray = true;
 
                             }
@@ -1903,11 +1903,11 @@ namespace RefrigtzChessPortable
             Object O = new Object();
             lock (O)
             {   //long Time = TimeElapced.TimeNow();Spaces++;
-                int Cdummy = RefrigtzChessPortable.ChesRules.CurrentOrder;
+                int Cdummy = RefrigtzChessPortable.ChessRules.CurrentOrder;
                 if (Order == 1)
-                    RefrigtzChessPortable.ChesRules.CurrentOrder = 1;
+                    RefrigtzChessPortable.ChessRules.CurrentOrder = 1;
                 else
-                    RefrigtzChessPortable.ChesRules.CurrentOrder = -1;
+                    RefrigtzChessPortable.ChessRules.CurrentOrder = -1;
                 bool[,] Tab = new bool[8, 8];
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
@@ -1916,16 +1916,16 @@ namespace RefrigtzChessPortable
                             continue;
 
 
-                        if ((new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[ii, jj], CloneATable(Table), Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
+                        if ((new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[ii, jj], CloneATable(Table), Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
                         {
                             Tab[i, j] = true;
                         }
-                        if ((new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[ii, jj], CloneATable(Table), Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
+                        if ((new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[ii, jj], CloneATable(Table), Order, ii, jj)).Rules(ii, jj, i, j, a, Table[ii, jj]))
                         {
                             Tab[i, j] = true;
                         }
                     }
-                RefrigtzChessPortable.ChesRules.CurrentOrder = Cdummy;
+                RefrigtzChessPortable.ChessRules.CurrentOrder = Cdummy;
                 ////{ //AllDraw.OutPut.Append("\r\n");for (int l = 0; l < Spaces; l++) //AllDraw.OutPut.Append(Space);  //AllDraw.OutPut.Append("VeryFye:" + (TimeElapced.TimeNow() - Time).ToString());}Spaces--;
                 return Tab;
             }
@@ -2137,8 +2137,8 @@ namespace RefrigtzChessPortable
                         if (Ord == -1 & Tab[i, j] >= 0)
                             continue;
                         //Initiate Global Variables.
-                        int Dummt = RefrigtzChessPortable.ChesRules.CurrentOrder;
-                        RefrigtzChessPortable.ChesRules.CurrentOrder = -1;
+                        int Dummt = RefrigtzChessPortable.ChessRules.CurrentOrder;
+                        RefrigtzChessPortable.ChessRules.CurrentOrder = -1;
                         //Clone a Copy.
                         for (var ii = 0; ii < 8; ii++)
                             for (var jj = 0; jj < 8; jj++)
@@ -2147,7 +2147,7 @@ namespace RefrigtzChessPortable
                         Color a = Color.Gray;
                         if (Ord == -1)
                             a = Color.Brown;
-                        RefrigtzChessPortable.ChesRules A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[i, j], CloneATable(Table), Ord, i, j);
+                        RefrigtzChessPortable.ChessRules A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[i, j], CloneATable(Table), Ord, i, j);
                         if (Ord == 1)
                         {
                             //Menen Parameter is Moveble to Second Parameters Location returm Movable.
@@ -2170,7 +2170,7 @@ namespace RefrigtzChessPortable
                         }
 
                         //Initiate Global Variables.
-                        RefrigtzChessPortable.ChesRules.CurrentOrder = Dummt;
+                        RefrigtzChessPortable.ChessRules.CurrentOrder = Dummt;
 
 
                     }
@@ -2194,11 +2194,11 @@ namespace RefrigtzChessPortable
                     return false;
                 int DummyOrder = Ord;
                 //Initiate Local and Global Briables.
-                bool Store = RefrigtzChessPortable.ChesRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
+                bool Store = RefrigtzChessPortable.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing;
                 Object OO = new Object();
                 lock (OO)
                 {
-                    RefrigtzChessPortable.ChesRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
+                    RefrigtzChessPortable.ChessRules.CheckObjectDangourIgnoreSelfThingBetweenTowEnemyKing = false;
                 }
                 CheckGray = false;
                 CheckBrown = false;
@@ -2250,12 +2250,12 @@ namespace RefrigtzChessPortable
                         if (Checked)
                         {
                             //Initiate Global Variables.
-                            RefrigtzChessPortable.ChesRules.CurrentOrder = 1;
+                            RefrigtzChessPortable.ChessRules.CurrentOrder = 1;
                             //Ig Gray King is Movable to First Home Table.
                             Color a = Color.Gray;
                             if (Ord == -1)
                                 a = Color.Brown;
-                            RefrigtzChessPortable.ChesRules A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[RowK, ColumnK], CloneATable(Table), Ord, RowK, ColumnK);
+                            RefrigtzChessPortable.ChessRules A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[RowK, ColumnK], CloneATable(Table), Ord, RowK, ColumnK);
                             Order = DummyOrder;
                             ///Table[ii, jj] = 0;
                             //Menen Parameter is Moveble to Second Parameters Location returm Movable.
@@ -2371,7 +2371,7 @@ namespace RefrigtzChessPortable
                                 Color a = Color.Gray;
                                 if (Ord == -1)
                                     a = Color.Brown;
-                                RefrigtzChessPortable.ChesRules A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[i, j], CloneATable(Table), Ord, i, j);
+                                RefrigtzChessPortable.ChessRules A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[i, j], CloneATable(Table), Ord, i, j);
                                 ///Table[ii, jj] = 0;
                                 //Menen Parameter is Moveble to Second Parameters Location returm Movable.
                                 if (A.Rules(i, j, ii, jj, a, Ord))
@@ -2384,7 +2384,7 @@ namespace RefrigtzChessPortable
                                     Table[ii, jj] = Table[i, j];
                                     Table[i, j] = 0;
                                     //If Check.
-                                    A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[ii, jj], CloneATable(Table), Ord, ii, jj);
+                                    A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[ii, jj], CloneATable(Table), Ord, ii, jj);
                                     if (A.Check(CloneATable(Table), Ord))
                                     {
                                         Order = DummyOrder;
@@ -2496,7 +2496,7 @@ namespace RefrigtzChessPortable
                 for (var i = 0; i < 8; i++)
                     for (var j = 0; j < 8; j++)
                         Table[i, j] = Tab[i, j];
-                RefrigtzChessPortable.ChesRules A = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[RowG, ColumnG], CloneATable(Table), Ord, RowG, ColumnG);
+                RefrigtzChessPortable.ChessRules A = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[RowG, ColumnG], CloneATable(Table), Ord, RowG, ColumnG);
 
                 //Found of Gray King.
                 if (FindGrayKing(CloneATable(Table), ref RowG, ref ColumnG))
@@ -2521,7 +2521,7 @@ namespace RefrigtzChessPortable
                 ActMoveB = true;
                 ActMoveBF = true;
 
-                RefrigtzChessPortable.ChesRules AA = new RefrigtzChessPortable.ChesRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[RowB, ColumnB], CloneATable(Table), Ord, RowB, ColumnB);
+                RefrigtzChessPortable.ChessRules AA = new RefrigtzChessPortable.ChessRules(CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsBoard, Table[RowB, ColumnB], CloneATable(Table), Ord, RowB, ColumnB);
 
                 Table = CloneATable(Tab);
 

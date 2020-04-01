@@ -2302,7 +2302,7 @@ namespace RefrigtzChessPortable
                                     Draw.SetRowColumn(0);
                                     Draw.IsCurrentDraw = true;
                                     Draw.AStarGreedyString = THISB;
-                                    RefrigtzChessPortable.ChesRules.CurrentOrder = OrderPlate;
+                                    RefrigtzChessPortable.ChessRules.CurrentOrder = OrderPlate;
                                     RefrigtzChessPortable.AllDraw.DepthIterative = 0;
                                     (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
 
@@ -2324,7 +2324,7 @@ namespace RefrigtzChessPortable
                                 Draw.SetRowColumn(0);
                                 Draw.IsCurrentDraw = true;
                                 Draw.AStarGreedyString = THISB;
-                                RefrigtzChessPortable.ChesRules.CurrentOrder = OrderPlate;
+                                RefrigtzChessPortable.ChessRules.CurrentOrder = OrderPlate;
                                 RefrigtzChessPortable.AllDraw.DepthIterative = 0;
                                 (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
 
@@ -2456,7 +2456,7 @@ namespace RefrigtzChessPortable
                             Draw.SetRowColumn(0);
                             Draw.IsCurrentDraw = true;
                             Draw.AStarGreedyString = THISB;
-                            RefrigtzChessPortable.ChesRules.CurrentOrder = OrderPlate;
+                            RefrigtzChessPortable.ChessRules.CurrentOrder = OrderPlate;
                             RefrigtzChessPortable.AllDraw.DepthIterative = 0;
                             (new TakeRoot()).Save(FOUND, false, this, ref LoadTree, false, false, UsePenaltyRegardMechnisam, false, false, false, AStarGreedyHeuristic, true);
 

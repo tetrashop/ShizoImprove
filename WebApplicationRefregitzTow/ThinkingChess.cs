@@ -17,7 +17,7 @@ namespace RefrigtzW
     {
         static List<List<List<int[]>>> MovableAllObjectsList = new List<List<List<int[]>>>();
         public int RemoveOfDisturbIndex = -1;
-      
+
         int HeuristicDoubleDefenceIndexInOnGameMidle = 0;
         List<List<int[]>> HeuristicDoubleDefenceIndexInOnGame = new List<List<int[]>>();
 
@@ -27,8 +27,12 @@ namespace RefrigtzW
         static bool GoldenFinished = false;
 
         public List<List<List<int[]>>> AchmazPure = new List<List<List<int[]>>>();
+        int AchmazPureMidle = 0;
         public List<List<List<int[]>>> AchmazReduced = new List<List<List<int[]>>>();
+        int AchmazReducedMidle = 0;
 
+       
+    
         public List<int> WinChiled = new List<int>();
         public List<int> LoseChiled = new List<int>();
 
@@ -6872,11 +6876,12 @@ namespace RefrigtzW
                                                             Object OOO = new Object();
                                                             lock (OOO)
                                                             {
-                                                                int[] A = new int[4];
+                                                                int[] A = new int[5];
                                                                 A[0] = RowD;
                                                                 A[1] = ColD;
                                                                 A[2] = RowS;
                                                                 A[3] = ColS;
+                                                                A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
                                                                 HeuristicAllReducedAttacked.Add(A);
                                                                 Exchange[ReducedAttacked]++;
                                                             }
@@ -6890,11 +6895,12 @@ namespace RefrigtzW
                                                             Object OOO = new Object();
                                                             lock (OOO)
                                                             {
-                                                                int[] A = new int[4];
+                                                                int[] A = new int[5];
                                                                 A[0] = RowD;
                                                                 A[1] = ColD;
                                                                 A[2] = RowS;
                                                                 A[3] = ColS;
+                                                                A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
                                                                 HeuristicAllReducedSupport.Add(A);
                                                                 Exchange[ReducedSupport]++;
                                                             }
@@ -6908,11 +6914,12 @@ namespace RefrigtzW
                                                             Object OOO = new Object();
                                                             lock (OOO)
                                                             {
-                                                                int[] A = new int[4];
+                                                                int[] A = new int[5];
                                                                 A[0] = RowD;
                                                                 A[1] = ColD;
                                                                 A[2] = RowS;
                                                                 A[3] = ColS;
+                                                                A[4] = SignBeforNext(RowD, ColD, RowS, ColS);
                                                                 HeuristicAllReducedMove.Add(A);
                                                                 Exchange[ReducedMove]++;
                                                             }
@@ -6928,11 +6935,12 @@ namespace RefrigtzW
                                                             Object OOO = new Object();
                                                             lock (OOO)
                                                             {
-                                                                int[] A = new int[4];
+                                                                int[] A = new int[5];
                                                                 A[0] = RowS;
                                                                 A[1] = ColS;
                                                                 A[2] = RowD;
                                                                 A[3] = ColD;
+                                                                A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
                                                                 HeuristicAllAttacked.Add(A);
                                                                 Exchange[ToAttacked]++;
                                                             }
@@ -6947,11 +6955,12 @@ namespace RefrigtzW
                                                             Object OOO = new Object();
                                                             lock (OOO)
                                                             {
-                                                                int[] A = new int[4];
+                                                                int[] A = new int[5];
                                                                 A[0] = RowS;
                                                                 A[1] = ColS;
                                                                 A[2] = RowD;
                                                                 A[3] = ColD;
+                                                                A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
                                                                 HeuristicAllSupport.Add(A);
                                                                 Exchange[ToSupport]++;
                                                             }
@@ -6964,11 +6973,12 @@ namespace RefrigtzW
                                                             Object OOO = new Object();
                                                             lock (OOO)
                                                             {
-                                                                int[] A = new int[4];
+                                                                int[] A = new int[5];
                                                                 A[0] = RowS;
                                                                 A[1] = ColS;
                                                                 A[2] = RowD;
                                                                 A[3] = ColD;
+                                                                A[4] = SignBeforNext(RowS, ColS, RowD, ColD);
                                                                 HeuristicAllMove.Add(A);
                                                                 Exchange[ToMoved]++;
                                                             }
@@ -12417,137 +12427,521 @@ namespace RefrigtzW
 
             return Is;
         }
-
-
-        List<List<int[]>> AchMazReducedElephasnt(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        int AchmazPuredBefore(bool Before, int[,] Table, int Level = 1)
         {
-            List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
-            int ii = RowS, jj = ColS;
-
-            if (Order == 1 && Tabl[RowS, ColS] != -2)
-                return Existence;
-
-            if (Order == -1 && Tabl[RowS, ColS] != 2)
-                return Existence;
-
-            for (var i = 0; i < 8; i++)
+            if (!Before)
+                return 0;
+            if (Level == 0)
+                return 0;
+            int No = 0;
+            if (Level == 1)
             {
-                Object O = new Object();
-                lock (O)
+                if (Order == 1)
                 {
-                    var j = i + jj - ii;
-
-                    if (!Scop(ii, jj, i, j))
-                        continue;
-                    List<int[]> Exist = ListOfExistInReducedAttackList(Before, RowS, ColS, i, j);
-                    if (Exist.Count >= 1)
+                    if (AchmazPure.Count > 0)
                     {
-                        IsT += Exist.Count;
-                        Existence.Add(Exist);
+                        for (int i = 0; i < AchmazPure[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazPure[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazPure[0][i][j][0], AchmazPure[0][i][j][1]] > 0 && Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] < 0))
+                                {
+                                    ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], OrderColor(Order), CloneATable(Table), 0, Order, false, 0, 0, Kind);
+                                    if (Scop(AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]))
+                                    {
+                                        int Killed = Math.Abs(Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]]);
+                                        Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] = 0;
+                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]);
+                                        t.Achmaz(CloneATable(Tab), Before, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3], Order);
+                                        No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2);
+                                    }
+                                }
+
+
+                            }
+                        }
                     }
-                    else
+
+                }
+                else
+                {
+                    if (AchmazPure.Count > 0)
                     {
-                        int[] I = new int[5];
-                        if (Order == 1)
+                        for (int i = 0; i < AchmazPure[0].Count; i++)
                         {
-                            if (Tabl[i, j] < 0 && IsT < 2)
+                            for (int j = 0; j < AchmazPure[0][i].Count; j++)
                             {
-                                I[2] = RowS;
-                                I[3] = RowD;
-                                I[0] = i;
-                                I[1] = j;
-                                I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                            }
+                                if (AchmazPure[0][i].Count <= 1)
+                                    continue;
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazPure[0][i][j][0], AchmazPure[0][i][j][1]] < 0 && Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] > 0))
+                                {
+                                    ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], OrderColor(Order), CloneATable(Table), 0, Order, false, 0, 0, Kind);
+                                    if (Scop(AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]))
+                                    {
+                                        int Killed = Math.Abs(Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]]);
+                                        Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] = 0;
+                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]);
+                                        t.Achmaz(CloneATable(Tab), Before, AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3], Order);
+                                        No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2);
+                                    }
+                                }
 
+
+                            }
                         }
-                        else
+                    }
+
+
+                }
+            }
+            else if (Level == 2)
+            {
+                if (Order == 1)
+                {
+                    if (AchmazPure.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazPure[0].Count; i++)
                         {
-                            if (Tabl[i, j] > 0 && IsT < 2)
+                            for (int j = 0; j < AchmazPure[0][i].Count; j++)
                             {
-                                I[2] = RowS;
-                                I[3] = RowD;
-                                I[0] = i;
-                                I[1] = j;
-                                I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazPure[0][i][j][0], AchmazPure[0][i][j][1]] > 0 && Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] < 0))
+                                {
+                                    return 1;
+                                }
                             }
                         }
+                    }
 
+                }
+                else
+                {
+                    if (AchmazPure.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazPure[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazPure[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazPure[0][i][j][0], AchmazPure[0][i][j][1]] < 0 && Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] > 0))
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
                     }
 
                 }
             }
-            //===============================
-            if (Exi.Count >= 1)
-                Existence.Add(Exi);
-            Exi = new List<int[]>(); IsT = 0;
-            Object OO = new Object();
-            lock (OO)
+            return No;
+        }
+        int AchmazPuredAfter(bool Before, int[,] Table, int Level = 1)
+        {
+            if (Before)
+                return 0;
+            if (Level == 0)
+                return 0;
+            int No = 0;
+            if (Level == 1)
             {
-                for (var i = 0; i < 8; i++)
+                if (Order == 1)
+                {
+                    if (AchmazPure.Count > 1)
+                    {
+                        for (int i = 0; i < AchmazPure[1].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazPure[1][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazPure[1][i][j][0], AchmazPure[1][i][j][1]] > 0 && Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]] < 0))
+                                {
+                                    ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], OrderColor(Order), CloneATable(Table), 0, Order, false, 0, 0, Kind);
+                                    if (Scop(AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]))
+                                    {
+                                        int Killed = Math.Abs(Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]]);
+                                        Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] = 0;
+                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]);
+                                        t.Achmaz(CloneATable(Tab), Before, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3], Order);
+                                        No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2);
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (AchmazPure.Count > 1)
+                    {
+                        for (int i = 0; i < AchmazPure[1].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazPure[1][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazPure[1][i][j][0], AchmazPure[1][i][j][1]] > 0 && Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]] < 0))
+                                {
+                                    ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], OrderColor(Order), CloneATable(Table), 0, Order, false, 0, 0, Kind);
+                                    if (Scop(AchmazPure[0][i][j][0], AchmazPure[0][i][j][1], AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]))
+                                    {
+                                        int Killed = Math.Abs(Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]]);
+                                        Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]] = 0;
+                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order), Order, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]);
+                                        t.Achmaz(CloneATable(Tab), Before, AchmazPure[1][i][j][0], AchmazPure[1][i][j][1], AchmazPure[1][i][j][2], AchmazPure[1][i][j][3], Order);
+                                        No += t.AchmazPuredBefore(Before, CloneATable(Tab), 2);
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            else if (Level == 2)
+            {
+                if (Order == 1)
+                {
+                    if (AchmazPure.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazPure[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazPure[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazPure[1][i][j][0], AchmazPure[1][i][j][1]] > 0 && Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]] < 0))
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (AchmazPure.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazPure[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazPure[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazPure[1][i][j][0], AchmazPure[1][i][j][1]] < 0 && Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]] > 0))
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            return No;
+        }
+
+        int AchmazReducedBefore(bool Before, int[,] Table, int Level = 1)
+        {
+            if (!Before)
+                return 0;
+            if (Level == 0)
+                return 0;
+            int No = 0;
+            if (Level == 1)
+            {
+                if (Order == 1)
+                {
+                    if (AchmazReduced.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazReduced[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazReduced[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]] < 0 && Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] > 0))
+                                {
+                                    ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], OrderColor(Order), CloneATable(Table), 0, Order, false, 0, 0, Kind);
+                                    if (Scop(AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3], AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]))
+                                    {
+                                        int Killed = Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]);
+                                        Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] = 0;
+                                        t.HeuristicExchange(Before, Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]), CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]);
+                                        t.Achmaz(CloneATable(Tab), Before, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3], Order);
+                                        No += t.AchmazReducedBefore(Before, CloneATable(Tab), 2);
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (AchmazReduced.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazReduced[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazReduced[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]] > 0 && Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] < 0))
+                                {
+                                    ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], OrderColor(Order), CloneATable(Table), 0, Order, false, 0, 0, Kind);
+                                    if (Scop(AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3], AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]))
+                                    {
+                                        int Killed = Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]);
+                                        Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] = 0;
+                                        t.HeuristicExchange(Before, Math.Abs(Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]]), CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]);
+                                        t.Achmaz(CloneATable(Tab), Before, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3], Order);
+                                        No += t.AchmazReducedBefore(Before, CloneATable(Tab), 2);
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            else if (Level == 2)
+            {
+                if (Order == 1)
+                {
+                    if (AchmazReduced.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazReduced[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazReduced[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] < 0 && Tab[AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]] > 0))
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (AchmazReduced.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazReduced[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazReduced[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] > 0 && Tab[AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]] < 0))
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            return No;
+        }
+        int AchmazReducedAfter(bool Before, int[,] Table, int Level = 1)
+        {
+            if (Before)
+                return 0;
+            if (Level == 0)
+                return 0;
+            int No = 0;
+            if (Level == 1)
+            {
+                if (Order == 1)
+                {
+                    if (AchmazReduced.Count > 1)
+                    {
+                        for (int i = 0; i < AchmazReduced[1].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazReduced[1][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]] < 0 && Tab[AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1]] > 0))
+                                {
+                                    ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], OrderColor(Order), CloneATable(Table), 0, Order, false, 0, 0, Kind);
+                                    if (Scop(AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1]))
+                                    {
+                                        int Killed = Math.Abs(Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]]);
+                                        Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]] = 0;
+                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]);
+                                        t.Achmaz(CloneATable(Tab), Before, AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1], AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], Order * -1);
+                                        No += t.AchmazReducedAfter(Before, CloneATable(Tab), 2);
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (AchmazReduced.Count > 1)
+                    {
+                        for (int i = 0; i < AchmazReduced[1].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazReduced[1][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]] > 0 && Tab[AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1]] < 0))
+                                {
+                                    ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], OrderColor(Order), CloneATable(Table), 0, Order, false, 0, 0, Kind);
+                                    if (Scop(AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1]))
+                                    {
+                                        int Killed = Math.Abs(Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]]);
+                                        Tab[AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3]] = 0;
+                                        t.HeuristicExchange(Before, Killed, CloneATable(Tab), OrderColor(Order * -1), Order * -1, AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1], AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]);
+                                        t.Achmaz(CloneATable(Tab), Before, AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1], AchmazReduced[1][i][j][2], AchmazReduced[1][i][j][3], Order * -1);
+                                        No += t.AchmazReducedAfter(Before, CloneATable(Tab), 2);
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            else if (Level == 2)
+            {
+                if (Order == 1)
+                {
+                    if (AchmazReduced.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazReduced[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazReduced[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] < 0 && Tab[AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]] > 0))
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (AchmazReduced.Count > 0)
+                    {
+                        for (int i = 0; i < AchmazReduced[0].Count; i++)
+                        {
+                            for (int j = 0; j < AchmazReduced[0][i].Count; j++)
+                            {
+                                int[,] Tab = CloneATable(Table);
+                                if ((Tab[AchmazReduced[0][i][j][2], AchmazReduced[0][i][j][3]] > 0 && Tab[AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]] < 0))
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            return No;
+        }
+        List<List<int[]>> AchMazReducedElephasnt(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
+        {
+            List<List<int[]>> Existence = new List<List<int[]>>();
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            int ii = RowS, jj = ColS;
+
+
+            for (var i = 0; i < 8; i++)
+            {
+                for (var j = 0; j < 8; j++)
                 {
                     Object O = new Object();
                     lock (O)
                     {
-                        var j = i * -1 + ii + jj;
                         if (!Scop(ii, jj, i, j))
+                            continue;
+                        if (Order == 1 && Tabl[i, j] != -2)
+                            continue;
+
+                        if (Order == -1 && Tabl[i, j] != 2)
                             continue;
 
                         List<int[]> Exist = ListOfExistInReducedAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
+                        /*        else
                                 {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                    int[] I = new int[5];
+                                    if (Order == 1)
+                                    {
+                                        if (Tabl[i, j] < 0 )
+                                        {
+                                            I[2] = RowS;
+                                            I[3] = RowD;
+                                            I[0] = i;
+                                            I[1] = j;
+                                            I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (Tabl[i, j] > 0 )
+                                        {
+                                            I[2] = RowS;
+                                            I[3] = RowD;
+                                            I[0] = i;
+                                            I[1] = j;
+                                            I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                        }
+                                    }
+
                                 }
-
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
-                            }
-
-                        }
-
-
+            */
                     }
                 }
             }
-            if (Exi.Count >= 1)
-                Existence.Add(Exi);
-
+            //===============================
+            /* if (Exi.Count >= 1)
+             {
+                 if (!ExistFullDoubleList(Existence, Exi))
+                     Existence.Add(Exi);
+             }
+             //Exi = new List<int[]>(); IsT = 0;*/
+            /* if (Exi.Count >= 1)
+            {
+                if (!ExistFullDoubleList(Existence, Exi))
+                    Existence.Add(Exi);
+            }*/
             return Existence;
         }
         List<List<int[]>> AchMazReducedCastle(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
 
-            if (Order == 1 && Tabl[RowS, ColS] != -4)
-                return Existence;
-
-            if (Order == -1 && Tabl[RowS, ColS] != 4)
-                return Existence;
 
             Object O1 = new Object();
             lock (O1)
@@ -12565,54 +12959,62 @@ namespace RefrigtzW
                         if (!Scop(ii, jj, i, j))
                             continue;
 
+                        if (Order == 1 && Tabl[i, j] != -4)
+                            continue;
+
+                        if (Order == -1 && Tabl[i, j] != 4)
+                            continue;
                         List<int[]> Exist = ListOfExistInReducedAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
+                        /*  else
+                          {
+                              int[] I = new int[5];
+                              if (Order == 1)
+                              {
+                                  if (Tabl[i, j] < 0 )
+                                  {
+                                      I[2] = RowS;
+                                      I[3] = RowD;
+                                      I[0] = i;
+                                      I[1] = j;
+                                      I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                  }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
-                            }
+                              }
+                              else
+                              {
+                                  if (Tabl[i, j] > 0 )
+                                  {
+                                      I[2] = RowS;
+                                      I[3] = RowD;
+                                      I[0] = i;
+                                      I[1] = j;
+                                      I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                  }
+                              }
 
-                        }
-
+                          }
+  */
                     }
                 }
             }
 
             //===============================
-            if (Exi.Count >= 1)
-                Existence.Add(Exi);
-            Exi = new List<int[]>(); IsT = 0;
-
+            /*if (Exi.Count >= 1)
+            {
+                if (!ExistFullDoubleList(Existence, Exi))
+                    Existence.Add(Exi);
+            }
+            //Exi = new List<int[]>(); IsT = 0;
+            */
             Object OO = new Object();
             lock (OO)
             {
-                for (var j = 0; j < 8; j++)
+                for (var j = -7; j < 8; j++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12622,48 +13024,57 @@ namespace RefrigtzW
                         var i = ii;
                         if (!Scop(ii, jj, i, j))
                             continue;
+                        if (Order == 1 && Tabl[i, j] != -4)
+                            continue;
+
+                        if (Order == -1 && Tabl[i, j] != 4)
+                            continue;
                         List<int[]> Exist = ListOfExistInReducedAttackList(Before, i, j, RowS, ColS);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
+                        /*  else
+                          {
+                              int[] I = new int[5];
+                              if (Order == 1)
+                              {
+                                  if (Tabl[i, j] < 0 )
+                                  {
+                                      I[2] = RowS;
+                                      I[3] = RowD;
+                                      I[0] = i;
+                                      I[1] = j;
+                                      I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                  }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
-                            }
+                              }
+                              else
+                              {
+                                  if (Tabl[i, j] > 0 )
+                                  {
+                                      I[2] = RowS;
+                                      I[3] = RowD;
+                                      I[0] = i;
+                                      I[1] = j;
+                                      I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                  }
+                              }
 
-                        }
+                          }
+                     */
                     }
 
                 }
             }
 
-            if (Exi.Count >= 1)
-                Existence.Add(Exi);
-
+            /* if (Exi.Count >= 1)
+             {
+                 if (!ExistFullDoubleList(Existence, Exi))
+                     Existence.Add(Exi);
+             }
+           */
             return Existence;
 
         }
@@ -12671,7 +13082,7 @@ namespace RefrigtzW
         List<List<int[]>> AchMazElephasnt(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
 
             if (Order == 1 && Tabl[RowS, ColS] != 2)
@@ -12682,82 +13093,27 @@ namespace RefrigtzW
 
             for (var i = 0; i < 8; i++)
             {
-                Object O = new Object();
-                lock (O)
-                {
-                    var j = i + jj - ii;
-
-
-                    if (!Scop(ii, jj, i, j))
-                        continue;
-                    List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
-                    if (Exist.Count >= 1)
-                    {
-                        IsT += Exist.Count;
-                        Existence.Add(Exist);
-                    }
-                    else
-                    {
-                        int[] I = new int[5];
-                        if (Order == 1)
-                        {
-                            if (Tabl[i, j] < 0 && IsT < 2)
-                            {
-                                I[0] = RowS;
-                                I[1] = RowD;
-                                I[2] = i;
-                                I[3] = j;
-                                I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                            }
-
-                        }
-                        else
-                        {
-                            if (Tabl[i, j] > 0 && IsT < 2)
-                            {
-                                I[0] = RowS;
-                                I[1] = RowD;
-                                I[2] = i;
-                                I[3] = j;
-                                I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                            }
-                        }
-
-                    }
-
-                }
-            }
-
-            //===============================
-
-            Object OO = new Object();
-            lock (OO)
-            {
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
-                for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
                 {
                     Object O = new Object();
                     lock (O)
                     {
-                        var j = i * -1 + ii + jj;
+
 
                         if (!Scop(ii, jj, i, j))
                             continue;
                         List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
-
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
+                        /*else
                         {
                             int[] I = new int[5];
                             if (Order == 1)
                             {
-                                if (Tabl[i, j] < 0 && IsT < 2)
+                                if (Tabl[i, j] < 0 )
                                 {
                                     I[0] = RowS;
                                     I[1] = RowD;
@@ -12769,7 +13125,7 @@ namespace RefrigtzW
                             }
                             else
                             {
-                                if (Tabl[i, j] > 0 && IsT < 2)
+                                if (Tabl[i, j] > 0 )
                                 {
                                     I[0] = RowS;
                                     I[1] = RowD;
@@ -12779,22 +13135,24 @@ namespace RefrigtzW
                                 }
                             }
 
-                        }
+                        }*/
+
                     }
-
                 }
-
-
-
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
             }
+
+            /*if (Exi.Count >= 1)
+            {
+                if (!ExistFullDoubleList(Existence, Exi))
+                    Existence.Add(Exi);
+            } */ //===============================
+
             return Existence;
         }
         List<List<int[]>> AchMazCastle(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
 
             if (Order == 1 && Tabl[RowS, ColS] != 4)
@@ -12823,40 +13181,45 @@ namespace RefrigtzW
 
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
+                        /*  else
+                          {
+                              int[] I = new int[5];
+                              if (Order == 1)
+                              {
+                                  if (Tabl[i, j] < 0 )
+                                  {
+                                      I[0] = RowS;
+                                      I[1] = RowD;
+                                      I[2] = i;
+                                      I[3] = j;
+                                      I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                  }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                              }
+                              else
+                              {
+                                  if (Tabl[i, j] > 0 )
+                                  {
+                                      I[0] = RowS;
+                                      I[1] = RowD;
+                                      I[2] = i;
+                                      I[3] = j;
+                                      I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                  }
+                              }
 
-                        }
-
+                          }
+                          */
                     }
                 }
+                /* if (Exi.Count >= 1)
+                 {
+                     if (!ExistFullDoubleList(Existence, Exi))
+                         Existence.Add(Exi);
+                 }*/
             }
 
             //===============================
@@ -12864,10 +13227,8 @@ namespace RefrigtzW
             Object OO = new Object();
             lock (OO)
             {
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
-                for (var j = 0; j < 8; j++)
+                //Exi = new List<int[]>(); IsT = 0;
+                for (var j = -7; j < 8; j++)
                 {
                     Object O = new Object();
                     lock (O)
@@ -12880,40 +13241,47 @@ namespace RefrigtzW
                         List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
+                        /*   else
+                           {
+                               int[] I = new int[5];
+                               if (Order == 1)
+                               {
+                                   if (Tabl[i, j] < 0 )
+                                   {
+                                       I[0] = RowS;
+                                       I[1] = RowD;
+                                       I[2] = i;
+                                       I[3] = j;
+                                       I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                   }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                               }
+                               else
+                               {
+                                   if (Tabl[i, j] > 0 )
+                                   {
+                                       I[0] = RowS;
+                                       I[1] = RowD;
+                                       I[2] = i;
+                                       I[3] = j;
+                                       I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                   }
+                               }
 
-                        }
+                           }
+                       */
                     }
 
                 }
+                /*if (Exi.Count >= 1)
+                {
+                    if (!ExistFullDoubleList(Existence, Exi))
+                        Existence.Add(Exi);
+                }*/
+
             }
 
 
@@ -12924,7 +13292,7 @@ namespace RefrigtzW
         List<List<int[]>> AchMazHourse(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
 
             if (Order == 1 && Tabl[RowS, ColS] != 3)
@@ -12950,45 +13318,50 @@ namespace RefrigtzW
 
                             if (Exist.Count >= 1)
                             {
-                                IsT += Exist.Count;
+                                //IsT += Exist.Count;
                                 Existence.Add(Exist);
                             }
-                            else
-                            {
-                                int[] I = new int[5];
-                                if (Order == 1)
+                            /*    else
                                 {
-                                    if (Tabl[i, j] < 0 && IsT < 2)
+                                    int[] I = new int[5];
+                                    if (Order == 1)
                                     {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                        if (Tabl[i, j] < 0 )
+                                        {
+                                            I[0] = RowS;
+                                            I[1] = RowD;
+                                            I[2] = i;
+                                            I[3] = j;
+                                            I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (Tabl[i, j] > 0 )
+                                        {
+                                            I[0] = RowS;
+                                            I[1] = RowD;
+                                            I[2] = i;
+                                            I[3] = j;
+                                            I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                        }
                                     }
 
+
+
                                 }
-                                else
-                                {
-                                    if (Tabl[i, j] > 0 && IsT < 2)
-                                    {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                    }
-                                }
-
-
-
-                            }
+                           */
                         }
                     }
                 }
             }
-            //===============================
-
+            /*if (Exi.Count >= 1)
+            {
+                if (!ExistFullDoubleList(Existence, Exi))
+                    Existence.Add(Exi);
+            }  //===============================
+            */
 
 
             return Existence;
@@ -12997,14 +13370,8 @@ namespace RefrigtzW
         List<List<int[]>> AchMazReducedHourse(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
-
-            if (Order == 1 && Tabl[RowS, ColS] != 3)
-                return Existence;
-
-            if (Order == -1 && Tabl[RowS, ColS] != -3)
-                return Existence;
 
             Object O1 = new Object();
             lock (O1)
@@ -13019,49 +13386,59 @@ namespace RefrigtzW
                         {
                             if (!Scop(ii, jj, i, j))
                                 continue;
+                            if (Order == 1 && Tabl[i, j] != 3)
+                                continue;
+
+                            if (Order == -1 && Tabl[i, j] != -3)
+                                continue;
+
                             List<int[]> Exist = ListOfExistInReducedAttackList(Before, RowS, ColS, i, j);
 
                             if (Exist.Count >= 1)
                             {
-                                IsT += Exist.Count;
+                                //IsT += Exist.Count;
                                 Existence.Add(Exist);
                             }
-                            else
-                            {
-                                int[] I = new int[5];
-                                if (Order == 1)
+                            /*    else
                                 {
-                                    if (Tabl[i, j] < 0 && IsT < 2)
+                                    int[] I = new int[5];
+                                    if (Order == 1)
                                     {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                        if (Tabl[i, j] < 0 )
+                                        {
+                                            I[0] = RowS;
+                                            I[1] = RowD;
+                                            I[2] = i;
+                                            I[3] = j;
+                                            I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (Tabl[i, j] > 0 )
+                                        {
+                                            I[0] = RowS;
+                                            I[1] = RowD;
+                                            I[2] = i;
+                                            I[3] = j;
+                                            I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                        }
                                     }
 
+
                                 }
-                                else
-                                {
-                                    if (Tabl[i, j] > 0 && IsT < 2)
-                                    {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                    }
-                                }
-
-
-                            }
-
+    */
                         }
                     }
                 }
             }
             //===============================
-
+            /* if (Exi.Count >= 1)
+             {
+                 if (!ExistFullDoubleList(Existence, Exi))
+                     Existence.Add(Exi);
+             }*/
 
 
             return Existence;
@@ -13071,7 +13448,7 @@ namespace RefrigtzW
         List<List<int[]>> AchMazMinister(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
 
             if (Order == 1 && Tabl[RowS, ColS] != 5)
@@ -13085,231 +13462,67 @@ namespace RefrigtzW
             {
                 for (var i = 0; i < 8; i++)
                 {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        var j = i + jj - ii;
-
-
-                        if (!Scop(ii, jj, i, j))
-                            continue;
-                        List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
-                        if (Exist.Count >= 1)
-                        {
-                            IsT += Exist.Count;
-                            Existence.Add(Exist);
-                        }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
-
-                        }
-
-
-                    }
-                }
-                //===============================
-
-                Object OOOo1 = new Object();
-                lock (OOOo1)
-                {
-                    if (Exi.Count >= 1)
-                        Existence.Add(Exi);
-                    Exi = new List<int[]>(); IsT = 0;
-                    for (var i = 0; i < 8; i++)
+                    for (var j = 0; j < 8; j++)
                     {
                         Object O = new Object();
                         lock (O)
                         {
-                            var j = i * -1 + ii + jj;
 
-                            if (!Scop(ii, jj, i, j, 5))
+
+                            if (!Scop(ii, jj, i, j))
                                 continue;
                             List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                             if (Exist.Count >= 1)
                             {
-                                IsT += Exist.Count;
+                                //IsT += Exist.Count;
                                 Existence.Add(Exist);
                             }
-                            else
-                            {
-                                int[] I = new int[5];
-                                if (Order == 1)
-                                {
-                                    if (Tabl[i, j] < 0 && IsT < 2)
-                                    {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                    }
+                            /*      else
+                                  {
+                                      int[] I = new int[5];
+                                      if (Order == 1)
+                                      {
+                                          if (Tabl[i, j] < 0 )
+                                          {
+                                              I[0] = RowS;
+                                              I[1] = RowD;
+                                              I[2] = i;
+                                              I[3] = j;
+                                              I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                          }
 
-                                }
-                                else
-                                {
-                                    if (Tabl[i, j] > 0 && IsT < 2)
-                                    {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                    }
-                                }
+                                      }
+                                      else
+                                      {
+                                          if (Tabl[i, j] > 0 )
+                                          {
+                                              I[0] = RowS;
+                                              I[1] = RowD;
+                                              I[2] = i;
+                                              I[3] = j;
+                                              I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                          }
+                                      }
 
-                            }
-
-
-                        }
-                    }
-                }
-                //=============================================
-                ////Parallel.For(0, 8, i =>
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
-                for (var i = 0; i < 8; i++)
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-
-                        var j = jj;
-
-
-                        if (!Scop(ii, jj, i, j))
-                            continue;
-                        List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
-                        if (Exist.Count >= 1)
-                        {
-                            IsT += Exist.Count;
-                            Existence.Add(Exist);
-                        }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                                  }
+          */
 
                         }
-
                     }
                 }
             }
-
-            //===============================
-
-            Object OO = new Object();
-            lock (OO)
+            /*if (Exi.Count >= 1)
             {
-                if (Exi.Count >= 1)
+                if (!ExistFullDoubleList(Existence, Exi))
                     Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
-                for (var j = 0; j < 8; j++)
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-
-
-                        var i = ii;
-                        if (!Scop(ii, jj, i, j))
-                            continue;
-                        List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
-                        if (Exist.Count >= 1)
-                        {
-                            IsT += Exist.Count;
-                            Existence.Add(Exist);
-                        }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
-
-                        }
-                    }
-
-                }
-            }
-
-
-            if (Exi.Count >= 1)
-                Existence.Add(Exi);
+            }*/
             return Existence;
 
         }
         List<List<int[]>> AchMazKing(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
 
             if (Order == 1 && Tabl[RowS, ColS] != 6)
@@ -13326,7 +13539,7 @@ namespace RefrigtzW
                     Object O = new Object();
                     lock (O)
                     {
-                        var j = i + jj - ii;
+                        var j = i + ii - jj;
 
                         if (!Scop(ii, jj, i, j))
                             continue;
@@ -13334,39 +13547,39 @@ namespace RefrigtzW
                         List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
+                        /* else
+                         {
+                             int[] I = new int[5];
+                             if (Order == 1)
+                             {
+                                 if (Tabl[i, j] < 0 )
+                                 {
+                                     I[0] = RowS;
+                                     I[1] = RowD;
+                                     I[2] = i;
+                                     I[3] = j;
+                                     I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                 }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                             }
+                             else
+                             {
+                                 if (Tabl[i, j] > 0 )
+                                 {
+                                     I[0] = RowS;
+                                     I[1] = RowD;
+                                     I[2] = i;
+                                     I[3] = j;
+                                     I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                 }
+                             }
 
-                        }
+                         }
 
-
+ */
                     }
                 }
                 //===============================
@@ -13374,62 +13587,68 @@ namespace RefrigtzW
                 Object OOOo1 = new Object();
                 lock (OOOo1)
                 {
-                    if (Exi.Count >= 1)
-                        Existence.Add(Exi);
-                    Exi = new List<int[]>(); IsT = 0;
+                    /*if (Exi.Count >= 1)
+                    {
+                        if (!ExistFullDoubleList(Existence, Exi))
+                            Existence.Add(Exi);
+                    }*/
+                    //Exi = new List<int[]>(); IsT = 0;
                     for (var i = ii - 1; i < ii + 2; i++)
                     {
                         Object O = new Object();
                         lock (O)
                         {
-                            var j = i * -1 + ii + jj;
+                            var j = i * -1 + ii - jj;
 
                             if (!Scop(ii, jj, i, j))
                                 continue;
                             List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                             if (Exist.Count >= 1)
                             {
-                                IsT += Exist.Count;
+                                //IsT += Exist.Count;
                                 Existence.Add(Exist);
                             }
-                            else
-                            {
-                                int[] I = new int[5];
-                                if (Order == 1)
-                                {
-                                    if (Tabl[i, j] < 0 && IsT < 2)
-                                    {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                    }
+                            /*  else
+                              {
+                                  int[] I = new int[5];
+                                  if (Order == 1)
+                                  {
+                                      if (Tabl[i, j] < 0 )
+                                      {
+                                          I[0] = RowS;
+                                          I[1] = RowD;
+                                          I[2] = i;
+                                          I[3] = j;
+                                          I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                      }
 
-                                }
-                                else
-                                {
-                                    if (Tabl[i, j] > 0 && IsT < 2)
-                                    {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                    }
-                                }
+                                  }
+                                  else
+                                  {
+                                      if (Tabl[i, j] > 0 )
+                                      {
+                                          I[0] = RowS;
+                                          I[1] = RowD;
+                                          I[2] = i;
+                                          I[3] = j;
+                                          I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                      }
+                                  }
 
-                            }
+                              }
 
-
+  */
                         }
                     }
                 }
                 //=============================================
                 ////Parallel.For(0, 8, i =>
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
+                /*if (Exi.Count >= 1)
+                {
+                    if (!ExistFullDoubleList(Existence, Exi))
+                        Existence.Add(Exi);
+                }*/
+                //Exi = new List<int[]>(); IsT = 0;
                 for (var i = ii - 1; i < ii + 2; i++)
                 {
                     Object O = new Object();
@@ -13445,38 +13664,38 @@ namespace RefrigtzW
                         List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
+                        /*     else
+                             {
+                                 int[] I = new int[5];
+                                 if (Order == 1)
+                                 {
+                                     if (Tabl[i, j] < 0 )
+                                     {
+                                         I[0] = RowS;
+                                         I[1] = RowD;
+                                         I[2] = i;
+                                         I[3] = j;
+                                         I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                     }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                                 }
+                                 else
+                                 {
+                                     if (Tabl[i, j] > 0 )
+                                     {
+                                         I[0] = RowS;
+                                         I[1] = RowD;
+                                         I[2] = i;
+                                         I[3] = j;
+                                         I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                     }
+                                 }
 
-                        }
-
+                             }
+     */
                     }
                 }
             }
@@ -13486,9 +13705,12 @@ namespace RefrigtzW
             Object OO = new Object();
             lock (OO)
             {
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
+                /* if (Exi.Count >= 1)
+                 {
+                     if (!ExistFullDoubleList(Existence, Exi))
+                         Existence.Add(Exi);
+                 }*/
+                //Exi = new List<int[]>(); IsT = 0;
                 for (var j = ii - 1; j < ii + 2; j++)
                 {
                     Object O = new Object();
@@ -13502,45 +13724,49 @@ namespace RefrigtzW
                         List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
+                        /*     else
+                             {
+                                 int[] I = new int[5];
+                                 if (Order == 1)
+                                 {
+                                     if (Tabl[i, j] < 0 )
+                                     {
+                                         I[0] = RowS;
+                                         I[1] = RowD;
+                                         I[2] = i;
+                                         I[3] = j;
+                                         I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                     }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                                 }
+                                 else
+                                 {
+                                     if (Tabl[i, j] > 0 )
+                                     {
+                                         I[0] = RowS;
+                                         I[1] = RowD;
+                                         I[2] = i;
+                                         I[3] = j;
+                                         I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                     }
+                                 }
 
-                        }
+                             }
+                      */
                     }
 
                 }
             }
 
 
-            if (Exi.Count >= 1)
-                Existence.Add(Exi);
+            /*if (Exi.Count >= 1)
+            {
+                if (!ExistFullDoubleList(Existence, Exi))
+                    Existence.Add(Exi);
+            }*/
             return Existence;
 
         }
@@ -13548,14 +13774,9 @@ namespace RefrigtzW
         List<List<int[]>> AchMazReducedKing(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
 
-            if (Order == 1 && Tabl[RowS, ColS] != 6)
-                return Existence;
-
-            if (Order == -1 && Tabl[RowS, ColS] != -6)
-                return Existence;
 
             Object O1 = new Object();
             lock (O1)
@@ -13565,45 +13786,50 @@ namespace RefrigtzW
                     Object O = new Object();
                     lock (O)
                     {
-                        var j = i + jj - ii;
+                        var j = i + ii - jj;
 
                         if (!Scop(ii, jj, i, j))
                             continue;
+                        if (Order == 1 && Tabl[i, j] != 6)
+                            continue;
+                        if (Order == -1 && Tabl[i, j] != -6)
+                            continue;
+
                         List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
+                        /* else
+                          {
+                              int[] I = new int[5];
+                              if (Order == 1)
+                              {
+                                  if (Tabl[i, j] < 0 )
+                                  {
+                                      I[0] = RowS;
+                                      I[1] = RowD;
+                                      I[2] = i;
+                                      I[3] = j;
+                                      I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                  }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                              }
+                              else
+                              {
+                                  if (Tabl[i, j] > 0 )
+                                  {
+                                      I[0] = RowS;
+                                      I[1] = RowD;
+                                      I[2] = i;
+                                      I[3] = j;
+                                      I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                  }
+                              }
 
-                        }
-
+                          }
+  */
 
                     }
                 }
@@ -13612,62 +13838,72 @@ namespace RefrigtzW
                 Object OOOo1 = new Object();
                 lock (OOOo1)
                 {
-                    if (Exi.Count >= 1)
-                        Existence.Add(Exi);
-                    Exi = new List<int[]>(); IsT = 0;
+                    /*if (Exi.Count >= 1)
+                    {
+                        if (!ExistFullDoubleList(Existence, Exi))
+                            Existence.Add(Exi);
+                    }*/
+                    //Exi = new List<int[]>(); IsT = 0;
                     for (var i = ii - 1; i < ii + 2; i++)
                     {
                         Object O = new Object();
                         lock (O)
                         {
-                            var j = i * -1 + ii + jj;
+                            var j = i * -1 + ii - jj;
 
                             if (!Scop(ii, jj, i, j))
+                                continue;
+                            if (Order == 1 && Tabl[i, j] != 6)
+                                continue;
+                            if (Order == -1 && Tabl[i, j] != -6)
                                 continue;
                             List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                             if (Exist.Count >= 1)
                             {
-                                IsT += Exist.Count;
+                                //IsT += Exist.Count;
                                 Existence.Add(Exist);
                             }
-                            else
-                            {
-                                int[] I = new int[5];
-                                if (Order == 1)
-                                {
-                                    if (Tabl[i, j] < 0 && IsT < 2)
-                                    {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                    }
+                            /*   else
+                               {
+                                   int[] I = new int[5];
+                                   if (Order == 1)
+                                   {
+                                       if (Tabl[i, j] < 0 )
+                                       {
+                                           I[0] = RowS;
+                                           I[1] = RowD;
+                                           I[2] = i;
+                                           I[3] = j;
+                                           I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                       }
 
-                                }
-                                else
-                                {
-                                    if (Tabl[i, j] > 0 && IsT < 2)
-                                    {
-                                        I[0] = RowS;
-                                        I[1] = RowD;
-                                        I[2] = i;
-                                        I[3] = j;
-                                        I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                    }
-                                }
+                                   }
+                                   else
+                                   {
+                                       if (Tabl[i, j] > 0 )
+                                       {
+                                           I[0] = RowS;
+                                           I[1] = RowD;
+                                           I[2] = i;
+                                           I[3] = j;
+                                           I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                       }
+                                   }
 
-                            }
+                               }
 
-
+   */
                         }
                     }
                 }
                 //=============================================
                 ////Parallel.For(0, 8, i =>
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
+                /*if (Exi.Count >= 1)
+                {
+                    if (!ExistFullDoubleList(Existence, Exi))
+                        Existence.Add(Exi);
+                }*/
+                //Exi = new List<int[]>(); IsT = 0;
                 for (var i = ii - 1; i < ii + 2; i++)
                 {
                     Object O = new Object();
@@ -13680,41 +13916,45 @@ namespace RefrigtzW
                             continue;
 
 
+                        if (Order == 1 && Tabl[i, j] != 6)
+                            continue;
+                        if (Order == -1 && Tabl[i, j] != -6)
+                            continue;
                         List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
+                        /*  else
+                          {
+                              int[] I = new int[5];
+                              if (Order == 1)
+                              {
+                                  if (Tabl[i, j] < 0 )
+                                  {
+                                      I[0] = RowS;
+                                      I[1] = RowD;
+                                      I[2] = i;
+                                      I[3] = j;
+                                      I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                  }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                              }
+                              else
+                              {
+                                  if (Tabl[i, j] > 0 )
+                                  {
+                                      I[0] = RowS;
+                                      I[1] = RowD;
+                                      I[2] = i;
+                                      I[3] = j;
+                                      I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                  }
+                              }
 
-                        }
-
+                          }
+  */
                     }
                 }
             }
@@ -13724,9 +13964,12 @@ namespace RefrigtzW
             Object OO = new Object();
             lock (OO)
             {
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
+                /*if (Exi.Count >= 1)
+                {
+                    if (!ExistFullDoubleList(Existence, Exi))
+                        Existence.Add(Exi);
+                }*/
+                //Exi = new List<int[]>(); IsT = 0;
                 for (var j = ii - 1; j < ii + 2; j++)
                 {
                     Object O = new Object();
@@ -13737,279 +13980,191 @@ namespace RefrigtzW
                         var i = ii;
                         if (!Scop(ii, jj, i, j))
                             continue;
+                        if (Order == 1 && Tabl[i, j] != 6)
+                            continue;
+                        if (Order == -1 && Tabl[i, j] != -6)
+                            continue;
                         List<int[]> Exist = ListOfExistInAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
+                        /*   else
+                           {
+                               int[] I = new int[5];
+                               if (Order == 1)
+                               {
+                                   if (Tabl[i, j] < 0 )
+                                   {
+                                       I[0] = RowS;
+                                       I[1] = RowD;
+                                       I[2] = i;
+                                       I[3] = j;
+                                       I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                   }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[0] = RowS;
-                                    I[1] = RowD;
-                                    I[2] = i;
-                                    I[3] = j;
-                                    I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
-                                }
-                            }
+                               }
+                               else
+                               {
+                                   if (Tabl[i, j] > 0 )
+                                   {
+                                       I[0] = RowS;
+                                       I[1] = RowD;
+                                       I[2] = i;
+                                       I[3] = j;
+                                       I[4] = SignBeforNext(RowS, ColS, i, j); Exi.Add(I); IsT++;
+                                   }
+                               }
 
-                        }
+                           }
+                      */
                     }
 
                 }
             }
 
 
-            if (Exi.Count >= 1)
-                Existence.Add(Exi);
+            /* if (Exi.Count >= 1)
+             {
+                 if (!ExistFullDoubleList(Existence, Exi))
+                     Existence.Add(Exi);
+             }*/
             return Existence;
 
         }
         List<List<int[]>> AchMazReducedMinister(int[,] Tabl, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> Existence = new List<List<int[]>>();
-            List<int[]> Exi = new List<int[]>(); int IsT = 0;
+            //List<int[]> Exi = new List<int[]>(); int IsT = 0;
             int ii = RowS, jj = ColS;
 
-            if (Order == 1 && Tabl[RowS, ColS] != -5)
-                return Existence;
-
-            if (Order == -1 && Tabl[RowS, ColS] != 5)
-                return Existence;
 
             for (var i = 0; i < 8; i++)
             {
-                Object O = new Object();
-                lock (O)
-                {
-                    var j = i + jj - ii;
-
-                    if (!Scop(ii, jj, i, j))
-                        continue;
-
-                    List<int[]> Exist = ListOfExistInReducedAttackList(Before, RowS, ColS, i, j);
-                    if (Exist.Count >= 1)
-                    {
-                        IsT += Exist.Count;
-                        Existence.Add(Exist);
-                    }
-                    else
-                    {
-                        int[] I = new int[5];
-                        if (Order == 1)
-                        {
-                            if (Tabl[i, j] < 0 && IsT < 2)
-                            {
-                                I[2] = RowS;
-                                I[3] = RowD;
-                                I[0] = i;
-                                I[1] = j;
-                                I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                            }
-
-                        }
-                        else
-                        {
-                            if (Tabl[i, j] > 0 && IsT < 2)
-                            {
-                                I[2] = RowS;
-                                I[3] = RowD;
-                                I[0] = i;
-                                I[1] = j;
-                                I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                            }
-                        }
-                    }
-
-
-                }
-            }
-            //===============================
-
-            Object OO = new Object();
-            lock (OO)
-            {
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
-                for (var i = 0; i < 8; i++)
-                {
-                    Object O = new Object();
-                    lock (O)
-                    {
-                        var j = i * -1 + ii + jj;
-
-                        if (!Scop(ii, jj, i, j))
-                            continue;
-                        List<int[]> Exist = ListOfExistInReducedAttackList(Before, RowS, ColS, i, j);
-                        if (Exist.Count >= 1)
-                        {
-                            IsT += Exist.Count;
-                            Existence.Add(Exist);
-                        }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
-
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
-                            }
-                        }
-
-
-                    }
-                }
-            }
-            ///====================================================
-            ///         
-            Object O1 = new Object();
-            lock (O1)
-            {
-                if (Exi.Count >= 1)
-                    Existence.Add(Exi);
-                Exi = new List<int[]>(); IsT = 0;
-                ////Parallel.For(0, 8, i =>
-                for (var i = 0; i < 8; i++)
+                for (var j = 0; j < 8; j++)
                 {
                     Object O = new Object();
                     lock (O)
                     {
 
-
-                        var j = jj;
-
                         if (!Scop(ii, jj, i, j))
                             continue;
 
+                        if (Order == 1 && Tabl[i, j] != -5)
+                            continue;
+
+                        if (Order == -1 && Tabl[i, j] != 5)
+                            continue;
                         List<int[]> Exist = ListOfExistInReducedAttackList(Before, RowS, ColS, i, j);
                         if (Exist.Count >= 1)
                         {
-                            IsT += Exist.Count;
+                            //IsT += Exist.Count;
                             Existence.Add(Exist);
                         }
-                        else
-                        {
-                            int[] I = new int[5];
-                            if (Order == 1)
-                            {
-                                if (Tabl[i, j] < 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
+                        /*  else
+                          {
+                              int[] I = new int[5];
+                              if (Order == 1)
+                              {
+                                  if (Tabl[i, j] < 0 )
+                                  {
+                                      I[2] = RowS;
+                                      I[3] = RowD;
+                                      I[0] = i;
+                                      I[1] = j;
+                                      I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                  }
 
-                            }
-                            else
-                            {
-                                if (Tabl[i, j] > 0 && IsT < 2)
-                                {
-                                    I[2] = RowS;
-                                    I[3] = RowD;
-                                    I[0] = i;
-                                    I[1] = j;
-                                    I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
-                                }
-                            }
-                        }
+                              }
+                              else
+                              {
+                                  if (Tabl[i, j] > 0 )
+                                  {
+                                      I[2] = RowS;
+                                      I[3] = RowD;
+                                      I[0] = i;
+                                      I[1] = j;
+                                      I[4] = SignBeforNext(i, j, RowS, ColS); Exi.Add(I); IsT++;
+                                  }
+                              }
+                          }
+      */
 
                     }
                 }
             }
 
-            if (Exi.Count >= 1)
-                Existence.Add(Exi);
+            /*if (Exi.Count >= 1)
+            {
+                if (!ExistFullDoubleList(Existence, Exi))
+                    Existence.Add(Exi);
+            }*/
             return Existence;
         }
+
 
         void Achmaz(int[,] Table, bool Before, int RowS, int ColS, int RowD, int ColD, int Order)
         {
             List<List<int[]>> EleRedAchmaz = null, EleAchmaz = null, HourAchmaz = null, HourRedAchmaz = null, CastRedAchmaz = null, CastAchmaz = null, MiniRedAchmaz = null, MiniAchmaz = null, KingRedAchmaz = null, KingAchmaz = null;
-            if (System.Math.Abs(Table[RowS, ColS]) == 2 || System.Math.Abs(Table[RowD, ColD]) == 2)
+            //if (System.Math.Abs(Table[RowS, ColS]) == 2 || System.Math.Abs(Table[RowD, ColD]) == 2)
             {
-
-                EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //EleRedAchmaz = CollectionSortation(EleRedAchmaz);
-
-                EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //EleAchmaz = CollectionSortation(EleAchmaz);
+                var tth = Task.Factory.StartNew(() =>
+                {
+                    Parallel.Invoke(() =>
+                    {
+                        var tth1 = Task.Factory.StartNew(() => EleRedAchmaz = AchMazReducedElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order));
+                        tth1.Wait();
+                        tth1.Dispose();
+                    }, () =>
+                    {
+                        var tth2 = Task.Factory.StartNew(() => EleAchmaz = AchMazElephasnt(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order));
+                        tth2.Wait();
+                        tth2.Dispose();
+                    }, () =>
+                    {
+                        var tth1 = Task.Factory.StartNew(() => CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order));
+                        tth1.Wait();
+                        tth1.Dispose();
+                    }, () =>
+                    {
+                        var tth2 = Task.Factory.StartNew(() => CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order));
+                        tth2.Wait();
+                        tth2.Dispose();
+                    }, () =>
+                    {
+                        var tth1 = Task.Factory.StartNew(() => MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order));
+                        tth1.Wait();
+                        tth1.Dispose();
+                    }, () =>
+                    {
+                        var tth2 = Task.Factory.StartNew(() => MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order));
+                        tth2.Wait();
+                        tth2.Dispose();
+                    });
+                });
+                tth.Wait();
+                tth.Dispose();
             }
 
-            if (System.Math.Abs(Table[RowS, ColS]) == 3 || System.Math.Abs(Table[RowD, ColD]) == 3)
+            var ttttth = Task.Factory.StartNew(() =>
             {
-                HourRedAchmaz = AchMazReducedHourse(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //CastRedAchmaz = CollectionSortation(CastRedAchmaz);
-
-                HourAchmaz = AchMazHourse(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //CastAchmaz = CollectionSortation(CastAchmaz);
-            }
-            if (System.Math.Abs(Table[RowS, ColS]) == 4 || System.Math.Abs(Table[RowD, ColD]) == 4)
-            {
-                CastRedAchmaz = AchMazReducedCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //CastRedAchmaz = CollectionSortation(CastRedAchmaz);
-
-                CastAchmaz = AchMazCastle(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //CastAchmaz = CollectionSortation(CastAchmaz);
-            }
-
-            if (System.Math.Abs(Table[RowS, ColS]) == 5 || System.Math.Abs(Table[RowD, ColD]) == 5)
-            {
-                MiniRedAchmaz = AchMazReducedMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //MiniRedAchmaz = CollectionSortation(MiniRedAchmaz);
+                Parallel.Invoke(() =>
+                {
+                    var tth1 = Task.Factory.StartNew(() => AchmazPure.Add(CollectionSummation(EleAchmaz, HourAchmaz, CastAchmaz, MiniAchmaz, KingAchmaz)));
+                    tth1.Wait();
+                    tth1.Dispose();
+                }, () =>
+                {
+                    var tth2 = Task.Factory.StartNew(() => AchmazReduced.Add(CollectionSummation(EleRedAchmaz, HourRedAchmaz, CastRedAchmaz, MiniRedAchmaz, KingRedAchmaz)));
+                    tth2.Wait();
+                    tth2.Dispose();
+                });
+            });
+            ttttth.Wait();
+            ttttth.Dispose();
 
 
-                MiniAchmaz = AchMazMinister(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //MiniAchmaz = CollectionSortation(MiniAchmaz);
-            }
-            if (System.Math.Abs(Table[RowS, ColS]) == 6 || System.Math.Abs(Table[RowD, ColD]) == 6)
-            {
-                KingRedAchmaz = AchMazReducedKing(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //MiniRedAchmaz = CollectionSortation(MiniRedAchmaz);
-
-
-                KingAchmaz = AchMazKing(CloneATable(Table), Before, RowS, ColS, RowD, ColD, Order);
-                //MiniAchmaz = CollectionSortation(MiniAchmaz);
-            }
-            AchmazPure.Add(CollectionSummation(EleAchmaz, HourAchmaz, CastAchmaz, MiniAchmaz, KingAchmaz));
-            AchmazReduced.Add(CollectionSummation(EleRedAchmaz, HourRedAchmaz, CastRedAchmaz, MiniRedAchmaz, KingRedAchmaz));
         }
         List<List<int[]>> CollectionSortation(List<List<int[]>> A)
         {
@@ -14078,7 +14233,7 @@ namespace RefrigtzW
             {
                 for (int j = 0; j < A[i].Count; j++)
                 {
-                    if (A[i][j][4] == Sum)
+                    if (A[i][j][4] == Sum && (!Exist(Co, A[i][j])))
                         Co.Add(A[i][j]);
 
                 }
@@ -14090,91 +14245,91 @@ namespace RefrigtzW
             List<List<int[]>> Col = new List<List<int[]>>();
 
 
-            List<int[]> Co = new List<int[]>();
+            List<int[]> Co1 = new List<int[]>();
 
-            CollectionSummation(A, -4, ref Co);
-            CollectionSummation(B, -4, ref Co);
-            CollectionSummation(C, -4, ref Co);
-            CollectionSummation(D, -4, ref Co);
-            CollectionSummation(E, -4, ref Co);
+            CollectionSummation(A, -4, ref Co1);
+            //CollectionSummation(B, -4, ref Co);
+            CollectionSummation(C, -4, ref Co1);
+            CollectionSummation(D, -4, ref Co1);
+            //CollectionSummation(E, -4, ref Co);
 
-            if (Co.Count > 0) Col.Add(Co);
+            if (Co1.Count > 0) Col.Add(Co1);
 
-            Co = new List<int[]>();
+            List<int[]> Co2 = new List<int[]>();
 
-            CollectionSummation(A, -3, ref Co);
-            CollectionSummation(B, -3, ref Co);
-            CollectionSummation(C, -3, ref Co);
-            CollectionSummation(D, -3, ref Co);
-            CollectionSummation(E, -3, ref Co);
+            CollectionSummation(A, -3, ref Co2);
+            //CollectionSummation(B, -3, ref Co);
+            CollectionSummation(C, -3, ref Co2);
+            CollectionSummation(D, -3, ref Co2);
+            //CollectionSummation(E, -3, ref Co);
 
-            if (Co.Count > 0) Col.Add(Co);
+            if (Co2.Count > 0) Col.Add(Co2);
 
-            Co = new List<int[]>();
+            List<int[]> Co3 = new List<int[]>();
 
-            CollectionSummation(A, -2, ref Co);
-            CollectionSummation(B, -2, ref Co);
-            CollectionSummation(C, -2, ref Co);
-            CollectionSummation(D, -2, ref Co);
-            CollectionSummation(E, -2, ref Co);
+            CollectionSummation(A, -2, ref Co3);
+            //CollectionSummation(B, -2, ref Co);
+            CollectionSummation(C, -2, ref Co3);
+            CollectionSummation(D, -2, ref Co3);
+            //CollectionSummation(E, -2, ref Co);
 
-            if (Co.Count > 0) Col.Add(Co);
+            if (Co3.Count > 0) Col.Add(Co3);
 
-            Co = new List<int[]>();
+            List<int[]> Co4 = new List<int[]>();
 
-            CollectionSummation(A, -1, ref Co);
-            CollectionSummation(B, -1, ref Co);
-            CollectionSummation(C, -1, ref Co);
-            CollectionSummation(D, -1, ref Co);
-            CollectionSummation(E, -1, ref Co);
+            CollectionSummation(A, -1, ref Co4);
+            //CollectionSummation(B, -1, ref Co);
+            CollectionSummation(C, -1, ref Co4);
+            CollectionSummation(D, -1, ref Co4);
+            //CollectionSummation(E, -1, ref Co);
 
-            if (Co.Count > 0) Col.Add(Co);
+            if (Co4.Count > 0) Col.Add(Co4);
 
-            Co = new List<int[]>();
+            List<int[]> Co5 = new List<int[]>();
 
-            CollectionSummation(A, 1, ref Co);
-            CollectionSummation(B, 1, ref Co);
-            CollectionSummation(C, 1, ref Co);
-            CollectionSummation(D, 1, ref Co);
-            CollectionSummation(E, 1, ref Co);
+            CollectionSummation(A, 1, ref Co5);
+            //CollectionSummation(B, 1, ref Co);
+            CollectionSummation(C, 1, ref Co5);
+            CollectionSummation(D, 1, ref Co5);
+            //CollectionSummation(E, 1, ref Co);
 
-            if (Co.Count > 0) Col.Add(Co);
-
-
-            Co = new List<int[]>();
-
-            CollectionSummation(A, 2, ref Co);
-            CollectionSummation(B, 2, ref Co);
-            CollectionSummation(C, 2, ref Co);
-            CollectionSummation(D, 2, ref Co);
-            CollectionSummation(E, 2, ref Co);
-
-            if (Co.Count > 0) Col.Add(Co);
+            if (Co5.Count > 0) Col.Add(Co5);
 
 
-            Co = new List<int[]>();
+            List<int[]> Co6 = new List<int[]>();
 
-            CollectionSummation(A, 3, ref Co);
-            CollectionSummation(B, 3, ref Co);
-            CollectionSummation(C, 3, ref Co);
-            CollectionSummation(D, 3, ref Co);
-            CollectionSummation(E, 3, ref Co);
+            CollectionSummation(A, 2, ref Co6);
+            //CollectionSummation(B, 2, ref Co);
+            CollectionSummation(C, 2, ref Co6);
+            CollectionSummation(D, 2, ref Co6);
+            //CollectionSummation(E, 2, ref Co);
 
-            if (Co.Count > 0) Col.Add(Co);
+            if (Co6.Count > 0) Col.Add(Co6);
+
+
+            List<int[]> Co7 = new List<int[]>();
+
+            CollectionSummation(A, 3, ref Co7);
+            //CollectionSummation(B, 3, ref Co);
+            CollectionSummation(C, 3, ref Co7);
+            CollectionSummation(D, 3, ref Co7);
+            //CollectionSummation(E, 3, ref Co);
+
+            if (Co7.Count > 0) Col.Add(Co7);
 
 
 
-            Co = new List<int[]>();
+            List<int[]> Co8 = new List<int[]>();
 
-            CollectionSummation(A, 4, ref Co);
-            CollectionSummation(B, 4, ref Co);
-            CollectionSummation(C, 4, ref Co);
-            CollectionSummation(D, 4, ref Co);
-            CollectionSummation(E, 4, ref Co);
+            CollectionSummation(A, 4, ref Co8);
+            //CollectionSummation(B, 4, ref Co);
+            CollectionSummation(C, 4, ref Co8);
+            CollectionSummation(D, 4, ref Co8);
+            //CollectionSummation(E, 4, ref Co);
 
-            if (Co.Count > 0) Col.Add(Co);
+            if (Co8.Count > 0) Col.Add(Co8);
 
-      
+
             return Col;
         }
         int SignBeforNext(int Row, int Col, int i, int j)
@@ -14204,28 +14359,30 @@ namespace RefrigtzW
             return Sign;
 
         }
-        int SumAbsSrcPure(int[,] Tab)
+        int SumAbsSrcPure(bool Before, int[,] Tab)
         {
             int Sum = 0;
             if (AchmazPure.Count == 1)
             {
-                for (int i = 0; i < AchmazPure[0].Count; i++)
-                {
-                    for (int j = 0; j < AchmazPure[0][i].Count; j++)
+                
+                    for (int i = 0; i < AchmazPure[0].Count; i++)
                     {
-                        Sum += System.Math.Abs(Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]]);
+                        for (int j = 0; j < AchmazPure[0][i].Count; j++)
+                        {
+                            Sum += System.Math.Abs(Tab[AchmazPure[0][i][j][2], AchmazPure[0][i][j][3]]);
+                        }
                     }
-                }
-
+                
             }
             return Sum;
 
         }
-        int SumAbsSrcReduced(int[,] Tab)
+        int SumAbsSrcReduced(bool Before, int[,] Tab)
         {
             int Sum = 0;
             if (AchmazReduced.Count == 1)
             {
+
                 for (int i = 0; i < AchmazReduced[0].Count; i++)
                 {
                     for (int j = 0; j < AchmazReduced[0][i].Count; j++)
@@ -14233,39 +14390,46 @@ namespace RefrigtzW
                         Sum += System.Math.Abs(Tab[AchmazReduced[0][i][j][0], AchmazReduced[0][i][j][1]]);
                     }
                 }
+
             }
             return Sum;
         }
-        int SumAbsDesPure(int[,] Tab)
+        int SumAbsDesPure(bool Before, int[,] Tab)
         {
             int Sum = 0;
             if (AchmazPure.Count == 2)
             {
-                for (int i = 0; i < AchmazPure[1].Count; i++)
-                {
-                    for (int j = 0; j < AchmazPure[1][i].Count; j++)
+                
+                    for (int i = 0; i < AchmazPure[1].Count; i++)
                     {
-                        Sum += System.Math.Abs(Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]]);
+                        for (int j = 0; j < AchmazPure[1][i].Count; j++)
+                        {
+                            Sum += System.Math.Abs(Tab[AchmazPure[1][i][j][2], AchmazPure[1][i][j][3]]);
+                        }
                     }
-                }
+
 
             }
+      
             return Sum;
 
         }
-        int SumAbsDesReduced(int[,] Tab)
+        int SumAbsDesReduced(bool Before, int[,] Tab)
         {
             int Sum = 0;
             if (AchmazReduced.Count == 2)
             {
-                for (int i = 0; i < AchmazReduced[1].Count; i++)
-                {
-                    for (int j = 0; j < AchmazReduced[1][i].Count; j++)
+                
+                    for (int i = 0; i < AchmazReduced[1].Count; i++)
                     {
-                        Sum += System.Math.Abs(Tab[AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1]]);
+                        for (int j = 0; j < AchmazReduced[1][i].Count; j++)
+                        {
+                            Sum += System.Math.Abs(Tab[AchmazReduced[1][i][j][0], AchmazReduced[1][i][j][1]]);
+                        }
                     }
-                }
+                
             }
+     
             return Sum;
         }
 
@@ -14427,7 +14591,7 @@ namespace RefrigtzW
             return DD;
         }
 
-       public void CalculateHeuristics(int[] LoseOcuuredatChiled, int WinOcuuredatChiled, bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
+        public void CalculateHeuristics(int[] LoseOcuuredatChiled, int WinOcuuredatChiled, bool Before, int Order, int Killed, int[,] TableS, int RowS, int ColS, int RowD, int ColD, Color color
           , ref int HeuristicAttackValue
               , ref int HeuristicMovementValue
               , ref int HeuristicSelfSupportedValue
@@ -14463,16 +14627,57 @@ namespace RefrigtzW
                     HeuristicAllSupportMidel = HeuristicAllSupport.Count;
                     HeuristicReducedAttackedIndexInOnGameMidle = HeuristicReducedAttackedIndexInOnGame.Count;
                     HeuristicDoubleDefenceIndexInOnGameMidle = HeuristicDoubleDefenceIndexInOnGame.Count;
+                    AchmazPureMidle = AchmazPure.Count;
+                    AchmazReducedMidle = AchmazReduced.Count;
                 }
                 //if (Order != AllDraw.OrderPlateDraw)
                 //return;
-                int[] Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color);
+                int[] Hu = null;
+                var th = Task.Factory.StartNew(() => Hu = CalculateHeuristicsParallel(Before, Killed, CloneATable(TableS), RowS, ColS, RowD, ColD, color));
+                th.Wait();
+                th.Dispose();
                 Task H1 = null, H2 = null, H3 = null;
-                if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0)
+                int HAchmaz = 0;
+                int HDoubleAttack = 0, HDoubleDefense = 0;
+                int HWin = 0, HLose = 0;
+                if (!IsSupHu[IsSupHu.Count - 1] && IsSupHu.Count > 0 && (Order == AllDraw.OrderPlateDraw))
                 {
                     H1 = Task.Factory.StartNew(() => Achmaz(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order));
 
+                    H1.Wait();
+                    H1.Dispose();
+
+                    if (Before)
+                    {
+                        int TotalS = 0;
+                        int IsSC = 0;
+                        NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
+
+                        if ((16 - ColleralationGray) + IsSC >= TotalS)
+                            GoldenFinished = true;
+                        HAchmaz = (RationalPenalty * (AchmazReducedBefore(Before, CloneATable(TableS)))) + (RationalRegard * (AchmazPuredBefore(Before, CloneATable(TableS))));
+                    }
+                    else
+                    {
+                        int TotalS = 0;
+                        int IsSC = 0;
+                        NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
+
+                        if ((16 - ColleralationBrown) + IsSC >= TotalS)
+                            GoldenFinished = true;
+                        HAchmaz = (RationalPenalty * (AchmazReducedAfter(Before, CloneATable(TableS)))) + (RationalRegard * (AchmazPuredAfter(Before, CloneATable(TableS))));
+
+                    }
+                    if (HAchmaz > 0)
+                        WinOcuuredatChiled = 7;
+                    else
+                        if (HAchmaz < 0)
+                    {
+                        IsSupHu[IsSupHu.Count - 1] = true;
+                        LoseOcuuredatChiled[0] = -7;
+                    }
                 }
+
 
                 //if (UsePenaltyRegardMechnisamT)
                 // GoldenFinished = true;
@@ -14492,50 +14697,16 @@ namespace RefrigtzW
                 HFromCenter = Hu[10];
                 HExchangeInnovation = Hu[11] + Hu[12] + Hu[13];
                 HExchangeSupport = Hu[14];
-                int HAchmaz = 0;
-                int HDoubleAttack = 0, HDoubleDefense = 0;
-                int HWin = 0, HLose = 0;
 
                 /*if (WinOcuuredatChiled > 0)
                     HWin = RationalWin;
                 if (LoseOcuuredatChiled < 0)
                     HLose = RationalLose;
 */
-                if (Before)
-                {
-                    int TotalS = 0;
-                    int IsSC = 0;
-                    NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
-
-                    if ((16 - ColleralationGray) + IsSC >= TotalS)
-                        GoldenFinished = true;
-                   HAchmaz = (RationalPenalty * (SumAbsSrcReduced(CloneATable(TableS)))) + (RationalRegard * (SumAbsSrcPure(CloneATable(TableS))));
-                }
-                else
-                {
-                    int TotalS = 0;
-                    int IsSC = 0;
-                    NoOfObjectNotMovable(CloneATable(TableS), Order, OrderColor(Order), ref TotalS, ref IsSC);
-
-                    if ((16 - ColleralationBrown) + IsSC >= TotalS)
-                        GoldenFinished = true;
-                    HAchmaz = (RationalPenalty * (SumAbsDesReduced(CloneATable(TableS)))) + (RationalRegard * (SumAbsDesPure(CloneATable(TableS))));
-
-                }
-                if (HAchmaz > 0)
-                    WinOcuuredatChiled = 7;
-                else
-                  if (HAchmaz < 0)
-                    LoseOcuuredatChiled[0] = -7;
-
                 H2 = Task.Factory.StartNew(() => HDoubleAttack = DoubleAttack(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order));
                 H3 = Task.Factory.StartNew(() => HDoubleDefense = DoubleDefence(CloneATable(TableS), Before, RowS, ColS, RowD, ColD, Order));
-                if (H1 != null)
-                    H1.Wait();
                 H2.Wait();
                 H3.Wait();
-                if (H1 != null)
-                    H1.Dispose();
                 H2.Dispose();
                 H3.Dispose();
                 bool IsS = false;
@@ -14548,7 +14719,6 @@ namespace RefrigtzW
                 Object O1 = new Object();
                 lock (O1)
                 {
-
 
                     if (Before)
                     {
@@ -14584,7 +14754,7 @@ namespace RefrigtzW
                                 if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
-                                   C=false;// C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                    C = false;// C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                                 }
                             }
                             else
@@ -14593,7 +14763,7 @@ namespace RefrigtzW
                                 if (Order == AllDraw.OrderPlateDraw)
                                 {
                                     B = NoOfExistInAttackList(Before, RowS, ColS, RowD, ColD) > 0 && (System.Math.Abs(TableS[RowD, ColD]) != 0 && System.Math.Abs(TableS[RowS, ColS]) > 1);
-                                   C=false;// C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
+                                    C = false;// C = HeuristicCheckedMate != 0 && (IsThereMateOfSelf || IsThereMateOfEnemy);// || IsThereCheckOfSelf || IsThereCheckOfEnemy);
                                 }
                             }
                             if (A && ((B) || (C)))
@@ -14854,7 +15024,35 @@ namespace RefrigtzW
                 }
             }
         }
-      int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
+        int AchmazPured(int Before, int[,] Table)
+        {
+            int No = 0;
+            if (Order == 1)
+            {
+                if (AchmazPure.Count > 0)
+                {
+                    for (int i = 0; i < AchmazPure[0].Count; i++)
+                    {
+                        for (int j = 0; j < AchmazPure[0][i].Count; j++)
+                        {
+                            int[,] Tab = CloneATable(Table);
+                            ThinkingChess t = new ThinkingChess(0, Kind, CurrentAStarGredyMax, MovementsAStarGreedyHeuristicFoundT, IgnoreSelfObjectsT, UsePenaltyRegardMechnisamT, BestMovmentsT, PredictHeuristicT, OnlySelfT, AStarGreedyHeuristicT, ArrangmentsChanged, 0, 0);
+
+
+
+                        }
+                    }
+                }
+
+            }
+            else
+            {
+
+
+            }
+            return No;
+        }
+        int[] MostOfFindMostHeuristicAllReducedSupportInList(bool Before, int RowS, int ColS)
         {
             int[] IsNo = FindMostHeuristicAllReducedSupportIsCurrent(Before, RowS, ColS);
 
@@ -15407,47 +15605,31 @@ namespace RefrigtzW
                     ////Parallel.For(0, 8, i =>
                     for (var i = 0; i < 8; i++)
                     {
-                        Object O = new Object();
-                        lock (O)
+                        for (var j = 0; j < 8; j++)
                         {
-
-
-                            var j = i + jj - ii;
-                            if (Scop(ii, jj, i, j, 2))
+                            Object O = new Object();
+                            lock (O)
                             {
-                                int[] TmpL = LoseOcuuredatChiled;int TmpW = WinOcuuredatChiled;
-                                var newTask = Task.Factory.StartNew(() => ThinkingElephantbase(ref TmpL, ref TmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
+
+
+                                if (Scop(ii, jj, i, j, 2))
+                                {
+                                    int[] TmpL = LoseOcuuredatChiled; int TmpW = WinOcuuredatChiled;
+                                    var newTask = Task.Factory.StartNew(() => ThinkingElephantbase(ref TmpL, ref TmpW, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle));
 
 
 
 
-                                newTask.Wait(); newTask.Dispose();
-                                LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
+                                    newTask.Wait(); newTask.Dispose();
+                                    LoseOcuuredatChiled[0] += TmpL[0]; WinOcuuredatChiled += TmpW;
 
+
+                                }
 
                             }
-
                         }
                     }
-                    //==================
-                    ////Parallel.For(0, 8, i =>
-                    for (var i = 0; i < 8; i++)
-                    {
-                        Object O = new Object();
-                        lock (O)
-                        {
-
-                            var j = i * -1 + ii + jj;
-                            if (Scop(ii, jj, i, j, 2))
-                            {
-                                ThinkingElephantbase(ref LoseOcuuredatChiled, ref WinOcuuredatChiled, ord, ii, jj, i, j, DummyOrder, DummyCurrentOrder, DoEnemySelf, PenRegStrore, EnemyCheckMateActionsString, Castle);
-
-                            }
-
-                            ThinkingAtRun = false;
-                        }
-                    }
-                }
+                 }
             }
 
         }
