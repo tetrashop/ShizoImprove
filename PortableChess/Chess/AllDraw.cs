@@ -14787,6 +14787,15 @@ namespace RefrigtzChessPortable
                 for (var iii = 0; iii < 8; iii++)
                     for (var jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
+                AllDraw thiB = AStarGreedyString;
+                if (IsAtLeastAllObjectIsNull())
+                {
+                    TableList.Clear();
+                    TableList.Add(CloneATable(Table));
+                    SetRowColumn(0);
+                    IsCurrentDraw = true;
+                }
+                AStarGreedyString = thiB;
                 //If Order is Gray.
                 if (Order == 1)
                 {
@@ -21164,7 +21173,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                     NumberOfLeafComputation = -1;
                 ThinkingRefrigtzChessPortable.IsAtLeastOneKillerAtDraw = false;
                 var parallelOptions = new ParallelOptions();
-                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount*2;
+                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
                 SetDeptIgnore = SetDept;
                 int[,] TableHeuristic = null;
                 int Current = ChessRules.CurrentOrder;
@@ -21263,7 +21272,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinking[0].AStarGreedy != null && El
                 lock (OOOO)
                 {
                     //if (MaxAStarGreedy == 0)
-                    MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                    MaxAStarGreedy = PlatformHelper.ProcessorCount;
                     MaxAStarGreedy1 = MaxAStarGreedy;
                     int[,] Tabl = CloneATable(Table);
                     Color aaa = a;

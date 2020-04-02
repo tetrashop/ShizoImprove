@@ -16410,7 +16410,15 @@ namespace QuantumRefrigiz
                     for (var jjj = 0; jjj < 8; jjj++)
                         Table[iii, jjj] = Tab[iii, jjj];
 
-                //If Order is Gray.
+                AllDraw thiB = AStarGreedyString;
+                if (IsAtLeastAllObjectIsNull())
+                {
+                    TableList.Clear();
+                    TableList.Add(CloneATable(Table));
+                    SetRowColumn(0);
+                    IsCurrentDraw = true;
+                }
+                AStarGreedyString = thiB;    //If Order is Gray.
                 if (Order == 1)
                 {
                     var array1 = Task.Factory.StartNew(() => InitiateAStarGreedytCreationThinkingQuantumGray(DummyOrder, DummyCurrentOrder, iAStarGreedy, ii, jj, i, j, a, CloneATable(Tab), Order, TB, FOUND, LeafAStarGreedy));
@@ -23224,7 +23232,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 ThinkingQuantumChess.IsAtLeAStOneKillerAtDraw = false;
 
                 var parallelOptions = new ParallelOptions();
-                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount*2;
+                parallelOptions.MaxDegreeOfParallelism = PlatformHelper.ProcessorCount;
                 SetDeptIgnore = SetDept;
                 int[,] TableHeuristic = null;
                 int Current = ChessRules.CurrentOrder;
@@ -23334,7 +23342,7 @@ if (Kind == 2 && ElephantOnTable[i].ElefantThinkingQuantum[0].AStarGreedy != nul
                 lock (OOOO)
                 {
                     //if (MaxAStarGreedy == 0)
-                    MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                    MaxAStarGreedy = PlatformHelper.ProcessorCount;
                     MaxAStarGreedy1 = MaxAStarGreedy;
 
                     int[,] Tabl = CloneATable(Table);

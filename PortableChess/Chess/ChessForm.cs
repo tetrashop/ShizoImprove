@@ -552,7 +552,7 @@ namespace RefrigtzChessPortable
                 {
                     MessageBox.Show("Wait...");
                     var parallelOptions = new ParallelOptions();
-                    parallelOptions.MaxDegreeOfParallelism = System.Threading.PlatformHelper.ProcessorCount*2;
+                    parallelOptions.MaxDegreeOfParallelism = System.Threading.PlatformHelper.ProcessorCount;
                     RefrigtzChessPortable.AllDraw.OrderPlateDraw = -1;
                     RefrigtzChessPortable.AllDraw.TableListAction.Add(CloneATable(brd.GetTable()));
                     Table = CloneATable(brd.GetTable());
@@ -583,7 +583,7 @@ namespace RefrigtzChessPortable
                                 aa = Color.Brown;
                             bool B = AllDraw.Blitz;
                             AllDraw.Blitz = false;
-                            RefrigtzChessPortable.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                            RefrigtzChessPortable.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
                             
                             if (Draw.IsAtLeastAllObjectIsNull())
                             {
@@ -1620,7 +1620,7 @@ namespace RefrigtzChessPortable
                                             aa = Color.Brown;
                                         bool B = AllDraw.Blitz;
                                         AllDraw.Blitz = false;
-                                        RefrigtzChessPortable.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                                        RefrigtzChessPortable.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
 
                                         AllDraw thiB = Draw.AStarGreedyString;
                                         if (Draw.IsAtLeastAllObjectIsNull())
@@ -1694,7 +1694,7 @@ namespace RefrigtzChessPortable
                                     aa = Color.Brown;
                                 bool B = AllDraw.Blitz;
                                 AllDraw.Blitz = false;
-                                RefrigtzChessPortable.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                                RefrigtzChessPortable.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
 
                                 AllDraw thiB = Draw.AStarGreedyString;
                                 if (Draw.IsAtLeastAllObjectIsNull())
@@ -2219,7 +2219,7 @@ namespace RefrigtzChessPortable
                                     aa = Color.Brown;
                                 bool B = AllDraw.Blitz;
                                 AllDraw.Blitz = false;
-                                RefrigtzChessPortable.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount*2;
+                                RefrigtzChessPortable.AllDraw.MaxAStarGreedy = PlatformHelper.ProcessorCount;
 
                                 if (!FirstS)
                                 {
