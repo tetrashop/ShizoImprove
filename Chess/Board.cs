@@ -1,3 +1,43 @@
+/**************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+*************TETRASHOP.IR**************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+***************************************
+**************************************/
 //
 //www.IranProject.Ir
 //
@@ -10,40 +50,38 @@ namespace Chess
     public class Board : System.Object
     {
         private int[,] square;
-
         public Board()
         {
             int i, j;
             square = new int[8, 8];
-            square[0, 0] = 1;//Black castle
-            square[1, 0] = 2;//Black knight
-            square[2, 0] = 3;//Black bishop
-            square[3, 0] = 4;//Black queen
-            square[4, 0] = 5;//Black king
-            square[5, 0] = 3;//Black bishop
-            square[6, 0] = 2;//Black knight
-            square[7, 0] = 1;//Black castle
+            square[0, 0] = 1;
+            square[1, 0] = 2;
+            square[2, 0] = 3;
+            square[3, 0] = 4;
+            square[4, 0] = 5;
+            square[5, 0] = 3;
+            square[6, 0] = 2;
+            square[7, 0] = 1;
             for (i = 0; i < 8; i++)
             {
-                square[i, 1] = 6;//Black pawns
-                square[i, 6] = 12;//White pawns
+                square[i, 1] = 6;
+                square[i, 6] = 12;
             }
-            square[0, 7] = 7;//White castle
-            square[1, 7] = 8;//White knight
-            square[2, 7] = 9;//White bishop
-            square[3, 7] = 10;//White queen
-            square[4, 7] = 11;//White king
-            square[5, 7] = 9;//White bishop
-            square[6, 7] = 8;//White knight
-            square[7, 7] = 7;//White castle
+            square[0, 7] = 7;
+            square[1, 7] = 8;
+            square[2, 7] = 9;
+            square[3, 7] = 10;
+            square[4, 7] = 11;
+            square[5, 7] = 9;
+            square[6, 7] = 8;
+            square[7, 7] = 7;
             for (i = 0; i < 8; i++)
                 for (j = 2; j < 6; j++)
-                    square[i, j] = 0;//Empty
+                    square[i, j] = 0;
         }
         public void Setsqure(int[,] Table)
         {
             square = new int[8, 8];
-
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                 {
@@ -84,9 +122,7 @@ namespace Chess
                         square[i, j] = 11;
                     else
                         square[i, j] = 0;
-
                 }
-
         }
         public int[,] GetTable()
         {
@@ -188,15 +224,13 @@ namespace Chess
         {
             return square[i, j];
         }
-
         public int getbcolor(int i, int j)
         {
             if ((i + j) % 2 == 0)
-                return 2;//back color of the board is white
+                return 2;
             else
-                return 1;//back color of the board is black
+                return 1;
         }
-
         public void setSquare(int value, int i, int j)
         {
             square[i, j] = value;
@@ -215,13 +249,11 @@ namespace Chess
                         return p;
                     }
                 }
-
             string str;
             if (color == 1)
                 str = "White ";
             else
                 str = "Black ";
-
             System.Windows.Forms.MessageBox.Show(str);
             return p;
         }
@@ -239,7 +271,6 @@ namespace Chess
             }
             return 0;
         }
-
         public int canDefend(int color)
         {
             Board b = new Board();
@@ -278,7 +309,6 @@ namespace Chess
                                     }
                                     b.setSquare((color == 1 ? 1 : 7), i, j);
                                     b.setSquare(f, m, n);
-
                                 }
                             }
                     }
@@ -345,7 +375,6 @@ namespace Chess
                                 }
                             }
                     }
-
                     else if (b.getInfo(i, j) == (color == 1 ? 5 : 11))
                     {
                         for (m = 0; m < 8; m++)
@@ -369,7 +398,6 @@ namespace Chess
                                 }
                             }
                     }
-
                     else if (b.getInfo(i, j) == (color == 1 ? 6 : 12))
                     {
                         pawn.x = i;
